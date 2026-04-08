@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Rondinella Osteria Pop — Scalea (CS)</title>
+  <meta name="description" content="Osteria calabrese farm-to-table a Scalea. Prodotti di propria produzione, vini calabresi, cucina di territorio. Piazza Spinelli." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Cormorant Garamond (display) + Caveat (chalk) + Lato (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Caveat:wght@400;500;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cantina:  '#1A1109',
+            legno:    '#241510',
+            miele:    '#C8860A',
+            ciliegia: '#8B3A1E',
+            argilla:  '#C4663C',
+            erbe:     '#5C7A4A',
+            carta:    '#F5EDDD',
+            polvere:  '#A89070',
+            bordo:    '#3D2B1A',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            chalk:   ['Caveat', 'cursive'],
+            body:    ['Lato', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: #1A1109; color: #F5EDDD; -webkit-font-smoothing: antialiased; }
+
+    /* ── Scroll reveal ──────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .8s cubic-bezier(.4,0,.2,1), transform .8s cubic-bezier(.4,0,.2,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1);
+    }
+    .reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:none; }
+    .reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.14s; }
+    .reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.28s; }
+    .reveal-stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.42s; }
+
+    /* ── Ornament divider ───────────────────── */
+    .orn { display:flex; align-items:center; gap:1rem; color:#C8860A; }
+    .orn::before, .orn::after { content:''; flex:1; height:1px; background:#C8860A; opacity:.35; }
+
+    /* ── Chalkboard ─────────────────────────── */
+    .chalkboard {
+      background-color: #182018;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+      border: 2px solid #2a3d2a;
+      box-shadow: inset 0 0 60px rgba(0,0,0,.5);
+    }
+
+    /* ── Wine card hover glow ───────────────── */
+    .wine-card:hover { box-shadow: 0 0 40px rgba(200,134,10,.12); }
+
+    /* ── Candlelight glow on food cards ─────── */
+    .food-card:hover { box-shadow: 0 8px 40px rgba(200,134,10,.1); }
+
+    /* ── Team photo sepia lift ──────────────── */
+    .team-photo { filter: sepia(.6) saturate(.8) brightness(.85); transition: filter .4s ease; }
+    .team-photo:hover { filter: sepia(.2) saturate(1.1) brightness(.95); }
+
+    /* ── Lang switcher active ───────────────── */
+    .lang-btn.active { color: #C8860A; border-color: #C8860A; }
+
+    /* ── Testimonials scroll ────────────────── */
+    .reviews-track { display:flex; gap:1.25rem; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:.5rem; }
+    .reviews-track::-webkit-scrollbar { display:none; }
+    .review-card { scroll-snap-align:start; flex-shrink:0; }
+
+    /* ── Mobile menu ────────────────────────── */
+    #mobile-menu { display:none; }
+    #mobile-menu.open { display:block; }
+
+    /* ── Booking form success ───────────────── */
+    #book-success { display:none; }
+
+    /* ── WhatsApp pulse ─────────────────────── */
+    @keyframes wa-pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,.5); }
+      60% { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+    }
+    .wa-fab { animation: wa-pulse 2.4s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-stagger > * { transition:none; opacity:1; transform:none; }
+      .wa-fab { animation:none; }
+    }
+  </style>
+</head>
+
+<body class="bg-cantina text-carta">
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-3 left-3 right-3 z-50 flex items-center justify-between px-5 py-3 rounded-2xl bg-cantina/95 backdrop-blur-md border border-bordo shadow-2xl transition-all duration-300">
+
+  <!-- Logo -->
+  <a href="#" class="font-display text-carta text-xl font-semibold tracking-wide leading-none">
+    La Rondinella
+  </a>
+
+  <!-- Desktop nav -->
+  <ul class="hidden lg:flex items-center gap-6 font-body text-sm text-polvere">
+    <li><a href="#storia" class="hover:text-miele transition-colors duration-200 cursor-pointer" data-it="Chi siamo" data-en="Our Story">Chi siamo</a></li>
+    <li><a href="#menu" class="hover:text-miele transition-colors duration-200 cursor-pointer" data-it="Menu" data-en="Menu">Menu</a></li>
+    <li><a href="#degustazione" class="hover:text-miele transition-colors duration-200 cursor-pointer" data-it="Degustazione" data-en="Tasting">Degustazione</a></li>
+    <li><a href="#vini" class="hover:text-miele transition-colors duration-200 cursor-pointer" data-it="Vini" data-en="Wines">Vini</a></li>
+    <li><a href="#eventi" class="hover:text-miele transition-colors duration-200 cursor-pointer" data-it="Eventi" data-en="Events">Eventi</a></li>
+    <li><a href="#dove" class="hover:text-miele transition-colors duration-200 cursor-pointer" data-it="Dove siamo" data-en="Find us">Dove siamo</a></li>
+  </ul>
+
+  <!-- Right cluster -->
+  <div class="flex items-center gap-3">
+    <!-- Language switcher -->
+    <div class="hidden sm:flex items-center gap-1 text-xs font-body border border-bordo rounded-full px-1 py-1">
+      <button id="lang-it" onclick="setLang('it')" class="lang-btn active cursor-pointer px-3 py-1 rounded-full transition-all duration-200 font-semibold text-miele border border-miele">IT</button>
+      <button id="lang-en" onclick="setLang('en')" class="lang-btn cursor-pointer px-3 py-1 rounded-full transition-all duration-200 text-polvere border border-transparent hover:text-carta">EN</button>
+    </div>
+
+    <!-- Prenota CTA -->
+    <a href="#prenota" class="cursor-pointer bg-miele text-cantina text-sm font-body font-bold px-5 py-2.5 rounded-full hover:bg-miele/90 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg whitespace-nowrap" data-it="Prenota" data-en="Book now">Prenota</a>
+
+    <!-- Hamburger -->
+    <button id="ham-btn" onclick="toggleMobile()" aria-label="Menu" class="lg:hidden cursor-pointer w-9 h-9 flex flex-col justify-center items-center gap-1.5">
+      <span class="w-5 h-px bg-carta transition-all duration-200"></span>
+      <span class="w-5 h-px bg-carta transition-all duration-200"></span>
+      <span class="w-4 h-px bg-carta transition-all duration-200"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="fixed top-20 left-3 right-3 z-40 bg-legno border border-bordo rounded-2xl shadow-2xl p-6">
+  <ul class="space-y-4 font-body text-base text-carta">
+    <li><a href="#storia" onclick="toggleMobile()" class="block hover:text-miele transition-colors cursor-pointer" data-it="Chi siamo" data-en="Our Story">Chi siamo</a></li>
+    <li><a href="#menu" onclick="toggleMobile()" class="block hover:text-miele transition-colors cursor-pointer" data-it="Menu" data-en="Menu">Menu</a></li>
+    <li><a href="#degustazione" onclick="toggleMobile()" class="block hover:text-miele transition-colors cursor-pointer" data-it="Degustazione" data-en="Tasting">Degustazione</a></li>
+    <li><a href="#vini" onclick="toggleMobile()" class="block hover:text-miele transition-colors cursor-pointer" data-it="Vini" data-en="Wines">Vini</a></li>
+    <li><a href="#eventi" onclick="toggleMobile()" class="block hover:text-miele transition-colors cursor-pointer" data-it="Eventi" data-en="Events">Eventi</a></li>
+    <li><a href="#dove" onclick="toggleMobile()" class="block hover:text-miele transition-colors cursor-pointer" data-it="Dove siamo" data-en="Find us">Dove siamo</a></li>
+    <li class="pt-2 border-t border-bordo flex gap-2">
+      <button onclick="setLang('it'); toggleMobile();" class="lang-btn active cursor-pointer text-xs px-4 py-2 rounded-full border border-miele text-miele font-semibold">IT</button>
+      <button onclick="setLang('en'); toggleMobile();" class="lang-btn cursor-pointer text-xs px-4 py-2 rounded-full border border-bordo text-polvere">EN</button>
+    </li>
+  </ul>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="relative h-screen overflow-hidden flex items-center justify-center">
+  <!-- Parallax bg -->
+  <div id="hero-bg" class="absolute inset-0 scale-110"
+    style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop');background-size:cover;background-position:center;will-change:transform;">
+  </div>
+  <!-- Multi-layer overlay: dark vignette + warm bottom fade -->
+  <div class="absolute inset-0 bg-gradient-to-b from-cantina/70 via-cantina/40 to-cantina/85"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-cantina/50 via-transparent to-cantina/30"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+    <!-- Swallow SVG ornament -->
+    <div class="flex justify-center mb-5 reveal">
+      <svg width="48" height="32" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M24 8C20 14 8 18 0 14C8 18 16 28 24 32C32 28 40 18 48 14C40 18 28 14 24 8Z" fill="#C8860A" opacity=".8"/>
+        <path d="M24 8C24 4 22 0 24 0C26 0 24 4 24 8Z" fill="#C8860A" opacity=".6"/>
+      </svg>
+    </div>
+
+    <p class="font-chalk text-miele text-lg tracking-wide mb-3 reveal" style="transition-delay:.1s"
+       data-it="Osteria Pop · Piazza Spinelli · Scalea (CS)"
+       data-en="Pop Osteria · Piazza Spinelli · Scalea (CS)">
+      Osteria Pop · Piazza Spinelli · Scalea (CS)
+    </p>
+
+    <h1 class="font-display text-carta text-6xl sm:text-7xl md:text-8xl font-semibold leading-[1.05] mb-4 reveal" style="transition-delay:.2s">
+      La Rondinella
+    </h1>
+
+    <p class="font-display italic text-carta/80 text-xl md:text-2xl leading-relaxed max-w-xl mx-auto mb-2 reveal" style="transition-delay:.3s"
+       data-it="Cucina calabrese di territorio. Dal campo alla tavola."
+       data-en="Calabrian farm-to-table. From our land to your plate.">
+      Cucina calabrese di territorio. Dal campo alla tavola.
+    </p>
+
+    <!-- Google rating -->
+    <div class="flex items-center justify-center gap-2 mb-10 reveal" style="transition-delay:.4s">
+      <div class="flex text-miele">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <span class="font-body text-carta/80 text-sm">4.6 · <span data-it="1018 recensioni Google" data-en="1018 Google reviews">1018 recensioni Google</span></span>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center reveal" style="transition-delay:.5s">
+      <a href="#prenota" class="cursor-pointer bg-miele text-cantina font-body font-bold px-8 py-4 rounded-full hover:bg-miele/90 transition-all duration-200 hover:scale-105 active:scale-95 shadow-xl text-base"
+         data-it="Prenota un tavolo" data-en="Book a table">Prenota un tavolo</a>
+      <a href="#menu" class="cursor-pointer border border-carta/40 text-carta font-body font-medium px-8 py-4 rounded-full hover:bg-carta/10 transition-all duration-200 hover:scale-105 active:scale-95 text-base"
+         data-it="Menu di oggi" data-en="Today's menu">Menu di oggi</a>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-polvere reveal" style="transition-delay:.7s">
+    <div class="w-px h-10 bg-polvere/40 animate-pulse"></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     CHI SIAMO
+══════════════════════════════════════ -->
+<section id="storia" class="py-24 md:py-32 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="orn mb-12 reveal">
+      <span class="font-body text-miele text-xs tracking-[.4em] uppercase whitespace-nowrap"
+            data-it="Chi siamo" data-en="Our Story">Chi siamo</span>
+    </div>
+
+    <!-- Story intro -->
+    <div class="grid md:grid-cols-2 gap-10 md:gap-20 items-center mb-20">
+      <div class="reveal">
+        <h2 class="font-display text-4xl md:text-5xl font-semibold leading-tight mb-6">
+          <span data-it="Una famiglia," data-en="A family,">Una famiglia,</span><br/>
+          <em class="italic text-miele" data-it="un'osteria, una terra." data-en="one osteria, one land.">un'osteria, una terra.</em>
+        </h2>
+        <div class="space-y-4 font-body text-carta/75 text-base md:text-lg leading-relaxed">
+          <p data-it="La Rondinella è nata sotto una bouganville decennale ai piedi del centro storico di Scalea, in Piazza Spinelli. Un locale piccolo, autentico, vivo — dove il menu cambia ogni giorno perché dipende da quello che arriva dall'orto."
+             data-en="La Rondinella was born beneath a decades-old bougainvillea at the foot of Scalea's historic center, in Piazza Spinelli. A small, authentic, living osteria — where the menu changes daily because it depends on what the garden brings.">
+            La Rondinella è nata sotto una bouganville decennale ai piedi del centro storico di Scalea, in Piazza Spinelli. Un locale piccolo, autentico, vivo — dove il menu cambia ogni giorno perché dipende da quello che arriva dall'orto.
+          </p>
+          <p data-it="Salumi, prosciutti e formaggi li produciamo noi. Il vino viene da vigneron calabresi selezionati. In cucina, nessun compromesso sulla stagionalità."
+             data-en="The charcuterie, prosciutto and cheeses are our own production. The wine comes from selected Calabrian winemakers. In the kitchen, no compromise on seasonality.">
+            Salumi, prosciutti e formaggi li produciamo noi. Il vino viene da vigneron calabresi selezionati. In cucina, nessun compromesso sulla stagionalità.
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.15s">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1470&auto=format&fit=crop"
+             alt="Tavoli en plein air dell'Osteria La Rondinella a Scalea"
+             class="w-full h-72 md:h-[420px] object-cover rounded-2xl shadow-2xl ring-1 ring-bordo" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Team 3-col -->
+    <div class="reveal-stagger grid md:grid-cols-3 gap-6">
+      <!-- Francesca -->
+      <div class="relative group overflow-hidden rounded-2xl">
+        <img src="https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=800&auto=format&fit=crop"
+             alt="Francesca, sala"
+             class="team-photo w-full h-72 object-cover" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-cantina/90 via-cantina/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="font-chalk text-miele text-2xl">Francesca</p>
+          <p class="font-body text-carta/80 text-sm" data-it="In sala — cuore e ospitalità" data-en="Front of house — heart & hospitality">In sala — cuore e ospitalità</p>
+        </div>
+      </div>
+      <!-- Antonio -->
+      <div class="relative group overflow-hidden rounded-2xl md:-mt-6">
+        <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=800&auto=format&fit=crop"
+             alt="Antonio, chef"
+             class="team-photo w-full h-72 object-cover" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-cantina/90 via-cantina/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="font-chalk text-miele text-2xl">Antonio</p>
+          <p class="font-body text-carta/80 text-sm" data-it="Chef — la cucina è il suo orto" data-en="Chef — the kitchen is his garden">Chef — la cucina è il suo orto</p>
+        </div>
+      </div>
+      <!-- Andrea -->
+      <div class="relative group overflow-hidden rounded-2xl">
+        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=800&auto=format&fit=crop"
+             alt="Andrea, azienda agricola"
+             class="team-photo w-full h-72 object-cover" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-cantina/90 via-cantina/20 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="font-chalk text-miele text-2xl">Andrea</p>
+          <p class="font-body text-carta/80 text-sm" data-it="L'orto — dal campo alla tavola" data-en="The farm — from field to table">L'orto — dal campo alla tavola</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gruppo La Rondinella -->
+    <div class="mt-14 p-6 border border-bordo rounded-2xl bg-legno/50 reveal">
+      <p class="font-chalk text-miele text-lg mb-3" data-it="Il gruppo La Rondinella" data-en="The Rondinella Group">Il gruppo La Rondinella</p>
+      <div class="grid sm:grid-cols-3 gap-4 font-body text-sm text-polvere">
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-miele mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <div>
+            <p class="text-carta font-semibold" data-it="Osteria Pop" data-en="Pop Osteria">Osteria Pop</p>
+            <p data-it="Piazza Spinelli, Scalea" data-en="Piazza Spinelli, Scalea">Piazza Spinelli, Scalea</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-miele mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <div>
+            <p class="text-carta font-semibold" data-it="Agriturismo" data-en="Farm stay">Agriturismo</p>
+            <p data-it="4 km · campagna di Scalea" data-en="4 km · Scalea countryside">4 km · campagna di Scalea</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-miele mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <div>
+            <p class="text-carta font-semibold">Prosciutteria</p>
+            <p>Praia a Mare</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     MENU DEL GIORNO — Chalkboard
+══════════════════════════════════════ -->
+<section id="menu" class="py-20 md:py-28 px-6">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="orn mb-10 reveal">
+      <span class="font-body text-miele text-xs tracking-[.4em] uppercase whitespace-nowrap"
+            data-it="La lavagna di oggi" data-en="Today's chalkboard">La lavagna di oggi</span>
+    </div>
+
+    <div class="text-center mb-8 reveal">
+      <h2 class="font-display text-4xl md:text-5xl font-semibold"
+          data-it="Menu del giorno" data-en="Daily Menu">Menu del giorno</h2>
+      <p class="font-body text-polvere text-base mt-2"
+         data-it="Il menu cambia ogni giorno secondo la stagione e il raccolto." data-en="The menu changes daily with the season and the harvest.">
+        Il menu cambia ogni giorno secondo la stagione e il raccolto.
+      </p>
+    </div>
+
+    <!-- Chalkboard -->
+    <div class="chalkboard rounded-2xl p-8 md:p-12 reveal">
+      <div class="text-center mb-8">
+        <p class="font-chalk text-miele text-3xl md:text-4xl" data-it="Oggi in cucina…" data-en="Today in the kitchen…">Oggi in cucina…</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+        <!-- Col 1 -->
+        <div class="space-y-7">
+          <div>
+            <p class="font-chalk text-argilla text-xl border-b border-argilla/30 pb-1 mb-3"
+               data-it="Antipasti" data-en="Starters">Antipasti</p>
+            <ul class="space-y-2 font-chalk text-carta/90 text-lg">
+              <li>— <span data-it="Tagliere misto di produzione propria" data-en="Mixed charcuterie &amp; cheese board (own production)">Tagliere misto di produzione propria</span></li>
+              <li>— <span data-it="Mousse di ricotta con fichi e prosciutto" data-en="Ricotta mousse with figs &amp; prosciutto">Mousse di ricotta con fichi e prosciutto</span></li>
+              <li>— <span data-it="Uova in smoking" data-en="Eggs in smoking">Uova in smoking</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-chalk text-argilla text-xl border-b border-argilla/30 pb-1 mb-3"
+               data-it="Primi" data-en="First courses">Primi</p>
+            <ul class="space-y-2 font-chalk text-carta/90 text-lg">
+              <li>— <span data-it="Riccioli con pesto di pomodori secchi, capperi fritti e stracciatella" data-en="Riccioli pasta with sun-dried tomato pesto, fried capers &amp; stracciatella">Riccioli con pesto di pomodori secchi, capperi fritti e stracciatella</span></li>
+              <li>— <span data-it="Spaghetti cacio e peperoni cruschi" data-en="Spaghetti with cacio cheese &amp; crispy cruschi peppers">Spaghetti cacio e peperoni cruschi</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Col 2 -->
+        <div class="space-y-7">
+          <div>
+            <p class="font-chalk text-argilla text-xl border-b border-argilla/30 pb-1 mb-3"
+               data-it="Secondi" data-en="Mains">Secondi</p>
+            <ul class="space-y-2 font-chalk text-carta/90 text-lg">
+              <li>— <span data-it="Pancetta arrotolata affumicata con verdure di stagione" data-en="Smoked rolled pancetta with seasonal vegetables">Pancetta arrotolata affumicata con verdure di stagione</span></li>
+              <li>— <span data-it="Prosciutto di propria produzione (diverse stagionature)" data-en="Own-production prosciutto (various curing stages)">Prosciutto di propria produzione (diverse stagionature)</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-chalk text-argilla text-xl border-b border-argilla/30 pb-1 mb-3"
+               data-it="Dolci" data-en="Desserts">Dolci</p>
+            <ul class="space-y-2 font-chalk text-carta/90 text-lg">
+              <li>— <span data-it="Semifreddo al bergamotto" data-en="Bergamot semifreddo">Semifreddo al bergamotto</span></li>
+              <li>— <span data-it="Formaggi di propria produzione con miele" data-en="Own-production cheeses with honey">Formaggi di propria produzione con miele</span></li>
+            </ul>
+          </div>
+          <!-- Price note -->
+          <div class="border border-miele/20 rounded-xl p-4 text-center">
+            <p class="font-chalk text-miele text-lg" data-it="Prezzo medio €30 · vino escluso" data-en="Avg. price €30 · wine excluded">Prezzo medio €30 · vino escluso</p>
+            <p class="font-body text-polvere text-xs mt-1" data-it="25 coperti + giardino esterno" data-en="25 seats + outdoor garden">25 coperti + giardino esterno</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     DEGUSTAZIONE 8 PORTATE
+══════════════════════════════════════ -->
+<section id="degustazione" class="py-20 md:py-28 px-6 bg-legno/30">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="orn mb-10 reveal">
+      <span class="font-body text-miele text-xs tracking-[.4em] uppercase whitespace-nowrap"
+            data-it="L'esperienza completa" data-en="The full experience">L'esperienza completa</span>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <h2 class="font-display text-4xl md:text-5xl font-semibold leading-tight mb-4">
+          <span data-it="Menu Degustazione" data-en="Tasting Menu">Menu Degustazione</span><br/>
+          <em class="italic text-miele">8 <span data-it="portate" data-en="courses">portate</span></em>
+        </h2>
+        <p class="font-body text-carta/70 text-base md:text-lg leading-relaxed mb-6"
+           data-it="Un percorso attraverso la Calabria più autentica. Otto portate costruite intorno ai nostri prodotti: prosciutti a diverse stagionature, formaggi, pasta fatta in casa, carni e dolci di territorio. Con abbinamento vini calabresi."
+           data-en="A journey through the most authentic Calabria. Eight courses built around our own products: prosciutto at various curing stages, cheeses, handmade pasta, local meats and desserts. With Calabrian wine pairing.">
+          Un percorso attraverso la Calabria più autentica. Otto portate costruite intorno ai nostri prodotti: prosciutti a diverse stagionature, formaggi, pasta fatta in casa, carni e dolci di territorio. Con abbinamento vini calabresi.
+        </p>
+        <div class="flex items-center gap-6 mb-8">
+          <div>
+            <p class="font-display text-4xl font-semibold text-miele">8</p>
+            <p class="font-body text-xs text-polvere uppercase tracking-widest" data-it="portate" data-en="courses">portate</p>
+          </div>
+          <div class="w-px h-10 bg-bordo"></div>
+          <div>
+            <p class="font-body text-sm text-carta/80" data-it="Su prenotazione" data-en="By reservation only">Su prenotazione</p>
+            <p class="font-body text-xs text-polvere" data-it="Minimo 2 persone" data-en="Minimum 2 guests">Minimo 2 persone</p>
+          </div>
+        </div>
+        <a href="#prenota" class="cursor-pointer inline-flex items-center gap-2 bg-ciliegia text-carta font-body font-semibold px-7 py-3.5 rounded-full hover:bg-ciliegia/90 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg"
+           data-it="Prenota l'esperienza" data-en="Book the experience">
+          Prenota l'esperienza
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="reveal" style="transition-delay:.15s">
+        <img src="https://images.unsplash.com/photo-1542282811-943ef1a977c3?q=80&w=800&auto=format&fit=crop"
+             alt="Tagliere di salumi e formaggi di propria produzione"
+             class="w-full h-80 object-cover rounded-2xl shadow-2xl ring-1 ring-bordo" loading="lazy"/>
+        <div class="mt-3 flex gap-2 flex-wrap">
+          <span class="font-body text-xs border border-erbe/50 text-erbe px-3 py-1 rounded-full" data-it="Prodotti propri" data-en="Own production">Prodotti propri</span>
+          <span class="font-body text-xs border border-miele/40 text-miele px-3 py-1 rounded-full" data-it="Vini calabresi" data-en="Calabrian wines">Vini calabresi</span>
+          <span class="font-body text-xs border border-polvere/40 text-polvere px-3 py-1 rounded-full" data-it="Stagionale" data-en="Seasonal">Stagionale</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     CANTINA / VINI
+══════════════════════════════════════ -->
+<section id="vini" class="py-20 md:py-28 px-6">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="orn mb-10 reveal">
+      <span class="font-body text-miele text-xs tracking-[.4em] uppercase whitespace-nowrap"
+            data-it="La cantina" data-en="The cellar">La cantina</span>
+    </div>
+
+    <div class="text-center mb-12 reveal">
+      <h2 class="font-display text-4xl md:text-5xl font-semibold"
+          data-it="Vini calabresi selezionati" data-en="Selected Calabrian wines">Vini calabresi selezionati</h2>
+      <p class="font-body text-polvere text-base mt-3 max-w-lg mx-auto"
+         data-it="Lavoriamo con piccoli produttori del territorio. Cirò, Terre di Cosenza, Savuto — la Calabria nel bicchiere."
+         data-en="We work with small local producers. Cirò, Terre di Cosenza, Savuto — Calabria in a glass.">
+        Lavoriamo con piccoli produttori del territorio. Cirò, Terre di Cosenza, Savuto — la Calabria nel bicchiere.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal-stagger">
+      <!-- Vino card 1 -->
+      <div class="wine-card food-card bg-legno border border-bordo rounded-2xl p-6 transition-all duration-300 cursor-default">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <p class="font-display text-xl font-semibold text-carta">Cirò Rosso Classico</p>
+            <p class="font-body text-xs text-polvere uppercase tracking-wide mt-0.5">Gaglioppo · Cirò Marina</p>
+          </div>
+          <span class="font-chalk text-miele text-lg">Rosso</span>
+        </div>
+        <p class="font-body text-sm text-carta/65 leading-relaxed"
+           data-it="Il vino simbolo della Calabria. Profondo, tannico, con note di ciliegia scura e spezie. Ideale con i nostri salumi."
+           data-en="Calabria's signature wine. Deep, tannic, with notes of dark cherry and spice. Perfect with our charcuterie.">
+          Il vino simbolo della Calabria. Profondo, tannico, con note di ciliegia scura e spezie. Ideale con i nostri salumi.
+        </p>
+      </div>
+
+      <!-- Vino card 2 -->
+      <div class="wine-card food-card bg-legno border border-bordo rounded-2xl p-6 transition-all duration-300 cursor-default border-miele/30">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <p class="font-display text-xl font-semibold text-carta">Vino della Casa</p>
+            <p class="font-body text-xs text-polvere uppercase tracking-wide mt-0.5" data-it="Selezione propria" data-en="Own selection">Selezione propria</p>
+          </div>
+          <span class="font-chalk text-miele text-lg" data-it="Rosso · Bianco" data-en="Red · White">Rosso · Bianco</span>
+        </div>
+        <p class="font-body text-sm text-carta/65 leading-relaxed"
+           data-it="La nostra selezione di etichette calabresi per accompagnare ogni pasto. In caraffa o in bottiglia."
+           data-en="Our curated selection of Calabrian labels to pair with every meal. Carafe or bottle.">
+          La nostra selezione di etichette calabresi per accompagnare ogni pasto. In caraffa o in bottiglia.
+        </p>
+        <span class="inline-block mt-3 font-body text-xs border border-miele/40 text-miele px-3 py-1 rounded-full" data-it="Consigliato" data-en="Recommended">Consigliato</span>
+      </div>
+
+      <!-- Vino card 3 -->
+      <div class="wine-card food-card bg-legno border border-bordo rounded-2xl p-6 transition-all duration-300 cursor-default">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <p class="font-display text-xl font-semibold text-carta">Greco di Bianco</p>
+            <p class="font-body text-xs text-polvere uppercase tracking-wide mt-0.5">Greco · Bianco (RC)</p>
+          </div>
+          <span class="font-chalk text-miele text-lg" data-it="Dolce" data-en="Sweet">Dolce</span>
+        </div>
+        <p class="font-body text-sm text-carta/65 leading-relaxed"
+           data-it="Passito raro del reggino. Dorato, aromatico, con note di albicocca e mandorla. Il fine pasto perfetto."
+           data-en="A rare passito from Reggio Calabria. Golden, aromatic, with apricot and almond notes. The perfect finale.">
+          Passito raro del reggino. Dorato, aromatico, con note di albicocca e mandorla. Il fine pasto perfetto.
+        </p>
+      </div>
+    </div>
+
+    <!-- Wine photo -->
+    <div class="mt-10 reveal">
+      <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2070&auto=format&fit=crop"
+           alt="Vini calabresi selezionati"
+           class="w-full h-56 md:h-72 object-cover rounded-2xl ring-1 ring-bordo" style="object-position:center 60%" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     EVENTI IN GIARDINO
+══════════════════════════════════════ -->
+<section id="eventi" class="py-20 md:py-28 px-6 bg-legno/30">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="orn mb-10 reveal">
+      <span class="font-body text-miele text-xs tracking-[.4em] uppercase whitespace-nowrap"
+            data-it="Musica in giardino" data-en="Music in the garden">Musica in giardino</span>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 items-center mb-12">
+      <div class="reveal">
+        <h2 class="font-display text-4xl md:text-5xl font-semibold leading-tight mb-4"
+            data-it="Serate sotto la bouganville" data-en="Evenings under the bougainvillea">
+          Serate sotto la bouganville
+        </h2>
+        <p class="font-body text-carta/70 text-base md:text-lg leading-relaxed"
+           data-it="Il giardino de La Rondinella si trasforma in un piccolo palco. Concerti acustici, serate folk calabresi, jazz sotto le stelle — il tutto con un bicchiere in mano e qualcosa di buono nel piatto."
+           data-en="La Rondinella's garden becomes a small stage. Acoustic concerts, Calabrian folk evenings, jazz under the stars — all with a glass in hand and something delicious on the plate.">
+          Il giardino de La Rondinella si trasforma in un piccolo palco. Concerti acustici, serate folk calabresi, jazz sotto le stelle — il tutto con un bicchiere in mano e qualcosa di buono nel piatto.
+        </p>
+      </div>
+      <div class="reveal" style="transition-delay:.15s">
+        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop"
+             alt="Concerto in giardino"
+             class="w-full h-56 object-cover rounded-2xl ring-1 ring-bordo" loading="lazy"/>
+      </div>
+    </div>
+
+    <!-- Events cards -->
+    <div class="grid sm:grid-cols-3 gap-5 reveal-stagger">
+      <div class="bg-cantina border border-bordo rounded-2xl p-6 hover:border-miele/40 transition-all duration-300 cursor-default food-card">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-4 h-4 text-miele shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+          <span class="font-body text-xs text-polvere uppercase tracking-wide" data-it="Prossimamente" data-en="Coming soon">Prossimamente</span>
+        </div>
+        <p class="font-display text-xl font-semibold mb-1" data-it="Jazz &amp; Vini Calabresi" data-en="Jazz &amp; Calabrian Wines">Jazz &amp; Vini Calabresi</p>
+        <p class="font-body text-sm text-polvere" data-it="Trio acustico · ingresso libero" data-en="Acoustic trio · free entry">Trio acustico · ingresso libero</p>
+        <div class="mt-4 w-full h-px bg-bordo"></div>
+        <p class="font-chalk text-miele text-base mt-3" data-it="Venerdì sera" data-en="Friday evenings">Venerdì sera</p>
+      </div>
+
+      <div class="bg-cantina border border-miele/30 rounded-2xl p-6 food-card transition-all duration-300 cursor-default">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 rounded-full bg-erbe animate-pulse"></span>
+          <span class="font-body text-xs text-erbe uppercase tracking-wide" data-it="In programma" data-en="Scheduled">In programma</span>
+        </div>
+        <p class="font-display text-xl font-semibold mb-1" data-it="Serata Folk Calabrese" data-en="Calabrian Folk Evening">Serata Folk Calabrese</p>
+        <p class="font-body text-sm text-polvere" data-it="Taranta · organetti · musica popolare" data-en="Taranta · squeezebox · folk music">Taranta · organetti · musica popolare</p>
+        <div class="mt-4 w-full h-px bg-bordo"></div>
+        <p class="font-chalk text-miele text-base mt-3" data-it="Sabato 20 luglio" data-en="Saturday 20 July">Sabato 20 luglio</p>
+      </div>
+
+      <div class="bg-cantina border border-bordo rounded-2xl p-6 hover:border-miele/40 transition-all duration-300 cursor-default food-card">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-4 h-4 text-miele shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span class="font-body text-xs text-polvere uppercase tracking-wide" data-it="Evento speciale" data-en="Special event">Evento speciale</span>
+        </div>
+        <p class="font-display text-xl font-semibold mb-1" data-it="Degustazione con il produttore" data-en="Producer's tasting night">Degustazione con il produttore</p>
+        <p class="font-body text-sm text-polvere" data-it="Vigneron calabresi in persona · su prenotazione" data-en="Calabrian winemakers in person · by reservation">Vigneron calabresi in persona · su prenotazione</p>
+        <div class="mt-4 w-full h-px bg-bordo"></div>
+        <p class="font-chalk text-miele text-base mt-3" data-it="Agosto · data TBD" data-en="August · date TBD">Agosto · data TBD</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-8 reveal">
+      <a href="https://www.instagram.com/la_rondinella_osteria_pop/" target="_blank" rel="noopener"
+         class="cursor-pointer inline-flex items-center gap-2 border border-bordo text-polvere font-body text-sm px-6 py-3 rounded-full hover:border-miele/50 hover:text-carta transition-all duration-200">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <span data-it="Segui @la_rondinella_osteria_pop per gli aggiornamenti" data-en="Follow @la_rondinella_osteria_pop for updates">Segui @la_rondinella_osteria_pop per gli aggiornamenti</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     RECENSIONI
+══════════════════════════════════════ -->
+<section class="py-20 md:py-28 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="orn mb-10 reveal">
+      <span class="font-body text-miele text-xs tracking-[.4em] uppercase whitespace-nowrap"
+            data-it="Cosa dicono di noi" data-en="What guests say">Cosa dicono di noi</span>
+    </div>
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 reveal">
+      <h2 class="font-display text-4xl md:text-5xl font-semibold"
+          data-it="Recensioni" data-en="Reviews">Recensioni</h2>
+      <div class="flex items-center gap-2">
+        <div class="flex text-miele">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="font-display text-3xl font-semibold text-miele">4.6</span>
+        <span class="font-body text-polvere text-sm">· 1018 Google</span>
+      </div>
+    </div>
+
+    <div class="reviews-track reveal">
+      <!-- EN review 1 -->
+      <div class="review-card w-80 md:w-96 bg-legno border border-bordo rounded-2xl p-6 food-card transition-all duration-300">
+        <div class="flex text-miele text-sm mb-3">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="font-display italic text-carta/85 text-base leading-relaxed mb-5">
+          "An absolute gem. The prosciutto they produce themselves is unlike anything I've had — complex, nutty, extraordinary. Francesca's hospitality made it feel like dining at a friend's home."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-ciliegia flex items-center justify-center text-carta font-body font-semibold text-xs shrink-0">JS</div>
+          <div>
+            <p class="font-body text-carta text-sm font-semibold">James S.</p>
+            <p class="font-body text-polvere text-xs">London, UK · Google</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- IT review -->
+      <div class="review-card w-80 md:w-96 bg-legno border border-bordo rounded-2xl p-6 food-card transition-all duration-300">
+        <div class="flex text-miele text-sm mb-3">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="font-display italic text-carta/85 text-base leading-relaxed mb-5">
+          "Le uova in smoking erano una rivelazione. Gli spaghetti cacio e peperoni cruschi — un classico calabrese reinterpretato con intelligenza. Torneremo certamente. Bravi!"
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-miele flex items-center justify-center text-cantina font-body font-semibold text-xs shrink-0">MR</div>
+          <div>
+            <p class="font-body text-carta text-sm font-semibold">Marco R.</p>
+            <p class="font-body text-polvere text-xs">Milano · Google</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DE review -->
+      <div class="review-card w-80 md:w-96 bg-legno border border-bordo rounded-2xl p-6 food-card transition-all duration-300">
+        <div class="flex text-miele text-sm mb-3">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="font-display italic text-carta/85 text-base leading-relaxed mb-5">
+          "Fantastisches kleines Restaurant. Der Prosciutto von eigener Produktion war unvergesslich. Die Mousse di ricotta con fichi — einfach wunderbar. Sehr empfehlenswert!"
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-erbe flex items-center justify-center text-carta font-body font-semibold text-xs shrink-0">HK</div>
+          <div>
+            <p class="font-body text-carta text-sm font-semibold">Hanna K.</p>
+            <p class="font-body text-polvere text-xs">München, DE · Google</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- EN review 2 -->
+      <div class="review-card w-80 md:w-96 bg-legno border border-bordo rounded-2xl p-6 food-card transition-all duration-300">
+        <div class="flex text-miele text-sm mb-3">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="font-display italic text-carta/85 text-base leading-relaxed mb-5">
+          "We stumbled upon La Rondinella on our last evening in Scalea and it became the highlight of the trip. The chalkboard menu, the atmosphere under the bougainvillea, the wines — perfect."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-argilla flex items-center justify-center text-carta font-body font-semibold text-xs shrink-0">CB</div>
+          <div>
+            <p class="font-body text-carta text-sm font-semibold">Claire B.</p>
+            <p class="font-body text-polvere text-xs">Paris, FR · TripAdvisor</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     PRENOTA
+══════════════════════════════════════ -->
+<section id="prenota" class="py-20 md:py-28 px-6 bg-legno/30">
+  <div class="max-w-4xl mx-auto">
+
+    <div class="orn mb-10 reveal">
+      <span class="font-body text-miele text-xs tracking-[.4em] uppercase whitespace-nowrap"
+            data-it="Riserva il tuo posto" data-en="Reserve your spot">Riserva il tuo posto</span>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+      <!-- Left: info -->
+      <div class="reveal">
+        <h2 class="font-display text-4xl md:text-5xl font-semibold leading-tight mb-6"
+            data-it="Prenota un tavolo" data-en="Book a table">Prenota un tavolo</h2>
+        <div class="space-y-4 font-body text-carta/70 text-sm md:text-base">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-miele mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>
+              <p class="text-carta font-semibold" data-it="Orari" data-en="Hours">Orari</p>
+              <p data-it="Lun–Sab: 19:00–23:00" data-en="Mon–Sat: 7pm–11pm">Lun–Sab: 19:00–23:00</p>
+              <p data-it="Dom: chiuso (aperto in estate)" data-en="Sun: closed (open in summer)">Dom: chiuso (aperto in estate)</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-miele mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <div>
+              <p class="text-carta font-semibold" data-it="Coperti" data-en="Capacity">Coperti</p>
+              <p data-it="25 interni + giardino esterno" data-en="25 inside + outdoor garden">25 interni + giardino esterno</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-miele mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <div>
+              <p class="text-carta font-semibold" data-it="Telefono" data-en="Phone">Telefono</p>
+              <a href="tel:+390985091360" class="hover:text-miele transition-colors cursor-pointer">+39 0985 91360</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp quick book -->
+        <a href="https://wa.me/39098591360?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20alla%20Rondinella." target="_blank" rel="noopener"
+           class="cursor-pointer mt-6 inline-flex items-center gap-2 bg-erbe text-carta font-body font-semibold px-6 py-3 rounded-full hover:bg-erbe/90 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg">
+          <svg class="w-4 h-4 fill-carta" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-it="Prenota via WhatsApp" data-en="Book via WhatsApp">Prenota via WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal" style="transition-delay:.15s">
+        <form id="book-form" onsubmit="submitBooking(event)" class="bg-cantina border border-bordo rounded-2xl p-6 space-y-4">
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="b-name" class="font-body text-xs font-semibold text-polvere uppercase tracking-wide block mb-1.5"
+                     data-it="Nome" data-en="Name">Nome</label>
+              <input type="text" id="b-name" name="nome" required
+                     data-it-placeholder="Il tuo nome" data-en-placeholder="Your name"
+                     placeholder="Il tuo nome"
+                     class="w-full font-body text-sm bg-legno border border-bordo text-carta rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-miele/40 focus:border-miele transition-all duration-200 placeholder:text-polvere/50" />
+            </div>
+            <div>
+              <label for="b-phone" class="font-body text-xs font-semibold text-polvere uppercase tracking-wide block mb-1.5"
+                     data-it="Telefono" data-en="Phone">Telefono</label>
+              <input type="tel" id="b-phone" name="telefono" required
+                     placeholder="+39 …"
+                     class="w-full font-body text-sm bg-legno border border-bordo text-carta rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-miele/40 focus:border-miele transition-all duration-200 placeholder:text-polvere/50" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="b-date" class="font-body text-xs font-semibold text-polvere uppercase tracking-wide block mb-1.5"
+                     data-it="Data" data-en="Date">Data</label>
+              <input type="date" id="b-date" name="data" required
+                     class="w-full font-body text-sm bg-legno border border-bordo text-carta rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-miele/40 focus:border-miele transition-all duration-200 cursor-pointer" />
+            </div>
+            <div>
+              <label for="b-time" class="font-body text-xs font-semibold text-polvere uppercase tracking-wide block mb-1.5"
+                     data-it="Orario" data-en="Time">Orario</label>
+              <select id="b-time" name="orario" required
+                      class="w-full font-body text-sm bg-legno border border-bordo text-carta rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-miele/40 focus:border-miele transition-all duration-200 cursor-pointer appearance-none">
+                <option value="" disabled selected>—</option>
+                <option>19:00</option><option>19:30</option><option>20:00</option>
+                <option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="font-body text-xs font-semibold text-polvere uppercase tracking-wide block mb-1.5"
+                   data-it="Persone" data-en="Guests">Persone</label>
+            <div class="flex gap-2">
+              <button type="button" onclick="chg(-1)" class="cursor-pointer w-10 h-10 rounded-xl border border-bordo bg-legno hover:border-miele/60 transition-all duration-200 flex items-center justify-center text-carta">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/></svg>
+              </button>
+              <input type="number" id="b-guests" name="persone" min="1" max="20" value="2" readonly
+                     class="flex-1 font-body text-center font-semibold text-carta bg-legno border border-bordo rounded-xl px-4 py-2.5 focus:outline-none" />
+              <button type="button" onclick="chg(1)" class="cursor-pointer w-10 h-10 rounded-xl border border-bordo bg-legno hover:border-miele/60 transition-all duration-200 flex items-center justify-center text-carta">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label for="b-note" class="font-body text-xs font-semibold text-polvere uppercase tracking-wide block mb-1.5"
+                   data-it="Note (allergie, occasioni)" data-en="Notes (allergies, occasions)">Note (allergie, occasioni)</label>
+            <textarea id="b-note" name="note" rows="2"
+                      data-it-placeholder="Degustazione 8 portate, compleanno, intolleranze…"
+                      data-en-placeholder="8-course tasting, birthday, dietary needs…"
+                      placeholder="Degustazione 8 portate, compleanno, intolleranze…"
+                      class="w-full font-body text-sm bg-legno border border-bordo text-carta rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-miele/40 focus:border-miele transition-all duration-200 resize-none placeholder:text-polvere/50"></textarea>
+          </div>
+
+          <button type="submit" id="book-btn"
+                  class="cursor-pointer w-full bg-miele text-cantina font-body font-bold py-4 rounded-xl hover:bg-miele/90 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+                  data-it="Conferma prenotazione" data-en="Confirm booking">
+            Conferma prenotazione
+          </button>
+
+          <!-- Success state -->
+          <div id="book-success" class="text-center py-3">
+            <p class="font-chalk text-erbe text-2xl mb-1" data-it="Richiesta inviata!" data-en="Request sent!">Richiesta inviata!</p>
+            <p class="font-body text-polvere text-sm" data-it="Ti contatteremo presto per confermare." data-en="We'll reach out soon to confirm.">Ti contatteremo presto per confermare.</p>
+          </div>
+
+          <p class="font-body text-xs text-center text-polvere/60">
+            <span data-it="Oppure" data-en="Or">Oppure</span>
+            <a href="tel:+390985091360" class="text-miele hover:underline cursor-pointer"> +39 0985 91360</a>
+            · <a href="mailto:osteria@la-rondinella.it" class="text-miele hover:underline cursor-pointer">osteria@la-rondinella.it</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     DOVE SIAMO
+══════════════════════════════════════ -->
+<section id="dove" class="py-20 md:py-28 px-6">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="orn mb-10 reveal">
+      <span class="font-body text-miele text-xs tracking-[.4em] uppercase whitespace-nowrap"
+            data-it="Come raggiungerci" data-en="How to find us">Come raggiungerci</span>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10">
+      <!-- Map -->
+      <div class="reveal">
+        <div class="rounded-2xl overflow-hidden ring-1 ring-bordo h-72 md:h-96">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=15.7870,39.8150,15.7990,39.8250&layer=mapnik&marker=39.8200,15.7930"
+            class="w-full h-full border-0 brightness-75 contrast-110"
+            title="La Rondinella Osteria Pop — Piazza Spinelli, Scalea"
+            loading="lazy" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="reveal space-y-5" style="transition-delay:.15s">
+        <div class="bg-legno border border-bordo rounded-2xl p-5 flex gap-4">
+          <div class="w-9 h-9 rounded-full bg-miele/10 flex items-center justify-center shrink-0">
+            <svg class="w-4 h-4 text-miele" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <p class="font-body font-semibold text-carta text-sm mb-0.5" data-it="Indirizzo" data-en="Address">Indirizzo</p>
+            <p class="font-body text-polvere text-sm">Via Vittorio Emanuele III, 7<br/>Piazza Spinelli — 87029 Scalea (CS)</p>
+          </div>
+        </div>
+
+        <div class="bg-legno border border-bordo rounded-2xl p-5 flex gap-4">
+          <div class="w-9 h-9 rounded-full bg-miele/10 flex items-center justify-center shrink-0">
+            <svg class="w-4 h-4 text-miele" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <p class="font-body font-semibold text-carta text-sm mb-1" data-it="Orari" data-en="Hours">Orari</p>
+            <div class="font-body text-polvere text-sm space-y-0.5">
+              <div class="flex justify-between gap-6"><span data-it="Lun – Sab" data-en="Mon – Sat">Lun – Sab</span><span class="text-carta font-medium">19:00 – 23:00</span></div>
+              <div class="flex justify-between gap-6"><span data-it="Domenica" data-en="Sunday">Domenica</span><span class="text-ciliegia font-medium" data-it="Chiuso*" data-en="Closed*">Chiuso*</span></div>
+              <p class="text-xs text-polvere/60 mt-1" data-it="*Aperto tutti i giorni in estate" data-en="*Open daily in summer">*Aperto tutti i giorni in estate</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <a href="tel:+390985091360" class="cursor-pointer bg-legno border border-bordo rounded-2xl p-4 flex flex-col items-center gap-2 hover:border-miele/40 hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 text-center">
+            <svg class="w-5 h-5 text-miele" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <p class="font-body text-xs font-semibold text-carta" data-it="Chiama" data-en="Call">Chiama</p>
+            <p class="font-body text-xs text-polvere">0985 91360</p>
+          </a>
+          <a href="https://wa.me/39098591360" target="_blank" rel="noopener" class="cursor-pointer bg-erbe/20 border border-erbe/30 rounded-2xl p-4 flex flex-col items-center gap-2 hover:bg-erbe/30 transition-all duration-200 hover:-translate-y-0.5 text-center">
+            <svg class="w-5 h-5 fill-erbe" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <p class="font-body text-xs font-semibold text-erbe">WhatsApp</p>
+            <p class="font-body text-xs text-polvere" data-it="Prenota in chat" data-en="Book in chat">Prenota in chat</p>
+          </a>
+        </div>
+
+        <a href="mailto:osteria@la-rondinella.it" class="cursor-pointer block bg-legno border border-bordo rounded-2xl p-4 hover:border-miele/30 transition-all duration-200 text-center">
+          <p class="font-body text-xs text-polvere mb-0.5" data-it="Email" data-en="Email">Email</p>
+          <p class="font-body text-carta text-sm hover:text-miele transition-colors">osteria@la-rondinella.it</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="bg-cantina border-t border-bordo py-12 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-8 mb-10">
+      <div>
+        <p class="font-display text-carta text-2xl font-semibold mb-1">La Rondinella</p>
+        <p class="font-chalk text-miele text-base mb-3" data-it="Osteria Pop" data-en="Pop Osteria">Osteria Pop</p>
+        <p class="font-body text-polvere text-sm leading-relaxed">Via Vittorio Emanuele III, 7<br/>Piazza Spinelli, 87029 Scalea (CS)</p>
+      </div>
+
+      <div>
+        <p class="font-body text-xs text-miele uppercase tracking-widest mb-4" data-it="Il gruppo" data-en="The group">Il gruppo</p>
+        <ul class="space-y-2 font-body text-sm text-polvere">
+          <li class="hover:text-carta transition-colors cursor-default" data-it="Osteria Pop · Scalea" data-en="Pop Osteria · Scalea">Osteria Pop · Scalea</li>
+          <li class="hover:text-carta transition-colors cursor-default" data-it="Agriturismo · 4 km" data-en="Farm stay · 4 km">Agriturismo · 4 km</li>
+          <li class="hover:text-carta transition-colors cursor-default">Prosciutteria · Praia a Mare</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-body text-xs text-miele uppercase tracking-widest mb-4" data-it="Seguici" data-en="Follow us">Seguici</p>
+        <a href="https://www.instagram.com/la_rondinella_osteria_pop/" target="_blank" rel="noopener"
+           class="cursor-pointer inline-flex items-center gap-2 text-polvere hover:text-carta transition-colors duration-200 font-body text-sm">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @la_rondinella_osteria_pop
+        </a>
+        <div class="mt-3 flex gap-2">
+          <div class="flex text-miele">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="font-body text-xs text-polvere">4.6 · 1018 Google</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-bordo pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p class="font-body text-xs text-polvere/50">© 2024 La Rondinella Osteria Pop · P.IVA 00000000000</p>
+      <div class="flex gap-4 text-xs font-body text-polvere/50">
+        <span data-it="Cucina calabrese artigianale" data-en="Artisan Calabrian cuisine">Cucina calabrese artigianale</span>
+        <span>·</span>
+        <span>Scalea (CS)</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════
+     WhatsApp FAB
+══════════════════════════════════════ -->
+<a href="https://wa.me/39098591360?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noopener"
+   class="wa-fab cursor-pointer fixed bottom-6 right-6 z-[60] w-14 h-14 bg-erbe rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-200 active:scale-95"
+   aria-label="Contattaci su WhatsApp">
+  <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+  // ── Translations ────────────────────────────────
+  // All i18n is driven by data-it / data-en attributes on DOM elements.
+  // Placeholders use data-it-placeholder / data-en-placeholder.
+  let currentLang = 'it';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-it]').forEach(el => {
+      el.textContent = el.dataset[lang];
+    });
+    document.querySelectorAll('[data-it-placeholder]').forEach(el => {
+      const key = lang === 'it' ? 'itPlaceholder' : 'enPlaceholder';
+      if (el.dataset[key]) el.placeholder = el.dataset[key];
+    });
+
+    // Update lang buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active', 'text-miele', 'border-miele'));
+    document.querySelectorAll(`#lang-${lang}, [onclick*="setLang('${lang}')"]`).forEach(btn => {
+      btn.classList.add('active', 'text-miele', 'border-miele');
+    });
+  }
+
+  // ── Hero parallax ────────────────────────────────
+  const heroBg = document.getElementById('hero-bg');
+  let rafScheduled = false;
+  window.addEventListener('scroll', () => {
+    if (!rafScheduled) {
+      requestAnimationFrame(() => {
+        heroBg.style.transform = `translateY(${window.scrollY * 0.35}px) scale(1.1)`;
+        rafScheduled = false;
+      });
+      rafScheduled = true;
+    }
+  }, { passive: true });
+
+  // ── Scroll reveal ────────────────────────────────
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+  revealEls.forEach(el => revealObs.observe(el));
+
+  // Trigger hero reveals on load
+  document.querySelectorAll('section:first-of-type .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 250 + i * 160);
+  });
+
+  // ── Mobile menu ──────────────────────────────────
+  function toggleMobile() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  // ── Guest counter ────────────────────────────────
+  function chg(delta) {
+    const inp = document.getElementById('b-guests');
+    const v = parseInt(inp.value) + delta;
+    if (v >= 1 && v <= 20) inp.value = v;
+  }
+
+  // ── Booking form ─────────────────────────────────
+  function submitBooking(e) {
+    e.preventDefault();
+    const btn = document.getElementById('book-btn');
+    const success = document.getElementById('book-success');
+    btn.disabled = true;
+    btn.textContent = currentLang === 'it' ? 'Invio in corso…' : 'Sending…';
+
+    setTimeout(() => {
+      e.target.querySelector('form > *:not(#book-success)');
+      // Hide all form inputs, show success
+      Array.from(document.getElementById('book-form').children).forEach(child => {
+        if (child.id !== 'book-success') child.style.display = 'none';
+      });
+      success.style.display = 'block';
+
+      // Reset after delay
+      setTimeout(() => {
+        Array.from(document.getElementById('book-form').children).forEach(child => {
+          child.style.display = '';
+        });
+        success.style.display = 'none';
+        btn.disabled = false;
+        btn.textContent = currentLang === 'it' ? 'Conferma prenotazione' : 'Confirm booking';
+        document.getElementById('book-form').reset();
+        document.getElementById('b-guests').value = 2;
+      }, 3500);
+    }, 900);
+  }
+
+  // ── Set min date on booking input ────────────────
+  window.addEventListener('DOMContentLoaded', () => {
+    const dateInp = document.getElementById('b-date');
+    if (dateInp) dateInp.min = new Date().toISOString().split('T')[0];
+  });
+</script>
+
+</body>
+</html>

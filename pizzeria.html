@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pizzeria Da Salvatore — Scalea</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Playfair Display SC + Karla (design system) + Cormorant Garamond (editorial) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forno:      '#C0392B',
+            terracotta: '#E07B54',
+            oro:        '#C9A84C',
+            pergamena:  '#FAF0E6',
+            carbone:    '#1C1412',
+            basilico:   '#3A7D44',
+            crema:      '#E8D5B7',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            body:    ['Karla', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Karla', sans-serif; background-color: #FAF0E6; color: #1C1412; }
+
+    /* Grain overlay on hero */
+    .grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.04;
+    }
+
+    /* Parallax hero */
+    .hero-bg {
+      background-image: url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=2069&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      will-change: transform;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children */
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+    }
+    .reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.0s; }
+    .reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.15s; }
+    .reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.30s; }
+    .reveal-stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.45s; }
+    .reveal-stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.60s; }
+    .reveal-stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.75s; }
+
+    /* Divider ornament */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: #C9A84C;
+    }
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #C9A84C;
+      opacity: 0.5;
+    }
+
+    /* Booking modal */
+    #booking-modal {
+      display: none;
+    }
+    #booking-modal.open {
+      display: flex;
+    }
+
+    /* Testimonial carousel */
+    .testimonials-track {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .testimonials-track::-webkit-scrollbar { display: none; }
+    .testimonial-card { scroll-snap-align: start; flex-shrink: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-stagger > * { transition: none; opacity: 1; transform: none; }
+      .hero-bg { background-attachment: scroll !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-pergamena text-carbone">
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <nav id="navbar" class="fixed top-4 left-4 right-4 z-50 flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-300 bg-carbone/90 backdrop-blur-sm shadow-2xl">
+    <!-- Logo -->
+    <a href="#" class="font-display text-pergamena text-xl font-semibold tracking-wide">
+      Da Salvatore
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center gap-8 text-sm font-body font-medium text-crema/80">
+      <li><a href="#storia" class="hover:text-oro transition-colors duration-200 cursor-pointer">La Storia</a></li>
+      <li><a href="#menu" class="hover:text-oro transition-colors duration-200 cursor-pointer">Menu</a></li>
+      <li><a href="#forno" class="hover:text-oro transition-colors duration-200 cursor-pointer">Il Forno</a></li>
+      <li><a href="#contatti" class="hover:text-oro transition-colors duration-200 cursor-pointer">Dove siamo</a></li>
+    </ul>
+
+    <!-- CTA -->
+    <button onclick="openBooking()" class="cursor-pointer bg-oro text-carbone text-sm font-body font-700 font-semibold px-5 py-2.5 rounded-full hover:bg-oro/90 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg">
+      Prenota un tavolo
+    </button>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="relative h-screen overflow-hidden grain">
+    <!-- Parallax background -->
+    <div id="hero-parallax" class="hero-bg absolute inset-0 scale-110"></div>
+
+    <!-- Dark overlay gradient -->
+    <div class="absolute inset-0 bg-gradient-to-b from-carbone/50 via-carbone/30 to-carbone/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-carbone/40 to-transparent"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+      <p class="font-body text-oro text-sm tracking-[0.3em] uppercase mb-4 reveal">Pizzeria Artigianale · Scalea · dal 1987</p>
+
+      <h1 class="font-display text-pergamena text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-[1.1] max-w-4xl reveal" style="transition-delay: .1s">
+        L'Arte della Pizza<br />
+        <em class="italic text-oro font-400">Napoletana</em>
+      </h1>
+
+      <p class="font-body text-crema/90 text-lg md:text-xl max-w-xl mt-6 leading-relaxed reveal" style="transition-delay: .25s">
+        Impasto a 48 ore di lievitazione, pomodoro San Marzano DOP,<br class="hidden md:block"/> forno a legna a 450°. A Scalea, come a Napoli.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 mt-10 reveal" style="transition-delay: .4s">
+        <a href="#menu" class="cursor-pointer bg-forno text-pergamena font-body font-semibold px-8 py-3.5 rounded-full hover:bg-forno/90 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg text-base">
+          Vedi il Menu
+        </a>
+        <button onclick="openBooking()" class="cursor-pointer border border-crema/50 text-pergamena font-body font-medium px-8 py-3.5 rounded-full hover:bg-pergamena/10 transition-all duration-200 hover:scale-105 active:scale-95 text-base">
+          Prenota un tavolo
+        </button>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-crema/60 reveal" style="transition-delay:.6s">
+      <span class="font-body text-xs tracking-widest uppercase">Scorri</span>
+      <div class="w-px h-12 bg-crema/30 animate-pulse"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       LA STORIA
+  ═══════════════════════════════════════════ -->
+  <section id="storia" class="py-24 md:py-32 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Ornament heading -->
+      <div class="ornament mb-12 reveal">
+        <span class="font-body text-oro text-xs tracking-[0.4em] uppercase whitespace-nowrap">La Nostra Storia</span>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <!-- Image -->
+        <div class="reveal">
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1374&auto=format&fit=crop"
+              alt="Pizzaiolo napoletano che impasta la pizza a mano"
+              class="w-full h-[480px] object-cover rounded-2xl shadow-2xl"
+              loading="lazy"
+            />
+            <!-- Floating badge -->
+            <div class="absolute -bottom-6 -right-6 bg-oro text-carbone rounded-2xl px-6 py-4 shadow-xl">
+              <p class="font-display text-3xl font-semibold">37+</p>
+              <p class="font-body text-xs font-semibold uppercase tracking-widest mt-0.5">Anni di passione</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="reveal" style="transition-delay:.15s">
+          <h2 class="font-display text-4xl md:text-5xl font-semibold text-carbone leading-tight mb-6">
+            Da Napoli<br/>
+            <em class="italic text-forno">fino al mare di Scalea</em>
+          </h2>
+          <div class="space-y-4 font-body text-carbone/80 text-base md:text-lg leading-relaxed">
+            <p>
+              Nel 1987, Salvatore Esposito portò con sé da Napoli qualcosa di prezioso: la ricetta di famiglia per l'impasto, tramandata da tre generazioni. Si fermò a Scalea, sul Tirreno calabrese, e aprì una piccola pizzeria sul lungomare.
+            </p>
+            <p>
+              Oggi quella ricetta è ancora intatta. La stessa farina tipo 00, la stessa acqua filtrata, la stessa lievitazione di 48 ore. Perché la vera pizza napoletana non è una moda — è una filosofia.
+            </p>
+          </div>
+
+          <!-- Stats row -->
+          <div class="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-crema">
+            <div>
+              <p class="font-display text-3xl font-semibold text-forno">48h</p>
+              <p class="font-body text-xs uppercase tracking-widest text-carbone/60 mt-1">Lievitazione</p>
+            </div>
+            <div>
+              <p class="font-display text-3xl font-semibold text-forno">450°</p>
+              <p class="font-body text-xs uppercase tracking-widest text-carbone/60 mt-1">Forno a legna</p>
+            </div>
+            <div>
+              <p class="font-display text-3xl font-semibold text-forno">00</p>
+              <p class="font-body text-xs uppercase tracking-widest text-carbone/60 mt-1">Farina tipo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       LE NOSTRE PIZZE — MENU
+  ═══════════════════════════════════════════ -->
+  <section id="menu" class="py-24 md:py-32 px-6 bg-carbone/[0.03]">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- Header -->
+      <div class="text-center mb-16 reveal">
+        <div class="ornament mb-6">
+          <span class="font-body text-oro text-xs tracking-[0.4em] uppercase whitespace-nowrap">Le Nostre Pizze</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-semibold text-carbone">
+          Classiche & Speciali
+        </h2>
+        <p class="font-body text-carbone/60 text-base mt-3 max-w-md mx-auto">
+          Ogni pizza nasce da ingredienti selezionati. Nessun compromesso.
+        </p>
+
+        <!-- Filter tabs -->
+        <div class="flex justify-center gap-2 mt-8 flex-wrap">
+          <button onclick="filterMenu('all')" id="tab-all" class="cursor-pointer tab-btn active-tab font-body text-sm font-medium px-5 py-2 rounded-full border border-forno bg-forno text-pergamena transition-all duration-200">
+            Tutte
+          </button>
+          <button onclick="filterMenu('classica')" id="tab-classica" class="cursor-pointer tab-btn font-body text-sm font-medium px-5 py-2 rounded-full border border-crema text-carbone/70 hover:border-forno hover:text-forno transition-all duration-200">
+            Classiche
+          </button>
+          <button onclick="filterMenu('speciale')" id="tab-speciale" class="cursor-pointer tab-btn font-body text-sm font-medium px-5 py-2 rounded-full border border-crema text-carbone/70 hover:border-forno hover:text-forno transition-all duration-200">
+            Speciali
+          </button>
+          <button onclick="filterMenu('fritta')" id="tab-fritta" class="cursor-pointer tab-btn font-body text-sm font-medium px-5 py-2 rounded-full border border-crema text-carbone/70 hover:border-forno hover:text-forno transition-all duration-200">
+            Fritte
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu grid -->
+      <div id="menu-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
+
+        <!-- Card 1 — Margherita -->
+        <article data-cat="classica" class="menu-card group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="relative overflow-hidden h-52">
+            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=800&auto=format&fit=crop"
+                 alt="Pizza Margherita" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
+            <span class="absolute top-3 left-3 bg-basilico text-white font-body text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Classica</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="font-display text-xl font-semibold text-carbone">Margherita</h3>
+                <p class="font-body text-sm text-carbone/60 mt-1">Pomodoro San Marzano, fior di latte, basilico fresco, olio EVO</p>
+              </div>
+              <p class="font-display text-xl font-semibold text-forno ml-4 shrink-0">€ 8</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 — Marinara -->
+        <article data-cat="classica" class="menu-card group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="relative overflow-hidden h-52">
+            <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=800&auto=format&fit=crop"
+                 alt="Pizza Marinara" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
+            <span class="absolute top-3 left-3 bg-basilico text-white font-body text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Classica</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="font-display text-xl font-semibold text-carbone">Marinara</h3>
+                <p class="font-body text-sm text-carbone/60 mt-1">Pomodoro San Marzano, aglio, origano, olio EVO. Senza latticini.</p>
+              </div>
+              <p class="font-display text-xl font-semibold text-forno ml-4 shrink-0">€ 7</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 — Diavola -->
+        <article data-cat="classica" class="menu-card group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="relative overflow-hidden h-52">
+            <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=800&auto=format&fit=crop"
+                 alt="Pizza Diavola" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
+            <span class="absolute top-3 left-3 bg-basilico text-white font-body text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Classica</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="font-display text-xl font-semibold text-carbone">Diavola</h3>
+                <p class="font-body text-sm text-carbone/60 mt-1">Pomodoro, fior di latte, salame piccante calabrese, peperoncino</p>
+              </div>
+              <p class="font-display text-xl font-semibold text-forno ml-4 shrink-0">€ 10</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 — Nduja e Provola -->
+        <article data-cat="speciale" class="menu-card group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="relative overflow-hidden h-52">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop"
+                 alt="Pizza Nduja e Provola" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
+            <span class="absolute top-3 left-3 bg-terracotta text-white font-body text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Speciale</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="font-display text-xl font-semibold text-carbone">Nduja e Provola</h3>
+                <p class="font-body text-sm text-carbone/60 mt-1">Fior di latte, nduja calabrese, provola affumicata, basilico</p>
+              </div>
+              <p class="font-display text-xl font-semibold text-forno ml-4 shrink-0">€ 13</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 — Porcini e Salsiccia -->
+        <article data-cat="speciale" class="menu-card group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="relative overflow-hidden h-52">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=800&auto=format&fit=crop"
+                 alt="Pizza Porcini e Salsiccia" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
+            <span class="absolute top-3 left-3 bg-terracotta text-white font-body text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Speciale</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="font-display text-xl font-semibold text-carbone">Porcini e Salsiccia</h3>
+                <p class="font-body text-sm text-carbone/60 mt-1">Crema di porcini, fior di latte, salsiccia artigianale, rosmarino</p>
+              </div>
+              <p class="font-display text-xl font-semibold text-forno ml-4 shrink-0">€ 14</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 — Pizza Fritta -->
+        <article data-cat="fritta" class="menu-card group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="relative overflow-hidden h-52">
+            <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?q=80&w=800&auto=format&fit=crop"
+                 alt="Pizza Fritta Napoletana" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
+            <span class="absolute top-3 left-3 bg-oro text-carbone font-body text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Fritta</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="font-display text-xl font-semibold text-carbone">Montanara</h3>
+                <p class="font-body text-sm text-carbone/60 mt-1">Pizza fritta napoletana, pomodoro, ricotta, salame, pepe nero</p>
+              </div>
+              <p class="font-display text-xl font-semibold text-forno ml-4 shrink-0">€ 9</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- View full menu CTA -->
+      <div class="text-center mt-12 reveal">
+        <button onclick="openBooking()" class="cursor-pointer inline-flex items-center gap-2 border-2 border-forno text-forno font-body font-semibold px-8 py-3.5 rounded-full hover:bg-forno hover:text-pergamena transition-all duration-300">
+          Prenota e vieni a scoprire tutto il menu
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       IL FORNO — Dark section
+  ═══════════════════════════════════════════ -->
+  <section id="forno" class="relative py-24 md:py-40 px-6 bg-carbone overflow-hidden">
+    <!-- Background image with dark overlay -->
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?q=80&w=1974&auto=format&fit=crop"
+           alt="" aria-hidden="true" class="w-full h-full object-cover opacity-20" loading="lazy"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-carbone via-carbone/95 to-carbone/70"></div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+
+        <!-- Text -->
+        <div class="reveal">
+          <div class="ornament mb-8 justify-start">
+            <span class="font-body text-oro text-xs tracking-[0.4em] uppercase whitespace-nowrap">Il Segreto</span>
+          </div>
+          <h2 class="font-display text-4xl md:text-5xl font-semibold text-pergamena leading-tight mb-6">
+            Il nostro forno<br/>
+            <em class="italic text-oro">è il cuore di tutto</em>
+          </h2>
+          <div class="space-y-4 font-body text-crema/70 text-base md:text-lg leading-relaxed">
+            <p>Il forno a legna raggiunge i 450°C. A quella temperatura, l'impasto cuoce in 60-90 secondi. Il risultato: un cornicione alveolato e morbido all'interno, croccante e leggermente bruciacchiato all'esterno.</p>
+            <p>La legna è di ulivo e arancio — profumi del sud che entrano nell'impasto.</p>
+          </div>
+
+          <!-- Feature pills -->
+          <div class="flex flex-wrap gap-3 mt-8">
+            <span class="font-body text-sm text-crema border border-crema/30 px-4 py-2 rounded-full">Farina tipo 00 Caputo</span>
+            <span class="font-body text-sm text-crema border border-crema/30 px-4 py-2 rounded-full">Pomodoro San Marzano DOP</span>
+            <span class="font-body text-sm text-crema border border-crema/30 px-4 py-2 rounded-full">Fior di latte di Agerola</span>
+            <span class="font-body text-sm text-crema border border-crema/30 px-4 py-2 rounded-full">Legna di ulivo</span>
+            <span class="font-body text-sm text-crema border border-crema/30 px-4 py-2 rounded-full">Lievito madre</span>
+          </div>
+        </div>
+
+        <!-- Stats cards -->
+        <div class="grid grid-cols-2 gap-4 reveal" style="transition-delay:.2s">
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+            <p class="font-display text-5xl font-semibold text-oro">450°</p>
+            <p class="font-body text-crema/60 text-sm mt-2 uppercase tracking-widest">Temperatura</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+            <p class="font-display text-5xl font-semibold text-oro">90"</p>
+            <p class="font-body text-crema/60 text-sm mt-2 uppercase tracking-widest">Cottura</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+            <p class="font-display text-5xl font-semibold text-oro">48h</p>
+            <p class="font-body text-crema/60 text-sm mt-2 uppercase tracking-widest">Lievitazione</p>
+          </div>
+          <div class="bg-forno/20 border border-forno/30 rounded-2xl p-6 text-center">
+            <p class="font-display text-5xl font-semibold text-forno">1987</p>
+            <p class="font-body text-crema/60 text-sm mt-2 uppercase tracking-widest">Da sempre</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       RECENSIONI
+  ═══════════════════════════════════════════ -->
+  <section class="py-24 md:py-32 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-12 reveal">
+        <div class="ornament mb-6">
+          <span class="font-body text-oro text-xs tracking-[0.4em] uppercase whitespace-nowrap">Cosa dicono di noi</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-semibold text-carbone">Recensioni</h2>
+
+        <!-- Stars overall -->
+        <div class="flex items-center justify-center gap-2 mt-4">
+          <div class="flex text-oro text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <span class="font-body font-semibold text-carbone text-lg">4.9</span>
+          <span class="font-body text-carbone/50 text-sm">(312 recensioni Google)</span>
+        </div>
+      </div>
+
+      <!-- Testimonials scrollable row -->
+      <div class="testimonials-track pb-4 reveal">
+
+        <!-- Review 1 -->
+        <div class="testimonial-card w-80 md:w-96 bg-white rounded-2xl p-6 shadow-sm border border-crema/50">
+          <div class="flex text-oro text-sm mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="font-display text-carbone/80 text-base italic leading-relaxed mb-5">
+            "Sono napoletano DOC e questa è la pizza più vicina a quella di casa che abbia trovato fuori Napoli. L'impasto è perfetto, il cornicione alveolato come si deve. Complimenti a Salvatore."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-forno flex items-center justify-center text-white font-body font-semibold text-sm">GM</div>
+            <div>
+              <p class="font-body font-semibold text-carbone text-sm">Giovanni M.</p>
+              <p class="font-body text-carbone/50 text-xs">Napoli · Google Review</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="testimonial-card w-80 md:w-96 bg-white rounded-2xl p-6 shadow-sm border border-crema/50">
+          <div class="flex text-oro text-sm mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="font-display text-carbone/80 text-base italic leading-relaxed mb-5">
+            "Eravamo in vacanza a Scalea e abbiamo mangiato qui tre sere di fila. La nduja con la provola affumicata è semplicemente straordinaria. Ambiente caldo, servizio gentilissimo."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-oro flex items-center justify-center text-carbone font-body font-semibold text-sm">CF</div>
+            <div>
+              <p class="font-body font-semibold text-carbone text-sm">Chiara F.</p>
+              <p class="font-body text-carbone/50 text-xs">Milano · TripAdvisor</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="testimonial-card w-80 md:w-96 bg-white rounded-2xl p-6 shadow-sm border border-crema/50">
+          <div class="flex text-oro text-sm mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="font-display text-carbone/80 text-base italic leading-relaxed mb-5">
+            "La Montanara fritta è un capolavoro. Non avevo mai mangiato la pizza fritta prima, e ora non riesco a smettere di pensarci. Torneremo sicuramente l'estate prossima."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-basilico flex items-center justify-center text-white font-body font-semibold text-sm">LB</div>
+            <div>
+              <p class="font-body font-semibold text-carbone text-sm">Luca B.</p>
+              <p class="font-body text-carbone/50 text-xs">Roma · Google Review</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="testimonial-card w-80 md:w-96 bg-white rounded-2xl p-6 shadow-sm border border-crema/50">
+          <div class="flex text-oro text-sm mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="font-display text-carbone/80 text-base italic leading-relaxed mb-5">
+            "Sono cresciuta a Scalea e questa è la pizzeria di riferimento per tutta la città. Salvatore è un maestro. La Marinara tradizionale è la più buona che conosca."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-terracotta flex items-center justify-center text-white font-body font-semibold text-sm">AR</div>
+            <div>
+              <p class="font-body font-semibold text-carbone text-sm">Anna R.</p>
+              <p class="font-body text-carbone/50 text-xs">Scalea · Google Review</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CONTATTI + MAPPA
+  ═══════════════════════════════════════════ -->
+  <section id="contatti" class="py-24 md:py-32 px-6 bg-carbone/[0.03]">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-16 reveal">
+        <div class="ornament mb-6">
+          <span class="font-body text-oro text-xs tracking-[0.4em] uppercase whitespace-nowrap">Dove Siamo</span>
+        </div>
+        <h2 class="font-display text-4xl md:text-5xl font-semibold text-carbone">Vieni a trovarci</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+
+        <!-- Info card -->
+        <div class="reveal space-y-6">
+
+          <!-- Address -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-crema/50 flex gap-4">
+            <div class="w-10 h-10 rounded-full bg-forno/10 flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-forno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <p class="font-body font-semibold text-carbone text-sm uppercase tracking-wide mb-1">Indirizzo</p>
+              <p class="font-body text-carbone/70">Via Roma 42, 87029 Scalea (CS)<br/>Lungomare, vicino al porto</p>
+            </div>
+          </div>
+
+          <!-- Hours -->
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-crema/50 flex gap-4">
+            <div class="w-10 h-10 rounded-full bg-oro/10 flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-oro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <p class="font-body font-semibold text-carbone text-sm uppercase tracking-wide mb-2">Orari</p>
+              <div class="font-body text-carbone/70 text-sm space-y-1">
+                <div class="flex justify-between gap-8"><span>Lun – Ven</span><span class="font-medium text-carbone">12:00 – 15:00 · 19:00 – 23:30</span></div>
+                <div class="flex justify-between gap-8"><span>Sab – Dom</span><span class="font-medium text-carbone">12:00 – 23:30</span></div>
+                <div class="flex justify-between gap-8"><span>Martedì</span><span class="text-forno font-medium">Chiuso</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone + WhatsApp -->
+          <div class="grid grid-cols-2 gap-4">
+            <a href="tel:+390985123456" class="cursor-pointer bg-white rounded-2xl p-5 shadow-sm border border-crema/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col items-center gap-2 text-center">
+              <div class="w-10 h-10 rounded-full bg-carbone/5 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-carbone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .99h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+              <p class="font-body text-sm font-semibold text-carbone">Telefono</p>
+              <p class="font-body text-xs text-carbone/60">0985 12 34 56</p>
+            </a>
+
+            <a href="https://wa.me/390985123456?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noopener" class="cursor-pointer bg-basilico rounded-2xl p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col items-center gap-2 text-center">
+              <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                <!-- WhatsApp icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <p class="font-body text-sm font-semibold text-white">WhatsApp</p>
+              <p class="font-body text-xs text-white/70">Prenota in chat</p>
+            </a>
+          </div>
+
+          <!-- Book button -->
+          <button onclick="openBooking()" class="cursor-pointer w-full bg-forno text-pergamena font-body font-semibold py-4 rounded-2xl hover:bg-forno/90 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg text-base">
+            Prenota il tuo tavolo online
+          </button>
+        </div>
+
+        <!-- Map placeholder -->
+        <div class="reveal" style="transition-delay:.15s">
+          <div class="rounded-2xl overflow-hidden shadow-lg border border-crema/50 h-[480px] bg-carbone/5 relative">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=15.2800,39.8100,15.3100,39.8300&layer=mapnik&marker=39.8200,15.2950"
+              class="w-full h-full border-0"
+              title="Mappa Pizzeria Da Salvatore, Scalea"
+              loading="lazy"
+              allowfullscreen
+            ></iframe>
+            <!-- Overlay card -->
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-xl border border-crema/50 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-forno flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <div>
+                <p class="font-body font-semibold text-carbone text-sm">Pizzeria Da Salvatore</p>
+                <p class="font-body text-xs text-carbone/60">Via Roma 42, Scalea (CS)</p>
+              </div>
+              <a href="https://maps.google.com/?q=Scalea+CS+Italy" target="_blank" rel="noopener" class="cursor-pointer ml-auto font-body text-xs text-forno font-semibold hover:underline">
+                Indicazioni
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="bg-carbone text-crema/70 py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-8 mb-10">
+
+        <!-- Brand -->
+        <div>
+          <p class="font-display text-pergamena text-2xl font-semibold mb-3">Da Salvatore</p>
+          <p class="font-body text-sm leading-relaxed text-crema/60">
+            Pizzeria artigianale napoletana.<br/>Via Roma 42, Scalea (CS), Calabria.
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <p class="font-body text-xs uppercase tracking-widest text-oro mb-4">Navigazione</p>
+          <ul class="space-y-2 font-body text-sm">
+            <li><a href="#storia" class="hover:text-oro transition-colors duration-200 cursor-pointer">La Storia</a></li>
+            <li><a href="#menu" class="hover:text-oro transition-colors duration-200 cursor-pointer">Il Menu</a></li>
+            <li><a href="#forno" class="hover:text-oro transition-colors duration-200 cursor-pointer">Il Forno</a></li>
+            <li><a href="#contatti" class="hover:text-oro transition-colors duration-200 cursor-pointer">Contatti</a></li>
+          </ul>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <p class="font-body text-xs uppercase tracking-widest text-oro mb-4">Seguici</p>
+          <div class="flex gap-4">
+            <a href="#" aria-label="Instagram" class="cursor-pointer w-10 h-10 rounded-full border border-crema/20 flex items-center justify-center hover:border-oro hover:text-oro transition-all duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook" class="cursor-pointer w-10 h-10 rounded-full border border-crema/20 flex items-center justify-center hover:border-oro hover:text-oro transition-all duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://wa.me/390985123456" target="_blank" rel="noopener" aria-label="WhatsApp" class="cursor-pointer w-10 h-10 rounded-full border border-crema/20 flex items-center justify-center hover:border-basilico hover:text-basilico transition-all duration-200">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="font-body text-xs text-crema/40">© 2024 Pizzeria Da Salvatore. P.IVA 01234567890</p>
+        <p class="font-body text-xs text-crema/40">Artigianale · Napoletana · Scalea</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════
+       BOOKING MODAL (from 21st.dev inspiration)
+  ═══════════════════════════════════════════ -->
+  <div id="booking-modal" class="fixed inset-0 z-[100] items-center justify-center p-4 bg-carbone/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Prenota un tavolo">
+    <div class="bg-pergamena rounded-3xl max-w-md w-full shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+
+      <!-- Modal header -->
+      <div class="bg-forno px-8 py-6 relative">
+        <div class="ornament mb-1">
+          <span class="font-body text-white/70 text-xs tracking-[0.3em] uppercase whitespace-nowrap">Pizzeria Da Salvatore</span>
+        </div>
+        <h2 class="font-display text-white text-3xl font-semibold">Prenota un tavolo</h2>
+        <button onclick="closeBooking()" aria-label="Chiudi" class="cursor-pointer absolute top-5 right-5 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all duration-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Form -->
+      <form class="px-8 py-6 space-y-4" onsubmit="submitBooking(event)">
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="book-name" class="font-body text-xs font-semibold text-carbone/70 uppercase tracking-wide block mb-1.5">Nome</label>
+            <input type="text" id="book-name" name="nome" required placeholder="Il tuo nome"
+              class="w-full font-body text-sm bg-white border border-crema rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-forno/40 focus:border-forno transition-all duration-200 placeholder:text-carbone/30" />
+          </div>
+          <div>
+            <label for="book-phone" class="font-body text-xs font-semibold text-carbone/70 uppercase tracking-wide block mb-1.5">Telefono</label>
+            <input type="tel" id="book-phone" name="telefono" required placeholder="333 000 0000"
+              class="w-full font-body text-sm bg-white border border-crema rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-forno/40 focus:border-forno transition-all duration-200 placeholder:text-carbone/30" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="book-date" class="font-body text-xs font-semibold text-carbone/70 uppercase tracking-wide block mb-1.5">Data</label>
+            <input type="date" id="book-date" name="data" required
+              class="w-full font-body text-sm bg-white border border-crema rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-forno/40 focus:border-forno transition-all duration-200 cursor-pointer" />
+          </div>
+          <div>
+            <label for="book-time" class="font-body text-xs font-semibold text-carbone/70 uppercase tracking-wide block mb-1.5">Orario</label>
+            <select id="book-time" name="orario" required
+              class="w-full font-body text-sm bg-white border border-crema rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-forno/40 focus:border-forno transition-all duration-200 cursor-pointer appearance-none">
+              <option value="" disabled selected>Scegli</option>
+              <optgroup label="Pranzo">
+                <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option>
+              </optgroup>
+              <optgroup label="Cena">
+                <option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="book-guests" class="font-body text-xs font-semibold text-carbone/70 uppercase tracking-wide block mb-1.5">Numero di persone</label>
+          <div class="flex gap-2">
+            <button type="button" onclick="changeGuests(-1)" class="cursor-pointer w-11 h-11 rounded-xl border border-crema bg-white font-body font-semibold text-lg hover:border-forno hover:text-forno transition-all duration-200 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/></svg>
+            </button>
+            <input type="number" id="book-guests" name="persone" min="1" max="20" value="2" readonly
+              class="flex-1 font-body text-center font-semibold text-carbone bg-white border border-crema rounded-xl px-4 py-3 focus:outline-none" />
+            <button type="button" onclick="changeGuests(1)" class="cursor-pointer w-11 h-11 rounded-xl border border-crema bg-white font-body font-semibold text-lg hover:border-forno hover:text-forno transition-all duration-200 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label for="book-note" class="font-body text-xs font-semibold text-carbone/70 uppercase tracking-wide block mb-1.5">Note (allergie, occasioni speciali)</label>
+          <textarea id="book-note" name="note" rows="2" placeholder="Es. compleanno, posto in terrazza, intolleranza al glutine..."
+            class="w-full font-body text-sm bg-white border border-crema rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-forno/40 focus:border-forno transition-all duration-200 resize-none placeholder:text-carbone/30"></textarea>
+        </div>
+
+        <button type="submit" class="cursor-pointer w-full bg-forno text-pergamena font-body font-semibold py-4 rounded-xl hover:bg-forno/90 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg mt-2">
+          Conferma prenotazione
+        </button>
+
+        <p class="font-body text-xs text-center text-carbone/50">
+          Oppure chiama il <a href="tel:+390985123456" class="text-forno hover:underline cursor-pointer">0985 12 34 56</a> o scrivici su WhatsApp.
+        </p>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════ -->
+  <script>
+    // ── Parallax hero ──────────────────────────────────
+    const heroParallax = document.getElementById('hero-parallax');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          heroParallax.style.transform = `translateY(${y * 0.4}px) scale(1.1)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // ── Scroll reveal ──────────────────────────────────
+    const reveals = document.querySelectorAll('.reveal, .reveal-stagger');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Trigger hero reveals on load
+    document.querySelectorAll('.hero-bg ~ * .reveal, section:first-of-type .reveal').forEach(el => {
+      setTimeout(() => el.classList.add('visible'), 200);
+    });
+    document.querySelectorAll('section:first-of-type .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 300 + i * 150);
+    });
+
+    // ── Menu filter ────────────────────────────────────
+    function filterMenu(cat) {
+      const cards = document.querySelectorAll('.menu-card');
+      const tabs  = document.querySelectorAll('.tab-btn');
+
+      tabs.forEach(t => {
+        t.classList.remove('bg-forno', 'text-pergamena', 'border-forno', 'active-tab');
+        t.classList.add('border-crema', 'text-carbone/70');
+      });
+
+      const activeTab = document.getElementById('tab-' + cat);
+      if (activeTab) {
+        activeTab.classList.add('bg-forno', 'text-pergamena', 'border-forno', 'active-tab');
+        activeTab.classList.remove('border-crema', 'text-carbone/70');
+      }
+
+      cards.forEach(card => {
+        const show = cat === 'all' || card.dataset.cat === cat;
+        card.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+        if (show) {
+          card.style.opacity = '1';
+          card.style.transform = '';
+          card.style.display = '';
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          setTimeout(() => { if (card.style.opacity === '0') card.style.display = 'none'; }, 250);
+        }
+      });
+    }
+
+    // ── Booking modal ──────────────────────────────────
+    const modal = document.getElementById('booking-modal');
+
+    function openBooking() {
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      // Set min date to today
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('book-date').min = today;
+    }
+
+    function closeBooking() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeBooking();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeBooking();
+    });
+
+    function changeGuests(delta) {
+      const input = document.getElementById('book-guests');
+      const val = parseInt(input.value) + delta;
+      if (val >= 1 && val <= 20) input.value = val;
+    }
+
+    function submitBooking(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type=submit]');
+      btn.textContent = 'Prenotazione confermata!';
+      btn.classList.remove('bg-forno');
+      btn.classList.add('bg-basilico');
+      btn.disabled = true;
+      setTimeout(() => {
+        closeBooking();
+        btn.textContent = 'Conferma prenotazione';
+        btn.classList.add('bg-forno');
+        btn.classList.remove('bg-basilico');
+        btn.disabled = false;
+        e.target.reset();
+        document.getElementById('book-guests').value = 2;
+      }, 2200);
+    }
+  </script>
+
+</body>
+</html>
