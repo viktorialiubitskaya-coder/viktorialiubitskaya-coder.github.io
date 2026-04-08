@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Perla del Tirreno — Ristorante di Pesce · Scalea (CS)</title>
+  <meta name="description" content="La Perla del Tirreno — ristorante di pesce sul mare, terrazza fronte mare sul Corso Mediterraneo di Scalea. Paccheri alla Gitana, pesce fresco. ★4.4 Google." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            profondo: '#09192E',
+            abisso:   '#0E2540',
+            tirreno:  '#1B4F72',
+            azzurro:  '#2E86C1',
+            schiuma:  '#A9CCE3',
+            sabbia:   '#F2E8D0',
+            crema:    '#FAF7F2',
+            oro:      '#C9843A',
+            testo:    '#1A2530',
+            mid:      '#5B7A8C',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            body:    ['"DM Sans"', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: #FAF7F2; color: #1A2530; -webkit-font-smoothing: antialiased; }
+
+    /* ── Hero parallax bg ────────────────── */
+    #hero-bg {
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&auto=format&fit=crop') center 30% / cover no-repeat;
+      position: absolute; inset: 0;
+      will-change: transform;
+    }
+
+    /* ── Menu tabs ───────────────────────── */
+    .menu-tab { border: 1px solid rgba(255,255,255,0.15); color: #A9CCE3; }
+    .menu-tab.active { background: #C9843A !important; border-color: #C9843A !important; color: white !important; }
+    .menu-tab-content { display: none; }
+    .menu-tab-content.active { display: block; }
+
+    /* ── Scroll reveal ───────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1);
+    }
+    .reveal.up { opacity: 1; transform: none; }
+    .stagger > * {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .6s cubic-bezier(.4,0,.2,1), transform .6s cubic-bezier(.4,0,.2,1);
+    }
+    .stagger.up > *:nth-child(1) { opacity:1; transform:none; }
+    .stagger.up > *:nth-child(2) { opacity:1; transform:none; transition-delay:.1s; }
+    .stagger.up > *:nth-child(3) { opacity:1; transform:none; transition-delay:.2s; }
+
+    /* ── Lang switcher ───────────────────── */
+    .lang-active { background: #C9843A; color: white; }
+
+    /* ── Mobile nav ──────────────────────── */
+    #mob-nav { display: none; }
+    #mob-nav.open { display: block; }
+
+    /* ── Gallery hover ───────────────────── */
+    .gal-img { transition: transform .4s ease, filter .4s ease; }
+    .gal-item:hover .gal-img { transform: scale(1.06); filter: saturate(1.2) brightness(1.04); }
+
+    /* ── WhatsApp pulse ──────────────────── */
+    @keyframes wa-ring {
+      0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,.5); }
+      60%     { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+    }
+    .wa-pulse { animation: wa-ring 2.2s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .stagger > * { transition: none; opacity: 1; transform: none; }
+      #hero-bg { transition: none !important; }
+      .wa-pulse { animation: none; }
+    }
+  </style>
+</head>
+
+<body class="bg-crema text-testo">
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav class="fixed top-3 left-3 right-3 z-50 flex items-center justify-between px-5 py-3 rounded-2xl backdrop-blur-md border border-white/10 shadow-2xl"
+     style="background:rgba(9,25,46,0.88)">
+
+  <a href="#" class="font-display text-crema text-lg font-light italic tracking-wide leading-none shrink-0">
+    La Perla del Tirreno
+  </a>
+
+  <ul class="hidden lg:flex items-center gap-6 font-body text-sm font-medium text-schiuma/80">
+    <li><a href="#menu"     class="hover:text-crema transition-colors cursor-pointer" data-it="Menù"       data-en="Menu">Menù</a></li>
+    <li><a href="#storia"   class="hover:text-crema transition-colors cursor-pointer" data-it="Chi siamo"  data-en="About">Chi siamo</a></li>
+    <li><a href="#terrazza" class="hover:text-crema transition-colors cursor-pointer" data-it="Terrazza"   data-en="Terrace">Terrazza</a></li>
+    <li><a href="#dove"     class="hover:text-crema transition-colors cursor-pointer" data-it="Dove siamo" data-en="Find us">Dove siamo</a></li>
+  </ul>
+
+  <div class="flex items-center gap-2 shrink-0">
+    <div class="hidden sm:flex gap-1 rounded-full p-1 text-xs font-body font-bold" style="background:rgba(255,255,255,0.1)">
+      <button id="btn-it" onclick="setLang('it')" class="lang-active cursor-pointer px-3 py-1 rounded-full transition-all duration-200">IT</button>
+      <button id="btn-en" onclick="setLang('en')" class="cursor-pointer px-3 py-1 rounded-full transition-all duration-200 text-schiuma hover:text-white">EN</button>
+    </div>
+    <a href="https://wa.me/393899679391?text=Buonasera!%20Vorrei%20prenotare%20un%20tavolo%20alla%20Perla%20del%20Tirreno."
+       target="_blank" rel="noopener noreferrer"
+       class="cursor-pointer hidden md:block font-body font-semibold text-sm px-5 py-2 rounded-full text-testo transition-all duration-200 hover:opacity-90"
+       style="background:#C9843A"
+       data-it="Prenota" data-en="Reserve">Prenota</a>
+    <button onclick="toggleNav()" class="lg:hidden cursor-pointer w-9 h-9 flex flex-col justify-center items-center gap-1.5" aria-label="Menu">
+      <span class="w-5 h-0.5 bg-crema rounded-full"></span>
+      <span class="w-5 h-0.5 bg-crema rounded-full"></span>
+      <span class="w-4 h-0.5 bg-crema rounded-full"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div id="mob-nav" class="fixed top-20 left-3 right-3 z-40 rounded-2xl shadow-2xl p-6 backdrop-blur-md border border-white/10"
+     style="background:rgba(9,25,46,0.97)">
+  <ul class="space-y-4 font-body font-semibold text-base">
+    <li><a href="#menu"     onclick="toggleNav()" class="block text-crema/80 hover:text-crema transition-colors cursor-pointer" data-it="Menù"       data-en="Menu">Menù</a></li>
+    <li><a href="#storia"   onclick="toggleNav()" class="block text-crema/80 hover:text-crema transition-colors cursor-pointer" data-it="Chi siamo"  data-en="About">Chi siamo</a></li>
+    <li><a href="#terrazza" onclick="toggleNav()" class="block text-crema/80 hover:text-crema transition-colors cursor-pointer" data-it="Terrazza"   data-en="Terrace">Terrazza</a></li>
+    <li><a href="#dove"     onclick="toggleNav()" class="block text-crema/80 hover:text-crema transition-colors cursor-pointer" data-it="Dove siamo" data-en="Find us">Dove siamo</a></li>
+    <li class="pt-2 border-t border-white/10 flex gap-2">
+      <button id="mob-btn-it" onclick="setLang('it');toggleNav()" class="lang-active cursor-pointer text-xs px-4 py-2 rounded-full font-bold">IT</button>
+      <button id="mob-btn-en" onclick="setLang('en');toggleNav()" class="cursor-pointer text-xs px-4 py-2 rounded-full font-bold border border-schiuma/30 text-schiuma">EN</button>
+    </li>
+  </ul>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     HERO — Cinematic fullscreen
+══════════════════════════════════════ -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  <div id="hero-bg"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-profondo/75 via-profondo/35 to-profondo/85"></div>
+  <div class="absolute inset-0" style="background:radial-gradient(ellipse at center, transparent 35%, rgba(9,25,46,0.55) 100%)"></div>
+
+  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+
+    <!-- Rating badge -->
+    <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full mb-8 reveal"
+         style="background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.14)">
+      <div class="flex text-oro gap-px">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="w-4 h-4 fill-current opacity-45" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <span class="font-body text-crema text-sm font-semibold">4.4</span>
+      <span class="font-body text-crema/65 text-xs" data-it="· 685 recensioni Google" data-en="· 685 Google reviews">· 685 recensioni Google</span>
+    </div>
+
+    <h1 class="font-display text-crema leading-[1.0] mb-4 reveal" style="transition-delay:.1s">
+      <span class="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light italic tracking-wide">La Perla</span>
+      <span class="block text-2xl sm:text-3xl md:text-4xl font-light tracking-[.22em] uppercase mt-2"
+            style="color:#A9CCE3">del Tirreno</span>
+    </h1>
+
+    <p class="font-display text-crema/75 text-lg md:text-xl font-light italic mb-10 reveal" style="transition-delay:.2s"
+       data-it="Pesce fresco ogni giorno — terrazza sul mare — Scalea"
+       data-en="Fresh seafood daily — sea terrace — Scalea">
+      Pesce fresco ogni giorno — terrazza sul mare — Scalea
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4 reveal" style="transition-delay:.3s">
+      <a href="#menu"
+         class="cursor-pointer font-body font-semibold text-base px-8 py-3.5 rounded-full text-testo transition-all duration-200 hover:opacity-90 shadow-lg"
+         style="background:#C9843A"
+         data-it="Scopri il Menù" data-en="View Menu">Scopri il Menù</a>
+      <a href="https://wa.me/393899679391?text=Buonasera!%20Vorrei%20prenotare%20un%20tavolo."
+         target="_blank" rel="noopener noreferrer"
+         class="cursor-pointer font-body font-semibold text-base px-8 py-3.5 rounded-full text-crema border border-crema/35 hover:border-crema hover:bg-white/10 transition-all duration-200"
+         data-it="Prenota ora" data-en="Reserve now">Prenota ora</a>
+    </div>
+
+    <p class="font-body text-crema/40 text-sm mt-9 reveal" style="transition-delay:.4s">
+      <svg class="w-3.5 h-3.5 fill-current inline mr-1 -mt-0.5" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Corso Mediterraneo, Scalea (CS)
+    </p>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-40">
+    <svg class="w-7 h-7 text-crema animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+<!-- Wave: hero dark → crema light -->
+<div style="background:#09192E;margin-bottom:-2px">
+  <svg viewBox="0 0 1440 64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%">
+    <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" fill="#FAF7F2"/>
+  </svg>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     CHI SIAMO
+══════════════════════════════════════ -->
+<section id="storia" class="py-20 md:py-28 px-6 bg-crema">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+      <!-- Text -->
+      <div class="reveal">
+        <span class="font-body text-xs font-semibold uppercase tracking-[.35em] text-oro block mb-4"
+              data-it="La nostra storia" data-en="Our story">La nostra storia</span>
+        <h2 class="font-display text-4xl md:text-5xl font-light italic text-testo leading-snug mb-6">
+          <span data-it="Una famiglia," data-en="A family,">Una famiglia,</span><br/>
+          <span data-it="il mare, la passione." data-en="the sea, the passion.">il mare, la passione.</span>
+        </h2>
+        <div class="space-y-4 font-body text-mid text-base leading-relaxed">
+          <p data-it="La Perla del Tirreno è un ristorante di famiglia: Antonella in cucina, Pasquale in sala. Sul Corso Mediterraneo di Scalea, con la terrazza affacciata direttamente sul Tirreno, ogni pasto si trasforma in un ricordo indelebile."
+             data-en="La Perla del Tirreno is a family restaurant: Antonella in the kitchen, Pasquale as maître d'. On Scalea's Corso Mediterraneo, with the terrace overlooking the Tyrrhenian Sea, every meal becomes an unforgettable memory.">
+            La Perla del Tirreno è un ristorante di famiglia: Antonella in cucina, Pasquale in sala. Sul Corso Mediterraneo di Scalea, con la terrazza affacciata direttamente sul Tirreno, ogni pasto si trasforma in un ricordo indelebile.
+          </p>
+          <p data-it="Il pescato del giorno arriva dai pescatori locali ogni mattina. I piatti vengono curati con impiattamento da ristorante gourmet, rispettando i sapori autentici del Mediterraneo. Cucina tradizionale calabrese reinventata con creatività."
+             data-en="The day's catch comes from local fishermen every morning. Dishes are presented with fine dining care, honoring the authentic flavors of the Mediterranean. Traditional Calabrian cuisine reinvented with creativity.">
+            Il pescato del giorno arriva dai pescatori locali ogni mattina. I piatti vengono curati con impiattamento da ristorante gourmet, rispettando i sapori autentici del Mediterraneo. Cucina tradizionale calabrese reinventata con creatività.
+          </p>
+        </div>
+
+        <!-- People badges -->
+        <div class="flex flex-wrap gap-3 mt-8">
+          <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-full border-2" style="border-color:#F2E8D0;background:#F2E8D050">
+            <div class="w-7 h-7 rounded-full flex items-center justify-center" style="background:#C9843A">
+              <svg class="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+            <div>
+              <p class="font-body text-sm font-semibold text-testo leading-none">Antonella</p>
+              <p class="font-body text-xs text-mid" data-it="Proprietaria" data-en="Owner">Proprietaria</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-full border-2" style="border-color:#F2E8D0;background:#F2E8D050">
+            <div class="w-7 h-7 rounded-full flex items-center justify-center" style="background:#1B4F72">
+              <svg class="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+            <div>
+              <p class="font-body text-sm font-semibold text-testo leading-none">Pasquale</p>
+              <p class="font-body text-xs text-mid">Maître</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 px-4 py-2.5 rounded-full border-2" style="border-color:#F2E8D0;background:#F2E8D050">
+            <svg class="w-4 h-4 text-mid shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            <span class="font-body text-sm font-medium text-testo" data-it="Gestione familiare" data-en="Family run">Gestione familiare</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo -->
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="relative">
+          <div class="w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop"
+                 alt="La Perla del Tirreno — ristorante sul mare, Scalea"
+                 class="w-full h-full object-cover" loading="lazy"/>
+          </div>
+          <!-- Floating dark badge -->
+          <div class="absolute -bottom-5 -left-5 px-5 py-4 rounded-2xl shadow-2xl" style="background:#09192E">
+            <p class="font-display text-crema/80 text-xs italic" data-it="Pesce fresco ogni mattina" data-en="Fresh fish every morning">Pesce fresco ogni mattina</p>
+            <p class="font-body text-xs font-semibold mt-0.5" style="color:#C9843A" data-it="· dai pescatori di Scalea" data-en="· from Scalea's fishermen">· dai pescatori di Scalea</p>
+          </div>
+          <!-- GF badge -->
+          <div class="absolute -top-4 -right-4 w-16 h-16 rounded-full flex items-center justify-center text-center shadow-lg" style="background:#C9843A">
+            <span class="font-body text-white text-[10px] font-bold leading-tight">Gluten<br/>Free</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Wave: crema → profondo -->
+<div style="background:#FAF7F2;margin-bottom:-2px">
+  <svg viewBox="0 0 1440 64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;transform:scaleY(-1)">
+    <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" fill="#09192E"/>
+  </svg>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     IL MENÙ — Dark ocean section
+══════════════════════════════════════ -->
+<section id="menu" class="py-20 md:py-28 px-6" style="background:#09192E">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-14 reveal">
+      <span class="font-body text-xs font-semibold uppercase tracking-[.35em] block mb-3" style="color:#C9843A"
+            data-it="Sapori del Tirreno" data-en="Flavors of the Tyrrhenian">Sapori del Tirreno</span>
+      <h2 class="font-display text-5xl md:text-6xl font-light italic mb-3" style="color:#FAF7F2"
+          data-it="Il Menù" data-en="Our Menu">Il Menù</h2>
+      <p class="font-body text-schiuma/55 text-sm"
+         data-it="Prezzo medio €30–45 a persona · Gluten free disponibile · Parcheggio gratuito"
+         data-en="Average price €30–45 per person · Gluten free available · Free parking">
+        Prezzo medio €30–45 a persona · Gluten free disponibile · Parcheggio gratuito
+      </p>
+    </div>
+
+    <!-- Tab pills -->
+    <div class="flex flex-wrap justify-center gap-2 mb-10 reveal" style="transition-delay:.1s">
+      <button id="tab-antipasti" onclick="showMenuTab('antipasti')"
+              class="menu-tab active cursor-pointer font-body text-sm font-semibold px-5 py-2 rounded-full transition-all duration-200"
+              data-it="Antipasti" data-en="Starters">Antipasti</button>
+      <button id="tab-primi" onclick="showMenuTab('primi')"
+              class="menu-tab cursor-pointer font-body text-sm font-semibold px-5 py-2 rounded-full transition-all duration-200"
+              data-it="Primi" data-en="First Courses">Primi</button>
+      <button id="tab-secondi" onclick="showMenuTab('secondi')"
+              class="menu-tab cursor-pointer font-body text-sm font-semibold px-5 py-2 rounded-full transition-all duration-200"
+              data-it="Secondi" data-en="Main Courses">Secondi</button>
+      <button id="tab-dolci" onclick="showMenuTab('dolci')"
+              class="menu-tab cursor-pointer font-body text-sm font-semibold px-5 py-2 rounded-full transition-all duration-200"
+              data-it="Dolci" data-en="Desserts">Dolci</button>
+    </div>
+
+    <!-- ── ANTIPASTI ── -->
+    <div id="menu-antipasti" class="menu-tab-content active">
+      <div class="grid md:grid-cols-2 gap-3">
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Antipasto misto mare" data-en="Mixed seafood platter">Antipasto misto mare</p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Cozze ripiene" data-en="Stuffed mussels">Cozze ripiene</p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Moscardini alla Luciana" data-en="Moscardini alla Luciana">Moscardini alla Luciana</p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Gamberone grigliato su cipolle di Tropea caramellate" data-en="Grilled prawn on caramelized Tropea onions">Gamberone grigliato su cipolle di Tropea caramellate</p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Capesanta grigliata su crema di pomodoro" data-en="Grilled scallop on tomato cream">Capesanta grigliata su crema di pomodoro</p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Tartare di ricciola con salsa al mango" data-en="Amberjack tartare with mango sauce">Tartare di ricciola con salsa al mango</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── PRIMI ── -->
+    <div id="menu-primi" class="menu-tab-content">
+      <div class="grid md:grid-cols-2 gap-3">
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <div class="flex flex-wrap items-center gap-2 mb-0.5">
+            <p class="font-display text-crema text-xl font-light" data-it="Spaghetti alle vongole" data-en="Spaghetti with clams">Spaghetti alle vongole</p>
+            <span class="font-body text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0"
+                  style="background:rgba(201,132,58,0.18);color:#C9843A;border:1px solid rgba(201,132,58,0.3)"
+                  data-it="Il più citato" data-en="Most popular">Il più citato</span>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Spaghetti allo scoglio" data-en="Seafood spaghetti">Spaghetti allo scoglio</p>
+        </div>
+
+        <!-- Paccheri — signature, full width, highlighted -->
+        <div class="p-5 rounded-2xl md:col-span-2" style="background:rgba(201,132,58,0.10);border:1px solid rgba(201,132,58,0.35);border-left:3px solid #C9843A">
+          <div class="flex flex-wrap items-center gap-3 mb-2">
+            <p class="font-display text-crema text-2xl font-light italic">Paccheri alla Gitana</p>
+            <span class="font-body text-[10px] font-bold px-3 py-1 rounded-full" style="background:#C9843A;color:white"
+                  data-it="Piatto cult" data-en="Signature dish">Piatto cult</span>
+          </div>
+          <p class="font-body text-schiuma/55 text-sm"
+             data-it="Il piatto che ha reso famosa la Perla del Tirreno. Da non perdere."
+             data-en="The dish that put La Perla del Tirreno on the map. Not to be missed.">
+            Il piatto che ha reso famosa la Perla del Tirreno. Da non perdere.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Carbonara di mare" data-en="Seafood carbonara">Carbonara di mare</p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Risotto dentice e pistacchio" data-en="Sea bream and pistachio risotto">Risotto dentice e pistacchio</p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Gnocchi agli scampi" data-en="Gnocchi with scampi">Gnocchi agli scampi</p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Scialacedri con pomodorini, olive, capperi e alici" data-en="Scialacedri with cherry tomatoes, olives, capers and anchovies">Scialacedri con pomodorini, olive, capperi e alici</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── SECONDI ── -->
+    <div id="menu-secondi" class="menu-tab-content">
+      <div class="grid md:grid-cols-2 gap-3">
+
+        <!-- Pescato — highlighted, full width -->
+        <div class="p-5 rounded-2xl md:col-span-2" style="background:#0E2540;border-left:2px solid #2E86C1">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <p class="font-display text-crema text-xl font-light" data-it="Pescato del giorno" data-en="Catch of the day">Pescato del giorno</p>
+            <span class="font-body text-[10px] font-bold px-2 py-0.5 rounded-full"
+                  style="background:rgba(46,134,193,0.15);color:#A9CCE3;border:1px solid rgba(46,134,193,0.25)"
+                  data-it="Fresco · variabile" data-en="Fresh · seasonal">Fresco · variabile</span>
+          </div>
+          <p class="font-body text-schiuma/50 text-sm"
+             data-it="Branzino o orata — alla griglia o al forno, secondo disponibilità del mattino"
+             data-en="Seabass or sea bream — grilled or baked, subject to morning availability">
+            Branzino o orata — alla griglia o al forno, secondo disponibilità del mattino
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Polpo grigliato su crema di patate" data-en="Grilled octopus on potato cream">Polpo grigliato su crema di patate</p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Gran fritto misto" data-en="Grand mixed fry">Gran fritto misto</p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Salmone con cialda di patate croccante" data-en="Salmon with crispy potato wafer">Salmone con cialda di patate croccante</p>
+        </div>
+
+        <div class="p-5 rounded-2xl" style="background:#0E2540;border-left:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light" data-it="Tagliata di manzo con rucola e grana" data-en="Beef tagliata with rocket and parmesan">Tagliata di manzo con rucola e grana</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── DOLCI ── -->
+    <div id="menu-dolci" class="menu-tab-content">
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
+
+        <div class="p-6 rounded-2xl text-center" style="background:#0E2540;border-top:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light italic">Tiramisù</p>
+        </div>
+        <div class="p-6 rounded-2xl text-center" style="background:#0E2540;border-top:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light italic">Panna cotta</p>
+        </div>
+        <div class="p-6 rounded-2xl text-center" style="background:#0E2540;border-top:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light italic" data-it="Sorbetto al limone" data-en="Lemon sorbet">Sorbetto al limone</p>
+        </div>
+        <div class="p-6 rounded-2xl text-center" style="background:#0E2540;border-top:2px solid #C9843A">
+          <p class="font-display text-crema text-xl font-light italic">Cheesecake</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Wave: profondo → crema -->
+<div style="background:#09192E;margin-bottom:-2px">
+  <svg viewBox="0 0 1440 64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%">
+    <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" fill="#FAF7F2"/>
+  </svg>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     LA TERRAZZA — Full-bleed cinematic
+══════════════════════════════════════ -->
+<section id="terrazza" class="relative py-32 md:py-48 px-6 overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=1920&auto=format&fit=crop"
+         alt="Terrazza sul mare — La Perla del Tirreno"
+         class="w-full h-full object-cover" loading="lazy"/>
+    <div class="absolute inset-0 bg-gradient-to-r from-profondo/85 via-profondo/55 to-profondo/20"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-profondo/60 via-transparent to-transparent"></div>
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto reveal">
+    <span class="font-body text-xs font-semibold uppercase tracking-[.35em] block mb-4" style="color:#A9CCE3;opacity:.8"
+          data-it="La nostra terrazza" data-en="Our terrace">La nostra terrazza</span>
+    <h2 class="font-display text-5xl md:text-6xl lg:text-7xl font-light italic text-crema leading-snug mb-6 max-w-2xl"
+        data-it="Il tramonto più bello di Scalea" data-en="Scalea's most beautiful sunset">
+      Il tramonto più bello di Scalea
+    </h2>
+    <p class="font-body text-crema/65 text-lg leading-relaxed mb-8 max-w-md"
+       data-it="Direttamente affacciata sul Mar Tirreno. Per cene romantiche, anniversari, e occasioni che meritano un panorama da sogno."
+       data-en="Directly overlooking the Tyrrhenian Sea. For romantic dinners, anniversaries, and occasions that deserve a dream view.">
+      Direttamente affacciata sul Mar Tirreno. Per cene romantiche, anniversari, e occasioni che meritano un panorama da sogno.
+    </p>
+    <a href="https://wa.me/393899679391?text=Buonasera!%20Vorrei%20prenotare%20un%20tavolo%20in%20terrazza."
+       target="_blank" rel="noopener noreferrer"
+       class="cursor-pointer inline-flex items-center gap-2 font-body font-semibold text-base px-7 py-3.5 rounded-full text-testo transition-all duration-200 hover:opacity-90 shadow-xl"
+       style="background:#C9843A"
+       data-it="Prenota in terrazza" data-en="Book a terrace table">Prenota in terrazza</a>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     GALLERY
+══════════════════════════════════════ -->
+<section class="py-20 md:py-28 px-6 bg-crema">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-12 reveal">
+      <span class="font-body text-xs font-semibold uppercase tracking-[.35em] text-oro block mb-3"
+            data-it="La nostra tavola" data-en="Our table">La nostra tavola</span>
+      <h2 class="font-display text-4xl md:text-5xl font-light italic text-testo"
+          data-it="Mare, sapori, emozioni" data-en="Sea, flavors, emotions">Mare, sapori, emozioni</h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 reveal">
+
+      <div class="gal-item overflow-hidden rounded-2xl row-span-2 cursor-pointer" style="min-height:280px">
+        <img src="https://images.unsplash.com/photo-1559742811-822873691df8?q=80&w=600&auto=format&fit=crop"
+             alt="Piatto di pesce" class="gal-img w-full h-full object-cover" loading="lazy" style="min-height:280px"/>
+      </div>
+
+      <div class="gal-item overflow-hidden rounded-2xl cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600&auto=format&fit=crop"
+             alt="Vista mare tramonto Scalea" class="gal-img w-full h-48 object-cover" loading="lazy"/>
+      </div>
+
+      <div class="gal-item overflow-hidden rounded-2xl cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1551183053-bf91b7cb34a0?q=80&w=600&auto=format&fit=crop"
+             alt="Pasta ai frutti di mare" class="gal-img w-full h-48 object-cover" loading="lazy"/>
+      </div>
+
+      <div class="gal-item overflow-hidden rounded-2xl cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?q=80&w=600&auto=format&fit=crop"
+             alt="Polpo grigliato" class="gal-img w-full h-48 object-cover" loading="lazy"/>
+      </div>
+
+      <div class="gal-item overflow-hidden rounded-2xl col-span-1 cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=600&auto=format&fit=crop"
+             alt="Piatti gourmet del mare" class="gal-img w-full h-48 object-cover" loading="lazy"/>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     RECENSIONI
+══════════════════════════════════════ -->
+<section class="py-16 md:py-24 px-6" style="background:#F2E8D0">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-10 reveal">
+      <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full mb-3"
+           style="background:rgba(201,132,58,0.1);border:1px solid rgba(201,132,58,0.22)">
+        <div class="flex text-oro gap-px">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-5 h-5 fill-current opacity-45" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="font-display font-semibold text-testo text-xl">4.4</span>
+        <span class="font-body text-mid text-sm" data-it="· 685 recensioni" data-en="· 685 reviews">· 685 recensioni</span>
+      </div>
+      <a href="https://maps.google.com/?q=La+Perla+del+Tirreno+Scalea+CS" target="_blank" rel="noopener noreferrer"
+         class="cursor-pointer block font-body text-xs text-mid hover:text-oro underline underline-offset-2 transition-colors duration-200"
+         data-it="Leggi tutte le recensioni su Google →" data-en="Read all reviews on Google →">
+        Leggi tutte le recensioni su Google →
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 stagger">
+
+      <!-- EN -->
+      <div class="bg-white/75 border border-sabbia rounded-2xl p-6 shadow-sm">
+        <div class="flex text-oro mb-3 gap-px">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="font-body text-sm text-mid leading-relaxed mb-4">
+          "The Paccheri alla Gitana is an experience you don't forget. The terrace at sunset was pure magic. Pasquale made us feel like family from the moment we arrived. Best seafood of the whole trip."
+        </p>
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center text-white font-body font-bold text-xs shrink-0" style="background:#1B4F72">EH</div>
+          <div><p class="font-body text-xs font-bold text-testo">Emma H.</p><p class="font-body text-xs text-mid">London, UK · Google</p></div>
+        </div>
+      </div>
+
+      <!-- IT -->
+      <div class="bg-white/75 border border-sabbia rounded-2xl p-6 shadow-sm">
+        <div class="flex text-oro mb-3 gap-px">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="font-body text-sm text-mid leading-relaxed mb-4">
+          "I Paccheri alla Gitana sono leggendari, impossibile trovarli altrove così buoni. Vista mare mozzafiato, servizio impeccabile. Antonella è straordinaria. Torneremo sicuramente ogni estate."
+        </p>
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center text-white font-body font-bold text-xs shrink-0" style="background:#C9843A">MR</div>
+          <div><p class="font-body text-xs font-bold text-testo">Marco R.</p><p class="font-body text-xs text-mid">Napoli · Google</p></div>
+        </div>
+      </div>
+
+      <!-- DE -->
+      <div class="bg-white/75 border border-sabbia rounded-2xl p-6 shadow-sm">
+        <div class="flex text-oro mb-3 gap-px">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="w-4 h-4 fill-current opacity-35" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="font-body text-sm text-mid leading-relaxed mb-4">
+          "Wunderschönes Restaurant direkt am Meer! Die gegrillten Garnelen auf karamellisierten Zwiebeln waren außergewöhnlich. Sonnenuntergang auf der Terrasse — absolut romantisch. Sehr zu empfehlen!"
+        </p>
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center text-testo font-body font-bold text-xs shrink-0" style="background:#A9CCE3">HK</div>
+          <div><p class="font-body text-xs font-bold text-testo">Hans K.</p><p class="font-body text-xs text-mid">Frankfurt, DE · Google</p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     DOVE SIAMO + ORARI
+══════════════════════════════════════ -->
+<section id="dove" class="py-20 md:py-28 px-6 bg-crema">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-14 reveal">
+      <span class="font-body text-xs font-semibold uppercase tracking-[.35em] text-oro block mb-3"
+            data-it="Vieni a trovarci" data-en="Come visit us">Vieni a trovarci</span>
+      <h2 class="font-display text-4xl md:text-5xl font-light italic text-testo"
+          data-it="Dove siamo" data-en="Find us">Dove siamo</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+
+      <!-- Map -->
+      <div class="reveal rounded-3xl overflow-hidden shadow-xl border-2 border-sabbia">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=15.784,39.818,15.800,39.827&layer=mapnik&marker=39.8215,15.7920"
+          class="w-full h-64 md:h-80 border-0"
+          title="La Perla del Tirreno — Corso Mediterraneo, Scalea"
+          loading="lazy" allowfullscreen>
+        </iframe>
+        <div class="p-4 bg-white flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style="background:#09192E">
+            <svg class="w-5 h-5 fill-current" style="color:#FAF7F2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <p class="font-body font-bold text-testo text-sm">Corso Mediterraneo</p>
+            <p class="font-body text-mid text-xs">87029 Scalea (CS), Calabria</p>
+          </div>
+          <a href="https://maps.google.com/?q=La+Perla+del+Tirreno+Corso+Mediterraneo+Scalea" target="_blank" rel="noopener noreferrer"
+             class="cursor-pointer ml-auto font-body text-xs font-bold hover:underline transition-colors"
+             style="color:#C9843A"
+             data-it="Indicazioni" data-en="Directions">Indicazioni</a>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="space-y-4 reveal" style="transition-delay:.15s">
+
+        <!-- Orari -->
+        <div class="bg-white rounded-2xl border-2 border-sabbia p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background:rgba(201,132,58,0.1)">
+              <svg class="w-5 h-5" style="color:#C9843A" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <p class="font-body font-bold text-testo" data-it="Orari di apertura" data-en="Opening hours">Orari di apertura</p>
+          </div>
+          <div class="space-y-2 font-body text-sm">
+            <div class="flex justify-between items-center gap-4">
+              <span class="text-mid" data-it="Tutti i giorni" data-en="Every day">Tutti i giorni</span>
+              <span class="font-semibold text-testo">11:00–15:00 &nbsp;/&nbsp; 19:00–24:00</span>
+            </div>
+            <p class="text-xs text-mid/60 mt-1" data-it="Aperto tutto l'anno" data-en="Open all year round">Aperto tutto l'anno</p>
+          </div>
+        </div>
+
+        <!-- Contatti -->
+        <div class="bg-white rounded-2xl border-2 border-sabbia p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background:rgba(27,79,114,0.1)">
+              <svg class="w-5 h-5 text-tirreno" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <p class="font-body font-bold text-testo" data-it="Contatti" data-en="Contact">Contatti</p>
+          </div>
+          <a href="tel:+393899679391" class="cursor-pointer font-body text-lg font-bold text-testo hover:text-oro transition-colors block">+39 389 967 9391</a>
+          <a href="mailto:laperladeltirreno@gmail.com" class="cursor-pointer font-body text-sm text-mid hover:text-oro transition-colors block mt-1">laperladeltirreno@gmail.com</a>
+        </div>
+
+        <!-- Info pills -->
+        <div class="bg-white rounded-2xl border-2 border-sabbia p-5 shadow-sm">
+          <div class="grid grid-cols-2 gap-3 font-body text-sm">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-mid shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <span class="text-mid" data-it="Parcheggio gratuito" data-en="Free parking">Parcheggio gratuito</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-mid shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <span class="text-mid">Gluten Free</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-mid shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              <span class="text-mid">€30–45 p.p.</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-mid shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+              <span class="text-mid" data-it="Terrazza sul mare" data-en="Seafront terrace">Terrazza sul mare</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp CTA -->
+        <a href="https://wa.me/393899679391?text=Buonasera!%20Vorrei%20prenotare%20un%20tavolo%20alla%20Perla%20del%20Tirreno."
+           target="_blank" rel="noopener noreferrer"
+           class="cursor-pointer flex items-center gap-3 rounded-2xl p-4 border-2 border-green-200 bg-green-50 hover:border-green-400 transition-all duration-200">
+          <div class="w-10 h-10 rounded-xl bg-green-500 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div>
+            <p class="font-body font-bold text-green-800 text-sm" data-it="Prenota via WhatsApp" data-en="Book via WhatsApp">Prenota via WhatsApp</p>
+            <p class="font-body text-green-600 text-xs">+39 389 967 9391</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="bg-profondo text-crema py-14 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-8 mb-10">
+
+      <div>
+        <p class="font-display text-2xl font-light italic text-crema mb-1">La Perla del Tirreno</p>
+        <p class="font-body text-sm leading-relaxed" style="opacity:.5">
+          Corso Mediterraneo<br/>87029 Scalea (CS), Calabria
+        </p>
+      </div>
+
+      <div>
+        <p class="font-body text-xs font-bold uppercase tracking-widest mb-3" style="color:#C9843A"
+           data-it="I nostri piatti" data-en="Our dishes">I nostri piatti</p>
+        <ul class="space-y-1 font-body text-sm" style="opacity:.55">
+          <li>Paccheri alla Gitana</li>
+          <li data-it="Pescato del giorno" data-en="Fresh catch of the day">Pescato del giorno</li>
+          <li data-it="Spaghetti alle vongole" data-en="Spaghetti with clams">Spaghetti alle vongole</li>
+          <li data-it="Tartare di ricciola" data-en="Amberjack tartare">Tartare di ricciola</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-body text-xs font-bold uppercase tracking-widest mb-3" style="color:#C9843A"
+           data-it="Contatti" data-en="Contact">Contatti</p>
+        <div class="space-y-1.5 font-body text-sm" style="opacity:.55">
+          <a href="tel:+393899679391"            class="cursor-pointer block hover:opacity-100 transition-opacity">+39 389 967 9391</a>
+          <a href="mailto:laperladeltirreno@gmail.com" class="cursor-pointer block hover:opacity-100 transition-opacity">laperladeltirreno@gmail.com</a>
+          <a href="https://wa.me/393899679391"   class="cursor-pointer block hover:opacity-100 transition-opacity" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <div class="flex text-oro gap-px pt-1">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg class="w-3.5 h-3.5 fill-current opacity-35" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="text-xs ml-1" style="opacity:.6">4.4 · 685 Google</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/[0.08] pt-7 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p class="font-body text-xs" style="opacity:.3">© 2025 La Perla del Tirreno · Scalea (CS)</p>
+      <p class="font-body text-xs" style="opacity:.3" data-it="Ristorante di pesce · Terrazza sul Tirreno" data-en="Seafood restaurant · Tyrrhenian terrace">Ristorante di pesce · Terrazza sul Tirreno</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════
+     WhatsApp FAB
+══════════════════════════════════════ -->
+<a href="https://wa.me/393899679391?text=Buonasera!%20Vorrei%20informazioni%20o%20prenotare%20un%20tavolo%20alla%20Perla%20del%20Tirreno."
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Prenota via WhatsApp"
+   class="wa-pulse cursor-pointer fixed bottom-6 right-6 z-[60] w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-200 active:scale-95">
+  <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+  // ── Language switcher ────────────────────────────────
+  let lang = 'it';
+  function setLang(l) {
+    lang = l;
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-it]').forEach(el => {
+      el.textContent = el.dataset[l] || el.dataset.it;
+    });
+    ['btn-it','btn-en','mob-btn-it','mob-btn-en'].forEach(id => {
+      const b = document.getElementById(id);
+      if (!b) return;
+      b.classList.remove('lang-active');
+      if (id === 'btn-' + l || id === 'mob-btn-' + l) b.classList.add('lang-active');
+    });
+  }
+
+  // ── Mobile nav ───────────────────────────────────────
+  function toggleNav() {
+    document.getElementById('mob-nav').classList.toggle('open');
+  }
+
+  // ── Menu tabs ────────────────────────────────────────
+  function showMenuTab(tab) {
+    document.querySelectorAll('.menu-tab-content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
+    const content = document.getElementById('menu-' + tab);
+    const btn     = document.getElementById('tab-'   + tab);
+    if (content) content.classList.add('active');
+    if (btn)     btn.classList.add('active');
+  }
+
+  // ── Hero parallax ────────────────────────────────────
+  const heroBg = document.getElementById('hero-bg');
+  let raf = false;
+  window.addEventListener('scroll', () => {
+    if (!raf) {
+      requestAnimationFrame(() => {
+        if (heroBg) heroBg.style.transform = `translateY(${window.scrollY * 0.38}px)`;
+        raf = false;
+      });
+      raf = true;
+    }
+  }, { passive: true });
+
+  // ── Scroll reveal ────────────────────────────────────
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('up'); ro.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -48px 0px' });
+  document.querySelectorAll('.reveal, .stagger').forEach(el => ro.observe(el));
+
+  // Hero elements trigger on load
+  document.querySelectorAll('section:first-of-type .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('up'), 300 + i * 130);
+  });
+</script>
+
+</body>
+</html>
