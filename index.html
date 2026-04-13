@@ -225,7 +225,7 @@ function renderShowcase(){
       <div class="card-img">
         <span class="badge">${l.type}</span>
         ${l.rating ? `<span class="rating">★ ${l.rating}</span>` : ''}
-        ${PREVIEWS.has(l.id) ? `<img class="preview" src="${l.url}preview.jpg" alt="${l.name}" loading="lazy">` : `<div class="icon">${initial(l.name)}</div>`}
+        ${PREVIEWS.has(l.id) ? `<img class="preview" src="${l.id}/preview.jpg" alt="${l.name}" loading="lazy">` : `<div class="icon">${initial(l.name)}</div>`}
       </div>
       <div class="card-body">
         <h3>${l.name}</h3>
