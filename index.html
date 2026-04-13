@@ -150,9 +150,22 @@
   .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:#15171c;color:#fff;padding:12px 22px;border-radius:999px;font-size:14px;font-weight:500;z-index:200;opacity:0;transition:all .3s}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
+  /* Admin compact layout */
+  .admin .lead{padding:12px 14px}
+  .admin .lead-head{align-items:center;gap:12px}
+  .admin .lead-name{font-size:15px}
+  .admin .lead-meta{margin-top:2px;font-size:12.5px;flex-wrap:nowrap;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;gap:6px}
+  .admin .lead-meta span{flex-shrink:0}
+  .admin .lead-actions{margin-top:10px;flex-wrap:nowrap}
+  .admin .lead-actions .btn{flex:1;min-width:0;min-height:38px;padding:8px 12px;font-size:13px}
+  .admin select.status{appearance:none;-webkit-appearance:none;padding:5px 22px 5px 10px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M2 4l3 3 3-3' stroke='currentColor' fill='none' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right 6px center;flex-shrink:0;max-width:140px}
+  .admin .saved-info{margin-top:6px;padding:6px 10px;font-size:12.5px}
+
   @media(max-width:600px){
     .wrap{padding:0 18px}
     .lead-actions .btn{flex:1 1 calc(50% - 3px);min-width:0}
+    .admin .lead-meta{white-space:normal;flex-wrap:wrap}
+    .admin select.status{max-width:120px;font-size:11px}
   }
 </style>
 </head>
