@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Your Dream — Ristrutturazioni Premium · Scalea · Calabria</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080808;--s1:#0F0F0F;--s2:#141414;--s3:#1A1A1A;
+  --border:#252525;--border2:#303030;
+  --gold:#C9A96E;--gold2:#E8C98A;--golddim:rgba(201,169,110,.12);--goldmid:rgba(201,169,110,.35);
+  --white:#F5F3EE;--muted:#7A7570;--muted2:#4A4540;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;opacity:.025;pointer-events:none;z-index:9999;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* WHATSAPP */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:500;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;box-shadow:0 4px 24px rgba(37,211,102,.4);animation:wap 3s ease infinite;text-decoration:none;transition:transform .2s}
+.wa-float:hover{transform:scale(1.1)}
+@keyframes wap{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,.4)}50%{box-shadow:0 4px 40px rgba(37,211,102,.7)}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 56px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,8,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.04);transition:all .3s}
+.nav-logo{font-family:'Cormorant',serif;font-size:22px;font-weight:400;letter-spacing:.08em;color:var(--white)}
+.nav-logo span{color:var(--gold);font-style:italic}
+.nav-links{display:flex;gap:36px}
+.nav-links a{color:var(--white);text-decoration:none;font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.55;transition:opacity .2s;font-weight:400}
+.nav-links a:hover{opacity:1}
+.nav-cta{background:var(--gold);color:var(--bg);border:none;padding:11px 26px;font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.nav-cta:hover{background:var(--gold2);transform:translateY(-1px)}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg-img{position:absolute;inset:0}
+.hero-bg-img img{width:100%;height:100%;object-fit:cover;opacity:.22;display:block;filter:saturate(.8)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(8,8,8,.97) 0%,rgba(8,8,8,.8) 50%,rgba(8,8,8,.4) 100%)}
+.hero-line{position:absolute;top:0;bottom:0;left:55%;width:1px;background:linear-gradient(to bottom,transparent,var(--gold),transparent);opacity:.2}
+.hero-content{position:relative;z-index:2;padding:120px 56px 80px;max-width:720px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:var(--golddim);border:1px solid var(--goldmid);padding:7px 18px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:32px;opacity:0;animation:fu .8s ease .3s forwards}
+.hbd{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:hbp 2s infinite}
+@keyframes hbp{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-title{font-family:'Cormorant',serif;font-size:clamp(52px,7.5vw,96px);font-weight:300;line-height:.97;margin-bottom:12px;opacity:0;animation:fu .8s ease .5s forwards}
+.hero-title em{font-style:italic;color:var(--gold);display:block}
+.hero-slogan{font-family:'Cormorant',serif;font-size:clamp(20px,3vw,32px);font-weight:300;font-style:italic;color:rgba(245,243,238,.4);letter-spacing:.06em;margin-bottom:32px;opacity:0;animation:fu .8s ease .7s forwards}
+.hero-desc{font-size:15px;line-height:1.85;color:rgba(245,243,238,.55);max-width:480px;margin-bottom:48px;opacity:0;animation:fu .8s ease .9s forwards}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fu .8s ease 1.1s forwards}
+.btn-gold{background:var(--gold);color:var(--bg);border:none;padding:16px 40px;font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,169,110,.35)}
+.btn-ghost{border:1px solid rgba(245,243,238,.2);color:var(--white);padding:16px 40px;font-size:12px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:transparent;transition:all .3s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{position:absolute;right:56px;bottom:56px;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:2px;opacity:0;animation:fu .8s ease 1.3s forwards}
+.hstat{background:rgba(245,243,238,.04);border:1px solid rgba(245,243,238,.06);padding:18px 24px;backdrop-filter:blur(8px);text-align:center}
+.hstat-n{font-family:'Cormorant',serif;font-size:36px;font-weight:300;color:var(--gold);display:block;line-height:1}
+.hstat-l{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTIONS */
+.section{padding:100px 56px}
+.sec-tag{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.sec-tag::before{content:'';width:28px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Cormorant',serif;font-size:clamp(34px,4.5vw,56px);font-weight:300;line-height:1.12;margin-bottom:16px}
+.sec-title em{font-style:italic;color:var(--gold)}
+.sec-sub{font-size:14px;line-height:1.85;color:rgba(245,243,238,.5);max-width:540px}
+
+/* SERVICES */
+.services{background:var(--s1)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px}
+.srv{background:var(--s2);padding:36px 32px;border:1px solid var(--border);position:relative;overflow:hidden;transition:all .3s;cursor:default}
+.srv::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:transform .3s}
+.srv:hover{background:var(--s3);border-color:var(--border2)}
+.srv:hover::before{transform:scaleY(1)}
+.srv-ico{font-size:36px;margin-bottom:20px;display:block}
+.srv-title{font-family:'Cormorant',serif;font-size:22px;font-weight:400;margin-bottom:10px}
+.srv-desc{font-size:13px;line-height:1.75;color:rgba(245,243,238,.5)}
+.srv-tag{display:inline-block;margin-top:16px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--goldmid);padding-bottom:2px}
+.srv-num{position:absolute;top:20px;right:20px;font-family:'Cormorant',serif;font-size:48px;font-weight:300;color:rgba(201,169,110,.08);line-height:1}
+
+/* BEFORE/AFTER */
+.works{background:var(--bg)}
+.works-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;flex-wrap:wrap;gap:20px}
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.work-card{background:var(--s2);border:1px solid var(--border);overflow:hidden;transition:all .3s}
+.work-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.4);border-color:var(--goldmid)}
+.ba-wrap{position:relative;height:240px;overflow:hidden;user-select:none}
+.ba-after,.ba-before{position:absolute;inset:0}
+.ba-after img,.ba-before img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.ba-before{clip-path:inset(0 50% 0 0)}
+.ba-divider{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--gold);z-index:3;cursor:ew-resize;transform:translateX(-50%)}
+.ba-divider::after{content:'◀▶';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--gold);color:var(--bg);font-size:9px;padding:5px 8px;border-radius:20px;white-space:nowrap;font-weight:700}
+.ba-labels{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;z-index:4;pointer-events:none}
+.ba-label{font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;font-weight:600}
+.ba-label.prima{background:rgba(255,68,68,.85);color:white}
+.ba-label.dopo{background:rgba(201,169,110,.85);color:var(--bg)}
+.work-info{padding:18px 20px}
+.work-title{font-size:14px;font-weight:500;margin-bottom:4px}
+.work-meta{font-size:11px;color:var(--muted);display:flex;gap:12px}
+.work-tag{display:inline-block;font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:var(--golddim);color:var(--gold);border:1px solid var(--goldmid);padding:2px 8px;margin-top:8px}
+
+/* PROCESS */
+.process{background:var(--s1)}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:56px;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--goldmid),transparent)}
+.pstep{text-align:center;padding:0 16px}
+.pstep-num{width:56px;height:56px;border-radius:50%;background:var(--s1);border:1px solid var(--goldmid);display:flex;align-items:center;justify-content:center;font-family:'Cormorant',serif;font-size:20px;font-weight:300;color:var(--gold);margin:0 auto 20px;position:relative;z-index:1}
+.pstep-title{font-size:13px;font-weight:500;margin-bottom:8px}
+.pstep-desc{font-size:11px;color:var(--muted);line-height:1.65}
+
+/* PRICING */
+.pricing{background:var(--bg)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.plan{background:var(--s2);border:1px solid var(--border);padding:36px 30px;position:relative;transition:all .3s}
+.plan:hover{border-color:var(--border2);transform:translateY(-3px)}
+.plan.featured{background:var(--s3);border-color:var(--gold);box-shadow:0 0 0 1px var(--goldmid),0 24px 48px rgba(201,169,110,.08)}
+.plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--bg);font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:5px 18px;font-weight:600;white-space:nowrap}
+.plan-name{font-family:'Cormorant',serif;font-size:26px;font-weight:400;margin-bottom:6px}
+.plan-tagline{font-size:12px;color:var(--muted);margin-bottom:24px}
+.plan-price{font-family:'Cormorant',serif;font-size:48px;font-weight:300;color:var(--gold);margin-bottom:4px;line-height:1}
+.plan-price sup{font-size:22px;vertical-align:super}
+.plan-price span{font-size:14px;color:var(--muted);font-family:'Outfit',sans-serif;font-weight:300}
+.plan-note{font-size:11px;color:var(--muted);margin-bottom:28px}
+.plan-divider{height:1px;background:var(--border);margin-bottom:24px}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:32px}
+.plan-features li{font-size:13px;display:flex;align-items:flex-start;gap:10px;line-height:1.4}
+.plan-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:1px}
+.plan-features li.no{opacity:.35}
+.plan-features li.no::before{content:'—';color:var(--muted)}
+.plan-cta{width:100%;padding:13px;font-family:'Outfit',sans-serif;font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;border:none;background:var(--s3);color:var(--white)}
+.plan.featured .plan-cta{background:var(--gold);color:var(--bg)}
+.plan-cta:hover{opacity:.85;transform:translateY(-1px)}
+.pricing-note{text-align:center;margin:32px auto 0;font-size:13px;color:var(--muted);background:var(--s2);border:1px solid var(--border);padding:16px 24px;max-width:600px}
+
+/* REVIEWS */
+.reviews{background:var(--s1)}
+.reviews-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;flex-wrap:wrap;gap:16px}
+.reviews-avg{display:flex;align-items:center;gap:16px;background:var(--s2);border:1px solid var(--border);padding:16px 24px}
+.avg-n{font-family:'Cormorant',serif;font-size:48px;color:var(--gold);line-height:1}
+.avg-stars{color:var(--gold);font-size:16px;letter-spacing:3px}
+.avg-label{font-size:11px;color:var(--muted);margin-top:2px}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.rcard{background:var(--s2);border:1px solid var(--border);padding:28px;transition:border-color .2s}
+.rcard:hover{border-color:var(--goldmid)}
+.rcard-stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:14px}
+.rcard-text{font-size:14px;line-height:1.8;color:rgba(245,243,238,.7);font-style:italic;margin-bottom:20px;font-family:'Cormorant',serif;font-weight:300}
+.rcard-text::before{content:'"';font-size:32px;color:var(--goldmid);line-height:.5;float:left;margin-right:6px;margin-top:6px}
+.rcard-author{display:flex;justify-content:space-between;align-items:center}
+.rcard-name{font-size:13px;font-weight:500}
+.rcard-city{font-size:11px;color:var(--muted)}
+.rcard-work{font-size:10px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-top:3px}
+
+/* TEAM */
+.team{background:var(--bg)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px}
+.tmember{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--s2)}
+.tmember img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;filter:saturate(.7)}
+.tmember:hover img{transform:scale(1.05);filter:saturate(1)}
+.tmember-info{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(8,8,8,.92));padding:40px 24px 24px;transform:translateY(20px);transition:transform .3s}
+.tmember:hover .tmember-info{transform:translateY(0)}
+.tmember-name{font-family:'Cormorant',serif;font-size:22px;font-weight:400;margin-bottom:4px}
+.tmember-role{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.tmember-desc{font-size:12px;color:rgba(245,243,238,.6);line-height:1.6;opacity:0;transition:opacity .3s .1s}
+.tmember:hover .tmember-desc{opacity:1}
+.tmember-exp{position:absolute;top:16px;right:16px;background:var(--gold);color:var(--bg);font-size:11px;font-weight:700;padding:4px 10px}
+
+/* AREAS */
+.areas{background:var(--s1)}
+.areas-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.areas-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
+.area-tag{background:var(--s3);border:1px solid var(--border);padding:8px 16px;font-size:12px;color:var(--white);transition:all .2s;cursor:default}
+.area-tag.main{background:var(--golddim);border-color:var(--goldmid);color:var(--gold);font-weight:500}
+.area-tag:hover{border-color:var(--goldmid);color:var(--gold)}
+.areas-why{display:flex;flex-direction:column;gap:16px;margin-top:36px}
+.awhy{display:flex;gap:14px;align-items:flex-start}
+.awhy-ico{width:40px;height:40px;background:var(--golddim);border:1px solid var(--goldmid);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.awhy-title{font-size:13px;font-weight:500;margin-bottom:3px}
+.awhy-desc{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* CTA */
+.cta-final{background:linear-gradient(135deg,#0D0B06,#1A1408);padding:100px 56px;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--border)}
+.cta-final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,169,110,.08) 0%,transparent 70%)}
+.cta-final-tag{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.cta-final-title{font-family:'Cormorant',serif;font-size:clamp(40px,6vw,72px);font-weight:300;line-height:1.08;margin-bottom:12px;position:relative}
+.cta-final-title em{font-style:italic;color:var(--gold)}
+.cta-final-slogan{font-family:'Cormorant',serif;font-size:clamp(18px,2.5vw,28px);font-style:italic;color:rgba(245,243,238,.4);margin-bottom:40px;position:relative}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
+
+/* CONTACT */
+.contact{background:var(--bg)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.cinfo-items{display:flex;flex-direction:column;gap:20px;margin-top:36px}
+.cinfo-item{display:flex;gap:14px}
+.cinfo-ico{width:44px;height:44px;background:var(--golddim);border:1px solid var(--goldmid);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.cinfo-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.cinfo-val{font-size:14px;color:rgba(245,243,238,.7);line-height:1.6}
+.contact-form{background:var(--s2);border:1px solid var(--border);padding:40px}
+.form-title{font-family:'Cormorant',serif;font-size:26px;font-weight:400;margin-bottom:8px}
+.form-title em{font-style:italic;color:var(--gold)}
+.form-sub{font-size:13px;color:var(--muted);margin-bottom:28px}
+.fg{margin-bottom:16px}
+.fg label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:7px}
+.fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--white);padding:12px 16px;font-family:'Outfit',sans-serif;font-size:13px;outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--muted2)}
+.fg select option{background:var(--s2)}
+.fg textarea{resize:vertical;min-height:80px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.btn-submit{width:100%;background:var(--gold);color:var(--bg);border:none;padding:15px;font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:8px}
+.btn-submit:hover{background:var(--gold2)}
+
+/* FOOTER */
+footer{background:var(--s1);border-top:1px solid var(--border);padding:56px 56px 28px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.foot-brand p{font-size:12px;line-height:1.8;color:var(--muted);max-width:240px}
+.foot-col h4{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.foot-col a{display:block;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:8px;transition:color .2s}
+.foot-col a:hover{color:var(--white)}
+.foot-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+
+/* DEMO BANNER */
+.dbanner{position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(8,8,8,.96);border-top:1px solid var(--goldmid);padding:12px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;backdrop-filter:blur(12px)}
+.db-text{font-size:12px;color:rgba(245,243,238,.6);display:flex;align-items:center;gap:10px}
+.db-badge{font-size:9px;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:var(--bg);padding:3px 10px;font-weight:700}
+.db-btns{display:flex;gap:8px}
+.dbbtn{padding:8px 18px;font-size:10px;font-weight:600;font-family:'Outfit',sans-serif;cursor:pointer;border:none;transition:all .2s;letter-spacing:.06em;text-transform:uppercase}
+.dbbtn-p{background:var(--gold);color:var(--bg)}.dbbtn-p:hover{background:var(--gold2)}
+.dbbtn-s{background:transparent;color:var(--gold);border:1px solid var(--goldmid)}.dbbtn-s:hover{background:var(--golddim)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:16px 20px}.nav-links{display:none}
+  .hero-content{padding:100px 20px 60px}.hero-stats{right:20px;bottom:80px}
+  .section{padding:64px 20px}
+  .services-grid,.works-grid,.plans,.reviews-grid,.team-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr 1fr;row-gap:32px}.process-steps::before{display:none}
+  .areas-inner,.contact-inner{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .dbanner{flex-direction:column;padding:12px 20px;gap:8px}
+  .frow{grid-template-columns:1fr}
+  .hero-line{display:none}
+}
+</style>
+</head>
+<body>
+
+<a class="wa-float" href="https://wa.me/393XXXXXXXXX?text=Ciao!%20Vorrei%20un%20preventivo%20gratuito" target="_blank">💬</a>
+
+<nav>
+  <div class="nav-logo">Your <span>Dream</span></div>
+  <div class="nav-links">
+    <a href="#servizi">Servizi</a>
+    <a href="#lavori">Lavori</a>
+    <a href="#prezzi">Prezzi</a>
+    <a href="#team">Team</a>
+    <a href="#contatti">Contatti</a>
+  </div>
+  <a href="#contatti" class="nav-cta">📞 Preventivo gratuito</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-img">
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80&fit=crop" alt="Ristrutturazione premium"/>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><div class="hbd"></div>Scalea · Calabria · Dal 2010</div>
+    <h1 class="hero-title">Ristrutturiamo<br><em>i tuoi spazi</em></h1>
+    <p class="hero-slogan">Vivi il tuo sogno.</p>
+    <p class="hero-desc">Specialisti in cartongesso, ristrutturazioni complete e finiture di pregio. Trasformiamo case, appartamenti e locali commerciali a Scalea e in tutta la Riviera dei Cedri. Preventivo gratuito entro 24 ore.</p>
+    <div class="hero-btns">
+      <a href="#contatti" class="btn-gold">✦ Preventivo gratuito</a>
+      <a href="#lavori" class="btn-ghost">Vedi i nostri lavori →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><span class="hstat-n">+200</span><div class="hstat-l">Lavori completati</div></div>
+    <div class="hstat"><span class="hstat-n">14</span><div class="hstat-l">Anni esperienza</div></div>
+    <div class="hstat"><span class="hstat-n">98%</span><div class="hstat-l">Clienti soddisfatti</div></div>
+    <div class="hstat"><span class="hstat-n">24h</span><div class="hstat-l">Preventivo gratis</div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="servizi">
+  <div class="sec-tag">Cosa facciamo</div>
+  <h2 class="sec-title">I nostri <em>servizi</em></h2>
+  <p class="sec-sub">Dalla piccola riparazione alla ristrutturazione completa — gestiamo tutto noi, dalla progettazione alla consegna chiavi in mano.</p>
+  <div class="services-grid reveal">
+    <div class="srv"><span class="srv-num">01</span><span class="srv-ico">🏗️</span><div class="srv-title">Cartongesso & Controsoffitti</div><p class="srv-desc">Pareti divisorie, controsoffitti con luci LED integrate, nicchie, archetti. Finiture perfette al millimetro. La nostra specialità principale.</p><span class="srv-tag">Specialità principale →</span></div>
+    <div class="srv"><span class="srv-num">02</span><span class="srv-ico">🏠</span><div class="srv-title">Ristrutturazione completa</div><p class="srv-desc">Ristrutturazione totale di appartamenti, ville e locali commerciali. Un unico referente per tutti i lavori: idraulica, elettrica, pavimenti, pittura.</p><span class="srv-tag">Chiavi in mano →</span></div>
+    <div class="srv"><span class="srv-num">03</span><span class="srv-ico">🎨</span><div class="srv-title">Pittura & Finiture</div><p class="srv-desc">Pittura interna ed esterna, stucco veneziano, micro-cemento, carta da parati. Ogni superficie curata nei dettagli per un risultato impeccabile.</p><span class="srv-tag">Interni ed esterni →</span></div>
+    <div class="srv"><span class="srv-num">04</span><span class="srv-ico">🔲</span><div class="srv-title">Pavimenti & Rivestimenti</div><p class="srv-desc">Posa di piastrelle, gres porcellanato, parquet e pavimenti in resina. Bagni e cucine rivestiti con materiali di qualità certificata.</p><span class="srv-tag">Tutti i materiali →</span></div>
+    <div class="srv"><span class="srv-num">05</span><span class="srv-ico">🏢</span><div class="srv-title">Locali commerciali</div><p class="srv-desc">Bar, ristoranti, negozi, uffici. Realizziamo ambienti professionali che valorizzano il vostro business con soluzioni su misura e tempi certi.</p><span class="srv-tag">B2B available →</span></div>
+    <div class="srv"><span class="srv-num">06</span><span class="srv-ico">⚡</span><div class="srv-title">Piccoli interventi rapidi</div><p class="srv-desc">Riparazioni, rattoppi, piccole modifiche. Interveniamo velocemente per risolvere problemi urgenti senza stravolgere i vostri spazi e la vostra routine.</p><span class="srv-tag">Pronto intervento →</span></div>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section class="section works" id="lavori">
+  <div class="works-intro">
+    <div>
+      <div class="sec-tag">Portfolio</div>
+      <h2 class="sec-title">I nostri <em>lavori</em></h2>
+      <p class="sec-sub">Trascina il cursore per vedere la trasformazione reale.</p>
+    </div>
+    <a href="#contatti" class="btn-gold">Vuoi un risultato simile? →</a>
+  </div>
+  <div class="works-grid reveal">
+    <div class="work-card">
+      <div class="ba-wrap" data-ba>
+        <div class="ba-after"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=700&q=80&fit=crop" alt="Dopo"/></div>
+        <div class="ba-before"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&fit=crop" alt="Prima"/></div>
+        <div class="ba-divider"></div>
+        <div class="ba-labels"><span class="ba-label prima">Prima</span><span class="ba-label dopo">Dopo</span></div>
+      </div>
+      <div class="work-info"><div class="work-title">Soggiorno con controsoffitto LED</div><div class="work-meta"><span>📍 Scalea</span><span>⏱ 12 giorni</span></div><span class="work-tag">Cartongesso</span></div>
+    </div>
+    <div class="work-card">
+      <div class="ba-wrap" data-ba>
+        <div class="ba-after"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=700&q=80&fit=crop" alt="Dopo"/></div>
+        <div class="ba-before"><img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5702?w=700&q=80&fit=crop" alt="Prima"/></div>
+        <div class="ba-divider"></div>
+        <div class="ba-labels"><span class="ba-label prima">Prima</span><span class="ba-label dopo">Dopo</span></div>
+      </div>
+      <div class="work-info"><div class="work-title">Bagno completo rivestito</div><div class="work-meta"><span>📍 Praia a Mare</span><span>⏱ 8 giorni</span></div><span class="work-tag">Ristrutturazione</span></div>
+    </div>
+    <div class="work-card">
+      <div class="ba-wrap" data-ba>
+        <div class="ba-after"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80&fit=crop" alt="Dopo"/></div>
+        <div class="ba-before"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=700&q=80&fit=crop" alt="Prima"/></div>
+        <div class="ba-divider"></div>
+        <div class="ba-labels"><span class="ba-label prima">Prima</span><span class="ba-label dopo">Dopo</span></div>
+      </div>
+      <div class="work-info"><div class="work-title">Cucina open space con isola</div><div class="work-meta"><span>📍 Tortora</span><span>⏱ 15 giorni</span></div><span class="work-tag">Ristrutturazione completa</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section process">
+  <div style="text-align:center;margin-bottom:0">
+    <div class="sec-tag" style="justify-content:center">Come lavoriamo</div>
+    <h2 class="sec-title" style="text-align:center">5 passi verso il tuo <em>sogno</em></h2>
+  </div>
+  <div class="process-steps reveal">
+    <div class="pstep"><div class="pstep-num">1</div><div class="pstep-title">Sopralluogo gratuito</div><p class="pstep-desc">Veniamo da voi entro 24h per valutare lo spazio. Zero costi, zero impegni.</p></div>
+    <div class="pstep"><div class="pstep-num">2</div><div class="pstep-title">Preventivo dettagliato</div><p class="pstep-desc">Ricevete un preventivo scritto e trasparente, voce per voce, senza sorprese.</p></div>
+    <div class="pstep"><div class="pstep-num">3</div><div class="pstep-title">Progettazione</div><p class="pstep-desc">Definiamo insieme materiali, colori e soluzioni. Vi mostriamo come sarà prima di iniziare.</p></div>
+    <div class="pstep"><div class="pstep-num">4</div><div class="pstep-title">Realizzazione</div><p class="pstep-desc">Lavoriamo ordinati e rispettando i tempi concordati. Aggiornamenti quotidiani via WhatsApp.</p></div>
+    <div class="pstep"><div class="pstep-num">5</div><div class="pstep-title">Consegna & Garanzia</div><p class="pstep-desc">Consegniamo pulito e in ordine. Garanzia 2 anni su tutti i lavori eseguiti.</p></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="prezzi">
+  <div style="text-align:center">
+    <div class="sec-tag" style="justify-content:center">Trasparenza totale</div>
+    <h2 class="sec-title" style="text-align:center">Prezzi <em>chiari</em></h2>
+    <p class="sec-sub" style="margin:0 auto;text-align:center">Nessuna sorpresa in fattura. Ogni preventivo è scritto, dettagliato e vincolante.</p>
+  </div>
+  <div class="plans reveal">
+    <div class="plan">
+      <div class="plan-name">Essenziale</div>
+      <div class="plan-tagline">Per interventi mirati</div>
+      <div class="plan-price"><sup>da </sup>€800</div>
+      <div class="plan-note">Prezzo indicativo per singolo ambiente</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Cartongesso singola stanza</li>
+        <li>Pittura completa ambiente</li>
+        <li>Piccole riparazioni e rattoppi</li>
+        <li>Posa piastrelle bagno/cucina</li>
+        <li class="no">Progettazione inclusa</li>
+        <li class="no">Gestione totale lavori</li>
+      </ul>
+      <button class="plan-cta" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">Richiedi preventivo</button>
+    </div>
+    <div class="plan featured">
+      <div class="plan-badge">⭐ Più richiesto</div>
+      <div class="plan-name">Completo</div>
+      <div class="plan-tagline">Per ristrutturazione totale</div>
+      <div class="plan-price"><sup>da </sup>€3.500</div>
+      <div class="plan-note">Per appartamento 60–80 mq</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Cartongesso e controsoffitti</li>
+        <li>Pittura completa appartamento</li>
+        <li>Posa pavimenti e rivestimenti</li>
+        <li>Rifacimento bagno completo</li>
+        <li>Progettazione inclusa</li>
+        <li>Garanzia 2 anni su tutto</li>
+      </ul>
+      <button class="plan-cta" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">Richiedi preventivo</button>
+    </div>
+    <div class="plan">
+      <div class="plan-name">Premium</div>
+      <div class="plan-tagline">Per locali commerciali</div>
+      <div class="plan-price"><sup>da </sup>€6.000</div>
+      <div class="plan-note">Bar, ristoranti, negozi, uffici</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Progettazione architettonica</li>
+        <li>Strutture in cartongesso custom</li>
+        <li>Impianti elettrici e illuminazione</li>
+        <li>Finiture di pregio su misura</li>
+        <li>Project management dedicato</li>
+        <li>Garanzia 3 anni + manutenzione</li>
+      </ul>
+      <button class="plan-cta" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">Richiedi preventivo</button>
+    </div>
+  </div>
+  <div class="pricing-note">💡 I prezzi sono indicativi e variano in base a dimensioni e materiali.<br><strong style="color:var(--gold)">Il preventivo è sempre gratuito e senza impegno!</strong></div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews" id="recensioni">
+  <div class="reviews-header reveal">
+    <div><div class="sec-tag">Cosa dicono i clienti</div><h2 class="sec-title">Recensioni <em>reali</em></h2></div>
+    <div class="reviews-avg"><div><div class="avg-n">4.9</div><div class="avg-stars">★★★★★</div><div class="avg-label">su Google · 87 recensioni</div></div></div>
+  </div>
+  <div class="reviews-grid reveal">
+    <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-text">Hanno ristrutturato il mio appartamento a Scalea in soli 18 giorni. Lavoro impeccabile, prezzi onesti e soprattutto hanno mantenuto ogni promessa. Il controsoffitto in cartongesso con le luci LED è bellissimo.</p><div class="rcard-author"><div><div class="rcard-name">Marco R.</div><div class="rcard-work">Cartongesso soggiorno · Scalea</div></div><div class="rcard-city">Google ✓</div></div></div>
+    <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-text">Ho affidato a Your Dream la ristrutturazione completa del mio bar. Professionalità assoluta, zero sorprese in fattura. Il locale ora è completamente trasformato e i clienti non smettono di fare complimenti!</p><div class="rcard-author"><div><div class="rcard-name">Francesca D.</div><div class="rcard-work">Bar completo · Praia a Mare</div></div><div class="rcard-city">Google ✓</div></div></div>
+    <div class="rcard"><div class="rcard-stars">★★★★★</div><p class="rcard-text">Cercare una ditta affidabile in Calabria non è semplice. Your Dream è stata una scoperta: puntuali, puliti, precisi. Il preventivo era esatto al centesimo. Bagno e cucina rifatti in 12 giorni. Qualità eccellente.</p><div class="rcard-author"><div><div class="rcard-name">Luigi & Anna T.</div><div class="rcard-work">Bagno + cucina · Tortora</div></div><div class="rcard-city">Google ✓</div></div></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section team" id="team">
+  <div class="sec-tag">Chi siamo</div>
+  <h2 class="sec-title">Il nostro <em>team</em></h2>
+  <p class="sec-sub">Artigiani con esperienza, formazione continua e passione per il lavoro ben fatto.</p>
+  <div class="team-grid reveal">
+    <div class="tmember">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop&crop=face" alt="Antonio"/>
+      <div class="tmember-exp">14 anni</div>
+      <div class="tmember-info"><div class="tmember-name">Antonio M.</div><div class="tmember-role">Fondatore & Master Cartongesso</div><div class="tmember-desc">Specializzato in strutture complesse in cartongesso. Ha realizzato oltre 150 progetti sulla Riviera dei Cedri.</div></div>
+    </div>
+    <div class="tmember">
+      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&fit=crop&crop=face" alt="Giuseppe"/>
+      <div class="tmember-exp">9 anni</div>
+      <div class="tmember-info"><div class="tmember-name">Giuseppe F.</div><div class="tmember-role">Responsabile Ristrutturazioni</div><div class="tmember-desc">Coordina i cantieri di ristrutturazione completa. Esperto in pavimentazioni e finiture di pregio.</div></div>
+    </div>
+    <div class="tmember">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80&fit=crop&crop=face" alt="Marco"/>
+      <div class="tmember-exp">7 anni</div>
+      <div class="tmember-info"><div class="tmember-name">Marco V.</div><div class="tmember-role">Pittore & Decoratore</div><div class="tmember-desc">Specializzato in pittura decorativa, stucco veneziano e finiture artistiche di qualità.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="section areas">
+  <div class="areas-inner">
+    <div class="reveal">
+      <div class="sec-tag">Dove operiamo</div>
+      <h2 class="sec-title">Riviera dei <em>Cedri</em> e dintorni</h2>
+      <p class="sec-sub" style="margin-bottom:0">Operiamo in tutta la costa calabrese tra Scalea e Praia a Mare, e nell'entroterra fino al Parco del Pollino.</p>
+      <div class="areas-why">
+        <div class="awhy"><div class="awhy-ico">⚡</div><div><div class="awhy-title">Intervento rapido</div><div class="awhy-desc">Sopralluogo entro 24 ore in tutta la zona coperta</div></div></div>
+        <div class="awhy"><div class="awhy-ico">🚗</div><div><div class="awhy-title">Nessun extra trasferta</div><div class="awhy-desc">Spostamento gratuito nei comuni della Riviera dei Cedri</div></div></div>
+        <div class="awhy"><div class="awhy-ico">📍</div><div><div class="awhy-title">Conosciamo il territorio</div><div class="awhy-desc">Lavoriamo qui da 14 anni — fornitori locali, prezzi migliori per voi</div></div></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div style="background:var(--s2);border:1px solid var(--border);padding:36px">
+        <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px">Zone di intervento</div>
+        <div class="areas-list">
+          <span class="area-tag main">⭐ Scalea</span>
+          <span class="area-tag main">⭐ Santa Domenica Talao</span>
+          <span class="area-tag">Praia a Mare</span>
+          <span class="area-tag">Tortora</span>
+          <span class="area-tag">Tortora Marina</span>
+          <span class="area-tag">Diamante</span>
+          <span class="area-tag">Belvedere Marittimo</span>
+          <span class="area-tag">Cirella</span>
+          <span class="area-tag">Grisolia</span>
+          <span class="area-tag">Aieta</span>
+          <span class="area-tag">San Nicola Arcella</span>
+          <span class="area-tag">Verbicaro</span>
+        </div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)">📞 Per zone non elencate — contattateci, valutiamo ogni richiesta.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-final">
+  <div class="cta-final-tag">✦ Inizia oggi ✦</div>
+  <h2 class="cta-final-title">Trasformiamo<br>la tua <em>casa</em></h2>
+  <p class="cta-final-slogan">Vivi il tuo sogno.</p>
+  <div class="cta-btns">
+    <a href="#contatti" class="btn-gold" style="font-size:13px">✦ Preventivo gratuito entro 24h</a>
+    <a href="https://wa.me/393XXXXXXXXX" target="_blank" class="btn-ghost" style="font-size:13px">💬 Scrivi su WhatsApp</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contatti">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="sec-tag">Contattaci</div>
+      <h2 class="sec-title">Parliamo del<br>tuo <em>progetto</em></h2>
+      <p class="sec-sub" style="margin-bottom:0">Rispondiamo sempre entro 2 ore. Il sopralluogo è gratuito e senza impegno.</p>
+      <div class="cinfo-items">
+        <div class="cinfo-item"><div class="cinfo-ico">📞</div><div><div class="cinfo-label">Telefono</div><div class="cinfo-val">+39 XXX XXX XXXX<br><small style="color:var(--muted)">Lun–Sab 8:00–19:00</small></div></div></div>
+        <div class="cinfo-item"><div class="cinfo-ico">💬</div><div><div class="cinfo-label">WhatsApp</div><div class="cinfo-val">+39 XXX XXX XXXX<br><small style="color:var(--muted)">Risposta entro 2 ore</small></div></div></div>
+        <div class="cinfo-item"><div class="cinfo-ico">📍</div><div><div class="cinfo-label">Sede</div><div class="cinfo-val">Scalea (CS), Calabria</div></div></div>
+        <div class="cinfo-item"><div class="cinfo-ico">⏱</div><div><div class="cinfo-label">Sopralluogo</div><div class="cinfo-val"><strong style="color:var(--gold)">Gratuito entro 24h</strong><br><small style="color:var(--muted)">Tutta la Riviera dei Cedri</small></div></div></div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-title">Richiedi <em>preventivo</em></div>
+      <div class="form-sub">Compilate il modulo — vi ricontattiamo entro 2 ore.</div>
+      <div class="frow">
+        <div class="fg"><label>Nome</label><input type="text" placeholder="Marco"/></div>
+        <div class="fg"><label>Cognome</label><input type="text" placeholder="Rossi"/></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label>Telefono</label><input type="tel" placeholder="+39 333 000 0000"/></div>
+        <div class="fg"><label>Comune</label><input type="text" placeholder="Scalea, Praia..."/></div>
+      </div>
+      <div class="fg"><label>Tipo di lavoro</label>
+        <select>
+          <option>Cartongesso / Controsoffitto</option>
+          <option>Ristrutturazione completa</option>
+          <option>Pittura e finiture</option>
+          <option>Pavimenti e rivestimenti</option>
+          <option>Locale commerciale</option>
+          <option>Piccolo intervento</option>
+          <option>Non so — voglio un consiglio</option>
+        </select>
+      </div>
+      <div class="fg"><label>Dimensioni</label>
+        <select><option>Meno di 30 mq</option><option>30–60 mq</option><option>60–100 mq</option><option>Più di 100 mq</option><option>Non lo so</option></select>
+      </div>
+      <div class="fg"><label>Descrizione (opzionale)</label>
+        <textarea placeholder="Es: voglio rifare il bagno e fare un controsoffitto in cartongesso con luci LED nel soggiorno..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="showConfirm()">✦ Invia richiesta preventivo</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="nav-logo" style="display:block;margin-bottom:12px">Your <span style="color:var(--gold);font-style:italic">Dream</span></div>
+      <p>Ristrutturazioni premium e cartongesso a Scalea e sulla Riviera dei Cedri. Dal 2010, trasformiamo gli spazi in sogni.</p>
+      <div style="margin-top:16px;font-family:'Cormorant',serif;font-size:18px;font-style:italic;color:var(--gold)">Vivi il tuo sogno.</div>
+    </div>
+    <div class="foot-col"><h4>Servizi</h4><a href="#servizi">Cartongesso</a><a href="#servizi">Ristrutturazioni</a><a href="#servizi">Pittura</a><a href="#servizi">Pavimenti</a><a href="#servizi">Locali commerciali</a></div>
+    <div class="foot-col"><h4>Azienda</h4><a href="#team">Il team</a><a href="#lavori">Portfolio</a><a href="#recensioni">Recensioni</a><a href="#prezzi">Prezzi</a></div>
+    <div class="foot-col"><h4>Contatti</h4><a href="tel:+39XXXXXXXXXX">+39 XXX XXX XXXX</a><a href="#">Scalea (CS), Calabria</a><a href="#">info@yourdream.it</a><a href="#">Privacy Policy</a></div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2025 Your Dream · Scalea (CS) · Calabria</span>
+    <span>★ 4.9/5 · 87 recensioni Google</span>
+  </div>
+</footer>
+
+<div class="dbanner" id="dbanner">
+  <div class="db-text"><span class="db-badge">Demo</span>Sito demo per <strong style="color:var(--gold)">Your Dream</strong> — pronto per l'attivazione con i dati reali</div>
+  <div class="db-btns">
+    <button class="dbbtn dbbtn-s" onclick="document.getElementById('dbanner').style.display='none'">✕</button>
+    <button class="dbbtn dbbtn-p" onclick="alert('Contattaci per attivare il sito con i tuoi dati reali!')">Voglio questo sito →</button>
+  </div>
+</div>
+
+<div id="toast" style="position:fixed;top:80px;left:50%;transform:translateX(-50%) translateY(-20px);background:var(--gold);color:var(--bg);padding:14px 28px;font-size:13px;font-weight:600;opacity:0;transition:all .3s;z-index:600;pointer-events:none;text-align:center;white-space:nowrap">
+  ✓ Richiesta inviata! Vi ricontattiamo entro 2 ore.
+</div>
+
+<script>
+// BEFORE/AFTER
+document.querySelectorAll('[data-ba]').forEach(wrap => {
+  const before = wrap.querySelector('.ba-before');
+  const divider = wrap.querySelector('.ba-divider');
+  let dragging = false;
+  function setPos(x) {
+    const rect = wrap.getBoundingClientRect();
+    let pct = Math.max(5, Math.min(95, ((x - rect.left) / rect.width) * 100));
+    before.style.clipPath = 'inset(0 ' + (100-pct) + '% 0 0)';
+    divider.style.left = pct + '%';
+  }
+  divider.addEventListener('mousedown', e => { dragging = true; e.preventDefault(); });
+  document.addEventListener('mouseup', () => dragging = false);
+  document.addEventListener('mousemove', e => { if(dragging) setPos(e.clientX); });
+  divider.addEventListener('touchstart', e => { dragging = true; e.preventDefault(); }, {passive:false});
+  document.addEventListener('touchend', () => dragging = false);
+  document.addEventListener('touchmove', e => { if(dragging) setPos(e.touches[0].clientX); }, {passive:true});
+});
+
+// REVEAL
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(() => e.target.classList.add('vis'), i*80); });
+}, {threshold: 0.08});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// TOAST
+function showConfirm() {
+  const t = document.getElementById('toast');
+  t.style.opacity='1'; t.style.transform='translateX(-50%) translateY(0)';
+  setTimeout(() => { t.style.opacity='0'; t.style.transform='translateX(-50%) translateY(-20px)'; }, 3500);
+}
+
+// NAV
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.borderBottomColor = window.scrollY > 60 ? 'rgba(201,169,110,.15)' : 'rgba(255,255,255,.04)';
+});
+</script>
+</body>
+</html>

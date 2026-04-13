@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Open Graph / WhatsApp / Telegram preview -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Pizzeria Bellavista — Santa Domenica Talao · Valle del Lao"/>
+  <meta property="og:description" content="Pizzeria con vista panoramica sul Parco del Pollino. Pizza artigianale, cucina calabrese. ★ 4.6 su Google · 433 recensioni"/>
+  <meta property="og:image" content="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&h=630&fit=crop&q=85"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:url" content="https://viktorialiubitskaya-coder.github.io/demo/bellavista/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Pizzeria Bellavista — Santa Domenica Talao · Valle del Lao"/>
+  <meta name="twitter:description" content="Pizzeria con vista panoramica sul Parco del Pollino. Pizza artigianale, cucina calabrese. ★ 4.6 su Google · 433 recensioni"/>
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&h=630&fit=crop&q=85"/>
+<title>Ristorante Pizzeria Bellavista — Santa Domenica Talao</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --night:#0A0806;--dark:#120F0A;--brown:#3D2010;
+  --terra:#8B4513;--gold:#C8963C;--cream:#F5EDE0;
+  --sand:#E8D5BC;--muted:#9A8070;--light:#FBF6EF;
+}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--cream);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+
+/* cursor */
+.cur{width:8px;height:8px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s}
+.cur2{width:32px;height:32px;border:1px solid rgba(200,150,60,.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .35s ease}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:20px 56px;display:flex;justify-content:space-between;align-items:center;
+  background:linear-gradient(to bottom,rgba(10,8,6,.9),transparent);
+  backdrop-filter:blur(4px);
+}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:.12em;color:var(--cream)}
+.nav-logo span{color:var(--gold);font-style:italic}
+.nav-links{display:flex;gap:32px}
+.nav-links a{color:var(--cream);text-decoration:none;font-size:11px;letter-spacing:.15em;text-transform:uppercase;opacity:.6;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.nav-cta{
+  background:transparent;border:1px solid rgba(200,150,60,.5);color:var(--gold);
+  padding:10px 24px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;cursor:none;transition:all .3s;text-decoration:none;
+}
+.nav-cta:hover{background:var(--gold);color:var(--night)}
+
+/* HERO */
+.hero{
+  min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 100% 80% at 50% 100%,rgba(139,69,19,.25) 0%,transparent 60%),
+    radial-gradient(ellipse 80% 60% at 20% 50%,rgba(200,150,60,.08) 0%,transparent 50%),
+    linear-gradient(180deg,#0A0806 0%,#1A0E06 50%,#0A0806 100%);
+}
+
+/* Mountain silhouette SVG */
+.mountain{position:absolute;bottom:0;left:0;right:0;height:55%;pointer-events:none}
+
+/* Stars */
+.stars{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;background:white;border-radius:50%;animation:twinkle var(--d,3s) ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:var(--o,.8);transform:scale(1)}50%{opacity:.2;transform:scale(.6)}}
+
+/* Moon */
+.moon{
+  position:absolute;top:12%;right:18%;
+  width:70px;height:70px;
+  background:radial-gradient(circle at 35% 35%,#FFF9E8,#F0D890);
+  border-radius:50%;
+  box-shadow:0 0 40px rgba(240,216,144,.3),0 0 80px rgba(240,216,144,.15);
+}
+.moon::after{
+  content:'';position:absolute;top:10px;left:20px;
+  width:42px;height:42px;
+  background:radial-gradient(circle,rgba(10,8,6,.15),transparent);
+  border-radius:50%;
+}
+
+.hero-content{
+  position:relative;z-index:2;text-align:center;padding:0 20px;
+}
+.hero-eyebrow{
+  font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:28px;display:flex;align-items:center;justify-content:center;gap:16px;
+  opacity:0;animation:fadeup .9s ease .3s forwards;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:48px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.hero-eyebrow::after{transform:scaleX(-1)}
+
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(52px,9vw,110px);
+  font-weight:300;line-height:.95;
+  margin-bottom:12px;
+  opacity:0;animation:fadeup .9s ease .5s forwards;
+}
+.hero-title em{font-style:italic;color:var(--gold);display:block}
+.hero-title strong{font-weight:600;letter-spacing:.05em}
+
+.hero-sub-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,4vw,48px);
+  font-weight:300;letter-spacing:.08em;
+  color:rgba(245,237,224,.5);
+  margin-bottom:36px;
+  opacity:0;animation:fadeup .9s ease .7s forwards;
+}
+
+.hero-desc{
+  font-size:14px;line-height:1.9;color:rgba(245,237,224,.55);
+  max-width:440px;margin:0 auto 52px;
+  opacity:0;animation:fadeup .9s ease .9s forwards;
+}
+
+.hero-btns{
+  display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+  opacity:0;animation:fadeup .9s ease 1.1s forwards;
+}
+.btn-main{
+  background:var(--gold);color:var(--night);border:none;
+  padding:16px 44px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.15em;text-transform:uppercase;cursor:none;transition:all .3s;text-decoration:none;display:inline-block;
+}
+.btn-main:hover{background:#D4A840;transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,150,60,.3)}
+.btn-out{
+  background:transparent;color:var(--cream);border:1px solid rgba(245,237,224,.2);
+  padding:16px 44px;font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
+  letter-spacing:.15em;text-transform:uppercase;cursor:none;transition:all .3s;text-decoration:none;display:inline-block;
+}
+.btn-out:hover{border-color:var(--gold);color:var(--gold)}
+
+.scroll-hint{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,237,224,.3);
+  opacity:0;animation:fadeup .9s ease 1.5s forwards;
+}
+.scroll-bar{width:1px;height:48px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollanim 2s ease infinite}
+@keyframes scrollanim{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* STRIP */
+.strip{
+  background:var(--gold);padding:13px 0;overflow:hidden;
+}
+.strip-inner{display:flex;gap:56px;animation:marquee 18s linear infinite;white-space:nowrap}
+.strip-item{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--night);flex-shrink:0;display:flex;align-items:center;gap:12px;font-weight:500}
+.strip-sep{opacity:.4;font-size:8px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:80vh;
+}
+.about-img{
+  position:relative;overflow:hidden;background:var(--dark);
+  min-height:500px;display:flex;align-items:center;justify-content:center;
+}
+.about-img-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at center,rgba(139,69,19,.3) 0%,transparent 70%),
+    linear-gradient(135deg,#1A0E06,#0A0806);
+  display:flex;align-items:center;justify-content:center;
+}
+.about-img-icon{font-size:160px;opacity:.12;filter:blur(1px)}
+.about-badge{
+  position:absolute;bottom:48px;right:48px;
+  border:1px solid rgba(200,150,60,.4);padding:24px 28px;
+  background:rgba(10,8,6,.8);backdrop-filter:blur(8px);text-align:center;
+}
+.about-badge-n{font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--gold);display:block;line-height:1}
+.about-badge-l{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+.about-text{
+  padding:80px 72px;background:var(--dark);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.sec-tag{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.sec-tag::before{content:'';width:24px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,52px);font-weight:300;line-height:1.15;margin-bottom:24px}
+.sec-title em{font-style:italic;color:var(--gold)}
+.about-body{font-size:14px;line-height:1.95;color:rgba(245,237,224,.55);margin-bottom:36px}
+.about-feats{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.feat{display:flex;gap:12px;align-items:flex-start}
+.feat-ico{font-size:20px;flex-shrink:0;margin-top:2px}
+.feat-l{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);margin-bottom:3px}
+.feat-d{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* MENU */
+.menu{padding:100px 56px;background:var(--night)}
+.menu-header{text-align:center;margin-bottom:56px}
+.menu-tabs{display:flex;justify-content:center;gap:0;border-bottom:1px solid rgba(245,237,224,.06);margin-bottom:48px}
+.mtab{
+  padding:13px 32px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);cursor:none;border:none;background:none;
+  border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .25s;
+  font-family:'Jost',sans-serif;
+}
+.mtab.on{color:var(--gold);border-bottom-color:var(--gold)}
+.mtab:hover{color:var(--cream)}
+
+.mpanel{display:none}
+.mpanel.on{display:block}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.mitem{
+  background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);
+  padding:24px 28px;display:flex;justify-content:space-between;gap:16px;
+  transition:background .2s;
+}
+.mitem:hover{background:rgba(200,150,60,.04)}
+.mname{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;margin-bottom:6px}
+.mdesc{font-size:11px;color:var(--muted);line-height:1.65}
+.mtag{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);margin-top:8px;display:inline-block}
+.mprice{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--gold);flex-shrink:0;align-self:flex-start}
+
+/* PANORAMA */
+.panorama{
+  padding:100px 56px;background:var(--dark);
+  position:relative;overflow:hidden;
+}
+.panorama::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 70% 50%,rgba(139,69,19,.15) 0%,transparent 60%);
+  pointer-events:none;
+}
+.pan-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1}
+.pan-imgs{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:260px 260px;gap:8px}
+.pan-img{
+  overflow:hidden;position:relative;background:#1A0E06;
+  transition:opacity .3s;
+}
+.pan-img img{width:100%;height:100%;object-fit:cover;display:block}
+.pan-img:hover img{transform:scale(1.04);transition:transform .5s ease}
+.pan-img:first-child{grid-row:span 2}
+.pan-text{}
+.pan-quote{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,34px);
+  font-style:italic;line-height:1.4;color:var(--sand);margin-bottom:24px;
+}
+.pan-attr{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:12px}
+.pan-attr::before{content:'';width:32px;height:1px;background:var(--gold)}
+.pan-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-top:32px;display:block}
+.pan-rev{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* REVIEWS */
+.reviews{padding:100px 56px;background:var(--night)}
+.rev-header{text-align:center;margin-bottom:64px}
+.rev-avg{font-family:'Cormorant Garamond',serif;font-size:72px;color:var(--gold);line-height:1}
+.rev-stars{font-size:18px;color:var(--gold);letter-spacing:4px;margin:8px 0}
+.rev-count{font-size:12px;color:var(--muted)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rcard{
+  background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.04);
+  padding:32px 28px;position:relative;transition:border-color .3s;
+}
+.rcard:hover{border-color:rgba(200,150,60,.2)}
+.rquote{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--gold);opacity:.15;line-height:1;margin-bottom:-8px}
+.rtext{font-size:13px;line-height:1.8;color:rgba(245,237,224,.6);margin-bottom:24px;font-style:italic}
+.rauth{display:flex;justify-content:space-between;align-items:center}
+.rname{font-size:13px;font-weight:400}
+.rcity{font-size:10px;color:var(--muted);margin-top:2px}
+.rstars{font-size:11px;color:var(--gold);letter-spacing:2px}
+
+/* BOOKING */
+.booking{
+  padding:100px 56px;
+  background:var(--dark);
+  position:relative;overflow:hidden;
+}
+.booking::after{
+  content:'BELLAVISTA';
+  position:absolute;right:-40px;top:50%;transform:translateY(-50%);
+  font-family:'Cormorant Garamond',serif;font-size:180px;font-weight:600;
+  opacity:.03;letter-spacing:.1em;white-space:nowrap;pointer-events:none;
+}
+.book-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;position:relative;z-index:1}
+.book-info{}
+.book-info-items{display:flex;flex-direction:column;gap:24px;margin-top:40px}
+.bitem{display:flex;gap:16px;align-items:flex-start}
+.bitem-ico{
+  width:44px;height:44px;border:1px solid rgba(200,150,60,.25);
+  display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;
+}
+.bitem-l{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.bitem-v{font-size:13px;color:rgba(245,237,224,.6);line-height:1.7}
+
+.book-form{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:48px}
+.book-form h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;margin-bottom:28px}
+.book-form h3 em{font-style:italic;color:var(--gold)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.fgroup{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.fgroup label{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.fgroup input,.fgroup select,.fgroup textarea{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  color:var(--cream);padding:12px 16px;font-family:'Jost',sans-serif;font-size:13px;
+  outline:none;transition:border-color .2s;width:100%;
+}
+.fgroup input:focus,.fgroup select:focus,.fgroup textarea:focus{border-color:var(--gold)}
+.fgroup select option{background:var(--dark)}
+.fgroup textarea{resize:vertical;min-height:80px}
+.btn-book{
+  width:100%;background:var(--gold);color:var(--night);border:none;
+  padding:16px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.15em;text-transform:uppercase;cursor:none;transition:all .3s;
+}
+.btn-book:hover{background:#D4A840;transform:translateY(-1px)}
+
+/* FOOTER */
+footer{
+  background:var(--night);border-top:1px solid rgba(255,255,255,.04);
+  padding:64px 56px 32px;
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+.foot-brand .nav-logo{display:block;margin-bottom:14px}
+.foot-brand p{font-size:12px;line-height:1.8;color:var(--muted);max-width:240px}
+.foot-col h4{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.foot-col a{display:block;color:var(--muted);text-decoration:none;font-size:12px;margin-bottom:8px;transition:color .2s}
+.foot-col a:hover{color:var(--cream)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.04);padding-top:24px;
+  display:flex;justify-content:space-between;font-size:10px;color:var(--muted);
+}
+
+/* DEMO BANNER */
+.demo-banner{
+  position:fixed;bottom:0;left:0;right:0;z-index:200;
+  background:linear-gradient(90deg,#1A0E06,var(--brown));
+  border-top:1px solid rgba(200,150,60,.3);
+  padding:14px 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.demo-banner-text{font-size:12px;color:var(--sand);display:flex;align-items:center;gap:12px}
+.demo-banner-text strong{color:var(--gold);font-weight:500}
+.demo-banner-badge{
+  font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--gold);color:var(--night);padding:4px 10px;border-radius:2px;font-weight:600;
+}
+.demo-banner-btns{display:flex;gap:10px}
+.dbtn{
+  padding:9px 20px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;cursor:pointer;border:none;transition:all .2s;
+}
+.dbtn-p{background:var(--gold);color:var(--night);font-weight:500}
+.dbtn-p:hover{opacity:.85}
+.dbtn-s{background:transparent;color:var(--gold);border:1px solid rgba(200,150,60,.4)}
+.dbtn-s:hover{background:rgba(200,150,60,.1)}
+
+@keyframes fadeup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:18px 24px}.nav-links{display:none}
+  .hero-title{font-size:52px}
+  .about,.pan-inner,.book-inner{grid-template-columns:1fr}
+  .about-img{min-height:300px}
+  .about-text,.menu,.panorama,.reviews,.booking{padding:60px 24px}
+  .mgrid{grid-template-columns:1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .demo-banner{flex-direction:column;gap:10px;padding:16px 20px}
+  .frow{grid-template-columns:1fr}
+  .pan-imgs{grid-template-columns:1fr;grid-template-rows:auto}.pan-img:first-child{grid-row:span 1;height:200px}
+}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur2" id="cur2"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Bellavista <span>Ristorante</span></div>
+  <div class="nav-links">
+    <a href="#storia">Storia</a>
+    <a href="#menu">Menu</a>
+    <a href="#vista">La Vista</a>
+    <a href="#prenota">Prenota</a>
+  </div>
+  <a href="#prenota" class="nav-cta">Prenota un tavolo</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Stars -->
+  <div class="stars" id="stars"></div>
+  <div class="moon"></div>
+
+  <!-- Mountain SVG -->
+  <svg class="mountain" viewBox="0 0 1440 400" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0 400 L0 280 L80 220 L160 260 L260 140 L340 180 L420 80 L500 130 L580 60 L660 110 L720 40 L780 90 L860 30 L940 85 L1020 50 L1100 100 L1180 65 L1260 120 L1340 80 L1380 95 L1440 70 L1440 400 Z" fill="rgba(20,12,6,0.95)"/>
+    <path d="M0 400 L0 310 L100 280 L200 295 L300 250 L380 265 L460 240 L540 255 L620 230 L700 245 L760 220 L820 238 L900 215 L980 232 L1060 210 L1140 228 L1220 215 L1300 230 L1370 218 L1440 225 L1440 400 Z" fill="rgba(12,8,4,0.98)"/>
+    <!-- Snow caps -->
+    <path d="M420 80 L440 95 L460 85 L480 100 L500 130 L460 110 Z" fill="rgba(245,237,224,.08)"/>
+    <path d="M580 60 L600 72 L620 65 L640 80 L660 110 L620 88 Z" fill="rgba(245,237,224,.06)"/>
+    <path d="M720 40 L738 52 L754 46 L768 58 L780 90 L750 68 Z" fill="rgba(245,237,224,.1)"/>
+    <path d="M860 30 L876 44 L892 38 L904 52 L940 85 L900 62 Z" fill="rgba(245,237,224,.07)"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Santa Domenica Talao · Calabria · Dal 1985</div>
+    <h1 class="hero-title">
+      <strong>Pizzeria</strong>
+      <em>Bellavista</em>
+    </h1>
+    <p class="hero-sub-name">dove il cibo incontra il panorama</p>
+    <p class="hero-desc">
+      Tra le colline della Calabria, con vista sulle montagne del Pollino, vi offriamo pizza artigianale, cucina tradizionale calabrese e un'accoglienza familiare che dura da quarant'anni.
+    </p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-main">Scopri il menu</a>
+      <a href="#prenota" class="btn-out">Prenota ora</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-bar"></div>
+    <span>Scorri</span>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-item"><span class="strip-sep">✦</span> Pizza artigianale forno a legna</span>
+    <span class="strip-item"><span class="strip-sep">✦</span> Vista panoramica sulle montagne</span>
+    <span class="strip-item"><span class="strip-sep">✦</span> Cucina calabrese tradizionale</span>
+    <span class="strip-item"><span class="strip-sep">✦</span> Aperti tutti i giorni dalle 6:00</span>
+    <span class="strip-item"><span class="strip-sep">✦</span> 433 recensioni · 4.6 stelle su Google</span>
+    <span class="strip-item"><span class="strip-sep">✦</span> Via Mazzini 37, Santa Domenica Talao</span>
+    <!-- duplicate -->
+    <span class="strip-item"><span class="strip-sep">✦</span> Pizza artigianale forno a legna</span>
+    <span class="strip-item"><span class="strip-sep">✦</span> Vista panoramica sulle montagne</span>
+    <span class="strip-item"><span class="strip-sep">✦</span> Cucina calabrese tradizionale</span>
+    <span class="strip-item"><span class="strip-sep">✦</span> Aperti tutti i giorni dalle 6:00</span>
+    <span class="strip-item"><span class="strip-sep">✦</span> 433 recensioni · 4.6 stelle su Google</span>
+    <span class="strip-item"><span class="strip-sep">✦</span> Via Mazzini 37, Santa Domenica Talao</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="storia">
+  <div class="about-img" style="position:relative;overflow:hidden">
+    <img
+      src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80&fit=crop"
+      alt="Pizzeria Bellavista ristorante"
+      style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0"
+      onerror="this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&fit=crop'"
+    />
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(61,32,16,.3),rgba(10,8,6,.2))"></div>
+    <div class="about-badge" style="z-index:2">
+      <span class="about-badge-n">4.6</span>
+      <span class="about-badge-l">⭐ Google · 433 rec.</span>
+    </div>
+  </div>
+  <div class="about-text reveal">
+    <p class="sec-tag">La nostra storia</p>
+    <h2 class="sec-title">Una tradizione<br>di <em>famiglia</em></h2>
+    <p class="about-body">
+      Dal 1985 la famiglia Bellavista accoglie i propri ospiti in questo angolo di Calabria autentica. Siamo nati come semplice pizzeria e nel tempo siamo diventati un punto di riferimento per tutta la Valle del Lao — un luogo dove i turisti tornano anno dopo anno e i locali si sentono sempre a casa.
+    </p>
+    <p class="about-body">
+      La nostra cucina racconta il territorio: farina di grano antico macinata a pietra, mozzarella fresca di giornata, le verdure dell'orto di famiglia, la 'nduja e i salumi calabresi che facciamo stagionare noi stessi.
+    </p>
+    <div class="about-feats">
+      <div class="feat"><div class="feat-ico">🌾</div><div><div class="feat-l">Farina macinata a pietra</div><div class="feat-d">Impasto a lunga lievitazione 48 ore</div></div></div>
+      <div class="feat"><div class="feat-ico">🔥</div><div><div class="feat-l">Forno a legna di quercia</div><div class="feat-d">A 485°C per 90 secondi perfetti</div></div></div>
+      <div class="feat"><div class="feat-ico">🌿</div><div><div class="feat-l">Prodotti km zero</div><div class="feat-d">Orto proprio e fornitori locali</div></div></div>
+      <div class="feat"><div class="feat-ico">🏔️</div><div><div class="feat-l">Vista Pollino</div><div class="feat-d">Terrazza panoramica sul Parco</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="menu-header reveal">
+    <p class="sec-tag" style="justify-content:center">✦ La nostra proposta ✦</p>
+    <h2 class="sec-title" style="text-align:center">Il <em>Menu</em></h2>
+  </div>
+
+  <div class="menu-tabs">
+    <button class="mtab on" onclick="setTab('pizze',this)">Pizze</button>
+    <button class="mtab" onclick="setTab('antipasti',this)">Antipasti</button>
+    <button class="mtab" onclick="setTab('primi',this)">Primi</button>
+    <button class="mtab" onclick="setTab('secondi',this)">Secondi</button>
+    <button class="mtab" onclick="setTab('dolci',this)">Dolci</button>
+  </div>
+
+  <div id="pizze" class="mpanel on">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Margherita Calabrese</div><div class="mdesc">Pomodoro San Marzano, fior di latte, basilico fresco, olio EVO del Pollino</div><span class="mtag">⚡ La più amata</span></div><div class="mprice">€9</div></div>
+      <div class="mitem"><div><div class="mname">Bellavista Speciale</div><div class="mdesc">'Nduja DOP, cipolla di Tropea, olive nocellara, pecorino crotonese stagionato</div><span class="mtag">🏠 Nostra firma</span></div><div class="mprice">€14</div></div>
+      <div class="mitem"><div><div class="mname">Diavola Calabra</div><div class="mdesc">Salame piccante artigianale, peperoncino fresco di Diamante, fior di latte</div></div><div class="mprice">€12</div></div>
+      <div class="mitem"><div><div class="mname">Funghi Porcini del Pollino</div><div class="mdesc">Porcini freschi di stagione, mozzarella, rosmarino, aglio crudo, olio EVO</div><span class="mtag">🍄 Stagionale</span></div><div class="mprice">€13</div></div>
+      <div class="mitem"><div><div class="mname">Quattro Formaggi della Calabria</div><div class="mdesc">Provola affumicata, scamorza, pecorino, ricotta salata di capra</div></div><div class="mprice">€13</div></div>
+      <div class="mitem"><div><div class="mname">Pizza Salsiccia e Friarielli</div><div class="mdesc">Salsiccia calabrese, broccoletti saltati in padella, fior di latte, peperoncino</div></div><div class="mprice">€13</div></div>
+    </div>
+  </div>
+
+  <div id="antipasti" class="mpanel">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Tagliere Calabrese</div><div class="mdesc">'Nduja, soppressata, capocollo, olive, sottaceti artigianali, pane casereccio</div><span class="mtag">🌟 Per condividere</span></div><div class="mprice">€16</div></div>
+      <div class="mitem"><div><div class="mname">Bruschette al Pomodoro</div><div class="mdesc">Pane abbrustolito, pomodoro fresco, aglio, basilico, olio del Pollino</div></div><div class="mprice">€7</div></div>
+      <div class="mitem"><div><div class="mname">Peperoni Arrosto</div><div class="mdesc">Peperoni dolci di stagione arrostiti alla brace, aglio, origano, olio EVO</div></div><div class="mprice">€8</div></div>
+      <div class="mitem"><div><div class="mname">Melanzane alla Calabrese</div><div class="mdesc">Melanzane grigliate, menta, aglio, aceto di vino rosso, peperoncino</div></div><div class="mprice">€8</div></div>
+    </div>
+  </div>
+
+  <div id="primi" class="mpanel">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Fileja al Sugo di 'Nduja</div><div class="mdesc">Pasta fresca calabrese artigianale, 'nduja sciolta, pomodoro, pecorino</div><span class="mtag">⚡ Piatto tipico</span></div><div class="mprice">€14</div></div>
+      <div class="mitem"><div><div class="mname">Lagane e Cicciari</div><div class="mdesc">Tagliatelle larghe con ceci, aglio, rosmarino, olio EVO — ricetta della nonna</div><span class="mtag">🏺 Tradizione</span></div><div class="mprice">€12</div></div>
+      <div class="mitem"><div><div class="mname">Pasta alla Norma Calabrese</div><div class="mdesc">Rigatoni, melanzane fritte, pomodoro fresco, ricotta salata, basilico</div></div><div class="mprice">€13</div></div>
+      <div class="mitem"><div><div class="mname">Risotto al Bergamotto</div><div class="mdesc">Riso Carnaroli, bergamotto di Reggio Calabria, gamberi locali, scorza agrumi</div><span class="mtag">🍊 Specialità</span></div><div class="mprice">€18</div></div>
+    </div>
+  </div>
+
+  <div id="secondi" class="mpanel">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Agnello del Pollino alla Brace</div><div class="mdesc">Agnello locale allevato allo stato brado, erbe aromatiche del parco, patate</div><span class="mtag">🔥 Stagionale</span></div><div class="mprice">€24</div></div>
+      <div class="mitem"><div><div class="mname">Pesce Spada alla Ghiotta</div><div class="mdesc">Pesce spada dello Stretto, pomodori, capperi, olive, pinoli, uvetta</div></div><div class="mprice">€22</div></div>
+      <div class="mitem"><div><div class="mname">Salsiccia Calabrese alla Brace</div><div class="mdesc">Salsiccia artigianale con peperoncino dolce, servita con friggitelli e patate</div></div><div class="mprice">€16</div></div>
+      <div class="mitem"><div><div class="mname">Baccalà alla Calabrese</div><div class="mdesc">Baccalà in umido con pomodori, patate, olive, capperi e peperoncino</div><span class="mtag">🐟 Venerdì</span></div><div class="mprice">€18</div></div>
+    </div>
+  </div>
+
+  <div id="dolci" class="mpanel">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Torta di Bergamotto</div><div class="mdesc">Chiffon cake al bergamotto, crema pasticcera all'arancia, granella di pistacchio</div><span class="mtag">🏆 Dolce della casa</span></div><div class="mprice">€7</div></div>
+      <div class="mitem"><div><div class="mname">Tiramisù al Caffè Calabrese</div><div class="mdesc">Savoiardi, mascarpone, caffè di Reggio, cacao amaro — ricetta della nonna</div></div><div class="mprice">€7</div></div>
+      <div class="mitem"><div><div class="mname">Gelato Artigianale</div><div class="mdesc">Tre gusti a scelta: nocciola, pistacchio di Bronte, limone di Calabria</div></div><div class="mprice">€5</div></div>
+      <div class="mitem"><div><div class="mname">Fichi al Miele e Noci</div><div class="mdesc">Fichi secchi del Cilento, miele di zagara, noci del Pollino, ricotta fresca</div><span class="mtag">🌿 Calabria autentica</span></div><div class="mprice">€6</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PANORAMA / GALLERY -->
+<section class="panorama" id="vista">
+  <div class="pan-inner">
+    <div class="pan-imgs reveal">
+
+      <!-- LARGE: Vista reale del ristorante - foto Google Maps -->
+      <div class="pan-img" style="padding:0;overflow:hidden;position:relative;background:#1A0E06">
+        <img
+          src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80&fit=crop"
+          alt="Vista panoramica Pizzeria Bellavista"
+          style="width:100%;height:100%;object-fit:cover;display:block"
+        />
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,8,6,.75));padding:14px 18px">
+          <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">La nostra vista · Santa Domenica Talao</div>
+        </div>
+      </div>
+
+      <!-- SMALL TOP: Foto ristorante reale -->
+      <div class="pan-img" style="padding:0;overflow:hidden;position:relative;background:#1A0E06">
+        <img
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80&fit=crop"
+          alt="Ristorante Pizzeria Bellavista interno"
+          style="width:100%;height:100%;object-fit:cover;display:block"
+        />
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,8,6,.75));padding:10px 14px">
+          <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Il nostro locale</div>
+        </div>
+      </div>
+
+      <!-- SMALL BOTTOM: Altra foto reale -->
+      <div class="pan-img" style="padding:0;overflow:hidden;position:relative;background:#1A0E06">
+        <img
+          src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80&fit=crop"
+          alt="Pizzeria Bellavista atmosfera"
+          style="width:100%;height:100%;object-fit:cover;display:block"
+        />
+        <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,8,6,.75));padding:10px 14px">
+          <div style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)">Atmosfera serale</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="pan-text reveal">
+      <p class="sec-tag">La nostra vista</p>
+      <h2 class="sec-title">Un panorama<br>che toglie il <em>fiato</em></h2>
+      <p class="pan-quote">"The view is stunning from there. Hidden gem in a small old magical village."</p>
+      <p class="pan-attr">Ospite internazionale · Google Maps</p>
+      <span class="pan-stars">★★★★★</span>
+      <p class="pan-rev">Tra i 10 migliori ristoranti dell'area · 433 recensioni verificate</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="rev-header reveal">
+    <p class="sec-tag" style="justify-content:center">✦ Recensioni ✦</p>
+    <h2 class="sec-title" style="text-align:center">Cosa dicono i <em>nostri ospiti</em></h2>
+    <div style="margin-top:20px">
+      <div class="rev-avg">4.6</div>
+      <div class="rev-stars">★★★★★</div>
+      <div class="rev-count">433 recensioni verificate su Google Maps</div>
+    </div>
+  </div>
+
+  <div class="rev-grid">
+    <div class="rcard reveal">
+      <div class="rquote">"</div>
+      <p class="rtext">A family restaurant, with authentic, really good tasting food. Great house wine, wonderful scenery and a friendly service! The tiramisu-cake was a surprise: seriously delicious.</p>
+      <div class="rauth">
+        <div><div class="rname">Ospite internazionale</div><div class="rcity">Europa</div></div>
+        <div class="rstars">★★★★★</div>
+      </div>
+    </div>
+    <div class="rcard reveal">
+      <div class="rquote">"</div>
+      <p class="rtext">Hidden gem in a small old magical village. We had an amazing dinner here — the pizza, the service, the views, very good aperol spritz. Really great place, I cannot recommend it more.</p>
+      <div class="rauth">
+        <div><div class="rname">Visitatore internazionale</div><div class="rcity">Google Maps</div></div>
+        <div class="rstars">★★★★★</div>
+      </div>
+    </div>
+    <div class="rcard reveal">
+      <div class="rquote">"</div>
+      <p class="rtext">The staff is very friendly and the food delicious! Also, as its name says, the view is stunning from there. 100% recommended to anyone who visits Santa Domenica Talao.</p>
+      <div class="rauth">
+        <div><div class="rname">Ospite verificato</div><div class="rcity">Google Maps</div></div>
+        <div class="rstars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="prenota">
+  <div class="book-inner">
+    <div class="book-info reveal">
+      <p class="sec-tag">Prenota il tuo tavolo</p>
+      <h2 class="sec-title">Vi <em>aspettiamo</em><br>a Santa Domenica</h2>
+      <p style="font-size:14px;line-height:1.9;color:rgba(245,237,224,.5);max-width:360px;margin-bottom:4px">
+        Venite a scoprire i sapori autentici della Calabria, con la vista sul Parco del Pollino come sfondo. Per gruppi e occasioni speciali, chiamateci direttamente.
+      </p>
+      <div class="book-info-items">
+        <div class="bitem">
+          <div class="bitem-ico">📍</div>
+          <div><div class="bitem-l">Indirizzo</div><div class="bitem-v">Via Mazzini, 37–39<br>87020 Santa Domenica Talao CS</div></div>
+        </div>
+        <div class="bitem">
+          <div class="bitem-ico">📞</div>
+          <div><div class="bitem-l">Telefono</div><div class="bitem-v">+39 0985 29379</div></div>
+        </div>
+        <div class="bitem">
+          <div class="bitem-ico">🕐</div>
+          <div><div class="bitem-l">Orari</div><div class="bitem-v">Tutti i giorni: 6:00 – 24:00<br>Cucina: 12:00–15:00 · 19:00–23:00</div></div>
+        </div>
+        <div class="bitem">
+          <div class="bitem-ico">🚗</div>
+          <div><div class="bitem-l">Come arrivare</div><div class="bitem-v">SS18, uscita Santa Domenica Talao<br>Parcheggio gratuito disponibile</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-form reveal">
+      <h3>Prenota <em>ora</em></h3>
+      <div class="frow">
+        <div class="fgroup"><label>Nome</label><input type="text" placeholder="Mario"/></div>
+        <div class="fgroup"><label>Cognome</label><input type="text" placeholder="Rossi"/></div>
+      </div>
+      <div class="frow">
+        <div class="fgroup"><label>Telefono</label><input type="tel" placeholder="+39 333 000 0000"/></div>
+        <div class="fgroup"><label>Email</label><input type="email" placeholder="mario@email.it"/></div>
+      </div>
+      <div class="frow">
+        <div class="fgroup"><label>Data</label><input type="date"/></div>
+        <div class="fgroup"><label>Ora</label>
+          <select>
+            <option>12:00</option><option>12:30</option><option>13:00</option>
+            <option>19:00</option><option>19:30</option><option selected>20:00</option>
+            <option>20:30</option><option>21:00</option><option>21:30</option>
+          </select>
+        </div>
+      </div>
+      <div class="fgroup"><label>Numero di persone</label>
+        <select>
+          <option>1 persona</option><option>2 persone</option>
+          <option selected>3–4 persone</option><option>5–6 persone</option>
+          <option>7–10 persone</option><option>11+ persone (evento)</option>
+        </select>
+      </div>
+      <div class="fgroup"><label>Note speciali</label>
+        <textarea placeholder="Allergie, occasioni speciali, tavolo con vista…"></textarea>
+      </div>
+      <button class="btn-book" onclick="showToast()">Conferma prenotazione →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="foot-brand">
+      <div class="nav-logo">Bellavista <span>Ristorante</span></div>
+      <p>Pizza artigianale e cucina calabrese autentica dal 1985, con la vista più bella della Valle del Lao.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Menu</h4>
+      <a href="#">Pizze</a><a href="#">Antipasti</a>
+      <a href="#">Primi piatti</a><a href="#">Secondi</a><a href="#">Dolci</a>
+    </div>
+    <div class="foot-col">
+      <h4>Info</h4>
+      <a href="#">Chi siamo</a><a href="#">Galleria foto</a>
+      <a href="#">Dove siamo</a><a href="#">Lavora con noi</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contatti</h4>
+      <a href="tel:+390985293790">+39 0985 29379</a>
+      <a href="#">Via Mazzini 37–39</a>
+      <a href="#">Santa Domenica Talao</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Ristorante Pizzeria Bellavista · P.IVA 02847650781 · Santa Domenica Talao (CS)</span>
+    <span>★ 4.6 / 5 · 433 recensioni Google</span>
+  </div>
+</footer>
+
+<!-- DEMO BANNER -->
+<div class="demo-banner" id="demoBanner">
+  <div class="demo-banner-text">
+    <span class="demo-banner-badge">Demo</span>
+    <span>Questo è un <strong>sito demo gratuito</strong> creato per la Pizzeria Bellavista — pronto per essere attivato!</span>
+  </div>
+  <div class="demo-banner-btns">
+    <button class="dbtn dbtn-s" onclick="document.getElementById('demoBanner').style.display='none'">Chiudi</button>
+    <button class="dbtn dbtn-p" onclick="alert('Contatta il developer per attivare questo sito! +39 XXX XXX XXXX')">Voglio questo sito →</button>
+  </div>
+</div>
+
+<!-- CONFIRM TOAST -->
+<div id="toast" style="position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--gold);color:var(--night);padding:14px 28px;font-size:12px;font-weight:500;letter-spacing:.1em;opacity:0;transition:all .3s;z-index:300;pointer-events:none;text-align:center">
+  ✓ Prenotazione confermata! Vi ricontatteremo presto.
+</div>
+
+<script>
+// Cursor
+const c=document.getElementById('cur'),c2=document.getElementById('cur2');
+document.addEventListener('mousemove',e=>{
+  c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';
+  setTimeout(()=>{c2.style.left=e.clientX+'px';c2.style.top=e.clientY+'px'},80);
+});
+
+// Stars
+const stars=document.getElementById('stars');
+for(let i=0;i<120;i++){
+  const s=document.createElement('div');
+  s.className='star';
+  const size=Math.random()*2+.5;
+  s.style.cssText=`width:${size}px;height:${size}px;top:${Math.random()*60}%;left:${Math.random()*100}%;--o:${Math.random()*.8+.2};--d:${Math.random()*4+2}s;animation-delay:${Math.random()*4}s`;
+  stars.appendChild(s);
+}
+
+// Tabs
+function setTab(id,btn){
+  document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+
+// Reveal on scroll
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting) setTimeout(()=>e.target.classList.add('vis'),i*80);
+  });
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Toast
+function showToast(){
+  const t=document.getElementById('toast');
+  t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';
+  setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)'},3500);
+}
+</script>
+</body>
+</html>

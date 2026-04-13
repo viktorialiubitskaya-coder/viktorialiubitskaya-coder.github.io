@@ -4,459 +4,168 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Demo Siti Web — Viktoria Agency</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Catalogo demo: siti web premium per ristoranti, pizzerie e attività in Calabria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--black:#0d0d0d;--white:#f4f1ed;--gold:#c8922a;--gold2:#e8b84b;--gray:#777;--gray2:#aaa;--border:rgba(200,146,42,0.18);--card:#141414;--card2:#1a1a1a}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0a0a0b;--bg-2:#111114;--card:#16161a;--card-hover:#1c1c22;
+    --line:#26262d;--text:#f5f5f7;--muted:#8a8a94;--accent:#d4a574;--accent-2:#e8c9a3;
+    --shadow:0 20px 60px -20px rgba(0,0,0,.6),0 8px 24px -8px rgba(212,165,116,.08);
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at top,rgba(212,165,116,.06),transparent 55%),radial-gradient(ellipse at bottom right,rgba(120,60,180,.04),transparent 60%);pointer-events:none;z-index:0}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
 
-/* NAV */
-nav{padding:18px 60px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;background:rgba(13,13,13,0.95);backdrop-filter:blur(8px);z-index:100}
-.nav-brand{display:flex;align-items:center;gap:10px}
-.nav-logo{width:32px;height:32px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;color:#000;font-weight:600}
-.nav-title{font-size:0.85rem;letter-spacing:0.06em}
-.nav-title span{color:var(--gold)}
-.nav-sub{font-size:0.68rem;color:var(--gray);letter-spacing:0.08em;text-transform:uppercase}
-.nav-wa{background:#25d366;color:#fff;border:none;border-radius:50px;padding:9px 18px;font-size:13px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif;text-decoration:none;transition:opacity .15s;flex-shrink:0}
-.nav-wa:hover{opacity:.9}
+  /* Header */
+  header{padding:32px 0 0}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--line)}
+  .brand{font-family:'Fraunces',serif;font-size:22px;font-weight:600;letter-spacing:-.01em}
+  .brand span{color:var(--accent)}
+  .wa{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);color:#25d366;text-decoration:none;border-radius:999px;font-size:13px;font-weight:500;transition:all .25s}
+  .wa:hover{background:rgba(37,211,102,.2);transform:translateY(-1px)}
+  .wa svg{width:16px;height:16px}
 
-/* HERO */
-.hero{padding:52px 60px 36px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:300;line-height:1;letter-spacing:-0.02em}
-.hero h1 em{font-style:italic;color:var(--gold)}
-.hero-sub{margin-top:10px;font-size:0.82rem;color:var(--gray);letter-spacing:0.1em;text-transform:uppercase}
-.hero-stats{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
-.hstat{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:10px 18px;text-align:center;min-width:80px}
-.hstat b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;line-height:1;color:var(--gold)}
-.hstat s{font-size:0.62rem;color:var(--gray);font-style:normal;letter-spacing:0.1em;text-transform:uppercase}
-.hstat.sv b{color:#378add}.hstat.sc b{color:#639922}.hstat.sp b{color:#ba7517}
+  /* Hero */
+  .hero{padding:80px 0 60px;text-align:center;animation:fadeUp .9s ease both}
+  .eyebrow{display:inline-block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;padding:6px 14px;border:1px solid rgba(212,165,116,.3);border-radius:999px}
+  h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(40px,6vw,72px);line-height:1.05;letter-spacing:-.02em;margin-bottom:20px}
+  h1 em{font-style:italic;color:var(--accent)}
+  .sub{font-size:17px;color:var(--muted);max-width:580px;margin:0 auto}
 
-/* CONTROLS */
-.controls{padding:16px 60px 20px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:10px;position:sticky;top:65px;background:rgba(13,13,13,0.97);backdrop-filter:blur(8px);z-index:99}
-.row{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.row-label{font-size:0.65rem;color:var(--gray);letter-spacing:0.15em;text-transform:uppercase;margin-right:4px;flex-shrink:0}
-.tab{background:none;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:7px 14px;font-size:12px;cursor:pointer;color:var(--gray2);font-family:'DM Sans',sans-serif;transition:all .15s;white-space:nowrap}
-.tab:hover{border-color:var(--gold);color:var(--white)}
-.tab.on{background:var(--gold);border-color:var(--gold);color:#000;font-weight:500}
-.tab .n{font-size:10px;opacity:.55;margin-left:3px}
-.pill{background:none;border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:4px 11px;font-size:12px;cursor:pointer;color:var(--gray);font-family:'DM Sans',sans-serif;transition:all .15s;display:flex;align-items:center;gap:5px;white-space:nowrap}
-.pill:hover{color:var(--white)}
-.pill.on{border-color:var(--gold);color:var(--gold);background:rgba(200,146,42,0.08)}
-.dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.dv{background:#378add}.dc{background:#639922}.ds{background:#ba7517}
+  /* Filters */
+  .filters{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:40px 0 50px;animation:fadeUp 1s .15s ease both;animation-fill-mode:both;opacity:0}
+  .chip{padding:10px 22px;background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;cursor:pointer;font:inherit;font-size:13px;font-weight:500;letter-spacing:.02em;transition:all .25s}
+  .chip:hover{border-color:var(--accent);color:var(--text)}
+  .chip.active{background:var(--accent);border-color:var(--accent);color:#0a0a0b}
 
-/* MAIN */
-main{padding:32px 60px 80px}
+  /* Grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px;padding-bottom:80px}
+  .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .4s;display:flex;flex-direction:column;opacity:0;animation:cardIn .7s ease forwards}
+  .card:hover{transform:translateY(-6px);border-color:rgba(212,165,116,.4);box-shadow:var(--shadow);background:var(--card-hover)}
+  .card.hidden{display:none}
+  .card-img{aspect-ratio:16/10;background:linear-gradient(135deg,#1a1a20,#0e0e12);position:relative;overflow:hidden}
+  .card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.5));pointer-events:none}
+  .card-img .icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:64px;color:var(--accent);opacity:.35;font-style:italic}
+  .badge{position:absolute;top:14px;left:14px;background:rgba(10,10,11,.85);backdrop-filter:blur(8px);padding:5px 11px;border-radius:999px;font-size:11px;font-weight:500;letter-spacing:.05em;color:var(--text);z-index:2;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
+  .rating{position:absolute;top:14px;right:14px;background:rgba(10,10,11,.85);backdrop-filter:blur(8px);padding:5px 11px;border-radius:999px;font-size:12px;font-weight:600;color:var(--accent-2);z-index:2;display:flex;align-items:center;gap:4px;border:1px solid rgba(212,165,116,.2)}
+  .card-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+  .card h3{font-family:'Fraunces',serif;font-weight:500;font-size:23px;letter-spacing:-.01em;margin-bottom:4px;line-height:1.2}
+  .city{font-size:13px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:5px}
+  .city::before{content:'';width:4px;height:4px;background:var(--accent);border-radius:50%;display:inline-block}
+  .open{margin-top:auto;display:inline-flex;align-items:center;gap:8px;padding:11px 0;color:var(--accent);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.02em;border-top:1px solid var(--line);transition:gap .25s,color .25s}
+  .open:hover{gap:14px;color:var(--accent-2)}
+  .open svg{width:14px;height:14px;transition:transform .25s}
 
-/* CITY SECTION */
-.city-block{margin-bottom:48px}
-.city-hd{display:flex;align-items:baseline;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
-.city-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;letter-spacing:-0.01em}
-.city-name em{font-style:italic;color:var(--gold)}
-.city-prov{font-size:0.68rem;color:var(--gray);letter-spacing:0.14em;text-transform:uppercase}
-.city-cnt{margin-left:auto;font-size:0.68rem;color:var(--gray);letter-spacing:0.1em;text-transform:uppercase}
+  /* Footer */
+  footer{padding:48px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px}
+  footer .brand{font-size:16px;color:var(--text);margin-bottom:8px;display:block}
 
-/* GRID */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+  /* Animations */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes cardIn{to{opacity:1;transform:translateY(0)}}
+  .card{transform:translateY(20px)}
+  .card:nth-child(1){animation-delay:.1s}.card:nth-child(2){animation-delay:.18s}.card:nth-child(3){animation-delay:.26s}.card:nth-child(4){animation-delay:.34s}.card:nth-child(5){animation-delay:.42s}.card:nth-child(6){animation-delay:.5s}.card:nth-child(7){animation-delay:.58s}.card:nth-child(8){animation-delay:.66s}
 
-/* CARD */
-.card{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:9px;transition:border-color .2s;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height .3s;border-radius:0 0 2px 2px}
-.card:hover{border-color:rgba(200,146,42,0.3)}
-.card:hover::before{height:100%}
-.card.hidden{display:none}
-.card.has-v{border-left:2px solid #378add}
-.card.has-c{border-left:2px solid #639922}
-.card.has-s{border-left:2px solid #ba7517}
-.card.coming{opacity:.65}
-
-/* CARD TOP */
-.ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.cnum{font-size:11px;color:var(--gray)}
-.cbadges{display:flex;gap:5px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.tag{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:500}
-.tr{background:rgba(232,184,75,.12);color:#e8b84b}
-.tp{background:rgba(224,112,80,.12);color:#e07050}
-.tg{background:rgba(219,112,219,.12);color:#d978d9}
-.ta{background:rgba(122,184,122,.12);color:#7ab87a}
-.tb{background:rgba(112,168,224,.12);color:#70a8e0}
-.th{background:rgba(224,112,184,.12);color:#e070b8}
-.tl{background:rgba(160,112,224,.12);color:#a070e0}
-.to{background:rgba(170,170,170,.1);color:#aaa}
-.status-badge{font-size:10px;display:flex;align-items:center;gap:4px}
-.status-badge.ready{color:#639922}
-.status-badge.coming{color:var(--gray)}
-.sdot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.sdot.r{background:#639922}.sdot.c{background:var(--gray)}
-
-/* CARD BODY */
-.cname{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;line-height:1.2;color:var(--white)}
-.cloc{font-size:11px;color:var(--gray);letter-spacing:0.06em}
-.crating{display:flex;align-items:center;gap:6px;font-size:12px}
-.stars{color:var(--gold2);letter-spacing:-1px}
-.rval{font-weight:500;color:var(--white)}
-.rrec{color:var(--gray);font-size:11px}
-.cdesc{font-size:12px;color:#999;line-height:1.6;flex-grow:1}
-.clink{font-size:12px;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:gap .15s;margin-top:2px}
-.clink:hover{gap:9px}
-.clink::after{content:'→'}
-.clink.disabled{color:var(--gray);pointer-events:none}
-.clink.disabled::after{content:''}
-
-/* CRM */
-.cdivider{height:1px;background:rgba(255,255,255,0.06)}
-.crm-btns{display:flex;gap:5px;flex-wrap:wrap}
-.cbtn{border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:4px 9px;font-size:11px;cursor:pointer;background:none;font-family:'DM Sans',sans-serif;color:var(--gray);transition:all .15s;display:flex;align-items:center;gap:4px}
-.cbtn:hover{color:var(--white);border-color:rgba(255,255,255,.2)}
-.cbtn.av{background:rgba(55,138,221,.12);border-color:#378add;color:#70a8e0}
-.cbtn.ac{background:rgba(99,153,34,.12);border-color:#639922;color:#7ab87a}
-.cbtn.as{background:rgba(186,117,23,.12);border-color:#ba7517;color:#e8b84b}
-.crm-row{display:flex;gap:7px;align-items:center}
-.crm-inp{flex:1;min-width:80px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:5px 8px;font-size:11px;color:var(--white);font-family:'DM Sans',sans-serif}
-.crm-inp::placeholder{color:var(--gray)}
-.crm-inp:focus{outline:none;border-color:rgba(200,146,42,.4)}
-.crm-date{font-size:10px;color:var(--gray);white-space:nowrap;flex-shrink:0}
-.cnote{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:5px 8px;font-size:11px;color:var(--white);font-family:'DM Sans',sans-serif;resize:none}
-.cnote::placeholder{color:var(--gray)}
-.cnote:focus{outline:none;border-color:rgba(200,146,42,.4)}
-
-/* EMPTY */
-.empty-msg{padding:48px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:var(--gray);display:none}
-
-/* FOOTER */
-footer{padding:28px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-footer p{font-size:0.72rem;color:var(--gray);letter-spacing:.06em}
-footer a{color:var(--gold);text-decoration:none}
-
-/* FEEDBACK */
-.fb-btn{position:fixed;bottom:24px;right:24px;background:#25d366;color:#fff;border:none;border-radius:50px;padding:11px 18px;font-size:13px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:7px;z-index:999;font-family:'DM Sans',sans-serif;box-shadow:0 4px 16px rgba(37,211,102,.35);transition:transform .15s}
-.fb-btn:hover{transform:scale(1.04)}
-.fb-panel{position:fixed;bottom:72px;right:24px;width:290px;background:#1c1c1c;border:1px solid var(--border);border-radius:16px;padding:1.2rem;z-index:998;display:none;flex-direction:column;gap:11px}
-.fb-panel.open{display:flex}
-.fb-panel h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--white)}
-.fb-panel p{font-size:12px;color:var(--gray);line-height:1.5}
-.fb-ta{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:9px;font-size:12px;color:var(--white);font-family:'DM Sans',sans-serif;resize:none;height:80px}
-.fb-ta::placeholder{color:var(--gray)}
-.fb-ta:focus{outline:none;border-color:var(--gold)}
-.fb-actions{display:flex;gap:7px}
-.fb-send{flex:1;background:#25d366;color:#fff;border:none;border-radius:8px;padding:9px;font-size:12px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif}
-.fb-cancel{background:none;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:9px 13px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--gray)}
-.fb-thanks{text-align:center;padding:.75rem 0;display:none;flex-direction:column;gap:6px;align-items:center}
-.fb-thanks p{font-size:12px;color:var(--gray)}
-
-@media(max-width:768px){
-  nav,footer{padding:16px 20px}
-  .hero{padding:36px 20px 24px}
-  .controls{padding:12px 20px 16px;top:60px}
-  main{padding:24px 20px 80px}
-  .grid{grid-template-columns:1fr}
-  .hero-stats{gap:8px}
-}
+  @media(max-width:600px){
+    .wrap{padding:0 20px}
+    .hero{padding:50px 0 40px}
+    .grid{grid-template-columns:1fr;gap:18px}
+    .nav{flex-direction:column;gap:14px;align-items:flex-start}
+  }
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-brand">
-    <div class="nav-logo">V</div>
-    <div>
-      <div class="nav-title">Demo Siti Web <span>Viktoria</span></div>
-      <div class="nav-sub">Catalogo privato · Non distribuire</div>
-    </div>
+<header><div class="wrap">
+  <div class="nav">
+    <div class="brand">Viktoria<span>.</span> Agency</div>
+    <a class="wa" href="https://wa.me/393513904408" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>
+      +39 351 390 4408
+    </a>
   </div>
-  <a class="nav-wa" href="https://wa.me/393513904408">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M20.4 3.6A12 12 0 003 17.9L1 23l5.3-1.9A12 12 0 1020.4 3.6z"/></svg>
-    +39 351 390 4408
-  </a>
-</nav>
+</div></header>
 
-<div class="hero">
-  <h1>Catalogo <em>Demo</em></h1>
-  <div class="hero-sub">Viktoria Agency · Web Design · Calabria Tirrenica</div>
-  <div class="hero-stats">
-    <div class="hstat"><b id="scnt">0</b><s>visibili</s></div>
-    <div class="hstat"><b id="rcnt">0</b><s>pronte</s></div>
-    <div class="hstat sv"><b id="vcnt">0</b><s>visitati</s></div>
-    <div class="hstat sc"><b id="ccnt">0</b><s>contatto</s></div>
-    <div class="hstat sp"><b id="pcnt">0</b><s>vendite</s></div>
+<section class="hero"><div class="wrap">
+  <span class="eyebrow">Demo Siti Web</span>
+  <h1>Siti web <em>su misura</em><br>per la tua attività</h1>
+  <p class="sub">Una selezione di demo realizzate per ristoranti, pizzerie e attività in Calabria. Design moderno, performance reali, mobile-first.</p>
+</div></section>
+
+<main class="wrap">
+  <div class="filters">
+    <button class="chip active" data-filter="all">Tutti</button>
+    <button class="chip" data-filter="ristorante">Ristoranti</button>
+    <button class="chip" data-filter="pizzeria">Pizzerie</button>
+    <button class="chip" data-filter="altro">Altro</button>
   </div>
-</div>
 
-<div class="controls">
-  <div class="row" id="cityTabs"></div>
-  <div class="row">
-    <span class="row-label">Sfera:</span>
-    <div id="sectorTabs" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+  <div class="grid">
+    <article class="card" data-type="altro">
+      <div class="card-img"><span class="badge">Street Food</span><span class="rating">★ 4.3</span><div class="icon">F</div></div>
+      <div class="card-body"><h3>Fresco di Mare</h3><div class="city">Scalea</div>
+        <a class="open" href="/fresco-di-mare/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </article>
+
+    <article class="card" data-type="pizzeria">
+      <div class="card-img"><span class="badge">Pizzeria</span><span class="rating">★ 4.5</span><div class="icon">P</div></div>
+      <div class="card-body"><h3>Il Peperoncino</h3><div class="city">Scalea</div>
+        <a class="open" href="/peperoncino/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </article>
+
+    <article class="card" data-type="ristorante">
+      <div class="card-img"><span class="badge">Ristorante</span><span class="rating">★ 4.8</span><div class="icon">L</div></div>
+      <div class="card-body"><h3>Lido Azzurro Naty</h3><div class="city">Scalea</div>
+        <a class="open" href="/lido-azzurro/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </article>
+
+    <article class="card" data-type="pizzeria">
+      <div class="card-img"><span class="badge">Pizzeria</span><div class="icon">B</div></div>
+      <div class="card-body"><h3>Pizzeria Bellavista</h3><div class="city">S. Domenica Talao</div>
+        <a class="open" href="/bellavista/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </article>
+
+    <article class="card" data-type="ristorante">
+      <div class="card-img"><span class="badge">Ristorante</span><div class="icon">E</div></div>
+      <div class="card-body"><h3>Pizzeria da Ersilio</h3><div class="city">S. Domenica Talao</div>
+        <a class="open" href="/ersilio/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </article>
+
+    <article class="card" data-type="altro">
+      <div class="card-img"><span class="badge">Enoteca</span><div class="icon">B</div></div>
+      <div class="card-body"><h3>BistrotEnoteca Del Corso</h3><div class="city">S. Domenica Talao</div>
+        <a class="open" href="/bistrot/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </article>
+
+    <article class="card" data-type="ristorante">
+      <div class="card-img"><span class="badge">Ristorante</span><div class="icon">V</div></div>
+      <div class="card-body"><h3>La Vecchia Fattoria</h3><div class="city">Scalea</div>
+        <a class="open" href="/fattoria/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </article>
+
+    <article class="card" data-type="altro">
+      <div class="card-img"><span class="badge">Ristrutturazioni</span><div class="icon">Y</div></div>
+      <div class="card-body"><h3>Your Dream</h3><div class="city">Scalea</div>
+        <a class="open" href="/yourdream/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </article>
   </div>
-  <div class="row">
-    <span class="row-label">Stato:</span>
-    <div id="sfTabs" style="display:flex;gap:5px;flex-wrap:wrap">
-      <button class="pill on" data-sf="all">Tutti</button>
-      <button class="pill" data-sf="ready"><span class="dot" style="background:#639922"></span>Demo pronta</button>
-      <button class="pill" data-sf="visited"><span class="dot dv"></span>Visitati</button>
-      <button class="pill" data-sf="contact"><span class="dot dc"></span>Contatto</button>
-      <button class="pill" data-sf="sale"><span class="dot ds"></span>Vendita</button>
-      <button class="pill" data-sf="none">Non visitati</button>
-    </div>
-  </div>
-</div>
+</main>
 
-<main id="main"></main>
-
-<footer>
-  <p>© 2026 Viktoria Liubitskaya · Web Agency · Calabria</p>
-  <p><a href="tel:+393513904408">+39 351 390 4408</a> &nbsp;·&nbsp; <a href="https://wa.me/393513904408">WhatsApp</a></p>
-</footer>
-
-<button class="fb-btn" onclick="toggleFB()">
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M20.4 3.6A12 12 0 003 17.9L1 23l5.3-1.9A12 12 0 1020.4 3.6z"/></svg>
-  Feedback
-</button>
-<div class="fb-panel" id="fbPanel">
-  <h3>Commento al sito demo</h3>
-  <p>Scrivi cosa vorresti modificare — Viktoria risponderà su WhatsApp.</p>
-  <textarea class="fb-ta" id="fbText" placeholder="Es: vorrei cambiare i colori, aggiungere foto..."></textarea>
-  <div id="fbMain">
-    <div class="fb-actions">
-      <button class="fb-cancel" onclick="toggleFB()">Annulla</button>
-      <button class="fb-send" onclick="sendFB()">📲 Invia su WhatsApp</button>
-    </div>
-  </div>
-  <div class="fb-thanks" id="fbThanks"><p>✅ WhatsApp si aprirà adesso!</p></div>
-</div>
+<footer><div class="wrap">
+  <span class="brand">Viktoria<span style="color:var(--accent)">.</span> Agency</span>
+  © 2026 Viktoria Agency · <a href="https://wa.me/393513904408" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">WhatsApp</a>
+</div></footer>
 
 <script>
-const DEMOS = [
-  // ── SCALEA ──────────────────────────────────────────────
-  {id:1,name:"La Rondinella Osteria Pop",city:"Scalea",sector:"ristorante",tag:"Ristorante",rating:4.6,rec:1018,desc:"Cucina calabrese autentica in un'osteria dal carattere pop. ★ 4.6 · 1018 rec.",url:"https://viktorialiubitskaya-coder.github.io/scalea/rondinella/",ready:true},
-  {id:2,name:"Sweet Insanity",city:"Scalea",sector:"gelateria",tag:"Gelateria",rating:4.9,rec:76,desc:"Gelato roll artigianale — gusti creativi e presentazioni uniche. ★ 4.9 · 76 rec.",url:"https://viktorialiubitskaya-coder.github.io/scalea/sweet-insanity/",ready:true},
-  {id:3,name:"La Perla del Tirreno",city:"Scalea",sector:"ristorante",tag:"Ristorante pesce",rating:4.4,rec:null,desc:"Ristorante di pesce fresco sul Tirreno. ★ 4.4",url:"https://viktorialiubitskaya-coder.github.io/scalea/perla-del-tirreno/",ready:true},
-  {id:4,name:"Dagostì Pizzeria",city:"Scalea",sector:"pizzeria",tag:"Pizzeria",rating:null,rec:null,desc:"Pizzeria artigianale a Scalea.",url:null,ready:false},
-  {id:5,name:"Ristorante Serrago",city:"Scalea",sector:"ristorante",tag:"Ristorante",rating:4.8,rec:144,desc:"Alta cucina calabrese contemporanea. ★ 4.8 · 144 rec.",url:"https://viktorialiubitskaya-coder.github.io/demo/serrago/",ready:true},
-  {id:6,name:"La Vecchia Fattoria",city:"Scalea",sector:"ristorante",tag:"Ristorante · Pizzeria",rating:4.4,rec:523,desc:"Pesce fresco del Tirreno, pizze artigianali dal 1996. ★ 4.4 · 523 rec.",url:"https://viktorialiubitskaya-coder.github.io/demo/fattoria/",ready:true},
-  {id:7,name:"La Rondinella Agriturismo",city:"Scalea",sector:"agriturismo",tag:"Agriturismo",rating:4.5,rec:1608,desc:"Cucina km zero dall'orto di famiglia. Leopold in 3 lingue. ★ 4.5 · 1608 rec.",url:"https://viktorialiubitskaya-coder.github.io/demo/rondinella/",ready:true},
-  {id:8,name:"Your Dream Ristrutturazioni",city:"Scalea",sector:"altro",tag:"Ristrutturazioni",rating:null,rec:null,desc:"Studio ristrutturazioni premium — cartongesso e design d'interni.",url:"https://viktorialiubitskaya-coder.github.io/demo/yourdream/",ready:true},
-
-  // ── SANTA DOMENICA TALAO ────────────────────────────────
-  {id:9,name:"Ristorante Bellavista",city:"Santa Domenica Talao",sector:"ristorante",tag:"Ristorante · Pizzeria",rating:4.6,rec:433,desc:"Pizza artigianale con vista panoramica sul Parco del Pollino. ★ 4.6 · 433 rec.",url:"https://viktorialiubitskaya-coder.github.io/demo/bellavista/",ready:true},
-  {id:10,name:"Pizzeria da Ersilio",city:"Santa Domenica Talao",sector:"pizzeria",tag:"Pizzeria",rating:4.5,rec:227,desc:"Cucina calabrese dal 1987. Ravioli a mano da Letizia. Solo prenotazione. ★ 4.5 · 227 rec.",url:"https://viktorialiubitskaya-coder.github.io/demo/ersilio/",ready:true},
-  {id:11,name:"BistrotEnoteca Del Corso",city:"Santa Domenica Talao",sector:"ristorante",tag:"Enoteca · Bistrot",rating:5.0,rec:15,desc:"Ogni sera una cucina diversa. Jazz dal vivo il venerdì. ★ 5.0 · 15 rec.",url:"https://viktorialiubitskaya-coder.github.io/demo/bistrot/",ready:true},
-
-  // ── PRAIA A MARE ────────────────────────────────────────
-  {id:12,name:"Serrago Tradizione · Innovazione",city:"Praia a Mare",sector:"ristorante",tag:"Ristorante",rating:4.8,rec:144,desc:"Alta cucina calabrese contemporanea. Gnocchi di patata viola, tonno scottato. ★ 4.8 · 144 rec.",url:"https://viktorialiubitskaya-coder.github.io/demo/serrago/",ready:true},
-  {id:13,name:"Charlot Artigiani della Pizza",city:"Praia a Mare",sector:"pizzeria",tag:"Pizzeria",rating:null,rec:null,desc:"Pizza artigianale nel cuore di Praia a Mare.",url:"https://viktorialiubitskaya-coder.github.io/demo/charlot/",ready:true},
-  {id:14,name:"Ristopub Naif",city:"Praia a Mare",sector:"ristorante",tag:"Ristopub",rating:null,rec:null,desc:"Ristopub informale sul lungomare di Praia a Mare.",url:"https://viktorialiubitskaya-coder.github.io/demo/naif/",ready:true},
-  {id:15,name:"Trattoria Ticciabbaca",city:"Praia a Mare",sector:"ristorante",tag:"Trattoria",rating:null,rec:null,desc:"Trattoria tipica calabrese a Praia a Mare.",url:"https://viktorialiubitskaya-coder.github.io/demo/ticciabbaca/",ready:true},
-  {id:16,name:"Janet's Luxury",city:"Praia a Mare",sector:"beauty",tag:"Parrucchiere",rating:null,rec:null,desc:"Parrucchiere luxury a Praia a Mare.",url:"https://viktorialiubitskaya-coder.github.io/demo/janets/",ready:true},
-  {id:17,name:"Veronica il Parigino",city:"Praia a Mare",sector:"beauty",tag:"Parrucchiere",rating:null,rec:null,desc:"Parrucchiere stile parigino a Praia a Mare.",url:"https://viktorialiubitskaya-coder.github.io/demo/veronica/",ready:true},
-
-  // ── BELVEDERE MARITTIMO ─────────────────────────────────
-  {id:18,name:"Mareluna Pizzeria & Bar",city:"Belvedere Marittimo",sector:"pizzeria",tag:"Pizzeria & Bar",rating:5.0,rec:null,desc:"Pizzeria e bar con vista sul mare. ★ 5.0",url:null,ready:false},
-  {id:19,name:"Farmhouse La Rondinella",city:"Belvedere Marittimo",sector:"agriturismo",tag:"Agriturismo",rating:4.5,rec:null,desc:"Agriturismo farm to table a Belvedere Marittimo. ★ 4.5",url:null,ready:false},
-  {id:20,name:"Panta Rei",city:"Belvedere Marittimo",sector:"ristorante",tag:"Ristorante",rating:null,rec:null,desc:"Ristorante mediterraneo affacciato sul Tirreno.",url:"https://viktorialiubitskaya-coder.github.io/demo/pantarei/",ready:true},
-  {id:21,name:"Osteria San Francesco",city:"Belvedere Marittimo",sector:"ristorante",tag:"Osteria",rating:null,rec:null,desc:"Osteria nel centro storico di Belvedere Marittimo.",url:"https://viktorialiubitskaya-coder.github.io/demo/osteria/",ready:true},
-  {id:22,name:"Trattoria Da Nella",city:"Belvedere Marittimo",sector:"ristorante",tag:"Trattoria",rating:null,rec:null,desc:"Cucina calabrese casalinga autentica.",url:"https://viktorialiubitskaya-coder.github.io/demo/nella/",ready:true},
-  {id:23,name:"Al Povero Pesce",city:"Belvedere Marittimo",sector:"ristorante",tag:"Ristorante",rating:null,rec:null,desc:"Pesce fresco sul lungomare di Belvedere Marittimo.",url:"https://viktorialiubitskaya-coder.github.io/demo/poverpesce/",ready:true},
-  {id:24,name:"L'Arca di Anna Brambilla",city:"Belvedere Marittimo",sector:"agriturismo",tag:"Agriturismo",rating:null,rec:null,desc:"Agriturismo biologico a Belvedere Marittimo.",url:"https://viktorialiubitskaya-coder.github.io/demo/arca/",ready:true},
-  {id:25,name:"L'Antico Palmento",city:"Belvedere Marittimo",sector:"agriturismo",tag:"Agriturismo",rating:null,rec:null,desc:"Agriturismo con palmento storico.",url:"https://viktorialiubitskaya-coder.github.io/demo/palmento/",ready:true},
-  {id:26,name:"Manuel's Beach",city:"Belvedere Marittimo",sector:"bar",tag:"Lido · Ristorante",rating:null,rec:null,desc:"Lido ristorante sul mare a Belvedere Marittimo.",url:"https://viktorialiubitskaya-coder.github.io/demo/manuels/",ready:true},
-  {id:27,name:"Cavallino Rosso",city:"Belvedere Marittimo",sector:"hotel",tag:"Hotel · Ristorante",rating:null,rec:null,desc:"Hotel ristorante nel centro di Belvedere Marittimo.",url:"https://viktorialiubitskaya-coder.github.io/demo/cavallino/",ready:true},
-  {id:28,name:"Palazzo Spinelli B&B",city:"Belvedere Marittimo",sector:"hotel",tag:"B&B",rating:null,rec:null,desc:"B&B nel palazzo storico del centro.",url:"https://viktorialiubitskaya-coder.github.io/demo/spinelli/",ready:true},
-  {id:29,name:"Butterfly Beauty",city:"Belvedere Marittimo",sector:"beauty",tag:"Centro Estetico",rating:null,rec:null,desc:"Centro estetico professionale a Belvedere Marittimo.",url:"https://viktorialiubitskaya-coder.github.io/demo/butterfly/",ready:true},
-  {id:30,name:"Granata Pasquale",city:"Belvedere Marittimo",sector:"beauty",tag:"Parrucchiere",rating:null,rec:null,desc:"Parrucchiere storico di Belvedere Marittimo.",url:"https://viktorialiubitskaya-coder.github.io/demo/granata/",ready:true},
-  {id:31,name:"New Fashion",city:"Belvedere Marittimo",sector:"beauty",tag:"Parrucchiere",rating:null,rec:null,desc:"Parrucchiere uomo e donna a Belvedere Marittimo.",url:"https://viktorialiubitskaya-coder.github.io/demo/newFashion/",ready:true},
-
-  // ── DIAMANTE ────────────────────────────────────────────
-  {id:32,name:"Gusto Antico",city:"Diamante",sector:"ristorante",tag:"Ristorante",rating:null,rec:null,desc:"Cucina calabrese tradizionale nel centro storico di Diamante.",url:"https://viktorialiubitskaya-coder.github.io/demo/gusto-antico/",ready:true},
-  {id:33,name:"Locanda del Gigante",city:"Diamante",sector:"ristorante",tag:"Locanda",rating:null,rec:null,desc:"Ristorante nel borgo dei murales di Diamante.",url:"https://viktorialiubitskaya-coder.github.io/demo/locanda-gigante/",ready:true},
-  {id:34,name:"La Dolce Vita",city:"Diamante",sector:"pizzeria",tag:"Bar · Pizzeria",rating:null,rec:null,desc:"Bar e pizzeria sul lungomare di Diamante.",url:"https://viktorialiubitskaya-coder.github.io/demo/dolce-vita/",ready:true},
-  {id:35,name:"Da Nerone",city:"Diamante",sector:"ristorante",tag:"Steakhouse",rating:null,rec:null,desc:"Steakhouse con carni selezionate nel centro di Diamante.",url:"https://viktorialiubitskaya-coder.github.io/demo/da-nerone/",ready:true},
-  {id:36,name:"Parrucchiere Hermosa",city:"Diamante",sector:"beauty",tag:"Parrucchiere",rating:null,rec:null,desc:"Parrucchiere di Mario nel centro di Diamante.",url:"https://viktorialiubitskaya-coder.github.io/demo/hermosa/",ready:true},
-  {id:37,name:"La Mimosa",city:"Diamante",sector:"beauty",tag:"Istituto di Bellezza",rating:null,rec:null,desc:"Istituto di bellezza nel centro di Diamante.",url:"https://viktorialiubitskaya-coder.github.io/demo/mimosa/",ready:true},
-  {id:38,name:"Parrucchiera Pamela",city:"Diamante",sector:"beauty",tag:"Parrucchiere",rating:null,rec:null,desc:"Parrucchiera nel centro di Diamante.",url:"https://viktorialiubitskaya-coder.github.io/demo/pamela/",ready:true},
-];
-
-const CITIES = ["Tutti", ...[...new Set(DEMOS.map(d=>d.city))]];
-const SECTORS = {tutti:"Tutti",ristorante:"Ristoranti",pizzeria:"Pizzerie",gelateria:"Gelaterie",agriturismo:"Agriturismo",bar:"Bar · Lido",hotel:"Hotel · B&B",beauty:"Beauty",altro:"Altro"};
-const TC = {ristorante:"tr",pizzeria:"tp",gelateria:"tg",agriturismo:"ta",bar:"tb",beauty:"th",hotel:"tl",altro:"to"};
-
-let activeCity="Tutti", activeSector="tutti", activeSF="all";
-let crm = {};
-
-function loadCRM(){try{const s=localStorage.getItem("vk_crm3");if(s)crm=JSON.parse(s);}catch(e){}}
-function saveCRM(){try{localStorage.setItem("vk_crm3",JSON.stringify(crm));}catch(e){}}
-function getS(id){return crm[id]||{visited:false,contact:false,sale:false,note:"",person:"",date:""};}
-
-function toggle(id,field){
-  if(!crm[id])crm[id]={visited:false,contact:false,sale:false,note:"",person:"",date:""};
-  crm[id][field]=!crm[id][field];
-  if(field==="sale"&&crm[id].sale){crm[id].visited=true;crm[id].contact=true;}
-  if(field==="contact"&&crm[id].contact)crm[id].visited=true;
-  if(crm[id].visited&&!crm[id].date)crm[id].date=new Date().toLocaleDateString("it-IT");
-  if(!crm[id].visited&&!crm[id].contact&&!crm[id].sale)crm[id].date="";
-  saveCRM();render();
-}
-function saveField(id,field,val){
-  if(!crm[id])crm[id]={visited:false,contact:false,sale:false,note:"",person:"",date:""};
-  crm[id][field]=val;saveCRM();
-}
-
-function stars(n){
-  if(!n)return "";
-  const full=Math.floor(n),half=n%1>=0.5?1:0,empty=5-full-half;
-  return "★".repeat(full)+(half?"½":"")+"☆".repeat(empty);
-}
-
-function borderClass(st){
-  if(st.sale)return "has-s";
-  if(st.contact)return "has-c";
-  if(st.visited)return "has-v";
-  return "";
-}
-
-function matchSF(st,d){
-  if(activeSF==="all")return true;
-  if(activeSF==="ready")return d.ready;
-  if(activeSF==="visited")return st.visited;
-  if(activeSF==="contact")return st.contact;
-  if(activeSF==="sale")return st.sale;
-  if(activeSF==="none")return !st.visited&&!st.contact&&!st.sale;
-  return true;
-}
-
-function updateStats(){
-  const all=DEMOS.map(d=>getS(d.id));
-  document.getElementById("rcnt").textContent=DEMOS.filter(d=>d.ready).length;
-  document.getElementById("vcnt").textContent=all.filter(s=>s.visited).length;
-  document.getElementById("ccnt").textContent=all.filter(s=>s.contact).length;
-  document.getElementById("pcnt").textContent=all.filter(s=>s.sale).length;
-}
-
-function buildCityTabs(){
-  const el=document.getElementById("cityTabs");
-  el.innerHTML=CITIES.map(c=>{
-    const cnt=c==="Tutti"?DEMOS.length:DEMOS.filter(d=>d.city===c).length;
-    return `<button class="tab${c===activeCity?" on":""}" data-city="${c}">${c}<span class="n">${cnt}</span></button>`;
-  }).join("");
-  el.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{activeCity=b.dataset.city;activeSector="tutti";render();}));
-}
-
-function buildSectorTabs(){
-  const el=document.getElementById("sectorTabs");
-  el.innerHTML=Object.entries(SECTORS).map(([k,v])=>{
-    const cnt=DEMOS.filter(d=>(k==="tutti"||d.sector===k)&&(activeCity==="Tutti"||d.city===activeCity)).length;
-    if(cnt===0&&k!=="tutti")return "";
-    return `<button class="pill${k===activeSector?" on":""}" data-sector="${k}">${v}<span class="n" style="margin-left:4px">${cnt}</span></button>`;
-  }).join("");
-  el.querySelectorAll(".pill").forEach(b=>b.addEventListener("click",()=>{activeSector=b.dataset.sector;render();}));
-}
-
-function buildSFTabs(){
-  document.querySelectorAll("#sfTabs .pill").forEach(b=>{
-    b.classList.toggle("on",b.dataset.sf===activeSF);
-    b.onclick=()=>{activeSF=b.dataset.sf;render();};
-  });
-}
-
-function buildMain(){
-  const mainEl=document.getElementById("main");
-  const cities=activeCity==="Tutti"?[...new Set(DEMOS.map(d=>d.city))]:([activeCity]);
-  let totalVisible=0;
-  let html="";
-
-  cities.forEach(city=>{
-    const cityDemos=DEMOS.filter(d=>{
-      const st=getS(d.id);
-      return d.city===city&&(activeSector==="tutti"||d.sector===activeSector)&&matchSF(st,d);
-    });
-    if(!cityDemos.length)return;
-    totalVisible+=cityDemos.length;
-
-    html+=`<div class="city-block">
-      <div class="city-hd">
-        <div class="city-name">${city.includes(" ")&&city!=="Scalea"?city.replace(/(\w+)$/,"<em>$1</em>"):("<em>"+city+"</em>")}</div>
-        <div class="city-prov">CS</div>
-        <div class="city-cnt">${cityDemos.length} demo</div>
-      </div>
-      <div class="grid">`;
-
-    cityDemos.forEach(d=>{
-      const st=getS(d.id);
-      const bc=borderClass(st);
-      const tagClass=TC[d.sector]||"to";
-      html+=`<div class="card${bc?" "+bc:""}${!d.ready?" coming":""}">
-        <div class="ctop">
-          <span class="cnum">${String(d.id).padStart(2,"0")}</span>
-          <div class="cbadges">
-            <span class="tag ${tagClass}">${d.tag}</span>
-            <span class="status-badge ${d.ready?"ready":"coming"}">
-              <span class="sdot ${d.ready?"r":"c"}"></span>${d.ready?"Demo pronta":"In arrivo"}
-            </span>
-          </div>
-        </div>
-        <div class="cname">${d.name}</div>
-        <div class="cloc">${d.city}, CS</div>
-        ${d.rating?`<div class="crating"><span class="stars">${"★".repeat(Math.floor(d.rating))}</span><span class="rval">${d.rating}</span>${d.rec?`<span class="rrec">· ${d.rec.toLocaleString("it")} rec.</span>`:""}</div>`:""}
-        <div class="cdesc">${d.desc}</div>
-        ${d.ready&&d.url?`<a class="clink" href="${d.url}" target="_blank">Apri demo</a>`:`<span class="clink disabled">In arrivo</span>`}
-        <div class="cdivider"></div>
-        <div class="crm-btns">
-          <button class="cbtn${st.visited?" av":""}" data-id="${d.id}" data-field="visited"><span class="dot dv"></span>Visitato</button>
-          <button class="cbtn${st.contact?" ac":""}" data-id="${d.id}" data-field="contact"><span class="dot dc"></span>Contatto</button>
-          <button class="cbtn${st.sale?" as":""}" data-id="${d.id}" data-field="sale"><span class="dot ds"></span>Vendita</button>
-        </div>
-        <div class="crm-row">
-          <input class="crm-inp" type="text" placeholder="Nome contatto..." value="${(st.person||"").replace(/"/g,"&quot;")}" data-id="${d.id}" data-field="person">
-          ${st.date?`<span class="crm-date">${st.date}</span>`:""}
-        </div>
-        <textarea class="cnote" rows="2" placeholder="Note..." data-id="${d.id}" data-field="note">${st.note||""}</textarea>
-      </div>`;
-    });
-
-    html+=`</div></div>`;
-  });
-
-  document.getElementById("scnt").textContent=totalVisible;
-
-  if(!totalVisible){
-    mainEl.innerHTML=`<div class="empty-msg" style="display:block">Nessun demo per questa selezione.</div>`;
-    return;
-  }
-  mainEl.innerHTML=html;
-
-  mainEl.querySelectorAll(".cbtn").forEach(b=>b.addEventListener("click",()=>toggle(parseInt(b.dataset.id),b.dataset.field)));
-  mainEl.querySelectorAll(".crm-inp,.cnote").forEach(inp=>inp.addEventListener("change",()=>saveField(parseInt(inp.dataset.id),inp.dataset.field,inp.value)));
-}
-
-function render(){
-  loadCRM();
-  buildCityTabs();
-  buildSectorTabs();
-  buildSFTabs();
-  buildMain();
-  updateStats();
-}
-
-function toggleFB(){
-  const p=document.getElementById("fbPanel");
-  p.classList.toggle("open");
-  if(!p.classList.contains("open")){
-    document.getElementById("fbText").value="";
-    document.getElementById("fbMain").style.display="block";
-    document.getElementById("fbThanks").style.display="none";
-  }
-}
-function sendFB(){
-  const t=document.getElementById("fbText").value.trim();
-  if(!t){document.getElementById("fbText").focus();return;}
-  const msg="Ciao Viktoria! Ho visto il catalogo demo.%0A%0ACommento: "+encodeURIComponent(t);
-  window.open("https://wa.me/393513904408?text="+msg,"_blank");
-  document.getElementById("fbMain").style.display="none";
-  document.getElementById("fbThanks").style.display="flex";
-  setTimeout(()=>toggleFB(),2500);
-}
-
-render();
+  const chips=document.querySelectorAll('.chip'),cards=document.querySelectorAll('.card');
+  chips.forEach(c=>c.addEventListener('click',()=>{
+    chips.forEach(x=>x.classList.remove('active'));c.classList.add('active');
+    const f=c.dataset.filter;
+    cards.forEach(card=>card.classList.toggle('hidden',f!=='all'&&card.dataset.type!==f));
+  }));
 </script>
 </body>
 </html>

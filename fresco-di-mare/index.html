@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fresco di Mare — Street Food di Mare · Scalea</title>
+<meta name="description" content="Fresco di Mare — street food di mare a Scalea. Cuoppi, spaghetti alle vongole, scialatielli. Aperto ogni sera 19:00-23:00.">
+<meta property="og:title" content="Fresco di Mare — Scalea">
+<meta property="og:description" content="Street food di mare, pasta fresca e cuoppi sulla costa calabrese. Via Plinio Il Vecchio, Scalea.">
+<meta property="og:type" content="restaurant.restaurant">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Fresco di Mare","servesCuisine":["Seafood","Italian","Street Food"],"address":{"@type":"PostalAddress","streetAddress":"Via Plinio Il Vecchio","addressLocality":"Scalea","addressRegion":"CS","addressCountry":"IT"},"telephone":"+393385846998","priceRange":"€€","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"19:00","closes":"23:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.3","reviewCount":"949"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --bg:#0B2545;--bg2:#134068;--cream:#FFF8F0;--cream2:#FFEFD9;
+    --ink:#14213D;--slate:#546A87;--mute:#8A9BB4;
+    --coral:#E76F51;--coral-d:#D45A3A;--teal:#2A9D8F;--sun:#F4A261;
+    --gold:#FAC864;--star:#F4A261;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--cream)}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Fredoka',sans-serif;font-weight:600;line-height:1.15;color:var(--ink)}
+img{display:block;max-width:100%}
+::selection{background:var(--coral);color:#fff}
+
+/* === LANG (class-based) === */
+.t-en{display:none}
+p.t-en,h2.t-en,div.t-en,span.t-en{display:none}
+body.lang-en .t-it{display:none!important}
+body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h2.t-en,body.lang-en div.t-en{display:block!important}
+
+.lang-toggle{position:fixed;top:18px;right:18px;z-index:100;display:flex;gap:2px;background:rgba(11,37,69,.92);backdrop-filter:blur(12px);border-radius:100px;padding:3px}
+.lang-btn{padding:6px 14px;border:none;background:transparent;color:rgba(255,248,240,.55);font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;cursor:pointer;border-radius:100px;transition:all .25s;letter-spacing:1px}
+.lang-btn.active{background:var(--coral);color:#fff}
+
+/* === SCROLL PROGRESS === */
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:var(--coral);z-index:9999}
+
+/* === NAV === */
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:18px clamp(20px,5vw,40px);display:flex;align-items:center;justify-content:space-between;transition:background .4s,padding .3s,backdrop-filter .4s}
+nav.scrolled{background:rgba(11,37,69,.95);backdrop-filter:blur(12px);padding:12px clamp(20px,5vw,40px);border-bottom:1px solid rgba(255,248,240,.08)}
+.nav-logo{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.15rem;color:#fff;text-decoration:none;letter-spacing:.5px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,248,240,.85);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--coral)}
+.nav-mobile{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
+
+/* === REVEAL === */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.stagger-parent.visible .stagger-child{opacity:1;transform:translateY(0)}
+.stagger-child{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.stagger-child:nth-child(1){transition-delay:0s}
+.stagger-child:nth-child(2){transition-delay:.08s}
+.stagger-child:nth-child(3){transition-delay:.16s}
+.stagger-child:nth-child(4){transition-delay:.24s}
+.stagger-child:nth-child(5){transition-delay:.32s}
+.stagger-child:nth-child(6){transition-delay:.40s}
+.stagger-child:nth-child(7){transition-delay:.48s}
+.stagger-child:nth-child(8){transition-delay:.56s}
+
+/* === HERO === */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:var(--bg);color:#fff;padding:120px 20px 60px}
+.hero::before{content:'';position:absolute;inset:0;background-image:url('/static/photos/photo_05.jpg');background-size:cover;background-position:center;z-index:0;animation:hero-zoom 1.8s cubic-bezier(.16,1,.3,1) forwards}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,37,69,.55) 0%,rgba(11,37,69,.72) 55%,rgba(11,37,69,.92) 100%);z-index:1}
+@keyframes hero-zoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hero-wave{position:absolute;bottom:-1px;left:0;right:0;z-index:2;line-height:0}
+.hero-wave svg{display:block;width:100%;height:auto}
+.hero-inner{position:relative;z-index:3;max-width:720px;animation:hero-fade 1.2s .2s cubic-bezier(.16,1,.3,1) backwards}
+@keyframes hero-fade{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(231,111,81,.18);border:1px solid rgba(231,111,81,.35);border-radius:100px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sun);margin-bottom:22px}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--coral);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
+.hero h1{font-size:clamp(2.6rem,7vw,5.2rem);color:#fff;margin-bottom:14px;letter-spacing:-.5px}
+.hero h1 .coral{color:var(--coral);font-style:italic}
+.hero-sub{font-family:'Fredoka',sans-serif;font-weight:400;font-size:clamp(1rem,2vw,1.2rem);color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
+.hero-desc{font-size:1.05rem;color:rgba(255,248,240,.82);max-width:500px;margin:0 auto 32px;font-weight:300}
+.hero-rating{display:inline-flex;align-items:center;gap:10px;padding:10px 20px;background:rgba(255,248,240,.08);border:1px solid rgba(255,248,240,.14);border-radius:100px;font-size:.88rem;color:var(--cream);margin-bottom:32px}
+.hero-stars{color:var(--star);letter-spacing:1px}
+.hero-rating strong{color:#fff;font-weight:700}
+.hero-rating-sep{opacity:.3}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s;border:none;cursor:pointer}
+.btn-primary{background:var(--coral);color:#fff}
+.btn-primary:hover{background:var(--coral-d);transform:translateY(-2px);box-shadow:0 8px 24px rgba(231,111,81,.35)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,248,240,.3)}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,248,240,.08)}
+
+/* === SECTIONS === */
+.sec{padding:clamp(80px,10vw,130px) clamp(20px,5vw,40px)}
+.wrap{max-width:1100px;margin:0 auto}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
+.hdg{font-size:clamp(1.9rem,4.5vw,2.8rem);color:var(--ink);margin-bottom:14px}
+.desc{font-size:1rem;color:var(--slate);max-width:560px;line-height:1.8}
+
+/* === MARQUEE === */
+.marquee-wrap{background:var(--bg);color:var(--cream);padding:22px 0;overflow:hidden;border-top:3px solid var(--coral);border-bottom:3px solid var(--coral)}
+.marquee-track{display:flex;width:max-content;animation:mq-scroll 35s linear infinite;align-items:center;gap:50px}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes mq-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:400;letter-spacing:1px;display:flex;align-items:center;gap:50px}
+.marquee-item .dot{color:var(--coral);font-size:1.8rem}
+.marquee-item .em{color:var(--gold);font-style:italic}
+
+/* === ABOUT === */
+.about{background:var(--cream)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:center}
+.about-visual{position:relative;height:440px;border-radius:24px;overflow:hidden;background:var(--bg)}
+.about-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.about-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,37,69,0) 0%,rgba(11,37,69,.85) 100%);z-index:1}
+.about-visual-text{position:absolute;bottom:30px;left:30px;right:30px;color:#fff;z-index:2}
+.about-visual-num{font-family:'Fredoka',sans-serif;font-size:5rem;font-weight:700;line-height:1;color:var(--coral);margin-bottom:8px}
+.about-visual-lbl{font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;font-weight:600}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.about-stat{padding:20px;background:var(--cream2);border-radius:16px;text-align:center}
+.about-stat-val{font-family:'Fredoka',sans-serif;font-size:1.9rem;color:var(--coral);font-weight:700}
+.about-stat-lbl{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin-top:4px;font-weight:700}
+
+/* === MENU === */
+.menu-sec{background:var(--cream2)}
+.menu-head{text-align:center;margin-bottom:56px}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.menu-card{background:#fff;border-radius:20px;padding:0;border:2px solid transparent;transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;display:flex;flex-direction:column}
+.menu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--coral);transform:scaleX(0);transform-origin:left;transition:transform .4s;z-index:2}
+.menu-card:hover{transform:translateY(-4px);border-color:var(--coral);box-shadow:0 12px 32px rgba(20,33,61,.08)}
+.menu-card:hover::before{transform:scaleX(1)}
+.menu-card-img{width:100%;height:200px;object-fit:cover;object-position:center;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.menu-card-img.pos-top{object-position:center top}
+.menu-card:hover .menu-card-img{transform:scale(1.04)}
+.menu-card-img-wrap{overflow:hidden;position:relative}
+.menu-card-body{padding:24px 28px 28px}
+.menu-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:10px}
+.menu-card-name{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;color:var(--ink)}
+.menu-card-price{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.3rem;color:var(--coral);white-space:nowrap}
+.menu-card-desc{font-size:.88rem;color:var(--slate);line-height:1.6}
+.menu-card-badge{display:inline-block;padding:4px 10px;background:var(--gold);color:var(--ink);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border-radius:100px;margin-top:10px}
+.menu-note{text-align:center;margin-top:36px;font-size:.85rem;color:var(--slate);font-style:italic}
+
+/* === REVIEWS === */
+.rev-sec{background:var(--bg);color:var(--cream)}
+.rev-sec .tag{color:var(--sun)}
+.rev-sec .hdg{color:#fff}
+.rev-sec .desc{color:rgba(255,248,240,.72)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:48px}
+.rev-card{padding:28px;background:rgba(255,248,240,.05);border:1px solid rgba(255,248,240,.1);border-radius:18px;transition:all .3s}
+.rev-card:hover{background:rgba(255,248,240,.08);border-color:rgba(231,111,81,.35);transform:translateY(-2px)}
+.rev-stars{color:var(--star);font-size:13px;letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-size:.95rem;color:var(--cream);line-height:1.65;margin-bottom:14px;font-weight:400}
+.rev-who{font-family:'Fredoka',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:1px;color:var(--gold);text-transform:uppercase}
+.rev-src{font-size:.72rem;color:rgba(255,248,240,.5);margin-top:2px}
+
+/* === BOOKING === */
+.book-sec{background:var(--cream)}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.book-info h3{font-family:'Fredoka',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--coral);margin-top:24px;margin-bottom:6px}
+.book-info h3:first-child{margin-top:0}
+.book-info p{font-size:.95rem;color:var(--ink);margin-bottom:2px}
+.book-phone{font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:600;color:var(--coral);text-decoration:none;display:inline-block;margin-top:4px}
+.book-phone:hover{color:var(--coral-d)}
+.soc{display:flex;gap:10px;margin-top:10px}
+.soc a{width:42px;height:42px;border-radius:50%;background:var(--cream2);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .25s}
+.soc a:hover{background:var(--coral);transform:translateY(-2px)}
+.soc svg{width:17px;height:17px;fill:var(--ink);transition:fill .25s}
+.soc a:hover svg{fill:#fff}
+.book-form{background:#fff;border:2px solid var(--cream2);border-radius:20px;padding:32px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-family:'Fredoka',sans-serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
+.fg input,.fg select,.fg textarea{width:100%;padding:12px 14px;border:2px solid var(--cream2);border-radius:10px;font-family:'Nunito',sans-serif;font-size:14px;color:var(--ink);background:var(--cream);outline:none;transition:border-color .25s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--coral)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-book{width:100%;padding:14px;background:var(--coral);color:#fff;border:none;border-radius:100px;font-family:'Fredoka',sans-serif;font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:4px}
+.btn-book:hover{background:var(--coral-d);transform:translateY(-2px);box-shadow:0 8px 20px rgba(231,111,81,.3)}
+
+/* === MAP === */
+.map-wrap{position:relative}
+.map-wrap iframe{width:100%;height:340px;border:none;filter:saturate(.85) contrast(1.05)}
+.map-card{position:absolute;bottom:24px;left:clamp(20px,5vw,40px);background:#fff;border-radius:16px;padding:18px 24px;box-shadow:0 8px 24px rgba(20,33,61,.12)}
+.map-card h3{font-family:'Fredoka',sans-serif;font-size:1.05rem;color:var(--ink);margin-bottom:2px}
+.map-card p{font-size:.82rem;color:var(--slate)}
+
+/* === FOOTER === */
+footer{background:var(--bg);color:var(--cream);padding:48px clamp(20px,5vw,40px) 24px}
+.foot-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,248,240,.08)}
+.foot-brand{font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:600;color:#fff;margin-bottom:6px}
+.foot-addr{font-size:.85rem;color:rgba(255,248,240,.55)}
+.foot-addr a{color:var(--coral);text-decoration:none}
+.foot-nav{display:flex;gap:22px;flex-wrap:wrap}
+.foot-nav a{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,248,240,.55);text-decoration:none;transition:color .25s}
+.foot-nav a:hover{color:var(--coral)}
+.foot-copy{max-width:1100px;margin:18px auto 0;text-align:center;font-size:.72rem;color:rgba(255,248,240,.3)}
+.foot-copy a{color:var(--coral);text-decoration:none}
+
+/* === WHATSAPP === */
+.wa{position:fixed;bottom:24px;right:24px;z-index:98;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s,box-shadow .3s}
+.wa:hover{transform:scale(1.08);box-shadow:0 10px 26px rgba(37,211,102,.5)}
+.wa svg{width:26px;height:26px;fill:#fff}
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+    .nav-links{display:none}
+    .nav-mobile{display:block}
+    .about-grid,.book-grid{grid-template-columns:1fr}
+    .about-visual{height:300px}
+    .fg-row{grid-template-columns:1fr}
+    .foot-inner{flex-direction:column;align-items:flex-start}
+    .hero-ctas{flex-direction:column;align-items:center;width:100%}
+    .hero-ctas .btn{width:100%;max-width:320px;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+    .marquee-track{animation:none!important}
+}
+</style>
+</head>
+<body>
+<div class="scroll-progress"></div>
+<div class="lang-toggle">
+    <button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+</div>
+
+<nav id="mainNav">
+    <a href="#" class="nav-logo">Fresco di Mare</a>
+    <ul class="nav-links">
+        <li><a href="#about"><span class="t-it">La Storia</span><span class="t-en">About</span></a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#reviews"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li>
+        <li><a href="#contatti"><span class="t-it">Contatti</span><span class="t-en">Contact</span></a></li>
+    </ul>
+    <button class="nav-mobile" aria-label="Menu">&#9776;</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-badge"><span class="t-it">Aperto ogni sera &middot; 19:00 &mdash; 23:00</span><span class="t-en">Open every evening &middot; 7 PM &mdash; 11 PM</span></div>
+        <h1>Fresco <span class="coral">di</span> Mare</h1>
+        <p class="hero-sub">Street Food di Mare &middot; Scalea</p>
+        <p class="hero-desc t-it">Cuoppi fumanti, pasta fresca e frutti di mare sul lungomare di Scalea. Informale, vivace, da portare via o goderti sotto le stelle.</p>
+        <p class="hero-desc t-en">Steaming cuoppi, fresh pasta and seafood on the Scalea seafront. Casual, lively, takeaway or dine in under the stars.</p>
+        <div class="hero-rating">
+            <span class="hero-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <strong>4.3</strong>
+            <span class="hero-rating-sep">&middot;</span>
+            <span>949 <span class="t-it">recensioni</span><span class="t-en">reviews</span> Google</span>
+            <span class="hero-rating-sep">&middot;</span>
+            <span>8.6 TheFork</span>
+        </div>
+        <div class="hero-ctas">
+            <a href="#menu" class="btn btn-primary">
+                <span class="t-it">Il Menu</span><span class="t-en">The Menu</span>
+                &#8594;
+            </a>
+            <a href="#contatti" class="btn btn-ghost">
+                <span class="t-it">Prenota un Tavolo</span><span class="t-en">Reserve a Table</span>
+            </a>
+        </div>
+    </div>
+    <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#FFF8F0" d="M0,60 C240,30 480,80 720,55 C960,30 1200,70 1440,50 L1440,80 L0,80 Z"/></svg>
+    </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+        <div class="marquee-item">Cuoppo Misto Maxi <span class="dot">&bull;</span> <span class="em">Spaghetti e Vongole</span> <span class="dot">&bull;</span> Scialatielli al Pistacchio <span class="dot">&bull;</span> <span class="em">Polipetti Affogati</span> <span class="dot">&bull;</span> Gnocchetti Fresco di Mare <span class="dot">&bull;</span></div>
+        <div class="marquee-item">Cuoppo Misto Maxi <span class="dot">&bull;</span> <span class="em">Spaghetti e Vongole</span> <span class="dot">&bull;</span> Scialatielli al Pistacchio <span class="dot">&bull;</span> <span class="em">Polipetti Affogati</span> <span class="dot">&bull;</span> Gnocchetti Fresco di Mare <span class="dot">&bull;</span></div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec about" id="about">
+    <div class="wrap">
+        <div class="about-grid">
+            <div class="about-visual reveal">
+                <img src="/static/photos/photo_00.jpg" alt="Fresco di Mare kiosk" loading="lazy">
+                <div class="about-visual-text">
+                    <div class="about-visual-num">949+</div>
+                    <div class="about-visual-lbl"><span class="t-it">Recensioni Google</span><span class="t-en">Google Reviews</span></div>
+                </div>
+            </div>
+            <div class="reveal">
+                <p class="tag"><span class="t-it">La Nostra Storia</span><span class="t-en">Our Story</span></p>
+                <h2 class="hdg t-it">Il mare in un cuoppo di carta</h2>
+                <h2 class="hdg t-en">The sea in a paper cone</h2>
+                <p class="desc t-it">Fresco di Mare &egrave; nato per portare lo street food di mare napoletano sulla costa calabrese. Pesce locale, pasta fatta fresca ogni giorno, cuoppi serviti caldissimi. Niente tovaglie, niente formalit&agrave; &mdash; solo sapore, fritto croccante e la sera che passa lenta sul lungomare.</p>
+                <p class="desc t-en">Fresco di Mare brings Neapolitan seafood street food to the Calabrian coast. Local fish, pasta made fresh daily, cuoppi served piping hot. No tablecloths, no formality &mdash; just flavour, crispy frying and evenings that drift slowly along the seafront.</p>
+                <div class="about-stats">
+                    <div class="about-stat"><div class="about-stat-val">4.3</div><div class="about-stat-lbl">Google</div></div>
+                    <div class="about-stat"><div class="about-stat-val">8.6</div><div class="about-stat-lbl">TheFork</div></div>
+                    <div class="about-stat"><div class="about-stat-val">~&euro;13</div><div class="about-stat-lbl"><span class="t-it">A persona</span><span class="t-en">Per person</span></div></div>
+                    <div class="about-stat"><div class="about-stat-val">7/7</div><div class="about-stat-lbl"><span class="t-it">Sere aperti</span><span class="t-en">Evenings open</span></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MENU -->
+<section class="sec menu-sec" id="menu">
+    <div class="wrap">
+        <div class="menu-head reveal">
+            <p class="tag">Menu</p>
+            <h2 class="hdg t-it">I Piatti del Mare</h2>
+            <h2 class="hdg t-en">Dishes from the Sea</h2>
+            <p class="desc t-it" style="margin:0 auto">Tutti i nostri piatti sono preparati al momento con pesce del giorno. Il menu cambia con la pescata.</p>
+            <p class="desc t-en" style="margin:0 auto">All our dishes are made to order with catch of the day. The menu changes with the tide.</p>
+        </div>
+        <div class="menu-grid reveal stagger-parent">
+            <div class="menu-card stagger-child">
+                <div class="menu-card-img-wrap"><img class="menu-card-img" src="/static/photos/photo_01.jpg" alt="Cuoppo Misto" loading="lazy"></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-top"><span class="menu-card-name">Cuoppo Misto Maxi</span><span class="menu-card-price">&euro;12</span></div>
+                    <p class="menu-card-desc t-it">Calamari, gamberi, alici e merluzzo fritti in cuoppo di carta. La nostra firma.</p>
+                    <p class="menu-card-desc t-en">Calamari, prawns, anchovies and cod fried in a paper cone. Our signature.</p>
+                    <span class="menu-card-badge"><span class="t-it">Signature</span><span class="t-en">Signature</span></span>
+                </div>
+            </div>
+            <div class="menu-card stagger-child">
+                <div class="menu-card-img-wrap"><img class="menu-card-img" src="/static/photos/photo_04.jpg" alt="Spaghetti e Vongole" loading="lazy"></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-top"><span class="menu-card-name">Spaghetti e Vongole</span><span class="menu-card-price">&euro;14</span></div>
+                    <p class="menu-card-desc t-it">Vongole veraci, aglio, olio EVO, prezzemolo fresco. Semplice e perfetto.</p>
+                    <p class="menu-card-desc t-en">Fresh clams, garlic, EVO oil, parsley. Simple and perfect.</p>
+                </div>
+            </div>
+            <div class="menu-card stagger-child">
+                <div class="menu-card-img-wrap"><img class="menu-card-img" src="/static/photos/photo_09.jpg" alt="Scialatielli al Pistacchio" loading="lazy"></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-top"><span class="menu-card-name">Scialatielli al Pistacchio</span><span class="menu-card-price">&euro;14</span></div>
+                    <p class="menu-card-desc t-it">Pasta fresca, crema di pistacchio di Bronte, gamberi rossi.</p>
+                    <p class="menu-card-desc t-en">Fresh pasta, Bronte pistachio cream, red prawns.</p>
+                </div>
+            </div>
+            <div class="menu-card stagger-child">
+                <div class="menu-card-img-wrap"><img class="menu-card-img" src="/static/photos/photo_07.jpg" alt="Gnocchetti Fresco di Mare" loading="lazy"></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-top"><span class="menu-card-name">Gnocchetti Fresco di Mare</span><span class="menu-card-price">&euro;14</span></div>
+                    <p class="menu-card-desc t-it">Gnocchetti fatti in casa, sugo di frutti di mare misti del giorno.</p>
+                    <p class="menu-card-desc t-en">Homemade gnocchetti, mixed seafood sauce of the day.</p>
+                </div>
+            </div>
+            <div class="menu-card stagger-child">
+                <div class="menu-card-img-wrap"><img class="menu-card-img" src="/static/photos/photo_02.jpg" alt="Pasta Fagioli e Cozze" loading="lazy"></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-top"><span class="menu-card-name">Pasta Fagioli e Cozze</span><span class="menu-card-price">&euro;12</span></div>
+                    <p class="menu-card-desc t-it">Tradizione napoletana: pasta mista, fagioli cannellini, cozze.</p>
+                    <p class="menu-card-desc t-en">Neapolitan tradition: mixed pasta, cannellini beans, mussels.</p>
+                </div>
+            </div>
+            <div class="menu-card stagger-child">
+                <div class="menu-card-img-wrap"><img class="menu-card-img" src="/static/photos/photo_06.jpg" alt="Polipetti Affogati" loading="lazy"></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-top"><span class="menu-card-name">Polipetti Affogati</span><span class="menu-card-price">&euro;10</span></div>
+                    <p class="menu-card-desc t-it">Polipetti in umido con pomodoro, olive nere, capperi, peperoncino.</p>
+                    <p class="menu-card-desc t-en">Baby octopus stewed with tomato, black olives, capers, chili.</p>
+                </div>
+            </div>
+            <div class="menu-card stagger-child">
+                <div class="menu-card-img-wrap"><img class="menu-card-img pos-top" src="/static/photos/photo_08.jpg" alt="Cuoppo di Gamberi" loading="lazy"></div>
+                <div class="menu-card-body">
+                    <div class="menu-card-top"><span class="menu-card-name">Cuoppo di Gamberi</span><span class="menu-card-price">&euro;11</span></div>
+                    <p class="menu-card-desc t-it">Gamberi interi fritti, maionese al limone di Amalfi.</p>
+                    <p class="menu-card-desc t-en">Whole fried prawns, Amalfi lemon mayonnaise.</p>
+                </div>
+            </div>
+        </div>
+        <p class="menu-note t-it">&mdash; Prezzo medio ~&euro;13 a persona &mdash;</p>
+        <p class="menu-note t-en">&mdash; Average price ~&euro;13 per person &mdash;</p>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec rev-sec" id="reviews">
+    <div class="wrap">
+        <div style="text-align:center" class="reveal">
+            <p class="tag"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></p>
+            <h2 class="hdg t-it">Quello che dicono di noi</h2>
+            <h2 class="hdg t-en">What guests say</h2>
+            <p class="desc t-it" style="margin:0 auto">949 recensioni su Google, 8.6 su TheFork. Turisti e scalei, sera dopo sera.</p>
+            <p class="desc t-en" style="margin:0 auto">949 Google reviews, 8.6 on TheFork. Tourists and locals, evening after evening.</p>
+        </div>
+        <div class="rev-grid reveal stagger-parent">
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text">&ldquo;An absolute gem for fresh fish and seafood lovers. The food is incredibly fresh and absolutely delicious.&rdquo;</p>
+                <p class="rev-who">Google Review</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text">&ldquo;Delicious sea food place. Popular through locals. We ate fried calamari and pasta with clams. Both were delicious. Pasta set 14 Euro comes with a glass of delicious home made wine.&rdquo;</p>
+                <p class="rev-who">Google Review</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text">&ldquo;Local street food! Highly recommend! We ordered Polipetti affogati &mdash; baby octopus in delicious tomato sauce.&rdquo;</p>
+                <p class="rev-who">Google Review</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text">&ldquo;Ogni volta che vado a Scalea mi fermo qui a mangiare, io mi trovo benissimo.&rdquo;</p>
+                <p class="rev-who">Franco A.</p>
+                <p class="rev-src">TheFork</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text">&ldquo;&Egrave; ormai una garanzia, ogni anno qui in vacanza &egrave; tappa fissa. La qualit&agrave; del cibo &egrave; ottima, il servizio veloce e cordiale.&rdquo;</p>
+                <p class="rev-who">Emanuele C.</p>
+                <p class="rev-src">TheFork</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text">&ldquo;Gentilezza e simpatia hanno fatto da cornice ad uno spiziosissimo cuoppo di alici, baccal&agrave; e calamari.&rdquo;</p>
+                <p class="rev-who">Restaurant Guru</p>
+                <p class="rev-src">Restaurant Guru</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BOOKING -->
+<section class="sec book-sec" id="contatti">
+    <div class="wrap">
+        <div class="menu-head reveal" style="text-align:center;margin-bottom:48px">
+            <p class="tag"><span class="t-it">Prenotazioni &amp; Contatti</span><span class="t-en">Reservations &amp; Contact</span></p>
+            <h2 class="hdg t-it">Ci vediamo stasera</h2>
+            <h2 class="hdg t-en">See you tonight</h2>
+        </div>
+        <div class="book-grid">
+            <div class="book-info reveal">
+                <h3><span class="t-it">Orari</span><span class="t-en">Hours</span></h3>
+                <p class="t-it">Aperto ogni sera &middot; 19:00 &mdash; 23:00</p>
+                <p class="t-en">Open every evening &middot; 7 PM &mdash; 11 PM</p>
+
+                <h3><span class="t-it">Telefono</span><span class="t-en">Phone</span></h3>
+                <a href="tel:+393385846998" class="book-phone">+39 338 584 6998</a>
+
+                <h3><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h3>
+                <p>Via Plinio Il Vecchio<br>87029 Scalea (CS)</p>
+
+                <h3><span class="t-it">Prezzo Medio</span><span class="t-en">Average Price</span></h3>
+                <p>~&euro;13 <span class="t-it">a persona</span><span class="t-en">per person</span></p>
+
+                <h3><span class="t-it">Seguici</span><span class="t-en">Follow</span></h3>
+                <div class="soc">
+                    <a href="https://www.facebook.com/frescodimarescalea" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://wa.me/393385846998" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+                </div>
+            </div>
+            <form class="book-form reveal" onsubmit="event.preventDefault();alert('Demo — prenotazione inviata!')">
+                <div class="fg-row">
+                    <div class="fg"><label><span class="t-it">Nome</span><span class="t-en">Name</span></label><input type="text" required></div>
+                    <div class="fg"><label><span class="t-it">Telefono</span><span class="t-en">Phone</span></label><input type="tel" required></div>
+                </div>
+                <div class="fg-row">
+                    <div class="fg"><label><span class="t-it">Data</span><span class="t-en">Date</span></label><input type="date" required></div>
+                    <div class="fg"><label><span class="t-it">Ora</span><span class="t-en">Time</span></label>
+                        <select required><option value="">&mdash;</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option></select>
+                    </div>
+                </div>
+                <div class="fg"><label><span class="t-it">Persone</span><span class="t-en">Guests</span></label>
+                    <select required><option value="">&mdash;</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7+</option></select>
+                </div>
+                <div class="fg"><label><span class="t-it">Note</span><span class="t-en">Notes</span></label><textarea rows="2"></textarea></div>
+                <button type="submit" class="btn-book"><span class="t-it">Prenota Ora</span><span class="t-en">Book Now</span></button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- MAP -->
+<div class="map-wrap">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3080.5!2d15.791414!3d39.8063929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f1f6e36eaa8ad%3A0xb202d6ff74928fcb!2sFresko%20di%20Mare%20-%20cuoppi%20e%20specialit%C3%A0%20di%20mare!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" allowfullscreen loading="lazy" title="Fresco di Mare — Scalea"></iframe>
+    <div class="map-card"><h3>Fresco di Mare</h3><p>Via Plinio Il Vecchio, Scalea</p></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-inner">
+        <div>
+            <div class="foot-brand">Fresco di Mare</div>
+            <p class="foot-addr">Via Plinio Il Vecchio &middot; Scalea (CS) &middot; <a href="tel:+393385846998">+39 338 584 6998</a></p>
+        </div>
+        <div class="foot-nav">
+            <a href="#about"><span class="t-it">Storia</span><span class="t-en">About</span></a>
+            <a href="#menu">Menu</a>
+            <a href="#reviews"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a>
+            <a href="#contatti"><span class="t-it">Contatti</span><span class="t-en">Contact</span></a>
+        </div>
+    </div>
+    <p class="foot-copy">
+        &copy; 2025 Fresco di Mare &middot;
+        <span class="t-it">Sito web di</span><span class="t-en">Website by</span>
+        <a href="#">Viktoria Agency</a>
+    </p>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/393385846998" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// === LANG ===
+function setLang(l){
+    document.body.classList.toggle('lang-en', l === 'en');
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+}
+
+// === NAV scroll state + progress ===
+const nav = document.getElementById('mainNav');
+const prog = document.querySelector('.scroll-progress');
+let ticking = false;
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            const y = window.scrollY;
+            const h = document.body.scrollHeight - window.innerHeight;
+            nav.classList.toggle('scrolled', y > 80);
+            prog.style.width = (y / h * 100) + '%';
+            ticking = false;
+        });
+        ticking = true;
+    }
+}, { passive: true });
+
+// === Master IntersectionObserver ===
+document.addEventListener('DOMContentLoaded', () => {
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+});
+</script>
+</body>
+</html>

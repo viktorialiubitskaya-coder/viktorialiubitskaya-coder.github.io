@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Il Peperoncino Pizzeria Da Asporto — La migliore pizza di Scalea. Pizza napoletana, Diavola, consegna. Tel: 320 066 4446">
+<title>Il Peperoncino — Pizzeria Da Asporto · Scalea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =============================================================
+   TOKENS — Bold street-food palette
+============================================================= */
+:root{
+  --black:      #16130c;
+  --black-soft:  #1e1a12;
+  --red:        #bd3023;
+  --red-light:  #e04535;
+  --gold:       #b99269;
+  --gold-light: #d4ad7e;
+  --brown:      #70563b;
+  --teal:       #537b87;
+  --cream:      #ddd7c7;
+  --cream-bg:   #f5f1e9;
+  --white:      #ffffff;
+  --wa:         #25d366;
+
+  --display: 'Bebas Neue', Impact, sans-serif;
+  --body:    'Source Sans 3', system-ui, sans-serif;
+  --r: 16px;
+  --r-sm: 10px;
+  --ease: .3s cubic-bezier(.4,0,.2,1);
+}
+
+/* =============================================================
+   RESET
+============================================================= */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--body);color:var(--cream);background:var(--black);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+img{display:block;max-width:100%;height:auto;object-fit:cover}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:var(--body)}
+
+/* =============================================================
+   UTILITY
+============================================================= */
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* =============================================================
+   SCROLL REVEAL
+============================================================= */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.vis{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+
+/* =============================================================
+   STICKY HEADER — pill-style nav
+============================================================= */
+.hdr{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  padding:12px 16px;
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
+}
+.hdr-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(22,19,12,.85);backdrop-filter:blur(16px);
+  border:1px solid rgba(185,146,105,.2);
+  border-radius:60px;padding:6px 8px 6px 16px;
+  pointer-events:all;
+  transition:box-shadow var(--ease),border-color var(--ease);
+}
+.hdr-pill.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.5);border-color:rgba(185,146,105,.35)}
+.hdr-logo{
+  font-family:var(--display);font-size:1.2rem;color:var(--gold);
+  letter-spacing:2px;white-space:nowrap;
+}
+.hdr-sep{width:1px;height:20px;background:rgba(185,146,105,.25);margin:0 4px}
+.lang-toggle{
+  display:flex;gap:2px;background:rgba(255,255,255,.06);
+  border-radius:40px;padding:3px;
+}
+.lang-btn{
+  font-size:.7rem;font-weight:600;letter-spacing:1px;
+  padding:5px 12px;border-radius:40px;
+  color:var(--cream);opacity:.5;
+  transition:all var(--ease);
+}
+.lang-btn.active{background:var(--red);color:var(--white);opacity:1}
+.lang-btn:hover{opacity:.9}
+.hdr-wa{
+  display:flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--wa);color:var(--white);
+  margin-left:2px;transition:transform var(--ease);
+}
+.hdr-wa:hover{transform:scale(1.1)}
+.hdr-wa svg{width:18px;height:18px}
+
+/* =============================================================
+   HERO — Bold pizzaiolo showcase
+============================================================= */
+.hero{
+  position:relative;min-height:100vh;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 20px 48px;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,var(--black) 0%,rgba(22,19,12,.7) 40%,rgba(22,19,12,.3) 100%);
+}
+.hero-content{position:relative;z-index:1;max-width:600px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--red);color:var(--white);
+  font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  padding:6px 14px;border-radius:40px;margin-bottom:20px;
+}
+.hero-badge svg{width:14px;height:14px}
+.hero h1{
+  font-family:var(--display);
+  font-size:clamp(3.5rem,12vw,7rem);
+  line-height:.9;letter-spacing:2px;
+  color:var(--white);margin-bottom:12px;
+}
+.hero h1 span{color:var(--red)}
+.hero-sub{
+  font-size:1.1rem;color:rgba(221,215,199,.7);
+  max-width:380px;margin-bottom:28px;line-height:1.7;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--display);font-size:1.1rem;letter-spacing:2px;
+  padding:14px 28px;border-radius:60px;
+  transition:all var(--ease);
+}
+.btn-red{background:var(--red);color:var(--white)}
+.btn-red:hover{background:var(--red-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(189,48,35,.35)}
+.btn-outline{border:1.5px solid var(--gold);color:var(--gold)}
+.btn-outline:hover{background:var(--gold);color:var(--black)}
+
+/* Rating bar */
+.hero-rating{
+  display:flex;align-items:center;gap:12px;margin-top:24px;
+  padding-top:20px;border-top:1px solid rgba(185,146,105,.15);
+}
+.hero-stars{color:var(--gold);font-size:1rem;letter-spacing:2px}
+.hero-rating-text{font-size:.82rem;color:var(--gold);font-weight:500}
+
+/* Scroll hint */
+.scroll-hint{
+  position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+  z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;
+  font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:rgba(221,215,199,.35);
+  animation:bob 2s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* =============================================================
+   SECTION TITLES
+============================================================= */
+.stitle{
+  font-family:var(--display);font-size:.85rem;letter-spacing:5px;
+  text-transform:uppercase;color:var(--red);margin-bottom:8px;
+}
+.sheading{
+  font-family:var(--display);font-size:clamp(2.2rem,5vw,3.4rem);
+  letter-spacing:2px;color:var(--white);line-height:1;margin-bottom:24px;
+}
+
+/* =============================================================
+   PIZZA GALLERY — Horizontal scrolling cards
+============================================================= */
+.pizzas{padding:80px 0 60px}
+.pizzas-header{padding:0 20px;max-width:1080px;margin:0 auto 32px}
+
+.pizza-scroll{
+  display:flex;gap:16px;overflow-x:auto;
+  padding:0 20px 20px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.pizza-scroll::-webkit-scrollbar{display:none}
+
+.pizza-card{
+  flex:0 0 280px;scroll-snap-align:start;
+  background:var(--black-soft);border:1px solid rgba(185,146,105,.1);
+  border-radius:var(--r);overflow:hidden;
+  transition:transform var(--ease),border-color var(--ease);
+}
+.pizza-card:hover{transform:translateY(-4px);border-color:rgba(185,146,105,.3)}
+.pizza-card img{width:100%;height:200px;object-fit:cover}
+.pizza-card-body{padding:16px}
+.pizza-card-name{
+  font-family:var(--display);font-size:1.5rem;letter-spacing:1px;
+  color:var(--white);margin-bottom:4px;
+}
+.pizza-card-desc{font-size:.82rem;color:rgba(221,215,199,.55);line-height:1.5}
+.pizza-card-tag{
+  display:inline-block;margin-top:10px;
+  font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--red);background:rgba(189,48,35,.12);
+  padding:3px 10px;border-radius:20px;
+}
+
+/* =============================================================
+   ABOUT STRIP
+============================================================= */
+.about{
+  padding:60px 20px;
+  background:linear-gradient(135deg,rgba(189,48,35,.08),rgba(185,146,105,.06));
+  border-top:1px solid rgba(185,146,105,.08);
+  border-bottom:1px solid rgba(185,146,105,.08);
+}
+.about-inner{
+  max-width:800px;margin:0 auto;
+  display:grid;grid-template-columns:auto 1fr;gap:32px;
+  align-items:center;
+}
+.about-img{
+  width:100px;height:100px;border-radius:50%;overflow:hidden;
+  border:3px solid var(--red);flex-shrink:0;
+}
+.about-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.about-text h2{
+  font-family:var(--display);font-size:1.8rem;letter-spacing:1px;
+  color:var(--white);margin-bottom:6px;
+}
+.about-text p{font-size:.95rem;color:rgba(221,215,199,.6);line-height:1.7}
+.about-text p strong{color:var(--gold)}
+
+/* =============================================================
+   REVIEWS — Horizontal scroll cards
+============================================================= */
+.reviews{padding:80px 0 60px}
+.reviews-header{padding:0 20px;max-width:1080px;margin:0 auto 32px}
+.reviews-scroll{
+  display:flex;gap:16px;overflow-x:auto;
+  padding:0 20px 20px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.reviews-scroll::-webkit-scrollbar{display:none}
+
+.rev-card{
+  flex:0 0 300px;scroll-snap-align:start;
+  background:var(--black-soft);
+  border:1px solid rgba(185,146,105,.1);
+  border-radius:var(--r);padding:24px;
+  position:relative;
+}
+.rev-card::before{
+  content:'\201C';position:absolute;top:12px;right:20px;
+  font-family:var(--display);font-size:4rem;
+  color:var(--red);opacity:.15;line-height:1;
+}
+.rev-stars{color:var(--gold);font-size:.85rem;letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-size:.9rem;color:rgba(221,215,199,.7);line-height:1.7;margin-bottom:16px;font-style:italic}
+.rev-author{
+  font-size:.78rem;font-weight:600;color:var(--gold);letter-spacing:.5px;
+  display:flex;align-items:center;gap:8px;
+}
+.rev-author::before{content:'';width:16px;height:1.5px;background:var(--gold)}
+
+/* =============================================================
+   HOURS + MAP — side by side
+============================================================= */
+.info-section{
+  padding:80px 20px;
+  background:var(--black-soft);
+  border-top:1px solid rgba(185,146,105,.08);
+}
+.info-grid{
+  max-width:1080px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+  align-items:start;
+}
+
+/* Hours */
+.hours-card{
+  background:var(--black);border:1px solid rgba(185,146,105,.12);
+  border-radius:var(--r);padding:32px;
+}
+.hours-row{
+  display:flex;justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid rgba(185,146,105,.06);
+  font-size:.9rem;
+}
+.hours-row:last-child{border-bottom:none}
+.hours-row .day{color:var(--cream);font-weight:500}
+.hours-row .time{color:var(--gold)}
+.hours-row.closed .time{color:var(--red);font-weight:600}
+
+/* Map */
+.map-card{
+  border-radius:var(--r);overflow:hidden;
+  border:1px solid rgba(185,146,105,.12);
+  height:100%;min-height:360px;
+}
+.map-card iframe{width:100%;height:100%;min-height:360px;border:0;filter:grayscale(.3) contrast(1.1)}
+
+/* Contact strip below map */
+.contact-strip{
+  max-width:1080px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  padding:24px 20px 0;
+}
+.contact-item{
+  display:flex;align-items:center;gap:12px;
+  background:var(--black);border:1px solid rgba(185,146,105,.1);
+  border-radius:var(--r-sm);padding:16px;
+  transition:border-color var(--ease);
+}
+.contact-item:hover{border-color:rgba(185,146,105,.3)}
+.contact-icon{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;color:var(--white);font-size:1rem;
+}
+.contact-icon.red{background:var(--red)}
+.contact-icon.green{background:var(--wa)}
+.contact-icon.gold{background:var(--brown)}
+.contact-item-label{font-size:.65rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(221,215,199,.4)}
+.contact-item-value{font-size:.92rem;color:var(--cream);font-weight:500}
+.contact-item-value a{color:var(--gold);transition:color var(--ease)}
+.contact-item-value a:hover{color:var(--gold-light)}
+
+/* =============================================================
+   CTA BANNER
+============================================================= */
+.cta-banner{
+  padding:64px 20px;text-align:center;
+  background:linear-gradient(135deg,var(--red),#8b1a12);
+  position:relative;overflow:hidden;
+}
+.cta-banner::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2l4 3.25-4 3.25zM0 0h2v20H0V0z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.cta-banner>*{position:relative;z-index:1}
+.cta-banner h2{
+  font-family:var(--display);font-size:clamp(2rem,5vw,3.2rem);
+  letter-spacing:3px;color:var(--white);margin-bottom:8px;
+}
+.cta-banner p{color:rgba(255,255,255,.75);margin-bottom:24px;font-size:1rem}
+.btn-white{background:var(--white);color:var(--red);font-weight:700}
+.btn-white:hover{background:var(--cream);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+
+/* =============================================================
+   FOOTER
+============================================================= */
+.footer{
+  padding:40px 20px;text-align:center;
+  background:var(--black);
+  border-top:1px solid rgba(185,146,105,.08);
+}
+.footer-name{
+  font-family:var(--display);font-size:1.6rem;letter-spacing:3px;
+  color:var(--gold);margin-bottom:6px;
+}
+.footer p{font-size:.78rem;color:rgba(221,215,199,.35);line-height:1.8}
+.footer-copy{margin-top:16px;font-size:.65rem;color:rgba(221,215,199,.2)}
+
+/* =============================================================
+   WHATSAPP FAB (mobile only — desktop has header WA)
+============================================================= */
+.wa-fab{
+  position:fixed;bottom:20px;right:20px;z-index:900;
+  width:56px;height:56px;border-radius:50%;
+  background:var(--wa);color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
+  transition:transform var(--ease);
+}
+.wa-fab:hover{transform:scale(1.1)}
+.wa-fab svg{width:28px;height:28px}
+@media(min-width:769px){.wa-fab{display:none}}
+
+/* =============================================================
+   RESPONSIVE
+============================================================= */
+@media(max-width:768px){
+  .info-grid{grid-template-columns:1fr}
+  .contact-strip{grid-template-columns:1fr}
+  .about-inner{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .hero h1{font-size:clamp(3rem,14vw,5rem)}
+  .pizza-card{flex:0 0 260px}
+  .rev-card{flex:0 0 280px}
+  .scroll-hint{display:none}
+}
+@media(max-width:480px){
+  .hdr-logo{font-size:1rem}
+  .lang-btn{padding:4px 8px;font-size:.65rem}
+  .btn{padding:12px 22px;font-size:1rem}
+}
+
+/* =============================================================
+   LANG TOGGLE — hidden text
+============================================================= */
+[data-lang="en"]{display:none}
+body.en [data-lang="en"]{display:revert}
+body.en [data-lang="it"]{display:none}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     HEADER — pill nav with lang toggle
+========================================================= -->
+<header class="hdr">
+  <div class="hdr-pill" id="hdrPill">
+    <a href="#top" class="hdr-logo">IL PEPERONCINO</a>
+    <div class="hdr-sep"></div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-l="it" onclick="setLang('it')">IT</button>
+      <button class="lang-btn" data-l="en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="https://wa.me/39320066446" class="hdr-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .611.611l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.591-.838-6.313-2.236l-.44-.367-3.065 1.027 1.027-3.065-.367-.44A9.955 9.955 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <img src="photos/photo_02.jpg" alt="Il pizzaiolo con la pizza appena sfornata" loading="eager">
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge rv">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <span data-lang="it">La migliore pizza di Scalea</span>
+      <span data-lang="en">The best pizza in Scalea</span>
+    </div>
+    <h1 class="rv d1">IL<br>PEPER<span>ONCINO</span></h1>
+    <p class="hero-sub rv d2">
+      <span data-lang="it">Pizza napoletana da asporto. Impasto lievitato 48 ore, ingredienti freschi, forno a legna. Via Fiume Lao, Scalea.</span>
+      <span data-lang="en">Neapolitan take-away pizza. 48-hour dough, fresh ingredients, wood-fired oven. Via Fiume Lao, Scalea.</span>
+    </p>
+    <div class="hero-actions rv d3">
+      <a href="tel:+39320066446" class="btn btn-red">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span data-lang="it">ORDINA ORA</span>
+        <span data-lang="en">ORDER NOW</span>
+      </a>
+      <a href="#menu" class="btn btn-outline">
+        <span data-lang="it">IL MENU</span>
+        <span data-lang="en">THE MENU</span>
+      </a>
+    </div>
+    <div class="hero-rating rv d3">
+      <div class="hero-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="hero-rating-text">4.7 &middot; 458 <span data-lang="it">recensioni Google</span><span data-lang="en">Google reviews</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>scroll</span>
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+  </div>
+</section>
+
+<!-- =========================================================
+     ABOUT STRIP
+========================================================= -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-img rv">
+      <img src="photos/photo_02.jpg" alt="Il pizzaiolo">
+    </div>
+    <div class="about-text rv d1">
+      <h2 data-lang="it">PIZZA CON IL CUORE</h2>
+      <h2 data-lang="en">PIZZA WITH HEART</h2>
+      <p data-lang="it">Ogni pizza nasce dalle mani di chi ama questo mestiere. Impasto leggero lievitato <strong>48 ore</strong>, pomodoro San Marzano, mozzarella fior di latte e quel <strong>peperoncino calabrese</strong> che fa la differenza. Da asporto, sulla spiaggia, per strada &mdash; dove vuoi tu.</p>
+      <p data-lang="en">Every pizza is born from the hands of someone who loves this craft. Light dough risen for <strong>48 hours</strong>, San Marzano tomato, fior di latte mozzarella, and that <strong>Calabrian chili pepper</strong> that makes the difference. Take-away, on the beach, on the street &mdash; wherever you want.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PIZZA GALLERY — horizontal scroll
+========================================================= -->
+<section class="pizzas" id="menu">
+  <div class="pizzas-header">
+    <div class="stitle rv" data-lang="it">Le nostre pizze</div>
+    <div class="stitle rv" data-lang="en">Our pizzas</div>
+    <div class="sheading rv d1" data-lang="it">DAL FORNO A LEGNA</div>
+    <div class="sheading rv d1" data-lang="en">FROM THE WOOD OVEN</div>
+  </div>
+  <div class="pizza-scroll">
+    <div class="pizza-card rv">
+      <img src="photos/photo_03.jpg" alt="Pizza Margherita" loading="lazy">
+      <div class="pizza-card-body">
+        <div class="pizza-card-name">MARGHERITA</div>
+        <div class="pizza-card-desc" data-lang="it">Pomodoro San Marzano, mozzarella fior di latte, basilico fresco</div>
+        <div class="pizza-card-desc" data-lang="en">San Marzano tomato, fior di latte mozzarella, fresh basil</div>
+        <span class="pizza-card-tag" data-lang="it">Classica</span>
+        <span class="pizza-card-tag" data-lang="en">Classic</span>
+      </div>
+    </div>
+    <div class="pizza-card rv d1">
+      <img src="photos/photo_05.jpg" alt="Pizza Diavola" loading="lazy">
+      <div class="pizza-card-body">
+        <div class="pizza-card-name">DIAVOLA</div>
+        <div class="pizza-card-desc" data-lang="it">Salame piccante, olive nere, cipolla rossa, pomodorini</div>
+        <div class="pizza-card-desc" data-lang="en">Spicy salami, black olives, red onion, cherry tomatoes</div>
+        <span class="pizza-card-tag">&#127798; Piccante</span>
+      </div>
+    </div>
+    <div class="pizza-card rv d2">
+      <img src="photos/photo_07.jpg" alt="Pizza Mortadella e Pistacchio" loading="lazy">
+      <div class="pizza-card-body">
+        <div class="pizza-card-name">MORTADELLA E PISTACCHIO</div>
+        <div class="pizza-card-desc" data-lang="it">Mortadella, crema di pistacchio, granella, basilico</div>
+        <div class="pizza-card-desc" data-lang="en">Mortadella, pistachio cream, pistachio crumble, basil</div>
+        <span class="pizza-card-tag" data-lang="it">Gourmet</span>
+        <span class="pizza-card-tag" data-lang="en">Gourmet</span>
+      </div>
+    </div>
+    <div class="pizza-card rv">
+      <img src="photos/photo_08.jpg" alt="Pizza Bianca con Olive" loading="lazy">
+      <div class="pizza-card-body">
+        <div class="pizza-card-name">BIANCA SPECIALE</div>
+        <div class="pizza-card-desc" data-lang="it">Mozzarella, olive nere, pancetta, basilico fresco</div>
+        <div class="pizza-card-desc" data-lang="en">Mozzarella, black olives, pancetta, fresh basil</div>
+        <span class="pizza-card-tag" data-lang="it">Bianca</span>
+        <span class="pizza-card-tag" data-lang="en">White base</span>
+      </div>
+    </div>
+    <div class="pizza-card rv d1">
+      <img src="photos/photo_04.jpg" alt="Pizza Patate e Salsiccia" loading="lazy">
+      <div class="pizza-card-body">
+        <div class="pizza-card-name">PATATE E SALSICCIA</div>
+        <div class="pizza-card-desc" data-lang="it">Patate, salsiccia calabrese, funghi, mozzarella</div>
+        <div class="pizza-card-desc" data-lang="en">Potatoes, Calabrian sausage, mushrooms, mozzarella</div>
+        <span class="pizza-card-tag" data-lang="it">Ricca</span>
+        <span class="pizza-card-tag" data-lang="en">Hearty</span>
+      </div>
+    </div>
+    <div class="pizza-card rv d2">
+      <img src="photos/photo_09.jpg" alt="Pizza con Patatine" loading="lazy">
+      <div class="pizza-card-body">
+        <div class="pizza-card-name">PATATINE FRITTE</div>
+        <div class="pizza-card-desc" data-lang="it">Pizza con patatine fritte croccanti &mdash; per i veri fan</div>
+        <div class="pizza-card-desc" data-lang="en">Pizza with crispy French fries &mdash; for the real fans</div>
+        <span class="pizza-card-tag" data-lang="it">Street Food</span>
+        <span class="pizza-card-tag" data-lang="en">Street Food</span>
+      </div>
+    </div>
+    <div class="pizza-card rv d3">
+      <img src="photos/photo_06.jpg" alt="Pizze nel forno a legna" loading="lazy">
+      <div class="pizza-card-body">
+        <div class="pizza-card-name">FORNO A LEGNA</div>
+        <div class="pizza-card-desc" data-lang="it">Cottura su pietra, fiamma viva &mdash; il segreto del cornicione perfetto</div>
+        <div class="pizza-card-desc" data-lang="en">Stone-fired, live flame &mdash; the secret of the perfect crust</div>
+        <span class="pizza-card-tag" data-lang="it">Il Segreto</span>
+        <span class="pizza-card-tag" data-lang="en">The Secret</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     REVIEWS
+========================================================= -->
+<section class="reviews" id="reviews">
+  <div class="reviews-header">
+    <div class="stitle rv" data-lang="it">Recensioni</div>
+    <div class="stitle rv" data-lang="en">Reviews</div>
+    <div class="sheading rv d1" data-lang="it">COSA DICONO DI NOI</div>
+    <div class="sheading rv d1" data-lang="en">WHAT PEOPLE SAY</div>
+  </div>
+  <div class="reviews-scroll">
+    <div class="rev-card rv">
+      <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="rev-text">The best pizza in Scalea! Extremely delicious! Highly recommend. Also, very lovely staff. Thank you!</div>
+      <div class="rev-author">Migl&#279; &#352;alkauskait&#279;</div>
+    </div>
+    <div class="rev-card rv d1">
+      <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="rev-text">On my first trip to Scalea, I visited Il Peperoncino every day and enjoyed every pizza. My favorite was Diavola with salame piccante. Very kind service.</div>
+      <div class="rev-author">Sebastian</div>
+    </div>
+    <div class="rev-card rv d2">
+      <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="rev-text">When I say THE BEST, I mean THE BEST pizza I have ever eaten. It was a whole Italian-soul experience, especially when you eat it on the beach watching the sea.</div>
+      <div class="rev-author">Arenariaxxx</div>
+    </div>
+    <div class="rev-card rv d3">
+      <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="rev-text">Pizza was perfect! They have a good choice of pizzas so you can easily find something for yourself. When most restaurants in Scalea are closed, they are open!</div>
+      <div class="rev-author">Agata D.</div>
+    </div>
+    <div class="rev-card rv">
+      <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="rev-text">Best pizza in town. Absolutely delicious! Excellent service with very welcoming staff.</div>
+      <div class="rev-author">Irina Erdman</div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CTA BANNER
+========================================================= -->
+<section class="cta-banner">
+  <h2 class="rv" data-lang="it">HAI FAME?</h2>
+  <h2 class="rv" data-lang="en">HUNGRY?</h2>
+  <p class="rv d1" data-lang="it">Chiama, ordina e in pochi minuti la tua pizza &egrave; pronta.</p>
+  <p class="rv d1" data-lang="en">Call, order, and in a few minutes your pizza is ready.</p>
+  <div class="rv d2" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a href="tel:+39320066446" class="btn btn-white">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      320 066 4446
+    </a>
+    <a href="https://wa.me/39320066446" class="btn btn-outline" style="border-color:var(--white);color:var(--white)" target="_blank" rel="noopener">
+      WHATSAPP
+    </a>
+  </div>
+</section>
+
+<!-- =========================================================
+     HOURS + MAP
+========================================================= -->
+<section class="info-section" id="info">
+  <div class="info-grid">
+    <div class="hours-card rv">
+      <div class="stitle" data-lang="it">Orari di apertura</div>
+      <div class="stitle" data-lang="en">Opening hours</div>
+      <div class="sheading" style="margin-bottom:20px" data-lang="it">QUANDO TROVARCI</div>
+      <div class="sheading" style="margin-bottom:20px" data-lang="en">WHEN TO FIND US</div>
+      <div class="hours-row">
+        <span class="day" data-lang="it">Luned&igrave;</span><span class="day" data-lang="en">Monday</span>
+        <span class="time">17:30 &ndash; 22:00</span>
+      </div>
+      <div class="hours-row closed">
+        <span class="day" data-lang="it">Marted&igrave;</span><span class="day" data-lang="en">Tuesday</span>
+        <span class="time" data-lang="it">Chiuso</span><span class="time" data-lang="en">Closed</span>
+      </div>
+      <div class="hours-row closed">
+        <span class="day" data-lang="it">Mercoled&igrave;</span><span class="day" data-lang="en">Wednesday</span>
+        <span class="time" data-lang="it">Chiuso</span><span class="time" data-lang="en">Closed</span>
+      </div>
+      <div class="hours-row">
+        <span class="day" data-lang="it">Gioved&igrave;</span><span class="day" data-lang="en">Thursday</span>
+        <span class="time">18:00 &ndash; 23:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="day" data-lang="it">Venerd&igrave;</span><span class="day" data-lang="en">Friday</span>
+        <span class="time">18:00 &ndash; 23:00</span>
+      </div>
+      <div class="hours-row">
+        <span class="day" data-lang="it">Sabato</span><span class="day" data-lang="en">Saturday</span>
+        <span class="time">18:00 &ndash; 23:30</span>
+      </div>
+      <div class="hours-row">
+        <span class="day" data-lang="it">Domenica</span><span class="day" data-lang="en">Sunday</span>
+        <span class="time">18:00 &ndash; 00:00</span>
+      </div>
+    </div>
+    <div class="map-card rv d1">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3100!2d15.7916!3d39.8139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f85c3e8f40e5d%3A0xf13a1eacd86c2be8!2sIl%20Peperoncino%20Pizzeria%20Da%20Asporto!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps"></iframe>
+    </div>
+  </div>
+  <div class="contact-strip">
+    <a href="tel:+39320066446" class="contact-item rv">
+      <div class="contact-icon red">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div>
+        <div class="contact-item-label" data-lang="it">Telefono</div>
+        <div class="contact-item-label" data-lang="en">Phone</div>
+        <div class="contact-item-value">320 066 4446</div>
+      </div>
+    </a>
+    <a href="https://wa.me/39320066446" class="contact-item rv d1" target="_blank" rel="noopener">
+      <div class="contact-icon green">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .611.611l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.591-.838-6.313-2.236l-.44-.367-3.065 1.027 1.027-3.065-.367-.44A9.955 9.955 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+      </div>
+      <div>
+        <div class="contact-item-label">WhatsApp</div>
+        <div class="contact-item-value" data-lang="it">Scrivi un messaggio</div>
+        <div class="contact-item-value" data-lang="en">Send a message</div>
+      </div>
+    </a>
+    <a href="https://maps.google.com/?cid=17370548328655739880" class="contact-item rv d2" target="_blank" rel="noopener">
+      <div class="contact-icon gold">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <div class="contact-item-label" data-lang="it">Indirizzo</div>
+        <div class="contact-item-label" data-lang="en">Address</div>
+        <div class="contact-item-value">Via Fiume Lao 92, Scalea</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+  <div class="footer-name">IL PEPERONCINO</div>
+  <p>Via Fiume Lao 92, 87029 Scalea CS &middot; <a href="tel:+39320066446" style="color:var(--gold)">320 066 4446</a></p>
+  <div class="footer-copy">&copy; 2024 Il Peperoncino Pizzeria Da Asporto</div>
+</footer>
+
+<!-- =========================================================
+     WHATSAPP FAB (mobile)
+========================================================= -->
+<a href="https://wa.me/39320066446" class="wa-fab" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .611.611l4.458-1.495A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.387 0-4.591-.838-6.313-2.236l-.44-.367-3.065 1.027 1.027-3.065-.367-.44A9.955 9.955 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+</a>
+
+<!-- =========================================================
+     SCRIPTS
+========================================================= -->
+<script>
+// Language toggle
+function setLang(lang){
+  document.body.classList.toggle('en', lang==='en');
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.l===lang));
+  localStorage.setItem('peperoncino-lang', lang);
+}
+// Restore saved language
+(function(){
+  const saved = localStorage.getItem('peperoncino-lang');
+  if(saved==='en') setLang('en');
+})();
+
+// Scroll reveal
+(function(){
+  const els = document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('vis'));return}
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})
+  },{threshold:.12,rootMargin:'0px 0px -30px 0px'});
+  els.forEach(e=>io.observe(e));
+})();
+
+// Header pill scroll effect
+(function(){
+  const pill = document.getElementById('hdrPill');
+  let t=false;
+  window.addEventListener('scroll',()=>{
+    if(!t){requestAnimationFrame(()=>{
+      pill.classList.toggle('scrolled',window.scrollY>60);
+      t=false;
+    });t=true}
+  });
+})();
+</script>
+
+</body>
+</html>

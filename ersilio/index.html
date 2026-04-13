@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Open Graph / WhatsApp / Telegram preview -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Pizzeria da Ersilio — Santa Domenica Talao · Solo su prenotazione"/>
+  <meta property="og:description" content="Cucina calabrese autentica dal 1987. Ravioli fatti a mano da Letizia. Solo su prenotazione. ★ 4.5 su Google · 227 recensioni"/>
+  <meta property="og:image" content="https://images.unsplash.com/photo-1428515613728-6b4607e44363?w=1200&h=630&fit=crop&q=85"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:url" content="https://viktorialiubitskaya-coder.github.io/demo/ersilio/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Pizzeria da Ersilio — Santa Domenica Talao · Solo su prenotazione"/>
+  <meta name="twitter:description" content="Cucina calabrese autentica dal 1987. Ravioli fatti a mano da Letizia. Solo su prenotazione. ★ 4.5 su Google · 227 recensioni"/>
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1428515613728-6b4607e44363?w=1200&h=630&fit=crop&q=85"/>
+<title>Pizzeria da Ersilio — Santa Domenica Talao</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0C0A06;--dark:#161208;--warm:#2A1E0A;
+  --terra:#A0522D;--gold:#D4A843;--cream:#F8F0E0;
+  --green:#2D4A1E;--olive:#6B7C3A;--muted:#8A7A60;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);font-family:'Lato',sans-serif;font-weight:300;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(12,10,6,.95),transparent);backdrop-filter:blur(4px)}
+.logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:var(--cream);letter-spacing:.06em}
+.logo em{font-style:italic;color:var(--gold)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{color:var(--cream);text-decoration:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.nav-btn{background:var(--terra);color:var(--cream);border:none;padding:10px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-family:'Lato',sans-serif}
+.nav-btn:hover{background:#B8622D}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% 100%,rgba(160,82,45,.2) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 40% at 80% 20%,rgba(212,168,67,.06) 0%,transparent 50%),
+    linear-gradient(170deg,#0C0A06 0%,#1A1206 40%,#0C0A06 100%);
+}
+
+/* Fireflies */
+.ff{position:absolute;border-radius:50%;pointer-events:none;animation:ffanim var(--d,4s) ease-in-out infinite}
+@keyframes ffanim{0%,100%{opacity:0;transform:translate(0,0)}25%{opacity:1}50%{opacity:.6;transform:translate(var(--tx,10px),var(--ty,-15px))}75%{opacity:.3}}
+
+.hero-img{position:absolute;inset:0;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.18;filter:blur(1px)}
+
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 20px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid rgba(212,168,67,.3);padding:8px 20px;
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:28px;
+  opacity:0;animation:fu .9s ease .3s forwards;
+}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(50px,8vw,100px);
+  font-weight:400;line-height:.98;
+  margin-bottom:12px;
+  opacity:0;animation:fu .9s ease .5s forwards;
+}
+.hero-title em{font-style:italic;color:var(--gold);display:block}
+.hero-prenotazione{
+  display:inline-block;
+  background:rgba(255,255,255,.06);border:1px solid rgba(212,168,67,.2);
+  padding:10px 20px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);margin:16px 0 32px;
+  opacity:0;animation:fu .9s ease .7s forwards;
+}
+.hero-desc{font-size:15px;line-height:1.9;color:rgba(248,240,224,.5);max-width:420px;margin:0 auto 48px;opacity:0;animation:fu .9s ease .8s forwards}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fu .9s ease 1s forwards}
+.btn-p{background:var(--terra);color:var(--cream);border:none;padding:15px 40px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-family:'Lato',sans-serif;text-decoration:none;display:inline-block}
+.btn-p:hover{background:#B8622D;transform:translateY(-2px)}
+.btn-s{border:1px solid rgba(248,240,224,.2);color:var(--cream);padding:15px 40px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s;background:transparent;font-family:'Lato',sans-serif;text-decoration:none;display:inline-block}
+.btn-s:hover{border-color:var(--gold);color:var(--gold)}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Stars in sky */
+.stars{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;background:white;border-radius:50%;animation:tw var(--d,3s) ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:var(--o,.7)}50%{opacity:.1}}
+
+/* STRIP */
+.strip{background:var(--terra);padding:12px 0;overflow:hidden}
+.strip-inner{display:flex;gap:48px;animation:mq 20s linear infinite;white-space:nowrap}
+.strip-item{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);flex-shrink:0;display:flex;align-items:center;gap:10px;font-weight:700;opacity:.9}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr;min-height:75vh}
+.about-img{position:relative;overflow:hidden;background:var(--dark);min-height:460px}
+.about-img img{width:100%;height:100%;object-fit:cover;opacity:.7;display:block}
+.about-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(42,30,10,.4),rgba(12,10,6,.2))}
+.about-year{position:absolute;top:40px;left:40px;font-family:'Playfair Display',serif;font-size:80px;font-weight:700;color:rgba(212,168,67,.15);line-height:1}
+.about-text{padding:72px 64px;background:var(--dark);display:flex;flex-direction:column;justify-content:center}
+.sec-tag{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-tag::before{content:'';width:24px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,46px);font-weight:400;line-height:1.2;margin-bottom:22px}
+.sec-title em{font-style:italic;color:var(--gold)}
+.about-body{font-size:14px;line-height:1.95;color:rgba(248,240,224,.55);margin-bottom:32px}
+.about-nota{background:rgba(160,82,45,.12);border-left:3px solid var(--terra);padding:14px 18px;font-size:13px;line-height:1.7;color:rgba(248,240,224,.7);font-style:italic}
+
+/* MENU */
+.menu{padding:90px 48px;background:var(--bg)}
+.menu-hd{text-align:center;margin-bottom:48px}
+.menu-tabs{display:flex;justify-content:center;gap:0;border-bottom:1px solid rgba(248,240,224,.07);margin-bottom:44px}
+.mtab{padding:12px 28px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .25s;font-family:'Lato',sans-serif}
+.mtab.on{color:var(--gold);border-bottom-color:var(--gold)}
+.mpanel{display:none}.mpanel.on{display:block}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.mitem{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.04);padding:22px 26px;display:flex;justify-content:space-between;gap:14px;transition:background .2s}
+.mitem:hover{background:rgba(160,82,45,.08)}
+.mname{font-family:'Playfair Display',serif;font-size:18px;margin-bottom:5px}
+.mdesc{font-size:11px;color:var(--muted);line-height:1.65}
+.mtag{font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--olive);margin-top:7px;display:inline-block}
+.mprice{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);flex-shrink:0;align-self:flex-start}
+
+/* GALLERY */
+.gallery{padding:90px 48px;background:var(--warm)}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:220px 220px;gap:6px;margin-top:40px}
+.gal-item{overflow:hidden;position:relative;background:var(--bg)}
+.gal-item:first-child{grid-column:span 2}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;display:block}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-overlay{position:absolute;inset:0;background:linear-gradient(transparent,rgba(12,10,6,.6));display:flex;align-items:flex-end;padding:16px;opacity:0;transition:opacity .3s}
+.gal-item:hover .gal-overlay{opacity:1}
+.gal-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream)}
+
+/* PRENOTAZIONE */
+.prenota{padding:90px 48px;background:var(--bg)}
+.prenota-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.prenota-info{}
+.info-items{display:flex;flex-direction:column;gap:20px;margin-top:36px}
+.iitem{display:flex;gap:14px;align-items:flex-start}
+.iitem-ico{width:42px;height:42px;border:1px solid rgba(212,168,67,.25);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.iitem-l{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.iitem-v{font-size:13px;color:rgba(248,240,224,.6);line-height:1.7}
+.form-box{background:var(--dark);border:1px solid rgba(255,255,255,.06);padding:40px}
+.form-box h3{font-family:'Playfair Display',serif;font-size:26px;margin-bottom:24px}
+.form-box h3 em{font-style:italic;color:var(--gold)}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fg label{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--cream);padding:11px 14px;font-family:'Lato',sans-serif;font-size:13px;outline:none;transition:border-color .2s;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
+.fg select option{background:var(--dark)}
+.fg textarea{resize:vertical;min-height:70px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-book{width:100%;background:var(--terra);color:var(--cream);border:none;padding:15px;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.btn-book:hover{background:#B8622D}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding:56px 48px 28px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.foot-brand .logo{display:block;margin-bottom:12px}
+.foot-brand p{font-size:12px;line-height:1.8;color:var(--muted);max-width:220px}
+.foot-col h4{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.foot-col a{display:block;color:var(--muted);text-decoration:none;font-size:12px;margin-bottom:8px;transition:color .2s}
+.foot-col a:hover{color:var(--cream)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:20px;display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
+
+/* DEMO BANNER */
+.dbanner{position:fixed;bottom:0;left:0;right:0;z-index:200;background:linear-gradient(90deg,#1A0E06,#2A1A0A);border-top:1px solid rgba(212,168,67,.3);padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.dbanner-t{font-size:12px;color:rgba(248,240,224,.7);display:flex;align-items:center;gap:10px}
+.dbanner-b{font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#000;padding:3px 10px;border-radius:2px;font-weight:700}
+.dbanner-btns{display:flex;gap:8px}
+.dbbtn{padding:8px 18px;font-size:10px;font-weight:700;font-family:'Lato',sans-serif;letter-spacing:.08em;cursor:pointer;border:none;transition:all .2s}
+.dbbtn-p{background:var(--gold);color:#000}.dbbtn-p:hover{opacity:.85}
+.dbbtn-s{background:transparent;color:var(--gold);border:1px solid rgba(212,168,67,.35)}.dbbtn-s:hover{background:rgba(212,168,67,.1)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:16px 20px}.nav-links{display:none}
+  .about,.prenota-inner{grid-template-columns:1fr}
+  .about-img{min-height:280px}
+  .about-text,.menu,.gallery,.prenota{padding:56px 20px}
+  .mgrid,.gal-grid{grid-template-columns:1fr}
+  .gal-item:first-child{grid-column:span 1}
+  .foot-grid{grid-template-columns:1fr}
+  .dbanner{flex-direction:column;padding:14px 20px;gap:8px}
+  .frow{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Da <em>Ersilio</em></div>
+  <div class="nav-links">
+    <a href="#storia">Storia</a>
+    <a href="#menu">Menu</a>
+    <a href="#galleria">Galleria</a>
+    <a href="#prenota">Prenota</a>
+  </div>
+  <button class="nav-btn" onclick="document.getElementById('prenota').scrollIntoView({behavior:'smooth'})">Prenota</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-img">
+    <img src="https://lh3.googleusercontent.com/places/ANXAkqFIjCez6-PkRaTouTNFcPJsoq20Niv87_zD6lYlHUhJzC3nnuOKTFx4y6JzPj3KJQWlhrZE-1Z1ZnrmcL2Z-jcffwmfHa6CqGY=s4800-w800-h600" alt="Pizzeria da Ersilio"/>
+  </div>
+  <div class="stars" id="stars1"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Santa Domenica Talao · Dal 1987 · Solo su prenotazione</div>
+    <h1 class="hero-title">Pizzeria<br><em>da Ersilio</em></h1>
+    <div class="hero-prenotazione">⚠️ Lavoriamo solo su prenotazione — chiamate prima</div>
+    <p class="hero-desc">Cucina calabrese autentica nella campagna di Santa Domenica. Ravioli fatti a mano, pasta fresca ogni giorno, ingredienti dall'orto di famiglia. Un'esperienza unica che non si dimentica.</p>
+    <div class="hero-btns">
+      <a href="tel:+393927166368" class="btn-p">📞 Prenota ora: +39 392 716 6368</a>
+      <a href="#menu" class="btn-s">Vedi il menu</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-item">⚡ Solo su prenotazione</span>
+    <span class="strip-item">·</span>
+    <span class="strip-item">🍝 Ravioli fatti a mano</span>
+    <span class="strip-item">·</span>
+    <span class="strip-item">★ 4.5 · 227 recensioni Google</span>
+    <span class="strip-item">·</span>
+    <span class="strip-item">🌿 Prodotti dall'orto di famiglia</span>
+    <span class="strip-item">·</span>
+    <span class="strip-item">📍 Contrada Magaroti, Santa Domenica</span>
+    <span class="strip-item">·</span>
+    <span class="strip-item">⚡ Solo su prenotazione</span>
+    <span class="strip-item">·</span>
+    <span class="strip-item">🍝 Ravioli fatti a mano</span>
+    <span class="strip-item">·</span>
+    <span class="strip-item">★ 4.5 · 227 recensioni Google</span>
+    <span class="strip-item">·</span>
+    <span class="strip-item">🌿 Prodotti dall'orto di famiglia</span>
+    <span class="strip-item">·</span>
+    <span class="strip-item">📍 Contrada Magaroti, Santa Domenica</span>
+    <span class="strip-item">·</span>
+  </div>
+</div>
+
+<section class="about" id="storia">
+  <div class="about-img">
+    <img src="https://lh3.googleusercontent.com/places/ANXAkqGixrECpnbV-I03mbetsj2kqwE1yTYcqhuPOp8ncOtHLI8Y-PAtKrEBJ657A6iBGHCRfNXi04Cdy3wn7Yx_RJnN6bPBuhs1974=s4800-w800-h600" alt="Cucina da Ersilio"/>
+    <div class="about-img-overlay"></div>
+    <div class="about-year">1987</div>
+  </div>
+  <div class="about-text reveal">
+    <p class="sec-tag">La nostra storia</p>
+    <h2 class="sec-title">La cucina di<br><em>Letizia</em> e Ersilio</h2>
+    <p class="about-body">Dal 1987, in una masseria immersa nella campagna calabrese a 3 km da Santa Domenica Talao, Ersilio e Letizia accolgono i loro ospiti come fossero di famiglia. Non c'è un menu fisso — Letizia chiede cosa volete e lo prepara con le sue mani, usando ingredienti dell'orto e ricette tramandate dalla nonna.</p>
+    <p class="about-body">I ravioli con ricotta fresca fatti su ordinazione sono diventati leggenda nella Valle del Lao. Bisogna prenotare — ma ne vale assolutamente la pena.</p>
+    <div class="about-nota">"Letizia, the hostess, pampers you like never before. The homemade ravioli are spectacular." — Ospite Google ★★★★★</div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="menu-hd reveal">
+    <p class="sec-tag" style="justify-content:center">✦ Cucina di casa ✦</p>
+    <h2 class="sec-title" style="text-align:center">Il <em>Menu</em></h2>
+    <p style="font-size:13px;color:var(--muted);margin-top:8px">Il menu cambia ogni giorno secondo stagione e disponibilità. Prenotate e Letizia vi prepara qualcosa di speciale.</p>
+  </div>
+  <div class="menu-tabs" style="margin-top:28px">
+    <button class="mtab on" onclick="setT('p1',this)">Antipasti</button>
+    <button class="mtab" onclick="setT('p2',this)">Primi</button>
+    <button class="mtab" onclick="setT('p3',this)">Pizze</button>
+    <button class="mtab" onclick="setT('p4',this)">Secondi</button>
+    <button class="mtab" onclick="setT('p5',this)">Dolci</button>
+  </div>
+  <div id="p1" class="mpanel on">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Tagliere della masseria</div><div class="mdesc">Salumi artigianali, caciocavallo stagionato, olive, sottaceti e pane casereccio fatto in casa</div><span class="mtag">🏠 Della casa</span></div><div class="mprice">€14</div></div>
+      <div class="mitem"><div><div class="mname">Bruschette di stagione</div><div class="mdesc">Pane abbrustolito con pomodori freschi dell'orto, aglio, basilico e olio extravergine calabrese</div></div><div class="mprice">€6</div></div>
+      <div class="mitem"><div><div class="mname">Peperoni sott'olio</div><div class="mdesc">Peperoni rossi e gialli conservati in olio EVO con aglio e origano, preparati in estate</div></div><div class="mprice">€7</div></div>
+      <div class="mitem"><div><div class="mname">Zucchine a scapece</div><div class="mdesc">Zucchine fritte marinate con menta fresca, aceto di vino bianco, aglio — ricetta della nonna</div><span class="mtag">🌿 Tradizione</span></div><div class="mprice">€7</div></div>
+    </div>
+  </div>
+  <div id="p2" class="mpanel">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Ravioli ricotta e spinaci</div><div class="mdesc">Pasta fresca a mano, ricotta di capra locale, spinaci dell'orto, burro e salvia — su ordinazione</div><span class="mtag">⭐ Il piatto più famoso</span></div><div class="mprice">€15</div></div>
+      <div class="mitem"><div><div class="mname">Tagliatelle al ragù</div><div class="mdesc">Pasta fresca di Letizia, ragù di carne mista cotto 5 ore, parmigiano grattugiato al momento</div></div><div class="mprice">€13</div></div>
+      <div class="mitem"><div><div class="mname">Fileja 'nduja e ricotta</div><div class="mdesc">Pasta calabrese tipica, 'nduja piccante artigianale, ricotta salata di capra, pomodorini</div><span class="mtag">🌶️ Calabria DOC</span></div><div class="mprice">€13</div></div>
+      <div class="mitem"><div><div class="mname">Pasta e fagioli</div><div class="mdesc">Fagioli borlotti dell'orto, pasta mista, lardo di maiale, rosmarino — piatto povero e ricco</div></div><div class="mprice">€11</div></div>
+    </div>
+  </div>
+  <div id="p3" class="mpanel">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Pizza Margherita</div><div class="mdesc">Pomodoro San Marzano, fior di latte, basilico fresco, olio EVO calabrese</div></div><div class="mprice">€8</div></div>
+      <div class="mitem"><div><div class="mname">Pizza Calabrese</div><div class="mdesc">'Nduja, cipolla di Tropea, olive nere, provola affumicata — sapori decisi</div><span class="mtag">🔥 Specialità</span></div><div class="mprice">€11</div></div>
+      <div class="mitem"><div><div class="mname">Pizza Funghi e Salsiccia</div><div class="mdesc">Funghi porcini del Pollino, salsiccia calabrese artigianale, fior di latte, rosmarino</div></div><div class="mprice">€12</div></div>
+      <div class="mitem"><div><div class="mname">Pizza Bianca con Ricotta</div><div class="mdesc">Senza pomodoro, ricotta fresca, prosciutto cotto, mozzarella, rucola — fresca e delicata</div></div><div class="mprice">€11</div></div>
+    </div>
+  </div>
+  <div id="p4" class="mpanel">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Agnello al forno</div><div class="mdesc">Agnello della Valle del Lao con patate, rosmarino, aglio e vino bianco — cottura lenta</div><span class="mtag">🏆 Secondo del giorno</span></div><div class="mprice">€18</div></div>
+      <div class="mitem"><div><div class="mname">Salsiccia alla brace</div><div class="mdesc">Salsiccia artigianale calabrese con peperoncino dolce, friggitelli, patate al rosmarino</div></div><div class="mprice">€14</div></div>
+      <div class="mitem"><div><div class="mname">Pollo alla cacciatora</div><div class="mdesc">Pollo ruspante dell'azienda, olive, capperi, pomodori, vino rosso — ricetta di famiglia</div></div><div class="mprice">€15</div></div>
+      <div class="mitem"><div><div class="mname">Baccalà alla calabrese</div><div class="mdesc">Baccalà in umido con pomodori, patate, olive, capperi e peperoncino di Diamante</div></div><div class="mprice">€16</div></div>
+    </div>
+  </div>
+  <div id="p5" class="mpanel">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Torta di ricotta</div><div class="mdesc">Crostata con ricotta fresca di capra, scorza di limone e cannella — fatta da Letizia ogni mattina</div><span class="mtag">❤️ Il dolce di Letizia</span></div><div class="mprice">€6</div></div>
+      <div class="mitem"><div><div class="mname">Fichi al miele</div><div class="mdesc">Fichi freschi dell'orto, miele di zagara, ricotta fresca, noci del Pollino</div><span class="mtag">🍃 Stagionale</span></div><div class="mprice">€5</div></div>
+      <div class="mitem"><div><div class="mname">Gelato artigianale</div><div class="mdesc">Tre gusti dal laboratorio locale: pistacchio di Bronte, nocciola, limone di Calabria</div></div><div class="mprice">€5</div></div>
+      <div class="mitem"><div><div class="mname">Caffè e amaro</div><div class="mdesc">Espresso della casa con liquore al bergamotto o cedro fatto in casa — il finale perfetto</div></div><div class="mprice">€4</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="galleria">
+  <div class="reveal">
+    <p class="sec-tag">Le nostre foto</p>
+    <h2 class="sec-title">Un posto <em>unico</em></h2>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item">
+      <img src="https://lh3.googleusercontent.com/place-photos/AL8-SNG6nfXNb2CkbJdIqevCX-efl7e71uaaE4DNFFb5YNsc7Db2Ba00ehSYC_l7jh3Gc-GB0eQxWn97p5oTDtPnWFyV-f6fROV_3UiUa4bwpa1Tr85xgx9VBr3FhLqBy3rog8pZW9Kfv0SImaWJKA=s4800-w800-h600" alt="Cucina da Ersilio"/>
+      <div class="gal-overlay"><span class="gal-label">La cucina di Letizia</span></div>
+    </div>
+    <div class="gal-item">
+      <img src="https://lh3.googleusercontent.com/places/ANXAkqHWfq31-WTbse_A5XVuNVXGhUQ2xuryhOl_qfOLhEl3GWHtqk8P-HD1_26FTaYZYlGAWIZLOPpWn2ev_7cRsjCRF_gkMiygHVk=s4800-w800-h600" alt="Ambiente da Ersilio"/>
+      <div class="gal-overlay"><span class="gal-label">L'ambiente rustico</span></div>
+    </div>
+    <div class="gal-item">
+      <img src="https://lh3.googleusercontent.com/places/ANXAkqFIjCez6-PkRaTouTNFcPJsoq20Niv87_zD6lYlHUhJzC3nnuOKTFx4y6JzPj3KJQWlhrZE-1Z1ZnrmcL2Z-jcffwmfHa6CqGY=s4800-w800-h600" alt="Piatti da Ersilio"/>
+      <div class="gal-overlay"><span class="gal-label">I nostri piatti</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="prenota" id="prenota">
+  <div class="prenota-inner">
+    <div class="prenota-info reveal">
+      <p class="sec-tag">Come trovarci</p>
+      <h2 class="sec-title">Prenotate<br>e venite a <em>trovarci</em></h2>
+      <p style="font-size:14px;line-height:1.9;color:rgba(248,240,224,.5);max-width:340px;margin-bottom:4px">Siamo in campagna, a 3 km dal centro. È obbligatorio prenotare — chiamate Letizia e vi prepare qualcosa di speciale.</p>
+      <div class="info-items">
+        <div class="iitem"><div class="iitem-ico">📞</div><div><div class="iitem-l">Prenotazioni</div><div class="iitem-v">+39 392 716 6368<br><strong style="color:var(--gold)">Obbligatorio prenotare</strong></div></div></div>
+        <div class="iitem"><div class="iitem-ico">📍</div><div><div class="iitem-l">Indirizzo</div><div class="iitem-v">Contrada Magaroti 11<br>87020 Santa Domenica Talao (CS)</div></div></div>
+        <div class="iitem"><div class="iitem-ico">🕐</div><div><div class="iitem-l">Orari</div><div class="iitem-v">Sab–Dom: 13:00–15:30 · 20:00–23:00<br>Feriali: su prenotazione</div></div></div>
+        <div class="iitem"><div class="iitem-ico">🚗</div><div><div class="iitem-l">Come arrivare</div><div class="iitem-v">SS18, direzione Santa Domenica Talao, seguire indicazioni Contrada Magaroti. Ampio parcheggio.</div></div></div>
+      </div>
+    </div>
+    <div class="form-box reveal">
+      <h3>Richiesta <em>prenotazione</em></h3>
+      <div class="frow"><div class="fg"><label>Nome</label><input type="text" placeholder="Mario"/></div><div class="fg"><label>Cognome</label><input type="text" placeholder="Rossi"/></div></div>
+      <div class="fg"><label>Telefono (vi ricontattiamo per conferma)</label><input type="tel" placeholder="+39 333 000 0000"/></div>
+      <div class="frow"><div class="fg"><label>Data preferita</label><input type="date"/></div><div class="fg"><label>Persone</label><select><option>2 persone</option><option selected>3–4 persone</option><option>5–8 persone</option><option>9+ persone</option></select></div></div>
+      <div class="frow"><div class="fg"><label>Pranzo o cena?</label><select><option>Pranzo (13:00)</option><option selected>Cena (20:00)</option></select></div><div class="fg"><label>Volete i ravioli?</label><select><option selected>Sì, per favore! 🥟</option><option>No, grazie</option></select></div></div>
+      <div class="fg"><label>Note o allergie</label><textarea placeholder="Comunicate eventuali allergie o preferenze..."></textarea></div>
+      <button class="btn-book" onclick="alert('✓ Richiesta inviata! Letizia vi ricontatterà presto per confermare.')">Invia richiesta →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo" style="display:block;margin-bottom:10px">Da <em>Ersilio</em></div>
+      <p>Cucina calabrese autentica dal 1987, nella campagna di Santa Domenica Talao. Solo su prenotazione — perché ogni pasto merita attenzione.</p>
+    </div>
+    <div class="foot-col"><h4>Menu</h4><a href="#">Antipasti</a><a href="#">Primi piatti</a><a href="#">Pizze</a><a href="#">Secondi</a><a href="#">Dolci</a></div>
+    <div class="foot-col"><h4>Contatti</h4><a href="tel:+393927166368">+39 392 716 6368</a><a href="#">Contrada Magaroti 11</a><a href="#">Santa Domenica Talao</a><a href="#">Privacy Policy</a></div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2025 Pizzeria da Ersilio · P.IVA 03128940780 · Santa Domenica Talao (CS)</span>
+    <span>★ 4.5/5 · 227 recensioni Google</span>
+  </div>
+</footer>
+
+<div class="dbanner" id="db">
+  <div class="dbanner-t"><span class="dbanner-b">Demo</span> Sito demo gratuito creato per la <strong style="color:var(--gold)">Pizzeria da Ersilio</strong></div>
+  <div class="dbanner-btns">
+    <button class="dbbtn dbbtn-s" onclick="document.getElementById('db').style.display='none'">✕</button>
+    <button class="dbbtn dbbtn-p" onclick="alert('Contattaci per attivare il sito!')">Voglio questo sito →</button>
+  </div>
+</div>
+
+<script>
+function setT(id,btn){
+  document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+// Stars
+const s1=document.getElementById('stars1');
+for(let i=0;i<80;i++){const s=document.createElement('div');s.className='star';const sz=Math.random()*1.5+.5;s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*55}%;left:${Math.random()*100}%;--o:${Math.random()*.7+.2};--d:${Math.random()*4+2}s;animation-delay:${Math.random()*4}s`;s1.appendChild(s)}
+// Reveal
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

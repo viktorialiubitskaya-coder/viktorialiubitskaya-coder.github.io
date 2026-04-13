@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Open Graph / WhatsApp / Telegram preview -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="La Vecchia Fattoria — Ristorante e Pizzeria · Scalea"/>
+  <meta property="og:description" content="Pesce fresco del Tirreno, pizze artigianali e cucina calabrese dal 1996. ★ 4.4 su Google · 523 recensioni"/>
+  <meta property="og:image" content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&h=630&fit=crop&q=85"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:url" content="https://viktorialiubitskaya-coder.github.io/demo/fattoria/"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="La Vecchia Fattoria — Ristorante e Pizzeria · Scalea"/>
+  <meta name="twitter:description" content="Pesce fresco del Tirreno, pizze artigianali e cucina calabrese dal 1996. ★ 4.4 su Google · 523 recensioni"/>
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&h=630&fit=crop&q=85"/>
+<title>La Vecchia Fattoria — Scalea</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sea:#0A1628;--deep:#0F1F38;--blue:#1A3A5C;
+  --teal:#1B8A7E;--aqua:#2EC4B6;--sand:#F2E8D0;
+  --orange:#E8762A;--gold:#D4A843;--cream:#FAF7F0;
+  --muted:#7A8A9A;--border:rgba(255,255,255,.08);
+}
+html{scroll-behavior:smooth}
+body{background:var(--sea);color:var(--sand);font-family:'Nunito',sans-serif;font-weight:300;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 52px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(10,22,40,.95),transparent);backdrop-filter:blur(6px)}
+.logo{font-family:'Libre Baskerville',serif;font-size:19px;color:var(--sand);letter-spacing:.04em}
+.logo em{font-style:italic;color:var(--aqua)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{color:var(--sand);text-decoration:none;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.55;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.nav-btn{background:transparent;border:1px solid rgba(46,196,182,.4);color:var(--aqua);padding:9px 22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-family:'Nunito',sans-serif}
+.nav-btn:hover{background:rgba(46,196,182,.1)}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-img{position:absolute;inset:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.25;display:block;filter:saturate(1.2)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(10,22,40,.85) 0%,rgba(10,22,40,.6) 50%,rgba(15,31,56,.8) 100%)}
+
+/* Waves */
+.waves{position:absolute;bottom:0;left:0;right:0;height:120px;pointer-events:none}
+.wave{position:absolute;bottom:0;left:0;right:0;height:100%;opacity:.15}
+.wave-1{animation:wave1 8s ease-in-out infinite}
+.wave-2{animation:wave1 12s ease-in-out infinite reverse;opacity:.08}
+@keyframes wave1{0%,100%{transform:translateX(0) scaleY(1)}50%{transform:translateX(-30px) scaleY(1.05)}}
+
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 20px}
+.hero-fish{font-size:48px;margin-bottom:20px;display:block;animation:bob 4s ease-in-out infinite;opacity:0;animation-delay:.2s;fill-mode:forwards}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+.hero-tag{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--aqua);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:14px;opacity:0;animation:fu .9s ease .4s forwards}
+.hero-tag::before,.hero-tag::after{content:'';width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--aqua))}
+.hero-tag::after{transform:scaleX(-1)}
+.hero-title{font-family:'Libre Baskerville',serif;font-size:clamp(48px,8vw,96px);font-weight:400;line-height:.98;margin-bottom:12px;opacity:0;animation:fu .9s ease .6s forwards}
+.hero-title em{font-style:italic;display:block;color:var(--aqua)}
+.hero-subtitle{font-family:'Libre Baskerville',serif;font-size:clamp(18px,2.5vw,28px);font-weight:400;color:rgba(242,232,208,.5);margin-bottom:32px;opacity:0;animation:fu .9s ease .8s forwards;letter-spacing:.04em}
+.hero-desc{font-size:15px;line-height:1.85;color:rgba(242,232,208,.5);max-width:440px;margin:0 auto 44px;opacity:0;animation:fu .9s ease 1s forwards}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fu .9s ease 1.1s forwards}
+.btn-sea{background:var(--teal);color:white;border:none;padding:15px 40px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-family:'Nunito',sans-serif;text-decoration:none;display:inline-block}
+.btn-sea:hover{background:var(--aqua);transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,138,126,.4)}
+.btn-out{border:1px solid rgba(242,232,208,.2);color:var(--sand);padding:15px 40px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:transparent;transition:all .3s;font-family:'Nunito',sans-serif;text-decoration:none;display:inline-block}
+.btn-out:hover{border-color:var(--aqua);color:var(--aqua)}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Stats bar */
+.statsbar{background:var(--deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:24px 0;display:grid;grid-template-columns:repeat(4,1fr)}
+.sitem{text-align:center;padding:0 20px;border-right:1px solid var(--border)}
+.sitem:last-child{border-right:none}
+.snum{font-family:'Libre Baskerville',serif;font-size:32px;color:var(--aqua);display:block;line-height:1}
+.slabel{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr;min-height:72vh}
+.about-img{position:relative;overflow:hidden;min-height:420px}
+.about-img img{width:100%;height:100%;object-fit:cover;opacity:.8;display:block}
+.about-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,22,40,.3),rgba(10,22,40,.1))}
+.about-text{padding:72px 60px;background:var(--deep);display:flex;flex-direction:column;justify-content:center}
+.sec-tag{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--aqua);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-tag::before{content:'';width:24px;height:1px;background:var(--aqua)}
+.sec-title{font-family:'Libre Baskerville',serif;font-size:clamp(28px,3.5vw,44px);font-weight:400;line-height:1.18;margin-bottom:22px}
+.sec-title em{font-style:italic;color:var(--aqua)}
+.about-body{font-size:14px;line-height:1.9;color:rgba(242,232,208,.55);margin-bottom:28px}
+.about-quote{border-left:3px solid var(--aqua);padding:14px 18px;font-size:13px;line-height:1.75;color:rgba(242,232,208,.7);font-style:italic;background:rgba(46,196,182,.05)}
+
+/* MENU */
+.menu{padding:90px 52px;background:var(--sea)}
+.menu-hd{text-align:center;margin-bottom:44px}
+.menu-tabs{display:flex;justify-content:center;gap:0;border-bottom:1px solid var(--border);margin-bottom:44px}
+.mtab{padding:12px 26px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .25s;font-family:'Nunito',sans-serif}
+.mtab.on{color:var(--aqua);border-bottom-color:var(--aqua)}
+.mpanel{display:none}.mpanel.on{display:block}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.mitem{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.04);padding:22px 26px;display:flex;justify-content:space-between;gap:14px;transition:background .2s}
+.mitem:hover{background:rgba(46,196,182,.06)}
+.mname{font-family:'Libre Baskerville',serif;font-size:18px;margin-bottom:5px}
+.mdesc{font-size:11px;color:var(--muted);line-height:1.65}
+.mtag{font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);margin-top:7px;display:inline-block}
+.mprice{font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold);flex-shrink:0;align-self:flex-start}
+
+/* GALLERY */
+.gallery{padding:90px 52px;background:var(--deep)}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:240px 200px;gap:6px;margin-top:36px}
+.gal-item{overflow:hidden;position:relative}
+.gal-item:nth-child(1){grid-column:span 2}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s;display:block}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-lbl{position:absolute;bottom:12px;left:14px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--sand);opacity:0;transition:opacity .3s}
+.gal-item:hover .gal-lbl{opacity:1}
+
+/* PRENOTA */
+.prenota{padding:90px 52px;background:var(--sea)}
+.prenota-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.info-items{margin-top:32px;display:flex;flex-direction:column;gap:20px}
+.iitem{display:flex;gap:14px}
+.iitem-ico{width:42px;height:42px;border:1px solid rgba(46,196,182,.25);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.iitem-l{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua);margin-bottom:3px}
+.iitem-v{font-size:13px;color:rgba(242,232,208,.6);line-height:1.7}
+.form-box{background:var(--deep);border:1px solid var(--border);padding:40px}
+.form-box h3{font-family:'Libre Baskerville',serif;font-size:26px;margin-bottom:24px}
+.form-box h3 em{font-style:italic;color:var(--aqua)}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fg label{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--sand);padding:12px 16px;font-family:'Nunito',sans-serif;font-size:13px;outline:none;transition:border-color .2s;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--aqua)}
+.fg select option{background:var(--deep)}
+.fg textarea{resize:vertical;min-height:70px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-book{width:100%;background:var(--teal);color:white;border:none;padding:15px;font-family:'Nunito',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.btn-book:hover{background:var(--aqua)}
+
+/* FOOTER */
+footer{background:var(--deep);border-top:1px solid var(--border);padding:56px 52px 28px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.foot-brand p{font-size:12px;line-height:1.8;color:var(--muted);max-width:230px;margin-top:10px}
+.foot-col h4{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--aqua);margin-bottom:14px}
+.foot-col a{display:block;color:var(--muted);text-decoration:none;font-size:12px;margin-bottom:8px;transition:color .2s}
+.foot-col a:hover{color:var(--sand)}
+.foot-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
+
+.dbanner{position:fixed;bottom:0;left:0;right:0;z-index:200;background:rgba(15,31,56,.96);border-top:1px solid rgba(46,196,182,.2);padding:12px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;backdrop-filter:blur(8px)}
+.dbanner-t{font-size:12px;color:rgba(242,232,208,.7);display:flex;align-items:center;gap:10px}
+.dbanner-b{font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:var(--teal);color:white;padding:3px 10px;font-weight:700}
+.dbanner-btns{display:flex;gap:8px}
+.dbbtn{padding:8px 18px;font-size:10px;font-weight:700;font-family:'Nunito',sans-serif;cursor:pointer;border:none;transition:all .2s}
+.dbbtn-p{background:var(--teal);color:white}.dbbtn-p:hover{background:var(--aqua)}
+.dbbtn-s{background:transparent;color:var(--aqua);border:1px solid rgba(46,196,182,.35)}.dbbtn-s:hover{background:rgba(46,196,182,.1)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:16px 20px}.nav-links{display:none}
+  .about,.prenota-inner{grid-template-columns:1fr}
+  .about-img{min-height:280px}
+  .statsbar{grid-template-columns:1fr 1fr}
+  .about-text,.menu,.gallery,.prenota{padding:56px 20px}
+  .mgrid,.gal-grid{grid-template-columns:1fr}
+  .gal-item:nth-child(1){grid-column:span 1}
+  .foot-grid{grid-template-columns:1fr}
+  .dbanner{flex-direction:column;padding:14px 20px}
+  .frow{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">La Vecchia <em>Fattoria</em></div>
+  <div class="nav-links">
+    <a href="#storia">Storia</a>
+    <a href="#menu">Menu</a>
+    <a href="#galleria">Galleria</a>
+    <a href="#prenota">Prenota</a>
+  </div>
+  <button class="nav-btn" onclick="document.getElementById('prenota').scrollIntoView({behavior:'smooth'})">Prenota tavolo</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-img">
+    <img src="https://lh3.googleusercontent.com/places/ANXAkqGca2u8kJOTRnPbjvdxqFKUeqsk0UolSYlMozEx8suPhk74bYXcxPmHgqxSW6S0nB_Kh6eNGGzbNKzQ6csLo039DMhCuOM9VGs=s4800-w800-h600" alt="La Vecchia Fattoria"/>
+  </div>
+  <div class="hero-overlay"></div>
+  <svg class="waves" viewBox="0 0 1440 120" preserveAspectRatio="none">
+    <path class="wave wave-1" d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z" fill="rgba(46,196,182,.15)"/>
+    <path class="wave wave-2" d="M0,80 C360,40 720,100 1080,60 C1260,40 1360,70 1440,80 L1440,120 L0,120 Z" fill="rgba(26,58,92,.4)"/>
+  </svg>
+  <div class="hero-content">
+    <span class="hero-fish">🐟</span>
+    <div class="hero-tag">Scalea · Cosenza · Fronte Fiume Lao</div>
+    <h1 class="hero-title">La Vecchia<br><em>Fattoria</em></h1>
+    <p class="hero-subtitle">Ristorante e pizzeria · Dal 1996</p>
+    <p class="hero-desc">Pesce fresco del Tirreno, pizze artigianali e cucina calabrese nella campagna di Scalea. Gestione familiare, qualità che non delude mai.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-sea">Scopri il menu</a>
+      <a href="tel:+393803578986" class="btn-out">📞 +39 380 357 8986</a>
+    </div>
+  </div>
+</section>
+
+<div class="statsbar">
+  <div class="sitem"><span class="snum">4.4</span><div class="slabel">⭐ Rating Google</div></div>
+  <div class="sitem"><span class="snum">523</span><div class="slabel">Recensioni verificate</div></div>
+  <div class="sitem"><span class="snum">28+</span><div class="slabel">Anni di attività</div></div>
+  <div class="sitem"><span class="snum">Ven–Dom</span><div class="slabel">Apertura settimanale</div></div>
+</div>
+
+<section class="about" id="storia">
+  <div class="about-img">
+    <img src="https://lh3.googleusercontent.com/places/ANXAkqFo_K7-rlobIJjNUdlKxphyNO19mOLyQ3ZBM9Kr2ciA8pRaEB2Cl-q-a1oWB78P3ses6w-FiBZ_IXxo1tv9t01eQgFusV9phVQ=s4800-w800-h600" alt="La Vecchia Fattoria esterno"/>
+    <div class="about-img-overlay"></div>
+  </div>
+  <div class="about-text reveal">
+    <p class="sec-tag">La nostra storia</p>
+    <h2 class="sec-title">Qualità e <em>calore</em><br>dal 1996</h2>
+    <p class="about-body">Nel 1996, la famiglia aprì La Vecchia Fattoria sulle rive del Fiume Lao, a Scalea. Quasi trent'anni dopo, la formula non è cambiata: pesce freschissimo del Tirreno, pizze con farina di grano duro calabrese, e un'accoglienza che fa tornare i clienti anno dopo anno — anche dal Canada.</p>
+    <p class="about-body">Difficile da trovare, ma vale assolutamente la pena. Ampio parcheggio, tavoli all'aperto con vista sulla natura, gestione familiare diretta.</p>
+    <div class="about-quote">"This is my favourite place to eat in Scalea. Great quality, amazing warm owner and his wife, fast preparation and very reasonable price." — Ospite internazionale ★★★★★</div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="menu-hd reveal">
+    <p class="sec-tag" style="justify-content:center">✦ Fresco ogni giorno ✦</p>
+    <h2 class="sec-title" style="text-align:center">Il <em>Menu</em></h2>
+  </div>
+  <div class="menu-tabs">
+    <button class="mtab on" onclick="setT('m1',this)">Antipasti</button>
+    <button class="mtab" onclick="setT('m2',this)">Primi</button>
+    <button class="mtab" onclick="setT('m3',this)">Pesce</button>
+    <button class="mtab" onclick="setT('m4',this)">Pizze</button>
+    <button class="mtab" onclick="setT('m5',this)">Dolci</button>
+  </div>
+  <div id="m1" class="mpanel on">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Antipasto di mare misto</div><div class="mdesc">Gamberi, cozze, vongole, calamari e alici marinate — il meglio del Tirreno nel piatto</div><span class="mtag">⭐ Il più ordinato</span></div><div class="mprice">€18</div></div>
+      <div class="mitem"><div><div class="mname">Bruschette al pomodoro fresco</div><div class="mdesc">Pane casereccio tostato, pomodori dell'orto, aglio, basilico e olio EVO locale</div></div><div class="mprice">€7</div></div>
+      <div class="mitem"><div><div class="mname">Frittura di paranza</div><div class="mdesc">Pesciolini del giorno in pastella leggera, sale, limone del Cilento — servita caldissima</div></div><div class="mprice">€14</div></div>
+      <div class="mitem"><div><div class="mname">Tagliere di formaggi calabresi</div><div class="mdesc">Caciocavallo, pecorino, provola affumicata, miele di zagara, fichi secchi e noci</div></div><div class="mprice">€14</div></div>
+    </div>
+  </div>
+  <div id="m2" class="mpanel">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Spaghetti alle vongole</div><div class="mdesc">Vongole veraci del Tirreno, aglio, olio, vino bianco, prezzemolo fresco — in bianco</div><span class="mtag">🌊 Specialità</span></div><div class="mprice">€16</div></div>
+      <div class="mitem"><div><div class="mname">Linguine al nero di seppia</div><div class="mdesc">Pasta fresca, seppie fresche, pomodorini, aglio, prezzemolo — colore intenso, sapore marino</div></div><div class="mprice">€17</div></div>
+      <div class="mitem"><div><div class="mname">Rigatoni alla calabrese</div><div class="mdesc">'Nduja sciolta, pomodoro fresco, salsiccia artigianale, ricotta salata di capra locale</div></div><div class="mprice">€14</div></div>
+      <div class="mitem"><div><div class="mname">Risotto ai frutti di mare</div><div class="mdesc">Riso Carnaroli, gamberi, cozze, vongole, zafferano calabrese, prezzemolo fresco</div><span class="mtag">🍚 Del giorno</span></div><div class="mprice">€19</div></div>
+    </div>
+  </div>
+  <div id="m3" class="mpanel">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Branzino al sale</div><div class="mdesc">Branzino intero del Tirreno, sale marino grosso, erbe aromatiche — cottura lenta in crosta</div><span class="mtag">🏆 Pesce del giorno</span></div><div class="mprice">€26</div></div>
+      <div class="mitem"><div><div class="mname">Grigliata mista di pesce</div><div class="mdesc">Gamberoni, calamari, polipo, seppie e pesce di stagione alla brace — servita con verdure grigliate</div></div><div class="mprice">€28</div></div>
+      <div class="mitem"><div><div class="mname">Polpo alla luciana</div><div class="mdesc">Polpo tenero cotto in umido con pomodori, olive, capperi, aglio e peperoncino</div></div><div class="mprice">€20</div></div>
+      <div class="mitem"><div><div class="mname">Gamberoni alla brace</div><div class="mdesc">Gamberoni freschi del Tirreno alla brace, olio al limone, prezzemolo, aglio in camicia</div></div><div class="mprice">€22</div></div>
+    </div>
+  </div>
+  <div id="m4" class="mpanel">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Margherita</div><div class="mdesc">Pomodoro San Marzano, fior di latte di Agerola, basilico fresco, olio EVO calabrese</div></div><div class="mprice">€8</div></div>
+      <div class="mitem"><div><div class="mname">Pizza Marinara con Alici</div><div class="mdesc">Pomodoro, aglio, origano, alici fresche del Tirreno, olive nere di Calabria</div><span class="mtag">🌊 Sapori di mare</span></div><div class="mprice">€12</div></div>
+      <div class="mitem"><div><div class="mname">Pizza Gamberetti e Rucola</div><div class="mdesc">Fior di latte, gamberi freschi saltati, rucola fresca, pomodorini, scaglie di grana</div></div><div class="mprice">€14</div></div>
+      <div class="mitem"><div><div class="mname">Pizza Calabrese</div><div class="mdesc">'Nduja di Spilinga, cipolla di Tropea, provola affumicata, olive verdi, peperoncino</div><span class="mtag">🌶️ Piccante</span></div><div class="mprice">€12</div></div>
+    </div>
+  </div>
+  <div id="m5" class="mpanel">
+    <div class="mgrid">
+      <div class="mitem"><div><div class="mname">Panna cotta al bergamotto</div><div class="mdesc">Crema di panna, bergamotto di Reggio Calabria DOP, coulis di fragole fresche</div><span class="mtag">🍊 Tipico calabrese</span></div><div class="mprice">€6</div></div>
+      <div class="mitem"><div><div class="mname">Tiramisù della casa</div><div class="mdesc">Savoiardi, mascarpone, caffè ristretto, cacao amaro — ricetta della mamma</div></div><div class="mprice">€6</div></div>
+      <div class="mitem"><div><div class="mname">Torta di ricotta</div><div class="mdesc">Crostata con ricotta fresca di pecora, limone di Calabria, vaniglia — fatta ogni mattina</div></div><div class="mprice">€6</div></div>
+      <div class="mitem"><div><div class="mname">Gelato artigianale</div><div class="mdesc">Sorbetto al limone, gelato al pistacchio di Bronte, crema bruciata</div></div><div class="mprice">€5</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="galleria">
+  <div class="reveal">
+    <p class="sec-tag">Le nostre foto</p>
+    <h2 class="sec-title">Freschezza <em>ogni giorno</em></h2>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item">
+      <img src="https://lh3.googleusercontent.com/place-photos/AL8-SNGofjAgTQ_9ISqBZbVjYlYt6g4EAhRswJ0OOJCw-JFwcWWHLRNgr1ZeTUO17XQ9c2Uw3_OfzsApuuuv__8dQu2e6H6-Uolv-8YOKDjRH33F7wdzMKrUskEJv9F2CCeVRZZdpLLnLrqgm5MVQPl2GvsfpA=s4800-w800-h600" alt="La Vecchia Fattoria"/>
+      <div class="gal-lbl">Cucina di qualità</div>
+    </div>
+    <div class="gal-item">
+      <img src="https://lh3.googleusercontent.com/places/ANXAkqGca2u8kJOTRnPbjvdxqFKUeqsk0UolSYlMozEx8suPhk74bYXcxPmHgqxSW6S0nB_Kh6eNGGzbNKzQ6csLo039DMhCuOM9VGs=s4800-w800-h600" alt="Esterno ristorante"/>
+      <div class="gal-lbl">Vista esterna</div>
+    </div>
+    <div class="gal-item">
+      <img src="https://lh3.googleusercontent.com/places/ANXAkqFo_K7-rlobIJjNUdlKxphyNO19mOLyQ3ZBM9Kr2ciA8pRaEB2Cl-q-a1oWB78P3ses6w-FiBZ_IXxo1tv9t01eQgFusV9phVQ=s4800-w800-h600" alt="Ambiente"/>
+      <div class="gal-lbl">L'ambiente</div>
+    </div>
+    <div class="gal-item">
+      <img src="https://lh3.googleusercontent.com/place-photos/AL8-SNHKPa0fJac_KLoLhPlN6CG041OTqMIWxXH8uU8Ziqxd1UC78zC8vOdrcn4WJxMY0NINQ8bhdkZiqwnj41wG7Mn3VBAlkMjjbEFoNFX9h1P6mWv0aTTVTWTSgLyd0StayBV0Chc_7NcjbFMT3-1muc8juA=s4800-w800-h600" alt="Piatti"/>
+      <div class="gal-lbl">I nostri piatti</div>
+    </div>
+    <div class="gal-item">
+      <img src="https://lh3.googleusercontent.com/places/ANXAkqHxHSh4MMgLxGwUceT-m4LN1uTronz7m744FqbmIt9JrlLBxIW7BpPfWsCevBNncmKKFL5nPoMArt1_uaAH7j9Okf55GTeJ6LI=s4800-w800-h600" alt="Pesce fresco"/>
+      <div class="gal-lbl">Pesce freschissimo</div>
+    </div>
+  </div>
+</section>
+
+<section class="prenota" id="prenota">
+  <div class="prenota-inner">
+    <div class="reveal">
+      <p class="sec-tag">Dove siamo</p>
+      <h2 class="sec-title">Vi aspettiamo<br>a <em>Scalea</em></h2>
+      <p style="font-size:14px;line-height:1.9;color:rgba(242,232,208,.5);max-width:340px;margin-bottom:4px">Aperti il venerdì, sabato e domenica. Durante la stagione estiva anche nei giorni feriali. Siamo vicino al Fiume Lao — parcheggio facilissimo.</p>
+      <div class="info-items">
+        <div class="iitem"><div class="iitem-ico">📍</div><div><div class="iitem-l">Indirizzo</div><div class="iitem-v">Via Fiume Lao, 150<br>87029 Scalea (CS)</div></div></div>
+        <div class="iitem"><div class="iitem-ico">📞</div><div><div class="iitem-l">Telefono</div><div class="iitem-v">+39 380 357 8986</div></div></div>
+        <div class="iitem"><div class="iitem-ico">🕐</div><div><div class="iitem-l">Orari</div><div class="iitem-v">Ven–Dom: 12:30–15:00 · 18:00–00:00<br>Lun–Gio: chiuso (estate: aperto)</div></div></div>
+        <div class="iitem"><div class="iitem-ico">🚗</div><div><div class="iitem-l">Parcheggio</div><div class="iitem-v">Ampio parcheggio gratuito<br>Facile da trovare dalla SS18</div></div></div>
+      </div>
+    </div>
+    <div class="form-box reveal">
+      <h3>Prenota il <em>tuo tavolo</em></h3>
+      <div class="frow"><div class="fg"><label>Nome</label><input type="text" placeholder="Marco"/></div><div class="fg"><label>Cognome</label><input type="text" placeholder="Esposito"/></div></div>
+      <div class="frow"><div class="fg"><label>Telefono</label><input type="tel" placeholder="+39 333 000 0000"/></div><div class="fg"><label>Email</label><input type="email" placeholder="marco@email.it"/></div></div>
+      <div class="frow"><div class="fg"><label>Data</label><input type="date"/></div><div class="fg"><label>Persone</label><select><option>2</option><option selected>3–4</option><option>5–6</option><option>7–10</option><option>11+</option></select></div></div>
+      <div class="fg"><label>Preferenza</label><select><option>Tavolo all'aperto (estate)</option><option>Tavolo interno</option><option>Nessuna preferenza</option></select></div>
+      <div class="fg"><label>Note speciali</label><textarea placeholder="Allergie, occasioni, richieste particolari..."></textarea></div>
+      <button class="btn-book" onclick="alert('✓ Prenotazione inviata! Vi ricontatteremo entro breve.')">Conferma prenotazione →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo" style="display:block;margin-bottom:8px">La Vecchia <em>Fattoria</em></div>
+      <p>Ristorante e pizzeria a Scalea dal 1996. Pesce fresco del Tirreno, cucina calabrese autentica, gestione familiare.</p>
+    </div>
+    <div class="foot-col"><h4>Menu</h4><a href="#">Antipasti</a><a href="#">Pesce fresco</a><a href="#">Pizze</a><a href="#">Dolci</a></div>
+    <div class="foot-col"><h4>Contatti</h4><a href="tel:+393803578986">+39 380 357 8986</a><a href="#">Via Fiume Lao 150, Scalea</a><a href="#">Privacy Policy</a></div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2025 La Vecchia Fattoria · P.IVA 02341870785 · Scalea (CS)</span>
+    <span>★ 4.4/5 · 523 recensioni Google</span>
+  </div>
+</footer>
+
+<div class="dbanner" id="db">
+  <div class="dbanner-t"><span class="dbanner-b">Demo</span> Sito demo gratuito per <strong style="color:var(--aqua)">La Vecchia Fattoria</strong> — Scalea</div>
+  <div class="dbanner-btns">
+    <button class="dbbtn dbbtn-s" onclick="document.getElementById('db').style.display='none'">✕</button>
+    <button class="dbbtn dbbtn-p" onclick="alert('Contattaci per attivare il sito!')">Voglio questo sito →</button>
+  </div>
+</div>
+
+<script>
+function setT(id,btn){
+  document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lido Azzurro Naty — Cucina di mare fresca con vista sul Tirreno. Scalea, Calabria. Tel: 338 373 4797">
+<title>Lido Azzurro Naty — Ristorante · Scalea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =============================================================
+   TOKENS
+============================================================= */
+:root {
+  --navy:       #0e1c2f;
+  --navy-2:     #162540;
+  --azure:      #2d7dd2;
+  --azure-soft: #8ab4e8;
+  --sky:        #eef5fc;
+  --cream:      #e0d1b8;
+  --cream-bg:   #f8f3ea;
+  --warm:       #7f736d;
+  --dark:       #211f1e;
+  --amber:      #9b6728;
+  --green:      #2a6645;
+  --white:      #ffffff;
+  --wa:         #25d366;
+
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans:  'Mulish', system-ui, sans-serif;
+  --r: 14px;
+  --sh: 0 8px 40px rgba(14,28,47,.13);
+  --sh2: 0 24px 64px rgba(14,28,47,.20);
+  --ease: .35s cubic-bezier(.4,0,.2,1);
+}
+
+/* =============================================================
+   BASE
+============================================================= */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);color:var(--dark);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font-family:var(--sans)}
+
+.container{max-width:1120px;margin:0 auto;padding:0 28px}
+.section-pad{padding:108px 0}
+
+/* =============================================================
+   REVEAL ANIMATIONS
+============================================================= */
+.fade-up{opacity:0;transform:translateY(36px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.fade-up.in{opacity:1;transform:none}
+.fade-up.d1{transition-delay:.1s}
+.fade-up.d2{transition-delay:.2s}
+.fade-up.d3{transition-delay:.3s}
+.fade-up.d4{transition-delay:.4s}
+.fade-left{opacity:0;transform:translateX(-32px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.fade-left.in{opacity:1;transform:none}
+.fade-right{opacity:0;transform:translateX(32px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.fade-right.in{opacity:1;transform:none}
+
+/* =============================================================
+   NAVBAR
+============================================================= */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  padding:22px 0;
+  transition:background var(--ease),padding var(--ease),box-shadow var(--ease);
+}
+.nav.solid{
+  background:rgba(14,28,47,.96);
+  backdrop-filter:blur(14px);
+  padding:13px 0;
+  box-shadow:0 2px 24px rgba(0,0,0,.25);
+}
+.nav .container{display:flex;align-items:center;justify-content:space-between;gap:24px}
+
+.logo{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:21px;
+  font-weight:600;
+  color:var(--green);
+  letter-spacing:.3px;
+  line-height:1.1;
+  flex-shrink:0;
+  text-shadow:0 1px 10px rgba(0,0,0,.5);
+}
+.logo small{
+  display:block;
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.4);
+  margin-top:1px;
+}
+
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{
+  font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  color:rgba(255,255,255,.75);
+  transition:color var(--ease);
+}
+.nav-links a:hover{color:var(--cream)}
+
+.nav-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
+
+.lang{
+  display:flex;gap:1px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:30px;
+  padding:3px;
+}
+.lang button{
+  padding:4px 10px;border-radius:24px;
+  font-size:10px;font-weight:800;letter-spacing:1px;
+  color:rgba(255,255,255,.5);
+  transition:all var(--ease);
+}
+.lang button.on{background:var(--azure);color:#fff}
+
+.btn-book{
+  background:var(--green);color:#fff;
+  padding:9px 20px;border-radius:30px;
+  font-size:12px;font-weight:700;letter-spacing:.4px;
+  transition:background var(--ease),transform var(--ease);
+}
+.btn-book:hover{background:#1e5035;transform:translateY(-1px)}
+
+.burger{display:none;flex-direction:column;gap:5px;padding:4px}
+.burger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+
+/* =============================================================
+   MOBILE DRAWER
+============================================================= */
+.drawer{
+  display:none;position:fixed;inset:0;background:var(--navy);z-index:1000;
+  flex-direction:column;align-items:center;justify-content:center;gap:36px;
+}
+.drawer.open{display:flex}
+.drawer-close{
+  position:absolute;top:22px;right:28px;
+  font-size:32px;color:#fff;line-height:1;padding:4px;
+}
+.drawer a{
+  font-family:var(--serif);font-size:30px;color:#fff;font-weight:600;
+  transition:color var(--ease);
+}
+.drawer a:hover{color:var(--cream)}
+.drawer .wa-d{
+  margin-top:8px;
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--wa);color:#fff;
+  padding:14px 30px;border-radius:50px;
+  font-family:var(--sans);font-size:15px;font-weight:700;
+}
+
+/* =============================================================
+   HERO
+============================================================= */
+.hero{
+  position:relative;
+  height:100vh;min-height:620px;
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('photos/photo_09.jpg') center center/cover no-repeat;
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.6) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.7) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  width:100%;text-align:center;
+  padding:0 24px;
+}
+
+.hero-pill{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:30px;padding:7px 18px;
+  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,.8);
+  margin-bottom:28px;
+  animation:fadeIn .9s ease both;
+}
+.hero-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--wa);flex-shrink:0}
+
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(48px,8.5vw,104px);
+  font-weight:700;line-height:1.0;
+  color:#fff;letter-spacing:-1px;
+  margin-bottom:6px;
+  text-shadow:0 2px 20px rgba(0,0,0,.7);
+  animation:fadeUp .9s .15s ease both;
+}
+.hero h1 i{color:var(--cream);font-style:italic}
+
+.hero-sub{
+  font-size:clamp(14px,1.8vw,19px);
+  color:rgba(255,255,255,.75);
+  font-weight:300;letter-spacing:.3px;
+  margin-bottom:36px;
+  line-height:1.5;
+  text-shadow:0 2px 16px rgba(0,0,0,.6);
+  animation:fadeUp .9s .25s ease both;
+}
+
+.hero-stars{
+  display:inline-flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:40px;padding:9px 22px;
+  color:#fff;font-size:13px;
+  margin-bottom:40px;
+  animation:fadeUp .9s .35s ease both;
+}
+.hero-stars .gold{color:#fbbf24;letter-spacing:1px;font-size:16px}
+.hero-stars strong{font-size:17px}
+
+.hero-ctas{
+  display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+  animation:fadeUp .9s .45s ease both;
+}
+.cta-wa{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--wa);color:#fff;
+  padding:15px 30px;border-radius:50px;
+  font-weight:700;font-size:15px;
+  box-shadow:0 6px 28px rgba(37,211,102,.38);
+  transition:all var(--ease);
+}
+.cta-wa:hover{background:#1db954;transform:translateY(-2px);box-shadow:0 10px 36px rgba(37,211,102,.48)}
+.cta-menu{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.12);
+  border:1.5px solid rgba(255,255,255,.28);
+  color:#fff;
+  padding:14px 26px;border-radius:50px;
+  font-weight:600;font-size:14px;
+  transition:all var(--ease);
+}
+.cta-menu:hover{background:rgba(255,255,255,.2);border-color:var(--cream);color:var(--cream)}
+
+/* Wave divider */
+.hero-wave{
+  position:absolute;bottom:-1px;left:0;right:0;
+  height:80px;z-index:2;
+}
+.hero-wave svg{width:100%;height:100%}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* =============================================================
+   STRIP — 4 pillars
+============================================================= */
+.strip{
+  background:var(--navy);
+  padding:0;
+}
+.strip-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.strip-item{
+  padding:32px 24px;text-align:center;
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.strip-item:last-child{border-right:none}
+.strip-ico{
+  width:48px;height:48px;margin:0 auto 14px;
+  background:rgba(255,255,255,.05);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.strip-item h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px}
+.strip-item p{font-size:12px;color:rgba(255,255,255,.45);line-height:1.4}
+
+/* =============================================================
+   CHI SIAMO
+============================================================= */
+.about{background:var(--cream-bg);overflow:hidden}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+
+.eyebrow{
+  font-size:10px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--azure);margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::after{content:'';flex:0 0 36px;height:1px;background:var(--azure);opacity:.5}
+
+.section-title{
+  font-family:var(--serif);
+  font-size:clamp(30px,4vw,48px);
+  font-weight:700;line-height:1.1;letter-spacing:-.5px;
+  color:var(--navy);
+  margin-bottom:22px;
+}
+.section-title em{color:var(--amber);font-style:italic}
+
+.about-body p{
+  font-size:16px;line-height:1.85;color:#4a4440;
+  margin-bottom:18px;
+}
+
+.quote-block{
+  margin:28px 0;
+  padding:22px 22px 22px 26px;
+  border-left:3px solid var(--amber);
+  background:rgba(155,103,40,.06);
+  border-radius:0 var(--r) var(--r) 0;
+}
+.quote-block p{
+  font-family:var(--serif);font-style:italic;
+  font-size:16.5px;line-height:1.6;
+  color:var(--amber);
+  margin:0 0 8px;
+}
+.quote-block cite{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--warm)}
+
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+.stat{
+  background:var(--white);border-radius:var(--r);
+  padding:20px 14px;text-align:center;
+  box-shadow:0 2px 16px rgba(14,28,47,.06);
+}
+.stat .n{
+  font-family:var(--serif);font-size:34px;font-weight:700;
+  color:var(--navy);line-height:1;margin-bottom:4px;
+}
+.stat .n sup{font-size:18px}
+.stat .l{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--warm)}
+
+/* Photo collage */
+.about-visual{position:relative;height:520px}
+.about-photo-main{
+  position:absolute;top:0;left:0;right:40px;bottom:80px;
+  border-radius:20px;overflow:hidden;
+  box-shadow:var(--sh2);
+}
+.about-photo-main img{width:100%;height:100%;object-fit:cover}
+.about-photo-secondary{
+  position:absolute;bottom:0;right:0;
+  width:220px;height:180px;
+  border-radius:16px;overflow:hidden;
+  box-shadow:var(--sh2);
+  border:4px solid var(--cream-bg);
+}
+.about-photo-secondary img{width:100%;height:100%;object-fit:cover}
+
+.rating-badge{
+  position:absolute;top:20px;right:52px;
+  background:var(--navy);border-radius:50%;
+  width:96px;height:96px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:var(--sh);
+  z-index:2;
+}
+.rating-badge .rn{font-family:var(--serif);font-size:26px;font-weight:700;color:#fff;line-height:1}
+.rating-badge .rs{color:#fbbf24;font-size:12px;letter-spacing:1px}
+.rating-badge .rl{font-size:8px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--azure-soft);margin-top:1px}
+
+/* =============================================================
+   MENU
+============================================================= */
+.menu-sec{background:var(--white)}
+.menu-header{text-align:center;margin-bottom:64px}
+.menu-header .eyebrow{justify-content:center}
+.menu-header .eyebrow::after{display:none}
+.menu-header .eyebrow::before{content:'';flex:0 0 36px;height:1px;background:var(--azure);opacity:.5}
+
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.dish{
+  background:var(--cream-bg);
+  border-radius:20px;overflow:hidden;
+  border:1px solid rgba(224,209,184,.5);
+  transition:transform var(--ease),box-shadow var(--ease);
+}
+.dish:hover{transform:translateY(-5px);box-shadow:var(--sh2)}
+
+.dish-img{
+  height:220px;overflow:hidden;position:relative;
+}
+.dish-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .5s var(--ease);
+}
+.dish:hover .dish-img img{transform:scale(1.06)}
+
+.dish-tag{
+  position:absolute;bottom:12px;left:12px;
+  background:var(--navy);color:#fff;
+  padding:5px 12px;border-radius:20px;
+  font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+}
+
+.dish-body{padding:24px 26px 28px}
+.dish-num{
+  font-family:var(--serif);font-size:11px;font-weight:400;
+  color:var(--amber);letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:6px;
+}
+.dish-body h3{
+  font-family:var(--serif);font-size:22px;font-weight:600;
+  color:var(--navy);margin-bottom:10px;line-height:1.2;
+}
+.dish-body p{font-size:13.5px;line-height:1.7;color:var(--warm)}
+
+/* =============================================================
+   REVIEWS
+============================================================= */
+.reviews-sec{
+  background:linear-gradient(180deg, var(--sky) 0%, var(--white) 100%);
+  overflow:hidden;
+}
+.reviews-header{text-align:center;margin-bottom:56px}
+.reviews-header .eyebrow{justify-content:center}
+.reviews-header .eyebrow::after{display:none}
+.reviews-header .eyebrow::before{content:'';flex:0 0 36px;height:1px;background:var(--azure);opacity:.5}
+
+.score-chip{
+  display:inline-flex;align-items:center;gap:16px;
+  background:var(--white);border-radius:60px;
+  padding:14px 26px;box-shadow:var(--sh);
+  margin-top:20px;
+}
+.score-chip .big{font-family:var(--serif);font-size:44px;font-weight:700;color:var(--navy);line-height:1}
+.score-chip .right{text-align:left}
+.score-chip .gold{color:#fbbf24;font-size:20px;letter-spacing:2px}
+.score-chip .cnt{font-size:12px;color:var(--warm);margin-top:2px}
+
+.reviews-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.reviews-bottom{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:720px;margin:18px auto 0}
+
+.rc{
+  background:var(--white);
+  border-radius:18px;padding:26px;
+  box-shadow:0 4px 20px rgba(14,28,47,.07);
+  border:1px solid rgba(45,125,210,.08);
+  transition:transform var(--ease),box-shadow var(--ease);
+  position:relative;
+}
+.rc:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+.rc::before{
+  content:'"';
+  position:absolute;top:14px;right:20px;
+  font-family:var(--serif);font-size:72px;line-height:1;
+  color:rgba(45,125,210,.09);font-style:italic;
+}
+.rc .stars{color:#fbbf24;font-size:13px;letter-spacing:1px;margin-bottom:10px}
+.rc .text{font-size:13.5px;line-height:1.7;color:#4a4440;font-style:italic;margin-bottom:18px}
+.rc .author{display:flex;align-items:center;gap:11px}
+.rc .avatar{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:13px;color:#fff;flex-shrink:0;
+}
+.rc .name{font-size:13px;font-weight:700;color:var(--navy)}
+.rc .when{font-size:11px;color:var(--warm)}
+
+.reviews-more{
+  text-align:center;margin-top:44px;
+}
+.reviews-more a{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--azure);font-weight:700;font-size:13px;
+  border:1.5px solid rgba(45,125,210,.3);
+  padding:11px 24px;border-radius:30px;
+  transition:all var(--ease);
+}
+.reviews-more a:hover{background:rgba(45,125,210,.07);border-color:var(--azure)}
+
+/* =============================================================
+   DOVE SIAMO
+============================================================= */
+.location{background:var(--navy)}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.location .eyebrow{color:var(--azure-soft)}
+.location .eyebrow::after{background:var(--azure-soft)}
+.location .section-title{color:#fff}
+
+.contact-items{display:flex;flex-direction:column;gap:20px;margin-bottom:40px}
+.ci{display:flex;align-items:flex-start;gap:16px}
+.ci-icon{
+  width:44px;height:44px;flex-shrink:0;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;display:flex;align-items:center;justify-content:center;
+}
+.ci-label{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--azure-soft);margin-bottom:3px}
+.ci-val{font-size:15px;color:rgba(255,255,255,.85);font-weight:500;line-height:1.5}
+.ci-val a{color:rgba(255,255,255,.85);transition:color var(--ease)}
+.ci-val a:hover{color:var(--cream)}
+
+.wa-big{
+  display:inline-flex;align-items:center;gap:12px;
+  background:var(--wa);color:#fff;
+  padding:15px 28px;border-radius:50px;
+  font-weight:700;font-size:15px;
+  box-shadow:0 6px 24px rgba(37,211,102,.3);
+  transition:all var(--ease);
+}
+.wa-big:hover{background:#1db954;transform:translateY(-2px);box-shadow:0 10px 32px rgba(37,211,102,.42)}
+
+.map-box{
+  border-radius:18px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:var(--sh2);
+  height:400px;
+}
+.map-box iframe{width:100%;height:100%;display:block;border:none;filter:hue-rotate(180deg) invert(90%) saturate(.7)}
+
+/* =============================================================
+   FOOTER
+============================================================= */
+footer{
+  background:#07101d;
+  padding:56px 0 28px;
+  border-top:1px solid rgba(255,255,255,.04);
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-logo{font-family:var(--serif);font-style:italic;font-size:24px;font-weight:600;color:var(--green);margin-bottom:10px}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.38);line-height:1.7;max-width:260px}
+.footer-col h5{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--azure-soft);margin-bottom:18px}
+.footer-col ul{display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{font-size:13px;color:rgba(255,255,255,.45);transition:color var(--ease)}
+.footer-col ul li a:hover{color:var(--cream)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.05);padding-top:24px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.22)}
+.footer-bottom a{color:rgba(255,255,255,.35);transition:color var(--ease)}
+.footer-bottom a:hover{color:var(--azure-soft)}
+
+/* =============================================================
+   WHATSAPP FLOAT
+============================================================= */
+.wa-float{
+  position:fixed;bottom:26px;right:26px;z-index:800;
+  display:flex;align-items:center;gap:10px;
+}
+.wa-float-tip{
+  background:var(--navy);color:#fff;
+  padding:8px 14px;border-radius:20px;
+  font-size:12px;font-weight:600;white-space:nowrap;
+  box-shadow:var(--sh);
+  opacity:0;transform:translateX(8px);
+  transition:all var(--ease);pointer-events:none;
+}
+.wa-float:hover .wa-float-tip{opacity:1;transform:none}
+.wa-float a{
+  width:58px;height:58px;border-radius:50%;
+  background:var(--wa);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 28px rgba(37,211,102,.45);
+  transition:all var(--ease);
+}
+.wa-float a:hover{transform:scale(1.1);box-shadow:0 10px 40px rgba(37,211,102,.55)}
+
+/* =============================================================
+   RESPONSIVE
+============================================================= */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .about-visual{height:380px;order:-1}
+  .about-photo-main{right:10px}
+  .about-photo-secondary{width:180px;height:150px}
+  .strip-grid{grid-template-columns:repeat(2,1fr)}
+  .strip-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
+  .strip-item:nth-child(2){border-right:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-grid > :first-child{grid-column:1/-1}
+}
+@media(max-width:768px){
+  .section-pad{padding:72px 0}
+  .nav-links,.btn-book,.lang{display:none}
+  .burger{display:flex}
+  .menu-grid{grid-template-columns:1fr}
+  .reviews-cols{grid-template-columns:1fr}
+  .reviews-bottom{grid-template-columns:1fr;max-width:100%}
+  .location-grid{grid-template-columns:1fr;gap:40px}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .hero h1{letter-spacing:-.5px}
+  .hero-ctas{flex-direction:column;align-items:center}
+  .about-visual{height:320px}
+  .about-photo-secondary{width:140px;height:120px}
+  .wa-float-tip{display:none}
+  .stats-row{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:480px){
+  .stats-row{grid-template-columns:1fr 1fr}
+  .stats-row .stat:last-child{grid-column:1/-1}
+  .strip-grid{grid-template-columns:1fr}
+  .strip-item{border-right:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== MOBILE DRAWER ===================== -->
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="closeDrawer()">&times;</button>
+  <a href="#about" onclick="closeDrawer()" data-t="nav-about">Chi Siamo</a>
+  <a href="#menu" onclick="closeDrawer()" data-t="nav-menu">Menu</a>
+  <a href="#recensioni" onclick="closeDrawer()" data-t="nav-reviews">Recensioni</a>
+  <a href="#location" onclick="closeDrawer()" data-t="nav-contact">Contatti</a>
+  <a class="wa-d" href="https://wa.me/393383734797?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo..." target="_blank">
+    <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <span data-t="drawer-wa">Prenota via WhatsApp</span>
+  </a>
+</div>
+
+<!-- ======================== NAVBAR ========================= -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a class="logo" href="#">
+      Lido Azzurro Naty
+      <small>Scalea · Calabria</small>
+    </a>
+    <div class="nav-links">
+      <a href="#about" data-t="nav-about">Chi Siamo</a>
+      <a href="#menu" data-t="nav-menu">Menu</a>
+      <a href="#recensioni" data-t="nav-reviews">Recensioni</a>
+      <a href="#location" data-t="nav-contact">Contatti</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang">
+        <button class="on" onclick="setLang('it')">IT</button>
+        <button onclick="setLang('en')">EN</button>
+      </div>
+      <a class="btn-book" href="https://wa.me/393383734797?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo..." target="_blank" data-t="nav-book">Prenota</a>
+    </div>
+    <div class="burger" onclick="openDrawer()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ========================= HERO ========================== -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <div class="hero-pill">
+      <span class="dot"></span>
+      <span data-t="hero-pill">Aperto · Lungomare di Scalea</span>
+    </div>
+    <h1><i>Lido Azzurro</i><br>Naty</h1>
+    <p class="hero-sub">
+      <span data-t="hero-sub1">Cucina di mare · Vista sul Tirreno</span><br>
+      <span data-t="hero-sub2">Dal cuore di Ewa e Fabrizio</span>
+    </p>
+    <div class="hero-stars">
+      <span class="gold">★★★★★</span>
+      <strong>4.8</strong>
+      <span data-t="hero-reviews">334 recensioni su Google</span>
+    </div>
+    <div class="hero-ctas">
+      <a class="cta-wa" href="https://wa.me/393383734797?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20da%20Lido%20Azzurro%20Naty..." target="_blank">
+        <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span data-t="cta-book">Prenota un tavolo</span>
+      </a>
+      <a class="cta-menu" href="#menu">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        <span data-t="cta-menu">Scopri il menu</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C240,72 480,8 720,40 C960,72 1200,8 1440,40 L1440,80 L0,80 Z" fill="#0e1c2f"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ========================= STRIP ========================= -->
+<div class="strip">
+  <div class="strip-grid">
+    <div class="strip-item fade-up">
+      <div class="strip-ico">
+        <svg width="22" height="22" fill="none" stroke="var(--azure-soft)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      </div>
+      <h4 data-t="s1h">Terrazza sul mare</h4>
+      <p data-t="s1p">Vista panoramica sul Tirreno</p>
+    </div>
+    <div class="strip-item fade-up d1">
+      <div class="strip-ico">
+        <svg width="22" height="22" fill="none" stroke="var(--azure-soft)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18A9 9 0 0012 3zm0 0v9l4 4"/></svg>
+      </div>
+      <h4 data-t="s2h">Fresco ogni giorno</h4>
+      <p data-t="s2p">Pescato locale cucinato al momento</p>
+    </div>
+    <div class="strip-item fade-up d2">
+      <div class="strip-ico">
+        <svg width="22" height="22" fill="none" stroke="var(--azure-soft)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+      </div>
+      <h4 data-t="s3h">Ospitalità autentica</h4>
+      <p data-t="s3p">Ewa e Fabrizio vi accolgono come in famiglia</p>
+    </div>
+    <div class="strip-item fade-up d3">
+      <div class="strip-ico">
+        <svg width="22" height="22" fill="none" stroke="var(--azure-soft)" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </div>
+      <h4 data-t="s4h">Gestione familiare</h4>
+      <p data-t="s4p">Una storia di passione per il mare</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====================== CHI SIAMO ======================= -->
+<section class="about section-pad" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-body">
+        <div class="eyebrow fade-up" data-t="about-label">Chi Siamo</div>
+        <h2 class="section-title fade-up d1" data-t="about-title">Una storia di<br><em>mare e passione</em></h2>
+
+        <p class="fade-up d1" data-t="about-p1">Siamo Ewa e Fabrizio, e il nostro Lido Azzurro è molto più di un ristorante. È il luogo dove il Tirreno incontra la cucina calabrese, dove ogni piatto racconta una storia di ingredienti freschi, pescati la mattina stessa, preparati con cura artigianale.</p>
+
+        <p class="fade-up d2" data-t="about-p2">La nostra terrazza affacciata sul mare, con l'atmosfera rilassata del Lungomare di Scalea, è il posto ideale per un pranzo in famiglia o una cena romantica al tramonto. Vi aspettiamo — e vi faremo sentire a casa.</p>
+
+        <div class="quote-block fade-up d2">
+          <p>"We were amazed by Ewa and Fabrizio's extreme care, attention and hospitality. It's by far one of the best places to eat on Scalea."</p>
+          <cite>— Magda Stefanska &nbsp;·&nbsp; ★★★★★ Google</cite>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat fade-up d1">
+            <div class="n">4.8<sup>★</sup></div>
+            <div class="l" data-t="stat1">Rating Google</div>
+          </div>
+          <div class="stat fade-up d2">
+            <div class="n">334</div>
+            <div class="l" data-t="stat2">Recensioni</div>
+          </div>
+          <div class="stat fade-up d3">
+            <div class="n">100<sup>%</sup></div>
+            <div class="l" data-t="stat3">Pesce fresco</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual fade-right">
+        <!-- Main photo: sala interna -->
+        <div class="about-photo-main">
+          <img src="photos/photo_03.jpg" alt="Sala del ristorante Lido Azzurro Naty" loading="lazy">
+        </div>
+        <!-- Secondary: terrazza al tramonto -->
+        <div class="about-photo-secondary">
+          <img src="photos/photo_00.jpg" alt="Terrazza con vista mare al tramonto" loading="lazy">
+        </div>
+        <!-- Rating badge -->
+        <div class="rating-badge">
+          <div class="rn">4.8</div>
+          <div class="rs">★★★★★</div>
+          <div class="rl" data-t="badge-label">su Google</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================= MENU ========================== -->
+<section class="menu-sec section-pad" id="menu">
+  <div class="container">
+    <div class="menu-header">
+      <div class="eyebrow fade-up" data-t="menu-label">I Nostri Piatti</div>
+      <h2 class="section-title fade-up d1" data-t="menu-title">Il sapore del<br><em>mare di Calabria</em></h2>
+      <p class="fade-up d2" style="max-width:500px;margin:14px auto 0;color:var(--warm);font-size:16px;line-height:1.7" data-t="menu-sub">Selezione giornaliera del pescato locale, cucinato al momento con ricette della tradizione calabrese.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <!-- Gnocchi -->
+      <div class="dish fade-up">
+        <div class="dish-img">
+          <img src="photos/photo_06.jpg" alt="Gnocchi ai frutti di mare" loading="lazy">
+          <span class="dish-tag" data-t="dish1-tag">Più amato</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-num">— 01</div>
+          <h3>Gnocchi ai frutti di mare</h3>
+          <p data-t="dish1-desc">Gnocchi fatti in casa con frutti di mare misti freschi — cozze, vongole, gamberi — in salsa di pomodorini. Una carezza di mare in ogni boccone. Consigliato personalmente da Fabrizio.</p>
+        </div>
+      </div>
+
+      <!-- Spaghetti peperoncino -->
+      <div class="dish fade-up d1">
+        <div class="dish-img">
+          <img src="photos/photo_02.jpg" alt="Spaghetti con acciughe e peperoncino" loading="lazy">
+          <span class="dish-tag" data-t="dish2-tag">Tradizione calabrese</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-num">— 02</div>
+          <h3>Spaghetti acciughe e peperoncino</h3>
+          <p data-t="dish2-desc">Spaghetti al dente con acciughe del Tirreno, peperoncino calabrese piccante, pangrattato tostato e pomodoro. Un classico della cucina marinara, autentico e senza compromessi.</p>
+        </div>
+      </div>
+
+      <!-- Pesce / Gamberi -->
+      <div class="dish fade-up d2">
+        <div class="dish-img">
+          <img src="photos/photo_05.jpg" alt="Gamberi alla griglia con insalata e limone" loading="lazy">
+          <span class="dish-tag" data-t="dish3-tag">Dal mare al piatto</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-num">— 03</div>
+          <h3 data-t="dish3-title">Gamberi alla griglia</h3>
+          <p data-t="dish3-desc">Gamberi freschi del Tirreno grigliati con olio extravergine calabrese, aglio e prezzemolo. Serviti con insalata fresca e limone locale. La semplicità che fa la differenza.</p>
+        </div>
+      </div>
+
+      <!-- Tiramisu / Tartufo -->
+      <div class="dish fade-up d3">
+        <div class="dish-img">
+          <img src="photos/photo_01.jpg" alt="Tiramisù artigianale" loading="lazy">
+          <span class="dish-tag" data-t="dish4-tag">Il gran finale</span>
+        </div>
+        <div class="dish-body">
+          <div class="dish-num">— 04</div>
+          <h3 data-t="dish4-title">Dolci artigianali</h3>
+          <p data-t="dish4-desc">Tiramisù della casa preparato ogni mattina, e il celebre Tartufo gelato dei produttori locali di Scalea. Il dessert perfetto per concludere con dolcezza una cena sul mare.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====================== RECENSIONI ======================= -->
+<section class="reviews-sec section-pad" id="recensioni">
+  <div class="container">
+
+    <div class="reviews-header">
+      <div class="eyebrow fade-up" data-t="reviews-label">Recensioni</div>
+      <h2 class="section-title fade-up d1" data-t="reviews-title">Cosa dicono<br>i nostri <em>ospiti</em></h2>
+      <div class="score-chip fade-up d2">
+        <div class="big">4.8</div>
+        <div class="right">
+          <div class="gold">★★★★★</div>
+          <div class="cnt" data-t="reviews-cnt">334 recensioni verificate · Google</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-cols">
+
+      <div class="rc fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="text">"Excellent food. Everything fresh and cooked to order. Fritura mista mouth watering, delicious desserts. We were amazed by Ewa and Fabrizio's extreme care, attention and hospitality. By far one of the best places to eat on Scalea."</p>
+        <div class="author">
+          <div class="avatar" style="background:linear-gradient(135deg,#2d7dd2,#1a3456)">M</div>
+          <div>
+            <div class="name">Magda Stefanska</div>
+            <div class="when" data-t="r1when">4 mesi fa · Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rc fade-up d1">
+        <div class="stars">★★★★★</div>
+        <p class="text">"Amazing restaurant. The food was very delicious with amazing views. Absolutely perfect atmosphere. The owners are so friendly. The best food in the town!!! We definitely will be back again."</p>
+        <div class="author">
+          <div class="avatar" style="background:linear-gradient(135deg,#2a6645,#1a4030)">J</div>
+          <div>
+            <div class="name">Joanna Dykas</div>
+            <div class="when" data-t="r2when">11 mesi fa · Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rc fade-up d2">
+        <div class="stars">★★★★★</div>
+        <p class="text">"Incredible hospitality and delicious food! The owner recommended Gnocchi with mixed seafood and swordfish Paccarri — both were tasty. The tartufo from the locals was also impressive. Can only recommend!"</p>
+        <div class="author">
+          <div class="avatar" style="background:linear-gradient(135deg,#9b6728,#654f39)">J</div>
+          <div>
+            <div class="name">Joyce Yang</div>
+            <div class="when" data-t="r3when">9 mesi fa · Google</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="reviews-bottom">
+
+      <div class="rc fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="text">"We arrived 20 minutes before closing, but were served very fast. Everything was very tasty. The staff was very attentive. The fish was fresh and well made. Warmly recommended place to eat great seafood."</p>
+        <div class="author">
+          <div class="avatar" style="background:linear-gradient(135deg,#7f736d,#4a3020)">T</div>
+          <div>
+            <div class="name">Tamara</div>
+            <div class="when" data-t="r4when">9 mesi fa · Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rc fade-up d1">
+        <div class="stars">★★★★★</div>
+        <p class="text">"Absolutely amazing food with great views and very friendly staff. Always fresh and delicious. We tried pasta dishes and seafood — always very satisfied. Will definitely come back next time we visit Scalea."</p>
+        <div class="author">
+          <div class="avatar" style="background:linear-gradient(135deg,#e0d1b8,#9b6728)">P</div>
+          <div>
+            <div class="name">Paulina Sprawka</div>
+            <div class="when" data-t="r5when">10 mesi fa · Google</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="reviews-more fade-up">
+      <a href="https://maps.google.com/?cid=2250208183085641862" target="_blank">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.21 0 5 3.13 5 7c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+        <span data-t="reviews-more">Leggi tutte le 334 recensioni su Google</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====================== DOVE SIAMO ======================= -->
+<section class="location section-pad" id="location">
+  <div class="container">
+    <div class="location-grid">
+
+      <div>
+        <div class="eyebrow fade-up" data-t="loc-label">Dove Siamo</div>
+        <h2 class="section-title fade-up d1" data-t="loc-title">Vieni a trovarci<br>sul <em>Lungomare</em></h2>
+
+        <div class="contact-items">
+          <div class="ci fade-up d1">
+            <div class="ci-icon">
+              <svg width="18" height="18" fill="none" stroke="var(--azure-soft)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+            </div>
+            <div>
+              <div class="ci-label" data-t="loc-addr-l">Indirizzo</div>
+              <div class="ci-val">Lungomare Ruggero di Lauria<br>87029 Scalea CS, Italia</div>
+            </div>
+          </div>
+          <div class="ci fade-up d2">
+            <div class="ci-icon">
+              <svg width="18" height="18" fill="none" stroke="var(--azure-soft)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.02 1.18a2 2 0 012-2.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 6.91a16 16 0 006.14 6.14l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14l-.08 2.92z"/></svg>
+            </div>
+            <div>
+              <div class="ci-label" data-t="loc-phone-l">Telefono</div>
+              <div class="ci-val"><a href="tel:+393383734797">338 373 4797</a></div>
+            </div>
+          </div>
+          <div class="ci fade-up d3">
+            <div class="ci-icon">
+              <svg width="18" height="18" fill="none" stroke="var(--azure-soft)" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <div class="ci-label" data-t="loc-hours-l">Orari</div>
+              <div class="ci-val" data-t="loc-hours">Aperto tutti i giorni<br>Pranzo · Cena · Stagionale</div>
+            </div>
+          </div>
+        </div>
+
+        <a class="wa-big fade-up d3" href="https://wa.me/393383734797?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20da%20Lido%20Azzurro%20Naty..." target="_blank">
+          <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <span data-t="wa-btn">Prenota via WhatsApp</span>
+        </a>
+      </div>
+
+      <div class="fade-right">
+        <div class="map-box">
+          <iframe
+            src="https://maps.google.com/maps?q=Lido+Azzurro+Naty+Scalea+CS+Italy&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Lido Azzurro Naty - Scalea">
+          </iframe>
+        </div>
+        <p style="margin-top:12px;text-align:center">
+          <a href="https://maps.google.com/?cid=2250208183085641862" target="_blank"
+             style="font-size:12px;color:rgba(255,255,255,.35);transition:color .3s"
+             onmouseover="this.style.color='rgba(255,255,255,.6)'"
+             onmouseout="this.style.color='rgba(255,255,255,.35)'"
+             data-t="maps-link">Apri in Google Maps →</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================= FOOTER ======================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Lido Azzurro Naty</div>
+        <p class="footer-tagline" data-t="footer-desc">Cucina di mare autentica con vista sul Tirreno. Dal cuore di Ewa e Fabrizio, per ospiti da ogni angolo del mondo.</p>
+      </div>
+      <div class="footer-col">
+        <h5 data-t="footer-links">Navigazione</h5>
+        <ul>
+          <li><a href="#about" data-t="nav-about">Chi Siamo</a></li>
+          <li><a href="#menu" data-t="nav-menu">Menu</a></li>
+          <li><a href="#recensioni" data-t="nav-reviews">Recensioni</a></li>
+          <li><a href="#location" data-t="nav-contact">Contatti</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-t="footer-contacts">Contatti</h5>
+        <ul>
+          <li><a href="tel:+393383734797">338 373 4797</a></li>
+          <li><a href="https://wa.me/393383734797" target="_blank">WhatsApp</a></li>
+          <li><a href="https://maps.google.com/?cid=2250208183085641862" target="_blank">Google Maps</a></li>
+          <li><a href="https://maps.google.com/?cid=2250208183085641862" target="_blank" data-t="footer-review">Lascia una recensione</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Lido Azzurro Naty · Lungomare Ruggero di Lauria, Scalea CS</p>
+      <p>Sito creato con <span style="color:#ef4444">❤</span> da <a href="#">Viktoria Agency</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- =================== WHATSAPP FLOAT ====================== -->
+<div class="wa-float">
+  <div class="wa-float-tip" data-t="wa-tip">Prenota un tavolo</div>
+  <a href="https://wa.me/393383734797?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20da%20Lido%20Azzurro%20Naty..." target="_blank" aria-label="WhatsApp">
+    <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+</div>
+
+<!-- ========================= JS ============================ -->
+<script>
+/* ── TRANSLATIONS ─────────────────────────────────── */
+const TR = {
+  it: {
+    'nav-about':'Chi Siamo','nav-menu':'Menu','nav-reviews':'Recensioni',
+    'nav-contact':'Contatti','nav-book':'Prenota',
+    'hero-pill':'Aperto · Lungomare di Scalea',
+    'hero-sub1':'Cucina di mare · Vista sul Tirreno',
+    'hero-sub2':'Dal cuore di Ewa e Fabrizio',
+    'hero-reviews':'334 recensioni su Google',
+    'cta-book':'Prenota un tavolo','cta-menu':'Scopri il menu',
+    'drawer-wa':'Prenota via WhatsApp',
+    's1h':'Terrazza sul mare','s1p':'Vista panoramica sul Tirreno',
+    's2h':'Fresco ogni giorno','s2p':'Pescato locale cucinato al momento',
+    's3h':'Ospitalità autentica','s3p':'Ewa e Fabrizio vi accolgono come in famiglia',
+    's4h':'Gestione familiare','s4p':'Una storia di passione per il mare',
+    'about-label':'Chi Siamo',
+    'about-title':'Una storia di<br><em>mare e passione</em>',
+    'about-p1':'Siamo Ewa e Fabrizio, e il nostro Lido Azzurro è molto più di un ristorante. È il luogo dove il Tirreno incontra la cucina calabrese, dove ogni piatto racconta una storia di ingredienti freschi, pescati la mattina stessa, preparati con cura artigianale.',
+    'about-p2':'La nostra terrazza affacciata sul mare, con l\'atmosfera rilassata del Lungomare di Scalea, è il posto ideale per un pranzo in famiglia o una cena romantica al tramonto. Vi aspettiamo.',
+    'stat1':'Rating Google','stat2':'Recensioni','stat3':'Pesce fresco',
+    'badge-label':'su Google',
+    'menu-label':'I Nostri Piatti',
+    'menu-title':'Il sapore del<br><em>mare di Calabria</em>',
+    'menu-sub':'Selezione giornaliera del pescato locale, cucinato al momento con ricette della tradizione calabrese.',
+    'dish1-tag':'Più amato',
+    'dish1-desc':'Gnocchi fatti in casa con frutti di mare misti freschi — cozze, vongole, gamberi — in salsa di pomodorini. Una carezza di mare in ogni boccone. Consigliato personalmente da Fabrizio.',
+    'dish2-tag':'Tradizione calabrese',
+    'dish2-desc':'Spaghetti al dente con acciughe del Tirreno, peperoncino calabrese piccante, pangrattato tostato e pomodoro. Un classico della cucina marinara, autentico e senza compromessi.',
+    'dish3-tag':'Dal mare al piatto','dish3-title':'Gamberi alla griglia',
+    'dish3-desc':'Gamberi freschi del Tirreno grigliati con olio extravergine calabrese, aglio e prezzemolo. Serviti con insalata fresca e limone locale. La semplicità che fa la differenza.',
+    'dish4-tag':'Il gran finale','dish4-title':'Dolci artigianali',
+    'dish4-desc':'Tiramisù della casa preparato ogni mattina, e il celebre Tartufo gelato dei produttori locali di Scalea. Il dessert perfetto per concludere con dolcezza una cena sul mare.',
+    'reviews-label':'Recensioni',
+    'reviews-title':'Cosa dicono<br>i nostri <em>ospiti</em>',
+    'reviews-cnt':'334 recensioni verificate · Google',
+    'r1when':'4 mesi fa · Google','r2when':'11 mesi fa · Google',
+    'r3when':'9 mesi fa · Google','r4when':'9 mesi fa · Google','r5when':'10 mesi fa · Google',
+    'reviews-more':'Leggi tutte le 334 recensioni su Google',
+    'loc-label':'Dove Siamo',
+    'loc-title':'Vieni a trovarci<br>sul <em>Lungomare</em>',
+    'loc-addr-l':'Indirizzo','loc-phone-l':'Telefono','loc-hours-l':'Orari',
+    'loc-hours':'Aperto tutti i giorni<br>Pranzo · Cena · Stagionale',
+    'wa-btn':'Prenota via WhatsApp',
+    'maps-link':'Apri in Google Maps →',
+    'footer-desc':'Cucina di mare autentica con vista sul Tirreno. Dal cuore di Ewa e Fabrizio, per ospiti da ogni angolo del mondo.',
+    'footer-links':'Navigazione','footer-contacts':'Contatti',
+    'footer-review':'Lascia una recensione',
+    'wa-tip':'Prenota un tavolo',
+  },
+  en: {
+    'nav-about':'About Us','nav-menu':'Menu','nav-reviews':'Reviews',
+    'nav-contact':'Contact','nav-book':'Book',
+    'hero-pill':'Open · Scalea Seafront',
+    'hero-sub1':'Seafood cuisine · Tyrrhenian Sea view',
+    'hero-sub2':'From the heart of Ewa and Fabrizio',
+    'hero-reviews':'334 reviews on Google',
+    'cta-book':'Reserve a table','cta-menu':'View menu',
+    'drawer-wa':'Book via WhatsApp',
+    's1h':'Sea view terrace','s1p':'Panoramic view over the Tyrrhenian Sea',
+    's2h':'Fresh every day','s2p':'Local catch cooked to order',
+    's3h':'Genuine hospitality','s3p':'Ewa and Fabrizio welcome you like family',
+    's4h':'Family-run','s4p':'A story of passion for the sea',
+    'about-label':'About Us',
+    'about-title':'A story of <em>sea and passion</em>',
+    'about-p1':'We are Ewa and Fabrizio, and our Lido Azzurro is much more than a restaurant. It\'s where the Tyrrhenian Sea meets Calabrian cuisine — every dish tells the story of fresh ingredients caught that same morning, prepared with artisanal care.',
+    'about-p2':'Our terrace overlooking the sea, with the relaxed atmosphere of Scalea\'s seafront, is the perfect place for a family lunch or a romantic dinner at sunset. We are looking forward to welcoming you.',
+    'stat1':'Google Rating','stat2':'Reviews','stat3':'Fresh fish',
+    'badge-label':'on Google',
+    'menu-label':'Our Dishes',
+    'menu-title':'The taste of <em>Calabrian sea</em>',
+    'menu-sub':'Daily selection of local catch, cooked to order with traditional Calabrian recipes.',
+    'dish1-tag':'Most loved',
+    'dish1-desc':'Homemade gnocchi with fresh mixed seafood — mussels, clams, prawns — in cherry tomato sauce. A caress of the sea in every bite. Personally recommended by Fabrizio.',
+    'dish2-tag':'Calabrian tradition',
+    'dish2-desc':'Al dente spaghetti with Tyrrhenian anchovies, spicy Calabrian chili, toasted breadcrumbs and tomato. A classic of maritime cuisine, authentic and uncompromising.',
+    'dish3-tag':'From sea to plate','dish3-title':'Grilled prawns',
+    'dish3-desc':'Fresh Tyrrhenian prawns grilled with local extra-virgin olive oil, garlic and parsley. Served with fresh salad and local lemon. Simplicity that makes all the difference.',
+    'dish4-tag':'The grand finale','dish4-title':'Artisan desserts',
+    'dish4-desc':'Homemade tiramisù prepared every morning, and the famous tartufo gelato from local Scalea producers. The perfect dessert to sweeten the end of a seaside dinner.',
+    'reviews-label':'Reviews',
+    'reviews-title':'What our <em>guests say</em>',
+    'reviews-cnt':'334 verified reviews · Google',
+    'r1when':'4 months ago · Google','r2when':'11 months ago · Google',
+    'r3when':'9 months ago · Google','r4when':'9 months ago · Google','r5when':'10 months ago · Google',
+    'reviews-more':'Read all 334 reviews on Google',
+    'loc-label':'Find Us',
+    'loc-title':'Come visit us<br>on the <em>Seafront</em>',
+    'loc-addr-l':'Address','loc-phone-l':'Phone','loc-hours-l':'Hours',
+    'loc-hours':'Open every day<br>Lunch · Dinner · Seasonal',
+    'wa-btn':'Book via WhatsApp',
+    'maps-link':'Open in Google Maps →',
+    'footer-desc':'Authentic seafood cuisine with Tyrrhenian Sea view. From the heart of Ewa and Fabrizio, for guests from every corner of the world.',
+    'footer-links':'Navigation','footer-contacts':'Contact',
+    'footer-review':'Leave a review',
+    'wa-tip':'Reserve a table',
+  }
+};
+
+let lang = 'it';
+
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const k = el.dataset.t;
+    if (TR[l][k] !== undefined) el.innerHTML = TR[l][k];
+  });
+  document.querySelectorAll('.lang button').forEach(b => {
+    b.classList.toggle('on', b.textContent.trim().toLowerCase() === l);
+  });
+  document.documentElement.lang = l;
+}
+
+/* ── NAVBAR ───────────────────────────────────────── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('solid', scrollY > 64);
+}, {passive: true});
+
+/* ── DRAWER ───────────────────────────────────────── */
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ── SCROLL REVEAL ────────────────────────────────── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, {threshold: 0.13, rootMargin: '0px 0px -32px 0px'});
+
+document.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(el => io.observe(el));
+
+/* ── SMOOTH SCROLL ────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>
