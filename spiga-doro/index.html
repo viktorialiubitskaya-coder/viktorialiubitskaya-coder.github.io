@@ -2004,5 +2004,42 @@ function downloadMenuQR(){
     });
 })();
 </script>
+<script>
+// Force autoplay on mobile
+document.addEventListener('DOMContentLoaded', function() {
+  const videos = document.querySelectorAll('video');
+
+  videos.forEach(function(video) {
+    video.muted = true;
+    video.setAttribute('playsinline', '');
+    video.play().catch(function() {});
+  });
+
+  function playAll() {
+    videos.forEach(function(video) {
+      video.muted = true;
+      video.play().catch(function() {});
+    });
+    document.removeEventListener('touchstart', playAll);
+    document.removeEventListener('scroll', playAll);
+  }
+
+  document.addEventListener('touchstart', playAll, { once: true });
+  document.addEventListener('scroll', playAll, { once: true });
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.muted = true;
+        entry.target.play().catch(function() {});
+      } else {
+        entry.target.pause();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  videos.forEach(function(video) { observer.observe(video); });
+});
+</script>
 </body>
 </html>
