@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Panificio Spiga D'Oro "da Zio Peppe" — Scalea · Dal 1970</title>
+<meta name="description" content="Dalla tradizione italiana. Pane, pizza e panini come una volta. Dal 1970. Panificio artigianale a Scalea — Via Attilio Pepe 16. Ordini su WhatsApp.">
+<meta property="og:title" content="Spiga D'Oro da Zio Peppe — Scalea">
+<meta property="og:description" content="Pane, panini, pizza, rosticceria, dolci. Dal 1970. 55 anni di tradizione.">
+<meta property="og:type" content="restaurant.restaurant">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Bakery","name":"Panificio Spiga D'Oro da Zio Peppe","alternateName":"Spiga D'oro Scalea","description":"Dalla tradizione italiana. Pane, pizza e panini come una volta. Dal 1970.","foundingDate":"1970-01-01","servesCuisine":["Italian","Bakery","Pastries"],"address":{"@type":"PostalAddress","streetAddress":"Via Attilio Pepe, 16","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+393297224222","priceRange":"€","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:15","closes":"13:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"16:30","closes":"20:30"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","reviewCount":"199"},"sameAs":["https://www.facebook.com/ziopeppespigadoro","https://instagram.com/ziopeppe87029"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+    --flour:#F8F3E7;--flour2:#EFE7D1;--paper:#FDFAF2;--cream:#FBF4E0;
+    --crust:#6B3410;--crust-d:#4A2208;--crust-l:#8F4E1E;
+    --wheat:#C8932E;--wheat-d:#A67820;--wheat-l:#E0B04E;
+    --ember:#A83220;--ember-d:#821B0C;
+    --ink:#2B1A0F;--ink2:#3D2816;--stone:#6B5541;--mute:#A08870;
+    --sage:#7B8B5A;
+    --border:rgba(43,26,15,.1);--border-s:rgba(43,26,15,.05);
+    --shadow:0 20px 48px rgba(43,26,15,.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--flour);scroll-behavior:smooth}
+body{font-family:'Figtree',system-ui,sans-serif;background:var(--flour);color:var(--ink);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-weight:400}
+h1,h2,h3,h4{font-family:'Gloock',serif;font-weight:400;line-height:1.05;color:var(--ink);letter-spacing:-.01em}
+img,video{display:block;max-width:100%;height:auto}
+::selection{background:var(--wheat);color:var(--ink)}
+
+/* LANG */
+.t-en,.t-ru{display:none}
+p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en,
+p.t-ru,h1.t-ru,h2.t-ru,h3.t-ru,h4.t-ru,div.t-ru,span.t-ru,li.t-ru{display:none}
+body.lang-en .t-it,body.lang-en .t-ru{display:none!important}
+body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-ru .t-it,body.lang-ru .t-en{display:none!important}
+body.lang-ru .t-ru{display:inline!important}
+body.lang-ru p.t-ru,body.lang-ru h1.t-ru,body.lang-ru h2.t-ru,body.lang-ru h3.t-ru,body.lang-ru h4.t-ru,body.lang-ru div.t-ru,body.lang-ru li.t-ru{display:block!important}
+body.lang-en li.t-en,body.lang-ru li.t-ru{display:list-item!important}
+.lang-toggle{position:fixed;top:20px;right:20px;z-index:100;display:flex;gap:2px;background:var(--ink);padding:3px;border-radius:100px}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(248,243,231,.55);font-family:'Figtree',sans-serif;font-size:11px;font-weight:600;cursor:pointer;border-radius:100px;transition:all .25s;letter-spacing:1.5px}
+.lang-btn.active{background:var(--wheat);color:var(--ink)}
+
+/* SCROLL PROGRESS */
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:var(--ember);z-index:9999}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:22px clamp(20px,5vw,48px);display:flex;align-items:center;justify-content:space-between;transition:background .4s,padding .3s,backdrop-filter .4s}
+nav.scrolled{background:rgba(248,243,231,.96);backdrop-filter:blur(14px);padding:14px clamp(20px,5vw,48px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Gloock',serif;font-size:1.35rem;color:var(--crust);text-decoration:none;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+.nav-logo-img{width:40px;height:40px;border-radius:50%;object-fit:cover;background:var(--cream);border:1.5px solid var(--wheat);flex-shrink:0}
+.nav-logo em{color:var(--ember);font-style:italic}
+nav.scrolled .nav-logo{color:var(--crust)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:'Figtree',sans-serif;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--ember)}
+.nav-mobile{display:none;background:none;border:none;color:var(--crust);font-size:22px;cursor:pointer}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.stagger-parent.visible .stagger-child{opacity:1;transform:translateY(0)}
+.stagger-child{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.stagger-child:nth-child(1){transition-delay:0s}
+.stagger-child:nth-child(2){transition-delay:.09s}
+.stagger-child:nth-child(3){transition-delay:.18s}
+.stagger-child:nth-child(4){transition-delay:.27s}
+.stagger-child:nth-child(5){transition-delay:.36s}
+.stagger-child:nth-child(6){transition-delay:.45s}
+
+/* WHEAT SVG decoration */
+.wheat-svg{display:inline-block;vertical-align:middle;width:1em;height:1em}
+.wheat-svg svg{width:100%;height:100%;fill:currentColor}
+
+/* HERO — video forno */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;padding:140px 0 0;color:var(--flour);background:#2B1A0F}
+.hero-bg-v{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;animation:hero-zoom 3s cubic-bezier(.16,1,.3,1) forwards;transform:scale(1.1)}
+@keyframes hero-zoom{to{transform:scale(1)}}
+.hero-fallback{display:none}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(43,26,15,.35) 0%,rgba(43,26,15,.35) 50%,rgba(43,26,15,.9) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px) 80px;width:100%;animation:fade-up 1.5s .3s cubic-bezier(.16,1,.3,1) backwards}
+@keyframes fade-up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-year{display:inline-flex;align-items:center;gap:12px;padding:8px 18px;background:rgba(248,243,231,.12);backdrop-filter:blur(8px);border:1px solid rgba(248,243,231,.22);border-radius:100px;font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--wheat-l);margin-bottom:28px;font-weight:600}
+.hero-year-sep{color:rgba(248,243,231,.4)}
+.hero h1{font-family:'Gloock',serif;font-size:clamp(3.6rem,11vw,8.4rem);color:var(--flour);letter-spacing:-.03em;line-height:.92;margin-bottom:18px}
+.hero h1 em{color:var(--wheat-l);font-style:italic}
+.hero-sub{font-family:'Figtree',sans-serif;font-size:clamp(1rem,1.6vw,1.2rem);font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--wheat);margin-bottom:28px}
+.hero-sub-dot{color:var(--ember);margin:0 12px;font-weight:700}
+.hero-lead{font-family:'Gloock',serif;font-style:italic;font-size:clamp(1.1rem,1.9vw,1.4rem);color:rgba(248,243,231,.88);max-width:560px;margin-bottom:32px;line-height:1.4;font-weight:400}
+.hero-meta{display:flex;gap:clamp(20px,3vw,40px);flex-wrap:wrap;padding:22px 0;border-top:1px solid rgba(248,243,231,.15);border-bottom:1px solid rgba(248,243,231,.15);margin-bottom:32px}
+.hero-meta-item{display:flex;flex-direction:column;gap:2px}
+.hero-meta-val{font-family:'Gloock',serif;font-size:clamp(1.5rem,2.5vw,2rem);color:var(--flour);line-height:1}
+.hero-meta-val em{color:var(--wheat-l);font-style:italic}
+.hero-meta-lbl{font-size:10px;color:rgba(248,243,231,.55);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;font-family:'Figtree',sans-serif;font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;border:none;cursor:pointer;border-radius:100px}
+.btn-primary{background:var(--ember);color:var(--flour)}
+.btn-primary:hover{background:var(--ember-d);transform:translateY(-2px);box-shadow:0 12px 30px rgba(168,50,32,.35)}
+.btn-wheat{background:var(--wheat);color:var(--ink)}
+.btn-wheat:hover{background:var(--wheat-d);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--flour);border:1.5px solid rgba(248,243,231,.35)}
+.btn-ghost:hover{border-color:var(--wheat-l);color:var(--wheat-l)}
+
+/* MARQUEE */
+.marquee{background:var(--ember);color:var(--flour);padding:22px 0;overflow:hidden;border-top:3px solid var(--crust);border-bottom:3px solid var(--crust)}
+.marquee-track{display:flex;width:max-content;animation:mq 40s linear infinite;align-items:center;gap:48px}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-item{font-family:'Gloock',serif;font-size:1.5rem;font-weight:400;letter-spacing:.02em;display:flex;align-items:center;gap:48px;font-style:italic}
+.mq-item .dot{color:var(--wheat);font-size:1.8rem;font-style:normal}
+.mq-item .em{color:var(--wheat-l);font-style:italic}
+
+/* SECTIONS */
+.sec{padding:60px clamp(20px,5vw,48px)}
+.wrap{max-width:1180px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:10px;font-family:'Figtree',sans-serif;font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--ember);margin-bottom:16px}
+.tag::before{content:'';width:24px;height:2px;background:var(--ember)}
+.hdg{font-size:clamp(1.8rem,4vw,3rem);color:var(--ink);margin-bottom:18px;letter-spacing:-.02em;line-height:1.05}
+.hdg em{color:var(--ember);font-style:italic}
+.hdg .wheat{color:var(--wheat-d);font-style:italic}
+.desc{font-size:min(1.1rem,1rem);color:var(--stone);max-width:620px;line-height:1.7}
+
+/* STORIA — parallax text + video */
+.storia{background:var(--paper);position:relative;overflow:hidden}
+.storia-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(36px,5vw,88px);align-items:center}
+.storia-video-wrap{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:4px;box-shadow:var(--shadow)}
+.storia-video-wrap video,.storia-video-wrap img{width:100%;height:100%;object-fit:cover}
+.storia-poem{margin-top:32px;padding-top:28px;border-top:1px solid var(--border);text-align:center}
+.storia-poem-line{font-family:'Gloock',serif;font-style:italic;font-size:1.4rem;line-height:2;color:#5C3D2E;margin:0}
+.storia-poem-line + .storia-poem-line{margin-top:4px}
+.storia-video-wrap::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(43,26,15,.4) 100%);z-index:1;pointer-events:none}
+.storia-video-tag{position:absolute;bottom:20px;left:22px;z-index:2;color:var(--flour);font-family:'Gloock',serif;font-style:italic;font-size:1.1rem}
+.timeline{margin-top:32px;padding-top:28px;border-top:1px solid var(--border)}
+.timeline-row{display:grid;grid-template-columns:100px 1fr;gap:24px;padding:18px 0;border-bottom:1px dotted var(--border)}
+.timeline-row:last-child{border-bottom:none}
+.timeline-year{font-family:'Gloock',serif;font-size:1.8rem;color:var(--ember);line-height:1;font-style:italic}
+.timeline-title{font-family:'Gloock',serif;font-size:1.15rem;color:var(--ink);margin-bottom:4px}
+.timeline-desc{font-size:.9rem;color:var(--stone);line-height:1.55}
+.storia-counters{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.counter-card{padding:22px 16px;background:var(--cream);border:1px solid var(--border-s);border-radius:4px;text-align:center}
+.counter-val{font-family:'Gloock',serif;font-size:clamp(2rem,4vw,2.8rem);color:var(--ember);line-height:1;font-style:italic}
+.counter-val em{color:var(--wheat-d);font-style:italic}
+.counter-lbl{font-family:'Figtree',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--stone);margin-top:6px}
+
+/* IL FORNO — 3 steps */
+.forno-sec{background:var(--ink);color:var(--flour);position:relative;overflow:hidden}
+.forno-sec::before{content:'';position:absolute;top:-20%;right:-20%;width:70%;height:140%;background:radial-gradient(ellipse at center,rgba(200,147,46,.12) 0%,transparent 65%);pointer-events:none}
+.forno-head{max-width:720px;margin:0 auto 64px;text-align:center;position:relative;z-index:1}
+.forno-head .tag{color:var(--wheat-l)}
+.forno-head .tag::before{background:var(--wheat-l)}
+.forno-head .hdg{color:var(--flour)}
+.forno-head .hdg em{color:var(--wheat-l)}
+.forno-head .desc{color:rgba(248,243,231,.72);margin:0 auto}
+.forno-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,48px);position:relative;z-index:1}
+.forno-step{text-align:center;padding:32px 24px;background:rgba(248,243,231,.04);border:1px solid rgba(248,243,231,.1);border-radius:6px;transition:background .3s,border-color .3s}
+.forno-step:hover{background:rgba(248,243,231,.07);border-color:var(--wheat)}
+.forno-step-icon{width:64px;height:64px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center}
+.forno-step-icon svg{width:100%;height:100%;fill:var(--wheat-l)}
+.forno-step-video{width:100%;aspect-ratio:16/10;margin:0 auto 20px;border-radius:6px;overflow:hidden;border:1px solid rgba(248,243,231,.12)}
+.forno-step-video video{width:100%;height:100%;object-fit:cover;display:block}
+.forno-step-num{font-family:'Gloock',serif;font-size:.88rem;color:var(--wheat-l);font-style:italic;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.forno-step h3{font-family:'Gloock',serif;font-size:1.4rem;color:var(--flour);margin-bottom:12px}
+.forno-step p{font-size:.9rem;color:rgba(248,243,231,.72);line-height:1.55}
+.forno-quote{margin-top:60px;padding:30px 24px;text-align:center;max-width:640px;margin-left:auto;margin-right:auto;position:relative;z-index:1;border-top:1px solid rgba(248,243,231,.12);border-bottom:1px solid rgba(248,243,231,.12)}
+.forno-quote p{font-family:'Gloock',serif;font-style:italic;font-size:1.3rem;color:var(--wheat-l);line-height:1.4}
+.forno-quote-attr{font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(248,243,231,.55);margin-top:14px;font-weight:600}
+
+/* PRODOTTI — 6 categories */
+.prodotti{background:var(--flour)}
+.prodotti-head{text-align:center;margin-bottom:60px;max-width:720px;margin-left:auto;margin-right:auto}
+.prodotti-head .desc{margin:0 auto}
+.cat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.cat-card{background:var(--paper);border:1px solid var(--border-s);border-radius:6px;overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .3s;position:relative;display:flex;flex-direction:column}
+.cat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.cat-card:nth-child(1){grid-column:span 2;grid-row:span 2}
+.cat-card:nth-child(2){grid-column:span 2}
+.cat-card:nth-child(3){grid-column:span 2}
+.cat-card:nth-child(4){grid-column:span 2}
+.cat-card:nth-child(5){grid-column:span 2}
+.cat-card:nth-child(6){grid-column:span 2}
+.cat-media{position:relative;aspect-ratio:1;overflow:hidden}
+.cat-card:first-child .cat-media{aspect-ratio:1}
+.cat-media video,.cat-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.cat-card:hover .cat-media img{transform:scale(1.04)}
+.cat-body{padding:20px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cat-kicker{font-family:'Figtree',sans-serif;font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--ember)}
+.cat-card h3{font-family:'Gloock',serif;font-size:1.25rem;color:var(--ink);letter-spacing:-.01em;line-height:1.2}
+.cat-card p{font-size:.86rem;color:var(--stone);line-height:1.5}
+.cat-price{font-family:'Gloock',serif;font-size:1rem;color:var(--ember);font-style:italic;margin-top:4px}
+
+/* GIORNI SPECIALI — porchetta day + filoncini */
+.giorni{background:var(--cream);position:relative;overflow:hidden}
+.giorni-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+.giorno-card{position:relative;overflow:hidden;border-radius:8px;color:var(--flour);min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:32px;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.giorno-card:hover{transform:translateY(-4px)}
+.giorno-card-img{position:absolute;inset:0;z-index:0}
+.giorno-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.giorno-card:hover .giorno-card-img img{transform:scale(1.04)}
+.giorno-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,26,15,.15) 0%,rgba(43,26,15,.55) 50%,rgba(43,26,15,.92) 100%)}
+.giorno-card-body{position:relative;z-index:1}
+.giorno-day{display:inline-block;padding:6px 14px;background:var(--ember);color:var(--flour);font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;border-radius:100px;margin-bottom:14px}
+.giorno-card.giorno-secondary .giorno-day{background:var(--wheat);color:var(--ink)}
+.giorno-card h3{font-family:'Gloock',serif;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--flour);line-height:1.05;letter-spacing:-.015em;margin-bottom:10px}
+.giorno-card h3 em{color:var(--wheat-l);font-style:italic}
+.giorno-card p{font-size:.92rem;color:rgba(248,243,231,.85);line-height:1.55;max-width:480px}
+
+/* EVENT BOX */
+.event{background:var(--paper);position:relative;overflow:hidden}
+.event-head{text-align:center;margin-bottom:52px;max-width:720px;margin-left:auto;margin-right:auto}
+.event-head .desc{margin:0 auto}
+.event-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.event-box{padding:36px 32px;background:var(--flour);border:1px solid var(--border);border-radius:8px;transition:all .3s;position:relative;overflow:hidden}
+.event-box:hover{border-color:var(--ember);transform:translateY(-4px);box-shadow:var(--shadow)}
+.event-box-tag{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ember);margin-bottom:8px}
+.event-box.event-classic .event-box-tag{color:var(--wheat-d)}
+.event-box h3{font-family:'Gloock',serif;font-size:clamp(1.5rem,2.5vw,2rem);color:var(--ink);margin-bottom:8px;letter-spacing:-.01em}
+.event-box-pieces{font-family:'Gloock',serif;font-style:italic;font-size:1.1rem;color:var(--stone);margin-bottom:20px}
+.event-box-price{display:flex;align-items:baseline;gap:8px;padding:18px 0;border-top:1px dashed var(--border);border-bottom:1px dashed var(--border);margin-bottom:20px}
+.event-box-price-val{font-family:'Gloock',serif;font-size:clamp(2.2rem,4vw,2.8rem);color:var(--ember);line-height:1;font-style:italic}
+.event-box.event-classic .event-box-price-val{color:var(--wheat-d)}
+.event-box-price-lbl{font-family:'Figtree',sans-serif;font-size:11px;color:var(--mute);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+.event-box ul{list-style:none;margin-bottom:24px}
+.event-box li{padding:8px 0;font-size:.9rem;color:var(--ink2);border-bottom:1px dotted var(--border-s);display:flex;align-items:flex-start;gap:10px}
+.event-box li:last-child{border-bottom:none}
+.event-box li::before{content:'·';color:var(--ember);font-weight:700;font-size:1.5rem;line-height:1}
+.event-cta{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--ink);color:var(--flour);font-family:'Figtree',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s;margin-top:6px}
+.event-cta:hover{background:var(--ember)}
+.event-note{text-align:center;margin-top:32px;padding:18px;font-family:'Gloock',serif;font-style:italic;font-size:1rem;color:var(--stone)}
+.event-note strong{color:var(--ember);font-style:normal;font-family:'Figtree',sans-serif;font-weight:700}
+
+/* BUFFET EVENTI — teglie price list */
+.buffet{background:var(--ink);color:var(--flour);position:relative;overflow:hidden}
+.buffet::before{content:'';position:absolute;top:-15%;left:-10%;width:50%;height:130%;background:radial-gradient(ellipse at center,rgba(168,50,32,.14) 0%,transparent 60%);pointer-events:none}
+.buffet-head{max-width:760px;margin:0 auto 56px;text-align:center;position:relative;z-index:1}
+.buffet-head .tag{color:var(--wheat-l)}
+.buffet-head .tag::before{background:var(--wheat-l)}
+.buffet-head .hdg{color:var(--flour)}
+.buffet-head .hdg em{color:var(--wheat-l)}
+.buffet-head .desc{color:rgba(248,243,231,.72);margin:0 auto}
+.buffet-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;position:relative;z-index:1}
+.buffet-col{padding:36px 32px;background:rgba(248,243,231,.04);border:1px solid rgba(248,243,231,.1);border-radius:8px;display:flex;flex-direction:column}
+.buffet-col-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(248,243,231,.12);margin-bottom:18px}
+.buffet-col-title{font-family:'Gloock',serif;font-size:1.5rem;color:var(--flour);letter-spacing:-.01em}
+.buffet-col-title em{color:var(--wheat-l);font-style:italic}
+.buffet-col-meta{font-family:'Figtree',sans-serif;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--wheat-l);white-space:nowrap}
+.buffet-list{display:flex;flex-direction:column;flex:1}
+.buffet-row{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px dashed rgba(248,243,231,.08);gap:14px}
+.buffet-row:last-child{border-bottom:none}
+.buffet-row-name{font-family:'Gloock',serif;font-size:1rem;color:rgba(248,243,231,.92);letter-spacing:-.005em}
+.buffet-row-name em{color:var(--wheat-l);font-style:italic}
+.buffet-row-price{font-family:'Gloock',serif;font-size:1.05rem;font-style:italic;color:var(--wheat);white-space:nowrap}
+.buffet-row.feat .buffet-row-name{color:var(--flour)}
+.buffet-row.feat .buffet-row-price{color:var(--ember-l,#D9573D);color:#E6745A}
+.buffet-cta-row{margin-top:48px;padding-top:32px;border-top:1px solid rgba(248,243,231,.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;position:relative;z-index:1}
+.buffet-note{font-family:'Gloock',serif;font-style:italic;font-size:1.05rem;color:rgba(248,243,231,.78)}
+.buffet-note strong{color:var(--ember-l,#E6745A);color:#E6745A;font-style:normal;font-family:'Figtree',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px}
+.buffet-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;background:var(--ember);color:var(--flour);font-family:'Figtree',sans-serif;font-weight:700;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s}
+.buffet-cta:hover{background:var(--ember-d);transform:translateY(-2px);box-shadow:0 12px 26px rgba(168,50,32,.35)}
+
+/* GALLERY 3x3 */
+.gallery-sec{background:var(--ink);color:var(--flour);position:relative}
+.gallery-head{text-align:center;margin-bottom:48px;max-width:680px;margin-left:auto;margin-right:auto}
+.gallery-head .tag{color:var(--wheat-l)}
+.gallery-head .tag::before{background:var(--wheat-l)}
+.gallery-head .hdg{color:var(--flour)}
+.gallery-head .hdg em{color:var(--wheat-l)}
+.gallery-head .desc{color:rgba(248,243,231,.7);margin:0 auto}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.gallery-item{aspect-ratio:1;overflow:hidden;background:var(--ink2)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.gallery-item:hover img{transform:scale(1.06)}
+
+/* DOLCEZZE DELLE FESTE — calendar */
+.feste{position:relative;overflow:hidden;color:var(--flour);display:flex;align-items:center}
+.feste-bg-v{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover}
+.feste-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(43,26,15,.82) 0%,rgba(43,26,15,.92) 100%)}
+.feste-wrap{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:60px clamp(20px,5vw,48px);width:100%}
+.feste-head{max-width:720px;margin-bottom:56px}
+.feste .tag{color:var(--wheat-l)}
+.feste .tag::before{background:var(--wheat-l)}
+.feste .hdg{color:var(--flour)}
+.feste .hdg em{color:var(--wheat-l)}
+.feste .desc{color:rgba(248,243,231,.78)}
+.feste-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.feste-card{padding:26px 24px;background:rgba(248,243,231,.04);border:1px solid rgba(248,243,231,.1);border-radius:6px;transition:all .3s;overflow:hidden;display:flex;flex-direction:column}
+.feste-card:hover{background:rgba(248,243,231,.07);border-color:var(--wheat);transform:translateY(-2px)}
+.feste-card-img{margin:-26px -24px 18px;aspect-ratio:16/9;overflow:hidden}
+.feste-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.feste-card:hover .feste-card-img img{transform:scale(1.05)}
+.feste-when{display:flex;align-items:baseline;gap:12px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid rgba(248,243,231,.1)}
+.feste-month{font-family:'Gloock',serif;font-size:.92rem;color:var(--wheat-l);font-style:italic}
+.feste-ord{font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(248,243,231,.5);font-weight:600;margin-left:auto}
+.feste-card h3{font-family:'Gloock',serif;font-size:1.25rem;color:var(--flour);margin-bottom:8px}
+.feste-items{font-size:.9rem;color:rgba(248,243,231,.78);line-height:1.55}
+.feste-cta{margin-top:48px;text-align:center;padding-top:32px;border-top:1px solid rgba(248,243,231,.12)}
+.feste-cta-text{font-family:'Gloock',serif;font-style:italic;font-size:1.2rem;color:var(--wheat-l);margin-bottom:22px}
+
+/* PREZZI — USP */
+.prezzi{background:var(--cream)}
+.prezzi-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(36px,5vw,88px);align-items:center}
+.prezzi-visual{position:relative}
+.prezzi-big{font-family:'Gloock',serif;font-size:clamp(8rem,16vw,14rem);color:var(--ember);line-height:.85;font-style:italic;letter-spacing:-.04em}
+.prezzi-big .sup{font-size:.3em;vertical-align:super;color:var(--wheat-d)}
+.prezzi-big-lbl{font-family:'Figtree',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--stone);margin-top:8px;font-weight:600}
+.prezzi-list{margin-top:36px;padding-top:28px;border-top:1px solid var(--border)}
+.prezzi-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px dashed var(--border)}
+.prezzi-row:last-child{border-bottom:none}
+.prezzi-row-what{font-family:'Gloock',serif;font-size:1.05rem;color:var(--ink)}
+.prezzi-row-what em{color:var(--ember);font-style:italic}
+.prezzi-row-price{font-family:'Gloock',serif;font-size:1.15rem;color:var(--crust);font-style:italic;white-space:nowrap}
+.prezzi-badge{display:inline-block;margin-top:18px;padding:10px 20px;background:var(--wheat);color:var(--ink);font-family:'Figtree',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;border-radius:100px}
+
+/* RECENSIONI */
+.rev-sec{background:var(--paper)}
+.rev-head{text-align:center;margin-bottom:52px;max-width:640px;margin-left:auto;margin-right:auto}
+.rev-stat-row{display:flex;gap:36px;justify-content:center;align-items:baseline;margin:28px 0 6px;flex-wrap:wrap}
+.rev-stat{text-align:center}
+.rev-stat-val{font-family:'Gloock',serif;font-size:clamp(2.6rem,5vw,3.4rem);color:var(--ember);line-height:1;font-style:italic}
+.rev-stat-lbl{font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--stone);margin-top:6px;font-weight:700}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.rev-card{padding:30px 28px;background:var(--flour);border:1px solid var(--border-s);border-radius:6px;transition:all .3s;position:relative}
+.rev-card:hover{border-color:var(--wheat);transform:translateY(-3px);box-shadow:var(--shadow)}
+.rev-stars{color:var(--wheat-d);font-size:13px;letter-spacing:3px;margin-bottom:14px}
+.rev-text{font-family:'Gloock',serif;font-style:italic;font-size:1.02rem;color:var(--ink2);line-height:1.55;margin-bottom:18px}
+.rev-text::before{content:'“';font-family:'Gloock',serif;color:var(--ember);font-size:2.6rem;line-height:0;display:block;margin-bottom:-16px;margin-left:-4px}
+.rev-who{font-family:'Figtree',sans-serif;font-size:.82rem;font-weight:700;color:var(--ember);letter-spacing:1px;text-transform:uppercase}
+.rev-src{font-size:.72rem;color:var(--mute);margin-top:2px;letter-spacing:.5px;font-weight:500}
+
+/* ORDINA + EVENTI */
+.ordina{background:var(--ink);color:var(--flour);position:relative;overflow:hidden}
+.ordina::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(200,147,46,.1) 0%,transparent 55%)}
+.ordina-wrap{position:relative;z-index:1}
+.ordina .tag{color:var(--wheat-l)}
+.ordina .tag::before{background:var(--wheat-l)}
+.ordina .hdg{color:var(--flour)}
+.ordina .hdg em{color:var(--wheat-l)}
+.ordina-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(36px,5vw,80px);align-items:start;margin-top:52px}
+.ordina-info h3{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--wheat-l);margin-top:28px;margin-bottom:10px}
+.ordina-info h3:first-child{margin-top:0}
+.ordina-info p{font-size:.95rem;color:rgba(248,243,231,.82);margin-bottom:2px}
+.ordina-phone{font-family:'Gloock',serif;font-size:1.7rem;color:var(--flour);text-decoration:none;display:inline-block;margin-top:6px;font-style:italic}
+.ordina-phone:hover{color:var(--wheat-l)}
+.ordina-steps{display:grid;gap:10px;margin-top:18px}
+.ord-step{display:grid;grid-template-columns:32px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid rgba(248,243,231,.08);align-items:start}
+.ord-step:last-child{border-bottom:none}
+.ord-step-num{font-family:'Gloock',serif;color:var(--wheat-l);font-style:italic;font-size:1.2rem;line-height:1}
+.ord-step h4{font-family:'Figtree',sans-serif;font-size:.95rem;font-weight:700;color:var(--flour);margin-bottom:2px;letter-spacing:0}
+.ord-step p{font-size:.85rem;color:rgba(248,243,231,.7);font-weight:400}
+.soc{display:flex;gap:10px;margin-top:14px}
+.soc a{width:44px;height:44px;background:rgba(248,243,231,.06);border:1px solid rgba(248,243,231,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .25s}
+.soc a:hover{background:var(--ember);border-color:var(--ember);transform:translateY(-2px)}
+.soc svg{width:17px;height:17px;fill:var(--flour);transition:fill .25s}
+.ordina-form{background:rgba(248,243,231,.04);border:1px solid rgba(248,243,231,.12);border-radius:8px;padding:36px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(248,243,231,.65);margin-bottom:6px}
+.fg input,.fg select,.fg textarea{width:100%;padding:13px 14px;border:1px solid rgba(248,243,231,.15);border-radius:4px;font-family:'Figtree',sans-serif;font-size:14px;color:var(--flour);background:rgba(248,243,231,.04);outline:none;transition:border-color .25s;font-weight:400}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--wheat)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-form{width:100%;padding:15px;background:var(--ember);color:var(--flour);border:none;border-radius:100px;font-family:'Figtree',sans-serif;font-weight:700;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:background .3s,transform .2s;margin-top:4px}
+.btn-form:hover{background:var(--ember-d);transform:translateY(-1px)}
+
+/* MAP & HOURS */
+.loc{background:var(--flour)}
+.loc-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,5vw,60px);align-items:start}
+.loc-info h3{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ember);margin-top:28px;margin-bottom:10px}
+.loc-info h3:first-child{margin-top:0}
+.hours-table{display:flex;flex-direction:column;margin-top:8px}
+.hours-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted var(--border);font-size:.92rem}
+.hours-row:last-child{border-bottom:none}
+.hours-day{color:var(--ink);font-weight:500}
+.hours-time{color:var(--stone);font-variant-numeric:tabular-nums}
+.hours-row.closed .hours-time{color:var(--ember);font-style:italic}
+.map-box{border-radius:6px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow)}
+.map-box iframe{width:100%;height:420px;border:none;display:block;filter:saturate(.85)}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--flour);padding:60px clamp(20px,5vw,48px) 32px}
+.foot-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-bottom:28px;border-bottom:1px solid rgba(248,243,231,.08)}
+.foot-brand{font-family:'Gloock',serif;font-size:1.6rem;color:var(--flour);margin-bottom:8px;letter-spacing:-.01em}
+.foot-brand em{color:var(--wheat-l);font-style:italic}
+.foot-addr{font-size:.88rem;color:rgba(248,243,231,.58);line-height:1.6}
+.foot-addr a{color:var(--wheat-l);text-decoration:none}
+.foot-col h4{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--wheat-l);margin-bottom:12px}
+.foot-col a{display:block;font-size:.85rem;color:rgba(248,243,231,.65);text-decoration:none;margin-bottom:6px;transition:color .25s}
+.foot-col a:hover{color:var(--wheat-l)}
+.foot-copy{max-width:1180px;margin:22px auto 0;text-align:center;font-size:.72rem;color:rgba(248,243,231,.3)}
+.foot-copy a{color:var(--wheat-l);text-decoration:none}
+
+/* TIMELINE NOTE + OWNERS */
+.timeline-note{margin-top:18px;padding-top:14px;border-top:1px dotted var(--border);font-family:'Gloock',serif;font-style:italic;font-size:.88rem;color:var(--mute);text-align:center}
+.owners-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px;padding-top:22px;border-top:1px dotted var(--border)}
+.owner-ph{text-align:center}
+.owner-circle{width:120px;height:120px;border-radius:50%;background:repeating-linear-gradient(45deg,#E4DBC8,#E4DBC8 8px,#DDD2B8 8px,#DDD2B8 16px);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--stone);margin:0 auto 14px;position:relative;overflow:hidden}
+.owner-circle::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.3) 0%,transparent 50%);pointer-events:none}
+.owner-name{font-family:'Gloock',serif;font-size:1rem;color:var(--ink);margin-bottom:2px}
+.owner-role{font-family:'Figtree',sans-serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ember)}
+
+/* IL NOSTRO PANE — bread gallery */
+.pane-sec{background:var(--flour);position:relative}
+.pane-head{max-width:720px;margin:0 auto 56px;text-align:center}
+.pane-masonry{column-count:3;column-gap:16px}
+.pane-item{break-inside:avoid;margin-bottom:16px;border-radius:12px;overflow:hidden;position:relative;display:block;background:var(--cream);transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s}
+.pane-item:hover{transform:scale(1.03);box-shadow:0 18px 38px rgba(43,26,15,.22)}
+.pane-item img{width:100%;height:280px;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.pane-overlay{position:absolute;bottom:0;left:0;right:0;padding:18px 20px 16px;background:linear-gradient(transparent,rgba(43,26,15,.78));color:#fff}
+.pane-overlay-name{font-family:'Gloock',serif;font-weight:700;font-size:1.1rem;color:#fff;letter-spacing:-.005em;line-height:1.25}
+.pane-overlay-name em{color:var(--wheat-l);font-style:italic;font-weight:400}
+.pane-overlay-desc{font-family:'Gloock',serif;font-style:italic;font-size:.88rem;color:rgba(255,255,255,.88);margin-top:4px;line-height:1.4}
+.pane-footnote{margin-top:40px;text-align:center;padding:26px 32px;background:var(--ink);color:var(--flour);border-radius:8px;font-family:'Gloock',serif;font-style:italic;font-size:clamp(1.1rem,1.8vw,1.4rem)}
+.pane-footnote em{color:var(--wheat-l)}
+
+/* PANINI D'AUTORE */
+.panini-sec{background:var(--cream);position:relative;overflow:hidden}
+.panini-hero{position:relative;border-radius:10px;overflow:hidden;margin-bottom:56px;aspect-ratio:21/9;min-height:380px}
+.panini-hero img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.panini-hero-video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1}
+.panini-hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(43,26,15,.88) 0%,rgba(43,26,15,.55) 55%,rgba(43,26,15,.3) 100%);display:flex;align-items:center;padding:clamp(30px,5vw,60px)}
+.panini-price-badge{z-index:3}
+.panini-hero-content{max-width:520px;color:var(--flour)}
+.panini-hero-content .tag{color:var(--wheat-l)}
+.panini-hero-content .tag::before{background:var(--wheat-l)}
+.panini-hero-content .hdg{color:var(--flour);margin-bottom:12px}
+.panini-hero-content .hdg em{color:var(--wheat-l)}
+.panini-hero-content .desc{color:rgba(248,243,231,.82)}
+.panini-price-badge{position:absolute;bottom:clamp(22px,4vw,40px);right:clamp(22px,4vw,40px);background:var(--ember);color:var(--flour);padding:22px 28px;border-radius:8px;text-align:center;box-shadow:0 20px 40px rgba(168,50,32,.4)}
+.panini-price-big{font-family:'Gloock',serif;font-style:italic;font-size:clamp(2rem,3.5vw,2.8rem);line-height:1;letter-spacing:-.02em}
+.panini-price-lbl{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-top:6px;opacity:.9}
+.panini-price-sub{font-family:'Gloock',serif;font-style:italic;font-size:.9rem;margin-top:8px;padding-top:8px;border-top:1px solid rgba(248,243,231,.25)}
+.panini-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:48px}
+.panini-card{border-radius:8px;overflow:hidden;background:var(--flour);border:1px solid var(--border);transition:all .3s;display:flex;flex-direction:column}
+.panini-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--ember)}
+.panini-card-img{aspect-ratio:4/3;overflow:hidden}
+.panini-card-img img,.panini-card-img video{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,1,.3,1);display:block}
+.panini-card:hover .panini-card-img img{transform:scale(1.05)}
+.panini-card-body{padding:22px 24px 26px}
+.panini-card-kicker{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--ember);margin-bottom:8px}
+.panini-card-name{font-family:'Gloock',serif;font-size:1.15rem;color:var(--ink);margin-bottom:8px;letter-spacing:-.005em;line-height:1.25}
+.panini-card-tag{font-family:'Gloock',serif;font-style:italic;font-size:.9rem;color:var(--stone)}
+.panini-counter{background:var(--ink);color:var(--flour);padding:44px 36px;border-radius:10px;text-align:center;position:relative;overflow:hidden}
+.panini-counter::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(200,147,46,.18) 0%,transparent 60%);pointer-events:none}
+.panini-counter-val{font-family:'Gloock',serif;font-style:italic;font-size:clamp(3.6rem,7vw,5.4rem);color:var(--wheat-l);line-height:1;letter-spacing:-.03em;position:relative;z-index:1}
+.panini-counter-val em{color:var(--ember);font-style:italic}
+.panini-counter-lbl{font-family:'Gloock',serif;font-style:italic;font-size:clamp(1rem,1.5vw,1.2rem);color:rgba(248,243,231,.85);margin-top:10px;position:relative;z-index:1}
+
+/* SEGUICI — Instagram feed */
+.insta-sec{background:var(--flour);padding:60px clamp(20px,5vw,48px)}
+.insta-wrap{max-width:1180px;margin:0 auto}
+.insta-head{text-align:center;max-width:640px;margin:0 auto 48px}
+.insta-handle{font-family:'Gloock',serif;font-style:italic;font-size:clamp(2.4rem,4.5vw,3.6rem);color:var(--ink);letter-spacing:-.02em;margin:8px 0 14px}
+.insta-handle em{color:var(--ember)}
+.insta-sub{font-family:'Gloock',serif;font-style:italic;font-size:1.05rem;color:var(--stone);margin-bottom:8px}
+.insta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:40px}
+.insta-item{aspect-ratio:1;overflow:hidden;position:relative;background:var(--ink2);border-radius:4px}
+.insta-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.insta-item:hover img{transform:scale(1.07)}
+.insta-item::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(168,50,32,0) 0%,rgba(43,26,15,0) 100%);transition:background .3s;pointer-events:none}
+.insta-item:hover::after{background:linear-gradient(135deg,rgba(168,50,32,.14) 0%,rgba(43,26,15,.3) 100%)}
+.insta-cta-wrap{text-align:center}
+.insta-btn{display:inline-flex;align-items:center;gap:12px;padding:16px 36px;background:var(--ink);color:var(--flour);font-family:'Figtree',sans-serif;font-weight:700;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s}
+.insta-btn:hover{background:var(--ember);transform:translateY(-2px);box-shadow:0 14px 28px rgba(168,50,32,.3)}
+.insta-btn svg{width:18px;height:18px;fill:currentColor}
+.insta-meta{font-family:'Gloock',serif;font-style:italic;font-size:.92rem;color:var(--stone);margin-top:16px}
+.insta-meta strong{color:var(--ember);font-style:normal;font-weight:600}
+
+/* MENU QR + MENU DEL GIORNO */
+.qr-sec{background:var(--flour);position:relative}
+.qr-head{text-align:center;max-width:680px;margin:0 auto 48px}
+.qr-grid{display:grid;grid-template-columns:.9fr 1.3fr;gap:clamp(32px,5vw,68px);align-items:stretch}
+.qr-panel{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:36px 32px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.qr-box{width:220px;height:220px;padding:16px;background:#fff;border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;margin:0 auto}
+.qr-box svg,.qr-box canvas,.qr-box img{width:100%!important;height:100%!important;display:block}
+.qr-text{font-family:'Gloock',serif;font-style:italic;font-size:1rem;color:var(--stone);margin-top:22px;max-width:280px;line-height:1.5}
+.qr-dl{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:10px 22px;background:var(--ink);color:var(--flour);font-family:'Figtree',sans-serif;font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:100px;border:none;cursor:pointer;transition:all .25s}
+.qr-dl:hover{background:var(--ember);transform:translateY(-1px)}
+.menu-giorno{background:var(--ink);color:var(--flour);border-radius:10px;padding:40px clamp(24px,4vw,44px);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.menu-giorno::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(200,147,46,.14) 0%,transparent 60%);pointer-events:none}
+.menu-giorno-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid rgba(248,243,231,.12);position:relative;z-index:1}
+.menu-giorno-title{font-family:'Gloock',serif;font-size:clamp(1.6rem,2.6vw,2.1rem);color:var(--flour);letter-spacing:-.01em}
+.menu-giorno-title em{color:var(--wheat-l);font-style:italic}
+.menu-giorno-date{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--wheat-l);padding:6px 14px;background:rgba(200,147,46,.14);border:1px solid rgba(200,147,46,.3);border-radius:100px;white-space:nowrap}
+.menu-giorno-list{display:flex;flex-direction:column;position:relative;z-index:1;flex:1}
+.menu-giorno-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed rgba(248,243,231,.1);gap:14px}
+.menu-giorno-row:last-child{border-bottom:none}
+.menu-giorno-row-name{font-family:'Gloock',serif;font-size:1rem;color:rgba(248,243,231,.9)}
+.menu-giorno-row-name em{color:var(--wheat-l);font-style:italic}
+.menu-giorno-row-cat{font-family:'Figtree',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--wheat-l);margin-bottom:2px;display:block}
+.menu-giorno-row-price{font-family:'Gloock',serif;font-size:1.05rem;font-style:italic;color:var(--wheat);white-space:nowrap}
+.menu-giorno-note{font-family:'Gloock',serif;font-style:italic;font-size:.88rem;color:rgba(248,243,231,.65);margin-top:20px;padding-top:18px;border-top:1px dotted rgba(248,243,231,.1);position:relative;z-index:1}
+.menu-giorno-cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:13px 28px;background:var(--ember);color:var(--flour);font-family:'Figtree',sans-serif;font-weight:700;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border-radius:100px;align-self:flex-start;transition:all .3s;position:relative;z-index:1}
+.menu-giorno-cta:hover{background:var(--ember-d);transform:translateY(-2px)}
+
+/* PANE DEL GIORNO — abbonamento */
+.abb-sec{background:var(--cream);position:relative}
+.abb-head{text-align:center;max-width:720px;margin:0 auto 56px}
+.abb-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
+.abb-step{padding:34px 28px;background:var(--flour);border:1px solid var(--border);border-radius:10px;text-align:center;position:relative;transition:all .3s}
+.abb-step:hover{transform:translateY(-4px);border-color:var(--ember);box-shadow:var(--shadow)}
+.abb-step-icon{font-size:3rem;line-height:1;margin-bottom:20px;display:block}
+.abb-step-num{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ember);margin-bottom:10px}
+.abb-step h4{font-family:'Gloock',serif;font-size:1.15rem;color:var(--ink);margin-bottom:10px;line-height:1.3;letter-spacing:-.005em}
+.abb-step p{font-family:'Gloock',serif;font-style:italic;font-size:.92rem;color:var(--stone);line-height:1.5}
+.abb-examples{background:var(--ink);color:var(--flour);border-radius:10px;padding:36px clamp(24px,4vw,44px);margin-bottom:32px;position:relative;overflow:hidden}
+.abb-examples::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 85%,rgba(200,147,46,.12) 0%,transparent 55%);pointer-events:none}
+.abb-examples-title{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--wheat-l);margin-bottom:18px;position:relative;z-index:1}
+.abb-examples-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative;z-index:1}
+.abb-example{padding:16px 18px;background:rgba(248,243,231,.05);border:1px solid rgba(248,243,231,.1);border-radius:6px;font-family:'Gloock',serif;font-style:italic;font-size:.98rem;color:rgba(248,243,231,.9)}
+.abb-example::before{content:'“';color:var(--wheat-l);font-size:1.6rem;line-height:0;display:inline-block;vertical-align:-.3em;margin-right:4px}
+.abb-pitch{font-family:'Gloock',serif;font-style:italic;font-size:clamp(1.1rem,1.8vw,1.4rem);color:var(--ink2);text-align:center;margin-bottom:28px}
+.abb-cta-wrap{text-align:center}
+
+/* EVENT BOX CALCULATOR */
+.calc{margin-top:56px;padding:40px clamp(24px,4vw,48px);background:var(--flour);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow-sm,0 6px 18px rgba(43,26,15,.06))}
+.calc-head{text-align:center;margin-bottom:28px}
+.calc-kicker{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ember);margin-bottom:8px}
+.calc-title{font-family:'Gloock',serif;font-size:clamp(1.4rem,2.4vw,1.9rem);color:var(--ink);letter-spacing:-.01em}
+.calc-title em{color:var(--ember);font-style:italic}
+.calc-controls{max-width:640px;margin:0 auto}
+.calc-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.calc-label-txt{font-family:'Figtree',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--stone)}
+.calc-label-val{font-family:'Gloock',serif;font-style:italic;font-size:2rem;color:var(--ember);line-height:1}
+.calc-slider{width:100%;-webkit-appearance:none;appearance:none;height:6px;background:var(--border);border-radius:100px;outline:none;cursor:pointer}
+.calc-slider::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;background:var(--ember);border-radius:50%;cursor:pointer;border:3px solid var(--flour);box-shadow:0 3px 10px rgba(168,50,32,.4);transition:transform .2s}
+.calc-slider::-webkit-slider-thumb:hover{transform:scale(1.15)}
+.calc-slider::-moz-range-thumb{width:24px;height:24px;background:var(--ember);border-radius:50%;cursor:pointer;border:3px solid var(--flour);box-shadow:0 3px 10px rgba(168,50,32,.4)}
+.calc-range-labels{display:flex;justify-content:space-between;margin-top:8px;font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:1.5px;color:var(--mute);font-weight:600}
+.calc-result{margin-top:32px;padding:28px 26px;background:var(--ink);color:var(--flour);border-radius:8px;position:relative;overflow:hidden;transition:opacity .4s,transform .4s}
+.calc-result::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 90% 10%,rgba(200,147,46,.14) 0%,transparent 55%);pointer-events:none}
+.calc-result-kicker{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--wheat-l);margin-bottom:8px;position:relative;z-index:1}
+.calc-result-main{font-family:'Gloock',serif;font-size:clamp(1.2rem,2vw,1.5rem);color:var(--flour);line-height:1.3;position:relative;z-index:1}
+.calc-result-main em{color:var(--wheat-l);font-style:italic}
+.calc-result-meta{display:flex;gap:18px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(248,243,231,.12);position:relative;z-index:1;flex-wrap:wrap}
+.calc-result-price{font-family:'Gloock',serif;font-style:italic;font-size:1.6rem;color:#E6745A}
+.calc-result-pieces{font-family:'Figtree',sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(248,243,231,.7);align-self:center}
+.calc-alt{text-align:center;margin-top:18px;font-family:'Gloock',serif;font-style:italic;font-size:.95rem;color:var(--stone)}
+.calc-alt a{color:var(--ember);text-decoration:underline;text-decoration-color:rgba(168,50,32,.3);text-underline-offset:3px;transition:color .2s}
+.calc-alt a:hover{color:var(--ember-d)}
+
+/* CATERING */
+.cater-sec{background:var(--ink);color:var(--flour);position:relative;overflow:hidden}
+.cater-sec::before{content:'';position:absolute;top:-20%;right:-10%;width:55%;height:140%;background:radial-gradient(ellipse at center,rgba(200,147,46,.1) 0%,transparent 60%);pointer-events:none}
+.cater-head{max-width:720px;margin:0 auto 48px;text-align:center;position:relative;z-index:1}
+.cater-head .tag{color:var(--wheat-l)}.cater-head .tag::before{background:var(--wheat-l)}
+.cater-head .hdg{color:var(--flour)}.cater-head .hdg em{color:var(--wheat-l)}
+.cater-head .desc{color:rgba(248,243,231,.78)}
+.cater-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;z-index:1;margin-bottom:32px}
+.cater-card{padding:32px 28px;background:rgba(248,243,231,.04);border:1px solid rgba(248,243,231,.12);border-radius:10px;transition:all .3s;display:flex;flex-direction:column}
+.cater-card:hover{background:rgba(248,243,231,.07);border-color:var(--wheat);transform:translateY(-4px)}
+.cater-card.feat{background:rgba(200,147,46,.08);border-color:rgba(200,147,46,.4)}
+.cater-tag{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--wheat-l);margin-bottom:10px}
+.cater-card h3{font-family:'Gloock',serif;font-size:1.4rem;color:var(--flour);margin-bottom:12px;letter-spacing:-.01em}
+.cater-price{display:flex;align-items:baseline;gap:6px;padding:14px 0;margin-bottom:16px;border-top:1px dashed rgba(248,243,231,.15);border-bottom:1px dashed rgba(248,243,231,.15)}
+.cater-price-val{font-family:'Gloock',serif;font-style:italic;font-size:2rem;color:var(--wheat-l);line-height:1}
+.cater-price.feat .cater-price-val{color:#E6745A}
+.cater-price-lbl{font-family:'Figtree',sans-serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(248,243,231,.6)}
+.cater-card ul{list-style:none;margin-bottom:16px;flex:1}
+.cater-card li{padding:6px 0;font-size:.9rem;color:rgba(248,243,231,.85);line-height:1.5}
+.cater-card li::before{content:'·';color:var(--wheat-l);font-weight:700;font-size:1.4rem;margin-right:8px;line-height:1}
+.cater-min{font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--wheat-l);font-weight:600;margin-top:auto;padding-top:10px;border-top:1px dotted rgba(248,243,231,.12)}
+.cater-note{text-align:center;font-family:'Gloock',serif;font-style:italic;font-size:1.05rem;color:rgba(248,243,231,.78);position:relative;z-index:1;margin-bottom:22px}
+.cater-note strong{color:var(--wheat-l);font-style:normal;font-family:'Figtree',sans-serif;font-weight:600;font-size:11px;letter-spacing:2px;text-transform:uppercase;display:inline-block;padding:3px 10px;background:rgba(200,147,46,.14);border-radius:100px;margin-right:10px}
+
+/* BUONO REGALO */
+.gift-sec{background:var(--flour);position:relative;overflow:hidden}
+.gift-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,80px);align-items:center}
+.gift-visual{position:relative;aspect-ratio:3/2;display:flex;align-items:center;justify-content:center}
+.gift-card-svg{width:100%;max-width:420px;height:auto;filter:drop-shadow(0 24px 50px rgba(43,26,15,.18))}
+.gift-tiers{display:flex;flex-direction:column;gap:12px;margin:28px 0}
+.gift-tier{display:flex;align-items:center;gap:16px;padding:18px 22px;background:var(--cream);border:1px solid var(--border);border-radius:8px;transition:all .3s;cursor:pointer;text-decoration:none}
+.gift-tier:hover{border-color:var(--ember);transform:translateX(4px);box-shadow:var(--shadow)}
+.gift-tier-amt{font-family:'Gloock',serif;font-style:italic;font-size:clamp(1.6rem,2.4vw,2rem);color:var(--ember);line-height:1;min-width:85px;white-space:nowrap}
+.gift-tier-txt{font-family:'Gloock',serif;font-style:italic;font-size:.98rem;color:var(--ink2);line-height:1.45}
+.gift-how{margin-top:26px;padding:22px 26px;background:var(--ink);color:var(--flour);border-radius:8px}
+.gift-how-title{font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--wheat-l);margin-bottom:12px}
+.gift-how-list{list-style:none;counter-reset:giftsteps}
+.gift-how-list li{counter-increment:giftsteps;padding:6px 0;font-family:'Gloock',serif;font-style:italic;font-size:.95rem;color:rgba(248,243,231,.85);position:relative;padding-left:28px}
+.gift-how-list li::before{content:counter(giftsteps);position:absolute;left:0;top:6px;width:20px;height:20px;background:var(--ember);color:var(--flour);border-radius:50%;font-family:'Figtree',sans-serif;font-size:10px;font-weight:700;font-style:normal;display:flex;align-items:center;justify-content:center}
+
+/* PER I TURISTI */
+.tour-sec{background:var(--cream);position:relative;overflow:hidden}
+.tour-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,5vw,60px);align-items:center}
+.tour-content .hdg{margin-bottom:12px}
+.tour-sub{font-family:'Gloock',serif;font-style:italic;font-size:1.2rem;color:var(--ember);margin-bottom:18px}
+.tour-loc{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:var(--flour);border:1px solid var(--border);border-radius:100px;font-family:'Figtree',sans-serif;font-size:11px;font-weight:600;letter-spacing:1.2px;color:var(--ink2);margin-bottom:24px}
+.tour-loc-ico{font-size:1.1rem}
+.tour-try{list-style:none;margin:22px 0}
+.tour-try li{display:flex;gap:14px;padding:14px 0;border-bottom:1px dotted var(--border);align-items:flex-start}
+.tour-try li:last-child{border-bottom:none}
+.tour-try-ico{font-size:1.6rem;line-height:1;flex-shrink:0}
+.tour-try-txt{font-family:'Gloock',serif;font-style:italic;font-size:1rem;color:var(--ink2);line-height:1.5}
+.tour-try-txt strong{font-style:normal;font-weight:600;color:var(--ink);display:block;margin-bottom:2px;font-family:'Figtree',sans-serif;font-size:.92rem;letter-spacing:.5px}
+.tour-smile{padding:18px 22px;background:var(--ink);color:var(--flour);border-radius:8px;font-family:'Gloock',serif;font-style:italic;font-size:1.02rem;margin-bottom:22px}
+.tour-visual{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow)}
+.tour-visual img{width:100%;height:100%;object-fit:cover}
+
+/* WHATSAPP */
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s,box-shadow .3s}
+.wa:hover{transform:scale(1.08);box-shadow:0 14px 32px rgba(37,211,102,.5)}
+.wa svg{width:28px;height:28px;fill:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+    .cat-grid{grid-template-columns:repeat(4,1fr)}
+    .cat-card:nth-child(1){grid-column:span 4;grid-row:span 1}
+    .cat-card:nth-child(1) .cat-media{aspect-ratio:16/9}
+    .cat-card:nth-child(n+2){grid-column:span 2}
+}
+@media(max-width:900px){
+    .storia-grid,.prezzi-grid,.ordina-grid,.loc-grid{grid-template-columns:1fr}
+    .forno-steps{grid-template-columns:1fr}
+    .storia-counters{grid-template-columns:1fr 1fr 1fr}
+    .storia-poem-line{font-size:1.15rem;line-height:1.8}
+    .foot-inner{grid-template-columns:1fr}
+    .hero-meta{gap:18px}
+    .giorni-grid{grid-template-columns:1fr}
+    .giorno-card{min-height:340px}
+    .event-grid{grid-template-columns:1fr}
+    .buffet-grid{grid-template-columns:1fr}
+    .buffet-cta-row{flex-direction:column;align-items:flex-start}
+    .pane-masonry{column-count:2}
+    .panini-cards{grid-template-columns:1fr}
+    .panini-hero{aspect-ratio:auto;min-height:440px}
+    .panini-price-badge{position:static;margin-top:20px}
+    .insta-grid{grid-template-columns:repeat(3,1fr);gap:6px}
+    .owners-row{grid-template-columns:1fr 1fr;gap:8px}
+    .owner-circle{width:90px;height:90px}
+    .qr-grid,.gift-grid,.tour-grid{grid-template-columns:1fr}
+    .abb-steps,.abb-examples-grid{grid-template-columns:1fr}
+    .cater-grid{grid-template-columns:1fr}
+    .tour-visual{max-width:420px;margin:0 auto}
+    .gallery-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+    .sec,.insta-sec,.feste-wrap{padding-top:40px;padding-bottom:40px}
+    .nav-links{display:none}
+    .nav-mobile{display:block}
+    .fg-row{grid-template-columns:1fr}
+    .cat-grid{grid-template-columns:1fr 1fr}
+    .cat-card:nth-child(n){grid-column:span 2}
+    .cat-card:nth-child(n) .cat-media{aspect-ratio:1}
+    .hero-ctas{flex-direction:column;align-items:stretch}
+    .hero-ctas .btn{justify-content:center}
+    .storia-counters{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+    .hero-bg-v,.storia-video-wrap video,.feste-bg-v,.cat-media video,.panini-hero-video{display:none}
+}
+</style>
+</head>
+<body>
+<div class="scroll-progress"></div>
+<div class="lang-toggle">
+    <button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
+</div>
+
+<nav id="mainNav">
+    <a href="#" class="nav-logo"><img class="nav-logo-img" src="./photos/logo.png" alt="Zio Peppe">Spiga d'<em>Oro</em></a>
+    <ul class="nav-links">
+        <li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li>
+        <li><a href="#prodotti"><span class="t-it">Prodotti</span><span class="t-en">Products</span></a></li>
+        <li><a href="#pane"><span class="t-it">Pane</span><span class="t-en">Bread</span></a></li>
+        <li><a href="#panini">Panini</a></li>
+        <li><a href="#menu-del-giorno">Menu</a></li>
+        <li><a href="#giorni"><span class="t-it">Giorni Speciali</span><span class="t-en">Special Days</span></a></li>
+        <li><a href="#feste"><span class="t-it">Feste</span><span class="t-en">Holidays</span></a></li>
+        <li><a href="#event-box">Event Box</a></li>
+        <li><a href="#buffet">Buffet</a></li>
+        <li><a href="#ordina"><span class="t-it">Ordina</span><span class="t-en">Order</span></a></li>
+    </ul>
+    <button class="nav-mobile" aria-label="Menu">&#9776;</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <video class="hero-bg-v" autoplay muted loop playsinline preload="auto">
+        <source src="./videos/hero-forno.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+        <div class="hero-year">
+            <span>Dal <strong>1970</strong></span>
+            <span class="hero-year-sep">·</span>
+            <span>55 <span class="t-it">anni</span><span class="t-en">years</span></span>
+            <span class="hero-year-sep">·</span>
+            <span>Scalea</span>
+        </div>
+        <h1>Spiga <em>d'Oro</em></h1>
+        <p class="hero-sub"><span class="t-it">Panificio Artigianale</span><span class="t-en">Artisan Bakery</span><span class="hero-sub-dot">·</span><span class="t-it">da Zio Peppe</span><span class="t-en">da Zio Peppe</span></p>
+        <p class="hero-lead t-it">Dalla tradizione italiana. Pane, pizza e panini come una volta. Fatto a mano, servito con amore.</p>
+        <p class="hero-lead t-en">From Italian tradition. Bread, pizza and sandwiches like they used to be. Made by hand, served with love.</p>
+        <p class="hero-lead t-ru">Хлеб Скалеи с 1970 года. Семейная закваска, дровяная печь, свежие панини каждое утро. Ручная работа, подано с любовью.</p>
+        <div class="hero-meta">
+            <div class="hero-meta-item"><span class="hero-meta-val"><em>4.5</em></span><span class="hero-meta-lbl">Google &#9733;</span></div>
+            <div class="hero-meta-item"><span class="hero-meta-val">199</span><span class="hero-meta-lbl"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+            <div class="hero-meta-item"><span class="hero-meta-val">20K+</span><span class="hero-meta-lbl"><span class="t-it">Clienti</span><span class="t-en">Customers</span></span></div>
+            <div class="hero-meta-item"><span class="hero-meta-val">€8</span><span class="hero-meta-lbl"><span class="t-it">Pranzo completo</span><span class="t-en">Full lunch</span></span></div>
+        </div>
+        <div class="hero-ctas">
+            <a href="https://wa.me/393297224222" target="_blank" rel="noopener" class="btn btn-primary">
+                <span class="t-it">Ordina su WhatsApp</span><span class="t-en">Order on WhatsApp</span> &rarr;
+            </a>
+            <a href="#prodotti" class="btn btn-ghost">
+                <span class="t-it">I nostri prodotti</span><span class="t-en">Our products</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+        <div class="mq-item">Pane <span class="dot">·</span> <span class="em">Panini Farciti</span> <span class="dot">·</span> Pizza &amp; Pizzette <span class="dot">·</span> <span class="em">Rosticceria</span> <span class="dot">·</span> Dolci <span class="dot">·</span> <span class="em">Feste</span> <span class="dot">·</span></div>
+        <div class="mq-item">Pane <span class="dot">·</span> <span class="em">Panini Farciti</span> <span class="dot">·</span> Pizza &amp; Pizzette <span class="dot">·</span> <span class="em">Rosticceria</span> <span class="dot">·</span> Dolci <span class="dot">·</span> <span class="em">Feste</span> <span class="dot">·</span></div>
+    </div>
+</div>
+
+<!-- STORIA -->
+<section class="sec storia" id="storia">
+    <div class="wrap">
+        <div class="storia-grid">
+            <div class="storia-video-wrap reveal">
+                <img src="./photos/pane-casereccio.png" alt="Pane casereccio con la croce di farina" loading="lazy">
+                <div class="storia-video-tag t-it">La croce di farina, il simbolo di Zio Peppe</div>
+                <div class="storia-video-tag t-en">The flour cross, Zio Peppe's signature</div>
+                <div class="storia-video-tag t-ru">Крест из муки — символ дяди Пеппе</div>
+            </div>
+            <div class="reveal">
+                <p class="tag"><span class="t-it">La Nostra Storia</span><span class="t-en">Our Story</span></p>
+                <h2 class="hdg t-it">55 anni <em>dello stesso</em><br>lievito madre.</h2>
+                <h2 class="hdg t-en">55 years of <em>the same</em><br>sourdough starter.</h2>
+                <h2 class="hdg t-ru">55 лет <em>одной</em><br>закваски.</h2>
+                <p class="desc t-it">Zio Peppe ha acceso il forno nel 1970, con un pezzo di lievito madre che da allora rinfreschiamo ogni giorno. Maria ha dato il cuore. Oggi Antonio e Valentina continuano la tradizione &mdash; stesso lievito, stesse mani, nuove idee. Questo pane ha un sapore che non si compra &mdash; si eredita.</p>
+                <p class="desc t-en">Zio Peppe lit the oven in 1970, with a piece of sourdough starter we've been refreshing every day since. Maria gave it heart. Today Antonio and Valentina carry on the tradition &mdash; same starter, same hands, new ideas. This bread has a flavour you can't buy &mdash; you inherit it.</p>
+                <p class="desc t-ru">Дядя Пеппе зажёг печь в 1970 году с кусочком закваски, которую мы обновляем каждый день. Мария вложила душу. Сегодня Антонио и Валентина продолжают традицию &mdash; та же закваска, те же руки, новые идеи. У этого хлеба вкус, который нельзя купить &mdash; его наследуют.</p>
+                <div class="storia-poem">
+                    <p class="storia-poem-line t-it">Zio Peppe ha acceso il forno nel 1970.</p>
+                    <p class="storia-poem-line t-en">Zio Peppe lit the oven in 1970.</p>
+                    <p class="storia-poem-line t-ru">Дядя Пеппе зажёг печь в 1970.</p>
+                    <p class="storia-poem-line t-it">Maria ha dato il cuore.</p>
+                    <p class="storia-poem-line t-en">Maria gave it heart.</p>
+                    <p class="storia-poem-line t-ru">Мария вложила душу.</p>
+                    <p class="storia-poem-line t-it">Antonio e Valentina continuano la tradizione. Stesso lievito, stesse mani, nuove idee.</p>
+                    <p class="storia-poem-line t-en">Antonio and Valentina carry on. Same starter, same hands, new ideas.</p>
+                    <p class="storia-poem-line t-ru">Антонио и Валентина продолжают традицию. Та же закваска, те же руки, новые идеи.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- IL FORNO -->
+<section class="sec forno-sec" id="forno">
+    <div class="wrap">
+        <div class="forno-head reveal">
+            <p class="tag"><span class="t-it">Il Forno</span><span class="t-en">The Oven</span></p>
+            <h2 class="hdg t-it">Ogni mattina alle <em>4</em>,<br>il forno si accende.</h2>
+            <h2 class="hdg t-en">Every morning at <em>4</em>,<br>the oven lights up.</h2>
+            <p class="desc t-it">Tre passaggi, niente fretta. &Egrave; il tempo che fa la differenza tra il pane e il nostro pane.</p>
+            <p class="desc t-en">Three steps, no rush. It's time that makes the difference between bread and our bread.</p>
+        </div>
+        <div class="forno-steps reveal stagger-parent">
+            <div class="forno-step stagger-child">
+                <div class="forno-step-video">
+                    <video autoplay muted loop playsinline preload="metadata">
+                        <source src="./videos/impastare.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="forno-step-num"><span class="t-it">Passo I</span><span class="t-en">Step I</span></div>
+                <h3 class="t-it">Impastare all'alba</h3>
+                <h3 class="t-en">Knead at dawn</h3>
+                <h3 class="t-ru">Замесить на рассвете</h3>
+                <p class="t-it">Farina di grano tenero, acqua delle fonti, sale, lievito madre. A mano, ancora.</p>
+                <p class="t-en">Soft wheat flour, spring water, salt, sourdough. By hand, still.</p>
+            </div>
+            <div class="forno-step stagger-child">
+                <div class="forno-step-video">
+                    <video autoplay muted loop playsinline preload="metadata">
+                        <source src="./videos/lievitare.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="forno-step-num"><span class="t-it">Passo II</span><span class="t-en">Step II</span></div>
+                <h3 class="t-it">Lievitare 12 ore</h3>
+                <h3 class="t-en">Rise 12 hours</h3>
+                <h3 class="t-ru">Дать подойти 24 часа</h3>
+                <p class="t-it">Il tempo che serve perch&eacute; il pane prenda aria, sapore, carattere.</p>
+                <p class="t-en">The time it takes for the bread to find air, flavour, character.</p>
+            </div>
+            <div class="forno-step stagger-child">
+                <div class="forno-step-video">
+                    <video autoplay muted loop playsinline preload="metadata">
+                        <source src="./videos/sfornare.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="forno-step-num"><span class="t-it">Passo III</span><span class="t-en">Step III</span></div>
+                <h3 class="t-it">Sfornare caldo</h3>
+                <h3 class="t-en">Out of the oven, hot</h3>
+                <h3 class="t-ru">Выпечь при 450°C</h3>
+                <p class="t-it">Alle 7:15 la porta si apre. Se senti il profumo &mdash; siamo noi.</p>
+                <p class="t-en">At 7:15 the door opens. If you smell the scent &mdash; it's us.</p>
+            </div>
+        </div>
+        <div class="forno-quote reveal">
+            <p class="t-it">&ldquo;Non esiste un pane veloce. Il tempo &egrave; l'ingrediente pi&ugrave; importante.&rdquo;</p>
+            <p class="t-en">&ldquo;There's no such thing as fast bread. Time is the most important ingredient.&rdquo;</p>
+            <div class="forno-quote-attr">Zio Peppe &middot; 1970</div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODOTTI -->
+<section class="sec prodotti" id="prodotti">
+    <div class="wrap">
+        <div class="prodotti-head reveal">
+            <p class="tag"><span class="t-it">I Nostri Prodotti</span><span class="t-en">Our Products</span></p>
+            <h2 class="hdg t-it">Sei <em>mondi</em> in un panificio.</h2>
+            <h2 class="hdg t-en">Six <em>worlds</em> in one bakery.</h2>
+            <p class="desc t-it">Dall'alba al tramonto, tutto fresco, tutto artigianale. Lo trovi tutto qui, caldo come appena fatto.</p>
+            <p class="desc t-en">From dawn to dusk, everything fresh, everything handmade. You'll find it all here, hot like just-baked.</p>
+        </div>
+        <div class="cat-grid reveal">
+            <div class="cat-card">
+                <div class="cat-media"><img src="./photos/pane-casereccio.png" alt="Pane casereccio Spiga d'Oro" loading="lazy"></div>
+                <div class="cat-body">
+                    <span class="cat-kicker"><span class="t-it">Prodotto Principe</span><span class="t-en">Signature</span></span>
+                    <h3><span class="t-it">Pane</span><span class="t-en">Bread</span><span class="t-ru">Хлеб</span></h3>
+                    <p class="t-it">Pane casereccio, mafaldine al sesamo, filoncini con speck e zucca, pane ai cereali e legumi. Forme che cambiano ogni giorno.</p>
+                    <p class="t-en">Country bread, sesame mafaldine, speck-and-pumpkin filoncini, multigrain &amp; legume bread. Shapes that change every day.</p>
+                    <span class="cat-price"><span class="t-it">dal</span><span class="t-en">from</span> &euro;1,80</span>
+                </div>
+            </div>
+            <div class="cat-card">
+                <div class="cat-media"><img src="./photos/focaccia-burrata.png" alt="Focaccia con burrata, mortadella e pistacchio" loading="lazy"></div>
+                <div class="cat-body">
+                    <span class="cat-kicker"><span class="t-it">Il più amato</span><span class="t-en">Most loved</span></span>
+                    <h3><span class="t-it">Panini Farciti</span><span class="t-en">Stuffed Sandwiches</span><span class="t-ru">Панини</span></h3>
+                    <p class="t-it">Focacce con burrata, mortadella e pistacchio. Rosette farcite con salumi calabresi, formaggi locali. Farciti al momento.</p>
+                    <p class="t-en">Focaccia with burrata, mortadella and pistachio. Rosette filled with Calabrian cured meats, local cheeses. Filled to order.</p>
+                    <span class="cat-price">2 <span class="t-it">panini</span><span class="t-en">sandwiches</span> &euro;2,60</span>
+                </div>
+            </div>
+            <div class="cat-card">
+                <div class="cat-media"><img src="./photos/pizza-mais.png" alt="Pizza di mais con patate e rosmarino" loading="lazy"></div>
+                <div class="cat-body">
+                    <span class="cat-kicker">Pizza</span>
+                    <h3><span class="t-it">Pizza &amp; Pizzette</span><span class="t-en">Pizza &amp; Pizzette</span><span class="t-ru">Пицца</span></h3>
+                    <p class="t-it">Pizza di mais con patate e rosmarino, margherita, rossa, bianca. Pizzette calde per la merenda.</p>
+                    <p class="t-en">Corn pizza with potatoes and rosemary, margherita, red, white. Hot pizzette for snacking.</p>
+                    <span class="cat-price"><span class="t-it">al trancio</span><span class="t-en">by the slice</span> &euro;2</span>
+                </div>
+            </div>
+            <div class="cat-card">
+                <div class="cat-media"><img src="./photos/calzone-fritto.png" alt="Calzone fritto con porchetta, mozzarella e scamorza affumicata" loading="lazy"></div>
+                <div class="cat-body">
+                    <span class="cat-kicker"><span class="t-it">Fritti Caldi</span><span class="t-en">Hot Fried</span></span>
+                    <h3><span class="t-it">Rosticceria</span><span class="t-en">Rotisserie</span><span class="t-ru">Выпечка</span></h3>
+                    <p class="t-it">Calzone fritto con porchetta, mozzarella e scamorza affumicata. Mini hot dog, arancini, rustici. La merenda che sparisce.</p>
+                    <p class="t-en">Fried calzone with porchetta, mozzarella and smoked scamorza. Mini hot dogs, arancini, rustici. The snack that vanishes.</p>
+                    <span class="cat-price"><span class="t-it">dal</span><span class="t-en">from</span> &euro;1,50</span>
+                </div>
+            </div>
+            <div class="cat-card">
+                <div class="cat-media"><img src="./photos/ciambelle.png" alt="Ciambelle di patate" loading="lazy"></div>
+                <div class="cat-body">
+                    <span class="cat-kicker"><span class="t-it">Per la Colazione</span><span class="t-en">For Breakfast</span></span>
+                    <h3><span class="t-it">Dolci</span><span class="t-en">Pastries</span><span class="t-ru">Сладости</span></h3>
+                    <p class="t-it">Ciambelle di patate, cornetti caldi, biscotti, crostate, pasticceria fresca. Torte su ordinazione.</p>
+                    <p class="t-en">Potato doughnuts, hot cornetti, biscuits, tarts, fresh pastries. Cakes to order.</p>
+                    <span class="cat-price"><span class="t-it">cornetto</span><span class="t-en">cornetto</span> &euro;1,50</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- IL NOSTRO PANE -->
+<section class="sec pane-sec" id="pane">
+    <div class="wrap">
+        <div class="pane-head reveal">
+            <p class="tag"><span class="t-it">Il Nostro Pane</span><span class="t-en">Our Bread</span></p>
+            <h2 class="hdg t-it">Forme diverse, <em>stessa farina madre</em>.</h2>
+            <h2 class="hdg t-en">Different shapes, <em>same mother flour</em>.</h2>
+            <p class="desc t-it">Sei tipi di pane, impastati a mano, sfornati ogni mattina. Ogni forma racconta una storia diversa.</p>
+            <p class="desc t-en">Six kinds of bread, hand-kneaded, baked fresh every morning. Each shape tells a different story.</p>
+        </div>
+        <div class="pane-masonry reveal">
+            <div class="pane-item">
+                <img src="./photos/pane-casereccio.png" alt="Pane casereccio con la croce di farina" loading="lazy">
+                <div class="pane-overlay">
+                    <div class="pane-overlay-name"><span class="t-it">Pane <em>Casereccio</em></span><span class="t-en">Country <em>Bread</em></span></div>
+                    <p class="pane-overlay-desc t-it">Con la croce di farina, come una volta.</p>
+                    <p class="pane-overlay-desc t-en">With the flour cross, like the old days.</p>
+                </div>
+            </div>
+            <div class="pane-item">
+                <img src="./photos/mafaldine.png" alt="Mafaldine con sesamo" loading="lazy">
+                <div class="pane-overlay">
+                    <div class="pane-overlay-name"><span class="t-it">Mafaldine <em>con sesamo</em></span><span class="t-en">Sesame <em>Mafaldine</em></span></div>
+                    <p class="pane-overlay-desc t-it">La forma che riconosci al primo sguardo.</p>
+                    <p class="pane-overlay-desc t-en">Recognisable at a glance.</p>
+                </div>
+            </div>
+            <div class="pane-item">
+                <img src="./photos/panini-buffet.png" alt="Francesini classici" loading="lazy">
+                <div class="pane-overlay">
+                    <div class="pane-overlay-name"><span class="t-it"><em>Francesini</em></span><span class="t-en">Classic <em>Francesini</em></span></div>
+                    <p class="pane-overlay-desc t-it">Croccanti fuori, morbidi dentro.</p>
+                    <p class="pane-overlay-desc t-en">Crisp outside, soft inside.</p>
+                </div>
+            </div>
+            <div class="pane-item">
+                <img src="./photos/filoncini.png" alt="Filoncini salati del giorno" loading="lazy">
+                <div class="pane-overlay">
+                    <div class="pane-overlay-name"><span class="t-it">Filoncini <em>salati</em></span><span class="t-en">Savoury <em>Filoncini</em></span></div>
+                    <p class="pane-overlay-desc t-it">Ogni giorno diversi.</p>
+                    <p class="pane-overlay-desc t-en">Different every day.</p>
+                </div>
+            </div>
+            <div class="pane-item">
+                <img src="./photos/filoncini-zucca.png" alt="Filoncini con speck e zucca" loading="lazy">
+                <div class="pane-overlay">
+                    <div class="pane-overlay-name"><span class="t-it">Speck &amp; <em>Zucca</em></span><span class="t-en">Speck &amp; <em>Pumpkin</em></span></div>
+                    <p class="pane-overlay-desc t-it">Il filoncino del giorno.</p>
+                    <p class="pane-overlay-desc t-en">The loaf of the day.</p>
+                </div>
+            </div>
+            <div class="pane-item">
+                <img src="./photos/pane-cereali.png" alt="Pane ai cereali e legumi" loading="lazy">
+                <div class="pane-overlay">
+                    <div class="pane-overlay-name"><span class="t-it">Cereali &amp; <em>Legumi</em></span><span class="t-en">Grains &amp; <em>Legumes</em></span></div>
+                    <p class="pane-overlay-desc t-it">Gusto e salute.</p>
+                    <p class="pane-overlay-desc t-en">Flavour &amp; health.</p>
+                </div>
+            </div>
+        </div>
+        <p class="pane-footnote reveal"><span class="t-it">Sfornato ogni mattina <em>alle 7</em>. Mai del giorno prima.</span><span class="t-en">Baked every morning <em>at 7</em>. Never from the day before.</span><span class="t-ru">Выпекается каждое утро <em>в 7</em>. Никогда не вчерашний.</span></p>
+    </div>
+</section>
+
+<!-- PANINI D'AUTORE -->
+<section class="sec panini-sec" id="panini">
+    <div class="wrap">
+        <div class="panini-hero reveal">
+            <img src="./photos/focaccia-farcita.png" alt="Focaccia farcita Spiga d'Oro">
+            <video class="panini-hero-video" autoplay muted loop playsinline preload="auto">
+                <source src="./videos/hands-dough.mp4" type="video/mp4">
+            </video>
+            <div class="panini-hero-overlay">
+                <div class="panini-hero-content">
+                    <p class="tag"><span class="t-it">Panini d'Autore</span><span class="t-en">Signature Sandwiches</span></p>
+                    <h2 class="hdg t-it">Il pranzo più <em>onesto</em><br>di Scalea.</h2>
+                    <h2 class="hdg t-en">The most <em>honest</em> lunch<br>in Scalea.</h2>
+                    <h2 class="hdg t-ru">Самый <em>честный</em> обед<br>в Скалее.</h2>
+                    <p class="desc t-it">Farciti al momento con salumi calabresi e formaggi locali. Ogni panino una firma, nessuno uguale all'altro.</p>
+                    <p class="desc t-en">Filled on the spot with Calabrian cured meats and local cheeses. Each sandwich a signature, no two alike.</p>
+                </div>
+            </div>
+            <div class="panini-price-badge">
+                <div class="panini-price-lbl"><span class="t-it">Da</span><span class="t-en">From</span></div>
+                <div class="panini-price-big">&euro;1,30</div>
+                <div class="panini-price-sub"><span class="t-it">2 panini = &euro;2,60</span><span class="t-en">2 sandwiches = &euro;2,60</span></div>
+            </div>
+        </div>
+
+        <div class="panini-cards reveal stagger-parent">
+            <div class="panini-card stagger-child">
+                <div class="panini-card-img"><img src="./photos/focaccia-burrata.png" alt="Focaccia burrata mortadella e pistacchio" loading="lazy"></div>
+                <div class="panini-card-body">
+                    <div class="panini-card-kicker"><span class="t-it">Il nostro bestseller</span><span class="t-en">Our bestseller</span></div>
+                    <div class="panini-card-name"><span class="t-it">Focaccia Burrata, Mortadella &amp; Pistacchio</span><span class="t-en">Focaccia Burrata, Mortadella &amp; Pistachio</span></div>
+                    <p class="panini-card-tag t-it">Morbida, cremosa, con il profumo del forno ancora addosso.</p>
+                    <p class="panini-card-tag t-en">Soft, creamy, still carrying the scent of the oven.</p>
+                </div>
+            </div>
+            <div class="panini-card stagger-child">
+                <div class="panini-card-img"><img src="./photos/panini-buffet.png" alt="Classico con prosciutto" loading="lazy"></div>
+                <div class="panini-card-body">
+                    <div class="panini-card-kicker"><span class="t-it">Il classico</span><span class="t-en">The classic</span></div>
+                    <div class="panini-card-name"><span class="t-it">Classico con <em>prosciutto</em></span><span class="t-en">Classic with <em>prosciutto</em></span></div>
+                    <p class="panini-card-tag t-it">Pane fresco, prosciutto cotto, un filo d'olio. La ricetta della nonna.</p>
+                    <p class="panini-card-tag t-en">Fresh bread, cooked ham, a drizzle of oil. Grandma's recipe.</p>
+                </div>
+            </div>
+            <div class="panini-card stagger-child">
+                <div class="panini-card-img"><img src="./photos/mini-hotdog.png" alt="Mini hot dog del panificio" loading="lazy"></div>
+                <div class="panini-card-body">
+                    <div class="panini-card-kicker"><span class="t-it">Per i piccoli (e non solo)</span><span class="t-en">For kids (and not only)</span></div>
+                    <div class="panini-card-name"><span class="t-it">Mini <em>Hot Dog</em></span><span class="t-en">Mini <em>Hot Dog</em></span></div>
+                    <p class="panini-card-tag t-it">Spariscono prima di dire 'mordi!'</p>
+                    <p class="panini-card-tag t-en">Gone before you can say 'bite!'</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="panini-counter reveal">
+            <div class="panini-counter-val"><em>20.000+</em></div>
+            <p class="panini-counter-lbl"><span class="t-it">panini venduti ogni estate</span><span class="t-en">sandwiches sold every summer</span></p>
+        </div>
+    </div>
+</section>
+
+<!-- I GIORNI SPECIALI -->
+<section class="sec giorni" id="giorni">
+    <div class="wrap">
+        <div style="text-align:center;margin-bottom:48px;max-width:680px;margin-left:auto;margin-right:auto" class="reveal">
+            <p class="tag"><span class="t-it">I Giorni Speciali</span><span class="t-en">Special Days</span></p>
+            <h2 class="hdg t-it">Ogni settimana, <em>una sorpresa</em>.</h2>
+            <h2 class="hdg t-en">Every week, <em>a surprise</em>.</h2>
+            <p class="desc t-it">Alcune cose le facciamo solo certi giorni. La nostra agenda settimanale &mdash; segnatela sul calendario.</p>
+            <p class="desc t-en">Some things we make only on certain days. Our weekly agenda &mdash; mark your calendar.</p>
+        </div>
+        <div class="giorni-grid reveal">
+            <div class="giorno-card">
+                <div class="giorno-card-img"><img src="./photos/porchetta.png" alt="Porchetta del giovedì" loading="lazy"></div>
+                <div class="giorno-card-body">
+                    <span class="giorno-day"><span class="t-it">Ogni Giovedì</span><span class="t-en">Every Thursday</span></span>
+                    <h3 class="t-it">Il giovedì è il giorno della <em>Porchetta</em>.</h3>
+                    <h3 class="t-en">Thursday is <em>Porchetta</em> day.</h3>
+                    <h3 class="t-ru">Четверг — день <em>Порketты</em>.</h3>
+                    <p class="t-it">Porchetta calda, croccante fuori, morbida dentro. Servita nel panino o al taglio. Solo il giovedì &mdash; finch&eacute; finisce.</p>
+                    <p class="t-en">Hot porchetta, crispy outside, tender inside. Served in a sandwich or sliced. Only on Thursday &mdash; until it runs out.</p>
+                </div>
+            </div>
+            <div class="giorno-card giorno-secondary">
+                <div class="giorno-card-img"><img src="./photos/filoncini.png" alt="Filoncini salati ogni giorno" loading="lazy"></div>
+                <div class="giorno-card-body">
+                    <span class="giorno-day"><span class="t-it">Tutti i Giorni</span><span class="t-en">Every Day</span></span>
+                    <h3 class="t-it"><em>Filoncini</em> salati &mdash;<br>ogni giorno diversi.</h3>
+                    <h3 class="t-en"><em>Savoury filoncini</em> &mdash;<br>different every day.</h3>
+                    <p class="t-it">Speck e zucca, olive e rosmarino, semi e cereali. Quello che la mattina decide il fornaio.</p>
+                    <p class="t-en">Speck &amp; pumpkin, olives &amp; rosemary, seeds &amp; grains. Whatever the baker decides in the morning.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MENU QR CODE + MENU DEL GIORNO -->
+<section class="sec qr-sec" id="menu-del-giorno">
+    <div class="wrap">
+        <div class="qr-head reveal">
+            <p class="tag"><span class="t-it">Il Nostro Menu</span><span class="t-en">Our Menu</span></p>
+            <h2 class="hdg t-it">Sempre <em>aggiornato</em>.</h2>
+            <h2 class="hdg t-en">Always <em>fresh</em>.</h2>
+            <p class="desc t-it">Il menu cambia ogni giorno. Scansiona, ordina, ritira &mdash; in tre mosse.</p>
+            <p class="desc t-en">The menu changes daily. Scan, order, pick up &mdash; in three moves.</p>
+        </div>
+        <div class="qr-grid">
+            <div class="qr-panel reveal">
+                <div class="qr-box" id="menuQR" aria-label="QR menu"></div>
+                <p class="qr-text t-it">Scansiona il QR nel nostro negozio per vedere il menu del giorno.</p>
+                <p class="qr-text t-en">Scan the QR in our shop to see today's menu.</p>
+                <button type="button" class="qr-dl" onclick="downloadMenuQR()" aria-label="Scarica QR">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
+                    <span class="t-it">Scarica PNG</span><span class="t-en">Download PNG</span>
+                </button>
+            </div>
+            <div class="menu-giorno reveal">
+                <div class="menu-giorno-head">
+                    <h3 class="menu-giorno-title"><span class="t-it">Menu del <em>Giorno</em></span><span class="t-en">Menu of the <em>Day</em></span></h3>
+                    <span class="menu-giorno-date" id="menuDate">&mdash;</span>
+                </div>
+                <div class="menu-giorno-list">
+                    <div class="menu-giorno-row">
+                        <div><span class="menu-giorno-row-cat">Primo</span><span class="menu-giorno-row-name"><span class="t-it">Pasta al forno</span><span class="t-en">Baked pasta</span></span></div>
+                        <span class="menu-giorno-row-price">&euro;4</span>
+                    </div>
+                    <div class="menu-giorno-row">
+                        <div><span class="menu-giorno-row-cat">Secondo</span><span class="menu-giorno-row-name"><span class="t-it">Cotoletta con contorno</span><span class="t-en">Cutlet with side</span></span></div>
+                        <span class="menu-giorno-row-price">&euro;5</span>
+                    </div>
+                    <div class="menu-giorno-row">
+                        <div><span class="menu-giorno-row-cat"><span class="t-it">Panino del Giorno</span><span class="t-en">Sandwich of the Day</span></span><span class="menu-giorno-row-name"><span class="t-it">Porchetta e provola</span><span class="t-en">Porchetta &amp; provola</span></span></div>
+                        <span class="menu-giorno-row-price">&euro;3</span>
+                    </div>
+                    <div class="menu-giorno-row">
+                        <div><span class="menu-giorno-row-cat"><span class="t-it">Filoncino del Giorno</span><span class="t-en">Filoncino of the Day</span></span><span class="menu-giorno-row-name"><span class="t-it">Speck e zucca</span><span class="t-en">Speck &amp; pumpkin</span></span></div>
+                        <span class="menu-giorno-row-price">&euro;2,50</span>
+                    </div>
+                    <div class="menu-giorno-row">
+                        <div><span class="menu-giorno-row-cat"><span class="t-it">Pizza Speciale</span><span class="t-en">Special Pizza</span></span><span class="menu-giorno-row-name"><span class="t-it">Mais, patate, rosmarino</span><span class="t-en">Corn, potato, rosemary</span></span></div>
+                        <span class="menu-giorno-row-price">&euro;15 <span style="font-size:.7em;opacity:.6">/teglia</span></span>
+                    </div>
+                </div>
+                <p class="menu-giorno-note"><span class="t-it">Il menu cambia ogni giorno. Ordina su WhatsApp <strong style="color:var(--wheat-l)">prima delle 11:00</strong>.</span><span class="t-en">Menu changes daily. Order on WhatsApp <strong style="color:var(--wheat-l)">before 11:00 AM</strong>.</span></p>
+                <a href="https://wa.me/393297224222?text=Ciao%2C%20vorrei%20ordinare%20il%20pranzo%20del%20giorno" target="_blank" rel="noopener" class="menu-giorno-cta">
+                    <span class="t-it">Ordina il pranzo</span><span class="t-en">Order lunch</span> &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PANE DEL GIORNO — abbonamento -->
+<section class="sec abb-sec" id="pane-del-giorno">
+    <div class="wrap">
+        <div class="abb-head reveal">
+            <p class="tag"><span class="t-it">Pane del Giorno</span><span class="t-en">Daily Bread</span></p>
+            <h2 class="hdg t-it">Il tuo pane <em>ti aspetta</em>.</h2>
+            <h2 class="hdg t-en">Your bread <em>is waiting</em>.</h2>
+            <p class="desc t-it">Ordina la sera, ritira la mattina. Senza coda, senza attesa. Come al tempo del fornaio di una volta.</p>
+            <p class="desc t-en">Order in the evening, pick up in the morning. No queue, no wait. Like the old-time baker.</p>
+        </div>
+        <div class="abb-steps reveal stagger-parent">
+            <div class="abb-step stagger-child">
+                <span class="abb-step-icon">&#127769;</span>
+                <div class="abb-step-num">01</div>
+                <h4 class="t-it">La sera, scrivi su WhatsApp</h4>
+                <h4 class="t-en">In the evening, WhatsApp us</h4>
+                <p class="t-it">Dicci cosa vuoi domattina. Un messaggio e basta.</p>
+                <p class="t-en">Tell us what you want for tomorrow. One message, done.</p>
+            </div>
+            <div class="abb-step stagger-child">
+                <span class="abb-step-icon">&#127749;</span>
+                <div class="abb-step-num">02</div>
+                <h4 class="t-it">Alle 7:15 è pronto</h4>
+                <h4 class="t-en">Ready at 7:15</h4>
+                <p class="t-it">Il tuo pane caldo, col tuo nome sopra. Sfornato per te.</p>
+                <p class="t-en">Your hot bread, with your name on it. Baked for you.</p>
+            </div>
+            <div class="abb-step stagger-child">
+                <span class="abb-step-icon">&#9749;</span>
+                <div class="abb-step-num">03</div>
+                <h4 class="t-it">Ritiri e vai</h4>
+                <h4 class="t-en">Grab it and go</h4>
+                <p class="t-it">Zero attesa. Il tempo di un buongiorno.</p>
+                <p class="t-en">Zero wait. Just long enough to say good morning.</p>
+            </div>
+        </div>
+        <p class="abb-pitch reveal"><span class="t-it">Ideale per <em>famiglie, B&amp;B, ristoranti</em> e chi non vuole fare la fila.</span><span class="t-en">Perfect for <em>families, B&amp;Bs, restaurants</em> and anyone who hates queuing.</span></p>
+        <div class="abb-examples reveal">
+            <div class="abb-examples-title"><span class="t-it">Esempi di ordini</span><span class="t-en">Sample orders</span></div>
+            <div class="abb-examples-grid">
+                <div class="abb-example t-it">2 mafaldine + 1 pane casereccio</div>
+                <div class="abb-example t-en">2 mafaldine + 1 country loaf</div>
+                <div class="abb-example t-it">6 panini per il B&amp;B ogni mattina</div>
+                <div class="abb-example t-en">6 sandwiches for the B&amp;B each morning</div>
+                <div class="abb-example t-it">10 francesini per il ristorante</div>
+                <div class="abb-example t-en">10 francesini for the restaurant</div>
+            </div>
+        </div>
+        <div class="abb-cta-wrap reveal" style="margin-top:32px">
+            <a href="https://wa.me/393297224222?text=Ciao!%20Vorrei%20attivare%20il%20servizio%20Pane%20del%20Giorno.%20Ogni%20mattina%20vorrei..." target="_blank" rel="noopener" class="btn btn-primary">
+                <span class="t-it">Attiva il tuo Pane del Giorno</span><span class="t-en">Activate your Daily Bread</span> &rarr;
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- DOLCEZZE DELLE FESTE -->
+<section class="feste" id="feste">
+    <video class="feste-bg-v" autoplay muted loop playsinline poster="./photos/photo_09.jpg">
+        <source src="./videos/natale.mp4" type="video/mp4">
+    </video>
+    <div class="feste-overlay"></div>
+    <div class="feste-wrap">
+        <div class="feste-head reveal">
+            <p class="tag"><span class="t-it">Le Dolcezze delle Feste</span><span class="t-en">Holiday Sweets</span></p>
+            <h2 class="hdg t-ru"><em>Календарь</em> сладостей,<br>которые никто не забыл.</h2>
+            <h2 class="hdg t-it">Un <em>calendario</em> di dolci<br>che nessuno ha dimenticato.</h2>
+            <h2 class="hdg t-en">A <em>calendar</em> of sweets<br>no one has forgotten.</h2>
+            <p class="desc t-it">Ogni festa ha i suoi dolci. Noi li prepariamo da 55 anni, seguendo le stagioni &mdash; non i supermercati.</p>
+            <p class="desc t-en">Every holiday has its sweets. We've made them for 55 years, following the seasons &mdash; not the supermarkets.</p>
+        </div>
+        <div class="feste-grid reveal stagger-parent">
+            <div class="feste-card stagger-child">
+                <div class="feste-card-img"><img src="./photos/dolci-natale.png" alt="Chinulille e dolci di Natale" loading="lazy"></div>
+                <div class="feste-when">
+                    <span class="feste-month">Dicembre &middot; Natale</span>
+                    <span class="feste-ord"><span class="t-it">Ordini dal 1/12</span><span class="t-en">Orders from Dec 1</span></span>
+                </div>
+                <h3>Natale</h3>
+                <div class="feste-items">Panettone, Struffoli, Mostaccioli, Turdilli, Chinulille</div>
+            </div>
+            <div class="feste-card stagger-child">
+                <div class="feste-card-img"><img src="./photos/castagnole.png" alt="Castagnole con crema pasticcera" loading="lazy"></div>
+                <div class="feste-when">
+                    <span class="feste-month">Febbraio &middot; Carnevale</span>
+                    <span class="feste-ord"><span class="t-it">Solo in stagione</span><span class="t-en">In season only</span></span>
+                </div>
+                <h3>Carnevale</h3>
+                <div class="feste-items"><span class="t-it">Castagnole con crema pasticcera, chiacchiere fritte e al forno, graffe</span><span class="t-en">Castagnole with cream, fried &amp; baked chiacchiere, graffe</span></div>
+            </div>
+            <div class="feste-card stagger-child">
+                <div class="feste-when">
+                    <span class="feste-month">Marzo &middot; San Giuseppe</span>
+                    <span class="feste-ord">19 Marzo</span>
+                </div>
+                <h3>San Giuseppe</h3>
+                <div class="feste-items"><span class="t-it">Zeppole di San Giuseppe (fritte e al forno)</span><span class="t-en">Zeppole di San Giuseppe (fried &amp; baked)</span></div>
+            </div>
+            <div class="feste-card stagger-child">
+                <div class="feste-when">
+                    <span class="feste-month">Aprile &middot; Pasqua</span>
+                    <span class="feste-ord"><span class="t-it">Prenotazioni</span><span class="t-en">Preorders</span></span>
+                </div>
+                <h3>Pasqua</h3>
+                <div class="feste-items">Colomba, Cuzzupe calabresi, Nepitelle, Pastiera</div>
+            </div>
+            <div class="feste-card stagger-child">
+                <div class="feste-when">
+                    <span class="feste-month">Agosto &middot; Ferragosto</span>
+                    <span class="feste-ord"><span class="t-it">Estate</span><span class="t-en">Summer</span></span>
+                </div>
+                <h3><span class="t-it">Estate in Spiaggia</span><span class="t-en">Summer at the Beach</span></h3>
+                <div class="feste-items"><span class="t-it">Crostate fresche, biscotti al limone, granita siciliana</span><span class="t-en">Fresh tarts, lemon biscuits, Sicilian granita</span></div>
+            </div>
+            <div class="feste-card stagger-child">
+                <div class="feste-when">
+                    <span class="feste-month"><span class="t-it">Ogni Domenica</span><span class="t-en">Every Sunday</span></span>
+                    <span class="feste-ord">7:15 &mdash; 13:30</span>
+                </div>
+                <h3><span class="t-it">La Colazione</span><span class="t-en">Sunday Breakfast</span></h3>
+                <div class="feste-items"><span class="t-it">Cornetti freschi, biscotti della domenica, torte su ordinazione per compleanni e matrimoni</span><span class="t-en">Fresh cornetti, Sunday biscuits, cakes to order for birthdays and weddings</span></div>
+            </div>
+        </div>
+        <div class="feste-cta">
+            <p class="feste-cta-text t-it">Prepareremo tutto per la tua festa.</p>
+            <p class="feste-cta-text t-en">We'll prepare everything for your celebration.</p>
+            <a href="https://wa.me/393297224222?text=Ciao%2C%20vorrei%20ordinare%20per%20le%20feste" target="_blank" rel="noopener" class="btn btn-wheat">
+                <span class="t-it">Ordina per le feste</span><span class="t-en">Order for holidays</span> &rarr;
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- EVENT BOX -->
+<section class="sec event" id="event-box">
+    <div class="wrap">
+        <div class="event-head reveal">
+            <p class="tag"><span class="t-it">Zio Peppe Event Box</span><span class="t-en">Zio Peppe Event Box</span></p>
+            <h2 class="hdg t-ru">Готовые наборы<br>для <em>праздников</em>.</h2>
+            <h2 class="hdg t-it">Per <em>feste</em>, compleanni,<br>battesimi, matrimoni.</h2>
+            <h2 class="hdg t-en">For <em>parties</em>, birthdays,<br>baptisms, weddings.</h2>
+            <p class="desc t-it">Box pronti, tutto fatto da noi: panini farciti, focacce, mini hot dog, calzoni, dolci. Basta dire quanti siete &mdash; pensiamo noi al resto.</p>
+            <p class="desc t-en">Ready boxes, all made by us: stuffed sandwiches, focaccia, mini hot dogs, calzones, sweets. Just tell us how many guests &mdash; we handle the rest.</p>
+        </div>
+        <div class="event-grid reveal stagger-parent">
+            <div class="event-box stagger-child">
+                <div class="event-box-tag"><span class="t-it">Per i piccoli</span><span class="t-en">For the little ones</span></div>
+                <h3>Box Baby Party</h3>
+                <div class="event-box-pieces"><span class="t-it">100 pezzi assortiti</span><span class="t-en">100 assorted pieces</span></div>
+                <div class="event-box-price">
+                    <span class="event-box-price-val">&euro;66,90</span>
+                    <span class="event-box-price-lbl"><span class="t-it">tutto incluso</span><span class="t-en">all included</span></span>
+                </div>
+                <ul>
+                    <li class="t-it">Mini panini farciti dolci e salati</li>
+                    <li class="t-en">Mini sweet &amp; savoury sandwiches</li>
+                    <li class="t-it">Pizzette margherita e bianche</li>
+                    <li class="t-en">Margherita &amp; white mini-pizzas</li>
+                    <li class="t-it">Mini hot dog &mdash; spariscono in 5 minuti</li>
+                    <li class="t-en">Mini hot dogs &mdash; gone in 5 minutes</li>
+                    <li class="t-it">Ciambelle e dolcini per i bambini</li>
+                    <li class="t-en">Doughnuts &amp; small treats for kids</li>
+                </ul>
+                <a href="https://wa.me/393297224222?text=Ciao%2C%20vorrei%20ordinare%20il%20Box%20Baby%20Party" target="_blank" rel="noopener" class="event-cta">
+                    <span class="t-it">Ordina Baby Party</span><span class="t-en">Order Baby Party</span> &rarr;
+                </a>
+            </div>
+            <div class="event-box event-classic stagger-child">
+                <div class="event-box-tag"><span class="t-it">Il più richiesto</span><span class="t-en">Most requested</span></div>
+                <h3>Event Box Classic</h3>
+                <div class="event-box-pieces"><span class="t-it">125 pezzi assortiti</span><span class="t-en">125 assorted pieces</span></div>
+                <div class="event-box-price">
+                    <span class="event-box-price-val">&euro;79,90</span>
+                    <span class="event-box-price-lbl"><span class="t-it">tutto incluso</span><span class="t-en">all included</span></span>
+                </div>
+                <ul>
+                    <li class="t-it">Focacce con burrata, mortadella, pistacchio</li>
+                    <li class="t-en">Focaccia with burrata, mortadella, pistachio</li>
+                    <li class="t-it">Panini farciti con salumi calabresi</li>
+                    <li class="t-en">Sandwiches with Calabrian cured meats</li>
+                    <li class="t-it">Calzoni fritti con porchetta e scamorza</li>
+                    <li class="t-en">Fried calzones with porchetta and scamorza</li>
+                    <li class="t-it">Rustici, arancini, mini pizze</li>
+                    <li class="t-en">Rustici, arancini, mini-pizzas</li>
+                    <li class="t-it">Selezione di dolci della casa</li>
+                    <li class="t-en">House dessert selection</li>
+                </ul>
+                <a href="https://wa.me/393297224222?text=Ciao%2C%20vorrei%20ordinare%20l%27Event%20Box%20Classic" target="_blank" rel="noopener" class="event-cta">
+                    <span class="t-it">Ordina Event Box</span><span class="t-en">Order Event Box</span> &rarr;
+                </a>
+            </div>
+        </div>
+        <p class="event-note"><span class="t-it"><strong>Ordinazione:</strong> minimo 1 giorno prima &middot; Pagamento al ritiro &middot; Personalizzabile su richiesta</span><span class="t-en"><strong>Order:</strong> at least 1 day in advance &middot; Pay at pickup &middot; Customisable on request</span></p>
+
+        <div class="calc reveal" id="calc">
+            <div class="calc-head">
+                <div class="calc-kicker"><span class="t-it">Calcolatore Event Box</span><span class="t-en">Event Box Calculator</span></div>
+                <h3 class="calc-title t-it">Non sai quale <em>box</em> scegliere?</h3>
+                <h3 class="calc-title t-en">Not sure which <em>box</em> to pick?</h3>
+            </div>
+            <div class="calc-controls">
+                <div class="calc-label">
+                    <span class="calc-label-txt"><span class="t-it">Quanti invitati?</span><span class="t-en">How many guests?</span></span>
+                    <span class="calc-label-val" id="calcGuests">25</span>
+                </div>
+                <input type="range" min="10" max="100" step="5" value="25" class="calc-slider" id="calcSlider" aria-label="Guests">
+                <div class="calc-range-labels"><span>10</span><span>55</span><span>100</span></div>
+
+                <div class="calc-result" id="calcResult">
+                    <div class="calc-result-kicker"><span class="t-it">Ti consigliamo</span><span class="t-en">We recommend</span></div>
+                    <div class="calc-result-main" id="calcRecommend">&mdash;</div>
+                    <div class="calc-result-meta">
+                        <span class="calc-result-price" id="calcPrice">&euro;0</span>
+                        <span class="calc-result-pieces" id="calcPieces">&mdash;</span>
+                    </div>
+                </div>
+                <p class="calc-alt"><span class="t-it">Oppure componi il tuo buffet personalizzato</span><span class="t-en">Or build your own custom buffet</span> &rarr; <a href="#buffet"><span class="t-it">Buffet Eventi</span><span class="t-en">Event Buffet</span></a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BUFFET EVENTI -->
+<section class="sec buffet" id="buffet">
+    <div class="wrap">
+        <div class="buffet-head reveal">
+            <p class="tag"><span class="t-it">Buffet Eventi</span><span class="t-en">Event Buffet</span></p>
+            <h2 class="hdg t-it">Teglie &amp; <em>Pizze Ripiene</em>.</h2>
+            <h2 class="hdg t-en">Trays &amp; <em>Stuffed Pizzas</em>.</h2>
+            <p class="desc t-it">Per compleanni, comunioni, feste aziendali o semplicemente una domenica in famiglia. Prepariamo teglie da 15 pezzi e pizze ripiene su ordinazione.</p>
+            <p class="desc t-en">For birthdays, communions, office parties or simply a Sunday with family. We prepare 15-piece trays and stuffed pizzas to order.</p>
+        </div>
+
+        <div class="buffet-grid">
+            <div class="buffet-col reveal">
+                <div class="buffet-col-head">
+                    <h3 class="buffet-col-title t-it">Teglie di <em>Pizza</em></h3>
+                    <h3 class="buffet-col-title t-en">Pizza <em>Trays</em></h3>
+                    <span class="buffet-col-meta"><span class="t-it">15 pezzi &middot; cadauna</span><span class="t-en">15 pieces &middot; each</span></span>
+                </div>
+                <div class="buffet-list">
+                    <div class="buffet-row"><span class="buffet-row-name">Focaccia Bianca</span><span class="buffet-row-price">&euro;8</span></div>
+                    <div class="buffet-row"><span class="buffet-row-name">Marinara</span><span class="buffet-row-price">&euro;10</span></div>
+                    <div class="buffet-row"><span class="buffet-row-name">Margherita</span><span class="buffet-row-price">&euro;12</span></div>
+                    <div class="buffet-row"><span class="buffet-row-name"><span class="t-it">W&uuml;rstel e Patatine</span><span class="t-en">W&uuml;rstel &amp; Fries</span></span><span class="buffet-row-price">&euro;15</span></div>
+                    <div class="buffet-row"><span class="buffet-row-name">Diavola</span><span class="buffet-row-price">&euro;15</span></div>
+                    <div class="buffet-row"><span class="buffet-row-name">4 Formaggi</span><span class="buffet-row-price">&euro;18</span></div>
+                    <div class="buffet-row"><span class="buffet-row-name">Capricciosa</span><span class="buffet-row-price">&euro;18</span></div>
+                    <div class="buffet-row"><span class="buffet-row-name">Primavera</span><span class="buffet-row-price">&euro;20</span></div>
+                    <div class="buffet-row feat"><span class="buffet-row-name">Parmigiana</span><span class="buffet-row-price">&euro;20</span></div>
+                </div>
+            </div>
+
+            <div class="buffet-col reveal">
+                <div class="buffet-col-head">
+                    <h3 class="buffet-col-title t-it">Pizze <em>Ripiene</em></h3>
+                    <h3 class="buffet-col-title t-en">Stuffed <em>Pizzas</em></h3>
+                    <span class="buffet-col-meta"><span class="t-it">al pezzo</span><span class="t-en">per piece</span></span>
+                </div>
+                <div class="buffet-list">
+                    <div class="buffet-row"><span class="buffet-row-name"><span class="t-it">Classica <em>(cotto, pom, mozz)</em></span><span class="t-en">Classic <em>(ham, tomato, mozz)</em></span></span><span class="buffet-row-price">&euro;20</span></div>
+                    <div class="buffet-row"><span class="buffet-row-name">Parigina</span><span class="buffet-row-price">&euro;20</span></div>
+                    <div class="buffet-row"><span class="buffet-row-name"><span class="t-it">Verdure</span><span class="t-en">Vegetables</span></span><span class="buffet-row-price">&euro;20</span></div>
+                    <div class="buffet-row"><span class="buffet-row-name"><span class="t-it">Broccoli e Salsiccia</span><span class="t-en">Broccoli &amp; Sausage</span></span><span class="buffet-row-price">&euro;23</span></div>
+                    <div class="buffet-row feat"><span class="buffet-row-name"><span class="t-it">Focaccia Bianca <em>riempita a scelta</em></span><span class="t-en">White Focaccia <em>filled your way</em></span></span><span class="buffet-row-price">&euro;25</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buffet-cta-row reveal">
+            <p class="buffet-note">
+                <strong><span class="t-it">Nota importante</span><span class="t-en">Important note</span></strong>
+                <span class="t-it">Non si effettuano mezze teglie.</span><span class="t-en">Half trays are not available.</span>
+            </p>
+            <a href="https://wa.me/393297224222?text=Ciao%2C%20vorrei%20ordinare%20un%20buffet%20eventi%20%28teglie%20e%20pizze%20ripiene%29" target="_blank" rel="noopener" class="buffet-cta">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span class="t-it">Ordina per il tuo evento</span><span class="t-en">Order for your event</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CATERING AZIENDALE -->
+<section class="sec cater-sec" id="catering">
+    <div class="wrap">
+        <div class="cater-head reveal">
+            <p class="tag"><span class="t-it">Catering Aziendale</span><span class="t-en">Corporate Catering</span></p>
+            <h2 class="hdg t-ru">Обед для <em>вашей команды</em>.</h2>
+            <h2 class="hdg t-it">Pranzo per la <em>tua squadra</em>.</h2>
+            <h2 class="hdg t-en">Lunch for <em>your team</em>.</h2>
+            <p class="desc t-it">Consegna panini, pizza e rosticceria per cantieri, uffici e gruppi. Caldi, freschi, puntuali.</p>
+            <p class="desc t-en">Delivery of sandwiches, pizza and rotisserie for sites, offices and groups. Hot, fresh, on time.</p>
+        </div>
+        <div class="cater-grid reveal stagger-parent">
+            <div class="cater-card stagger-child">
+                <div class="cater-tag"><span class="t-it">Pausa Pranzo Light</span><span class="t-en">Light Lunch Break</span></div>
+                <h3>Light</h3>
+                <div class="cater-price">
+                    <span class="cater-price-val">&euro;4</span>
+                    <span class="cater-price-lbl"><span class="t-it">da &middot; a persona</span><span class="t-en">from &middot; per person</span></span>
+                </div>
+                <ul>
+                    <li class="t-it">1 panino farcito a scelta</li>
+                    <li class="t-en">1 stuffed sandwich of choice</li>
+                    <li class="t-it">1 bibita</li>
+                    <li class="t-en">1 drink</li>
+                </ul>
+                <div class="cater-min"><span class="t-it">Minimo 5 persone</span><span class="t-en">Min 5 people</span></div>
+            </div>
+            <div class="cater-card feat stagger-child">
+                <div class="cater-tag"><span class="t-it">Pausa Pranzo Completa</span><span class="t-en">Full Lunch Break</span></div>
+                <h3>Completa</h3>
+                <div class="cater-price feat">
+                    <span class="cater-price-val">&euro;7</span>
+                    <span class="cater-price-lbl"><span class="t-it">da &middot; a persona</span><span class="t-en">from &middot; per person</span></span>
+                </div>
+                <ul>
+                    <li class="t-it">1 panino farcito</li>
+                    <li class="t-en">1 stuffed sandwich</li>
+                    <li class="t-it">1 trancio di pizza</li>
+                    <li class="t-en">1 pizza slice</li>
+                    <li class="t-it">1 bibita + 1 dolce</li>
+                    <li class="t-en">1 drink + 1 sweet</li>
+                </ul>
+                <div class="cater-min"><span class="t-it">Minimo 5 persone</span><span class="t-en">Min 5 people</span></div>
+            </div>
+            <div class="cater-card stagger-child">
+                <div class="cater-tag"><span class="t-it">Squadra XL</span><span class="t-en">XL Team</span></div>
+                <h3>Squadra XL</h3>
+                <div class="cater-price">
+                    <span class="cater-price-val" style="font-size:1.2rem;letter-spacing:-.01em"><span class="t-it">Su richiesta</span><span class="t-en">On request</span></span>
+                </div>
+                <ul>
+                    <li class="t-it">Teglie di pizza assortite</li>
+                    <li class="t-en">Assorted pizza trays</li>
+                    <li class="t-it">Rustici e fritti misti</li>
+                    <li class="t-en">Rustici &amp; mixed fried</li>
+                    <li class="t-it">Bibite e acqua inclusa</li>
+                    <li class="t-en">Drinks &amp; water included</li>
+                </ul>
+                <div class="cater-min"><span class="t-it">Da 10 persone in su</span><span class="t-en">10+ people</span></div>
+            </div>
+        </div>
+        <p class="cater-note"><strong><span class="t-it">Consegna gratuita a Scalea</span><span class="t-en">Free delivery in Scalea</span></strong><span class="t-it">Ordina entro le 10:00</span><span class="t-en">Order by 10:00 AM</span></p>
+        <div style="text-align:center;position:relative;z-index:1">
+            <a href="https://wa.me/393297224222?text=Ciao%2C%20vorrei%20ordinare%20il%20catering%20per%20la%20mia%20squadra" target="_blank" rel="noopener" class="btn btn-wheat">
+                <span class="t-it">Ordina per la tua squadra</span><span class="t-en">Order for your team</span> &rarr;
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- BUONO REGALO -->
+<section class="sec gift-sec" id="buono">
+    <div class="wrap">
+        <div class="gift-grid">
+            <div class="gift-visual reveal">
+                <svg class="gift-card-svg" viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gift Card Spiga d'Oro">
+                    <defs>
+                        <linearGradient id="giftBg" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#2B1A0F"/>
+                            <stop offset="100%" stop-color="#4A2C15"/>
+                        </linearGradient>
+                        <linearGradient id="giftBorder" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#E8B94A"/>
+                            <stop offset="50%" stop-color="#C8932E"/>
+                            <stop offset="100%" stop-color="#8A6A1F"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="8" y="8" width="404" height="264" rx="14" fill="url(#giftBg)"/>
+                    <rect x="8" y="8" width="404" height="264" rx="14" fill="none" stroke="url(#giftBorder)" stroke-width="3"/>
+                    <rect x="20" y="20" width="380" height="240" rx="8" fill="none" stroke="#C8932E" stroke-width=".6" stroke-dasharray="3,3" opacity=".55"/>
+                    <g transform="translate(44,50)">
+                        <path d="M0 20 Q3 0 14 3 Q20 -2 28 4 Q38 -3 44 6 Q52 0 56 10 L58 16 Q52 22 56 30 Q46 36 38 30 Q30 38 22 30 Q12 36 4 28 Q-4 24 0 20 Z" fill="#E8B94A" opacity=".9"/>
+                        <path d="M28 4 L28 32" stroke="#8A6A1F" stroke-width="1.2" opacity=".7"/>
+                        <path d="M20 10 L24 22 M36 10 L32 22 M14 16 L18 26 M42 16 L38 26" stroke="#8A6A1F" stroke-width=".8" opacity=".6"/>
+                    </g>
+                    <text x="210" y="110" text-anchor="middle" font-family="Gloock, serif" font-size="34" fill="#F8F3E7" font-style="italic" letter-spacing="-1">Spiga d'Oro</text>
+                    <text x="210" y="138" text-anchor="middle" font-family="Figtree, sans-serif" font-size="10" fill="#C8932E" letter-spacing="4">GIFT CARD · DAL 1970</text>
+                    <line x1="60" y1="170" x2="360" y2="170" stroke="#C8932E" stroke-width=".5" opacity=".4"/>
+                    <text x="60" y="200" font-family="Figtree, sans-serif" font-size="9" fill="#C8932E" letter-spacing="2.5">VALORE</text>
+                    <text x="60" y="234" font-family="Gloock, serif" font-size="32" fill="#F8F3E7" font-style="italic">€ __</text>
+                    <text x="360" y="200" text-anchor="end" font-family="Figtree, sans-serif" font-size="9" fill="#C8932E" letter-spacing="2.5">PER</text>
+                    <text x="360" y="232" text-anchor="end" font-family="Gloock, serif" font-size="15" fill="#F8F3E7" font-style="italic">_________________</text>
+                </svg>
+            </div>
+            <div class="gift-content reveal">
+                <p class="tag"><span class="t-it">Buono Regalo</span><span class="t-en">Gift Card</span></p>
+                <h2 class="hdg t-ru">Подарите <em>вкус</em><br>Скалеи.</h2>
+                <h2 class="hdg t-it">Regala il <em>sapore</em><br>di Scalea.</h2>
+                <h2 class="hdg t-en">Gift the <em>taste</em><br>of Scalea.</h2>
+                <p class="desc t-it">Perfetto per compleanni, ringraziamenti, o per chi torna a casa e vuole portarsi un pezzo di Scalea.</p>
+                <p class="desc t-en">Perfect for birthdays, thank-yous, or anyone going home with a piece of Scalea.</p>
+                <div class="gift-tiers">
+                    <a href="https://wa.me/393297224222?text=Ciao%2C%20vorrei%20acquistare%20un%20Buono%20Regalo%20da%20%E2%82%AC10" target="_blank" rel="noopener" class="gift-tier">
+                        <span class="gift-tier-amt">&euro;10</span>
+                        <span class="gift-tier-txt t-it">Un panino e un dolce per qualcuno di speciale.</span>
+                        <span class="gift-tier-txt t-en">A sandwich and a sweet for someone special.</span>
+                    </a>
+                    <a href="https://wa.me/393297224222?text=Ciao%2C%20vorrei%20acquistare%20un%20Buono%20Regalo%20da%20%E2%82%AC20" target="_blank" rel="noopener" class="gift-tier">
+                        <span class="gift-tier-amt">&euro;20</span>
+                        <span class="gift-tier-txt t-it">Una colazione completa per tutta la famiglia.</span>
+                        <span class="gift-tier-txt t-en">A full breakfast for the whole family.</span>
+                    </a>
+                    <a href="https://wa.me/393297224222?text=Ciao%2C%20vorrei%20acquistare%20un%20Buono%20Regalo%20da%20%E2%82%AC50" target="_blank" rel="noopener" class="gift-tier">
+                        <span class="gift-tier-amt">&euro;50</span>
+                        <span class="gift-tier-txt t-it">Un Event Box per la prossima festa.</span>
+                        <span class="gift-tier-txt t-en">An Event Box for the next party.</span>
+                    </a>
+                </div>
+                <div class="gift-how">
+                    <div class="gift-how-title"><span class="t-it">Come funziona</span><span class="t-en">How it works</span></div>
+                    <ol class="gift-how-list">
+                        <li class="t-it">Scegli il taglio che preferisci</li>
+                        <li class="t-en">Pick the amount you like</li>
+                        <li class="t-it">Scrivici su WhatsApp</li>
+                        <li class="t-en">Message us on WhatsApp</li>
+                        <li class="t-it">Ricevi la Gift Card digitale pronta da inviare</li>
+                        <li class="t-en">Get the digital Gift Card ready to send</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PER I TURISTI -->
+<section class="sec tour-sec" id="turisti">
+    <div class="wrap">
+        <div class="tour-grid">
+            <div class="tour-content reveal">
+                <p class="tag"><span class="t-it">Per i Turisti</span><span class="t-en">For Visitors</span></p>
+                <h2 class="hdg t-ru">Для тех, кто приехал <em>издалека</em>.</h2>
+                <h2 class="hdg t-it">Per chi viene <em>da lontano</em>.</h2>
+                <h2 class="hdg t-en">For those coming <em>from afar</em>.</h2>
+                <p class="tour-sub"><span class="t-it">Your morning stop in Scalea since 1970.</span><span class="t-en">Your morning stop in Scalea since 1970.</span><span class="t-ru">Ваша утренняя остановка в Скалее с 1970 года.</span></p>
+                <div class="tour-loc">
+                    <span class="tour-loc-ico">&#128205;</span>
+                    <span><span class="t-it">5 min dal lungomare &middot; 3 min dalla stazione</span><span class="t-en">5 min from the seafront &middot; 3 min from the station</span></span>
+                </div>
+                <ul class="tour-try">
+                    <li>
+                        <span class="tour-try-ico">&#129366;</span>
+                        <div class="tour-try-txt">
+                            <strong><span class="t-it">Fresh bread</span><span class="t-en">Fresh bread</span></strong>
+                            <span class="t-it">Sfornato ogni mattina alle 7.</span><span class="t-en">Baked every morning at 7.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="tour-try-ico">&#129386;</span>
+                        <div class="tour-try-txt">
+                            <strong>Panini</strong>
+                            <span class="t-it">Da &euro;1,30 &mdash; il miglior pranzo di Scalea.</span><span class="t-en">From &euro;1.30 &mdash; the best lunch deal in Scalea.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="tour-try-ico">&#127829;</span>
+                        <div class="tour-try-txt">
+                            <strong><span class="t-it">Pizza al trancio</span><span class="t-en">Pizza slices</span></strong>
+                            <span class="t-it">Ricetta locale, prezzi locali.</span><span class="t-en">Local recipe, local prices.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="tour-try-ico">&#127849;</span>
+                        <div class="tour-try-txt">
+                            <strong>Ciambelle di patate</strong>
+                            <span class="t-it">Non le trovi da nessun'altra parte.</span><span class="t-en">You won't find these anywhere else.</span>
+                        </div>
+                    </li>
+                </ul>
+                <p class="tour-smile"><span class="t-it">Parliamo italiano, ma un sorriso funziona in ogni lingua &#128578;</span><span class="t-en">We speak Italian, but a smile works in every language &#128578;</span></p>
+                <a href="#dove" class="btn btn-primary">
+                    &#128205; <span class="t-it">Come trovarci</span><span class="t-en">How to find us</span>
+                </a>
+            </div>
+            <div class="tour-visual reveal">
+                <img src="./photos/panini-buffet.png" alt="Panini buffet Spiga d'Oro" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PREZZI ONESTI -->
+<section class="sec prezzi">
+    <div class="wrap">
+        <div class="prezzi-grid">
+            <div class="prezzi-visual reveal">
+                <div class="prezzi-big"><span class="sup">&lt;</span>&euro;8</div>
+                <div class="prezzi-big-lbl"><span class="t-it">Pranzo Completo</span><span class="t-en">Full Lunch</span></div>
+            </div>
+            <div class="reveal">
+                <p class="tag"><span class="t-it">Prezzi Onesti</span><span class="t-en">Honest Prices</span></p>
+                <h2 class="hdg t-ru">Полный обед<br>&lt; <em>€8</em>.</h2>
+            <h2 class="hdg t-it">Mangiare bene<br>non deve <em>costare</em>.</h2>
+                <h2 class="hdg t-en">Eating well<br>shouldn't <em>cost</em> much.</h2>
+                <p class="desc t-it">Da noi un pranzo completo, per due persone, costa quanto un cocktail in un bar sulla costa. Non abbiamo men&ugrave; da ristorante &mdash; abbiamo prezzi da panificio.</p>
+                <p class="desc t-en">A full lunch for two here costs what a cocktail on the coast would. We don't have restaurant menus &mdash; we have bakery prices.</p>
+                <div class="prezzi-list">
+                    <div class="prezzi-row">
+                        <span class="prezzi-row-what t-it"><em>2 panini</em> farciti</span>
+                        <span class="prezzi-row-what t-en"><em>2 stuffed sandwiches</em></span>
+                        <span class="prezzi-row-price">&euro;2,60</span>
+                    </div>
+                    <div class="prezzi-row">
+                        <span class="prezzi-row-what t-it">Pizza al trancio + bibita</span>
+                        <span class="prezzi-row-what t-en">Pizza slice + drink</span>
+                        <span class="prezzi-row-price">&euro;3,50</span>
+                    </div>
+                    <div class="prezzi-row">
+                        <span class="prezzi-row-what t-it">Pasta del giorno + pane</span>
+                        <span class="prezzi-row-what t-en">Daily pasta + bread</span>
+                        <span class="prezzi-row-price">&euro;5,50</span>
+                    </div>
+                    <div class="prezzi-row">
+                        <span class="prezzi-row-what t-it">Panino + pizza + bibita</span>
+                        <span class="prezzi-row-what t-en">Sandwich + pizza + drink</span>
+                        <span class="prezzi-row-price"><em>&lt; &euro;8</em></span>
+                    </div>
+                    <div class="prezzi-row">
+                        <span class="prezzi-row-what t-it">Arancino caldo</span>
+                        <span class="prezzi-row-what t-en">Hot arancino</span>
+                        <span class="prezzi-row-price">&euro;1,80</span>
+                    </div>
+                </div>
+                <span class="prezzi-badge"><span class="t-it">Coperto sempre zero &middot; Asporto disponibile</span><span class="t-en">No cover charge &middot; Takeaway available</span></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RECENSIONI -->
+<section class="sec rev-sec" id="recensioni">
+    <div class="wrap">
+        <div class="rev-head reveal">
+            <p class="tag"><span class="t-it">Le Voci del Quartiere</span><span class="t-en">Neighbourhood Voices</span></p>
+            <h2 class="hdg t-it">199 voci <em>dalla strada</em>.</h2>
+            <h2 class="hdg t-en">199 voices <em>from the street</em>.</h2>
+            <h2 class="hdg t-ru">199 голосов <em>с улицы</em>.</h2>
+            <div class="rev-stat-row">
+                <div class="rev-stat"><span class="rev-stat-val">4.5</span><span class="rev-stat-lbl">Google &#9733;</span></div>
+                <div class="rev-stat"><span class="rev-stat-val">199</span><span class="rev-stat-lbl"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+                <div class="rev-stat"><span class="rev-stat-val">1253</span><span class="rev-stat-lbl">Facebook</span></div>
+            </div>
+        </div>
+        <div class="rev-grid reveal stagger-parent">
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">Prodotti freschi, infinita scelta tra panini, pizze, affettati, contorni, bevande. Personale gentile e posto pulito. Possibilit&agrave; di mangiare all'esterno ai tavolini. Assolutamente consigliato.</p>
+                <p class="rev-text t-en">Fresh products, infinite selection of sandwiches, pizzas, cold cuts, sides, drinks. Friendly staff and clean place. Outdoor tables. Absolutely recommended.</p>
+                <p class="rev-who">Elena Hellen</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">&Egrave; buonissimo. La mattina ci sono tante persone a fare i panini e costano pochissimo &mdash; 2 panini a 2,60&euro;. Per me 5/5 stelle.</p>
+                <p class="rev-text t-en">It's excellent. Every morning lots of people making sandwiches, and they cost very little &mdash; 2 sandwiches for &euro;2.60. For me 5/5 stars.</p>
+                <p class="rev-who">Fabio Maulicino</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">Il miglior panino con mortadella di Scalea e dintorni. La rosetta ha una fragranza unica che esalta il sapore della mortadella. Meglio se mangiata appena sfornata.</p>
+                <p class="rev-text t-en">The best mortadella sandwich in Scalea and the surroundings. The rosetta has a unique fragrance that brings out the mortadella's flavour. Best eaten just out of the oven.</p>
+                <p class="rev-who">Biagio Cirimele</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">Ottimo! Biscotti freschi per ogni occasione, e i migliori panini imbottiti di Scalea.</p>
+                <p class="rev-text t-en">Excellent! Fresh biscuits for every occasion, and the best stuffed sandwiches in Scalea.</p>
+                <p class="rev-who">Lidia Papciak</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text">Been coming here for years. The bread smells like real bread, the sandwiches are huge for the price. A classic Scalea corner.</p>
+                <p class="rev-who">Google Review</p>
+                <p class="rev-src">Google &middot; EN</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">Persone educate e disponibili, tutto buono. D'estate non si riesce nemmeno a entrare tanta &egrave; la gente &mdash; e c'&egrave; un motivo.</p>
+                <p class="rev-text t-en">Polite and helpful people, everything good. In summer you can barely enter for the crowds &mdash; and there's a reason.</p>
+                <p class="rev-who">Google Review</p>
+                <p class="rev-src">Google</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ORDINA & EVENTI -->
+<section class="sec ordina" id="ordina">
+    <div class="wrap ordina-wrap">
+        <div class="reveal" style="max-width:720px">
+            <p class="tag"><span class="t-it">Ordina &amp; Eventi</span><span class="t-en">Order &amp; Events</span></p>
+            <h2 class="hdg t-ru">Закажите, <em>заберите горячим</em>.</h2>
+            <h2 class="hdg t-it">Ordina ora, <em>ritira caldo</em>.</h2>
+            <h2 class="hdg t-en">Order now, <em>pick up hot</em>.</h2>
+            <p class="desc t-it" style="color:rgba(248,243,231,.78);margin-top:16px">Chiamaci o scrivici su WhatsApp. Prepareremo panini, pizze, dolci o rosticceria per quando passi. Per matrimoni, battesimi, catering &mdash; contattaci con qualche giorno di anticipo.</p>
+            <p class="desc t-en" style="color:rgba(248,243,231,.78);margin-top:16px">Call or WhatsApp us. We'll prepare sandwiches, pizzas, pastries or rotisserie for when you come by. For weddings, baptisms, catering &mdash; contact us a few days ahead.</p>
+        </div>
+        <div class="ordina-grid">
+            <div class="ordina-info reveal">
+                <h3><span class="t-it">WhatsApp</span><span class="t-en">WhatsApp</span></h3>
+                <a href="https://wa.me/393297224222" target="_blank" rel="noopener" class="ordina-phone">+39 329 722 4222</a>
+
+                <h3 style="margin-top:32px"><span class="t-it">Come Ordinare</span><span class="t-en">How to Order</span></h3>
+                <div class="ordina-steps">
+                    <div class="ord-step">
+                        <div class="ord-step-num">01</div>
+                        <div>
+                            <h4><span class="t-it">Scrivi su WhatsApp</span><span class="t-en">Message on WhatsApp</span></h4>
+                            <p class="t-it">Dicci cosa vuoi e a che ora lo ritiri.</p>
+                            <p class="t-en">Tell us what you want and when you'll collect.</p>
+                        </div>
+                    </div>
+                    <div class="ord-step">
+                        <div class="ord-step-num">02</div>
+                        <div>
+                            <h4><span class="t-it">Confermiamo in giornata</span><span class="t-en">We confirm same day</span></h4>
+                            <p class="t-it">Rispondiamo entro un'ora con disponibilit&agrave; e totale.</p>
+                            <p class="t-en">We reply within an hour with availability and total.</p>
+                        </div>
+                    </div>
+                    <div class="ord-step">
+                        <div class="ord-step-num">03</div>
+                        <div>
+                            <h4><span class="t-it">Ritira caldo</span><span class="t-en">Pick up hot</span></h4>
+                            <p class="t-it">Sfornato al momento, pronto per te.</p>
+                            <p class="t-en">Freshly baked, ready for you.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top:32px"><span class="t-it">Seguici</span><span class="t-en">Follow Us</span></h3>
+                <div class="soc">
+                    <a href="https://wa.me/393297224222" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+                    <a href="https://instagram.com/ziopeppe87029" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                    <a href="https://www.facebook.com/ziopeppespigadoro" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                </div>
+            </div>
+            <form class="ordina-form reveal" onsubmit="event.preventDefault();alert('Demo — ordine inviato!')">
+                <div class="fg-row">
+                    <div class="fg"><label><span class="t-it">Nome</span><span class="t-en">Name</span></label><input type="text" required></div>
+                    <div class="fg"><label><span class="t-it">Telefono</span><span class="t-en">Phone</span></label><input type="tel" required></div>
+                </div>
+                <div class="fg">
+                    <label><span class="t-it">Cosa vuoi ordinare?</span><span class="t-en">What would you like?</span></label>
+                    <select required>
+                        <option value="" class="t-it">—</option>
+                        <option value="" class="t-en">—</option>
+                        <option class="t-it">Panini farciti</option>
+                        <option class="t-en">Stuffed sandwiches</option>
+                        <option class="t-it">Pizza / Pizzette</option>
+                        <option class="t-en">Pizza / Pizzette</option>
+                        <option class="t-it">Rosticceria</option>
+                        <option class="t-en">Rotisserie</option>
+                        <option class="t-it">Dolci delle feste</option>
+                        <option class="t-en">Holiday sweets</option>
+                        <option class="t-it">Torta su ordinazione</option>
+                        <option class="t-en">Custom cake</option>
+                        <option class="t-it">Catering evento</option>
+                        <option class="t-en">Event catering</option>
+                    </select>
+                </div>
+                <div class="fg-row">
+                    <div class="fg"><label><span class="t-it">Data ritiro</span><span class="t-en">Pickup date</span></label><input type="date" required></div>
+                    <div class="fg"><label><span class="t-it">Ora</span><span class="t-en">Time</span></label>
+                        <select required><option value="">&mdash;</option><option>07:30</option><option>08:30</option><option>10:00</option><option>11:30</option><option>12:30</option><option>17:00</option><option>18:30</option><option>19:30</option></select>
+                    </div>
+                </div>
+                <div class="fg"><label><span class="t-it">Dettagli (quantità, farciture, note)</span><span class="t-en">Details (quantities, fillings, notes)</span></label><textarea rows="3" required></textarea></div>
+                <button type="submit" class="btn-form"><span class="t-it">Invia l'ordine</span><span class="t-en">Send order</span></button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- SEGUICI — Instagram feed -->
+<section class="insta-sec" id="seguici">
+    <div class="insta-wrap">
+        <div class="insta-head reveal">
+            <p class="tag"><span class="t-it">Seguici</span><span class="t-en">Follow Us</span></p>
+            <h2 class="insta-handle">@<em>ziopeppe87029</em></h2>
+            <p class="insta-sub t-it">Pane caldo, panini d'autore e dolci delle feste. Ogni giorno, direttamente dal forno.</p>
+            <p class="insta-sub t-en">Hot bread, signature sandwiches and holiday sweets. Every day, straight from the oven.</p>
+        </div>
+        <div class="insta-grid reveal stagger-parent">
+            <a href="https://instagram.com/ziopeppe87029" target="_blank" rel="noopener" class="insta-item stagger-child"><img src="./photos/mafaldine.png" alt="Mafaldine con sesamo" loading="lazy"></a>
+            <a href="https://instagram.com/ziopeppe87029" target="_blank" rel="noopener" class="insta-item stagger-child"><img src="./photos/calzone-fritto.png" alt="Calzone fritto" loading="lazy"></a>
+            <a href="https://instagram.com/ziopeppe87029" target="_blank" rel="noopener" class="insta-item stagger-child"><img src="./photos/focaccia-burrata.png" alt="Focaccia burrata" loading="lazy"></a>
+            <a href="https://instagram.com/ziopeppe87029" target="_blank" rel="noopener" class="insta-item stagger-child"><img src="./photos/dolci-natale.png" alt="Dolci di Natale" loading="lazy"></a>
+            <a href="https://instagram.com/ziopeppe87029" target="_blank" rel="noopener" class="insta-item stagger-child"><img src="./photos/mini-hotdog.png" alt="Mini hot dog" loading="lazy"></a>
+            <a href="https://instagram.com/ziopeppe87029" target="_blank" rel="noopener" class="insta-item stagger-child"><img src="./photos/pizza-mais.png" alt="Pizza di mais" loading="lazy"></a>
+        </div>
+        <div class="insta-cta-wrap reveal">
+            <a href="https://instagram.com/ziopeppe87029" target="_blank" rel="noopener" class="insta-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                <span class="t-it">Seguici su Instagram</span><span class="t-en">Follow us on Instagram</span>
+            </a>
+            <p class="insta-meta"><strong>1.253</strong> <span class="t-it">follower &middot; Nuove foto ogni giorno</span><span class="t-en">followers &middot; New photos every day</span></p>
+        </div>
+    </div>
+</section>
+
+<!-- DOVE + ORARI -->
+<section class="sec loc" id="dove">
+    <div class="wrap">
+        <div class="loc-grid">
+            <div class="loc-info reveal">
+                <p class="tag"><span class="t-it">Dove &amp; Quando</span><span class="t-en">Where &amp; When</span></p>
+                <h2 class="hdg t-ru">Мы на <em>Via Pepe</em>.</h2>
+                <h2 class="hdg t-it">Ci trovi in <em>Via Pepe</em>.</h2>
+                <h2 class="hdg t-en">Find us on <em>Via Pepe</em>.</h2>
+                <p class="desc t-it">Dal 1970 nello stesso indirizzo. Se senti profumo di pane, sei vicino.</p>
+                <p class="desc t-en">Same address since 1970. If you smell bread, you're close.</p>
+
+                <h3><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h3>
+                <p style="font-size:1.1rem;color:var(--ink);font-weight:500">Via Attilio Pepe, 16<br>87029 Scalea (CS)</p>
+
+                <h3><span class="t-it">Telefono</span><span class="t-en">Phone</span></h3>
+                <a href="tel:+393297224222" style="font-family:'Gloock',serif;font-size:1.3rem;color:var(--ember);text-decoration:none;font-style:italic">+39 329 722 4222</a>
+
+                <h3><span class="t-it">Orari</span><span class="t-en">Hours</span></h3>
+                <div class="hours-table">
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Monday</span></span><span class="hours-time">07:15—13:30 &middot; 16:30—20:30</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tuesday</span></span><span class="hours-time">07:15—13:30 &middot; 16:30—20:30</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wednesday</span></span><span class="hours-time">07:15—13:30 &middot; 16:30—20:30</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thursday</span></span><span class="hours-time">07:15—13:30 &middot; 16:30—20:30</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Friday</span></span><span class="hours-time">07:15—13:30 &middot; 16:30—20:30</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Saturday</span></span><span class="hours-time">07:15—13:30 &middot; 16:30—20:30</span></div>
+                    <div class="hours-row closed"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sunday</span></span><span class="hours-time t-it">Chiuso</span><span class="hours-time t-en">Closed</span></div>
+                </div>
+            </div>
+            <div class="map-box reveal">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3083!2d15.794!3d39.813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f1e0fb53776800!2sPanificio%20Spiga%20D%27oro%20Scalea!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen loading="lazy" title="Spiga D'oro"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-inner">
+        <div>
+            <div class="foot-brand">Spiga d'<em>Oro</em></div>
+            <p class="foot-addr"><span class="t-it">Panificio &middot; Rosticceria &middot; Dolci</span><span class="t-en">Bakery &middot; Rotisserie &middot; Pastries</span><br>Via Attilio Pepe 16 &middot; 87029 Scalea (CS)<br><a href="tel:+393297224222">+39 329 722 4222</a></p>
+        </div>
+        <div class="foot-col">
+            <h4><span class="t-it">Esplora</span><span class="t-en">Explore</span></h4>
+            <a href="#storia"><span class="t-it">La Storia</span><span class="t-en">Story</span></a>
+            <a href="#forno"><span class="t-it">Il Forno</span><span class="t-en">The Oven</span></a>
+            <a href="#prodotti"><span class="t-it">Prodotti</span><span class="t-en">Products</span></a>
+            <a href="#pane"><span class="t-it">Il Nostro Pane</span><span class="t-en">Our Bread</span></a>
+            <a href="#panini"><span class="t-it">Panini d'Autore</span><span class="t-en">Signature Sandwiches</span></a>
+            <a href="#seguici">Instagram</a>
+            <a href="#giorni"><span class="t-it">Giorni Speciali</span><span class="t-en">Special Days</span></a>
+            <a href="#feste"><span class="t-it">Dolcezze delle Feste</span><span class="t-en">Holiday Sweets</span></a>
+            <a href="#event-box">Event Box</a>
+            <a href="#buffet"><span class="t-it">Buffet Eventi</span><span class="t-en">Event Buffet</span></a>
+            <a href="#catering">Catering</a>
+            <a href="#buono"><span class="t-it">Buono Regalo</span><span class="t-en">Gift Card</span></a>
+            <a href="#pane-del-giorno"><span class="t-it">Pane del Giorno</span><span class="t-en">Daily Bread</span></a>
+            <a href="#turisti"><span class="t-it">Per i Turisti</span><span class="t-en">For Visitors</span></a>
+            <a href="#ordina"><span class="t-it">Ordina</span><span class="t-en">Order</span></a>
+        </div>
+        <div class="foot-col">
+            <h4><span class="t-it">Contatti</span><span class="t-en">Contact</span></h4>
+            <a href="https://wa.me/393297224222" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://instagram.com/ziopeppe87029" target="_blank" rel="noopener">Instagram @ziopeppe87029</a>
+            <a href="https://www.facebook.com/ziopeppespigadoro" target="_blank" rel="noopener">Facebook</a>
+            <a href="tel:+393297224222">+39 329 722 4222</a>
+        </div>
+    </div>
+    <p class="foot-copy">
+        &copy; 2025 Panificio Spiga d'Oro &middot; <span class="t-it">Dal 1970</span><span class="t-en">Since 1970</span><span class="t-ru">С 1970</span> &middot;
+        <span class="t-it">Sito realizzato con &#10084;&#65039; da</span><span class="t-en">Website made with &#10084;&#65039; by</span><span class="t-ru">Сайт создан с &#10084;&#65039;</span>
+        <a href="#">Viktoria Agency</a>
+    </p>
+</footer>
+
+<a href="https://wa.me/393297224222" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Fallback: clone .t-it to .t-ru/.t-en where missing, so untranslated elements show Italian text instead of disappearing.
+(function(){
+    document.querySelectorAll('.t-it').forEach(function(el){
+        var parent=el.parentElement;
+        if(!parent) return;
+        var kids=parent.children;
+        var hasRu=false,hasEn=false;
+        for(var i=0;i<kids.length;i++){
+            var c=kids[i];
+            if(c===el||!c.classList) continue;
+            if(c.classList.contains('t-ru')) hasRu=true;
+            if(c.classList.contains('t-en')) hasEn=true;
+        }
+        if(!hasEn){
+            var ce=el.cloneNode(true);
+            ce.classList.remove('t-it');ce.classList.add('t-en');
+            el.insertAdjacentElement('afterend',ce);
+        }
+        if(!hasRu){
+            var cr=el.cloneNode(true);
+            cr.classList.remove('t-it');cr.classList.add('t-ru');
+            el.insertAdjacentElement('afterend',cr);
+        }
+    });
+})();
+function setLang(l){
+    document.body.classList.remove('lang-en','lang-ru');
+    if(l==='en') document.body.classList.add('lang-en');
+    else if(l==='ru') document.body.classList.add('lang-ru');
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+}
+const nav=document.getElementById('mainNav');
+const prog=document.querySelector('.scroll-progress');
+let ticking=false;
+window.addEventListener('scroll',()=>{
+    if(!ticking){
+        requestAnimationFrame(()=>{
+            const y=window.scrollY;
+            const h=document.body.scrollHeight-window.innerHeight;
+            nav.classList.toggle('scrolled',y>80);
+            prog.style.width=(y/h*100)+'%';
+            ticking=false;
+        });
+        ticking=true;
+    }
+},{passive:true});
+document.addEventListener('DOMContentLoaded',()=>{
+    const obs=new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+            if(e.isIntersecting){
+                e.target.classList.add('visible');
+                obs.unobserve(e.target);
+            }
+        });
+    },{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+// Menu QR + today's date
+(function(){
+    var months={it:['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'],en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']};
+    var d=new Date();
+    var isEn=document.body.classList.contains('lang-en');
+    var dateStr=isEn?(months.en[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()):(d.getDate()+' '+months.it[d.getMonth()]+' '+d.getFullYear());
+    var dateEl=document.getElementById('menuDate');
+    if(dateEl){dateEl.textContent='Oggi · '+dateStr;}
+    // Render QR
+    var qrTarget=document.getElementById('menuQR');
+    if(qrTarget && window.QRCode){
+        var url=window.location.origin+window.location.pathname+'#menu-del-giorno';
+        new QRCode(qrTarget,{text:url,width:220,height:220,colorDark:'#2B1A0F',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});
+    }
+})();
+function downloadMenuQR(){
+    var box=document.getElementById('menuQR');
+    if(!box) return;
+    var img=box.querySelector('img')||box.querySelector('canvas');
+    if(!img) return;
+    var src=img.tagName==='CANVAS'?img.toDataURL('image/png'):img.src;
+    var a=document.createElement('a');
+    a.href=src;a.download='spiga-doro-menu-qr.png';
+    document.body.appendChild(a);a.click();document.body.removeChild(a);
+}
+// Event Box calculator
+(function(){
+    var slider=document.getElementById('calcSlider');
+    if(!slider) return;
+    var guestsEl=document.getElementById('calcGuests');
+    var recEl=document.getElementById('calcRecommend');
+    var priceEl=document.getElementById('calcPrice');
+    var piecesEl=document.getElementById('calcPieces');
+    var resEl=document.getElementById('calcResult');
+    var isEn=function(){return document.body.classList.contains('lang-en');};
+    var tiers=[
+        {max:25,it:'<em>Box Baby Party</em>',en:'<em>Baby Party Box</em>',price:'€66,90',pieces:'100 pz'},
+        {max:40,it:'<em>Event Box Classic</em>',en:'<em>Event Box Classic</em>',price:'€79,90',pieces:'125 pz'},
+        {max:60,it:'2× <em>Box Baby Party</em>',en:'2× <em>Baby Party Box</em>',price:'€133,80',pieces:'200 pz'},
+        {max:80,it:'<em>Box Baby Party</em> + <em>Event Box Classic</em>',en:'<em>Baby Party</em> + <em>Classic</em>',price:'€146,80',pieces:'225 pz'},
+        {max:999,it:'2× <em>Event Box Classic</em>',en:'2× <em>Event Box Classic</em>',price:'€159,80',pieces:'250 pz'}
+    ];
+    function update(){
+        var g=parseInt(slider.value,10);
+        guestsEl.textContent=g;
+        var tier=tiers.find(function(t){return g<=t.max;});
+        resEl.style.opacity='0';resEl.style.transform='translateY(8px)';
+        setTimeout(function(){
+            recEl.innerHTML=isEn()?tier.en:tier.it;
+            priceEl.textContent=tier.price;
+            piecesEl.textContent=tier.pieces+' · '+g+(isEn()?' guests':' invitati');
+            resEl.style.opacity='1';resEl.style.transform='translateY(0)';
+        },180);
+    }
+    slider.addEventListener('input',update);
+    update();
+    // Re-render on lang change
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+        b.addEventListener('click',function(){setTimeout(update,30);});
+    });
+})();
+</script>
+</body>
+</html>
