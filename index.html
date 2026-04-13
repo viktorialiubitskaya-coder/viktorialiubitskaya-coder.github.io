@@ -3,169 +3,546 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo Siti Web — Viktoria Agency</title>
-<meta name="description" content="Catalogo demo: siti web premium per ristoranti, pizzerie e attività in Calabria.">
+<title>Viktoria Agency — Siti web per la ristorazione</title>
+<meta name="description" content="Siti web premium per ristoranti, pizzerie e attività in Calabria.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  :root{
-    --bg:#0a0a0b;--bg-2:#111114;--card:#16161a;--card-hover:#1c1c22;
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:'Inter',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  a{color:inherit;text-decoration:none}
+  input,select,textarea{font:inherit;width:100%}
+
+  /* ======================= SHOWCASE (dark premium) ======================= */
+  body.showcase{
+    --bg:#0a0a0b;--bg-2:#111114;--card:#16161a;--card-h:#1c1c22;
     --line:#26262d;--text:#f5f5f7;--muted:#8a8a94;--accent:#d4a574;--accent-2:#e8c9a3;
-    --shadow:0 20px 60px -20px rgba(0,0,0,.6),0 8px 24px -8px rgba(212,165,116,.08);
+    background:var(--bg);color:var(--text);
   }
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at top,rgba(212,165,116,.06),transparent 55%),radial-gradient(ellipse at bottom right,rgba(120,60,180,.04),transparent 60%);pointer-events:none;z-index:0}
-  .wrap{max-width:1280px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  body.showcase::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at top,rgba(212,165,116,.06),transparent 55%),radial-gradient(ellipse at bottom right,rgba(120,60,180,.04),transparent 60%);pointer-events:none;z-index:0}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
 
-  /* Header */
-  header{padding:32px 0 0}
-  .nav{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--line)}
-  .brand{font-family:'Fraunces',serif;font-size:22px;font-weight:600;letter-spacing:-.01em}
-  .brand span{color:var(--accent)}
-  .wa{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);color:#25d366;text-decoration:none;border-radius:999px;font-size:13px;font-weight:500;transition:all .25s}
-  .wa:hover{background:rgba(37,211,102,.2);transform:translateY(-1px)}
-  .wa svg{width:16px;height:16px}
+  .showcase header{padding:28px 0 0}
+  .showcase .nav{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .brand{font-family:'Fraunces',serif;font-size:21px;font-weight:600;letter-spacing:-.01em}
+  .brand b{color:var(--accent);font-weight:600}
+  .nav-sub{font-size:12px;color:var(--muted);letter-spacing:.04em;text-align:right;line-height:1.4}
 
-  /* Hero */
-  .hero{padding:80px 0 60px;text-align:center;animation:fadeUp .9s ease both}
-  .eyebrow{display:inline-block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;padding:6px 14px;border:1px solid rgba(212,165,116,.3);border-radius:999px}
-  h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(40px,6vw,72px);line-height:1.05;letter-spacing:-.02em;margin-bottom:20px}
+  .hero{padding:70px 0 50px;text-align:center;animation:fadeUp .9s ease both}
+  .eyebrow{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;padding:6px 14px;border:1px solid rgba(212,165,116,.3);border-radius:999px}
+  h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(38px,6.5vw,68px);line-height:1.05;letter-spacing:-.02em;margin-bottom:18px}
   h1 em{font-style:italic;color:var(--accent)}
-  .sub{font-size:17px;color:var(--muted);max-width:580px;margin:0 auto}
+  .sub{font-size:16px;color:var(--muted);max-width:560px;margin:0 auto}
 
-  /* Filters */
-  .filters{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:40px 0 50px;animation:fadeUp 1s .15s ease both;animation-fill-mode:both;opacity:0}
-  .chip{padding:10px 22px;background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;cursor:pointer;font:inherit;font-size:13px;font-weight:500;letter-spacing:.02em;transition:all .25s}
+  .filters{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:36px 0 44px;animation:fadeUp 1s .15s both}
+  .chip{padding:10px 20px;background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:999px;font-size:13px;font-weight:500;transition:all .25s;min-height:40px}
   .chip:hover{border-color:var(--accent);color:var(--text)}
   .chip.active{background:var(--accent);border-color:var(--accent);color:#0a0a0b}
 
-  /* Grid */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px;padding-bottom:80px}
-  .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .4s;display:flex;flex-direction:column;opacity:0;animation:cardIn .7s ease forwards}
-  .card:hover{transform:translateY(-6px);border-color:rgba(212,165,116,.4);box-shadow:var(--shadow);background:var(--card-hover)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px;padding-bottom:60px}
+  .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;opacity:0;transform:translateY(20px);animation:cardIn .7s ease forwards;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .4s,background .3s}
   .card.hidden{display:none}
+  .showcase .card:hover{transform:translateY(-6px);border-color:rgba(212,165,116,.4);box-shadow:0 20px 60px -20px rgba(0,0,0,.6),0 8px 24px -8px rgba(212,165,116,.08);background:var(--card-h)}
   .card-img{aspect-ratio:16/10;background:linear-gradient(135deg,#1a1a20,#0e0e12);position:relative;overflow:hidden}
-  .card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.5));pointer-events:none}
+  .card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.5))}
   .card-img .icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:64px;color:var(--accent);opacity:.35;font-style:italic}
-  .badge{position:absolute;top:14px;left:14px;background:rgba(10,10,11,.85);backdrop-filter:blur(8px);padding:5px 11px;border-radius:999px;font-size:11px;font-weight:500;letter-spacing:.05em;color:var(--text);z-index:2;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
-  .rating{position:absolute;top:14px;right:14px;background:rgba(10,10,11,.85);backdrop-filter:blur(8px);padding:5px 11px;border-radius:999px;font-size:12px;font-weight:600;color:var(--accent-2);z-index:2;display:flex;align-items:center;gap:4px;border:1px solid rgba(212,165,116,.2)}
-  .card-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
-  .card h3{font-family:'Fraunces',serif;font-weight:500;font-size:23px;letter-spacing:-.01em;margin-bottom:4px;line-height:1.2}
-  .city{font-size:13px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:5px}
-  .city::before{content:'';width:4px;height:4px;background:var(--accent);border-radius:50%;display:inline-block}
-  .open{margin-top:auto;display:inline-flex;align-items:center;gap:8px;padding:11px 0;color:var(--accent);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.02em;border-top:1px solid var(--line);transition:gap .25s,color .25s}
+  .badge{position:absolute;top:14px;left:14px;background:rgba(10,10,11,.85);backdrop-filter:blur(8px);padding:5px 11px;border-radius:999px;font-size:10.5px;font-weight:500;letter-spacing:.05em;color:var(--text);z-index:2;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
+  .rating{position:absolute;top:14px;right:14px;background:rgba(10,10,11,.85);backdrop-filter:blur(8px);padding:5px 11px;border-radius:999px;font-size:12px;font-weight:600;color:var(--accent-2);z-index:2;border:1px solid rgba(212,165,116,.2)}
+  .card-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+  .card h3{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.01em;margin-bottom:4px;line-height:1.2}
+  .city{font-size:13px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:6px}
+  .showcase .city::before{content:'';width:4px;height:4px;background:var(--accent);border-radius:50%}
+  .open{margin-top:auto;display:inline-flex;align-items:center;gap:8px;padding:12px 0;color:var(--accent);font-size:14px;font-weight:500;border-top:1px solid var(--line);transition:gap .25s,color .25s;min-height:44px}
   .open:hover{gap:14px;color:var(--accent-2)}
-  .open svg{width:14px;height:14px;transition:transform .25s}
+  .open svg{width:14px;height:14px}
 
-  /* Footer */
-  footer{padding:48px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px}
-  footer .brand{font-size:16px;color:var(--text);margin-bottom:8px;display:block}
+  .cta-block{margin:40px 0 60px;padding:60px 32px;text-align:center;background:linear-gradient(135deg,rgba(212,165,116,.08),rgba(212,165,116,.02));border:1px solid rgba(212,165,116,.2);border-radius:24px}
+  .cta-block h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,4vw,42px);line-height:1.15;margin-bottom:14px;letter-spacing:-.01em}
+  .cta-block h2 em{font-style:italic;color:var(--accent)}
+  .cta-block p{color:var(--muted);font-size:15px;margin-bottom:28px}
+  .wa-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:#25d366;color:#04240e;border-radius:999px;font-weight:600;font-size:15px;transition:transform .25s,box-shadow .25s;min-height:52px}
+  .wa-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px -8px rgba(37,211,102,.45)}
+  .wa-btn svg{width:20px;height:20px;fill:currentColor}
 
-  /* Animations */
+  footer{padding:36px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .mode-switch{opacity:.18;font-size:11px;letter-spacing:.06em;transition:opacity .25s}
+  .mode-switch:hover{opacity:.7}
+  .mode-switch a{margin-left:6px}
+
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
   @keyframes cardIn{to{opacity:1;transform:translateY(0)}}
-  .card{transform:translateY(20px)}
-  .card:nth-child(1){animation-delay:.1s}.card:nth-child(2){animation-delay:.18s}.card:nth-child(3){animation-delay:.26s}.card:nth-child(4){animation-delay:.34s}.card:nth-child(5){animation-delay:.42s}.card:nth-child(6){animation-delay:.5s}.card:nth-child(7){animation-delay:.58s}.card:nth-child(8){animation-delay:.66s}
+  .card:nth-child(1){animation-delay:.05s}.card:nth-child(2){animation-delay:.12s}.card:nth-child(3){animation-delay:.19s}.card:nth-child(4){animation-delay:.26s}.card:nth-child(5){animation-delay:.33s}.card:nth-child(6){animation-delay:.40s}.card:nth-child(7){animation-delay:.47s}.card:nth-child(8){animation-delay:.54s}.card:nth-child(9){animation-delay:.61s}.card:nth-child(10){animation-delay:.68s}
+
+  /* ======================= FIELD / ADMIN (light functional) ======================= */
+  body.field,body.admin{
+    --bg:#f6f7f9;--card:#fff;--line:#e3e6eb;--text:#15171c;--muted:#6b7280;
+    --accent:#2563eb;--accent-2:#1d4ed8;--green:#16a34a;--yellow:#ca8a04;--red:#dc2626;--purple:#9333ea;--gray:#6b7280;
+    background:var(--bg);color:var(--text);
+  }
+  .field .wrap,.admin .wrap{max-width:980px;padding:16px}
+  .topbar{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px;position:sticky;top:8px;z-index:50;box-shadow:0 4px 14px -8px rgba(0,0,0,.08)}
+  .topbar h1{font-family:'Inter',sans-serif;font-size:18px;font-weight:700;margin-bottom:4px}
+  .topbar .role{font-size:12px;color:var(--muted)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+  .stat{background:#f8f9fb;border:1px solid var(--line);border-radius:10px;padding:8px 10px;text-align:center}
+  .stat .v{font-size:18px;font-weight:700;line-height:1}
+  .stat .l{font-size:10.5px;color:var(--muted);letter-spacing:.03em;text-transform:uppercase;margin-top:3px}
+  .admin .stats{grid-template-columns:repeat(5,1fr)}
+  @media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}.admin .stats{grid-template-columns:repeat(2,1fr)}}
+
+  .filterbar{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:14px}
+  .filterbar .row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+  .filterbar .row:last-child{margin-bottom:0}
+  .filterbar .lbl{font-size:11px;color:var(--muted);width:100%;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+  .field .chip,.admin .chip{padding:9px 14px;background:#f3f4f7;border:1px solid var(--line);color:var(--text);border-radius:999px;font-size:13px;min-height:40px}
+  .field .chip.active,.admin .chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+  .lead-list{display:flex;flex-direction:column;gap:10px;padding-bottom:90px}
+  .lead{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;transition:border-color .2s,box-shadow .2s}
+  .lead.visited{border-color:var(--green);box-shadow:0 0 0 2px rgba(22,163,74,.08)}
+  .lead.hidden{display:none}
+  .lead-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+  .lead-title{flex:1;min-width:0}
+  .lead-name{font-weight:700;font-size:16px;letter-spacing:-.01em;line-height:1.25}
+  .lead-meta{font-size:13px;color:var(--muted);margin-top:3px;display:flex;gap:8px;flex-wrap:wrap}
+  .lead-meta .star{color:var(--yellow);font-weight:600}
+  .status{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;font-size:11.5px;font-weight:600;white-space:nowrap}
+  .s-pronta{background:#dcfce7;color:#15803d}
+  .s-da_inviare{background:#fef3c7;color:#a16207}
+  .s-da_creare{background:#fee2e2;color:#b91c1c}
+  .s-vendita{background:#f3e8ff;color:#7e22ce}
+  .s-non_visitato{background:#f3f4f6;color:#4b5563}
+  .s-visitato{background:#dcfce7;color:#15803d}
+  .s-da_visitare{background:#fef3c7;color:#a16207}
+
+  .saved-info{margin-top:8px;padding:8px 10px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:13px;color:#15803d}
+  .saved-info b{color:#14532d}
+
+  .lead-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 14px;border-radius:10px;font-size:13.5px;font-weight:600;min-height:44px;transition:transform .15s,background .2s;flex:1;min-width:120px;border:1px solid transparent}
+  .btn:active{transform:scale(.97)}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-2)}
+  .btn-success{background:var(--green);color:#fff}
+  .btn-outline{background:#fff;border-color:var(--line);color:var(--text)}
+  .btn-outline:hover{background:#f8f9fb}
+  .btn-wa{background:#25d366;color:#04240e}
+  .btn-ghost{background:transparent;color:var(--muted);border-color:var(--line);min-width:auto;flex:0 0 auto;padding:10px 12px}
+  .btn svg{width:16px;height:16px;fill:currentColor}
+
+  .form{margin-top:12px;padding:14px;background:#f8f9fb;border:1px solid var(--line);border-radius:10px;display:none}
+  .lead.open .form{display:block;animation:slideDown .3s ease}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+  .form label{display:block;font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:10px 0 4px;font-weight:600}
+  .form label:first-child{margin-top:0}
+  .form input,.form select,.form textarea{padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;min-height:42px;color:var(--text)}
+  .form textarea{min-height:70px;resize:vertical}
+  .form .save-row{display:flex;gap:8px;margin-top:14px}
+
+  .floating-bar{position:fixed;bottom:14px;left:14px;right:14px;background:#15171c;color:#fff;border-radius:14px;padding:12px;display:flex;gap:8px;z-index:100;box-shadow:0 12px 30px -10px rgba(0,0,0,.4);max-width:952px;margin:0 auto}
+  .floating-bar .btn{flex:1}
+  .floating-bar .btn-primary{background:#fff;color:#15171c}
+  .floating-bar .btn-outline{background:transparent;color:#fff;border-color:#374151}
+
+  .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:#15171c;color:#fff;padding:12px 22px;border-radius:999px;font-size:14px;font-weight:500;z-index:200;opacity:0;transition:all .3s}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
   @media(max-width:600px){
-    .wrap{padding:0 20px}
-    .hero{padding:50px 0 40px}
-    .grid{grid-template-columns:1fr;gap:18px}
-    .nav{flex-direction:column;gap:14px;align-items:flex-start}
+    .wrap{padding:0 18px}
+    .lead-actions .btn{flex:1 1 calc(50% - 3px);min-width:0}
   }
 </style>
 </head>
 <body>
-<header><div class="wrap">
-  <div class="nav">
-    <div class="brand">Viktoria<span>.</span> Agency</div>
-    <a class="wa" href="https://wa.me/393513904408" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>
-      +39 351 390 4408
-    </a>
-  </div>
-</div></header>
-
-<section class="hero"><div class="wrap">
-  <span class="eyebrow">Demo Siti Web</span>
-  <h1>Siti web <em>su misura</em><br>per la tua attività</h1>
-  <p class="sub">Una selezione di demo realizzate per ristoranti, pizzerie e attività in Calabria. Design moderno, performance reali, mobile-first.</p>
-</div></section>
-
-<main class="wrap">
-  <div class="filters">
-    <button class="chip active" data-filter="all">Tutti</button>
-    <button class="chip" data-filter="ristorante">Ristoranti</button>
-    <button class="chip" data-filter="pizzeria">Pizzerie</button>
-    <button class="chip" data-filter="altro">Altro</button>
-  </div>
-
-  <div class="grid">
-    <article class="card" data-type="altro">
-      <div class="card-img"><span class="badge">Street Food</span><span class="rating">★ 4.3</span><div class="icon">F</div></div>
-      <div class="card-body"><h3>Fresco di Mare</h3><div class="city">Scalea</div>
-        <a class="open" href="/fresco-di-mare/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </article>
-
-    <article class="card" data-type="pizzeria">
-      <div class="card-img"><span class="badge">Pizzeria</span><span class="rating">★ 4.5</span><div class="icon">P</div></div>
-      <div class="card-body"><h3>Il Peperoncino</h3><div class="city">Scalea</div>
-        <a class="open" href="/peperoncino/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </article>
-
-    <article class="card" data-type="ristorante">
-      <div class="card-img"><span class="badge">Ristorante</span><span class="rating">★ 4.8</span><div class="icon">L</div></div>
-      <div class="card-body"><h3>Lido Azzurro Naty</h3><div class="city">Scalea</div>
-        <a class="open" href="/lido-azzurro/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </article>
-
-    <article class="card" data-type="pizzeria">
-      <div class="card-img"><span class="badge">Pizzeria</span><div class="icon">B</div></div>
-      <div class="card-body"><h3>Pizzeria Bellavista</h3><div class="city">S. Domenica Talao</div>
-        <a class="open" href="/bellavista/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </article>
-
-    <article class="card" data-type="ristorante">
-      <div class="card-img"><span class="badge">Ristorante</span><div class="icon">E</div></div>
-      <div class="card-body"><h3>Pizzeria da Ersilio</h3><div class="city">S. Domenica Talao</div>
-        <a class="open" href="/ersilio/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </article>
-
-    <article class="card" data-type="altro">
-      <div class="card-img"><span class="badge">Enoteca</span><div class="icon">B</div></div>
-      <div class="card-body"><h3>BistrotEnoteca Del Corso</h3><div class="city">S. Domenica Talao</div>
-        <a class="open" href="/bistrot/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </article>
-
-    <article class="card" data-type="ristorante">
-      <div class="card-img"><span class="badge">Ristorante</span><div class="icon">V</div></div>
-      <div class="card-body"><h3>La Vecchia Fattoria</h3><div class="city">Scalea</div>
-        <a class="open" href="/fattoria/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </article>
-
-    <article class="card" data-type="altro">
-      <div class="card-img"><span class="badge">Ristrutturazioni</span><div class="icon">Y</div></div>
-      <div class="card-body"><h3>Your Dream</h3><div class="city">Scalea</div>
-        <a class="open" href="/yourdream/" target="_blank" rel="noopener">Apri demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-    </article>
-  </div>
-</main>
-
-<footer><div class="wrap">
-  <span class="brand">Viktoria<span style="color:var(--accent)">.</span> Agency</span>
-  © 2026 Viktoria Agency · <a href="https://wa.me/393513904408" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">WhatsApp</a>
-</div></footer>
+<div id="root"></div>
 
 <script>
-  const chips=document.querySelectorAll('.chip'),cards=document.querySelectorAll('.card');
-  chips.forEach(c=>c.addEventListener('click',()=>{
-    chips.forEach(x=>x.classList.remove('active'));c.classList.add('active');
+const leads = [
+  { id:"fresco-di-mare",name:"Fresco di Mare",city:"Scalea",type:"Street Food",rating:4.3,reviews:949,url:"/fresco-di-mare/",status:"pronta",phone:"+39 338 584 6998",wa:"393385846998"},
+  { id:"peperoncino",name:"Il Peperoncino",city:"Scalea",type:"Pizzeria",rating:4.5,url:"/peperoncino/",status:"pronta",phone:"",wa:""},
+  { id:"lido-azzurro",name:"Lido Azzurro Naty",city:"Scalea",type:"Ristorante",rating:4.8,reviews:334,url:"/lido-azzurro/",status:"pronta",phone:"+39 338 373 4797",wa:"393383734797"},
+  { id:"rondinella",name:"La Rondinella",city:"Scalea",type:"Agriturismo",rating:4.5,reviews:1610,url:"/rondinella/",status:"da_inviare",phone:"+39 0985 90518",wa:"390985905018",note:"Leopold parla DE/EN"},
+  { id:"gallo-bianco",name:"Il Gallo Bianco",city:"Scalea",type:"Trattoria",rating:4.7,reviews:315,url:"",status:"da_creare",phone:"+39 393 579 1566",wa:"393935791566",note:"Angela, demo da rifare"},
+  { id:"bellavista",name:"Pizzeria Bellavista",city:"S. Domenica Talao",type:"Pizzeria",url:"/bellavista/",status:"pronta"},
+  { id:"ersilio",name:"Pizzeria da Ersilio",city:"S. Domenica Talao",type:"Ristorante",url:"/ersilio/",status:"pronta"},
+  { id:"bistrot",name:"BistrotEnoteca Del Corso",city:"S. Domenica Talao",type:"Enoteca",url:"/bistrot/",status:"pronta"},
+  { id:"serrago",name:"Ristorante Serrago",city:"Praia a Mare",type:"Ristorante",rating:4.8,reviews:144,url:"",status:"da_creare",phone:"+39 380 238 4386",wa:"393802384386",note:"v2 in creazione"},
+  { id:"yourdream",name:"Your Dream",city:"Scalea",type:"Ristrutturazioni",url:"/yourdream/",status:"pronta"},
+];
+
+const BASE = "https://viktorialiubitskaya-coder.github.io";
+const STATUS_LABELS = {
+  pronta:{ico:"🟢",lbl:"Pronta",cls:"s-pronta"},
+  da_inviare:{ico:"🟡",lbl:"Da inviare",cls:"s-da_inviare"},
+  da_creare:{ico:"🔴",lbl:"Da creare",cls:"s-da_creare"},
+  vendita:{ico:"🟣",lbl:"Vendita",cls:"s-vendita"},
+  non_visitato:{ico:"⚪",lbl:"Non visitato",cls:"s-non_visitato"},
+};
+const FIELD_STATUS = {
+  visited:{ico:"🟢",lbl:"Visitato",cls:"s-visitato"},
+  da_visitare:{ico:"🟡",lbl:"Da visitare",cls:"s-da_visitare"},
+  no_demo:{ico:"🔴",lbl:"Demo da creare",cls:"s-da_creare"},
+};
+
+function waText(l){
+  if(l.url) return `Buongiorno! Sono di Viktoria Agency. Abbiamo creato un sito demo gratuito per ${l.name}. Può vederlo qui: ${BASE}${l.url} — Cosa ne pensa?`;
+  return `Buongiorno! Sono di Viktoria Agency. Creiamo siti web professionali per ristoranti in Calabria. Posso mostrarle alcuni esempi dei nostri lavori?`;
+}
+function waLink(l){ return l.wa ? `https://wa.me/${l.wa}?text=${encodeURIComponent(waText(l))}` : null; }
+function initial(n){return n.replace(/^(Pizzeria|Ristorante|BistrotEnoteca|La|Il|Trattoria)\s+/i,'').charAt(0).toUpperCase();}
+
+const params = new URLSearchParams(location.search);
+const MODE = params.has('admin') ? 'admin' : (params.has('field') ? 'field' : 'showcase');
+document.body.className = MODE;
+
+/* ============================================================ SHOWCASE */
+function renderShowcase(){
+  const cities = ['Tutti','Scalea','Praia a Mare','S. Domenica Talao'];
+  const visible = leads.filter(l=>l.url);
+  const byCity = c => c==='Tutti' ? visible : visible.filter(l=>l.city===c);
+
+  const card = l => `
+    <article class="card" data-city="${l.city}">
+      <div class="card-img">
+        <span class="badge">${l.type}</span>
+        ${l.rating ? `<span class="rating">★ ${l.rating}</span>` : ''}
+        <div class="icon">${initial(l.name)}</div>
+      </div>
+      <div class="card-body">
+        <h3>${l.name}</h3>
+        <div class="city">${l.city}</div>
+        <a class="open" href="${l.url}" target="_blank" rel="noopener">Apri demo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </article>`;
+
+  document.getElementById('root').innerHTML = `
+    <header><div class="wrap"><div class="nav">
+      <div class="brand">Viktoria<b>.</b> Agency</div>
+      <div class="nav-sub">Siti web per la ristorazione<br>Calabria Tirrenica</div>
+    </div></div></header>
+
+    <section class="hero"><div class="wrap">
+      <span class="eyebrow">Demo Siti Web</span>
+      <h1>Siti web <em>su misura</em><br>per la tua attività</h1>
+      <p class="sub">Una selezione di lavori realizzati per ristoranti, pizzerie e attività in Calabria. Design moderno, performance reali, mobile-first.</p>
+    </div></section>
+
+    <main class="wrap">
+      <div class="filters">
+        ${cities.map((c,i)=>`<button class="chip ${i===0?'active':''}" data-filter="${c}">${c}</button>`).join('')}
+      </div>
+      <div class="grid">${visible.map(card).join('')}</div>
+
+      <div class="cta-block">
+        <h2>Vuoi un sito <em>così</em><br>per il tuo ristorante?</h2>
+        <p>Parliamone su WhatsApp — preventivo gratuito in 24 ore.</p>
+        <a class="wa-btn" href="https://wa.me/393513904408" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>
+          Scrivi su WhatsApp +39 351 390 4408
+        </a>
+      </div>
+    </main>
+
+    <footer><div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;width:100%">
+      <span>© 2026 Viktoria Agency · Calabria Tirrenica</span>
+      <span class="mode-switch">·<a href="?field=1">f</a><a href="?admin=1">a</a></span>
+    </div></footer>`;
+
+  document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+    document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+    c.classList.add('active');
     const f=c.dataset.filter;
-    cards.forEach(card=>card.classList.toggle('hidden',f!=='all'&&card.dataset.type!==f));
+    document.querySelectorAll('.card').forEach(card=>card.classList.toggle('hidden',f!=='Tutti'&&card.dataset.city!==f));
   }));
+}
+
+/* ============================================================ FIELD / ADMIN */
+function loadData(){ try{return JSON.parse(localStorage.getItem('fieldData')||'{}')}catch(e){return{}} }
+function saveData(d){ localStorage.setItem('fieldData',JSON.stringify(d)) }
+
+function fieldStatus(l,d){
+  const e=d[l.id];
+  if(e&&e.visited) return 'visited';
+  if(!l.url) return 'no_demo';
+  return 'da_visitare';
+}
+
+function renderField(){
+  const d = loadData();
+  const cities = ['Tutti','Scalea','Praia a Mare','S. Domenica Talao'];
+  const statuses = [['Tutti','all'],['Da visitare','da_visitare'],['Visitati','visited'],['Interessati','interessati']];
+
+  const stats = {
+    tot: leads.length,
+    vis: leads.filter(l=>d[l.id]?.visited).length,
+    int: leads.filter(l=>['molto','interessato'].includes(d[l.id]?.interest)).length,
+    pronte: leads.filter(l=>l.url).length,
+  };
+
+  const leadCard = l => {
+    const e = d[l.id]||{};
+    const fs = fieldStatus(l,d);
+    const s = FIELD_STATUS[fs];
+    return `
+    <article class="lead ${e.visited?'visited':''}" data-id="${l.id}" data-city="${l.city}" data-fs="${fs}" data-int="${e.interest||''}">
+      <div class="lead-head">
+        <div class="lead-title">
+          <div class="lead-name">${l.name}</div>
+          <div class="lead-meta">
+            <span>${l.city}</span>
+            <span>· ${l.type}</span>
+            ${l.rating?`<span class="star">★ ${l.rating}${l.reviews?` (${l.reviews})`:''}</span>`:''}
+          </div>
+        </div>
+        <span class="status ${s.cls}">${s.ico} ${s.lbl}</span>
+      </div>
+      ${e.owner?`<div class="saved-info"><b>${e.owner}</b>${e.phone?` · ${e.phone}`:''}${e.interest?` · ${e.interest}`:''}${e.comment?`<br>"${e.comment}"`:''}</div>`:''}
+      <div class="lead-actions">
+        ${l.url?`<a class="btn btn-primary" href="${l.url}" target="_blank" rel="noopener">Apri demo →</a>`:''}
+        <button class="btn btn-success" data-act="visit">${e.visited?'✓ Visitato':'✓ Visitato'}</button>
+        <button class="btn btn-outline" data-act="toggle">${e.owner?'✎ Modifica':'+ Dati'}</button>
+      </div>
+      <div class="form">
+        <label>Nome proprietario</label><input type="text" name="owner" value="${e.owner||''}" placeholder="Es. Marco">
+        <label>Telefono</label><input type="tel" name="phone" value="${e.phone||l.phone||''}" placeholder="Es. 338 584 6998">
+        <label>Interesse</label>
+        <select name="interest">
+          <option value="">—</option>
+          <option value="molto" ${e.interest==='molto'?'selected':''}>Molto interessato</option>
+          <option value="interessato" ${e.interest==='interessato'?'selected':''}>Interessato</option>
+          <option value="forse" ${e.interest==='forse'?'selected':''}>Forse</option>
+          <option value="no" ${e.interest==='no'?'selected':''}>Non interessato</option>
+        </select>
+        <label>Commento</label><textarea name="comment" placeholder="Note dalla visita...">${e.comment||''}</textarea>
+        <label>Prossimo passo</label>
+        <select name="nextStep">
+          <option value="">—</option>
+          <option value="demo" ${e.nextStep==='demo'?'selected':''}>Inviare demo</option>
+          <option value="richiamare" ${e.nextStep==='richiamare'?'selected':''}>Richiamare</option>
+          <option value="preventivo" ${e.nextStep==='preventivo'?'selected':''}>Preventivo</option>
+          <option value="nessuno" ${e.nextStep==='nessuno'?'selected':''}>Nessuno</option>
+        </select>
+        <div class="save-row">
+          <button class="btn btn-primary" data-act="save">Salva</button>
+          <button class="btn btn-ghost" data-act="toggle">Chiudi</button>
+        </div>
+      </div>
+    </article>`;
+  };
+
+  document.getElementById('root').innerHTML = `
+    <div class="wrap">
+      <div class="topbar">
+        <h1>📋 CRM Visite</h1>
+        <div class="role">Modalità freelance · ${leads.length} lead</div>
+        <div class="stats">
+          <div class="stat"><div class="v">${stats.tot}</div><div class="l">Totale</div></div>
+          <div class="stat"><div class="v">${stats.vis}</div><div class="l">Visitati</div></div>
+          <div class="stat"><div class="v">${stats.int}</div><div class="l">Interessati</div></div>
+          <div class="stat"><div class="v">${stats.pronte}</div><div class="l">Demo pronte</div></div>
+        </div>
+      </div>
+
+      <div class="filterbar">
+        <div class="row"><span class="lbl">Città</span></div>
+        <div class="row" data-group="city">
+          ${cities.map((c,i)=>`<button class="chip ${i===0?'active':''}" data-v="${c}">${c}</button>`).join('')}
+        </div>
+        <div class="row" style="margin-top:8px"><span class="lbl">Stato</span></div>
+        <div class="row" data-group="status">
+          ${statuses.map(([l,v],i)=>`<button class="chip ${i===0?'active':''}" data-v="${v}">${l}</button>`).join('')}
+        </div>
+      </div>
+
+      <div class="lead-list">${leads.map(leadCard).join('')}</div>
+
+      <div class="floating-bar">
+        <button class="btn btn-primary" id="copyReport">📋 Copia report</button>
+        <a class="btn btn-outline" href="?">← Vetrina</a>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>`;
+
+  bindFieldAdmin('field');
+}
+
+function renderAdmin(){
+  const d = loadData();
+  const adminStatus = id => JSON.parse(localStorage.getItem('adminStatus')||'{}')[id];
+  const cities = ['Tutti','Scalea','Praia a Mare','S. Domenica Talao'];
+
+  const stats = {
+    tot: leads.length,
+    pronte: leads.filter(l=>(adminStatus(l.id)||l.status)==='pronta').length,
+    inviate: leads.filter(l=>(adminStatus(l.id)||l.status)==='da_inviare').length,
+    vendite: leads.filter(l=>(adminStatus(l.id)||l.status)==='vendita').length,
+    incasso: leads.filter(l=>(adminStatus(l.id)||l.status)==='vendita').length * 350,
+  };
+
+  const leadCard = l => {
+    const st = adminStatus(l.id) || l.status;
+    const s = STATUS_LABELS[st]||STATUS_LABELS.non_visitato;
+    const e = d[l.id]||{};
+    const wa = waLink(l);
+    return `
+    <article class="lead" data-id="${l.id}" data-city="${l.city}">
+      <div class="lead-head">
+        <div class="lead-title">
+          <div class="lead-name">${l.name}</div>
+          <div class="lead-meta">
+            <span>${l.city}</span>
+            <span>· ${l.type}</span>
+            ${l.rating?`<span class="star">★ ${l.rating}${l.reviews?` (${l.reviews})`:''}</span>`:''}
+            ${l.phone?`<span>· 📞 ${l.phone}</span>`:''}
+          </div>
+          ${l.note?`<div class="lead-meta" style="margin-top:6px;font-style:italic">📝 ${l.note}</div>`:''}
+        </div>
+        <select class="status ${s.cls}" data-act="status" style="border:0;cursor:pointer">
+          ${Object.entries(STATUS_LABELS).map(([k,v])=>`<option value="${k}" ${k===st?'selected':''}>${v.ico} ${v.lbl}</option>`).join('')}
+        </select>
+      </div>
+      ${e.owner?`<div class="saved-info">[Field] <b>${e.owner}</b>${e.phone?` · ${e.phone}`:''}${e.interest?` · ${e.interest}`:''}${e.comment?`<br>"${e.comment}"`:''}${e.nextStep?`<br>→ ${e.nextStep}`:''}</div>`:''}
+      <div class="lead-actions">
+        ${l.url?`<a class="btn btn-primary" href="${l.url}" target="_blank" rel="noopener">Apri demo</a>`:''}
+        ${wa?`<a class="btn btn-wa" href="${wa}" target="_blank" rel="noopener">📲 WhatsApp</a>`:''}
+      </div>
+    </article>`;
+  };
+
+  document.getElementById('root').innerHTML = `
+    <div class="wrap">
+      <div class="topbar">
+        <h1>👑 Admin · Viktoria</h1>
+        <div class="role">CRM completo · gestione lead e vendite</div>
+        <div class="stats">
+          <div class="stat"><div class="v">${stats.tot}</div><div class="l">Totale</div></div>
+          <div class="stat"><div class="v">${stats.pronte}</div><div class="l">Pronte</div></div>
+          <div class="stat"><div class="v">${stats.inviate}</div><div class="l">Inviate</div></div>
+          <div class="stat"><div class="v">${stats.vendite}</div><div class="l">Vendite</div></div>
+          <div class="stat"><div class="v">€${stats.incasso}</div><div class="l">Incasso/mese</div></div>
+        </div>
+      </div>
+
+      <div class="filterbar">
+        <div class="row"><span class="lbl">Città</span></div>
+        <div class="row" data-group="city">
+          ${cities.map((c,i)=>`<button class="chip ${i===0?'active':''}" data-v="${c}">${c}</button>`).join('')}
+        </div>
+      </div>
+
+      <div class="lead-list">${leads.map(leadCard).join('')}</div>
+
+      <div class="floating-bar">
+        <a class="btn btn-primary" href="?">← Vetrina</a>
+        <a class="btn btn-outline" href="?field=1">Modalità field</a>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>`;
+
+  bindFieldAdmin('admin');
+}
+
+function bindFieldAdmin(mode){
+  const toast = (msg) => {
+    const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),1800);
+  };
+
+  document.querySelectorAll('.filterbar .row[data-group]').forEach(row=>{
+    row.addEventListener('click',e=>{
+      const b=e.target.closest('.chip'); if(!b) return;
+      row.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      applyFilters();
+    });
+  });
+
+  function applyFilters(){
+    const city=document.querySelector('[data-group="city"] .active')?.dataset.v||'Tutti';
+    const status=document.querySelector('[data-group="status"] .active')?.dataset.v||'all';
+    document.querySelectorAll('.lead').forEach(card=>{
+      let show=true;
+      if(city!=='Tutti'&&card.dataset.city!==city) show=false;
+      if(status!=='all'){
+        if(status==='interessati'){if(!['molto','interessato'].includes(card.dataset.int))show=false;}
+        else if(card.dataset.fs!==status) show=false;
+      }
+      card.classList.toggle('hidden',!show);
+    });
+  }
+
+  document.querySelectorAll('.lead').forEach(card=>{
+    const id=card.dataset.id;
+    card.addEventListener('click',e=>{
+      const act=e.target.closest('[data-act]')?.dataset.act;
+      if(!act){
+        if(mode==='field'&&!e.target.closest('a,button,input,select,textarea')){
+          card.classList.toggle('open');
+        }
+        return;
+      }
+      if(act==='toggle'){ card.classList.toggle('open'); return; }
+      const d=loadData(); d[id]=d[id]||{};
+      if(act==='visit'){
+        d[id].visited=true; d[id].visitDate=new Date().toISOString().slice(0,10);
+        saveData(d); toast('✓ Visita registrata'); setTimeout(()=>renderField(),300);
+      }
+      if(act==='save'){
+        const f=card.querySelector('.form');
+        d[id]={...d[id],
+          owner:f.querySelector('[name=owner]').value.trim(),
+          phone:f.querySelector('[name=phone]').value.trim(),
+          interest:f.querySelector('[name=interest]').value,
+          comment:f.querySelector('[name=comment]').value.trim(),
+          nextStep:f.querySelector('[name=nextStep]').value,
+        };
+        saveData(d); toast('✓ Salvato'); setTimeout(()=>renderField(),300);
+      }
+      if(act==='status'){
+        const sel=e.target;
+        const all=JSON.parse(localStorage.getItem('adminStatus')||'{}');
+        all[id]=sel.value;
+        localStorage.setItem('adminStatus',JSON.stringify(all));
+        toast('✓ Stato aggiornato'); setTimeout(()=>renderAdmin(),300);
+      }
+    });
+  });
+
+  const cr=document.getElementById('copyReport');
+  if(cr) cr.addEventListener('click',()=>{
+    const d=loadData();
+    const date=new Date().toLocaleDateString('it-IT');
+    const lines=[`Report visita — ${date}`,''];
+    const intMap={molto:'Molto interessato',interessato:'Interessato',forse:'Forse',no:'Non interessato'};
+    const nextMap={demo:'Inviare demo',richiamare:'Richiamare',preventivo:'Preventivo',nessuno:'Nessuno'};
+    leads.forEach(l=>{
+      const e=d[l.id];
+      if(e?.visited){
+        lines.push(`✅ ${l.name} (${l.city})`);
+        if(e.owner) lines.push(`Proprietario: ${e.owner}`);
+        if(e.phone) lines.push(`Tel: ${e.phone}`);
+        if(e.interest) lines.push(`Interesse: ${intMap[e.interest]||e.interest}`);
+        if(e.comment) lines.push(`Commento: ${e.comment}`);
+        if(e.nextStep) lines.push(`Prossimo: ${nextMap[e.nextStep]||e.nextStep}`);
+        lines.push('');
+      } else {
+        lines.push(`❌ ${l.name} (${l.city}) — Non visitato`);
+      }
+    });
+    const txt=lines.join('\n');
+    navigator.clipboard?.writeText(txt).then(()=>toast('📋 Report copiato'))
+      .catch(()=>{const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast('📋 Report copiato');});
+  });
+}
+
+if(MODE==='showcase') renderShowcase();
+else if(MODE==='field') renderField();
+else renderAdmin();
 </script>
 </body>
 </html>
