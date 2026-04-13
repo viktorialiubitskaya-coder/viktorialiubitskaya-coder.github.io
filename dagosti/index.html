@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dagostì Pizzeria — Pizza Napoletana · Scalea</title>
+<meta name="description" content="Dagostì Pizzeria a Scalea — pizza napoletana artigianale, impasto leggero, ingredienti freschi. Via Fiume Lao 51. Aperti ogni sera 18:00–00:00, Lunedì chiuso.">
+<meta property="og:title" content="Dagostì Pizzeria — Scalea">
+<meta property="og:description" content="Pizza napoletana artigianale. ★4.7 · 248 recensioni. Take-away e piccolo dehors.">
+<meta property="og:type" content="restaurant.restaurant">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Dagostì Pizzeria","servesCuisine":["Pizza","Italian","Neapolitan"],"address":{"@type":"PostalAddress","streetAddress":"Via Fiume Lao, 51","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+393240542085","priceRange":"€","acceptsReservations":"True","hasMenu":true,"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"18:00","closes":"00:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"248"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+    --cream:#FFF8EC;--cream2:#FBF0D9;--paper:#FFFDF6;
+    --ink:#171411;--ink2:#26211C;--slate:#554A3F;--mute:#8C7E6E;
+    --red:#D4361E;--red-d:#A82714;--gold:#F4B532;--gold-d:#D89A1E;
+    --basil:#2F6B4D;--basil-d:#1E4A33;--wood:#6B4423;
+    --border:rgba(23,20,17,.1);--border-s:rgba(23,20,17,.06);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--cream);scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-weight:400}
+h1,h2,h3,h4{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;line-height:.98;color:var(--ink);letter-spacing:-.02em;font-variation-settings:"opsz" 72}
+img{display:block;max-width:100%;height:auto}
+::selection{background:var(--red);color:var(--cream)}
+
+/* LANG */
+.t-en{display:none}
+p.t-en,h1.t-en,h2.t-en,h3.t-en,div.t-en,span.t-en{display:none}
+body.lang-en .t-it{display:none!important}
+body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en div.t-en{display:block!important}
+.lang-toggle{position:fixed;top:18px;right:18px;z-index:100;display:flex;gap:2px;background:var(--ink);border-radius:100px;padding:4px}
+.lang-btn{padding:6px 14px;border:none;background:transparent;color:rgba(255,248,236,.55);font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;cursor:pointer;border-radius:100px;transition:all .25s;letter-spacing:1px}
+.lang-btn.active{background:var(--red);color:var(--cream)}
+
+/* SCROLL PROGRESS */
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:var(--red);z-index:9999}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:18px clamp(20px,5vw,36px);display:flex;align-items:center;justify-content:space-between;transition:background .4s,padding .3s,backdrop-filter .4s}
+nav.scrolled{background:rgba(255,248,236,.97);backdrop-filter:blur(12px);padding:12px clamp(20px,5vw,36px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.4rem;color:var(--ink);text-decoration:none;letter-spacing:-.03em;font-variation-settings:"opsz" 72}
+.nav-logo .dot{color:var(--red)}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--slate);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--red)}
+.nav-mobile{display:none;background:none;border:none;color:var(--ink);font-size:22px;cursor:pointer}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.stagger-parent.visible .stagger-child{opacity:1;transform:translateY(0)}
+.stagger-child{opacity:0;transform:translateY(30px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.stagger-child:nth-child(1){transition-delay:0s}
+.stagger-child:nth-child(2){transition-delay:.09s}
+.stagger-child:nth-child(3){transition-delay:.18s}
+.stagger-child:nth-child(4){transition-delay:.27s}
+.stagger-child:nth-child(5){transition-delay:.36s}
+.stagger-child:nth-child(6){transition-delay:.45s}
+.stagger-child:nth-child(7){transition-delay:.54s}
+.stagger-child:nth-child(8){transition-delay:.63s}
+
+/* HERO — typographic */
+.hero{position:relative;padding:140px 0 60px;overflow:hidden;background:var(--cream)}
+.hero-wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,5vw,36px);position:relative}
+.hero-label{display:flex;align-items:center;gap:14px;margin-bottom:28px;animation:fade-up .8s .1s cubic-bezier(.16,1,.3,1) backwards}
+.hero-label-dot{width:10px;height:10px;border-radius:50%;background:var(--red);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}
+.hero-label-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ink)}
+.hero-label-text strong{color:var(--red)}
+.hero-typo{position:relative;animation:fade-up 1s .3s cubic-bezier(.16,1,.3,1) backwards}
+@keyframes fade-up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(4rem,14vw,11rem);font-weight:800;color:var(--ink);line-height:.85;letter-spacing:-.045em;font-variation-settings:"opsz" 96;margin-bottom:0}
+.hero h1 .dot{color:var(--red)}
+.hero h1 .outline{-webkit-text-stroke:2px var(--ink);color:transparent;font-style:italic}
+.hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:40px;flex-wrap:wrap}
+.hero-photo{position:relative;width:clamp(260px,34vw,400px);flex-shrink:0;animation:fade-up 1.2s .5s cubic-bezier(.16,1,.3,1) backwards}
+.hero-photo img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;box-shadow:0 30px 60px rgba(23,20,17,.18);animation:spin-slow 60s linear infinite}
+@keyframes spin-slow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.hero-photo-sticker{position:absolute;top:-20px;right:-10px;background:var(--red);color:var(--cream);padding:16px 18px;border-radius:50%;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:-.01em;text-align:center;line-height:1.05;transform:rotate(-12deg);width:110px;height:110px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(212,54,30,.3);z-index:2}
+.hero-body{flex:1;min-width:280px;animation:fade-up 1s .7s cubic-bezier(.16,1,.3,1) backwards}
+.hero-lead{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1.2rem,2vw,1.6rem);color:var(--ink);line-height:1.25;margin-bottom:24px;font-weight:500;font-style:italic;letter-spacing:-.01em}
+.hero-lead em{color:var(--red);font-style:italic}
+.hero-meta{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:28px;font-size:.88rem}
+.hero-meta-item{display:flex;flex-direction:column;gap:2px}
+.hero-meta-val{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.5rem;color:var(--ink);line-height:1}
+.hero-meta-val em{color:var(--red);font-style:normal}
+.hero-meta-lbl{font-size:10px;color:var(--mute);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;border:none;cursor:pointer;border-radius:100px}
+.btn-primary{background:var(--ink);color:var(--cream)}
+.btn-primary:hover{background:var(--red);transform:translateY(-2px)}
+.btn-secondary{background:var(--red);color:var(--cream)}
+.btn-secondary:hover{background:var(--red-d);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--cream)}
+
+/* MARQUEE red band */
+.marquee-wrap{background:var(--red);color:var(--cream);padding:18px 0;overflow:hidden;margin-top:60px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.marquee-track{display:flex;width:max-content;animation:mq 30s linear infinite;align-items:center;gap:40px}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-item{font-family:'Bricolage Grotesque',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:-.01em;display:flex;align-items:center;gap:40px;font-style:italic}
+.mq-item .dot{color:var(--gold);font-size:1.8rem;font-style:normal}
+.mq-item .em{color:var(--gold);font-style:italic}
+.mq-item .em::before,.mq-item .em::after{content:"'"}
+
+/* SECTIONS */
+.sec{padding:clamp(80px,9vw,120px) clamp(20px,5vw,36px)}
+.wrap{max-width:1180px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:18px}
+.tag::before{content:'';width:20px;height:2px;background:var(--red)}
+.hdg{font-size:clamp(2.4rem,6vw,4.2rem);color:var(--ink);margin-bottom:22px;letter-spacing:-.035em;line-height:.95}
+.hdg em{color:var(--red);font-style:italic}
+.hdg .outline{-webkit-text-stroke:2px var(--ink);color:transparent;font-style:italic}
+.desc{font-size:1rem;color:var(--slate);max-width:620px;line-height:1.7}
+
+/* MENU — circular cards */
+.menu-sec{background:var(--paper)}
+.menu-head{text-align:center;margin-bottom:60px;max-width:720px;margin-left:auto;margin-right:auto}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px}
+.menu-card{position:relative;text-align:center;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.menu-card:hover{transform:translateY(-6px)}
+.menu-card-img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:6px solid var(--cream);box-shadow:0 16px 36px rgba(23,20,17,.1);transition:border-color .3s}
+.menu-card:hover .menu-card-img{border-color:var(--red)}
+.menu-card-badge{position:absolute;top:10px;right:15%;background:var(--gold);color:var(--ink);padding:4px 12px;border-radius:100px;font-family:'Bricolage Grotesque',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transform:rotate(8deg)}
+.menu-card-body{margin-top:18px;padding:0 10px}
+.menu-card-name{font-family:'Bricolage Grotesque',sans-serif;font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em}
+.menu-card-desc{font-size:.82rem;color:var(--slate);line-height:1.55;margin-bottom:10px;min-height:40px}
+.menu-card-price{display:inline-block;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.25rem;color:var(--red);padding:0 4px}
+.menu-note{text-align:center;margin-top:52px;padding:20px 24px;background:var(--cream2);border-radius:14px;font-size:.88rem;color:var(--slate);font-style:italic}
+.menu-note strong{color:var(--ink);font-style:normal}
+
+/* IMPASTO — signature story */
+.impasto{background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
+.impasto-big{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(9rem,25vw,22rem);font-weight:800;letter-spacing:-.06em;color:rgba(255,248,236,.03);white-space:nowrap;font-style:italic;line-height:1;pointer-events:none}
+.impasto-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.impasto .tag{color:var(--gold)}
+.impasto .tag::before{background:var(--gold)}
+.impasto .hdg{color:var(--cream)}
+.impasto .hdg em{color:var(--gold)}
+.impasto .desc{color:rgba(255,248,236,.72)}
+.impasto-steps{display:grid;gap:16px;margin-top:36px}
+.imp-step{display:grid;grid-template-columns:60px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid rgba(255,248,236,.08)}
+.imp-step:last-child{border-bottom:none}
+.imp-step-num{font-family:'Bricolage Grotesque',sans-serif;font-size:1.8rem;color:var(--red);font-weight:700;line-height:1;font-style:italic}
+.imp-step h3{font-family:'Bricolage Grotesque',sans-serif;font-size:1.1rem;color:var(--cream);margin-bottom:4px;font-weight:600;letter-spacing:-.005em}
+.imp-step p{font-size:.88rem;color:rgba(255,248,236,.72);line-height:1.6}
+.impasto-illustration{position:relative;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;padding:28px}
+.impasto-svg{width:100%;max-width:420px;height:auto;display:block}
+.impasto-svg .dough-ring{fill:none;stroke:var(--gold);stroke-width:1.5;stroke-dasharray:4 6;opacity:.5;animation:dough-rotate 40s linear infinite;transform-origin:center}
+.impasto-svg .dough-ring-2{stroke-dasharray:2 10;animation-duration:60s;animation-direction:reverse;opacity:.3}
+.impasto-svg .dough-fill{fill:var(--ink2);stroke:var(--gold);stroke-width:1}
+.impasto-svg .dough-texture{fill:var(--gold);opacity:.15}
+.impasto-svg .tick{stroke:var(--gold);stroke-width:2;stroke-linecap:round}
+.impasto-svg .tick-major{stroke-width:3}
+.impasto-svg .hand{stroke:var(--red);stroke-width:3;stroke-linecap:round;transform-origin:center;animation:hand-sweep 8s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes hand-sweep{0%{transform:rotate(0)}50%{transform:rotate(180deg)}100%{transform:rotate(360deg)}}
+.impasto-svg .center-num{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:72px;fill:var(--cream);text-anchor:middle;letter-spacing:-.03em}
+.impasto-svg .center-lbl{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:11px;fill:var(--gold);text-anchor:middle;letter-spacing:4px}
+.impasto-svg .temp-line{stroke:var(--red);stroke-width:1.5;stroke-linecap:round}
+.impasto-svg .temp-text{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;fill:var(--red);letter-spacing:-.01em}
+.impasto-svg .flame-glow{fill:var(--red);opacity:.25;filter:blur(8px);animation:flame-pulse 3s ease-in-out infinite}
+@keyframes flame-pulse{0%,100%{opacity:.2;transform:scale(1)}50%{opacity:.45;transform:scale(1.08)}}
+.impasto-svg .edge-label{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:9px;fill:var(--gold);opacity:.6;letter-spacing:2px;text-transform:uppercase}
+.impasto-badge{display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:10px 20px;background:var(--gold);color:var(--ink);border-radius:100px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.3px}
+.impasto-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0}
+.impasto-illustration-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+
+/* TAKEAWAY strip */
+.takeaway{background:var(--cream);padding:clamp(80px,9vw,110px) clamp(20px,5vw,36px)}
+.takeaway-wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(32px,5vw,70px);align-items:center;background:var(--gold);border-radius:28px;padding:clamp(36px,5vw,60px);overflow:hidden;position:relative}
+.takeaway-wrap::before{content:"&rarr;";position:absolute;top:-40px;right:-40px;font-family:'Bricolage Grotesque',sans-serif;font-size:18rem;color:rgba(23,20,17,.06);font-weight:800;line-height:1;pointer-events:none}
+.takeaway-content{position:relative;z-index:1}
+.takeaway .tag{color:var(--red)}
+.takeaway .tag::before{background:var(--red)}
+.takeaway h2{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(2rem,4vw,3rem);color:var(--ink);line-height:1;letter-spacing:-.03em;margin-bottom:18px;font-weight:800}
+.takeaway h2 em{color:var(--red);font-style:italic}
+.takeaway-desc{font-size:.95rem;color:var(--ink2);line-height:1.6;margin-bottom:24px;max-width:440px}
+.takeaway-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.takeaway-photo{border-radius:18px;overflow:hidden;aspect-ratio:1;box-shadow:0 20px 40px rgba(23,20,17,.15);position:relative;z-index:1}
+.takeaway-photo img{width:100%;height:100%;object-fit:cover}
+
+/* REVIEWS */
+.rev-sec{background:var(--paper)}
+.rev-head{max-width:720px;margin:0 auto 56px;text-align:center}
+.rev-wall{column-count:3;column-gap:24px}
+.rev-card{break-inside:avoid;margin-bottom:24px;padding:28px 26px;background:var(--cream);border:1px solid var(--border-s);border-radius:16px;transition:all .3s}
+.rev-card:hover{transform:translateY(-3px);border-color:var(--red);box-shadow:0 10px 28px rgba(23,20,17,.08)}
+.rev-stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:.98rem;color:var(--ink);line-height:1.55;margin-bottom:14px;font-weight:400}
+.rev-text::before{content:'"';font-family:'Bricolage Grotesque',sans-serif;font-size:2.8rem;color:var(--red);line-height:0;display:inline-block;margin-right:4px;vertical-align:-14px}
+.rev-who{font-family:'Bricolage Grotesque',sans-serif;font-size:.88rem;font-weight:700;color:var(--red);letter-spacing:-.005em}
+.rev-src{font-size:.72rem;color:var(--mute);margin-top:2px;letter-spacing:.5px;font-weight:500}
+.rev-featured{grid-column:span 2;background:var(--red);color:var(--cream)}
+.rev-featured .rev-text{color:var(--cream)}
+.rev-featured .rev-text::before{color:var(--gold)}
+.rev-featured .rev-who{color:var(--gold)}
+.rev-featured .rev-src{color:rgba(255,248,236,.7)}
+
+/* HOURS + BOOKING */
+.hb-sec{background:var(--ink);color:var(--cream)}
+.hb-sec .tag{color:var(--gold)}
+.hb-sec .tag::before{background:var(--gold)}
+.hb-sec .hdg{color:var(--cream)}
+.hb-sec .hdg em{color:var(--gold)}
+.hb-sec .desc{color:rgba(255,248,236,.7)}
+.hb-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(36px,5vw,76px);align-items:start}
+.hb-info h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:28px;margin-bottom:12px}
+.hb-info h3:first-child{margin-top:0}
+.hb-hours{display:flex;flex-direction:column;font-size:.92rem}
+.hb-hours-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,248,236,.08)}
+.hb-hours-row:last-child{border-bottom:none}
+.hb-hours-day{color:rgba(255,248,236,.85);font-weight:500}
+.hb-hours-time{color:var(--gold);font-weight:600;letter-spacing:.5px}
+.hb-hours-row.closed .hb-hours-time{color:rgba(255,248,236,.4);font-style:italic}
+.hb-hours-row.closed .hb-hours-day{color:rgba(255,248,236,.5)}
+.hb-phone{font-family:'Bricolage Grotesque',sans-serif;font-size:1.8rem;font-weight:700;color:var(--cream);text-decoration:none;display:inline-block;margin-top:6px;letter-spacing:-.01em}
+.hb-phone:hover{color:var(--red)}
+.hb-addr{font-size:.95rem;color:rgba(255,248,236,.82);line-height:1.6}
+.soc{display:flex;gap:10px;margin-top:14px}
+.soc a{width:42px;height:42px;border-radius:50%;background:rgba(255,248,236,.06);border:1px solid rgba(255,248,236,.14);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .25s}
+.soc a:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px)}
+.soc svg{width:17px;height:17px;fill:var(--cream);transition:fill .25s}
+.hb-form{background:rgba(255,248,236,.04);border:1px solid rgba(255,248,236,.1);padding:32px;border-radius:18px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,248,236,.65);margin-bottom:6px}
+.fg input,.fg select,.fg textarea{width:100%;padding:13px 14px;border:1px solid rgba(255,248,236,.15);border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--cream);background:rgba(255,248,236,.04);outline:none;transition:border-color .25s;font-weight:400}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-book{width:100%;padding:14px;background:var(--red);color:var(--cream);border:none;border-radius:100px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background .3s,transform .2s;margin-top:6px}
+.btn-book:hover{background:var(--red-d);transform:translateY(-1px)}
+
+/* MAP */
+.map-wrap{position:relative;background:var(--ink)}
+.map-wrap iframe{width:100%;height:400px;border:none;display:block;filter:saturate(.8) contrast(1.05) brightness(.92)}
+.map-card{position:absolute;bottom:26px;left:clamp(20px,5vw,36px);background:var(--cream);padding:20px 26px;border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,.25);max-width:320px}
+.map-card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:1.2rem;color:var(--ink);margin-bottom:4px;font-weight:700}
+.map-card h3 .dot{color:var(--red)}
+.map-card p{font-size:.85rem;color:var(--slate);line-height:1.5}
+.map-card a{color:var(--red);text-decoration:none;font-weight:600}
+
+/* FOOTER */
+footer{background:var(--cream2);color:var(--ink);padding:54px clamp(20px,5vw,36px) 28px}
+.foot-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:26px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.foot-brand{font-family:'Bricolage Grotesque',sans-serif;font-size:1.6rem;color:var(--ink);margin-bottom:6px;font-weight:800;letter-spacing:-.02em}
+.foot-brand .dot{color:var(--red)}
+.foot-addr{font-size:.85rem;color:var(--slate);line-height:1.5}
+.foot-addr a{color:var(--red);text-decoration:none;font-weight:600}
+.foot-nav{display:flex;gap:22px;flex-wrap:wrap}
+.foot-nav a{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);text-decoration:none;transition:color .25s}
+.foot-nav a:hover{color:var(--red)}
+.foot-copy{max-width:1180px;margin:20px auto 0;text-align:center;font-size:.72rem;color:var(--mute)}
+.foot-copy a{color:var(--red);text-decoration:none;font-weight:600}
+
+/* WHATSAPP */
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s,box-shadow .3s}
+.wa:hover{transform:scale(1.08);box-shadow:0 12px 32px rgba(37,211,102,.5)}
+.wa svg{width:28px;height:28px;fill:#fff}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .hero-row{flex-direction:column;align-items:flex-start}
+    .hero-photo{width:260px;align-self:center}
+    .impasto-grid,.takeaway-wrap,.hb-grid{grid-template-columns:1fr}
+    .rev-wall{column-count:2}
+    .rev-featured{grid-column:span 1}
+}
+@media(max-width:768px){
+    .nav-links{display:none}
+    .nav-mobile{display:block}
+    .fg-row{grid-template-columns:1fr}
+    .foot-inner{flex-direction:column;align-items:flex-start}
+    .hero-ctas{flex-direction:column;align-items:stretch}
+    .hero-ctas .btn{justify-content:center}
+    .takeaway-ctas{flex-direction:column}
+    .rev-wall{column-count:1}
+}
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+    .marquee-track,.hero-photo img{animation:none!important}
+}
+</style>
+</head>
+<body>
+<div class="scroll-progress"></div>
+<div class="lang-toggle">
+    <button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+</div>
+
+<nav id="mainNav">
+    <a href="#" class="nav-logo">Dagostì<span class="dot">.</span></a>
+    <ul class="nav-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#impasto"><span class="t-it">Impasto</span><span class="t-en">Dough</span></a></li>
+        <li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li>
+        <li><a href="#orari"><span class="t-it">Orari</span><span class="t-en">Hours</span></a></li>
+        <li><a href="#prenota"><span class="t-it">Prenota</span><span class="t-en">Book</span></a></li>
+    </ul>
+    <button class="nav-mobile" aria-label="Menu">&#9776;</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-wrap">
+        <div class="hero-label">
+            <span class="hero-label-dot"></span>
+            <span class="hero-label-text"><span class="t-it">Aperto stasera &middot; <strong>18:00 &mdash; 00:00</strong></span><span class="t-en">Open tonight &middot; <strong>6 PM &mdash; Midnight</strong></span></span>
+        </div>
+        <div class="hero-typo">
+            <h1>Dagostì<span class="dot">.</span></h1>
+            <h1 class="outline t-it">Pizzeria</h1>
+            <h1 class="outline t-en">Pizzeria</h1>
+        </div>
+        <div class="hero-row">
+            <div class="hero-photo">
+                <div class="hero-photo-sticker"><span class="t-it">Impasto leggero<br>&mdash; fatto a mano</span><span class="t-en">Light dough<br>&mdash; hand-made</span></div>
+                <img src="photos/photo_01.jpg" alt="Pizza Bufala e Pomodorini">
+            </div>
+            <div class="hero-body">
+                <p class="hero-lead t-it">Pizza napoletana artigianale. <em>Ingredienti freschi, impasto leggero</em>, cottura nel forno a 450&deg;C. Da otto anni a Scalea.</p>
+                <p class="hero-lead t-en">Handcrafted Neapolitan pizza. <em>Fresh ingredients, light dough</em>, baked at 450&deg;C. Eight years in Scalea.</p>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <span class="hero-meta-val"><em>4.7</em></span>
+                        <span class="hero-meta-lbl">Google &#9733;</span>
+                    </div>
+                    <div class="hero-meta-item">
+                        <span class="hero-meta-val">248</span>
+                        <span class="hero-meta-lbl"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span>
+                    </div>
+                    <div class="hero-meta-item">
+                        <span class="hero-meta-val">€</span>
+                        <span class="hero-meta-lbl"><span class="t-it">Prezzi giusti</span><span class="t-en">Fair prices</span></span>
+                    </div>
+                    <div class="hero-meta-item">
+                        <span class="hero-meta-val">24h</span>
+                        <span class="hero-meta-lbl"><span class="t-it">Lievitazione</span><span class="t-en">Fermentation</span></span>
+                    </div>
+                </div>
+                <div class="hero-ctas">
+                    <a href="#menu" class="btn btn-primary"><span class="t-it">Vedi il Menu</span><span class="t-en">See Menu</span> &rarr;</a>
+                    <a href="tel:+393240542085" class="btn btn-secondary"><span class="t-it">Chiama per Asporto</span><span class="t-en">Call for Takeaway</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+        <div class="mq-item"><span class="em">Margherita</span> <span class="dot">&bull;</span> Bufala e Pomodorini <span class="dot">&bull;</span> <span class="em">Fiori di zucca</span> <span class="dot">&bull;</span> Calzone Fritto <span class="dot">&bull;</span> <span class="em">Diavola</span> <span class="dot">&bull;</span> Focaccia Prosciutto Burrata <span class="dot">&bull;</span></div>
+        <div class="mq-item"><span class="em">Margherita</span> <span class="dot">&bull;</span> Bufala e Pomodorini <span class="dot">&bull;</span> <span class="em">Fiori di zucca</span> <span class="dot">&bull;</span> Calzone Fritto <span class="dot">&bull;</span> <span class="em">Diavola</span> <span class="dot">&bull;</span> Focaccia Prosciutto Burrata <span class="dot">&bull;</span></div>
+    </div>
+</div>
+
+<!-- MENU -->
+<section class="sec menu-sec" id="menu">
+    <div class="wrap">
+        <div class="menu-head reveal">
+            <p class="tag"><span class="t-it">Il Menu</span><span class="t-en">The Menu</span></p>
+            <h2 class="hdg t-it">Sei <em>pizze</em>. <br><span class="outline">Zero</span> compromessi.</h2>
+            <h2 class="hdg t-en">Six <em>pizzas</em>. <br><span class="outline">Zero</span> compromises.</h2>
+            <p class="desc t-it" style="margin:18px auto 0">Menu corto, cambio ingredienti in base alla stagione. Qui sotto i classici. Altre rotazioni direttamente in pizzeria.</p>
+            <p class="desc t-en" style="margin:18px auto 0">Short menu, ingredients change with the season. Classics below, rotating specials in-store.</p>
+        </div>
+        <div class="menu-grid reveal stagger-parent">
+            <div class="menu-card stagger-child">
+                <span class="menu-card-badge">Top 1</span>
+                <img src="photos/photo_00.jpg" alt="Margherita con Fiori di Zucca" class="menu-card-img" loading="lazy">
+                <div class="menu-card-body">
+                    <div class="menu-card-name t-it">Margherita &amp; Fiori di Zucca</div>
+                    <div class="menu-card-name t-en">Margherita &amp; Zucchini Flowers</div>
+                    <p class="menu-card-desc t-it">Fiordilatte, pomodoro, fiori di zucca freschi, salsiccia</p>
+                    <p class="menu-card-desc t-en">Fior di latte, tomato, fresh zucchini flowers, sausage</p>
+                    <span class="menu-card-price">€9</span>
+                </div>
+            </div>
+            <div class="menu-card stagger-child">
+                <span class="menu-card-badge">Signature</span>
+                <img src="photos/photo_01.jpg" alt="Bufala e Pomodorini" class="menu-card-img" loading="lazy">
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Bufala &amp; Pomodorini</div>
+                    <p class="menu-card-desc t-it">Bufala campana, pomodorini del piennolo, basilico</p>
+                    <p class="menu-card-desc t-en">Campanian buffalo, piennolo cherry tomatoes, basil</p>
+                    <span class="menu-card-price">€10</span>
+                </div>
+            </div>
+            <div class="menu-card stagger-child">
+                <img src="photos/photo_03.jpg" alt="Focaccia Prosciutto Burrata" class="menu-card-img" loading="lazy">
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Focaccia Crudo &amp; Burrata</div>
+                    <p class="menu-card-desc t-it">Prosciutto crudo, burrata, rucola, pomodorini</p>
+                    <p class="menu-card-desc t-en">Prosciutto crudo, burrata, rocket, cherry tomatoes</p>
+                    <span class="menu-card-price">€11</span>
+                </div>
+            </div>
+            <div class="menu-card stagger-child">
+                <img src="photos/photo_06.jpg" alt="Calzone Fritto" class="menu-card-img" loading="lazy">
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Calzone Fritto</div>
+                    <p class="menu-card-desc t-it">Ricotta, salame, fior di latte, pepe nero</p>
+                    <p class="menu-card-desc t-en">Ricotta, salami, fior di latte, black pepper</p>
+                    <span class="menu-card-price">€8</span>
+                </div>
+            </div>
+            <div class="menu-card stagger-child">
+                <img src="photos/photo_04.jpg" alt="Diavola" class="menu-card-img" loading="lazy">
+                <div class="menu-card-body">
+                    <div class="menu-card-name">Diavola</div>
+                    <p class="menu-card-desc t-it">Salame piccante calabrese, fior di latte, peperoncino</p>
+                    <p class="menu-card-desc t-en">Spicy Calabrian salami, fior di latte, chili</p>
+                    <span class="menu-card-price">€9</span>
+                </div>
+            </div>
+            <div class="menu-card stagger-child">
+                <img src="photos/photo_02.jpg" alt="Quattro Formaggi" class="menu-card-img" loading="lazy">
+                <div class="menu-card-body">
+                    <div class="menu-card-name t-it">Quattro Formaggi</div>
+                    <div class="menu-card-name t-en">Four Cheeses</div>
+                    <p class="menu-card-desc t-it">Fior di latte, gorgonzola, pecorino, caciocavallo</p>
+                    <p class="menu-card-desc t-en">Fior di latte, gorgonzola, pecorino, caciocavallo</p>
+                    <span class="menu-card-price">€10</span>
+                </div>
+            </div>
+        </div>
+        <div class="menu-note reveal">
+            <span class="t-it"><strong>Margherita classica &euro;6 &middot; Marinara &euro;5 &middot; Coperto zero.</strong> Tutto il menu disponibile anche d'asporto.</span>
+            <span class="t-en"><strong>Classic Margherita €6 &middot; Marinara €5 &middot; No cover charge.</strong> Full menu also available for takeaway.</span>
+        </div>
+    </div>
+</section>
+
+<!-- IMPASTO — signature -->
+<section class="sec impasto" id="impasto">
+    <div class="impasto-big" aria-hidden="true">24h</div>
+    <div class="wrap">
+        <div class="impasto-grid">
+            <div class="reveal">
+                <p class="tag"><span class="t-it">L'Impasto</span><span class="t-en">The Dough</span></p>
+                <h2 class="hdg t-it">24 ore di <em>lievitazione</em>. <span class="outline">Ogni giorno.</span></h2>
+                <h2 class="hdg t-en">24 hours of <em>fermentation</em>. <span class="outline">Every day.</span></h2>
+                <p class="desc t-it">Farina 00 e grani teneri, acqua fresca, un pizzico di sale, zero scorciatoie. Lasciamo riposare l'impasto 24 ore a temperatura controllata perch&eacute; sia leggero, digeribile, cornicione alto. Quando dicono "l'impasto &egrave; incredibile" &mdash; &egrave; questo che intendono.</p>
+                <p class="desc t-en">00 flour and soft grains, fresh water, a pinch of salt, zero shortcuts. We let the dough rest 24 hours at controlled temperature so it's light, digestible, with a tall crust. When they say "the dough is incredible" &mdash; this is what they mean.</p>
+                <div class="impasto-steps">
+                    <div class="imp-step">
+                        <div class="imp-step-num">I.</div>
+                        <div>
+                            <h3 class="t-it">Impastare all'alba</h3>
+                            <h3 class="t-en">Knead at dawn</h3>
+                            <p class="t-it">Ogni mattina, farina 00, acqua dei monti, lievito madre.</p>
+                            <p class="t-en">Every morning: 00 flour, mountain water, sourdough starter.</p>
+                        </div>
+                    </div>
+                    <div class="imp-step">
+                        <div class="imp-step-num">II.</div>
+                        <div>
+                            <h3 class="t-it">Riposare 24 ore</h3>
+                            <h3 class="t-en">Rest 24 hours</h3>
+                            <p class="t-it">A temperatura controllata. Tempo fa la differenza.</p>
+                            <p class="t-en">At controlled temperature. Time makes the difference.</p>
+                        </div>
+                    </div>
+                    <div class="imp-step">
+                        <div class="imp-step-num">III.</div>
+                        <div>
+                            <h3 class="t-it">Cuocere a 450&deg;C</h3>
+                            <h3 class="t-en">Bake at 450&deg;C</h3>
+                            <p class="t-it">60 secondi nel forno a legna. Cornicione alto, base sottile.</p>
+                            <p class="t-en">60 seconds in the wood-fired oven. Tall crust, thin base.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="impasto-illustration-wrap reveal">
+                <div class="impasto-illustration">
+                    <svg class="impasto-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-labelledby="impasto-title">
+                        <title id="impasto-title">24h di lievitazione · 450°C</title>
+                        <!-- Flame glow behind -->
+                        <ellipse class="flame-glow" cx="200" cy="220" rx="150" ry="150"/>
+
+                        <!-- Outer dashed rings -->
+                        <circle class="dough-ring" cx="200" cy="220" r="180"/>
+                        <circle class="dough-ring dough-ring-2" cx="200" cy="220" r="160"/>
+
+                        <!-- Hour tick marks (24h) -->
+                        <g transform="translate(200,220)">
+                            <!-- 24 ticks, every 15deg -->
+                            <line class="tick tick-major" x1="0" y1="-148" x2="0" y2="-138"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(15)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(30)"/>
+                            <line class="tick tick-major" x1="0" y1="-148" x2="0" y2="-138" transform="rotate(45)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(60)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(75)"/>
+                            <line class="tick tick-major" x1="0" y1="-148" x2="0" y2="-138" transform="rotate(90)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(105)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(120)"/>
+                            <line class="tick tick-major" x1="0" y1="-148" x2="0" y2="-138" transform="rotate(135)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(150)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(165)"/>
+                            <line class="tick tick-major" x1="0" y1="-148" x2="0" y2="-138" transform="rotate(180)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(195)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(210)"/>
+                            <line class="tick tick-major" x1="0" y1="-148" x2="0" y2="-138" transform="rotate(225)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(240)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(255)"/>
+                            <line class="tick tick-major" x1="0" y1="-148" x2="0" y2="-138" transform="rotate(270)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(285)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(300)"/>
+                            <line class="tick tick-major" x1="0" y1="-148" x2="0" y2="-138" transform="rotate(315)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(330)"/>
+                            <line class="tick" x1="0" y1="-148" x2="0" y2="-142" transform="rotate(345)"/>
+                        </g>
+
+                        <!-- Dough circle (center) -->
+                        <circle class="dough-fill" cx="200" cy="220" r="115"/>
+                        <!-- Dough texture dots (bubbles) -->
+                        <circle class="dough-texture" cx="170" cy="180" r="8"/>
+                        <circle class="dough-texture" cx="230" cy="200" r="5"/>
+                        <circle class="dough-texture" cx="195" cy="245" r="10"/>
+                        <circle class="dough-texture" cx="150" cy="230" r="6"/>
+                        <circle class="dough-texture" cx="250" cy="255" r="7"/>
+                        <circle class="dough-texture" cx="215" cy="175" r="4"/>
+                        <circle class="dough-texture" cx="170" cy="260" r="4"/>
+                        <circle class="dough-texture" cx="240" cy="230" r="3"/>
+
+                        <!-- Clock hand sweeping -->
+                        <g transform="translate(200,220)">
+                            <line class="hand" x1="0" y1="0" x2="0" y2="-95"/>
+                            <circle fill="#F4B532" cx="0" cy="0" r="6"/>
+                        </g>
+
+                        <!-- Center text -->
+                        <text class="center-num" x="200" y="215">24h</text>
+                        <text class="center-lbl" x="200" y="245"><tspan class="t-it-svg">LIEVITAZIONE</tspan></text>
+
+                        <!-- Edge labels -->
+                        <text class="edge-label" x="200" y="38" text-anchor="middle">00 · RIPOSO</text>
+                        <text class="edge-label" x="362" y="225" text-anchor="end">06</text>
+                        <text class="edge-label" x="200" y="412" text-anchor="middle">12 · METÀ</text>
+                        <text class="edge-label" x="38" y="225" text-anchor="start">18</text>
+
+                        <!-- Temperature indicator bottom -->
+                        <g transform="translate(200,450)">
+                            <line class="temp-line" x1="-70" y1="0" x2="-20" y2="0"/>
+                            <line class="temp-line" x1="20" y1="0" x2="70" y2="0"/>
+                            <text class="temp-text" x="0" y="6" text-anchor="middle">450°C</text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="impasto-badge"><span class="t-it">Fatta ieri. Cotta stasera.</span><span class="t-en">Made yesterday. Baked tonight.</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TAKEAWAY -->
+<section class="takeaway">
+    <div class="takeaway-wrap reveal">
+        <div class="takeaway-content">
+            <p class="tag"><span class="t-it">Take-Away</span><span class="t-en">Take-Away</span></p>
+            <h2 class="t-it">Pizza calda, <em>a casa tua</em>.<br>In 15 minuti.</h2>
+            <h2 class="t-en">Hot pizza, <em>to your home</em>.<br>In 15 minutes.</h2>
+            <p class="takeaway-desc t-it">Il locale &egrave; piccolo, per questo la maggior parte dei nostri clienti ordina d'asporto. Chiama, passa a ritirare, tutto caldo. Siamo nel centro di Scalea, in Via Fiume Lao 51.</p>
+            <p class="takeaway-desc t-en">Our place is small, so most of our guests order takeaway. Call, pick up, eat it hot. We're in central Scalea, Via Fiume Lao 51.</p>
+            <div class="takeaway-ctas">
+                <a href="tel:+393240542085" class="btn btn-primary"><span class="t-it">Chiama</span><span class="t-en">Call</span> 324 054 2085</a>
+                <a href="https://wa.me/393240542085" class="btn btn-ghost" target="_blank" rel="noopener"><span class="t-it">Scrivi su WhatsApp</span><span class="t-en">WhatsApp us</span></a>
+            </div>
+        </div>
+        <div class="takeaway-photo">
+            <img src="photos/photo_09.jpg" alt="Pizza takeaway" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec rev-sec" id="recensioni">
+    <div class="wrap">
+        <div class="rev-head reveal">
+            <p class="tag"><span class="t-it">Cosa Dicono</span><span class="t-en">What They Say</span></p>
+            <h2 class="hdg t-it">248 voci <em>d'accordo</em>.</h2>
+            <h2 class="hdg t-en">248 voices <em>agreeing</em>.</h2>
+            <p class="desc t-it" style="margin:16px auto 0">Recensioni reali da Google. Abbiamo preso le pi&ugrave; recenti.</p>
+            <p class="desc t-en" style="margin:16px auto 0">Real reviews from Google. We picked the most recent.</p>
+        </div>
+        <div class="rev-wall reveal">
+            <div class="rev-card rev-featured">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">Pizza spettacolare anche d'asporto! Impasto super leggero e fragrante, ingredienti freschissimi e sapore davvero eccezionale. Arrivata caldissima, perfettamente confezionata.</p>
+                <p class="rev-text t-en">Spectacular pizza, even for takeaway! Super light and fragrant dough, ultra-fresh ingredients and truly exceptional flavour. Arrived piping hot, perfectly packaged.</p>
+                <p class="rev-who">Alfonsina Fabrizio</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">Margherita ottima, impasto leggero e ingredienti di qualit&agrave;. Complimenti!</p>
+                <p class="rev-text t-en">Excellent margherita, light dough and quality ingredients. Well done!</p>
+                <p class="rev-who">Giulia</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">Sono stato pi&ugrave; volte in questa pizzeria e ogni volta &egrave; stata un'esperienza favolosa, pizza fantastica, servizio eccellente e tavolini per consumare in loco. Prezzi davvero...</p>
+                <p class="rev-text t-en">I've been to this pizzeria multiple times and every time was a fabulous experience. Fantastic pizza, excellent service and tables to eat in. Really fair prices...</p>
+                <p class="rev-who">Mattia Florio</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text">Incredible pizza with incredible dough. The best pizza we have ever had.</p>
+                <p class="rev-who">Google Review</p>
+                <p class="rev-src">Google &middot; EN</p>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">Sono stato in questa pizzeria e mi sono trovato davvero benissimo. Il locale &egrave; accogliente, pulito e con un'atmosfera familiare che ti mette subito a tuo agio.</p>
+                <p class="rev-text t-en">I went to this pizzeria and had a really great time. The place is welcoming, clean and with a family atmosphere that immediately puts you at ease.</p>
+                <p class="rev-who">Daniele Console</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text">Quality ingredients, tastes fresh, lots of cheese. One of the best pizza's I ever had.</p>
+                <p class="rev-who">Google Review</p>
+                <p class="rev-src">Google &middot; EN</p>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">Secondo me si tratta di una pizzeria principalmente votata per l'asporto in quanto il locale &egrave; di piccole dimensioni. Per fortuna soccorrono i tavoli all'esterno.</p>
+                <p class="rev-text t-en">In my view this is a pizzeria mostly focused on takeaway since the place is small. Luckily outdoor tables help.</p>
+                <p class="rev-who">Dom Dom</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text">This is the excellent pizza you would expect from Italy.</p>
+                <p class="rev-who">Google Review</p>
+                <p class="rev-src">Google &middot; EN</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOURS + BOOKING -->
+<section class="sec hb-sec" id="orari">
+    <div class="wrap">
+        <div class="hb-grid">
+            <div class="hb-info reveal">
+                <p class="tag"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></p>
+                <h2 class="hdg t-it">Ogni <em>sera</em>. <span class="outline">Tranne</span> luned&igrave;.</h2>
+                <h2 class="hdg t-en">Every <em>evening</em>. <span class="outline">Except</span> Monday.</h2>
+
+                <h3 style="margin-top:36px"><span class="t-it">Orari</span><span class="t-en">Hours</span></h3>
+                <div class="hb-hours">
+                    <div class="hb-hours-row closed"><span class="hb-hours-day"><span class="t-it">Luned&igrave;</span><span class="t-en">Monday</span></span><span class="hb-hours-time"><span class="t-it">Chiuso</span><span class="t-en">Closed</span></span></div>
+                    <div class="hb-hours-row"><span class="hb-hours-day"><span class="t-it">Marted&igrave;</span><span class="t-en">Tuesday</span></span><span class="hb-hours-time">18:00 &mdash; 00:00</span></div>
+                    <div class="hb-hours-row"><span class="hb-hours-day"><span class="t-it">Mercoled&igrave;</span><span class="t-en">Wednesday</span></span><span class="hb-hours-time">18:00 &mdash; 00:00</span></div>
+                    <div class="hb-hours-row"><span class="hb-hours-day"><span class="t-it">Gioved&igrave;</span><span class="t-en">Thursday</span></span><span class="hb-hours-time">18:00 &mdash; 00:00</span></div>
+                    <div class="hb-hours-row"><span class="hb-hours-day"><span class="t-it">Venerd&igrave;</span><span class="t-en">Friday</span></span><span class="hb-hours-time">18:00 &mdash; 00:00</span></div>
+                    <div class="hb-hours-row"><span class="hb-hours-day"><span class="t-it">Sabato</span><span class="t-en">Saturday</span></span><span class="hb-hours-time">18:00 &mdash; 00:00</span></div>
+                    <div class="hb-hours-row"><span class="hb-hours-day"><span class="t-it">Domenica</span><span class="t-en">Sunday</span></span><span class="hb-hours-time">18:00 &mdash; 00:00</span></div>
+                </div>
+
+                <h3><span class="t-it">Telefono</span><span class="t-en">Phone</span></h3>
+                <a href="tel:+393240542085" class="hb-phone">+39 324 054 2085</a>
+
+                <h3><span class="t-it">Dove Siamo</span><span class="t-en">Where We Are</span></h3>
+                <p class="hb-addr">Via Fiume Lao, 51<br>87029 Scalea (CS)</p>
+
+                <h3><span class="t-it">Contatti</span><span class="t-en">Contact</span></h3>
+                <div class="soc">
+                    <a href="https://wa.me/393240542085" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+                    <a href="tel:+393240542085" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+                </div>
+            </div>
+            <form class="hb-form reveal" id="prenota" onsubmit="event.preventDefault();alert('Demo — prenotazione inviata!')">
+                <div class="fg-row">
+                    <div class="fg"><label><span class="t-it">Nome</span><span class="t-en">Name</span></label><input type="text" required></div>
+                    <div class="fg"><label><span class="t-it">Telefono</span><span class="t-en">Phone</span></label><input type="tel" required></div>
+                </div>
+                <div class="fg-row">
+                    <div class="fg"><label><span class="t-it">Data</span><span class="t-en">Date</span></label><input type="date" required></div>
+                    <div class="fg"><label><span class="t-it">Ora</span><span class="t-en">Time</span></label>
+                        <select required><option value="">&mdash;</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option><option>22:30</option></select>
+                    </div>
+                </div>
+                <div class="fg-row">
+                    <div class="fg"><label><span class="t-it">Persone</span><span class="t-en">Guests</span></label>
+                        <select required><option value="">&mdash;</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select>
+                    </div>
+                    <div class="fg"><label><span class="t-it">Tipo</span><span class="t-en">Type</span></label>
+                        <select required>
+                            <option value="table" class="t-it">Tavolo</option>
+                            <option value="table" class="t-en">Table</option>
+                            <option value="takeaway" class="t-it">Asporto</option>
+                            <option value="takeaway" class="t-en">Takeaway</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="fg"><label><span class="t-it">Note (allergie, preferenze)</span><span class="t-en">Notes (allergies, preferences)</span></label><textarea rows="2"></textarea></div>
+                <button type="submit" class="btn-book"><span class="t-it">Prenota / Ordina</span><span class="t-en">Book / Order</span></button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- MAP -->
+<div class="map-wrap">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3083!2d15.793!3d39.812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f1f826e6e77!2sDagost%C3%AC%20Pizzeria!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen loading="lazy" title="Dagostì Pizzeria"></iframe>
+    <div class="map-card">
+        <h3>Dagostì<span class="dot">.</span></h3>
+        <p>Via Fiume Lao, 51<br>87029 Scalea (CS)<br><a href="tel:+393240542085">+39 324 054 2085</a></p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-inner">
+        <div>
+            <div class="foot-brand">Dagostì<span class="dot">.</span></div>
+            <p class="foot-addr">Via Fiume Lao, 51 &middot; Scalea (CS)<br><a href="tel:+393240542085">+39 324 054 2085</a></p>
+        </div>
+        <div class="foot-nav">
+            <a href="#menu">Menu</a>
+            <a href="#impasto"><span class="t-it">Impasto</span><span class="t-en">Dough</span></a>
+            <a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a>
+            <a href="#orari"><span class="t-it">Orari</span><span class="t-en">Hours</span></a>
+            <a href="#prenota"><span class="t-it">Prenota</span><span class="t-en">Book</span></a>
+        </div>
+    </div>
+    <p class="foot-copy">
+        &copy; 2025 Dagostì Pizzeria &middot;
+        <span class="t-it">Sito web di</span><span class="t-en">Website by</span>
+        <a href="#">Viktoria Agency</a>
+    </p>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/393240542085" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+function setLang(l){
+    document.body.classList.toggle('lang-en', l==='en');
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+}
+const nav=document.getElementById('mainNav');
+const prog=document.querySelector('.scroll-progress');
+let ticking=false;
+window.addEventListener('scroll',()=>{
+    if(!ticking){
+        requestAnimationFrame(()=>{
+            const y=window.scrollY;
+            const h=document.body.scrollHeight-window.innerHeight;
+            nav.classList.toggle('scrolled',y>80);
+            prog.style.width=(y/h*100)+'%';
+            ticking=false;
+        });
+        ticking=true;
+    }
+},{passive:true});
+document.addEventListener('DOMContentLoaded',()=>{
+    const obs=new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+            if(e.isIntersecting){
+                e.target.classList.add('visible');
+                obs.unobserve(e.target);
+            }
+        });
+    },{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+});
+</script>
+</body>
+</html>
