@@ -40,11 +40,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:fl
 .hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .hero-bg{
   position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 120% 60% at 50% 100%,rgba(160,82,45,.2) 0%,transparent 55%),
-    radial-gradient(ellipse 60% 40% at 80% 20%,rgba(212,168,67,.06) 0%,transparent 50%),
-    linear-gradient(170deg,#0C0A06 0%,#1A1206 40%,#0C0A06 100%);
+  background:url('ersilio-photos/hero.png') center top/cover no-repeat;
+  will-change:transform;
+  animation:kenburns 25s ease-in-out infinite alternate;
 }
+@keyframes kenburns{0%{transform:scale(1.03) translate3d(0,0,0)}100%{transform:scale(1.08) translate3d(-1%,-1%,0)}}
+@media(prefers-reduced-motion:reduce){.hero-bg{animation:none;transform:scale(1.03)}}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35) 0%,rgba(0,0,0,.5) 40%,rgba(0,0,0,.7) 100%);pointer-events:none}
 
 /* Fireflies */
 .ff{position:absolute;border-radius:50%;pointer-events:none;animation:ffanim var(--d,4s) ease-in-out infinite}
@@ -66,9 +68,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:fl
   font-size:clamp(50px,8vw,100px);
   font-weight:400;line-height:.98;
   margin-bottom:12px;
+  text-shadow:0 4px 30px rgba(0,0,0,.7),0 2px 10px rgba(0,0,0,.5);
   opacity:0;animation:fu .9s ease .5s forwards;
 }
 .hero-title em{font-style:italic;color:var(--gold);display:block}
+.hero-badge{text-shadow:0 2px 15px rgba(0,0,0,.6)}
+.hero-desc{text-shadow:0 2px 15px rgba(0,0,0,.6)}
 .hero-prenotazione{
   display:inline-block;
   background:rgba(255,255,255,.06);border:1px solid rgba(212,168,67,.2);
@@ -207,17 +212,12 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding
 
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-img">
-    <img src="https://lh3.googleusercontent.com/places/ANXAkqFIjCez6-PkRaTouTNFcPJsoq20Niv87_zD6lYlHUhJzC3nnuOKTFx4y6JzPj3KJQWlhrZE-1Z1ZnrmcL2Z-jcffwmfHa6CqGY=s4800-w800-h600" alt="Pizzeria da Ersilio"/>
-  </div>
-  <div class="stars" id="stars1"></div>
   <div class="hero-content">
     <div class="hero-badge">Santa Domenica Talao · Dal 1987 · Solo su prenotazione</div>
     <h1 class="hero-title">Pizzeria<br><em>da Ersilio</em></h1>
-    <div class="hero-prenotazione">⚠️ Lavoriamo solo su prenotazione — chiamate prima</div>
     <p class="hero-desc">Cucina calabrese autentica nella campagna di Santa Domenica. Ravioli fatti a mano, pasta fresca ogni giorno, ingredienti dall'orto di famiglia. Un'esperienza unica che non si dimentica.</p>
     <div class="hero-btns">
-      <a href="tel:+393927166368" class="btn-p">📞 Prenota ora: +39 392 716 6368</a>
+      <a href="https://wa.me/393927166368" target="_blank" rel="noopener" class="btn-p">Prenota</a>
       <a href="#menu" class="btn-s">Vedi il menu</a>
     </div>
   </div>
@@ -250,7 +250,7 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding
 
 <section class="about" id="storia">
   <div class="about-img">
-    <img src="https://lh3.googleusercontent.com/places/ANXAkqGixrECpnbV-I03mbetsj2kqwE1yTYcqhuPOp8ncOtHLI8Y-PAtKrEBJ657A6iBGHCRfNXi04Cdy3wn7Yx_RJnN6bPBuhs1974=s4800-w800-h600" alt="Cucina da Ersilio"/>
+    <img src="ersilio-photos/chi-siamo.png" alt="Cucina da Ersilio" style="object-fit:cover;opacity:.85"/>
     <div class="about-img-overlay"></div>
     <div class="about-year">1987</div>
   </div>
