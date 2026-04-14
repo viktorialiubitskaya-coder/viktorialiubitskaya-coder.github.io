@@ -81,7 +81,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:fl
   color:var(--gold);margin:16px 0 32px;
   opacity:0;animation:fu .9s ease .7s forwards;
 }
-.hero-desc{font-size:15px;line-height:1.9;color:rgba(248,240,224,.5);max-width:420px;margin:0 auto 48px;opacity:0;animation:fu .9s ease .8s forwards}
+.hero-desc{font-size:1.1rem;line-height:1.7;color:rgba(255,255,255,.95);max-width:520px;margin:0 auto 48px;text-shadow:0 2px 15px rgba(0,0,0,.6);opacity:0;animation:fu .9s ease .8s forwards}
 .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fu .9s ease 1s forwards}
 .btn-p{background:var(--terra);color:var(--cream);border:none;padding:15px 40px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-family:'Lato',sans-serif;text-decoration:none;display:inline-block}
 .btn-p:hover{background:#B8622D;transform:translateY(-2px)}
@@ -101,18 +101,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:fl
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ABOUT */
-.about{display:grid;grid-template-columns:1fr 1fr;min-height:75vh}
-.about-img{position:relative;overflow:hidden;background:var(--dark);min-height:460px}
-.about-img img{width:100%;height:100%;object-fit:cover;opacity:.7;display:block}
-.about-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(42,30,10,.4),rgba(12,10,6,.2))}
-.about-year{position:absolute;top:40px;left:40px;font-family:'Playfair Display',serif;font-size:80px;font-weight:700;color:rgba(212,168,67,.15);line-height:1}
-.about-text{padding:72px 64px;background:var(--dark);display:flex;flex-direction:column;justify-content:center}
+.about{display:flex;flex-direction:row;background:#1a1a1a;min-height:75vh}
+.about-img{flex:1 1 50%;position:relative;overflow:hidden;background:#0c0a06;min-height:460px}
+.about-img img{width:100%;height:100%;object-fit:cover;display:block}
+.about-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(42,30,10,.25),rgba(12,10,6,.1))}
+.about-year{position:absolute;top:40px;left:40px;font-family:'Playfair Display',serif;font-size:80px;font-weight:700;color:rgba(212,168,67,.18);line-height:1;z-index:2}
+.about-text{flex:1 1 50%;padding:72px 64px;background:#1a1a1a;display:flex;flex-direction:column;justify-content:center}
 .sec-tag{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .sec-tag::before{content:'';width:24px;height:1px;background:var(--gold)}
-.sec-title{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,46px);font-weight:400;line-height:1.2;margin-bottom:22px}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,46px);font-weight:400;line-height:1.2;margin-bottom:22px;color:#fff}
 .sec-title em{font-style:italic;color:var(--gold)}
-.about-body{font-size:14px;line-height:1.95;color:rgba(248,240,224,.55);margin-bottom:32px}
-.about-nota{background:rgba(160,82,45,.12);border-left:3px solid var(--terra);padding:14px 18px;font-size:13px;line-height:1.7;color:rgba(248,240,224,.7);font-style:italic}
+.about-body{font-size:15px;line-height:1.85;color:rgba(255,255,255,.9);margin-bottom:24px}
+.about-nota{background:rgba(160,82,45,.18);border-left:3px solid var(--terra);padding:16px 20px;font-size:13px;line-height:1.7;color:rgba(255,255,255,.85);font-style:italic}
+@media(max-width:880px){.about{flex-direction:column}}
 
 /* MENU */
 .menu{padding:90px 48px;background:var(--bg)}
@@ -254,11 +255,11 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);padding
     <div class="about-img-overlay"></div>
     <div class="about-year">1987</div>
   </div>
-  <div class="about-text reveal">
+  <div class="about-text">
     <p class="sec-tag">La nostra storia</p>
     <h2 class="sec-title">La cucina di<br><em>Letizia</em> e Ersilio</h2>
-    <p class="about-body">Dal 1987, in una masseria immersa nella campagna calabrese a 3 km da Santa Domenica Talao, Ersilio e Letizia accolgono i loro ospiti come fossero di famiglia. Non c'è un menu fisso — Letizia chiede cosa volete e lo prepara con le sue mani, usando ingredienti dell'orto e ricette tramandate dalla nonna.</p>
-    <p class="about-body">I ravioli con ricotta fresca fatti su ordinazione sono diventati leggenda nella Valle del Lao. Bisogna prenotare — ma ne vale assolutamente la pena.</p>
+    <p class="about-body">Dal 1987 Ersilio e Letizia vi accolgono nella loro masseria in campagna, a Santa Domenica Talao. Qui non c'è un menu fisso — Letizia vi chiede cosa desiderate e lo prepara con ingredienti freschi dall'orto di famiglia.</p>
+    <p class="about-body">Ogni sera è diversa, ogni piatto è fatto a mano con amore. Solo su prenotazione, perché ogni cena è preparata apposta per voi.</p>
     <div class="about-nota">"Letizia, the hostess, pampers you like never before. The homemade ravioli are spectacular." — Ospite Google ★★★★★</div>
   </div>
 </section>
