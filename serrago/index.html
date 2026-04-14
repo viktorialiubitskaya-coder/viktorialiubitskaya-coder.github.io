@@ -68,7 +68,7 @@ nav.scrolled{background:rgba(20,16,14,.92);backdrop-filter:blur(14px);padding:14
 
 /* HERO — fullscreen cinematic */
 .hero{position:relative;height:100vh;min-height:640px;overflow:hidden;color:var(--paper);display:flex;align-items:center;justify-content:center;background:#1a1a1a}
-.hero-bg{position:absolute;inset:0;background:url('photos/hero.png') center center/cover no-repeat;will-change:transform;animation:kenburns 25s ease-in-out infinite alternate;z-index:0}
+.hero-bg{position:absolute;inset:0;background:url('./photos/hero.png') center center/cover no-repeat;will-change:transform;animation:kenburns 25s ease-in-out infinite alternate;z-index:0}
 @keyframes kenburns{0%{transform:scale(1.03) translate3d(0,0,0)}100%{transform:scale(1.10) translate3d(-1.5%,-1%,0)}}
 @media(prefers-reduced-motion:reduce){.hero-bg{animation:none;transform:scale(1.03)}}
 .hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.55) 40%,rgba(0,0,0,.75) 100%)}
@@ -370,7 +370,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px clamp(20px,5vw,48px
                 <p class="desc" style="font-size:.85rem;color:var(--mute)">&mdash; Nicola Nappo, Google</p>
             </div>
             <div class="storia-image reveal">
-                <img src="photos/photo_09.jpg" alt="Sala Ristorante Serrago">
+                <img src="./photos/photo_09.jpg" alt="Sala Ristorante Serrago">
                 <div class="storia-image-caption">
                     <span><span class="t-it">Sala Principale</span><span class="t-en">Main Dining Room</span></span>
                     <h4>Via della Grotta, 15</h4>
@@ -394,7 +394,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px clamp(20px,5vw,48px
         </div>
         <div class="piatti-grid reveal stagger-parent">
             <div class="piatto stagger-child">
-                <img src="photos/photo_02.jpg" alt="Tonno al sesamo" loading="lazy">
+                <img src="./photos/photo_02.jpg" alt="Tonno al sesamo" loading="lazy">
                 <div class="piatto-caption">
                     <div class="piatto-cat"><span class="t-it">Antipasto di Mare</span><span class="t-en">Seafood Starter</span></div>
                     <div class="piatto-name t-it">Tonno al sesamo, salsa &agrave; la moutarde</div>
@@ -402,7 +402,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px clamp(20px,5vw,48px
                 </div>
             </div>
             <div class="piatto stagger-child">
-                <img src="photos/photo_01.jpg" alt="Bignè al caffè" loading="lazy">
+                <img src="./photos/photo_01.jpg" alt="Bignè al caffè" loading="lazy">
                 <div class="piatto-caption">
                     <div class="piatto-cat">Dessert</div>
                     <div class="piatto-name t-it">Bign&eacute; al caff&egrave;, crema al mascarpone</div>
@@ -410,7 +410,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px clamp(20px,5vw,48px
                 </div>
             </div>
             <div class="piatto stagger-child">
-                <img src="photos/photo_04.jpg" alt="Polpo con arancia" loading="lazy">
+                <img src="./photos/photo_04.jpg" alt="Polpo con arancia" loading="lazy">
                 <div class="piatto-caption">
                     <div class="piatto-cat"><span class="t-it">Crudo</span><span class="t-en">Raw</span></div>
                     <div class="piatto-name t-it">Polpo, arancia, olive</div>
@@ -418,7 +418,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px clamp(20px,5vw,48px
                 </div>
             </div>
             <div class="piatto stagger-child">
-                <img src="photos/photo_05.jpg" alt="Marinati del giorno" loading="lazy">
+                <img src="./photos/photo_05.jpg" alt="Marinati del giorno" loading="lazy">
                 <div class="piatto-caption">
                     <div class="piatto-cat"><span class="t-it">Antipasti</span><span class="t-en">Starters</span></div>
                     <div class="piatto-name t-it">Marinati del giorno</div>
@@ -426,7 +426,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px clamp(20px,5vw,48px
                 </div>
             </div>
             <div class="piatto stagger-child">
-                <img src="photos/photo_06.jpg" alt="Provola fritta" loading="lazy">
+                <img src="./photos/photo_06.jpg" alt="Provola fritta" loading="lazy">
                 <div class="piatto-caption">
                     <div class="piatto-cat"><span class="t-it">Finger Food</span><span class="t-en">Finger Food</span></div>
                     <div class="piatto-name t-it">Provola fritta, maionese al basilico</div>
@@ -434,7 +434,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px clamp(20px,5vw,48px
                 </div>
             </div>
             <div class="piatto stagger-child">
-                <img src="photos/photo_07.jpg" alt="Spaghetti allo scoglio" loading="lazy">
+                <img src="./photos/photo_07.jpg" alt="Spaghetti allo scoglio" loading="lazy">
                 <div class="piatto-caption">
                     <div class="piatto-cat"><span class="t-it">Primo</span><span class="t-en">First Course</span></div>
                     <div class="piatto-name t-it">Spaghetti allo scoglio, pomodorini</div>
@@ -442,7 +442,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px clamp(20px,5vw,48px
                 </div>
             </div>
             <div class="piatto stagger-child">
-                <img src="photos/photo_03.jpg" alt="Trancio di pesce" loading="lazy">
+                <img src="./photos/photo_03.jpg" alt="Trancio di pesce" loading="lazy">
                 <div class="piatto-caption">
                     <div class="piatto-cat"><span class="t-it">Secondo</span><span class="t-en">Main Course</span></div>
                     <div class="piatto-name t-it">Trancio scottato, patate al rosmarino</div>
