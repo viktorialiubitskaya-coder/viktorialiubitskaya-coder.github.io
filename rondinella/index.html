@@ -72,7 +72,7 @@ nav.scrolled .nav-logo{color:var(--cream)}
 
 /* === HERO === */
 .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;color:var(--cream);padding:180px 0 80px}
-.hero-bg{position:absolute;inset:0;background-image:url('rondinella-hero.jpg');background-size:cover;background-position:center;z-index:0;will-change:transform;animation:hero-zoom 2s cubic-bezier(.16,1,.3,1) forwards,kenburns 20s 2s ease-in-out infinite alternate}
+.hero-bg{position:absolute;inset:0;background-image:url('/static/rondinella-hero.jpg');background-size:cover;background-position:center;z-index:0;will-change:transform;animation:hero-zoom 2s cubic-bezier(.16,1,.3,1) forwards,kenburns 20s 2s ease-in-out infinite alternate}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.55) 30%,rgba(0,0,0,.7) 60%,rgba(0,0,0,.85) 100%);z-index:1;pointer-events:none}
 @keyframes hero-zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
 @keyframes kenburns{0%{transform:scale(1) translate3d(0,0,0)}100%{transform:scale(1.08) translate3d(-1%,-1%,0)}}
@@ -323,7 +323,7 @@ footer{background:var(--ink);color:var(--cream);padding:52px clamp(20px,5vw,40px
         <div class="storia-grid">
             <div class="storia-visual reveal">
                 <div class="storia-visual-tag"><span class="t-it">Il carretto azzurro</span><span class="t-en">The blue cart</span><span class="t-de">Der blaue Karren</span></div>
-                <img src="photos/photo_06.jpg" alt="Il carretto azzurro di La Rondinella" loading="lazy">
+                <img src="./photos/photo_06.jpg" alt="Il carretto azzurro di La Rondinella" loading="lazy">
             </div>
             <div class="reveal">
                 <p class="tag"><span class="t-it">La Nostra Storia</span><span class="t-en">Our Story</span><span class="t-de">Unsere Geschichte</span></p>
@@ -505,10 +505,10 @@ footer{background:var(--ink);color:var(--cream);padding:52px clamp(20px,5vw,40px
             <h2 class="hdg t-de">Vier R&auml;ume, <span class="italic">eine Familie</span></h2>
         </div>
         <div class="gal-grid reveal">
-            <div class="gal-item"><img src="photos/photo_09.jpg" alt="Terrazza panoramica" loading="lazy"></div>
-            <div class="gal-item"><img src="photos/photo_05.jpg" alt="Sala interna con travi a vista" loading="lazy"></div>
-            <div class="gal-item"><img src="photos/photo_02.jpg" alt="Pane nel forno a legna" loading="lazy"></div>
-            <div class="gal-item"><img src="photos/photo_04.jpg" alt="Sala la sera" loading="lazy"></div>
+            <div class="gal-item"><img src="./photos/photo_09.jpg" alt="Terrazza panoramica" loading="lazy"></div>
+            <div class="gal-item"><img src="./photos/photo_05.jpg" alt="Sala interna con travi a vista" loading="lazy"></div>
+            <div class="gal-item"><img src="./photos/photo_02.jpg" alt="Pane nel forno a legna" loading="lazy"></div>
+            <div class="gal-item"><img src="./photos/photo_04.jpg" alt="Sala la sera" loading="lazy"></div>
         </div>
     </div>
 </section>
