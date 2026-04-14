@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veranda Lounge Bar — Scalea · Caffè, aperitivo, cucina internazionale</title>
+<meta name="description" content="Veranda Lounge Bar a Scalea: cornetti fatti in casa, caffè perfetto, aperitivo curato, cucina internazionale. Roberto titolare. ★4.8 · 91 recensioni.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BarOrPub","name":"Veranda Lounge Bar","address":{"@type":"PostalAddress","streetAddress":"Viale John Fitzgerald Kennedy","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+393886587536","priceRange":"€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"91"},"geo":{"@type":"GeoCoordinates","latitude":39.8138788,"longitude":15.7899828}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,700;1,6..72,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#BE123C;--rose-d:#9F1239;--rose-l:#E11D48;--linen:#FAF5EF;--linen-d:#F0E6D7;--forest:#14532D;--forest-d:#052e16;--forest-l:#22C55E;--ink:#1C1917;--mute:#78716C;--line:rgba(190,18,60,.14)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Mulish',sans-serif;color:var(--ink);background:var(--linen);line-height:1.65;overflow-x:hidden;font-weight:400}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+h1,h2,h3,h4{font-family:'Newsreader',serif;font-weight:500;letter-spacing:-.01em}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:20px 44px;display:flex;justify-content:space-between;align-items:center;transition:all .35s}
+nav.scrolled{background:rgba(250,245,239,.96);padding:14px 44px;backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav-logo{font-family:'Newsreader',serif;font-weight:500;font-style:italic;font-size:1.5rem;color:var(--forest-d);text-decoration:none;letter-spacing:.005em}
+.nav-logo span{color:var(--rose)}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{font-family:'Mulish',sans-serif;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--forest-d);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--rose)}
+.lang-toggle{position:fixed;top:20px;right:20px;z-index:100;display:flex;gap:2px;background:var(--forest-d);padding:3px;border-radius:100px}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(250,245,239,.65);font-family:'Mulish',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;cursor:pointer;border-radius:100px;transition:all .25s}
+.lang-btn.active{background:var(--rose);color:#fff}
+/* HERO */
+.hero{position:relative;min-height:100vh;overflow:hidden;display:flex;align-items:center;padding:130px 44px 80px;background:linear-gradient(135deg,var(--linen) 0%,var(--linen-d) 100%)}
+.hero::before{content:'';position:absolute;top:-15%;right:-10%;width:55%;height:120%;background:radial-gradient(circle,rgba(190,18,60,.08) 0%,transparent 60%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-10%;left:-10%;width:40%;height:80%;background:radial-gradient(circle,rgba(20,83,45,.06) 0%,transparent 60%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:1280px;margin:0 auto;width:100%}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-kicker{display:inline-flex;align-items:center;gap:12px;padding:7px 18px;background:#fff;border:1px solid var(--rose);border-radius:100px;font-family:'Mulish',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--rose);margin-bottom:28px;box-shadow:0 6px 14px rgba(190,18,60,.08)}
+.hero-kicker::before{content:'☕'}
+.hero h1{font-family:'Newsreader',serif;font-size:clamp(3.8rem,9vw,7.5rem);font-weight:500;line-height:.95;color:var(--forest-d);margin-bottom:20px;letter-spacing:-.02em}
+.hero h1 em{color:var(--rose);font-style:italic}
+.hero-tag{font-family:'Newsreader',serif;font-style:italic;font-size:clamp(1.1rem,1.8vw,1.3rem);max-width:520px;margin-bottom:32px;color:var(--forest-d);line-height:1.55;font-weight:400}
+.hero-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px;max-width:480px}
+.hm{padding:14px 18px;background:#fff;border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column}
+.hm-v{font-family:'Newsreader',serif;font-weight:700;font-size:1.9rem;color:var(--rose);line-height:1;letter-spacing:-.01em}
+.hm-l{font-family:'Mulish',sans-serif;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--mute);margin-top:5px;font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;font-family:'Mulish',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s;border:none;cursor:pointer}
+.btn-rose{background:var(--rose);color:#fff;box-shadow:0 14px 28px rgba(190,18,60,.3)}
+.btn-rose:hover{background:var(--rose-d);transform:translateY(-2px)}
+.btn-forest{background:transparent;color:var(--forest-d);border:2px solid var(--forest-d);margin-left:10px}
+.btn-forest:hover{background:var(--forest-d);color:var(--linen)}
+/* hero table visual */
+.hero-visual{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center}
+.hero-visual img{width:100%;height:100%;object-fit:cover;border-radius:30px 30px 8px 30px;box-shadow:0 40px 80px rgba(20,83,45,.22);filter:saturate(1.05)}
+.hero-badge-float{position:absolute;bottom:20px;left:-20px;background:var(--forest);color:var(--linen);padding:14px 22px;border-radius:100px;font-family:'Newsreader',serif;font-style:italic;font-size:1.15rem;font-weight:500;box-shadow:0 12px 26px rgba(20,83,45,.4);transform:rotate(-3deg)}
+section{padding:90px 44px}
+.wrap{max-width:1280px;margin:0 auto}
+.sec-head{max-width:720px;margin:0 auto 54px;text-align:center}
+.tag{display:inline-block;font-family:'Mulish',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:16px}
+.tag::before,.tag::after{content:'◦';margin:0 10px;opacity:.5}
+h2.hd{font-family:'Newsreader',serif;font-size:clamp(2.4rem,5vw,4rem);color:var(--forest-d);line-height:1.1;margin-bottom:18px;font-weight:500;letter-spacing:-.015em}
+h2.hd em{color:var(--rose);font-style:italic}
+.sub{font-family:'Mulish',sans-serif;font-size:1.05rem;color:var(--mute);line-height:1.7;font-weight:500}
+/* STORIA */
+.storia{background:#fff}
+.storia-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.storia-media{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:8px 50px 8px 50px;box-shadow:0 30px 60px rgba(20,83,45,.18)}
+.storia-media img{width:100%;height:100%;object-fit:cover}
+.storia-media::after{content:'Roberto · il titolare';position:absolute;bottom:18px;left:18px;padding:8px 16px;background:var(--linen);color:var(--rose);font-family:'Newsreader',serif;font-style:italic;font-size:1rem;font-weight:500;border-radius:100px}
+.storia-body .tag,.storia-body h2.hd,.storia-body .sub{text-align:left;margin-left:0}
+.storia-body p{font-size:1.05rem;margin-bottom:18px;line-height:1.8}
+.storia-body p em{color:var(--rose);font-style:italic;font-weight:600}
+.storia-quote{font-family:'Newsreader',serif;font-style:italic;font-size:1.3rem;color:var(--forest-d);padding:22px 26px;background:var(--linen);border-left:3px solid var(--rose);margin:26px 0;line-height:1.5;border-radius:0 12px 12px 0}
+/* SLAVIC cuisine */
+.slavic{background:var(--linen)}
+.sl-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.sl-media{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:50px 8px 50px 8px;box-shadow:0 30px 60px rgba(190,18,60,.18)}
+.sl-media img{width:100%;height:100%;object-fit:cover}
+.sl-media::after{content:'Ravioli · Marmellata · Tè';position:absolute;bottom:18px;right:18px;padding:8px 16px;background:var(--rose);color:#fff;font-family:'Mulish',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;border-radius:100px}
+.sl-body .tag,.sl-body h2.hd,.sl-body .sub{text-align:left;margin-left:0}
+.sl-body p{font-size:1.05rem;line-height:1.75;margin-bottom:16px}
+.sl-body p em{color:var(--rose);font-style:italic;font-weight:600}
+.sl-dishes{list-style:none;margin-top:22px}
+.sl-dishes li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;gap:18px;align-items:flex-start}
+.sl-dishes li:last-child{border:none}
+.sl-dishes li .ico{width:48px;height:48px;border-radius:50%;background:var(--forest);color:var(--linen);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.sl-dishes li h4{font-family:'Newsreader',serif;font-weight:600;font-size:1.15rem;color:var(--forest-d);margin-bottom:4px}
+.sl-dishes li h4 em{color:var(--rose);font-style:italic}
+.sl-dishes li p{font-family:'Mulish',sans-serif;font-size:.92rem;color:var(--mute);margin:0;line-height:1.5;font-weight:500}
+/* CAFE */
+.cafe{background:var(--forest-d);color:var(--linen);position:relative;overflow:hidden}
+.cafe::before{content:'';position:absolute;top:-10%;right:-10%;width:50%;height:120%;background:radial-gradient(ellipse,rgba(190,18,60,.18) 0%,transparent 55%);pointer-events:none}
+.cafe .hd{color:var(--linen)}.cafe .hd em{color:var(--rose-l)}
+.cafe .sub{color:rgba(250,245,239,.72);margin:0 auto}
+.cafe .tag{color:var(--rose-l)}.cafe .tag::before,.cafe .tag::after{color:var(--rose-l)}
+.cafe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative;z-index:1;margin-top:44px}
+.cf{padding:34px 28px;background:rgba(250,245,239,.05);border:1px solid rgba(190,18,60,.3);border-radius:16px;text-align:center;transition:all .3s}
+.cf:hover{background:rgba(190,18,60,.1);border-color:var(--rose);transform:translateY(-6px)}
+.cf-ico{font-size:3rem;margin-bottom:18px;line-height:1}
+.cf-name{font-family:'Newsreader',serif;font-weight:600;font-size:1.35rem;color:var(--linen);margin-bottom:8px;letter-spacing:-.01em}
+.cf-name em{color:var(--rose-l);font-style:italic}
+.cf-desc{font-family:'Mulish',sans-serif;font-size:.9rem;color:rgba(250,245,239,.78);line-height:1.55;margin-bottom:14px;font-weight:500}
+.cf-price{font-family:'Newsreader',serif;font-style:italic;font-weight:600;font-size:1.4rem;color:var(--rose-l)}
+/* REVIEWS */
+.reviews{background:var(--linen)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.rev-card{padding:28px 26px;background:#fff;border-radius:14px;border:1px solid var(--line);transition:all .35s;position:relative}
+.rev-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--rose) 0%,var(--forest) 100%);border-radius:14px 14px 0 0;opacity:0;transition:opacity .3s}
+.rev-card:hover::before{opacity:1}
+.rev-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(190,18,60,.14);border-color:var(--rose)}
+.rev-stars{color:var(--rose);margin-bottom:12px;letter-spacing:2px}
+.rev-text{font-family:'Newsreader',serif;font-style:italic;font-size:1.02rem;color:var(--ink);line-height:1.65;margin-bottom:18px}
+.rev-author{font-family:'Mulish',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--forest-d)}
+.rev-time{font-family:'Mulish',sans-serif;font-size:10px;color:var(--mute);margin-top:3px;letter-spacing:.5px;font-weight:600}
+/* INFO */
+.info{background:#fff}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.info-col h3.hd{font-size:2.3rem;margin-bottom:12px;text-align:left}
+.info-col .sub{margin-bottom:28px;max-width:none;text-align:left}
+.hours-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px dashed var(--line);font-size:.95rem;align-items:center}
+.hours-day{font-family:'Newsreader',serif;color:var(--forest-d);font-size:1.1rem;font-weight:500}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums;font-weight:500}
+.hours-row.short{background:var(--linen-d);padding:12px 14px;margin:0 -14px;border:none;border-radius:8px}
+.hours-row.short .hours-time{color:var(--rose);font-weight:700;font-style:italic}
+.contact{margin-top:28px}
+.contact h4{font-family:'Mulish',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:6px}
+.contact p,.contact a{font-family:'Newsreader',serif;font-style:italic;font-size:1.2rem;color:var(--forest-d);text-decoration:none;line-height:1.5;font-weight:500}
+.contact a:hover{color:var(--rose)}
+.map-wrap{border-radius:8px 50px 8px 50px;overflow:hidden;aspect-ratio:1;box-shadow:0 30px 60px rgba(20,83,45,.18)}
+.map-wrap iframe{width:100%;height:100%;border:none;filter:saturate(.9)}
+footer{background:var(--forest-d);color:rgba(250,245,239,.72);padding:50px 44px 28px;text-align:center;border-top:4px solid var(--rose)}
+.foot-logo{font-family:'Newsreader',serif;font-style:italic;font-weight:600;font-size:1.8rem;color:var(--linen);margin-bottom:14px;letter-spacing:.005em}
+.foot-logo span{color:var(--rose-l)}
+.foot-meta{font-family:'Mulish',sans-serif;font-size:.88rem;margin-bottom:20px;font-weight:500}
+.foot-copy{font-family:'Mulish',sans-serif;font-size:11px;letter-spacing:1.5px;color:rgba(250,245,239,.45);padding-top:18px;border-top:1px solid rgba(190,18,60,.2);margin-top:18px;font-weight:600}
+.foot-copy a{color:var(--rose-l);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa:hover{transform:scale(1.08)}.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    nav{padding:14px 22px}.nav-links{display:none}section{padding:60px 22px}
+    .hero-grid,.storia-grid,.sl-grid,.info-grid{grid-template-columns:1fr;gap:36px}
+    .hero-visual{max-width:380px;margin:0 auto}
+    .cafe-grid{grid-template-columns:1fr}
+    .rev-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle"><button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button></div>
+<nav id="mainNav"><a href="#" class="nav-logo">Veranda<span> · Lounge Bar</span></a>
+    <ul class="nav-links"><li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li><li><a href="#slavic"><span class="t-it">Cucina slava</span><span class="t-en">Slavic kitchen</span></a></li><li><a href="#cafe">Café</a></li><li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li><li><a href="#info">Info</a></li></ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-inner"><div class="hero-grid">
+        <div class="hero-text">
+            <div class="hero-kicker"><span class="t-it">Viale Kennedy · Scalea</span><span class="t-en">Viale Kennedy · Scalea</span></div>
+            <h1 class="t-it"><em>Veranda</em>.<br>Cuore<br>aperto.</h1>
+            <h1 class="t-en"><em>Veranda</em>.<br>An open<br>heart.</h1>
+            <p class="hero-tag t-it">Caffè perfetto, cornetti favolosi, cucina internazionale con piatti slavi. Roberto, il titolare, è gentile e disponibile — si percepisce la passione.</p>
+            <p class="hero-tag t-en">Perfect coffee, fabulous cornetti, international cuisine with Slavic dishes. Roberto, the owner, is kind and helpful — you feel the passion.</p>
+            <div class="hero-meta">
+                <div class="hm"><span class="hm-v">4.8</span><span class="hm-l">Google ★</span></div>
+                <div class="hm"><span class="hm-v">91</span><span class="hm-l"><span class="t-it">Recens.</span><span class="t-en">Reviews</span></span></div>
+                <div class="hm"><span class="hm-v">6AM</span><span class="hm-l"><span class="t-it">Apertura</span><span class="t-en">Opens</span></span></div>
+            </div>
+            <div>
+                <a href="https://wa.me/393886587536?text=Ciao%20Roberto%2C%20vorrei%20prenotare%20alla%20Veranda" target="_blank" rel="noopener" class="btn btn-rose">☕ <span class="t-it">Prenota un tavolo</span><span class="t-en">Book a table</span></a>
+                <a href="#cafe" class="btn btn-forest">Menu</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <img src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?w=800&q=80" alt="Veranda Lounge">
+            <div class="hero-badge-float"><span class="t-it">"Privè caldo e accogliente"</span><span class="t-en">"A warm, welcoming nook"</span></div>
+        </div>
+    </div></div>
+</section>
+
+<section class="storia" id="storia">
+    <div class="wrap"><div class="storia-grid">
+        <div class="storia-media"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=900&q=80" alt="Roberto alla Veranda"></div>
+        <div class="storia-body">
+            <div class="tag"><span class="t-it">La nostra storia</span><span class="t-en">Our story</span></div>
+            <h2 class="hd t-it">Nuovo, <em>ben arredato</em>.<br>Con anima.</h2>
+            <h2 class="hd t-en">New, <em>well-curated</em>.<br>With soul.</h2>
+            <p class="t-it">La Veranda sta su Viale Kennedy — nuovo e ben arredato, confortevole e accogliente. Roberto, il proprietario, <em>rende accogliente</em> sia l'ambiente che l'esperienza.</p>
+            <p class="t-en">Veranda sits on Viale Kennedy — new and well-curated, comfortable and welcoming. Roberto, the owner, makes both <em>the space and the experience</em> feel like home.</p>
+            <blockquote class="storia-quote t-it">"Bar fantastico! Staff super disponibile e accogliente. Si percepisce la passione per il proprio lavoro." — Luca, Google</blockquote>
+            <blockquote class="storia-quote t-en">"Fantastic bar! Super helpful, welcoming staff. You feel the passion for their work." — Luca, Google</blockquote>
+            <p class="t-it">Ottima varietà di prodotti sia per <em>colazione</em> che per <em>aperitivo</em>, con scelte <em>vegane</em>. Una pausa pranzo, un cappuccino, un cocktail a fine giornata — la Veranda è lì per ogni momento.</p>
+            <p class="t-en">Great variety for <em>breakfast</em> and <em>aperitivo</em>, including <em>vegan</em> options. A lunch break, a cappuccino, an end-of-day cocktail — Veranda is there for every moment.</p>
+        </div>
+    </div></div>
+</section>
+
+<section class="slavic" id="slavic">
+    <div class="wrap"><div class="sl-grid">
+        <div class="sl-body">
+            <div class="tag"><span class="t-it">Cucina slava</span><span class="t-en">Slavic kitchen</span></div>
+            <h2 class="hd t-it">Sapori dall'<em>Est</em>.<br>Fatti in casa.</h2>
+            <h2 class="hd t-en">Flavours from the <em>East</em>.<br>Homemade.</h2>
+            <p class="t-it">Tra le firme della Veranda, una <em>piccola selezione di piatti slavi</em>: ravioli homemade, marmellate fatte in casa, tè al cedro calabrese. Una fusione delicata di tradizioni.</p>
+            <p class="t-en">Among Veranda's signatures, a <em>small selection of Slavic dishes</em>: homemade pelmeni, house-made jams, Calabrian cedar tea. A delicate fusion of traditions.</p>
+            <ul class="sl-dishes">
+                <li>
+                    <div class="ico">🥟</div>
+                    <div>
+                        <h4><span class="t-it">Ravioli <em>ucraini</em></span><span class="t-en"><em>Ukrainian</em> dumplings</span></h4>
+                        <p class="t-it">Pasta fresca fatta in casa, ripieno di patate e formaggio o carne.</p>
+                        <p class="t-en">Fresh homemade dough, potato-cheese or meat filling.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="ico">🫐</div>
+                    <div>
+                        <h4><span class="t-it">Marmellata <em>homemade</em></span><span class="t-en"><em>Homemade</em> jams</span></h4>
+                        <p class="t-it">Mirtilli, fragole, ciliegie — ricetta di famiglia, con zucchero di canna.</p>
+                        <p class="t-en">Blueberries, strawberries, cherries — family recipe, cane sugar.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="ico">🍵</div>
+                    <div>
+                        <h4><span class="t-it">Tè al <em>cedro di Calabria</em></span><span class="t-en"><em>Calabrian cedar</em> tea</span></h4>
+                        <p class="t-it">Infusione lunga, scorza d'agrume locale, miele di acacia.</p>
+                        <p class="t-en">Long infusion, local citrus peel, acacia honey.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="ico">🥧</div>
+                    <div>
+                        <h4><span class="t-it">Pirogi dolci</span><span class="t-en">Sweet pirogi</span></h4>
+                        <p class="t-it">Pasta frolla, ripieno di frutta di stagione, panna acida.</p>
+                        <p class="t-en">Shortcrust, seasonal fruit filling, sour cream.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="sl-media"><img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=900&q=80" alt="Ravioli slavi"></div>
+    </div></div>
+</section>
+
+<section class="cafe" id="cafe">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Café &amp; aperitivo</span><span class="t-en">Café &amp; aperitivo</span></div>
+            <h2 class="hd t-it">Caffè <em>perfetto</em>,<br>cornetti favolosi.</h2>
+            <h2 class="hd t-en"><em>Perfect</em> coffee,<br>fabulous cornetti.</h2>
+            <p class="sub t-it">Dalle 6 del mattino — per la colazione, la pausa pranzo, o un aperitivo serale sotto il privé caldo.</p>
+            <p class="sub t-en">From 6am — for breakfast, lunch break, or evening aperitivo under the warm privé.</p>
+        </div>
+        <div class="cafe-grid">
+            <div class="cf">
+                <div class="cf-ico">☕</div>
+                <div class="cf-name"><span class="t-it">Il <em>Caffè</em></span><span class="t-en">The <em>Coffee</em></span></div>
+                <div class="cf-desc t-it">Miscela arabica selezionata, estrazione perfetta. Con un biscottino della casa.</div>
+                <div class="cf-desc t-en">Selected arabica blend, perfect extraction. With a house biscuit.</div>
+                <div class="cf-price">€1,20</div>
+            </div>
+            <div class="cf">
+                <div class="cf-ico">🥐</div>
+                <div class="cf-name">Cornetto <em>favoloso</em></div>
+                <div class="cf-desc t-it">Sfoglia dorata, crema pasticcera o marmellata homemade, zucchero a velo.</div>
+                <div class="cf-desc t-en">Golden puff, house cream or homemade jam, icing sugar.</div>
+                <div class="cf-price">€1,80</div>
+            </div>
+            <div class="cf">
+                <div class="cf-ico">🍸</div>
+                <div class="cf-name"><span class="t-it">Aperitivo <em>di coppia</em></span><span class="t-en">Couple's <em>aperitivo</em></span></div>
+                <div class="cf-desc t-it">2 cocktail a scelta + tagliere di stuzzichini. Servito al privé.</div>
+                <div class="cf-desc t-en">2 cocktails of choice + nibble board. Served at the privé.</div>
+                <div class="cf-price">€18</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag">★ 4.8 · 91 Google</div>
+            <h2 class="hd t-it">91 voci <em>dalla Veranda</em>.</h2>
+            <h2 class="hd t-en">91 voices <em>from Veranda</em>.</h2>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Ho gustato il caffè e il cornetto perfetto e sono rimasto estremamente soddisfatto. L'atmosfera è calda e accogliente, con un design moderno ma rilassante. Il caffè preparato con maestria.</p>
+                <p class="rev-text t-en">I enjoyed the perfect coffee and cornetto — extremely satisfied. The atmosphere is warm and welcoming, with modern yet relaxing design. Coffee prepared with mastery.</p>
+                <div class="rev-author">Giovanni Pellegrino</div><div class="rev-time"><span class="t-it">4 mesi fa · Google</span><span class="t-en">4 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Bar eccellente! Cornetti favolosi, Roberto — il titolare — molto gentile e disponibile. Privé caldo e accogliente, ottimo per un aperitivo di coppia.</p>
+                <p class="rev-text t-en">Excellent bar! Fabulous cornetti, Roberto — the owner — very kind and helpful. Warm, welcoming privé, great for a couple's aperitivo.</p>
+                <div class="rev-author">Gabriele Ardissone</div><div class="rev-time"><span class="t-it">4 mesi fa · Google</span><span class="t-en">4 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Nuovo e ben arredato, confortevole e accogliente. Ottima varietà di prodotti sia per colazione che per aperitivo con scelte vegane. Una pausa pranzo da scegliere senza dubbi.</p>
+                <p class="rev-text t-en">New and well-curated, comfortable and welcoming. Great variety for breakfast and aperitivo, including vegan options. A lunch break to pick without hesitation.</p>
+                <div class="rev-author">Elvira</div><div class="rev-time"><span class="t-it">4 mesi fa · Google</span><span class="t-en">4 months ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap"><div class="info-grid">
+        <div class="info-col">
+            <div class="tag"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></div>
+            <h3 class="hd t-it">Dalle <em>6 del mattino</em>.</h3>
+            <h3 class="hd t-en">From <em>6am</em>.</h3>
+            <p class="sub t-it">Apertura presto per la colazione, chiusura a notte fonda con l'aperitivo.</p>
+            <p class="sub t-en">Early opening for breakfast, late closing with aperitivo.</p>
+            <div class="hours-table">
+                <div class="hours-row short"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Mon</span></span><span class="hours-time">06:00—13:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tue</span></span><span class="hours-time">06:00—02:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wed</span></span><span class="hours-time">06:00—02:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thu</span></span><span class="hours-time">06:00—02:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Fri</span></span><span class="hours-time">06:00—02:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Sat</span></span><span class="hours-time">06:00—02:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sun</span></span><span class="hours-time">06:00—02:00</span></div>
+            </div>
+            <div class="contact"><h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4><p>Viale John Fitzgerald Kennedy<br>87029 Scalea (CS)</p></div>
+            <div class="contact"><h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4><a href="tel:+393886587536">+39 388 658 7536</a></div>
+        </div>
+        <div class="map-wrap"><iframe src="https://www.google.com/maps?q=Veranda+Lounge+Bar+Scalea&output=embed" loading="lazy" title="Veranda"></iframe></div>
+    </div></div>
+</section>
+
+<footer>
+    <div class="foot-logo">Veranda<span> · Lounge Bar</span></div>
+    <div class="foot-meta">Viale J.F. Kennedy · 87029 Scalea (CS) · +39 388 658 7536</div>
+    <div class="foot-copy">&copy; 2026 Veranda Lounge Bar · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/393886587536" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>
+function setLang(l){document.body.classList.toggle('lang-en', l==='en');document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));}
+addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+</script>
+</body></html>
