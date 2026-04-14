@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KalaKala — Scalea · Beer · Food · Good · Gastropub weekend</title>
+<meta name="description" content="KalaKala Scalea: gastropub aperto Ven-Sab-Dom. Panini calabresi, taglieri di salumi, birra artigianale. ★4.5 · 270 recensioni. Via Oreste Dito 18.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BarOrPub","name":"KalaKala","servesCuisine":["Italian","Gastropub","Calabrian"],"address":{"@type":"PostalAddress","streetAddress":"Via Oreste Dito, 18","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+393332797159","priceRange":"€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","reviewCount":"270"},"geo":{"@type":"GeoCoordinates","latitude":39.8150767,"longitude":15.7911892}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Figtree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--hop:#16A34A;--hop-d:#15803D;--hop-l:#4ADE80;--malt:#92400E;--malt-d:#78350F;--malt-l:#D97706;--chalk:#FAFAF9;--chalk-d:#F3F3F0;--ink:#1C1917;--mute:#57534E;--line:rgba(146,64,14,.16)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Figtree',sans-serif;color:var(--ink);background:var(--chalk);line-height:1.6;overflow-x:hidden}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+h1,h2,h3,h4,.display{font-family:'Dela Gothic One',serif;font-weight:400;letter-spacing:-.01em}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:18px 36px;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+nav.scrolled{background:var(--ink);padding:12px 36px;border-bottom:4px solid var(--hop)}
+.nav-logo{font-family:'Dela Gothic One',serif;font-size:1.35rem;color:#fff;text-decoration:none;letter-spacing:-.02em}
+.nav-logo span{color:var(--hop-l)}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{font-family:'Figtree',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,249,.78);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--hop-l)}
+.lang-toggle{position:fixed;top:18px;right:18px;z-index:100;display:flex;gap:2px;background:var(--ink);padding:3px;border:3px solid var(--hop);border-radius:8px}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(250,250,249,.65);font-family:'Figtree',sans-serif;font-size:11px;font-weight:800;letter-spacing:1.5px;cursor:pointer;border-radius:4px;transition:all .25s}
+.lang-btn.active{background:var(--hop);color:#fff}
+/* HERO */
+.hero{position:relative;min-height:100vh;color:var(--ink);overflow:hidden;display:flex;align-items:center;padding:130px 36px 80px;background:linear-gradient(135deg,var(--chalk) 0%,var(--chalk-d) 100%)}
+.hero::before{content:'';position:absolute;top:-10%;right:-10%;width:55%;height:120%;background:radial-gradient(circle,rgba(22,163,74,.12) 0%,transparent 60%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:1300px;margin:0 auto;width:100%}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;background:var(--hop);color:#fff;border-radius:100px;font-family:'Figtree',sans-serif;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:26px;box-shadow:0 8px 18px rgba(22,163,74,.4)}
+.hero-badge::before{content:'🌿';animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-3px) rotate(5deg)}}
+.weekend-tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--malt);color:var(--chalk);font-family:'Figtree',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;border-radius:4px;margin-left:10px}
+.hero h1{font-family:'Dela Gothic One',serif;font-size:clamp(3.5rem,10vw,9rem);line-height:.82;color:var(--ink);margin-bottom:22px;letter-spacing:-.04em}
+.hero h1 em{color:var(--hop-d);font-style:normal}
+.hero-tag{font-family:'Figtree',sans-serif;font-size:1.15rem;font-weight:500;max-width:520px;color:var(--ink);line-height:1.55;margin-bottom:30px}
+.hero-meta{display:inline-flex;gap:14px;margin-bottom:38px;flex-wrap:wrap}
+.hm{padding:14px 20px;background:#fff;border:3px solid var(--ink);border-radius:10px;display:flex;flex-direction:column;min-width:100px;box-shadow:4px 4px 0 var(--ink)}
+.hm:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.hm-v{font-family:'Dela Gothic One',serif;font-size:1.7rem;color:var(--hop-d);line-height:1;letter-spacing:-.02em}
+.hm-l{font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-top:4px;font-weight:800}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;font-family:'Figtree',sans-serif;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s;border:none;cursor:pointer}
+.btn-hop{background:var(--hop);color:#fff;box-shadow:0 14px 30px rgba(22,163,74,.4);border:3px solid var(--ink)}
+.btn-hop:hover{background:var(--hop-d);transform:translateY(-2px);box-shadow:0 18px 36px rgba(22,163,74,.55)}
+.btn-wire{background:transparent;color:var(--ink);border:3px solid var(--ink);margin-left:8px}
+.btn-wire:hover{background:var(--ink);color:var(--hop-l)}
+/* Hop illustration right */
+.hero-hop{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:1}
+.hero-hop svg{width:100%;height:auto;filter:drop-shadow(0 14px 28px rgba(22,163,74,.25));animation:sway 6s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+/* WEEKEND strip */
+.strip{background:var(--ink);color:var(--hop-l);padding:20px 0;overflow:hidden;white-space:nowrap;border-top:4px solid var(--malt);border-bottom:4px solid var(--malt)}
+.strip-track{display:inline-flex;animation:scroll-l 28s linear infinite;gap:40px;font-family:'Dela Gothic One',serif;font-size:1.5rem;letter-spacing:-.01em}
+.strip-track span{display:inline-flex;align-items:center;gap:40px}
+.strip-track i{color:var(--malt-l);font-style:normal;font-size:1.8rem}
+.strip-track em{color:var(--chalk);font-style:normal}
+@keyframes scroll-l{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+section{padding:90px 36px}
+.wrap{max-width:1300px;margin:0 auto}
+.sec-head{max-width:780px;margin-bottom:54px}
+.tag{display:inline-block;padding:6px 16px;background:var(--ink);color:var(--hop-l);font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:800;border-radius:4px;margin-bottom:16px}
+h2.hd{font-family:'Dela Gothic One',serif;font-size:clamp(2.6rem,6vw,5rem);color:var(--ink);line-height:.9;margin-bottom:18px;letter-spacing:-.02em}
+h2.hd em{color:var(--hop-d);font-style:normal}
+.sub{font-family:'Figtree',sans-serif;font-size:1.05rem;color:var(--mute);max-width:640px;line-height:1.7;font-weight:500}
+/* STORIA */
+.storia{background:var(--chalk-d)}
+.storia-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:52px;align-items:center}
+.storia-media{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:16px;border:5px solid var(--ink);box-shadow:14px 14px 0 var(--hop)}
+.storia-media img{width:100%;height:100%;object-fit:cover}
+.storia-media::after{content:'FOOD · GOOD';position:absolute;bottom:16px;left:16px;background:var(--hop);color:#fff;padding:8px 16px;font-family:'Dela Gothic One',serif;font-size:.95rem;letter-spacing:.04em;border-radius:4px}
+.storia-body p{font-size:1.05rem;margin-bottom:16px;line-height:1.75;font-weight:400}
+.storia-body p em{background:var(--hop-l);padding:2px 8px;border-radius:3px;font-style:normal;font-weight:700;color:var(--ink)}
+/* MENU panini calabresi */
+.menu{background:var(--chalk)}
+.pan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.pan{background:#fff;border-radius:14px;border:3px solid var(--ink);overflow:hidden;transition:all .3s;box-shadow:0 8px 0 var(--ink)}
+.pan:hover{transform:translate(-3px,-3px);box-shadow:11px 11px 0 var(--ink)}
+.pan.feat{background:var(--hop);color:#fff;box-shadow:0 8px 0 var(--hop-d)}
+.pan.feat:hover{box-shadow:11px 11px 0 var(--hop-d)}
+.pan-head{padding:24px 24px 18px}
+.pan-tag{font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--malt-l);font-weight:800;margin-bottom:6px}
+.pan.feat .pan-tag{color:var(--chalk-d)}
+.pan-name{font-family:'Dela Gothic One',serif;font-size:1.55rem;color:var(--ink);line-height:1;letter-spacing:-.02em}
+.pan.feat .pan-name{color:#fff}
+.pan-ing{padding:0 24px 18px;border-top:2px dashed var(--line);padding-top:16px;margin-top:6px}
+.pan.feat .pan-ing{border-color:rgba(255,255,255,.2)}
+.pan-ing li{list-style:none;padding:4px 0;font-family:'Figtree',sans-serif;font-size:.9rem;color:var(--ink);display:flex;gap:8px;font-weight:500;line-height:1.45}
+.pan.feat .pan-ing li{color:rgba(255,255,255,.9)}
+.pan-ing li::before{content:'+';color:var(--hop-d);font-weight:800;flex-shrink:0}
+.pan.feat .pan-ing li::before{color:var(--chalk)}
+.pan-foot{display:flex;justify-content:space-between;align-items:baseline;padding:16px 24px;background:var(--ink);color:#fff}
+.pan.feat .pan-foot{background:var(--malt);color:#fff}
+.pan-size{font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;color:rgba(255,255,255,.78)}
+.pan-price{font-family:'Dela Gothic One',serif;font-size:1.7rem;color:var(--hop-l);letter-spacing:-.02em}
+.pan.feat .pan-price{color:var(--chalk)}
+/* BIRRE artigianali tap list */
+.birre{background:var(--ink);color:var(--chalk);position:relative;overflow:hidden}
+.birre::before{content:'';position:absolute;top:-20%;left:-10%;width:50%;height:140%;background:radial-gradient(ellipse at center,rgba(22,163,74,.12) 0%,transparent 55%);pointer-events:none}
+.birre .hd{color:#fff}.birre .hd em{color:var(--hop-l)}
+.birre .sub{color:rgba(250,250,249,.75);margin-left:0}.birre .tag{background:var(--hop);color:#fff}
+.tap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative;z-index:1;margin-top:44px}
+.tap{padding:26px 20px;background:rgba(250,250,249,.05);border:2px solid var(--malt-l);border-radius:12px;text-align:center;transition:all .3s;position:relative;padding-top:52px}
+.tap::before{content:'';position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:46px;height:36px;background:var(--malt);border-radius:4px 4px 50% 50%;border:3px solid var(--hop-l)}
+.tap::after{content:'';position:absolute;top:-26px;left:50%;transform:translateX(-50%);width:14px;height:12px;background:var(--hop-l);border-radius:50% 50% 3px 3px}
+.tap:hover{background:rgba(22,163,74,.12);border-color:var(--hop-l);transform:translateY(-6px)}
+.tap-name{font-family:'Dela Gothic One',serif;font-size:1.25rem;color:var(--hop-l);margin-bottom:8px;letter-spacing:-.01em}
+.tap-type{font-family:'Figtree',sans-serif;font-size:.82rem;color:rgba(250,250,249,.75);margin-bottom:10px;line-height:1.4}
+.tap-abv{font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--malt-l);font-weight:800;margin-bottom:14px}
+.tap-price{font-family:'Dela Gothic One',serif;font-size:1.5rem;color:#fff;padding-top:12px;border-top:1px solid rgba(22,163,74,.25);letter-spacing:-.02em}
+/* REVIEWS */
+.reviews{background:var(--chalk-d)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.rev-card{padding:30px 26px;background:#fff;border-radius:14px;border:3px solid var(--ink);transition:all .3s;box-shadow:0 6px 0 var(--ink)}
+.rev-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--hop)}
+.rev-stars{color:var(--malt-l);margin-bottom:12px;letter-spacing:2px}
+.rev-text{font-family:'Figtree',sans-serif;font-size:.98rem;color:var(--ink);line-height:1.65;margin-bottom:18px;font-weight:500}
+.rev-author{font-family:'Dela Gothic One',serif;font-size:1.15rem;color:var(--ink);letter-spacing:-.01em}
+.rev-time{font-family:'Figtree',sans-serif;font-size:10px;color:var(--mute);margin-top:3px;letter-spacing:1.5px;text-transform:uppercase;font-weight:800}
+/* INFO */
+.info{background:var(--chalk)}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:52px;align-items:start}
+.info-col h3.hd{font-size:2.6rem;margin-bottom:12px}
+.info-col .sub{margin-bottom:28px}
+.hours-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:2px solid var(--line);font-size:.95rem;align-items:center}
+.hours-day{font-family:'Dela Gothic One',serif;font-size:1.1rem;color:var(--ink);letter-spacing:-.01em}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums;font-weight:700}
+.hours-row.closed{background:var(--chalk-d);padding:12px 14px;margin:0 -14px;border-radius:6px;border:none;opacity:.75}
+.hours-row.closed .hours-time{color:var(--malt);font-weight:800;font-style:italic}
+.hours-row.weekend{background:var(--hop);padding:12px 14px;margin:0 -14px;border-radius:6px;border:none}
+.hours-row.weekend .hours-day,.hours-row.weekend .hours-time{color:#fff;font-weight:800}
+.contact{margin-top:26px;padding-top:22px;border-top:3px solid var(--ink)}
+.contact h4{font-family:'Figtree',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--hop-d);font-weight:800;margin-bottom:6px}
+.contact p,.contact a{font-family:'Dela Gothic One',serif;font-size:1.3rem;color:var(--ink);text-decoration:none;line-height:1.4;letter-spacing:-.02em}
+.contact a:hover{color:var(--hop-d)}
+.map-wrap{border:5px solid var(--ink);border-radius:16px;overflow:hidden;aspect-ratio:1;box-shadow:12px 12px 0 var(--hop)}
+.map-wrap iframe{width:100%;height:100%;border:none}
+footer{background:var(--ink);color:rgba(250,250,249,.72);padding:46px 36px 26px;text-align:center;border-top:5px solid var(--hop)}
+.foot-logo{font-family:'Dela Gothic One',serif;font-size:2rem;color:#fff;margin-bottom:12px;letter-spacing:-.02em}
+.foot-logo span{color:var(--hop-l)}
+.foot-meta{font-family:'Figtree',sans-serif;font-size:.88rem;margin-bottom:18px;font-weight:500}
+.foot-copy{font-family:'Figtree',sans-serif;font-size:11px;letter-spacing:1.5px;color:rgba(250,250,249,.45);padding-top:18px;border-top:1px solid rgba(22,163,74,.2);margin-top:18px;text-transform:uppercase;font-weight:700}
+.foot-copy a{color:var(--hop-l);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.45);text-decoration:none;transition:transform .3s;border:3px solid var(--ink)}
+.wa:hover{transform:scale(1.08)}.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    nav{padding:12px 20px}.nav-links{display:none}section{padding:60px 20px}
+    .hero-grid,.storia-grid,.info-grid{grid-template-columns:1fr;gap:40px}
+    .hero{padding:120px 20px 60px}
+    .hero-hop{max-width:300px;margin:0 auto}
+    .pan-grid,.rev-grid{grid-template-columns:1fr}
+    .tap-grid{grid-template-columns:1fr 1fr}
+    .storia-media,.map-wrap{box-shadow:8px 8px 0 var(--hop)}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle"><button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button></div>
+<nav id="mainNav"><a href="#" class="nav-logo">Kala<span>Kala</span></a>
+    <ul class="nav-links"><li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li><li><a href="#menu">Panini</a></li><li><a href="#birre">Birre</a></li><li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li><li><a href="#info">Info</a></li></ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-inner"><div class="hero-grid">
+        <div class="hero-text">
+            <div class="hero-badge"><span>Beer · Food · Good</span><span class="weekend-tag">Ven-Sab-Dom</span></div>
+            <h1 class="t-it">Kala<em>Kala</em>.</h1>
+            <h1 class="t-en">Kala<em>Kala</em>.</h1>
+            <p class="hero-tag t-it">Gastropub di Scalea aperto solo nel weekend. Panini calabresi, taglieri di salumi, birra artigianale ottima. Cibo abbondante, prezzi davvero contenuti.</p>
+            <p class="hero-tag t-en">Scalea gastropub open weekends only. Calabrian sandwiches, cured-meat boards, excellent craft beer. Generous food, truly fair prices.</p>
+            <div class="hero-meta">
+                <div class="hm"><span class="hm-v">4.5</span><span class="hm-l">Google ★</span></div>
+                <div class="hm"><span class="hm-v">270</span><span class="hm-l"><span class="t-it">Recens.</span><span class="t-en">Reviews</span></span></div>
+                <div class="hm"><span class="hm-v">3</span><span class="hm-l"><span class="t-it">Giorni/sett</span><span class="t-en">Days/wk</span></span></div>
+            </div>
+            <div>
+                <a href="https://wa.me/393332797159?text=Ciao%2C%20vorrei%20prenotare%20al%20KalaKala" target="_blank" rel="noopener" class="btn btn-hop">🍺 <span class="t-it">Prenota un tavolo</span><span class="t-en">Book a table</span></a>
+                <a href="#menu" class="btn btn-wire">Menu</a>
+            </div>
+        </div>
+        <div class="hero-hop">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="hopG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4ADE80"/><stop offset="100%" stop-color="#15803D"/></linearGradient></defs>
+                <!-- stems -->
+                <path d="M200 60 Q180 140 200 220 Q220 280 200 360" fill="none" stroke="#15803D" stroke-width="4" stroke-linecap="round"/>
+                <path d="M130 100 Q110 180 140 240" fill="none" stroke="#15803D" stroke-width="3" stroke-linecap="round"/>
+                <path d="M270 110 Q290 180 260 250" fill="none" stroke="#15803D" stroke-width="3" stroke-linecap="round"/>
+                <!-- leaves -->
+                <path d="M145 160 Q100 140 85 180 Q110 200 150 175 Z" fill="#15803D" opacity=".6"/>
+                <path d="M255 170 Q300 150 315 190 Q290 210 250 185 Z" fill="#15803D" opacity=".6"/>
+                <path d="M155 260 Q110 250 95 290 Q125 305 165 280 Z" fill="#15803D" opacity=".5"/>
+                <!-- hop cones - big -->
+                <g transform="translate(200,120)"><ellipse cx="0" cy="0" rx="26" ry="40" fill="url(#hopG)"/><path d="M-22 -32 Q0 -28 22 -32 M-26 -16 Q0 -12 26 -16 M-24 0 Q0 4 24 0 M-22 16 Q0 20 22 16 M-18 30 Q0 34 18 30" stroke="#14532D" stroke-width="1.2" fill="none"/></g>
+                <g transform="translate(130,220)"><ellipse cx="0" cy="0" rx="20" ry="30" fill="url(#hopG)"/><path d="M-17 -23 Q0 -19 17 -23 M-20 -10 Q0 -6 20 -10 M-19 3 Q0 7 19 3 M-17 16 Q0 20 17 16" stroke="#14532D" stroke-width="1" fill="none"/></g>
+                <g transform="translate(275,230)"><ellipse cx="0" cy="0" rx="22" ry="32" fill="url(#hopG)"/><path d="M-18 -25 Q0 -21 18 -25 M-22 -12 Q0 -8 22 -12 M-20 2 Q0 6 20 2 M-18 16 Q0 20 18 16" stroke="#14532D" stroke-width="1" fill="none"/></g>
+                <g transform="translate(200,310)"><ellipse cx="0" cy="0" rx="18" ry="26" fill="url(#hopG)"/><path d="M-15 -19 Q0 -16 15 -19 M-17 -7 Q0 -4 17 -7 M-16 4 Q0 8 16 4 M-14 14 Q0 18 14 14" stroke="#14532D" stroke-width="1" fill="none"/></g>
+            </svg>
+        </div>
+    </div></div>
+</section>
+
+<div class="strip"><div class="strip-track">
+    <span>CRAFT BEER <i>◆</i> <em>PANINI CALABRESI</em> <i>◆</i> TAGLIERI <i>◆</i> <em>FRIED CHICKEN</em> <i>◆</i> 'NDUJA <i>◆</i> <em>WEEKEND ONLY</em> <i>◆</i></span>
+    <span>CRAFT BEER <i>◆</i> <em>PANINI CALABRESI</em> <i>◆</i> TAGLIERI <i>◆</i> <em>FRIED CHICKEN</em> <i>◆</i> 'NDUJA <i>◆</i> <em>WEEKEND ONLY</em> <i>◆</i></span>
+</div></div>
+
+<section class="storia" id="storia">
+    <div class="wrap"><div class="storia-grid">
+        <div class="storia-media"><img src="https://images.unsplash.com/photo-1559526324-c1f275fbfa32?w=900&q=80" alt="KalaKala pub"></div>
+        <div class="storia-body">
+            <span class="tag"><span class="t-it">La nostra storia</span><span class="t-en">Our story</span></span>
+            <h2 class="hd t-it">Tre sere,<br><em>tre sere</em> buone.</h2>
+            <h2 class="hd t-en">Three nights,<br><em>three good</em> ones.</h2>
+            <p class="t-it">KalaKala è aperto solo <em>venerdì, sabato e domenica</em>. Localino accogliente in posizione tranquilla, con tavoli all'esterno. Personale cordiale e disponibile, pronto a consigliarti secondo le tue esigenze.</p>
+            <p class="t-en">KalaKala is open <em>Friday, Saturday, Sunday only</em>. Welcoming spot in a quiet location, with outdoor tables. Cordial, helpful staff — ready to advise by your mood.</p>
+            <p class="t-it">Qualità del cibo <em>eccellente</em>, prezzi davvero contenuti. Nel menu trovi di tutto, dal tagliere di salumi alla cipolla frutta ad anelli. Birra artigianale ottima, vasto assortimento di portate.</p>
+            <p class="t-en">Food quality <em>excellent</em>, prices truly fair. The menu has everything — from cured-meat boards to ring-sliced onion rings. Excellent craft beer, vast spread of dishes.</p>
+        </div>
+    </div></div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag"><span class="t-it">I panini calabresi</span><span class="t-en">Calabrian sandwiches</span></span>
+            <h2 class="hd t-it">I <em>panini</em>.</h2>
+            <h2 class="hd t-en">The <em>sandwiches</em>.</h2>
+            <p class="sub t-it">Pane casereccio, salumi calabresi, formaggi locali. Porzioni abbondanti, prezzi onesti — 43€ in 4 persone.</p>
+            <p class="sub t-en">Homestyle bread, Calabrian cured meats, local cheeses. Generous portions, honest prices — €43 for four.</p>
+        </div>
+        <div class="pan-grid">
+            <div class="pan feat">
+                <div class="pan-head">
+                    <div class="pan-tag"><span class="t-it">Bestseller</span><span class="t-en">Bestseller</span></div>
+                    <h3 class="pan-name">'Nduja <em>KalaKala</em></h3>
+                </div>
+                <ul class="pan-ing">
+                    <li><span class="t-it">'Nduja di Spilinga</span><span class="t-en">Spilinga 'nduja</span></li>
+                    <li><span class="t-it">Stracciatella pugliese</span><span class="t-en">Apulian stracciatella</span></li>
+                    <li><span class="t-it">Rucola selvatica</span><span class="t-en">Wild rocket</span></li>
+                    <li><span class="t-it">Pomodorini confit</span><span class="t-en">Confit cherry tomatoes</span></li>
+                </ul>
+                <div class="pan-foot"><span class="pan-size"><span class="t-it">Pane casereccio</span><span class="t-en">Home bread</span></span><span class="pan-price">€9</span></div>
+            </div>
+            <div class="pan">
+                <div class="pan-head">
+                    <div class="pan-tag"><span class="t-it">Classico</span><span class="t-en">Classic</span></div>
+                    <h3 class="pan-name">Capocollo &amp; Pecorino</h3>
+                </div>
+                <ul class="pan-ing">
+                    <li><span class="t-it">Capocollo di Calabria DOP</span><span class="t-en">Calabrian capocollo DOP</span></li>
+                    <li><span class="t-it">Pecorino crotonese</span><span class="t-en">Crotonese pecorino</span></li>
+                    <li><span class="t-it">Miele di castagno</span><span class="t-en">Chestnut honey</span></li>
+                    <li><span class="t-it">Pane casereccio</span><span class="t-en">Home bread</span></li>
+                </ul>
+                <div class="pan-foot"><span class="pan-size">200g</span><span class="pan-price">€8</span></div>
+            </div>
+            <div class="pan">
+                <div class="pan-head">
+                    <div class="pan-tag"><span class="t-it">Veggie</span><span class="t-en">Veggie</span></div>
+                    <h3 class="pan-name">Parmigiana &amp; Friarielli</h3>
+                </div>
+                <ul class="pan-ing">
+                    <li><span class="t-it">Melanzane alla parmigiana</span><span class="t-en">Aubergine parmigiana</span></li>
+                    <li><span class="t-it">Friarielli saltati</span><span class="t-en">Sautéed friarielli</span></li>
+                    <li><span class="t-it">Scamorza affumicata</span><span class="t-en">Smoked scamorza</span></li>
+                    <li><span class="t-it">Peperoncino</span><span class="t-en">Chilli</span></li>
+                </ul>
+                <div class="pan-foot"><span class="pan-size"><span class="t-it">Vegetariano</span><span class="t-en">Vegetarian</span></span><span class="pan-price">€7</span></div>
+            </div>
+            <div class="pan feat">
+                <div class="pan-head">
+                    <div class="pan-tag"><span class="t-it">Da condividere</span><span class="t-en">To share</span></div>
+                    <h3 class="pan-name">Tagliere KalaKala</h3>
+                </div>
+                <ul class="pan-ing">
+                    <li><span class="t-it">Selezione di 5 salumi calabresi</span><span class="t-en">5 Calabrian cured meats</span></li>
+                    <li><span class="t-it">3 formaggi locali stagionati</span><span class="t-en">3 aged local cheeses</span></li>
+                    <li><span class="t-it">Marmellate, olive, pane</span><span class="t-en">Jams, olives, bread</span></li>
+                    <li><span class="t-it">Friarielli fritti</span><span class="t-en">Fried friarielli</span></li>
+                </ul>
+                <div class="pan-foot"><span class="pan-size"><span class="t-it">Per 2</span><span class="t-en">For 2</span></span><span class="pan-price">€18</span></div>
+            </div>
+            <div class="pan">
+                <div class="pan-head">
+                    <div class="pan-tag"><span class="t-it">Sfizio</span><span class="t-en">Snack</span></div>
+                    <h3 class="pan-name">Cipolla <em>ad anelli</em></h3>
+                </div>
+                <ul class="pan-ing">
+                    <li><span class="t-it">Cipolla di Tropea IGP</span><span class="t-en">Tropea onion IGP</span></li>
+                    <li><span class="t-it">Pastella alla birra artigianale</span><span class="t-en">Craft-beer batter</span></li>
+                    <li><span class="t-it">Maionese all'aglio nero</span><span class="t-en">Black-garlic mayo</span></li>
+                </ul>
+                <div class="pan-foot"><span class="pan-size">200g</span><span class="pan-price">€6</span></div>
+            </div>
+            <div class="pan">
+                <div class="pan-head">
+                    <div class="pan-tag"><span class="t-it">Forte</span><span class="t-en">Strong</span></div>
+                    <h3 class="pan-name">Fried <em>Chicken</em></h3>
+                </div>
+                <ul class="pan-ing">
+                    <li><span class="t-it">Pollo marinato 24h</span><span class="t-en">24h-marinated chicken</span></li>
+                    <li><span class="t-it">Panatura al peperoncino</span><span class="t-en">Chilli breading</span></li>
+                    <li><span class="t-it">Salsa BBQ di casa</span><span class="t-en">House BBQ sauce</span></li>
+                    <li><span class="t-it">Pickle di cetrioli</span><span class="t-en">Pickled cucumbers</span></li>
+                </ul>
+                <div class="pan-foot"><span class="pan-size">6 pezzi</span><span class="pan-price">€10</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="birre" id="birre">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag"><span class="t-it">Birre artigianali</span><span class="t-en">Craft beer</span></span>
+            <h2 class="hd t-it">Quattro <em>spine</em>.</h2>
+            <h2 class="hd t-en">Four <em>taps</em>.</h2>
+            <p class="sub t-it">Selezione di artigianali italiane e locali. Birra ottima, vasto assortimento. Prezzi nella media — per la qualità, veramente onesti.</p>
+            <p class="sub t-en">Italian and local craft selection. Excellent beer, broad assortment. Prices mid-range — for the quality, truly fair.</p>
+        </div>
+        <div class="tap-grid">
+            <div class="tap"><div class="tap-name">Calabrà</div><div class="tap-type"><span class="t-it">IPA calabrese</span><span class="t-en">Calabrian IPA</span></div><div class="tap-abv">ABV 6.2%</div><div class="tap-price">€6</div></div>
+            <div class="tap"><div class="tap-name">Kala Blonde</div><div class="tap-type"><span class="t-it">House ale leggera</span><span class="t-en">Light house ale</span></div><div class="tap-abv">ABV 4.5%</div><div class="tap-price">€5</div></div>
+            <div class="tap"><div class="tap-name">Malto Nero</div><div class="tap-type"><span class="t-it">Stout torrefatto</span><span class="t-en">Roasted stout</span></div><div class="tap-abv">ABV 5.8%</div><div class="tap-price">€6</div></div>
+            <div class="tap"><div class="tap-name">Weiss</div><div class="tap-type"><span class="t-it">Bianca bavarese</span><span class="t-en">Bavarian wheat</span></div><div class="tap-abv">ABV 5.2%</div><div class="tap-price">€6</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag">★ 4.5 · 270 Google</span>
+            <h2 class="hd t-it">270 voci <em>dal weekend</em>.</h2>
+            <h2 class="hd t-en">270 voices <em>from the weekend</em>.</h2>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Abbiamo speso 43€ in 4 persone e abbiamo mangiato davvero ma davvero tanto e soprattutto bene. Arrivati nervosi dalla fame, disorientati — e ne siamo usciti felici.</p>
+                <p class="rev-text t-en">We spent €43 for four and ate truly, truly a lot — and really well. Arrived hungry, nervous, disoriented — and left happy.</p>
+                <div class="rev-author">Giulia Monetta</div><div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Ottimo pub nella zona di Scalea, in una posizione tranquilla. Personale cordiale e disponibile. Qualità del cibo eccellente, prezzi davvero contenuti. Simpatica e originale l'idea di poter scegliere.</p>
+                <p class="rev-text t-en">Great pub in Scalea, in a quiet spot. Cordial, helpful staff. Excellent food quality, truly fair prices. Fun and original concept of being able to choose.</p>
+                <div class="rev-author">Alessandro Mentuccia</div><div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Localino molto accogliente con tavoli all'esterno. Personale gentile e disponibile ad accontentare il cliente. Birra ottima, vasto assortimento di portate. Prezzi nella media.</p>
+                <p class="rev-text t-en">Very welcoming little place with outdoor tables. Kind staff, happy to please. Excellent beer, broad menu. Mid-range prices.</p>
+                <div class="rev-author">Michele Esse</div><div class="rev-time"><span class="t-it">3 anni fa · Google</span><span class="t-en">3 years ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap"><div class="info-grid">
+        <div class="info-col">
+            <span class="tag"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></span>
+            <h3 class="hd t-it">Solo <em>Ven</em>,<br><em>Sab</em>, <em>Dom</em>.</h3>
+            <h3 class="hd t-en">Only <em>Fri</em>,<br><em>Sat</em>, <em>Sun</em>.</h3>
+            <p class="sub t-it">Tre sere, dalle 19:30 all'una. Gli altri giorni riposiamo — e la cucina ringrazia.</p>
+            <p class="sub t-en">Three evenings, 7:30pm to 1am. Other days we rest — and the kitchen thanks us.</p>
+            <div class="hours-table">
+                <div class="hours-row closed"><span class="hours-day"><span class="t-it">Lun—Gio</span><span class="t-en">Mon—Thu</span></span><span class="hours-time t-it">CHIUSO</span><span class="hours-time t-en">CLOSED</span></div>
+                <div class="hours-row weekend"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Fri</span></span><span class="hours-time">19:30—01:00</span></div>
+                <div class="hours-row weekend"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Sat</span></span><span class="hours-time">19:30—01:00</span></div>
+                <div class="hours-row weekend"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sun</span></span><span class="hours-time">19:30—01:00</span></div>
+            </div>
+            <div class="contact"><h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4><p>Via Oreste Dito, 18<br>87029 Scalea (CS)</p></div>
+            <div class="contact"><h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4><a href="tel:+393332797159">+39 333 279 7159</a></div>
+        </div>
+        <div class="map-wrap"><iframe src="https://www.google.com/maps?q=KalaKala+Scalea&output=embed" loading="lazy" title="KalaKala"></iframe></div>
+    </div></div>
+</section>
+
+<footer>
+    <div class="foot-logo">Kala<span>Kala</span></div>
+    <div class="foot-meta">Via Oreste Dito, 18 · 87029 Scalea (CS) · +39 333 279 7159</div>
+    <div class="foot-copy">&copy; 2026 KalaKala · BEER · FOOD · GOOD · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/393332797159" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>
+function setLang(l){document.body.classList.toggle('lang-en', l==='en');document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));}
+addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+</script>
+</body></html>
