@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Trattoria Il Gallo Bianco — Scalea · Cucina di famiglia</title>
+<meta name="description" content="Trattoria Il Gallo Bianco — cucina di montagna a Scalea. Angela vi aspetta sulla terrazza tra le viti. Fusilli al sugo di capra, paste fatte in casa.">
+<meta property="og:title" content="Il Gallo Bianco — Trattoria di Montagna · Scalea">
+<meta property="og:description" content="Terrazza tra le viti · Angela &amp; la famiglia · Fusilli al sugo di capra · ★4.7 · 316 recensioni">
+<meta property="og:type" content="restaurant.restaurant">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Trattoria Il Gallo Bianco","servesCuisine":["Italian","Calabrian","Traditional"],"address":{"@type":"PostalAddress","streetAddress":"Localit\u00e0 Sant'Angelo","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+393935791566","priceRange":"€€","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"19:00","closes":"23:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday"],"opens":"19:00","closes":"23:30"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"316"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+    --cream:#F3EEDF;--cream2:#E8DFC5;--paper:#FBF7EB;
+    --ink:#2A251E;--ink2:#3A332A;--stone:#5B5A4E;--mute:#8B8472;
+    --vine:#4A6741;--vine-d:#384F31;--wine:#7B2418;--wine-d:#5A1B12;
+    --mustard:#C69A3B;--mustard-d:#A17C28;
+    --border:rgba(42,37,30,.12);--border-s:rgba(42,37,30,.06);
+    --shadow:0 16px 36px rgba(42,37,30,.1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--cream);scroll-behavior:smooth}
+body{font-family:'Mulish',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-weight:400}
+h1,h2,h3,h4{font-family:'Young Serif',Georgia,serif;font-weight:400;line-height:1.1;color:var(--ink);letter-spacing:-.01em}
+img{display:block;max-width:100%;height:auto}
+::selection{background:var(--wine);color:var(--cream)}
+
+/* LANG */
+.t-en{display:none}
+p.t-en,h1.t-en,h2.t-en,h3.t-en,div.t-en,span.t-en{display:none}
+body.lang-en .t-it{display:none!important}
+body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en div.t-en{display:block!important}
+.lang-toggle{position:fixed;top:20px;right:20px;z-index:100;display:flex;gap:2px;background:var(--ink);border-radius:100px;padding:3px}
+.lang-btn{padding:6px 14px;border:none;background:transparent;color:rgba(243,238,223,.55);font-family:'Mulish',sans-serif;font-size:11px;font-weight:700;cursor:pointer;border-radius:100px;transition:all .25s;letter-spacing:1.5px}
+.lang-btn.active{background:var(--mustard);color:var(--ink)}
+
+/* SCROLL PROGRESS */
+.scroll-progress{position:fixed;top:0;left:0;width:0%;height:3px;background:var(--wine);z-index:9999}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:20px clamp(20px,5vw,40px);display:flex;align-items:center;justify-content:space-between;transition:background .4s,padding .3s,backdrop-filter .4s}
+nav.scrolled{background:rgba(243,238,223,.97);backdrop-filter:blur(12px);padding:12px clamp(20px,5vw,40px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Young Serif',serif;font-size:1.3rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:28px;height:28px;display:inline-block}
+.nav-logo-icon svg{width:100%;height:100%;fill:var(--wine)}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--wine)}
+.nav-mobile{display:none;background:none;border:none;color:var(--ink);font-size:22px;cursor:pointer}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.stagger-parent.visible .stagger-child{opacity:1;transform:translateY(0)}
+.stagger-child{opacity:0;transform:translateY(30px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.stagger-child:nth-child(1){transition-delay:0s}
+.stagger-child:nth-child(2){transition-delay:.08s}
+.stagger-child:nth-child(3){transition-delay:.16s}
+.stagger-child:nth-child(4){transition-delay:.24s}
+.stagger-child:nth-child(5){transition-delay:.32s}
+
+/* HERO — grape terrace */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;padding:120px 0 60px;color:var(--cream)}
+.hero-bg{position:absolute;inset:0;z-index:0;background-image:url('./photos/photo_00.jpg');background-size:cover;background-position:center;animation:hero-zoom 2s cubic-bezier(.16,1,.3,1) forwards;transform:scale(1.1)}
+@keyframes hero-zoom{to{transform:scale(1)}}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,37,30,.4) 0%,rgba(42,37,30,.35) 40%,rgba(42,37,30,.88) 100%)}
+.hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 clamp(20px,5vw,40px);width:100%;animation:fade-up 1.3s .3s cubic-bezier(.16,1,.3,1) backwards}
+@keyframes fade-up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-gallo{width:72px;height:72px;margin-bottom:24px}
+.hero-gallo svg{width:100%;height:100%;fill:var(--mustard)}
+.hero-label{font-family:'Mulish',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--mustard);margin-bottom:22px;font-weight:700}
+.hero-label::before{content:'— '}
+.hero-label::after{content:' —'}
+.hero h1{font-size:clamp(2.8rem,8vw,6rem);color:var(--cream);letter-spacing:-.02em;margin-bottom:20px;line-height:1}
+.hero-sub{font-family:'Young Serif',serif;font-size:clamp(1.1rem,1.8vw,1.4rem);color:var(--mustard);margin-bottom:20px;letter-spacing:.01em}
+.hero-desc{font-family:'Mulish',sans-serif;font-size:1rem;color:rgba(243,238,223,.82);max-width:520px;margin-bottom:30px;font-weight:400;line-height:1.65}
+.hero-meta{display:flex;gap:28px;flex-wrap:wrap;padding:20px 0;border-top:1px solid rgba(243,238,223,.15);border-bottom:1px solid rgba(243,238,223,.15);margin-bottom:30px;font-size:.85rem}
+.hero-meta-item{display:flex;flex-direction:column;gap:2px}
+.hero-meta-val{font-family:'Young Serif',serif;font-size:1.6rem;color:var(--cream);line-height:1}
+.hero-meta-val em{color:var(--mustard);font-style:italic}
+.hero-meta-lbl{font-size:10px;color:rgba(243,238,223,.55);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;font-family:'Mulish',sans-serif;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;border:none;cursor:pointer;border-radius:2px}
+.btn-primary{background:var(--wine);color:var(--cream)}
+.btn-primary:hover{background:var(--wine-d);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--cream);border:1.5px solid rgba(243,238,223,.35)}
+.btn-ghost:hover{border-color:var(--mustard);color:var(--mustard)}
+
+/* SECTIONS */
+.sec{padding:clamp(80px,10vw,130px) clamp(20px,5vw,40px)}
+.wrap{max-width:1120px;margin:0 auto}
+.wrap-narrow{max-width:920px;margin:0 auto}
+.tag{display:inline-block;font-family:'Mulish',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--wine);margin-bottom:14px}
+.tag::before{content:'— '}
+.hdg{font-size:clamp(2.2rem,5vw,3.6rem);color:var(--ink);margin-bottom:20px;letter-spacing:-.015em;line-height:1.05}
+.hdg em{color:var(--wine);font-style:italic}
+.desc{font-size:1rem;color:var(--stone);max-width:580px;line-height:1.8}
+
+/* STORIA — handwritten Angela note */
+.storia{background:var(--paper);position:relative}
+.storia-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
+.storia-visual{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:4px;box-shadow:var(--shadow)}
+.storia-visual img{width:100%;height:100%;object-fit:cover;transition:transform 8s ease-out}
+.storia-visual:hover img{transform:scale(1.03)}
+.storia-visual-vine{position:absolute;top:-18px;left:-18px;width:80px;height:80px;z-index:2}
+.storia-visual-vine svg{width:100%;height:100%;fill:var(--vine)}
+.storia-note{margin-top:28px;padding:24px 28px;background:var(--cream);border-left:3px solid var(--mustard);font-family:'Young Serif',serif;font-style:italic;font-size:1.05rem;color:var(--ink2);line-height:1.5;position:relative}
+.storia-note-sig{margin-top:12px;font-family:'Mulish',sans-serif;font-style:normal;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--wine);font-weight:700}
+.storia-note-sig::before{content:'— '}
+
+/* MENU — printed menu feel */
+.menu-sec{background:var(--cream);position:relative}
+.menu-sec::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:clamp(280px,40vw,440px);height:3px;background:var(--wine);display:block}
+.menu-head{text-align:center;margin-bottom:60px}
+.menu-head .desc{max-width:600px;margin:0 auto}
+.menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,72px)}
+.menu-col h3{font-family:'Young Serif',serif;font-size:1.4rem;color:var(--wine);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);letter-spacing:.01em}
+.menu-item{padding:16px 0;border-bottom:1px dotted var(--border)}
+.menu-item:last-child{border-bottom:none}
+.menu-item-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:4px}
+.menu-item-name{font-family:'Young Serif',serif;font-size:1.1rem;color:var(--ink);letter-spacing:-.005em}
+.menu-item-name em{font-style:italic;color:var(--wine)}
+.menu-item-price{font-family:'Young Serif',serif;font-weight:400;font-size:1.05rem;color:var(--wine);white-space:nowrap}
+.menu-item-desc{font-size:.84rem;color:var(--stone);line-height:1.5;font-style:italic}
+.menu-item-sig{display:inline-block;margin-top:6px;padding:2px 10px;background:var(--mustard);color:var(--ink);font-family:'Mulish',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-style:normal}
+
+/* SIGNATURE — Fusilli al sugo di capra */
+.sig{background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
+.sig::before{content:'';position:absolute;top:-20%;right:-10%;width:50%;height:140%;background:radial-gradient(ellipse at center,rgba(198,154,59,.15) 0%,transparent 65%);pointer-events:none}
+.sig-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
+.sig-visual{position:relative;aspect-ratio:1;overflow:hidden;border:1px solid rgba(243,238,223,.15)}
+.sig-visual img{width:100%;height:100%;object-fit:cover}
+.sig-visual-badge{position:absolute;top:20px;right:20px;background:var(--mustard);color:var(--ink);padding:10px 18px;font-family:'Mulish',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:100px}
+.sig .tag{color:var(--mustard)}
+.sig .hdg{color:var(--cream)}
+.sig .hdg em{color:var(--mustard)}
+.sig .desc{color:rgba(243,238,223,.72)}
+.sig-recipe{display:grid;gap:14px;margin-top:32px;padding-top:28px;border-top:1px solid rgba(243,238,223,.1)}
+.sig-recipe-row{display:grid;grid-template-columns:80px 1fr;gap:20px;padding:10px 0}
+.sig-recipe-ing{font-family:'Young Serif',serif;font-style:italic;color:var(--mustard);font-size:1rem}
+.sig-recipe-detail{font-family:'Mulish',sans-serif;font-size:.9rem;color:rgba(243,238,223,.75);font-weight:400}
+
+/* TERRAZZA gallery band */
+.terrazza{background:var(--vine);color:var(--cream);padding:80px clamp(20px,5vw,40px);position:relative;overflow:hidden}
+.terrazza::before{content:'';position:absolute;inset:0;background-image:url('./photos/photo_00.jpg');background-size:cover;background-position:center;opacity:.15}
+.terrazza-inner{position:relative;z-index:1;max-width:720px;margin:0 auto;text-align:center}
+.terrazza .tag{color:var(--mustard)}
+.terrazza .hdg{color:var(--cream);margin-bottom:16px}
+.terrazza .hdg em{color:var(--mustard)}
+.terrazza-desc{color:rgba(243,238,223,.85);font-size:1.05rem;line-height:1.75;margin:0 auto;max-width:560px}
+
+/* GALLERY */
+.gal-sec{background:var(--paper)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:10px;margin-top:44px}
+.gal-item{overflow:hidden}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gal-item:nth-child(2){grid-column:span 2}
+.gal-item:nth-child(3){grid-column:span 1}
+.gal-item:nth-child(4){grid-column:span 1}
+.gal-item:nth-child(5){grid-column:span 2}
+
+/* REVIEWS */
+.rev-sec{background:var(--cream)}
+.rev-head{text-align:center;margin-bottom:54px}
+.rev-stat-row{display:flex;gap:32px;justify-content:center;align-items:baseline;margin:32px 0 8px;flex-wrap:wrap}
+.rev-stat{display:flex;flex-direction:column;align-items:center}
+.rev-stat-val{font-family:'Young Serif',serif;font-size:2.6rem;color:var(--wine);line-height:1}
+.rev-stat-lbl{font-family:'Mulish',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--stone);margin-top:6px;font-weight:700}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.rev-card{padding:28px 26px;background:var(--paper);border:1px solid var(--border-s);border-radius:4px;transition:all .3s;position:relative}
+.rev-card:hover{border-color:var(--wine);transform:translateY(-3px);box-shadow:var(--shadow)}
+.rev-stars{color:var(--mustard);font-size:13px;letter-spacing:3px;margin-bottom:14px}
+.rev-text{font-family:'Young Serif',serif;font-size:1rem;color:var(--ink);line-height:1.55;margin-bottom:16px;font-style:italic}
+.rev-who{font-family:'Mulish',sans-serif;font-size:.8rem;font-weight:700;color:var(--wine);letter-spacing:1px;text-transform:uppercase}
+.rev-src{font-size:.72rem;color:var(--mute);margin-top:2px;letter-spacing:.5px;font-weight:500}
+
+/* BOOKING */
+.book{background:var(--ink2);color:var(--cream)}
+.book .tag{color:var(--mustard)}
+.book .hdg{color:var(--cream)}
+.book .hdg em{color:var(--mustard)}
+.book-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,5vw,70px);align-items:start}
+.book-info h3{font-family:'Mulish',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mustard);margin-top:26px;margin-bottom:8px}
+.book-info h3:first-child{margin-top:0}
+.book-info p{font-size:.95rem;color:rgba(243,238,223,.82);margin-bottom:2px}
+.book-phone{font-family:'Young Serif',serif;font-size:1.6rem;color:var(--cream);text-decoration:none;display:inline-block;margin-top:4px}
+.book-phone:hover{color:var(--mustard)}
+.soc{display:flex;gap:10px;margin-top:12px}
+.soc a{width:42px;height:42px;border-radius:50%;background:rgba(243,238,223,.08);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .25s;border:1px solid rgba(243,238,223,.14)}
+.soc a:hover{background:var(--wine);border-color:var(--wine);transform:translateY(-2px)}
+.soc svg{width:17px;height:17px;fill:var(--cream);transition:fill .25s}
+.book-form{background:rgba(243,238,223,.04);border:1px solid rgba(243,238,223,.1);padding:32px;border-radius:4px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-family:'Mulish',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(243,238,223,.65);margin-bottom:6px}
+.fg input,.fg select,.fg textarea{width:100%;padding:12px 14px;border:1px solid rgba(243,238,223,.15);border-radius:3px;font-family:'Mulish',sans-serif;font-size:14px;color:var(--cream);background:rgba(243,238,223,.04);outline:none;transition:border-color .25s;font-weight:400}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--mustard)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-book{width:100%;padding:14px;background:var(--wine);color:var(--cream);border:none;border-radius:2px;font-family:'Mulish',sans-serif;font-weight:700;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:background .3s,transform .2s;margin-top:4px}
+.btn-book:hover{background:var(--wine-d);transform:translateY(-1px)}
+
+/* MAP */
+.map-wrap{position:relative;background:var(--ink)}
+.map-wrap iframe{width:100%;height:380px;border:none;display:block;filter:saturate(.8) brightness(.9)}
+.map-card{position:absolute;bottom:24px;left:clamp(20px,5vw,40px);background:var(--paper);padding:20px 26px;border-radius:4px;box-shadow:var(--shadow);max-width:320px;border:1px solid var(--border)}
+.map-card h3{font-family:'Young Serif',serif;font-size:1.2rem;color:var(--ink);margin-bottom:4px}
+.map-card p{font-size:.85rem;color:var(--stone);line-height:1.5}
+.map-card a{color:var(--wine);text-decoration:none;font-weight:700}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--cream);padding:52px clamp(20px,5vw,40px) 28px}
+.foot-inner{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;padding-bottom:24px;border-bottom:1px solid rgba(243,238,223,.08)}
+.foot-brand{font-family:'Young Serif',serif;font-size:1.5rem;color:var(--cream);margin-bottom:6px;display:flex;align-items:center;gap:12px}
+.foot-brand-icon{width:32px;height:32px}
+.foot-brand-icon svg{width:100%;height:100%;fill:var(--mustard)}
+.foot-addr{font-size:.85rem;color:rgba(243,238,223,.55);line-height:1.5}
+.foot-addr a{color:var(--mustard);text-decoration:none}
+.foot-nav{display:flex;gap:22px;flex-wrap:wrap}
+.foot-nav a{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(243,238,223,.55);text-decoration:none;transition:color .25s}
+.foot-nav a:hover{color:var(--mustard)}
+.foot-copy{max-width:1120px;margin:20px auto 0;text-align:center;font-size:.72rem;color:rgba(243,238,223,.3)}
+.foot-copy a{color:var(--mustard);text-decoration:none}
+
+/* WHATSAPP */
+.wa{position:fixed;bottom:24px;right:24px;z-index:98;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s,box-shadow .3s}
+.wa:hover{transform:scale(1.08);box-shadow:0 10px 26px rgba(37,211,102,.5)}
+.wa svg{width:26px;height:26px;fill:#fff}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .storia-grid,.sig-grid,.book-grid,.menu-cols{grid-template-columns:1fr}
+    .storia-visual{aspect-ratio:4/3}
+    .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+    .gal-item:nth-child(1),.gal-item:nth-child(2),.gal-item:nth-child(5){grid-column:span 2}
+    .gal-item:nth-child(1){grid-row:span 1}
+}
+@media(max-width:768px){
+    .nav-links{display:none}
+    .nav-mobile{display:block}
+    .fg-row{grid-template-columns:1fr}
+    .foot-inner{flex-direction:column;align-items:flex-start}
+    .hero-ctas{flex-direction:column;align-items:stretch}
+    .hero-ctas .btn{justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<div class="scroll-progress"></div>
+<div class="lang-toggle">
+    <button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+</div>
+
+<nav id="mainNav">
+    <a href="#" class="nav-logo">
+        <span class="nav-logo-icon"><svg viewBox="0 0 48 48"><path d="M24 6c-3 0-5 2-5 5 0 1 0 1 1 2l-3 2c-4 0-8 3-9 7-1 3 0 6 2 8 1 1 1 2 1 4v6c0 1 1 2 2 2h22c1 0 2-1 2-2v-6c0-2 1-3 2-5 1-3 0-6-2-8-2-3-5-4-8-5-1 0-2-1-3-2-1-1 0-2-1-3l2-2c1 0 1-1 1-2 0-1-1-1-2-1h-2zm2 3c1 0 2 1 2 2s-1 1-2 1-2 0-2-1 1-2 2-2zm-2 4 2 3c1 1 1 1 2 1h2c-1 0-2 1-2 2-1-1-2-1-3-1s-2 0-3 1c-1-1-1-2-2-3h2c1 0 2 0 2-1z"/></svg></span>
+        Il Gallo Bianco
+    </a>
+    <ul class="nav-links">
+        <li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#firma"><span class="t-it">Fusilli</span><span class="t-en">Signature</span></a></li>
+        <li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li>
+        <li><a href="#prenota"><span class="t-it">Prenota</span><span class="t-en">Book</span></a></li>
+    </ul>
+    <button class="nav-mobile" aria-label="Menu">&#9776;</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+        <div class="hero-gallo"><svg viewBox="0 0 48 48"><path d="M24 6c-3 0-5 2-5 5 0 1 0 1 1 2l-3 2c-4 0-8 3-9 7-1 3 0 6 2 8 1 1 1 2 1 4v6c0 1 1 2 2 2h22c1 0 2-1 2-2v-6c0-2 1-3 2-5 1-3 0-6-2-8-2-3-5-4-8-5-1 0-2-1-3-2-1-1 0-2-1-3l2-2c1 0 1-1 1-2 0-1-1-1-2-1h-2zm2 3c1 0 2 1 2 2s-1 1-2 1-2 0-2-1 1-2 2-2zm-2 4 2 3c1 1 1 1 2 1h2c-1 0-2 1-2 2-1-1-2-1-3-1s-2 0-3 1c-1-1-1-2-2-3h2c1 0 2 0 2-1z"/></svg></div>
+        <div class="hero-label"><span class="t-it">Trattoria di Famiglia &middot; Scalea</span><span class="t-en">Family Trattoria &middot; Scalea</span></div>
+        <h1>Il Gallo Bianco</h1>
+        <p class="hero-sub t-it">Terrazza tra le viti. Angela vi aspetta.</p>
+        <p class="hero-sub t-en">A terrace under the vines. Angela is waiting.</p>
+        <p class="hero-desc t-it">Una trattoria semplice nella localit&agrave; Sant'Angelo, sopra Scalea. Pasta fatta in casa, fusilli al sugo di capra, antipasti con i sapori della montagna.</p>
+        <p class="hero-desc t-en">A simple trattoria in Localit&agrave; Sant'Angelo, above Scalea. Homemade pasta, fusilli with goat ragù, antipasti with mountain flavours.</p>
+        <div class="hero-meta">
+            <div class="hero-meta-item"><span class="hero-meta-val"><em>4.7</em></span><span class="hero-meta-lbl">Google &#9733;</span></div>
+            <div class="hero-meta-item"><span class="hero-meta-val">316</span><span class="hero-meta-lbl"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+            <div class="hero-meta-item"><span class="hero-meta-val">7/7</span><span class="hero-meta-lbl"><span class="t-it">Sere aperti</span><span class="t-en">Nights open</span></span></div>
+        </div>
+        <div class="hero-ctas">
+            <a href="#prenota" class="btn btn-primary"><span class="t-it">Prenota un Tavolo</span><span class="t-en">Reserve a Table</span> &rarr;</a>
+            <a href="#menu" class="btn btn-ghost"><span class="t-it">Il Menu</span><span class="t-en">The Menu</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- STORIA -->
+<section class="sec storia" id="storia">
+    <div class="wrap">
+        <div class="storia-grid">
+            <div class="storia-visual reveal">
+                <div class="storia-visual-vine"><svg viewBox="0 0 80 80"><path d="M40 10c-5 5-15 5-20 15-3 6 0 12 5 15 3 2 10 0 13-5l2-4zm0 0c5 5 15 5 20 15 3 6 0 12-5 15-3 2-10 0-13-5l-2-4zm-8 12c3-1 6 1 7 4s-1 6-4 7-6-1-7-4 1-6 4-7zm16 0c3-1 6 1 7 4s-1 6-4 7-6-1-7-4 1-6 4-7zm-12 18c2-1 5 0 6 3s-1 5-3 6-5 0-6-3 1-5 3-6zm12 0c2-1 5 0 6 3s-1 5-3 6-5 0-6-3 1-5 3-6z"/></svg></div>
+                <img src="./photos/photo_00.jpg" alt="Terrazza con viti">
+            </div>
+            <div class="reveal">
+                <p class="tag"><span class="t-it">La Nostra Storia</span><span class="t-en">Our Story</span></p>
+                <h2 class="hdg t-it">Una <em>famiglia</em>,<br>una tavola sotto le viti.</h2>
+                <h2 class="hdg t-en">A <em>family</em>,<br>a table under the vines.</h2>
+                <p class="desc t-it">A Sant'Angelo, sopra Scalea, c'&egrave; una trattoria che non cerca di essere altro. Angela e la sua famiglia cucinano come a casa &mdash; polpette al sugo, fusilli fatti a mano, carne alla brace. Il segreto &egrave; la terrazza con il pergolato di viti, dove d'estate si cena sotto le stelle.</p>
+                <p class="desc t-en">In Sant'Angelo, above Scalea, there's a trattoria that doesn't try to be anything else. Angela and her family cook like at home &mdash; meatballs in sauce, handmade fusilli, grilled meat. The secret is the terrace with the vine pergola, where in summer we dine under the stars.</p>
+                <div class="storia-note">
+                    <span class="t-it">&ldquo;Qui non c'&egrave; niente di preparato prima. La carne, la pasta, le polpette &mdash; tutto fatto oggi, per voi. Venite con il tempo, non si mangia di fretta.&rdquo;</span>
+                    <span class="t-en">&ldquo;Nothing is prepared in advance here. The meat, the pasta, the meatballs &mdash; all made today, for you. Come with time; we don't eat in a hurry.&rdquo;</span>
+                    <div class="storia-note-sig">Angela, <span class="t-it">la padrona</span><span class="t-en">the owner</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MENU printed -->
+<section class="sec menu-sec" id="menu">
+    <div class="wrap">
+        <div class="menu-head reveal">
+            <p class="tag">Menu</p>
+            <h2 class="hdg t-it">Quello che <em>cucina</em> Angela.</h2>
+            <h2 class="hdg t-en">What Angela <em>cooks</em>.</h2>
+            <p class="desc t-it">Menu breve, stagionale. Cambia in base al mercato e all'orto. Alcune portate fisse &mdash; il resto lo scopri al tavolo.</p>
+            <p class="desc t-en">Short menu, seasonal. Changes with the market and garden. Some dishes are fixed &mdash; the rest you discover at the table.</p>
+        </div>
+        <div class="menu-cols reveal">
+            <div class="menu-col">
+                <h3><span class="t-it">Antipasti &amp; Primi</span><span class="t-en">Starters &amp; First Courses</span></h3>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <span class="menu-item-name"><span class="t-it">Antipasto Casalingo</span><span class="t-en">Homemade Antipasto</span></span>
+                        <span class="menu-item-price">&euro;10</span>
+                    </div>
+                    <p class="menu-item-desc t-it">Salumi, formaggi, olive, verdure sott'olio, frittatine.</p>
+                    <p class="menu-item-desc t-en">Cured meats, cheeses, olives, pickled vegetables, small omelettes.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <span class="menu-item-name"><em>Fusilli al sugo di capra</em></span>
+                        <span class="menu-item-price">&euro;12</span>
+                    </div>
+                    <p class="menu-item-desc t-it">Pasta fatta a mano, ragù di capra della montagna, lungo cottura.</p>
+                    <p class="menu-item-desc t-en">Handmade pasta, mountain goat ragù, slow-cooked.</p>
+                    <span class="menu-item-sig">Signature</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <span class="menu-item-name"><span class="t-it">Fusilli al pomodoro</span><span class="t-en">Fusilli al Pomodoro</span></span>
+                        <span class="menu-item-price">&euro;9</span>
+                    </div>
+                    <p class="menu-item-desc t-it">Fusilli fatti in casa con sugo di pomodoro San Marzano e basilico.</p>
+                    <p class="menu-item-desc t-en">Homemade fusilli with San Marzano tomato sauce and basil.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <span class="menu-item-name"><span class="t-it">Pappardelle al cinghiale</span><span class="t-en">Pappardelle al Cinghiale</span></span>
+                        <span class="menu-item-price">&euro;13</span>
+                    </div>
+                    <p class="menu-item-desc t-it">Pappardelle, ragù di cinghiale, bacche di ginepro.</p>
+                    <p class="menu-item-desc t-en">Pappardelle, wild boar ragù, juniper berries.</p>
+                </div>
+            </div>
+            <div class="menu-col">
+                <h3><span class="t-it">Secondi &amp; Dolci</span><span class="t-en">Mains &amp; Desserts</span></h3>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <span class="menu-item-name"><span class="t-it">Polpette al sugo</span><span class="t-en">Meatballs in Sauce</span></span>
+                        <span class="menu-item-price">&euro;10</span>
+                    </div>
+                    <p class="menu-item-desc t-it">Polpette di carne della nonna, sugo di pomodoro, basilico.</p>
+                    <p class="menu-item-desc t-en">Grandma's meatballs, tomato sauce, basil.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <span class="menu-item-name"><span class="t-it">Capretto al forno</span><span class="t-en">Roast Kid Goat</span></span>
+                        <span class="menu-item-price">&euro;16</span>
+                    </div>
+                    <p class="menu-item-desc t-it">Capretto della montagna al forno, patate al rosmarino.</p>
+                    <p class="menu-item-desc t-en">Mountain kid goat roasted, rosemary potatoes.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <span class="menu-item-name"><span class="t-it">Grigliata mista</span><span class="t-en">Mixed Grill</span></span>
+                        <span class="menu-item-price">&euro;14</span>
+                    </div>
+                    <p class="menu-item-desc t-it">Salsiccia, braciole, carne di maiale, peperoncino.</p>
+                    <p class="menu-item-desc t-en">Sausage, pork chops, pork, chili.</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-top">
+                        <span class="menu-item-name"><span class="t-it">Dolce della casa</span><span class="t-en">Homemade Dessert</span></span>
+                        <span class="menu-item-price">&euro;5</span>
+                    </div>
+                    <p class="menu-item-desc t-it">Cambia ogni giorno &mdash; tiramis&ugrave;, crostata, cannoli.</p>
+                    <p class="menu-item-desc t-en">Changes daily &mdash; tiramis&ugrave;, tarts, cannoli.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SIGNATURE Fusilli al sugo di capra -->
+<section class="sec sig" id="firma">
+    <div class="wrap">
+        <div class="sig-grid">
+            <div class="sig-visual reveal">
+                <div class="sig-visual-badge">Signature</div>
+                <img src="./photos/photo_02.jpg" alt="Fusilli al sugo di capra">
+            </div>
+            <div class="reveal">
+                <p class="tag"><span class="t-it">Il Piatto di Casa</span><span class="t-en">The House Dish</span></p>
+                <h2 class="hdg t-it">Fusilli al <em>sugo di capra</em>.</h2>
+                <h2 class="hdg t-en">Fusilli with <em>goat ragù</em>.</h2>
+                <p class="desc t-it">La pasta la fa Angela la mattina, un filo alla volta. Il sugo di capra cuoce da mezzogiorno sul fuoco lento. Il risultato &egrave; un piatto che al Gallo Bianco ordinano quasi tutti &mdash; ed &egrave; quello che la gente ricorda.</p>
+                <p class="desc t-en">Angela makes the pasta in the morning, strand by strand. The goat ragù simmers from noon on low heat. The result is a dish that almost everyone orders at Gallo Bianco &mdash; and the one people remember.</p>
+                <div class="sig-recipe">
+                    <div class="sig-recipe-row">
+                        <div class="sig-recipe-ing"><span class="t-it">Pasta</span><span class="t-en">Pasta</span></div>
+                        <div class="sig-recipe-detail"><span class="t-it">Fusilli fatti a mano con farina di semola, acqua, sale. Niente macchine.</span><span class="t-en">Handmade fusilli with semolina flour, water, salt. No machines.</span></div>
+                    </div>
+                    <div class="sig-recipe-row">
+                        <div class="sig-recipe-ing"><span class="t-it">Sugo</span><span class="t-en">Ragù</span></div>
+                        <div class="sig-recipe-detail"><span class="t-it">Capra della montagna, pomodoro, cipolla di Tropea, alloro, 4 ore di cottura.</span><span class="t-en">Mountain goat, tomato, Tropea onion, bay leaf, 4-hour cooking.</span></div>
+                    </div>
+                    <div class="sig-recipe-row">
+                        <div class="sig-recipe-ing"><span class="t-it">Finitura</span><span class="t-en">Finish</span></div>
+                        <div class="sig-recipe-detail"><span class="t-it">Pecorino calabrese grattugiato, peperoncino a piacere.</span><span class="t-en">Grated Calabrian pecorino, chili to taste.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TERRAZZA -->
+<section class="terrazza" id="terrazza">
+    <div class="terrazza-inner">
+        <p class="tag"><span class="t-it">La Terrazza</span><span class="t-en">The Terrace</span></p>
+        <h2 class="hdg t-it">Cenare <em>sotto le viti</em>.</h2>
+        <h2 class="hdg t-en">Dine <em>under the vines</em>.</h2>
+        <p class="terrazza-desc t-it">La nostra terrazza all'aperto, coperta dal pergolato di uva, &egrave; il posto dove preferiamo servirvi d'estate. Fresca anche nei giorni di agosto, circondata dal verde, con vista sulla collina.</p>
+        <p class="terrazza-desc t-en">Our open-air terrace, covered by the grape pergola, is where we prefer to serve you in summer. Cool even in August days, surrounded by greenery, with a view of the hillside.</p>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec gal-sec">
+    <div class="wrap">
+        <div class="reveal" style="max-width:620px;margin-bottom:0">
+            <p class="tag"><span class="t-it">La Trattoria</span><span class="t-en">The Trattoria</span></p>
+            <h2 class="hdg t-it">Piatti e <em>scorci</em>.</h2>
+            <h2 class="hdg t-en">Plates and <em>views</em>.</h2>
+        </div>
+        <div class="gal-grid reveal">
+            <div class="gal-item"><img src="./photos/photo_00.jpg" alt loading="lazy"></div>
+            <div class="gal-item"><img src="./photos/photo_01.jpg" alt loading="lazy"></div>
+            <div class="gal-item"><img src="./photos/photo_03.jpg" alt loading="lazy"></div>
+            <div class="gal-item"><img src="./photos/photo_05.jpg" alt loading="lazy"></div>
+            <div class="gal-item"><img src="./photos/photo_02.jpg" alt loading="lazy"></div>
+        </div>
+    </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec rev-sec" id="recensioni">
+    <div class="wrap">
+        <div class="rev-head reveal">
+            <p class="tag"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></p>
+            <h2 class="hdg t-it">316 voci <em>dalla montagna</em>.</h2>
+            <h2 class="hdg t-en">316 voices <em>from the mountain</em>.</h2>
+            <div class="rev-stat-row">
+                <div class="rev-stat"><span class="rev-stat-val">4.7</span><span class="rev-stat-lbl">Google</span></div>
+                <div class="rev-stat"><span class="rev-stat-val">316</span><span class="rev-stat-lbl"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+            </div>
+        </div>
+        <div class="rev-grid reveal stagger-parent">
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">&ldquo;Abbiamo mangiato benissimo e siamo stati accolti a braccia aperte. Il servizio è stato fantastico. Questo è il punto di forza dell'azienda a conduzione familiare.&rdquo;</p>
+                <p class="rev-text t-en">&ldquo;We ate wonderfully and were welcomed with open arms. The service was fantastic. This is the strength of a family-run business.&rdquo;</p>
+                <p class="rev-who">Vicky's B&amp;B</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">&ldquo;Un posto unico, accogliente, familiare, dove si percepisce la genuinità della terra e delle persone che ci lavorano.&rdquo;</p>
+                <p class="rev-text t-en">&ldquo;A unique, welcoming, familiar place, where you feel the genuineness of the land and the people who work here.&rdquo;</p>
+                <p class="rev-who">C. I.</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                <p class="rev-text t-it">&ldquo;Se cerchi un posto autentico, hai fatto bingo! Abbiamo prenotato e sono stati puntuali. Servizio cortese e amichevole, porzioni abbondanti e cibo buono.&rdquo;</p>
+                <p class="rev-text t-en">&ldquo;If you're looking for an authentic place, bingo! We booked and they were punctual. Courteous service, generous portions, good food.&rdquo;</p>
+                <p class="rev-who">Enea Cavanna</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                <p class="rev-text t-it">&ldquo;Trattoria con ambientazione casalinga dove ti fanno sentire come a casa, dove i proprietari ti accolgono con grande gentilezza e familiarità.&rdquo;</p>
+                <p class="rev-text t-en">&ldquo;A homey trattoria where they make you feel at home, where the owners welcome you with great kindness and familiarity.&rdquo;</p>
+                <p class="rev-who">Villans V.</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text t-it">&ldquo;Locale che si trova all'interno di Scalea qualora si venisse da Maratea. La terrazza con le viti &egrave; speciale.&rdquo;</p>
+                <p class="rev-text t-en">&ldquo;A place inside Scalea if you come from Maratea. The terrace with the vines is special.&rdquo;</p>
+                <p class="rev-who">Gianmaria Macri</p>
+                <p class="rev-src">Google</p>
+            </div>
+            <div class="rev-card stagger-child">
+                <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="rev-text">&ldquo;Best family-run trattoria near Scalea. The goat ragù fusilli are unforgettable. Angela welcomes like family.&rdquo;</p>
+                <p class="rev-who">Google Review</p>
+                <p class="rev-src">Google &middot; EN</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BOOKING -->
+<section class="sec book" id="prenota">
+    <div class="wrap">
+        <div class="reveal" style="max-width:620px;margin-bottom:44px">
+            <p class="tag"><span class="t-it">Prenotazioni</span><span class="t-en">Reservations</span></p>
+            <h2 class="hdg t-it">Chiama <em>Angela</em>.</h2>
+            <h2 class="hdg t-en">Call <em>Angela</em>.</h2>
+            <p class="desc t-it" style="color:rgba(243,238,223,.72)">Angela prende le prenotazioni personalmente. Se siete in tanti, avvisateci il giorno prima per preparare la pasta.</p>
+            <p class="desc t-en" style="color:rgba(243,238,223,.72)">Angela takes reservations personally. If you're a large group, let us know the day before so we can prepare the pasta.</p>
+        </div>
+        <div class="book-grid">
+            <div class="book-info reveal">
+                <h3><span class="t-it">Orari</span><span class="t-en">Hours</span></h3>
+                <p class="t-it">Tutti i giorni &middot; Cena 19:00 — 23:00</p>
+                <p class="t-en">Every day &middot; Dinner 7 PM — 11 PM</p>
+                <p class="t-it">Domenica &middot; Cena 19:00 — 23:30</p>
+                <p class="t-en">Sunday &middot; Dinner 7 PM — 11:30 PM</p>
+
+                <h3><span class="t-it">Telefono</span><span class="t-en">Phone</span></h3>
+                <a href="tel:+393935791566" class="book-phone">+39 393 579 1566</a>
+
+                <h3><span class="t-it">Dove Siamo</span><span class="t-en">Where We Are</span></h3>
+                <p>Localit&agrave; Sant'Angelo<br>87029 Scalea (CS)</p>
+                <p class="t-it" style="color:rgba(243,238,223,.6);font-size:.85rem;margin-top:8px"><em>Venite dalla rotonda, prendete la strada che sale verso la collina.</em></p>
+                <p class="t-en" style="color:rgba(243,238,223,.6);font-size:.85rem;margin-top:8px"><em>Come from the roundabout, take the road that climbs toward the hillside.</em></p>
+
+                <h3><span class="t-it">Contatti</span><span class="t-en">Contact</span></h3>
+                <div class="soc">
+                    <a href="https://wa.me/393935791566" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+                    <a href="tel:+393935791566" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+                </div>
+            </div>
+            <form class="book-form reveal" onsubmit="event.preventDefault();alert('Demo — prenotazione inviata!')">
+                <div class="fg-row">
+                    <div class="fg"><label><span class="t-it">Nome</span><span class="t-en">Name</span></label><input type="text" required></div>
+                    <div class="fg"><label><span class="t-it">Telefono</span><span class="t-en">Phone</span></label><input type="tel" required></div>
+                </div>
+                <div class="fg-row">
+                    <div class="fg"><label><span class="t-it">Data</span><span class="t-en">Date</span></label><input type="date" required></div>
+                    <div class="fg"><label><span class="t-it">Ora</span><span class="t-en">Time</span></label>
+                        <select required><option value="">&mdash;</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option></select>
+                    </div>
+                </div>
+                <div class="fg"><label><span class="t-it">Persone</span><span class="t-en">Guests</span></label>
+                    <select required><option value="">&mdash;</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select>
+                </div>
+                <div class="fg"><label><span class="t-it">Note (fusilli al sugo di capra? allergie?)</span><span class="t-en">Notes (goat ragù? allergies?)</span></label><textarea rows="2"></textarea></div>
+                <button type="submit" class="btn-book"><span class="t-it">Richiedi Prenotazione</span><span class="t-en">Request Reservation</span></button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- MAP -->
+<div class="map-wrap">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3083!2d15.79!3d39.81!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f1b0!2sSant%27Angelo%20Scalea!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen loading="lazy" title="Il Gallo Bianco"></iframe>
+    <div class="map-card">
+        <h3>Il Gallo Bianco</h3>
+        <p>Localit&agrave; Sant'Angelo<br>87029 Scalea (CS)<br><a href="tel:+393935791566">+39 393 579 1566</a></p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-inner">
+        <div>
+            <div class="foot-brand">
+                <span class="foot-brand-icon"><svg viewBox="0 0 48 48"><path d="M24 6c-3 0-5 2-5 5 0 1 0 1 1 2l-3 2c-4 0-8 3-9 7-1 3 0 6 2 8 1 1 1 2 1 4v6c0 1 1 2 2 2h22c1 0 2-1 2-2v-6c0-2 1-3 2-5 1-3 0-6-2-8-2-3-5-4-8-5-1 0-2-1-3-2-1-1 0-2-1-3l2-2c1 0 1-1 1-2 0-1-1-1-2-1h-2z"/></svg></span>
+                Il Gallo Bianco
+            </div>
+            <p class="foot-addr">Localit&agrave; Sant'Angelo &middot; Scalea (CS)<br><a href="tel:+393935791566">+39 393 579 1566</a></p>
+        </div>
+        <div class="foot-nav">
+            <a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a>
+            <a href="#menu">Menu</a>
+            <a href="#firma"><span class="t-it">Fusilli</span><span class="t-en">Signature</span></a>
+            <a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a>
+            <a href="#prenota"><span class="t-it">Prenota</span><span class="t-en">Book</span></a>
+        </div>
+    </div>
+    <p class="foot-copy">
+        &copy; 2025 Trattoria Il Gallo Bianco &middot;
+        <span class="t-it">Sito web di</span><span class="t-en">Website by</span>
+        <a href="#">Viktoria Agency</a>
+    </p>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/393935791566" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+function setLang(l){
+    document.body.classList.toggle('lang-en', l==='en');
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+}
+const nav=document.getElementById('mainNav');
+const prog=document.querySelector('.scroll-progress');
+let ticking=false;
+window.addEventListener('scroll',()=>{
+    if(!ticking){
+        requestAnimationFrame(()=>{
+            const y=window.scrollY;
+            const h=document.body.scrollHeight-window.innerHeight;
+            nav.classList.toggle('scrolled',y>80);
+            prog.style.width=(y/h*100)+'%';
+            ticking=false;
+        });
+        ticking=true;
+    }
+},{passive:true});
+document.addEventListener('DOMContentLoaded',()=>{
+    const obs=new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+            if(e.isIntersecting){
+                e.target.classList.add('visible');
+                obs.unobserve(e.target);
+            }
+        });
+    },{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+});
+</script>
+</body>
+</html>
