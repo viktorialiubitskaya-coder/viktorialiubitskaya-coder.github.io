@@ -191,13 +191,16 @@ const leads = [
   { id:"nausicaa",name:"Nausicaa Stabilimento",city:"Scalea",type:"Ristorante/Lido",rating:4.5,reviews:409,url:"",status:"da_creare",phone:"+39 338 565 2239",wa:"393385652239"},
   { id:"arke",name:"Arkè Ristorante e Pub",city:"Scalea",type:"Gastropub",rating:4.5,reviews:58,url:"/arke/",status:"pronta",phone:"+39 347 345 1525",wa:"393473451525"},
   { id:"a-taverna",name:"Antica Trattoria A' Taverna",city:"Scalea",type:"Trattoria",rating:4.1,reviews:609,url:"/a-taverna/",status:"pronta",phone:"+39 388 604 4483",wa:"393886044483",note:"Centro storico, romantico"},
+  { id:"vigri",name:"Ristorante Vigrì",city:"Scalea",type:"Ristorante",rating:4.1,reviews:1028,url:"/demo/vigri/",status:"pronta",phone:"+39 0985 270235",wa:"390985270235",note:"Centro storico, cucina di mare"},
+  { id:"tari",name:"Ristorante Tarì",city:"Scalea",type:"Ristorante",rating:4.2,reviews:985,url:"/demo/tari/",status:"pronta",phone:"+39 0985 91777",wa:"390985917777",note:"Piazzetta, balconata sul mare"},
+  { id:"piazzetta",name:"Pizzeria La Piazzetta",city:"Scalea",type:"Pizzeria",rating:4.0,reviews:805,url:"/demo/piazzetta/",status:"pronta",phone:"+39 0985 803138",wa:"390985803138",note:"Isola pedonale"},
   { id:"ohima",name:"Pizzeria Ohimá",city:"Scalea",type:"Pizzeria",rating:4.3,reviews:403,url:"",status:"da_creare",phone:"+39 338 804 0416",wa:"393388040416"},
   { id:"pescespada",name:"Il Pescespada Beach Club",city:"Scalea",type:"Beach Club",rating:4.4,reviews:450,url:"",status:"da_creare",phone:"+39 338 484 8335",wa:"393384848335"},
   { id:"lucas-garage",name:"Luca's Garage",city:"Scalea",type:"Pub",rating:4.5,reviews:232,url:"",status:"da_creare",phone:"+39 339 203 7367",wa:"393392037367"},
 ];
 
 const BASE = "https://viktorialiubitskaya-coder.github.io";
-const PREVIEWS = new Set(["fresco-di-mare","lido-azzurro","peperoncino","rondinella","serrago","bellavista","ersilio","bistrot","fattoria","dagosti","pava","gallo-bianco","arke","a-taverna"]);
+const PREVIEWS = new Set(["fresco-di-mare","lido-azzurro","peperoncino","rondinella","serrago","bellavista","ersilio","bistrot","fattoria","dagosti","pava","gallo-bianco","arke","a-taverna","vigri","tari","piazzetta"]);
 const STATUS_LABELS = {
   pronta:{ico:"🟢",lbl:"Pronta",cls:"s-pronta"},
   da_inviare:{ico:"🟡",lbl:"Da inviare",cls:"s-da_inviare"},
@@ -233,7 +236,7 @@ function renderShowcase(){
       <div class="card-img">
         <span class="badge">${l.type}</span>
         ${l.rating ? `<span class="rating">★ ${l.rating}</span>` : ''}
-        ${PREVIEWS.has(l.id) ? `<img class="preview" src="${l.id}/preview.jpg" alt="${l.name}" loading="lazy">` : `<div class="icon">${initial(l.name)}</div>`}
+        ${PREVIEWS.has(l.id) ? `<img class="preview" src="${l.url ? l.url.replace(/^\//,'').replace(/\/$/,'') + '/preview.jpg' : l.id + '/preview.jpg'}" alt="${l.name}" loading="lazy">` : `<div class="icon">${initial(l.name)}</div>`}
       </div>
       <div class="card-body">
         <h3>${l.name}</h3>

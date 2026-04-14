@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizzeria La Piazzetta — Scalea · Pizza napoletana dal 1998</title>
+<meta name="description" content="Pizzeria La Piazzetta a Scalea: pizza napoletana, panuozzi, fritti e cucina italiana. All'ingresso dell'isola pedonale, ★4.0 · 805 recensioni.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Pizzeria La Piazzetta","servesCuisine":["Italian","Pizza","Neapolitan"],"address":{"@type":"PostalAddress","streetAddress":"Piazza Caloprese, 6","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+390985803138","priceRange":"€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.0","reviewCount":"805"},"geo":{"@type":"GeoCoordinates","latitude":39.8139048,"longitude":15.7917564}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--tomato:#D93025;--tomato-d:#A61B12;--tomato-l:#F04333;--coal:#18181B;--coal-2:#27272A;--paper:#FFFFFF;--smoke:#F5F5F4;--ink:#18181B;--mute:#71717A;--line:rgba(24,24,27,.1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;overflow-x:hidden}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}
+body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+h1,h2,h3,h4,.display{font-family:'Syne',sans-serif;letter-spacing:-.02em}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:20px 36px;display:flex;justify-content:space-between;align-items:center;transition:all .3s;background:rgba(24,24,27,.0)}
+nav.scrolled{background:var(--coal);padding:12px 36px}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:-.02em;text-transform:uppercase}
+.nav-logo-dot{width:10px;height:10px;border-radius:50%;background:var(--tomato)}
+.nav-links{display:flex;gap:4px;list-style:none;background:rgba(255,255,255,.08);padding:4px;border-radius:100px;backdrop-filter:blur(12px)}
+.nav-links a{padding:8px 16px;border-radius:100px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,.78);text-decoration:none;transition:all .25s}
+.nav-links a:hover{background:var(--tomato);color:#fff}
+.lang-toggle{position:fixed;top:20px;right:20px;z-index:100;display:flex;gap:2px;background:rgba(24,24,27,.86);padding:3px;border-radius:100px}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(255,255,255,.55);font-size:11px;font-weight:700;letter-spacing:1.5px;cursor:pointer;border-radius:100px;transition:all .25s}
+.lang-btn.active{background:var(--tomato);color:#fff}
+/* HERO oversized type */
+.hero{position:relative;min-height:100vh;background:var(--coal);color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:140px 36px 80px}
+.hero::before{content:'';position:absolute;top:-12%;right:-12%;width:62vw;height:62vw;background:radial-gradient(circle,var(--tomato) 0%,transparent 62%);opacity:.32;filter:blur(40px)}
+.hero::after{content:'PIZZA';position:absolute;bottom:-15%;left:-3%;font-family:'Syne',sans-serif;font-weight:800;font-size:48vw;color:rgba(255,255,255,.025);line-height:.8;letter-spacing:-.06em;pointer-events:none;z-index:0}
+.hero-inner{position:relative;z-index:1;max-width:1280px;margin:0 auto;width:100%}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;background:rgba(217,48,37,.16);border:1px solid var(--tomato);border-radius:100px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tomato-l);margin-bottom:26px}
+.hero-kicker::before{content:'●';color:var(--tomato)}
+.hero h1{font-size:clamp(4rem,14vw,14rem);font-weight:800;line-height:.85;letter-spacing:-.04em;color:#fff;margin-bottom:24px;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--tomato)}
+.hero-tag{font-family:'Inter',sans-serif;font-size:1.3rem;font-weight:400;max-width:620px;color:rgba(255,255,255,.82);line-height:1.45;margin-bottom:38px}
+.hero-meta{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.h-stat{padding:14px 22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;display:flex;flex-direction:column;min-width:110px}
+.h-stat-v{font-family:'Syne',sans-serif;font-weight:700;font-size:1.8rem;color:#fff;line-height:1}
+.h-stat-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:5px;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;text-decoration:none;border-radius:100px;transition:all .3s;border:none;cursor:pointer;text-transform:uppercase}
+.btn-tomato{background:var(--tomato);color:#fff;box-shadow:0 14px 28px rgba(217,48,37,.4)}
+.btn-tomato:hover{background:var(--tomato-l);transform:translateY(-2px) scale(1.02)}
+.btn-white{background:#fff;color:var(--coal);margin-left:12px}
+.btn-white:hover{background:var(--smoke);transform:translateY(-2px)}
+/* STICKY MENU BAR */
+.menu-bar{position:sticky;top:0;z-index:50;background:var(--coal);color:#fff;padding:14px 0;transition:transform .3s}
+.menu-bar-inner{max-width:1280px;margin:0 auto;padding:0 36px;display:flex;align-items:center;justify-content:space-between;gap:16px;overflow-x:auto}
+.menu-bar-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;letter-spacing:.02em;color:var(--tomato-l);white-space:nowrap}
+.menu-bar-chips{display:flex;gap:8px;flex:1;justify-content:flex-end;flex-wrap:wrap}
+.mb-chip{padding:7px 14px;background:rgba(255,255,255,.08);border-radius:100px;font-size:11px;font-weight:600;color:rgba(255,255,255,.85);white-space:nowrap;text-decoration:none;transition:all .25s;letter-spacing:.5px;text-transform:uppercase}
+.mb-chip:hover,.mb-chip.active{background:var(--tomato);color:#fff}
+/* SECTIONS */
+section{padding:100px 36px}
+.wrap{max-width:1280px;margin:0 auto}
+.sec-head{max-width:780px;margin-bottom:60px}
+.label{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--tomato);color:#fff;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:100px;margin-bottom:18px}
+h2.display{font-size:clamp(2.4rem,6vw,5rem);font-weight:800;color:var(--coal);line-height:.95;margin-bottom:20px;text-transform:uppercase}
+h2.display em{font-style:normal;color:var(--tomato)}
+.sub{font-size:1.08rem;color:var(--mute);max-width:620px;line-height:1.65}
+/* STORIA */
+.storia{background:var(--smoke);position:relative;overflow:hidden}
+.storia-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.storia-media{position:relative}
+.storia-media img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px;box-shadow:0 30px 60px rgba(24,24,27,.2)}
+.storia-media::before{content:'DAL 1998';position:absolute;top:-20px;right:-20px;padding:18px 26px;background:var(--tomato);color:#fff;border-radius:100px;font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.04em;z-index:1;box-shadow:0 12px 28px rgba(217,48,37,.4)}
+.storia-body p{font-size:1.05rem;color:var(--ink);margin-bottom:16px;line-height:1.75}
+.storia-body p em{color:var(--tomato);font-style:normal;font-weight:700}
+/* MENU circular pizza cards */
+.menu{background:#fff}
+.pizza-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:48px}
+.pizza-card{text-align:center;padding:28px 24px;border-radius:24px;background:var(--smoke);transition:all .4s cubic-bezier(.2,.8,.2,1);position:relative}
+.pizza-card:hover{background:#fff;box-shadow:0 28px 60px rgba(24,24,27,.12);transform:translateY(-6px)}
+.pizza-circle{width:180px;height:180px;margin:0 auto 20px;position:relative}
+.pizza-circle img{width:100%;height:100%;border-radius:50%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1);box-shadow:0 14px 30px rgba(24,24,27,.18)}
+.pizza-card:hover .pizza-circle img{transform:rotate(15deg) scale(1.05)}
+.pizza-card.feat .pizza-circle::before{content:'★';position:absolute;top:-6px;right:-6px;width:36px;height:36px;background:var(--tomato);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;z-index:1;box-shadow:0 6px 14px rgba(217,48,37,.4)}
+.pizza-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.4rem;color:var(--coal);margin-bottom:8px;letter-spacing:-.01em}
+.pizza-card p{font-size:.88rem;color:var(--mute);margin-bottom:16px;line-height:1.45;min-height:46px}
+.pizza-price{font-family:'Syne',sans-serif;font-weight:800;font-size:1.8rem;color:var(--tomato);line-height:1}
+.pizza-price span{font-size:1rem;vertical-align:top}
+/* REVIEWS */
+.reviews{background:var(--coal);color:#fff}
+.reviews .sec-head{max-width:780px}
+.reviews h2.display{color:#fff}
+.reviews h2.display em{color:var(--tomato)}
+.reviews .sub{color:rgba(255,255,255,.68)}
+.reviews .label{background:#fff;color:var(--coal)}
+.rev-band{display:grid;grid-template-columns:auto auto auto auto;gap:42px;justify-content:start;padding:28px 0;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:48px;align-items:center}
+.rev-band-i{display:flex;flex-direction:column}
+.rev-band-v{font-family:'Syne',sans-serif;font-weight:700;font-size:2.4rem;color:var(--tomato-l);line-height:1}
+.rev-band-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:5px;font-weight:600}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev-card{padding:30px 28px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:18px;transition:all .35s}
+.rev-card:hover{background:rgba(255,255,255,.07);border-color:var(--tomato)}
+.rev-stars{color:var(--tomato-l);letter-spacing:2px;margin-bottom:14px;font-size:1rem}
+.rev-text{font-family:'Inter',sans-serif;font-size:.98rem;color:rgba(255,255,255,.88);line-height:1.65;margin-bottom:20px}
+.rev-author{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:#fff}
+.rev-time{font-size:10px;color:rgba(255,255,255,.5);margin-top:3px;letter-spacing:.5px;text-transform:uppercase;font-weight:600}
+/* INFO */
+.info{background:#fff}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.info-col h3.display{font-size:2.4rem;margin-bottom:14px}
+.info-col .sub{margin-bottom:28px}
+.hours-table{margin-top:8px}
+.hours-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.hours-day{font-weight:700;color:var(--coal)}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums}
+.hours-row.highlight{background:rgba(217,48,37,.06);padding-left:16px;padding-right:16px;margin:0 -16px;border-radius:10px;border:none}
+.hours-row.highlight .hours-time{color:var(--tomato);font-weight:700}
+.contact{margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
+.contact h4{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--tomato);font-weight:700;margin-bottom:6px}
+.contact p,.contact a{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:600;color:var(--coal);text-decoration:none;line-height:1.5}
+.contact a:hover{color:var(--tomato)}
+.map-box{border-radius:20px;overflow:hidden;box-shadow:0 24px 50px rgba(24,24,27,.18);aspect-ratio:1}
+.map-box iframe{width:100%;height:100%;border:none}
+/* FOOTER */
+footer{background:var(--coal);color:rgba(255,255,255,.7);padding:52px 36px 28px;text-align:center;position:relative;overflow:hidden}
+footer::before{content:'LA PIAZZETTA';position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);font-family:'Syne',sans-serif;font-weight:800;font-size:16vw;color:rgba(255,255,255,.04);pointer-events:none;letter-spacing:-.02em;white-space:nowrap}
+.foot-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;color:#fff;margin-bottom:12px;letter-spacing:-.02em;text-transform:uppercase;position:relative;z-index:1}
+.foot-logo em{color:var(--tomato);font-style:normal}
+.foot-meta{font-size:.88rem;margin-bottom:20px;position:relative;z-index:1}
+.foot-copy{font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.4);padding-top:20px;border-top:1px solid rgba(255,255,255,.1);margin-top:20px;position:relative;z-index:1}
+.foot-copy a{color:var(--tomato-l);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:62px;height:62px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(37,211,102,.45);text-decoration:none;transition:transform .3s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:30px;height:30px;fill:#fff}
+@media(max-width:900px){
+    nav{padding:14px 20px}
+    .nav-links{display:none}
+    .hero{padding:130px 22px 80px}
+    .hero h1{font-size:clamp(3.5rem,16vw,6rem)}
+    .menu-bar-inner{padding:0 20px}
+    section{padding:62px 22px}
+    .storia-grid,.info-grid{grid-template-columns:1fr;gap:36px}
+    .pizza-grid{grid-template-columns:1fr 1fr;gap:22px}
+    .rev-grid{grid-template-columns:1fr}
+    .rev-band{grid-template-columns:1fr 1fr;gap:22px}
+    .pizza-circle{width:140px;height:140px}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle">
+    <button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+</div>
+<nav id="mainNav">
+    <a href="#" class="nav-logo"><span class="nav-logo-dot"></span>La Piazzetta</a>
+    <ul class="nav-links">
+        <li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li>
+        <li><a href="#info">Info</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-kicker"><span class="t-it">Scalea · Isola Pedonale</span><span class="t-en">Scalea · Pedestrian zone</span></div>
+        <h1>Pizza<br>Che <em>Scotta</em>.</h1>
+        <p class="hero-tag t-it">Napoletana, panuozzi, fritti e cucina italiana. All'ingresso dell'isola pedonale di Scalea — dove il profumo del forno si sente da lontano.</p>
+        <p class="hero-tag t-en">Neapolitan, panuozzi, fried dishes, Italian cooking. At the edge of Scalea's pedestrian zone — where the oven's scent reaches far.</p>
+        <div class="hero-meta">
+            <div class="h-stat"><span class="h-stat-v">4.0</span><span class="h-stat-l">Google ★</span></div>
+            <div class="h-stat"><span class="h-stat-v">805</span><span class="h-stat-l"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+            <div class="h-stat"><span class="h-stat-v">€</span><span class="h-stat-l"><span class="t-it">Prezzo</span><span class="t-en">Price</span></span></div>
+            <div class="h-stat"><span class="h-stat-v">24+</span><span class="h-stat-l"><span class="t-it">Pizze</span><span class="t-en">Pizzas</span></span></div>
+        </div>
+        <div>
+            <a href="https://wa.me/390985803138?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20a%20La%20Piazzetta" target="_blank" rel="noopener" class="btn btn-tomato"><span class="t-it">Prenota un tavolo</span><span class="t-en">Book a table</span> →</a>
+            <a href="#menu" class="btn btn-white"><span class="t-it">Vedi il menu</span><span class="t-en">View menu</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- STICKY MENU BAR -->
+<div class="menu-bar">
+    <div class="menu-bar-inner">
+        <div class="menu-bar-title"><span class="t-it">Menu Rapido</span><span class="t-en">Quick Menu</span></div>
+        <div class="menu-bar-chips">
+            <a class="mb-chip" href="#menu">Pizza</a>
+            <a class="mb-chip" href="#menu">Panuozzi</a>
+            <a class="mb-chip" href="#menu">Fritti</a>
+            <a class="mb-chip" href="#menu"><span class="t-it">Pasta</span><span class="t-en">Pasta</span></a>
+            <a class="mb-chip" href="#menu"><span class="t-it">Carne</span><span class="t-en">Meat</span></a>
+            <a class="mb-chip" href="#menu"><span class="t-it">Dolci</span><span class="t-en">Desserts</span></a>
+        </div>
+    </div>
+</div>
+
+<section class="storia" id="storia">
+    <div class="wrap">
+        <div class="storia-grid">
+            <div class="storia-media">
+                <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=900&q=80" alt="Forno a legna">
+            </div>
+            <div class="storia-body">
+                <span class="label"><span class="t-it">La nostra storia</span><span class="t-en">Our story</span></span>
+                <h2 class="display t-it">Pizza <em>napoletana</em>,<br>cuore scaleota.</h2>
+                <h2 class="display t-en">Neapolitan <em>pizza</em>,<br>Scaleota heart.</h2>
+                <p class="t-it">La Piazzetta sta <em>all'ingresso dell'isola pedonale</em>: un locale carino, un forno che lavora tutto il giorno, e un menu che va dalla napoletana ai panuozzi, dai fritti alla cucina italiana.</p>
+                <p class="t-en">La Piazzetta sits at <em>the entrance to the pedestrian zone</em>: a lovely spot, an oven running all day, and a menu that goes from Neapolitan pizza to panuozzi, fried specialties to Italian classics.</p>
+                <p class="t-it">I proprietari sono <em>persone meravigliose</em> (e lo dicono i nostri clienti dal 2018). Pizza e pasta con ingredienti freschi, pieni di profumo e sapore — come dovrebbe essere.</p>
+                <p class="t-en">The owners are <em>wonderful people</em> (our guests since 2018 say so). Pizza and pasta made with fresh ingredients — full of scent and flavour, the way it should be.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="label"><span class="t-it">Le nostre pizze</span><span class="t-en">Our pizzas</span></span>
+            <h2 class="display t-it">24+ pizze.<br>Una <em>regola</em>: fresco.</h2>
+            <h2 class="display t-en">24+ pizzas.<br>One <em>rule</em>: fresh.</h2>
+            <p class="sub t-it">Impasto a lunga lievitazione, mozzarella di bufala, pomodoro San Marzano, olio EVO.</p>
+            <p class="sub t-en">Long-rise dough, buffalo mozzarella, San Marzano tomato, extra-virgin olive oil.</p>
+        </div>
+        <div class="pizza-grid">
+            <div class="pizza-card feat">
+                <div class="pizza-circle"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=80" alt="Margherita"></div>
+                <h3>Margherita</h3>
+                <p class="t-it">Pomodoro San Marzano, mozzarella di bufala, basilico, olio EVO.</p>
+                <p class="t-en">San Marzano tomato, buffalo mozzarella, basil, EV olive oil.</p>
+                <span class="pizza-price"><span>€</span>7<span>,50</span></span>
+            </div>
+            <div class="pizza-card">
+                <div class="pizza-circle"><img src="https://images.unsplash.com/photo-1604382355076-af4b0eb60143?w=500&q=80" alt="Diavola"></div>
+                <h3>Diavola</h3>
+                <p class="t-it">Pomodoro, fior di latte, salame piccante calabrese, peperoncino.</p>
+                <p class="t-en">Tomato, fior di latte, spicy Calabrian salami, chilli.</p>
+                <span class="pizza-price"><span>€</span>9<span>,50</span></span>
+            </div>
+            <div class="pizza-card">
+                <div class="pizza-circle"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=80" alt="Napoli"></div>
+                <h3>Napoli</h3>
+                <p class="t-it">Pomodoro, fior di latte, acciughe di Cetara, olive taggiasche, capperi.</p>
+                <p class="t-en">Tomato, fior di latte, Cetara anchovies, taggiasche olives, capers.</p>
+                <span class="pizza-price"><span>€</span>10</span>
+            </div>
+            <div class="pizza-card">
+                <div class="pizza-circle"><img src="https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?w=500&q=80" alt="Panuozzo"></div>
+                <h3>Panuozzo</h3>
+                <p class="t-it">Il pane-pizza di Gragnano. Farciture a scelta: prosciutto, salumi, verdure, tonno.</p>
+                <p class="t-en">The bread-pizza from Gragnano. Fillings of choice: ham, cold cuts, veggies, tuna.</p>
+                <span class="pizza-price"><span>€</span>8<span>—12</span></span>
+            </div>
+            <div class="pizza-card feat">
+                <div class="pizza-circle"><img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=80" alt="Capricciosa"></div>
+                <h3>Capricciosa</h3>
+                <p class="t-it">Pomodoro, mozzarella, prosciutto cotto, funghi, carciofi, olive, uovo.</p>
+                <p class="t-en">Tomato, mozzarella, cooked ham, mushrooms, artichokes, olives, egg.</p>
+                <span class="pizza-price"><span>€</span>11<span>,50</span></span>
+            </div>
+            <div class="pizza-card">
+                <div class="pizza-circle"><img src="https://images.unsplash.com/photo-1548940740-204726a19be3?w=500&q=80" alt="Fritto"></div>
+                <h3><span class="t-it">Fritto Italiano</span><span class="t-en">Italian Fry-up</span></h3>
+                <p class="t-it">Crocchè, arancini, zeppoline, fiori di zucca. Per quattro.</p>
+                <p class="t-en">Crocchè, arancini, zeppoline, zucchini flowers. Serves four.</p>
+                <span class="pizza-price"><span>€</span>16</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="label"><span class="t-it">Google ★ 4.0</span><span class="t-en">Google ★ 4.0</span></span>
+            <h2 class="display t-it">805 voci.<br>Un <em>locale</em> che non si dimentica.</h2>
+            <h2 class="display t-en">805 voices.<br>One <em>place</em> you don't forget.</h2>
+        </div>
+        <div class="rev-band">
+            <div class="rev-band-i"><span class="rev-band-v">805</span><span class="rev-band-l"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+            <div class="rev-band-i"><span class="rev-band-v">4.0★</span><span class="rev-band-l">Google</span></div>
+            <div class="rev-band-i"><span class="rev-band-v">1998</span><span class="rev-band-l"><span class="t-it">Dal</span><span class="t-en">Since</span></span></div>
+            <div class="rev-band-i"><span class="rev-band-v">€</span><span class="rev-band-l"><span class="t-it">Prezzi onesti</span><span class="t-en">Honest price</span></span></div>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card">
+                <div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">I proprietari sono persone meravigliose; li conosco dal 2018. Quando siamo in Calabria, andiamo spesso a mangiare lì per le loro pizze e la pasta. Dal profumo, hanno un sapore fantastico, pieno di ingredienti freschi.</p>
+                <p class="rev-text t-en">The owners are wonderful people — I've known them since 2018. When we're in Calabria we go there for their pizzas and pasta. From the scent alone, fantastic flavour, full of fresh ingredients.</p>
+                <div class="rev-author">Le mie nuove avventure</div>
+                <div class="rev-time"><span class="t-it">5 mesi fa · Google</span><span class="t-en">5 months ago · Google</span></div>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">★ ★ ★ ★</div>
+                <p class="rev-text t-it">Locale bello proprio all'ingresso dell'isola pedonale di Scalea. Cibo molto buono, e la pizza senza glutine si può ordinare — cotta in teglia a parte.</p>
+                <p class="rev-text t-en">Lovely place right at the entrance to Scalea's pedestrian zone. Very good food, and you can order gluten-free pizza — baked in a separate tray.</p>
+                <div class="rev-author">Vincenzo Mammalella</div>
+                <div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Abbiamo prenotato sabato per cena, posto affollato ma piacevole. Pizza napoletana a regola d'arte, panuozzo generoso, birra fresca. Torneremo.</p>
+                <p class="rev-text t-en">Booked Saturday dinner — packed but pleasant. Neapolitan pizza done right, generous panuozzo, cold beer. We'll be back.</p>
+                <div class="rev-author">Marco S.</div>
+                <div class="rev-time"><span class="t-it">1 anno fa · Google</span><span class="t-en">1 year ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap">
+        <div class="info-grid">
+            <div class="info-col">
+                <span class="label"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></span>
+                <h3 class="display t-it">Aperti ogni<br><span style="color:var(--tomato)">sera</span>.</h3>
+                <h3 class="display t-en">Open every<br><span style="color:var(--tomato)">evening</span>.</h3>
+                <p class="sub t-it">Pranzo solo sabato e domenica. Cena tutti i giorni fino a mezzanotte.</p>
+                <p class="sub t-en">Lunch on Saturday &amp; Sunday only. Dinner daily until midnight.</p>
+                <div class="hours-table">
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Monday</span></span><span class="hours-time">17:00—00:00</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tuesday</span></span><span class="hours-time">17:00—00:00</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wednesday</span></span><span class="hours-time">17:00—00:00</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thursday</span></span><span class="hours-time">17:00—00:00</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Friday</span></span><span class="hours-time">17:00—00:00</span></div>
+                    <div class="hours-row highlight"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Saturday</span></span><span class="hours-time">11:00—00:00</span></div>
+                    <div class="hours-row highlight"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sunday</span></span><span class="hours-time">11:00—00:00</span></div>
+                </div>
+                <div class="contact">
+                    <h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4>
+                    <p>Piazza Caloprese, 6<br>87029 Scalea (CS)</p>
+                </div>
+                <div class="contact">
+                    <h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4>
+                    <a href="tel:+390985803138">+39 0985 803138</a>
+                </div>
+            </div>
+            <div class="map-box">
+                <iframe src="https://www.google.com/maps?q=Pizzeria+La+Piazzetta+Scalea&output=embed" loading="lazy" title="Pizzeria La Piazzetta"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="foot-logo">LA <em>PIAZZETTA</em></div>
+    <div class="foot-meta">Piazza Caloprese, 6 · 87029 Scalea (CS) · +39 0985 803138</div>
+    <div class="foot-copy">&copy; 2026 Pizzeria La Piazzetta · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/390985803138" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script>
+function setLang(l){
+    document.body.classList.toggle('lang-en', l==='en');
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+}
+const nav=document.getElementById('mainNav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+</script>
+</body>
+</html>
