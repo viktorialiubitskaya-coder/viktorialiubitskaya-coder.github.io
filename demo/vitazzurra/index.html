@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitazzurra — Scalea · Ristorante di pesce nel centro storico</title>
+<meta name="description" content="Vitazzurra a Scalea: menu di mare eccellente, pesce freschissimo, ambientazione suggestiva nel centro storico. ★4.4 · 112 recensioni. Via Metastasio.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Vitazzurra","servesCuisine":["Italian","Seafood","Mediterranean"],"address":{"@type":"PostalAddress","streetAddress":"Via Metastasio, 3","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+393281330698","priceRange":"€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.4","reviewCount":"112"},"geo":{"@type":"GeoCoordinates","latitude":39.816055,"longitude":15.7894295}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--azure:#0077B6;--azure-d:#005C8F;--azure-l:#3397CE;--white:#FFFFFF;--sand:#E9DCC9;--sand-l:#F5EEE1;--ink:#1F2937;--mute:#64748B;--line:rgba(0,119,182,.14)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;color:var(--ink);background:var(--white);line-height:1.65;overflow-x:hidden;font-weight:300}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+h1,h2,h3,h4{font-family:'Tenor Sans',serif;font-weight:400;letter-spacing:.005em}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:22px 44px;display:flex;justify-content:space-between;align-items:center;transition:all .35s}
+nav.scrolled{background:rgba(255,255,255,.96);padding:14px 44px;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:'Tenor Sans',serif;font-size:1.5rem;color:var(--white);text-decoration:none;letter-spacing:.04em}
+.nav-logo span{color:var(--sand)}
+nav.scrolled .nav-logo{color:var(--azure)}nav.scrolled .nav-logo span{color:var(--azure-d)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.85);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--sand)}
+nav.scrolled .nav-links a{color:var(--ink)}
+nav.scrolled .nav-links a:hover{color:var(--azure)}
+.lang-toggle{position:fixed;top:20px;right:20px;z-index:100;display:flex;gap:2px;background:rgba(0,92,143,.85);padding:3px;border-radius:100px;backdrop-filter:blur(8px)}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(255,255,255,.65);font-size:11px;font-weight:600;letter-spacing:1.5px;cursor:pointer;border-radius:100px;transition:all .25s}
+.lang-btn.active{background:var(--white);color:var(--azure)}
+/* HERO clean minimal */
+.hero{position:relative;min-height:100vh;color:#fff;overflow:hidden;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) brightness(.85)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,119,182,.2) 0%,rgba(0,92,143,.35) 50%,rgba(0,92,143,.6) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:120px 44px 80px;width:100%;text-align:center}
+.hero-kicker{display:inline-block;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--sand-l);font-weight:500;margin-bottom:24px}
+.hero-kicker::before{content:'— '}.hero-kicker::after{content:' —'}
+.hero h1{font-family:'Tenor Sans',serif;font-size:clamp(3.5rem,9vw,7.5rem);line-height:1;color:#fff;margin-bottom:22px;letter-spacing:-.01em;font-weight:400}
+.hero-tag{font-family:'Manrope',sans-serif;font-size:1.15rem;font-weight:300;max-width:580px;margin:0 auto 36px;color:rgba(255,255,255,.88);line-height:1.55}
+.hero-meta{display:inline-flex;gap:1px;background:rgba(255,255,255,.2);border-radius:100px;padding:1px;margin-bottom:38px;flex-wrap:wrap;overflow:hidden}
+.hm{padding:14px 26px;background:rgba(0,92,143,.7);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;min-width:120px}
+.hm:first-child{border-radius:100px 0 0 100px}.hm:last-child{border-radius:0 100px 100px 0}
+.hm-v{font-family:'Tenor Sans',serif;font-size:1.6rem;color:#fff;line-height:1}
+.hm-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:5px;font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;font-family:'Manrope',sans-serif;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s;border:none;cursor:pointer}
+.btn-azure{background:var(--white);color:var(--azure);box-shadow:0 12px 26px rgba(0,119,182,.35)}
+.btn-azure:hover{transform:translateY(-2px);box-shadow:0 18px 34px rgba(0,119,182,.45);background:var(--sand-l)}
+.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5);margin-left:10px}
+.btn-outline:hover{border-color:var(--sand);color:var(--sand)}
+section{padding:100px 44px}
+.wrap{max-width:1200px;margin:0 auto}
+.sec-head{max-width:680px;margin:0 auto 56px;text-align:center}
+.tag{display:inline-block;font-size:11px;letter-spacing:3.5px;text-transform:uppercase;color:var(--azure);font-weight:500;margin-bottom:18px}
+.tag::before,.tag::after{content:'◦';margin:0 10px;opacity:.5}
+h2.hd{font-family:'Tenor Sans',serif;font-size:clamp(2.2rem,4.5vw,3.4rem);color:var(--azure-d);line-height:1.12;margin-bottom:18px;letter-spacing:-.005em}
+h2.hd em{color:var(--azure);font-style:italic;font-weight:400}
+.sub{font-size:1.05rem;color:var(--mute);line-height:1.7;font-weight:300}
+/* STORIA */
+.storia{background:var(--sand-l)}
+.storia-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+.storia-img{aspect-ratio:4/5;overflow:hidden;border-radius:3px;box-shadow:0 40px 80px rgba(0,92,143,.22)}
+.storia-img img{width:100%;height:100%;object-fit:cover}
+.storia-body .tag,.storia-body h2.hd{text-align:left;margin-left:0}
+.storia-body p{font-size:1.05rem;margin-bottom:18px;line-height:1.8;color:var(--ink);font-weight:300}
+.storia-body p em{color:var(--azure);font-style:italic;font-weight:500}
+.storia-quote{font-family:'Tenor Sans',serif;font-style:italic;font-size:1.25rem;color:var(--azure-d);padding:22px 28px;background:var(--white);border-left:2px solid var(--azure);margin:28px 0;line-height:1.55}
+/* MENU elegant list */
+.menu{background:var(--white)}
+.menu-list{display:flex;flex-direction:column;max-width:900px;margin:40px auto 0;border-top:1px solid var(--line)}
+.mi{display:grid;grid-template-columns:1fr auto;gap:30px;padding:24px 16px;border-bottom:1px solid var(--line);align-items:baseline;transition:all .25s;cursor:default}
+.mi:hover{background:var(--sand-l);padding-left:20px;padding-right:12px}
+.mi-body{flex:1}
+.mi-cat{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--azure);font-weight:500;margin-bottom:4px}
+.mi h4{font-family:'Tenor Sans',serif;font-size:1.35rem;color:var(--azure-d);margin-bottom:6px;font-weight:400;line-height:1.25}
+.mi h4 em{color:var(--azure);font-style:italic}
+.mi p{font-size:.95rem;color:var(--mute);line-height:1.55;font-weight:300}
+.mi-dots{flex:1;border-bottom:1px dotted var(--line);margin:0 20px 8px;min-width:30px}
+.mi-price{font-family:'Tenor Sans',serif;font-size:1.4rem;color:var(--azure-d);white-space:nowrap;font-weight:400}
+/* PESCE DEL GIORNO lavagna */
+.lavagna{background:var(--azure-d);color:#fff;position:relative;overflow:hidden}
+.lavagna::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 10% 20%,rgba(255,255,255,.04) 0,transparent 50%),radial-gradient(circle at 90% 80%,rgba(233,220,201,.06) 0,transparent 50%);pointer-events:none}
+.lavagna .hd{color:#fff}.lavagna .hd em{color:var(--sand)}
+.lavagna .tag{color:var(--sand-l)}.lavagna .sub{color:rgba(255,255,255,.75)}
+.lavagna-board{max-width:900px;margin:44px auto 0;padding:48px 44px;background:#164A66;background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.04),rgba(0,0,0,.04) 2px,transparent 2px,transparent 10px),radial-gradient(circle at 20% 30%,rgba(255,255,255,.05) 0,transparent 40%);border:10px solid #8B6F47;border-radius:8px;box-shadow:0 30px 70px rgba(0,0,0,.4),inset 0 0 60px rgba(0,0,0,.2);position:relative}
+.lavagna-board::before{content:'PESCE DEL GIORNO';position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:var(--azure-d);padding:6px 24px;font-family:'Manrope',sans-serif;font-size:11px;letter-spacing:3.5px;color:var(--sand);font-weight:600;border:1px solid rgba(233,220,201,.3)}
+.lav-row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px dashed rgba(233,220,201,.25);font-family:'Tenor Sans',serif}
+.lav-row:last-child{border:none}
+.lav-name{font-size:1.25rem;color:#fff;font-style:italic;letter-spacing:.01em}
+.lav-name em{color:var(--sand);font-style:normal}
+.lav-desc{font-family:'Manrope',sans-serif;font-size:.82rem;color:rgba(233,220,201,.7);font-style:normal;margin-top:3px;font-weight:300}
+.lav-price{font-size:1.3rem;color:var(--sand);font-style:italic;white-space:nowrap}
+.lav-note{margin-top:20px;padding-top:16px;border-top:1px solid rgba(233,220,201,.15);font-family:'Manrope',sans-serif;font-size:.85rem;color:rgba(255,255,255,.65);text-align:center;font-style:italic;font-weight:300}
+/* REVIEWS */
+.reviews{background:var(--sand-l)}
+.rev-band{display:flex;justify-content:center;gap:56px;margin-bottom:48px;flex-wrap:wrap;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rb-i{text-align:center}
+.rb-v{font-family:'Tenor Sans',serif;font-size:2.8rem;color:var(--azure);line-height:1}
+.rb-l{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--mute);margin-top:6px;font-weight:500}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rev-card{padding:30px 28px;background:var(--white);border-radius:4px;transition:all .3s;border:1px solid var(--line)}
+.rev-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(0,119,182,.1);border-color:var(--azure)}
+.rev-stars{color:var(--azure);margin-bottom:12px;letter-spacing:2px}
+.rev-text{font-family:'Tenor Sans',serif;font-style:italic;font-size:1.02rem;color:var(--ink);line-height:1.65;margin-bottom:18px}
+.rev-author{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--azure-d)}
+.rev-time{font-size:10px;color:var(--mute);margin-top:3px;letter-spacing:.5px;font-weight:400}
+/* INFO */
+.info{background:var(--white)}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.info-col h3.hd{font-size:2.2rem;margin-bottom:12px;text-align:left}
+.info-col .sub{margin-bottom:28px;max-width:none;text-align:left}
+.info-col .tag{text-align:left}
+.hours-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dotted var(--line);font-size:.95rem}
+.hours-day{color:var(--azure-d);font-weight:500}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums}
+.contact{margin-top:28px}
+.contact h4{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--azure);font-weight:600;margin-bottom:6px}
+.contact p,.contact a{font-family:'Tenor Sans',serif;font-size:1.2rem;color:var(--azure-d);text-decoration:none;line-height:1.5}
+.contact a:hover{color:var(--azure)}
+.map-wrap{border-radius:4px;overflow:hidden;box-shadow:0 30px 60px rgba(0,119,182,.18);aspect-ratio:4/5}
+.map-wrap iframe{width:100%;height:100%;border:none;filter:saturate(.85)}
+footer{background:var(--azure-d);color:rgba(255,255,255,.75);padding:50px 44px 28px;text-align:center}
+.foot-logo{font-family:'Tenor Sans',serif;font-size:1.8rem;color:#fff;margin-bottom:12px;letter-spacing:.04em}
+.foot-logo span{color:var(--sand)}
+.foot-meta{font-size:.88rem;margin-bottom:20px}
+.foot-copy{font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.5);padding-top:18px;border-top:1px solid rgba(233,220,201,.15);margin-top:18px}
+.foot-copy a{color:var(--sand);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa:hover{transform:scale(1.08)}.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    nav{padding:14px 22px}.nav-links{display:none}section{padding:60px 22px}
+    .storia-grid,.info-grid{grid-template-columns:1fr;gap:32px}
+    .rev-grid{grid-template-columns:1fr}
+    .lavagna-board{padding:32px 24px;border-width:6px}
+    .hero-meta{flex-direction:column;gap:1px;background:transparent;border-radius:6px}
+    .hm{border-radius:0!important;min-width:auto;padding:12px 20px}
+    .hm:first-child{border-radius:6px 6px 0 0!important}.hm:last-child{border-radius:0 0 6px 6px!important}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle"><button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button></div>
+<nav id="mainNav"><a href="#" class="nav-logo">Vitazzurra</a>
+    <ul class="nav-links"><li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li><li><a href="#menu">Menu</a></li><li><a href="#lavagna"><span class="t-it">Pesce del Giorno</span><span class="t-en">Catch</span></a></li><li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li><li><a href="#info">Info</a></li></ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80" alt="Mare di Scalea"></div>
+    <div class="hero-inner">
+        <div class="hero-kicker"><span class="t-it">Scalea · Via Metastasio</span><span class="t-en">Scalea · Via Metastasio</span></div>
+        <h1>Vitazzurra</h1>
+        <p class="hero-tag t-it">Menù di mare eccellente nel centro storico di Scalea. Ambientazione suggestiva, pesce freschissimo, prezzi onesti. Cena a lume di candela in una grotta antica.</p>
+        <p class="hero-tag t-en">Excellent seafood menu in Scalea's old town. Evocative setting, the freshest fish, honest prices. Candle-lit dinner in an ancient grotto.</p>
+        <div class="hero-meta">
+            <div class="hm"><span class="hm-v">4.4</span><span class="hm-l">Google ★</span></div>
+            <div class="hm"><span class="hm-v">112</span><span class="hm-l"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+            <div class="hm"><span class="hm-v">€€</span><span class="hm-l"><span class="t-it">Livello</span><span class="t-en">Tier</span></span></div>
+        </div>
+        <div>
+            <a href="https://wa.me/393281330698?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20a%20Vitazzurra" target="_blank" rel="noopener" class="btn btn-azure"><span class="t-it">Prenota un tavolo</span><span class="t-en">Book a table</span></a>
+            <a href="#menu" class="btn btn-outline">Menu</a>
+        </div>
+    </div>
+</section>
+
+<section class="storia" id="storia">
+    <div class="wrap"><div class="storia-grid">
+        <div class="storia-img"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="Sala Vitazzurra"></div>
+        <div class="storia-body">
+            <div class="tag"><span class="t-it">La nostra storia</span><span class="t-en">Our story</span></div>
+            <h2 class="hd t-it">Il <em>segreto</em><br>del centro storico.</h2>
+            <h2 class="hd t-en">The <em>secret</em><br>of the old town.</h2>
+            <p class="t-it">Vitazzurra è un ristorante <em>poco conosciuto</em> del centro storico di Scalea — una vera scoperta. Il posto è incantevole, il personale gentile e cordiale, e il menu a base di mare è <em>eccellente</em>.</p>
+            <p class="t-en">Vitazzurra is a <em>lesser-known</em> restaurant of Scalea's old town — a true discovery. The setting is enchanting, the staff kind and cordial, and the seafood menu is <em>excellent</em>.</p>
+            <blockquote class="storia-quote t-it">"Abbiamo cenato a lume di candela in una grotta, da soli. Ambientazione ottima." — fabrizio s., Google</blockquote>
+            <blockquote class="storia-quote t-en">"We dined by candlelight in a grotto, just the two of us. Superb setting." — fabrizio s., Google</blockquote>
+            <p class="t-it">Lavoriamo <em>pesce freschissimo</em>, prezzi <em>al di sotto della norma</em>. Una tavola semplice, raffinata, con l'atmosfera della pietra antica e il profumo del Tirreno.</p>
+            <p class="t-en">We work with the <em>freshest fish</em> at prices <em>below the norm</em>. A simple, refined table, with the atmosphere of ancient stone and the scent of the Tyrrhenian.</p>
+        </div>
+    </div></div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Il menu</span><span class="t-en">The menu</span></div>
+            <h2 class="hd t-it">Una <em>carta</em><br>del Tirreno.</h2>
+            <h2 class="hd t-en">A <em>card</em><br>of the Tyrrhenian.</h2>
+            <p class="sub t-it">Selezione di mare con il pescato del giorno. Prezzi convenienti, servizio attento ad ogni esigenza.</p>
+            <p class="sub t-en">Seafood selection with the daily catch. Fair prices, service attentive to every need.</p>
+        </div>
+        <div class="menu-list">
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Antipasto</span><span class="t-en">Starter</span></div>
+                <h4><span class="t-it">Antipasto <em>di mare</em></span><span class="t-en"><em>Seafood</em> starter</span></h4>
+                <p class="t-it">Polpo verace, cozze al limone, gamberi marinati, crostini con alici.</p>
+                <p class="t-en">Real octopus, lemon mussels, marinated prawns, anchovy crostini.</p>
+            </div><div class="mi-price">€14</div></div>
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Primo</span><span class="t-en">First</span></div>
+                <h4><span class="t-it">Spaghettini <em>al nero</em></span><span class="t-en">Squid-ink <em>spaghettini</em></span></h4>
+                <p class="t-it">Pasta al nero di seppia, totano del giorno, pomodorini, prezzemolo.</p>
+                <p class="t-en">Squid-ink pasta, daily calamari, cherry tomatoes, parsley.</p>
+            </div><div class="mi-price">€16</div></div>
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Primo</span><span class="t-en">First</span></div>
+                <h4><span class="t-it">Risotto <em>agli scampi</em></span><span class="t-en"><em>Scampi</em> risotto</span></h4>
+                <p class="t-it">Carnaroli, scampi del Tirreno, zafferano, burro di mare.</p>
+                <p class="t-en">Carnaroli rice, Tyrrhenian scampi, saffron, sea butter.</p>
+            </div><div class="mi-price">€18</div></div>
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Firma</span><span class="t-en">Signature</span></div>
+                <h4><span class="t-it">Frittura <em>di paranza</em></span><span class="t-en"><em>Paranza</em> fry</span></h4>
+                <p class="t-it">Pescato misto, farina leggera, cottura asciutta, limone di Amalfi.</p>
+                <p class="t-en">Mixed catch, light flour, dry-crisp cooking, Amalfi lemon.</p>
+            </div><div class="mi-price">€18</div></div>
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Secondo</span><span class="t-en">Main</span></div>
+                <h4><span class="t-it">Pesce <em>al sale</em></span><span class="t-en">Fish <em>in salt crust</em></span></h4>
+                <p class="t-it">Intero cotto in crosta di sale marino, patate al rosmarino.</p>
+                <p class="t-en">Whole baked in sea-salt crust, rosemary potatoes.</p>
+            </div><div class="mi-price">€42<span style="font-size:.7em">/kg</span></div></div>
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Dolce</span><span class="t-en">Dessert</span></div>
+                <h4><span class="t-it">Sorbetto al <em>bergamotto</em></span><span class="t-en"><em>Bergamot</em> sorbet</span></h4>
+                <p class="t-it">Frutto calabrese di stagione, zenzero, menta fresca.</p>
+                <p class="t-en">Seasonal Calabrian fruit, ginger, fresh mint.</p>
+            </div><div class="mi-price">€6</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="lavagna" id="lavagna">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Lavagna del giorno</span><span class="t-en">Chalkboard</span></div>
+            <h2 class="hd t-it">Il pescato <em>di oggi</em>.</h2>
+            <h2 class="hd t-en">Today's <em>catch</em>.</h2>
+            <p class="sub t-it">Scritto ogni mattina a gessetto. Quello che c'è, quello che vale la pena assaggiare.</p>
+            <p class="sub t-en">Hand-chalked each morning. What's in, what's worth tasting.</p>
+        </div>
+        <div class="lavagna-board">
+            <div class="lav-row">
+                <div><div class="lav-name"><span class="t-it">Spigola al <em>forno</em></span><span class="t-en">Oven <em>sea bass</em></span></div>
+                <div class="lav-desc"><span class="t-it">intera, con patate e pomodorini · al kg</span><span class="t-en">whole, potatoes &amp; tomatoes · per kg</span></div></div>
+                <div class="lav-price">€48</div>
+            </div>
+            <div class="lav-row">
+                <div><div class="lav-name"><span class="t-it">Ricciola <em>alla griglia</em></span><span class="t-en">Grilled <em>amberjack</em></span></div>
+                <div class="lav-desc"><span class="t-it">trancio, olio EVO e limone</span><span class="t-en">steak, EVO &amp; lemon</span></div></div>
+                <div class="lav-price">€22</div>
+            </div>
+            <div class="lav-row">
+                <div><div class="lav-name"><span class="t-it">Gamberi rossi <em>di Scalea</em></span><span class="t-en"><em>Scalea</em> red prawns</span></div>
+                <div class="lav-desc"><span class="t-it">crudi o alla griglia · 6 pezzi</span><span class="t-en">raw or grilled · 6 pieces</span></div></div>
+                <div class="lav-price">€24</div>
+            </div>
+            <div class="lav-row">
+                <div><div class="lav-name"><span class="t-it">Paranza <em>del giorno</em></span><span class="t-en"><em>Daily</em> paranza</span></div>
+                <div class="lav-desc"><span class="t-it">misto piccoli pesci · porzione</span><span class="t-en">mixed small fish · portion</span></div></div>
+                <div class="lav-price">€16</div>
+            </div>
+            <div class="lav-row">
+                <div><div class="lav-name"><span class="t-it">Totano <em>ripieno</em></span><span class="t-en">Stuffed <em>calamari</em></span></div>
+                <div class="lav-desc"><span class="t-it">pane, capperi, pomodoro · cotto al forno</span><span class="t-en">bread, capers, tomato · baked</span></div></div>
+                <div class="lav-price">€18</div>
+            </div>
+            <p class="lav-note t-it">Il menu cambia ogni giorno secondo il pescato. Chiedi al cameriere.</p>
+            <p class="lav-note t-en">Menu changes daily with the catch. Ask the waiter.</p>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Le voci dei nostri ospiti</span><span class="t-en">Our guests' words</span></div>
+            <h2 class="hd t-it">112 voci <em>dalla grotta</em>.</h2>
+            <h2 class="hd t-en">112 voices <em>from the grotto</em>.</h2>
+        </div>
+        <div class="rev-band">
+            <div class="rb-i"><div class="rb-v">4.4</div><div class="rb-l">Google ★</div></div>
+            <div class="rb-i"><div class="rb-v">112</div><div class="rb-l"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></div></div>
+            <div class="rb-i"><div class="rb-v">€€</div><div class="rb-l"><span class="t-it">Convenienti</span><span class="t-en">Affordable</span></div></div>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Assolutamente da provare. Il migliore di Scalea. Menù a base di mare eccellente. Gentilissimi e servizio attento ad ogni esigenza. Prezzi convenienti al di sotto della norma visto il pesce freschissimo.</p>
+                <p class="rev-text t-en">An absolute must. The best in Scalea. Excellent seafood menu. Very kind staff, service attentive to every need. Honest prices, below the norm given the freshest fish.</p>
+                <div class="rev-author">Patrizia Mangiapane</div><div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Locale top. Siamo stati davvero bene e abbiamo mangiato davvero bene — soprattutto abbondante. Pesce davvero fresco. 10/10.</p>
+                <p class="rev-text t-en">Top venue. We were truly well and ate truly well — especially generous portions. Really fresh fish. 10/10.</p>
+                <div class="rev-author">Gianluca Caruso</div><div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★</div>
+                <p class="rev-text t-it">Locale del centro storico poco conosciuto ma davvero un'ottima scoperta. Il cibo è assolutamente buono, il posto incantevole e il personale davvero gentile e cordiale. E si paga davvero poco.</p>
+                <p class="rev-text t-en">A lesser-known spot in the old town but a truly great discovery. Food is absolutely good, the place is enchanting and the staff is truly kind and warm. And you pay very little.</p>
+                <div class="rev-author">Mario Radente</div><div class="rev-time"><span class="t-it">11 mesi fa · Google</span><span class="t-en">11 months ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap"><div class="info-grid">
+        <div class="info-col">
+            <div class="tag"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></div>
+            <h3 class="hd t-it">Nel cuore del <em>centro storico</em>.</h3>
+            <h3 class="hd t-en">In the heart of the <em>old town</em>.</h3>
+            <p class="sub t-it">Aperti tutti i giorni, pranzo e cena. Prenota un tavolo su WhatsApp.</p>
+            <p class="sub t-en">Open every day, lunch &amp; dinner. Book a table on WhatsApp.</p>
+            <div class="hours-table">
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Mon</span></span><span class="hours-time">11:30—23:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tue</span></span><span class="hours-time">11:30—23:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wed</span></span><span class="hours-time">11:30—23:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thu</span></span><span class="hours-time">11:30—23:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Fri</span></span><span class="hours-time">11:30—23:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Sat</span></span><span class="hours-time">11:30—23:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sun</span></span><span class="hours-time">11:30—23:00</span></div>
+            </div>
+            <div class="contact"><h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4><p>Via Metastasio, 3<br>87029 Scalea (CS)</p></div>
+            <div class="contact"><h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4><a href="tel:+393281330698">+39 328 133 0698</a></div>
+        </div>
+        <div class="map-wrap"><iframe src="https://www.google.com/maps?q=Vitazzurra+Scalea&output=embed" loading="lazy" title="Vitazzurra"></iframe></div>
+    </div></div>
+</section>
+
+<footer>
+    <div class="foot-logo">Vit<span>azzurra</span></div>
+    <div class="foot-meta">Via Metastasio, 3 · 87029 Scalea (CS) · +39 328 133 0698</div>
+    <div class="foot-copy">&copy; 2026 Vitazzurra · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/393281330698" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>
+function setLang(l){document.body.classList.toggle('lang-en', l==='en');document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));}
+addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+</script>
+</body></html>
