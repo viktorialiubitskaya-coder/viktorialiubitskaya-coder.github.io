@@ -7,7 +7,7 @@
 <title>Lido Azzurro Naty — Ristorante · Scalea</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Mulish:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
 <style>
 /* =============================================================
    TOKENS
@@ -29,6 +29,16 @@
 
   --serif: 'Playfair Display', Georgia, serif;
   --sans:  'Mulish', system-ui, sans-serif;
+
+  /* Hero-specific tokens */
+  --sea:   #4A7C9B;
+  --sand:  #D4C5A9;
+  --deep:  #1B2B3A;
+  --off:   #FAFAF8;
+  --gold:  #C8A96E;
+  --wa2:   #25D366;
+  --display: 'Cormorant Garamond', Georgia, serif;
+  --ui:      'Outfit', system-ui, sans-serif;
   --r: 14px;
   --sh: 0 8px 40px rgba(14,28,47,.13);
   --sh2: 0 24px 64px rgba(14,28,47,.20);
@@ -69,37 +79,37 @@ button{cursor:pointer;border:none;background:none;font-family:var(--sans)}
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:900;
   padding:22px 0;
-  transition:background var(--ease),padding var(--ease),box-shadow var(--ease);
+  background:linear-gradient(180deg,rgba(27,43,58,.85) 0%,rgba(27,43,58,0) 100%);
+  transition:background var(--ease),padding var(--ease),box-shadow var(--ease),backdrop-filter var(--ease);
 }
 .nav.solid{
-  background:rgba(14,28,47,.96);
-  backdrop-filter:blur(14px);
+  background:rgba(27,43,58,.95);
+  backdrop-filter:blur(12px);
   padding:13px 0;
   box-shadow:0 2px 24px rgba(0,0,0,.25);
 }
 .nav .container{display:flex;align-items:center;justify-content:space-between;gap:24px}
 
 .logo{
-  font-family:var(--serif);
-  font-style:italic;
-  font-size:21px;
-  font-weight:600;
-  color:var(--green);
+  font-family:var(--display);
+  font-style:normal;
+  font-size:22px;
+  font-weight:300;
+  color:var(--sand);
   letter-spacing:.3px;
-  line-height:1.1;
+  line-height:1;
   flex-shrink:0;
-  text-shadow:0 1px 10px rgba(0,0,0,.5);
 }
 .logo small{
   display:block;
-  font-family:var(--sans);
+  font-family:var(--ui);
   font-style:normal;
   font-size:10px;
-  font-weight:600;
-  letter-spacing:2.5px;
+  font-weight:400;
+  letter-spacing:.35em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.4);
-  margin-top:1px;
+  color:rgba(212,197,169,.55);
+  margin-top:5px;
 }
 
 .nav-links{display:flex;align-items:center;gap:28px}
@@ -168,92 +178,187 @@ button{cursor:pointer;border:none;background:none;font-family:var(--sans)}
 ============================================================= */
 .hero{
   position:relative;
-  height:100vh;min-height:620px;
+  height:100vh;min-height:640px;
   display:flex;align-items:center;
   overflow:hidden;
+  background:var(--deep);
 }
 .hero-bg{
   position:absolute;inset:0;
-  background:url('photos/photo_09.jpg') center center/cover no-repeat;
+  background:url('photos/photo_09.jpg') 25% center/cover no-repeat;
+  will-change:transform;
+  animation:kenburns 25s ease-in-out infinite alternate;
+  z-index:0;
 }
-.hero-bg::after{
-  content:'';position:absolute;inset:0;
+@keyframes kenburns{
+  0%   {transform:scale(1.05) translate3d(0,0,0)}
+  100% {transform:scale(1.12) translate3d(-1.5%,-1%,0)}
+}
+@media(prefers-reduced-motion:reduce){.hero-bg{animation:none;transform:scale(1.05)}}
+
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.6) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.7) 100%);
+    radial-gradient(ellipse at center, rgba(27,43,58,.15) 0%, rgba(27,43,58,.65) 100%),
+    linear-gradient(to top, rgba(27,43,58,.85) 0%, rgba(27,43,58,.3) 40%, rgba(27,43,58,.15) 60%, rgba(27,43,58,.4) 100%),
+    linear-gradient(135deg, rgba(74,124,155,.15) 0%, transparent 50%);
 }
+
 .hero-content{
   position:relative;z-index:2;
   width:100%;text-align:center;
   padding:0 24px;
 }
 
-.hero-pill{
-  display:inline-flex;align-items:center;gap:10px;
-  border:1px solid rgba(255,255,255,.25);
-  border-radius:30px;padding:7px 18px;
-  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:rgba(255,255,255,.8);
-  margin-bottom:28px;
-  animation:fadeIn .9s ease both;
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--ui);
+  font-size:.7rem;font-weight:400;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(250,250,248,.65);
+  margin-bottom:32px;
+  opacity:0;transform:translateY(20px);
+  animation:heroUp .9s .2s cubic-bezier(.16,1,.3,1) forwards;
 }
-.hero-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--wa);flex-shrink:0}
+.hero-eyebrow .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--wa2);
+  box-shadow:0 0 0 0 rgba(37,211,102,.55);
+  animation:pulseDot 2.2s ease-in-out infinite;
+}
+@keyframes pulseDot{
+  0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}
+  50%{box-shadow:0 0 0 10px rgba(37,211,102,0)}
+}
 
 .hero h1{
-  font-family:var(--serif);
-  font-size:clamp(48px,8.5vw,104px);
-  font-weight:700;line-height:1.0;
-  color:#fff;letter-spacing:-1px;
-  margin-bottom:6px;
-  text-shadow:0 2px 20px rgba(0,0,0,.7);
-  animation:fadeUp .9s .15s ease both;
+  font-family:var(--display);
+  color:var(--off);
+  letter-spacing:-.01em;
+  line-height:.9;
+  margin-bottom:22px;
+  text-shadow:0 2px 20px rgba(0,0,0,.5);
 }
-.hero h1 i{color:var(--cream);font-style:italic}
+.hero h1 .lido{
+  display:block;
+  font-style:italic;font-weight:300;
+  font-size:clamp(3.5rem,8vw,6.5rem);
+  opacity:0;transform:translateY(20px);
+  animation:heroUp 1s .35s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero h1 .naty{
+  display:block;
+  font-style:normal;font-weight:400;
+  font-size:clamp(3rem,7vw,5.5rem);
+  color:var(--sand);
+  opacity:0;transform:translateY(20px);
+  animation:heroUp 1s .5s cubic-bezier(.16,1,.3,1) forwards;
+}
 
-.hero-sub{
-  font-size:clamp(14px,1.8vw,19px);
-  color:rgba(255,255,255,.75);
-  font-weight:300;letter-spacing:.3px;
-  margin-bottom:36px;
-  line-height:1.5;
-  text-shadow:0 2px 16px rgba(0,0,0,.6);
-  animation:fadeUp .9s .25s ease both;
+.hero-divider{
+  width:60px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--sand),transparent);
+  margin:26px auto;
+  opacity:0;transform:scaleX(0);
+  animation:heroLine 1s .65s cubic-bezier(.16,1,.3,1) forwards;
+}
+@keyframes heroLine{to{opacity:1;transform:scaleX(1)}}
+
+.hero-sub1{
+  font-family:var(--display);
+  font-style:italic;font-weight:300;
+  font-size:clamp(1rem,2vw,1.25rem);
+  color:rgba(250,250,248,.88);
+  line-height:1.4;
+  margin-bottom:10px;
+  text-shadow:0 2px 16px rgba(0,0,0,.5);
+  opacity:0;transform:translateY(20px);
+  animation:heroUp .9s .75s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-sub2{
+  font-family:var(--ui);
+  font-size:.75rem;font-weight:400;
+  text-transform:uppercase;letter-spacing:.2em;
+  color:rgba(212,197,169,.6);
+  margin-bottom:34px;
+  opacity:0;transform:translateY(20px);
+  animation:heroUp .9s .85s cubic-bezier(.16,1,.3,1) forwards;
 }
 
 .hero-stars{
-  display:inline-flex;align-items:center;gap:12px;
-  background:rgba(255,255,255,.09);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:40px;padding:9px 22px;
-  color:#fff;font-size:13px;
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(27,43,58,.5);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(212,197,169,.15);
+  border-radius:100px;padding:9px 22px;
+  color:var(--off);
   margin-bottom:40px;
-  animation:fadeUp .9s .35s ease both;
+  opacity:0;transform:translateY(20px);
+  animation:heroUp .9s .95s cubic-bezier(.16,1,.3,1) forwards;
 }
-.hero-stars .gold{color:#fbbf24;letter-spacing:1px;font-size:16px}
-.hero-stars strong{font-size:17px}
+.hero-stars .gold{color:var(--gold);letter-spacing:2px;font-size:14px}
+.hero-stars strong{
+  font-family:var(--display);
+  font-size:1.3rem;font-weight:500;
+  color:var(--off);
+}
+.hero-stars .count{
+  font-family:var(--ui);
+  font-size:.7rem;
+  color:rgba(250,250,248,.5);
+  letter-spacing:.05em;
+}
 
 .hero-ctas{
   display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
-  animation:fadeUp .9s .45s ease both;
+  opacity:0;transform:translateY(20px);
+  animation:heroUp .9s 1.05s cubic-bezier(.16,1,.3,1) forwards;
 }
 .cta-wa{
   display:inline-flex;align-items:center;gap:10px;
-  background:var(--wa);color:#fff;
-  padding:15px 30px;border-radius:50px;
-  font-weight:700;font-size:15px;
-  box-shadow:0 6px 28px rgba(37,211,102,.38);
+  background:var(--wa2);color:#fff;
+  font-family:var(--ui);
+  padding:1rem 2rem;border-radius:100px;
+  font-weight:600;font-size:.8rem;
+  text-transform:uppercase;letter-spacing:.08em;
+  box-shadow:0 4px 20px rgba(37,211,102,.25);
   transition:all var(--ease);
 }
-.cta-wa:hover{background:#1db954;transform:translateY(-2px);box-shadow:0 10px 36px rgba(37,211,102,.48)}
+.cta-wa:hover{background:#1db954;transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,211,102,.4)}
 .cta-menu{
   display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.12);
-  border:1.5px solid rgba(255,255,255,.28);
-  color:#fff;
-  padding:14px 26px;border-radius:50px;
-  font-weight:600;font-size:14px;
+  background:transparent;
+  border:1px solid rgba(250,250,248,.3);
+  color:var(--off);
+  font-family:var(--ui);
+  padding:1rem 2rem;border-radius:100px;
+  font-weight:500;font-size:.8rem;
+  text-transform:uppercase;letter-spacing:.08em;
   transition:all var(--ease);
 }
-.cta-menu:hover{background:rgba(255,255,255,.2);border-color:var(--cream);color:var(--cream)}
+.cta-menu:hover{border-color:var(--sand);color:var(--sand)}
+
+.hero-scroll{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+  z-index:2;
+  opacity:0;
+  animation:heroUp 1s 1.3s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-scroll .line{
+  width:1px;height:32px;
+  background:linear-gradient(180deg,rgba(212,197,169,0),var(--sand));
+  animation:scrollPulse 2.2s ease-in-out infinite;
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:.5;transform:scaleY(.7);transform-origin:top}
+  50%{opacity:1;transform:scaleY(1)}
+}
+.hero-scroll .lbl{
+  font-family:var(--ui);
+  font-size:.6rem;font-weight:400;
+  text-transform:uppercase;letter-spacing:.3em;
+  color:rgba(250,250,248,.55);
+}
 
 /* Wave divider */
 .hero-wave{
@@ -264,6 +369,7 @@ button{cursor:pointer;border:none;background:none;font-family:var(--sans)}
 
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes heroUp{to{opacity:1;transform:translateY(0)}}
 
 /* =============================================================
    STRIP — 4 pillars
@@ -653,21 +759,24 @@ footer{
 <!-- ========================= HERO ========================== -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <div class="hero-pill">
+    <div class="hero-eyebrow">
       <span class="dot"></span>
-      <span data-t="hero-pill">Aperto · Lungomare di Scalea</span>
+      <span data-t="hero-pill">Lungomare di Scalea</span>
     </div>
-    <h1><i>Lido Azzurro</i><br>Naty</h1>
-    <p class="hero-sub">
-      <span data-t="hero-sub1">Cucina di mare · Vista sul Tirreno</span><br>
-      <span data-t="hero-sub2">Dal cuore di Ewa e Fabrizio</span>
-    </p>
+    <h1>
+      <span class="lido">Lido Azzurro</span>
+      <span class="naty">Naty</span>
+    </h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub1" data-t="hero-sub1">Cucina di mare · Vista sul Tirreno</p>
+    <p class="hero-sub2" data-t="hero-sub2">Dal cuore di Ewa e Fabrizio</p>
     <div class="hero-stars">
       <span class="gold">★★★★★</span>
       <strong>4.8</strong>
-      <span data-t="hero-reviews">334 recensioni su Google</span>
+      <span class="count" data-t="hero-reviews">334 recensioni</span>
     </div>
     <div class="hero-ctas">
       <a class="cta-wa" href="https://wa.me/393383734797?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20da%20Lido%20Azzurro%20Naty..." target="_blank">
@@ -679,6 +788,11 @@ footer{
         <span data-t="cta-menu">Scopri il menu</span>
       </a>
     </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span class="lbl">Scopri</span>
+    <span class="line"></span>
   </div>
 
   <div class="hero-wave">
