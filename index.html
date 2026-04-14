@@ -194,13 +194,15 @@ const leads = [
   { id:"vigri",name:"Ristorante Vigrì",city:"Scalea",type:"Ristorante",rating:4.1,reviews:1028,url:"/demo/vigri/",status:"pronta",phone:"+39 0985 270235",wa:"390985270235",note:"Centro storico, cucina di mare"},
   { id:"tari",name:"Ristorante Tarì",city:"Scalea",type:"Ristorante",rating:4.2,reviews:985,url:"/demo/tari/",status:"pronta",phone:"+39 0985 91777",wa:"390985917777",note:"Piazzetta, balconata sul mare"},
   { id:"piazzetta",name:"Pizzeria La Piazzetta",city:"Scalea",type:"Pizzeria",rating:4.0,reviews:805,url:"/demo/piazzetta/",status:"pronta",phone:"+39 0985 803138",wa:"390985803138",note:"Isola pedonale"},
-  { id:"ohima",name:"Pizzeria Ohimá",city:"Scalea",type:"Pizzeria",rating:4.3,reviews:403,url:"",status:"da_creare",phone:"+39 338 804 0416",wa:"393388040416"},
+  { id:"ohima",name:"Pizzeria Ohimá",city:"Scalea",type:"Pizzeria",rating:4.3,reviews:403,url:"/demo/ohima/",status:"pronta",phone:"+39 338 804 0416",wa:"393388040416",note:"Via Lauro, napoletana"},
+  { id:"perla",name:"La Perla del Tirreno",city:"Scalea",type:"Ristorante",rating:4.4,reviews:685,url:"/demo/perla/",status:"pronta",phone:"+39 389 967 9391",wa:"393899679391",note:"Corso Mediterraneo, sul mare"},
+  { id:"acqua-salata",name:"Acqua Salata",city:"Cirella",type:"Ristorante",rating:4.1,reviews:604,url:"/demo/acqua-salata/",status:"pronta",phone:"+39 348 236 9898",wa:"393482369898",note:"Sulla spiaggia di Cirella"},
   { id:"pescespada",name:"Il Pescespada Beach Club",city:"Scalea",type:"Beach Club",rating:4.4,reviews:450,url:"",status:"da_creare",phone:"+39 338 484 8335",wa:"393384848335"},
   { id:"lucas-garage",name:"Luca's Garage",city:"Scalea",type:"Pub",rating:4.5,reviews:232,url:"",status:"da_creare",phone:"+39 339 203 7367",wa:"393392037367"},
 ];
 
 const BASE = "https://viktorialiubitskaya-coder.github.io";
-const PREVIEWS = new Set(["fresco-di-mare","lido-azzurro","peperoncino","rondinella","serrago","bellavista","ersilio","bistrot","fattoria","dagosti","pava","gallo-bianco","arke","a-taverna","vigri","tari","piazzetta"]);
+const PREVIEWS = new Set(["fresco-di-mare","lido-azzurro","peperoncino","rondinella","serrago","bellavista","ersilio","bistrot","fattoria","dagosti","pava","gallo-bianco","arke","a-taverna","vigri","tari","piazzetta","perla","acqua-salata","ohima"]);
 const STATUS_LABELS = {
   pronta:{ico:"🟢",lbl:"Pronta",cls:"s-pronta"},
   da_inviare:{ico:"🟡",lbl:"Da inviare",cls:"s-da_inviare"},
@@ -227,7 +229,7 @@ document.body.className = MODE;
 
 /* ============================================================ SHOWCASE */
 function renderShowcase(){
-  const cities = ['Tutti','Scalea','Praia a Mare','S. Domenica Talao'];
+  const cities = ['Tutti','Scalea','Cirella','Praia a Mare','S. Domenica Talao'];
   const visible = leads.filter(l=>l.url);
   const byCity = c => c==='Tutti' ? visible : visible.filter(l=>l.city===c);
 
@@ -301,7 +303,7 @@ function fieldStatus(l,d){
 
 function renderField(){
   const d = loadData();
-  const cities = ['Tutti','Scalea','Praia a Mare','S. Domenica Talao'];
+  const cities = ['Tutti','Scalea','Cirella','Praia a Mare','S. Domenica Talao'];
   const statuses = [['Tutti','all'],['Da visitare','da_visitare'],['Visitati','visited'],['Interessati','interessati']];
 
   const stats = {
@@ -401,7 +403,7 @@ function renderField(){
 function renderAdmin(){
   const d = loadData();
   const adminStatus = id => JSON.parse(localStorage.getItem('adminStatus')||'{}')[id];
-  const cities = ['Tutti','Scalea','Praia a Mare','S. Domenica Talao'];
+  const cities = ['Tutti','Scalea','Cirella','Praia a Mare','S. Domenica Talao'];
 
   const stats = {
     tot: leads.length,

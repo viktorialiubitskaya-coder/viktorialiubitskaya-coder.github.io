@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acqua Salata — Cirella · Ristorante sulla spiaggia</title>
+<meta name="description" content="Acqua Salata a Cirella: ristorante di mare direttamente sulla spiaggia. Cucina fatta in casa, primi di pesce, fritture. ★4.1 · 604 recensioni.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Acqua Salata","servesCuisine":["Italian","Seafood"],"address":{"@type":"PostalAddress","streetAddress":"Via Vittorio Veneto, 81","addressLocality":"Cirella","addressRegion":"CS","postalCode":"87023","addressCountry":"IT"},"telephone":"+393482369898","priceRange":"€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.1","reviewCount":"604"},"geo":{"@type":"GeoCoordinates","latitude":39.711248,"longitude":15.8083941}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--slate:#2D3436;--slate-d:#1C2223;--slate-l:#4A5457;--foam:#00B894;--foam-d:#009475;--foam-l:#3DD7AF;--white:#FFFFFF;--bone:#F5F4F1;--ink:#1A1A1A;--mute:#8A8F92;--line:rgba(45,52,54,.14)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Work Sans',sans-serif;color:var(--ink);background:var(--white);line-height:1.55;overflow-x:hidden}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+.mono{font-family:'Space Mono',monospace}
+h1,h2,h3,h4{font-family:'Work Sans',sans-serif;font-weight:800;letter-spacing:-.02em}
+/* salt texture */
+.salt-bg{position:relative}
+.salt-bg::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(circle at 20% 30%, rgba(255,255,255,.18) 0, transparent 1px),radial-gradient(circle at 70% 60%, rgba(255,255,255,.14) 0, transparent 1px),radial-gradient(circle at 40% 80%, rgba(255,255,255,.12) 0, transparent 1px),radial-gradient(circle at 90% 20%, rgba(255,255,255,.1) 0, transparent 1px);background-size:120px 120px,80px 80px,140px 140px,100px 100px}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;transition:all .3s;border-bottom:1px solid transparent}
+nav.scrolled{background:var(--slate);padding:12px 32px;border-color:var(--foam)}
+.nav-logo{font-family:'Space Mono',monospace;font-weight:700;font-size:14px;letter-spacing:.02em;color:#fff;text-decoration:none;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.nav-logo::before{content:'//';color:var(--foam)}
+.nav-links{display:flex;gap:20px;list-style:none}
+.nav-links a{font-family:'Space Mono',monospace;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--foam-l)}
+.lang-toggle{position:fixed;top:18px;right:18px;z-index:100;display:flex;gap:2px;background:var(--slate);padding:3px;border-radius:4px;border:1px solid rgba(255,255,255,.1)}
+.lang-btn{padding:6px 12px;border:none;background:transparent;color:rgba(255,255,255,.55);font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:1px;cursor:pointer;border-radius:2px;transition:all .25s;text-transform:uppercase}
+.lang-btn.active{background:var(--foam);color:var(--slate)}
+/* HERO full-bleed */
+.hero{position:relative;min-height:100vh;color:#fff;background:var(--slate);overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;z-index:0;opacity:.55}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(50%)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(45,52,54,.4) 0%,rgba(45,52,54,.75) 70%,var(--slate) 100%)}
+.hero-grid-lines{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:12.5% 100%}
+.hero-inner{position:relative;z-index:2;width:100%;padding:140px 32px 60px;max-width:1400px;margin:0 auto}
+.hero-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:var(--foam);color:var(--slate);margin-bottom:32px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.hero-bar .blink{display:inline-block;width:8px;height:8px;background:var(--slate);border-radius:50%;margin-right:8px;animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(3rem,11vw,10rem);font-weight:800;line-height:.85;letter-spacing:-.045em;color:#fff;margin-bottom:20px;text-transform:uppercase}
+.hero h1 strong{color:var(--foam);font-weight:800}
+.hero-tag{font-family:'Space Mono',monospace;font-size:.95rem;line-height:1.6;color:rgba(255,255,255,.85);max-width:620px;margin-bottom:36px}
+.hero-tag::before{content:'> ';color:var(--foam)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:40px;background:rgba(255,255,255,.12);padding:2px;max-width:720px}
+.hs{padding:16px 18px;background:var(--slate);display:flex;flex-direction:column}
+.hs-v{font-family:'Work Sans',sans-serif;font-weight:800;font-size:1.8rem;color:var(--foam);line-height:1}
+.hs-l{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:0;transition:all .25s;border:none;cursor:pointer}
+.btn-foam{background:var(--foam);color:var(--slate)}
+.btn-foam:hover{background:var(--foam-l);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--foam-d)}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);margin-left:10px}
+.btn-outline:hover{border-color:var(--foam);color:var(--foam)}
+section{padding:90px 32px}
+.wrap{max-width:1400px;margin:0 auto}
+.sec-head{max-width:780px;margin-bottom:54px}
+.tag{font-family:'Space Mono',monospace;display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--foam-d);padding:4px 10px;background:rgba(0,184,148,.14);border:1px solid var(--foam-d);margin-bottom:16px;font-weight:700}
+h2.hd{font-size:clamp(2.2rem,6vw,5rem);font-weight:800;color:var(--slate);line-height:.95;margin-bottom:18px;text-transform:uppercase}
+h2.hd strong{color:var(--foam-d)}
+.sub{font-family:'Space Mono',monospace;font-size:.98rem;color:var(--mute);max-width:640px;line-height:1.7}
+/* STORIA */
+.storia{background:var(--bone);position:relative;overflow:hidden}
+.storia-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.storia-media{aspect-ratio:1;overflow:hidden;border:2px solid var(--slate);filter:grayscale(20%);position:relative}
+.storia-media img{width:100%;height:100%;object-fit:cover}
+.storia-media::after{content:'SINCE 2016 · CIRELLA';position:absolute;bottom:14px;left:14px;padding:6px 12px;background:var(--slate);color:var(--foam);font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.12em}
+.storia-body p{font-size:1rem;margin-bottom:16px;line-height:1.8}
+.storia-body p em{color:var(--foam-d);font-weight:600;font-style:normal}
+.storia-sig{margin-top:28px;padding-top:20px;border-top:2px solid var(--slate);display:flex;gap:20px;font-family:'Space Mono',monospace}
+.storia-sig div{font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.storia-sig strong{display:block;font-weight:700;color:var(--slate);font-size:14px;margin-top:2px}
+/* MENU brutalist grid */
+.menu{background:var(--slate);color:#fff;position:relative}
+.menu.salt-bg::before{opacity:.3}
+.menu .hd{color:#fff}.menu .hd strong{color:var(--foam)}
+.menu .sub{color:rgba(255,255,255,.7)}.menu .tag{color:var(--foam);background:rgba(0,184,148,.14);border-color:var(--foam)}
+.menu-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;background:rgba(255,255,255,.08);padding:2px;position:relative;z-index:1}
+.mc{padding:30px 28px;background:var(--slate);display:flex;flex-direction:column;justify-content:space-between;transition:all .3s;min-height:220px;position:relative}
+.mc:hover{background:var(--slate-l)}
+.mc.c1{grid-column:span 5;min-height:280px}
+.mc.c2{grid-column:span 7}
+.mc.c3{grid-column:span 4}
+.mc.c4{grid-column:span 4}
+.mc.c5{grid-column:span 4}
+.mc.c6{grid-column:span 6}
+.mc.c7{grid-column:span 6}
+.mc.feat{background:var(--foam);color:var(--slate)}
+.mc.feat:hover{background:var(--foam-l)}
+.mc-num{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--foam);font-weight:700;margin-bottom:10px}
+.mc.feat .mc-num{color:var(--slate)}
+.mc-cat{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:6px}
+.mc.feat .mc-cat{color:var(--slate-l)}
+.mc h3{font-size:1.6rem;font-weight:800;color:#fff;line-height:1.1;margin-bottom:10px;letter-spacing:-.01em;text-transform:uppercase}
+.mc.feat h3{color:var(--slate)}
+.mc.c1 h3{font-size:2.4rem}
+.mc p{font-size:.92rem;color:rgba(255,255,255,.72);margin-bottom:16px;line-height:1.5}
+.mc.feat p{color:var(--slate)}
+.mc-price{font-family:'Space Mono',monospace;font-weight:700;font-size:1.4rem;color:var(--foam);margin-top:auto}
+.mc.feat .mc-price{color:var(--slate-d)}
+.mc-price::before{content:'€ ';font-size:.85em;opacity:.7}
+/* REVIEWS */
+.reviews{background:var(--bone)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:40px;background:var(--slate);padding:2px}
+.rev-card{padding:30px 26px;background:var(--white);display:flex;flex-direction:column;transition:all .3s}
+.rev-card:hover{background:var(--foam);color:var(--slate)}
+.rev-card:hover .rev-text{color:var(--slate)}.rev-card:hover .rev-author,.rev-card:hover .rev-time{color:var(--slate-d)}
+.rev-stars{font-family:'Space Mono',monospace;color:var(--foam);font-size:12px;letter-spacing:.14em;margin-bottom:14px;font-weight:700}
+.rev-stars::before{content:'['}.rev-stars::after{content:']'}
+.rev-card:hover .rev-stars{color:var(--slate)}
+.rev-text{font-size:.98rem;color:var(--ink);line-height:1.65;margin-bottom:18px;flex:1}
+.rev-author{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+.rev-time{font-family:'Space Mono',monospace;font-size:10px;color:var(--mute);margin-top:3px;letter-spacing:.04em}
+/* INFO */
+.info{background:var(--white)}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.info-col h3.hd{font-size:2.2rem;margin-bottom:12px}
+.info-col .sub{margin-bottom:28px}
+.hours-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-family:'Space Mono',monospace;font-size:13px}
+.hours-day{color:var(--slate);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.hours-time{color:var(--mute)}
+.hours-row.closed{background:rgba(45,52,54,.04);padding-left:12px;padding-right:12px;margin:0 -12px;border:none}
+.hours-row.closed .hours-time{color:var(--slate);font-weight:700}
+.contact{margin-top:30px;padding-top:22px;border-top:2px solid var(--slate)}
+.contact h4{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--foam-d);font-weight:700;margin-bottom:6px}
+.contact p,.contact a{font-family:'Work Sans',sans-serif;font-weight:600;font-size:1.2rem;color:var(--slate);text-decoration:none;line-height:1.5}
+.contact a:hover{color:var(--foam-d)}
+.map-wrap{border:2px solid var(--slate);overflow:hidden;aspect-ratio:1;filter:grayscale(80%);transition:filter .4s}
+.map-wrap:hover{filter:grayscale(0%)}
+.map-wrap iframe{width:100%;height:100%;border:none}
+footer{background:var(--slate-d);color:rgba(255,255,255,.65);padding:40px 32px 24px;position:relative;overflow:hidden;border-top:2px solid var(--foam)}
+.foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;max-width:1400px;margin:0 auto}
+.foot-logo{font-family:'Space Mono',monospace;font-weight:700;font-size:1.2rem;color:#fff;letter-spacing:.02em;text-transform:uppercase}
+.foot-logo::before{content:'// ';color:var(--foam)}
+.foot-meta{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.04em}
+.foot-copy{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;color:rgba(255,255,255,.4);padding-top:18px;border-top:1px solid rgba(255,255,255,.08);margin-top:20px;max-width:1400px;margin-left:auto;margin-right:auto;text-transform:uppercase}
+.foot-copy a{color:var(--foam);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:58px;height:58px;background:#25D366;border-radius:0;display:flex;align-items:center;justify-content:center;box-shadow:6px 6px 0 var(--foam-d);text-decoration:none;transition:transform .3s,box-shadow .3s}
+.wa:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--foam-d)}.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    nav{padding:12px 20px}.nav-links{display:none}section{padding:60px 20px}
+    .hero-inner{padding:130px 20px 50px}.hero-stats{grid-template-columns:1fr 1fr}
+    .storia-grid,.info-grid{grid-template-columns:1fr;gap:32px}
+    .mc.c1,.mc.c2,.mc.c3,.mc.c4,.mc.c5,.mc.c6,.mc.c7{grid-column:span 12}
+    .rev-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle"><button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button></div>
+<nav id="mainNav"><a href="#" class="nav-logo">Acqua Salata</a>
+    <ul class="nav-links"><li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li><li><a href="#menu">Menu</a></li><li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li><li><a href="#info">Info</a></li></ul>
+</nav>
+
+<section class="hero salt-bg">
+    <div class="hero-bg"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80" alt="Spiaggia di Cirella"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-inner">
+        <div class="hero-bar"><span><span class="blink"></span>LIVE · CIRELLA · 87023</span><span>N 39.71° · E 15.81°</span></div>
+        <h1 class="t-it">ACQUA<br><strong>SALATA</strong>.</h1>
+        <h1 class="t-en">SALT<br><strong>WATER</strong>.</h1>
+        <p class="hero-tag t-it">Ristorante sulla spiaggia di Cirella. Cucina fatta in casa, primi di pesce, fritture dal mare al piatto in pochi metri.</p>
+        <p class="hero-tag t-en">Restaurant on Cirella beach. Home-cooked food, seafood first courses, fries from sea to plate in a few metres.</p>
+        <div class="hero-stats">
+            <div class="hs"><span class="hs-v">4.1</span><span class="hs-l">Google</span></div>
+            <div class="hs"><span class="hs-v">604</span><span class="hs-l"><span class="t-it">Recens.</span><span class="t-en">Reviews</span></span></div>
+            <div class="hs"><span class="hs-v">€€</span><span class="hs-l"><span class="t-it">Livello</span><span class="t-en">Tier</span></span></div>
+            <div class="hs"><span class="hs-v">2016</span><span class="hs-l"><span class="t-it">Dal</span><span class="t-en">Since</span></span></div>
+        </div>
+        <div>
+            <a href="https://wa.me/393482369898?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20ad%20Acqua%20Salata" target="_blank" rel="noopener" class="btn btn-foam">→ <span class="t-it">Prenota su WhatsApp</span><span class="t-en">Book on WhatsApp</span></a>
+            <a href="#menu" class="btn btn-outline">// Menu</a>
+        </div>
+    </div>
+</section>
+
+<section class="storia" id="storia">
+    <div class="wrap"><div class="storia-grid">
+        <div class="storia-media"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="Sala Acqua Salata"></div>
+        <div class="storia-body">
+            <span class="tag"><span class="t-it">La Storia</span><span class="t-en">The Story</span></span>
+            <h2 class="hd t-it">Dal mare<br><strong>al piatto</strong>.</h2>
+            <h2 class="hd t-en">From sea<br><strong>to plate</strong>.</h2>
+            <p class="t-it">Acqua Salata sta <em>direttamente sulla spiaggia di Cirella</em>, a metà strada tra Scalea e Diamante. Una sala accogliente, un personale cordiale, e una cucina che profuma di casa.</p>
+            <p class="t-en">Acqua Salata sits <em>directly on Cirella beach</em>, halfway between Scalea and Diamante. A welcoming dining room, friendly staff, and a kitchen that smells like home.</p>
+            <p class="t-it">I nostri ospiti apprezzano <em>i primi di pesce</em>, la frittura abbondante e i prodotti fatti in casa. Tanti tornano, e non per caso.</p>
+            <p class="t-en">Our guests love the <em>seafood primi</em>, generous fritti, and home-made products. Many return — no accident.</p>
+            <div class="storia-sig">
+                <div>LAT<strong>39.71°</strong></div><div>LNG<strong>15.81°</strong></div><div>ADDR<strong>VIA V. VENETO 81</strong></div>
+            </div>
+        </div>
+    </div></div>
+</section>
+
+<section class="menu salt-bg" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag"><span class="t-it">Menu</span><span class="t-en">Menu</span></span>
+            <h2 class="hd t-it">Prodotti <strong>veri</strong>.<br>Niente trucchi.</h2>
+            <h2 class="hd t-en">Real <strong>produce</strong>.<br>No tricks.</h2>
+            <p class="sub t-it">Menu di mare fatto in casa. Primi, fritture, secondi del giorno secondo pescato.</p>
+            <p class="sub t-en">House-made seafood menu. Primi, fritti, daily main per catch.</p>
+        </div>
+        <div class="menu-grid">
+            <div class="mc c1 feat">
+                <div><span class="mc-num">01</span><span class="mc-cat"><span class="t-it">Specialità</span><span class="t-en">Specialty</span></span>
+                <h3><span class="t-it">Frittura <strong>Mista</strong></span><span class="t-en">Mixed <strong>Fry</strong></span></h3>
+                <p class="t-it">Paranza del giorno, verdure spinate, farina di grano tenero, olio EVO. Abbondante.</p>
+                <p class="t-en">Daily catch, de-boned vegetables, soft-wheat flour, EV olive oil. Abundant.</p></div>
+                <span class="mc-price">22</span>
+            </div>
+            <div class="mc c2">
+                <div><span class="mc-num">02</span><span class="mc-cat">Antipasto</span>
+                <h3><span class="t-it">Cocktail con <strong>antipastino</strong></span><span class="t-en">Cocktail with <strong>nibble</strong></span></h3>
+                <p class="t-it">Gin tonic o spritz + antipastino dalla cucina. L'idea dell'aperitivo.</p>
+                <p class="t-en">Gin tonic or spritz + kitchen nibble. Our take on the aperitivo.</p></div>
+                <span class="mc-price">12</span>
+            </div>
+            <div class="mc c3">
+                <div><span class="mc-num">03</span><span class="mc-cat">Primo</span>
+                <h3><span class="t-it">Linguine <strong>allo scoglio</strong></span><span class="t-en">Linguine <strong>seafood</strong></span></h3>
+                <p class="t-it">Cozze, vongole, gamberi, totano.</p>
+                <p class="t-en">Mussels, clams, prawns, squid.</p></div>
+                <span class="mc-price">18</span>
+            </div>
+            <div class="mc c4">
+                <div><span class="mc-num">04</span><span class="mc-cat">Primo</span>
+                <h3><span class="t-it">Spaghetti <strong>vongole</strong></span><span class="t-en">Clam <strong>spaghetti</strong></span></h3>
+                <p class="t-it">Vongole veraci, aglio, olio EVO.</p>
+                <p class="t-en">True clams, garlic, EVO.</p></div>
+                <span class="mc-price">16</span>
+            </div>
+            <div class="mc c5">
+                <div><span class="mc-num">05</span><span class="mc-cat"><span class="t-it">Secondo</span><span class="t-en">Main</span></span>
+                <h3><span class="t-it">Pesce <strong>del giorno</strong></span><span class="t-en">Fish <strong>of the day</strong></span></h3>
+                <p class="t-it">Scelta al banco. Al sale o alla griglia.</p>
+                <p class="t-en">Pick at the counter. Salt or grilled.</p></div>
+                <span class="mc-price">45 <span style="font-size:.7em">/kg</span></span>
+            </div>
+            <div class="mc c6">
+                <div><span class="mc-num">06</span><span class="mc-cat">Menu</span>
+                <h3><span class="t-it">Menu <strong>fisso</strong></span><span class="t-en">Fixed <strong>menu</strong></span></h3>
+                <p class="t-it">Antipasto + primo + secondo + dolce + acqua + vino della casa. Per pranzo.</p>
+                <p class="t-en">Starter + primo + main + dessert + water + house wine. For lunch.</p></div>
+                <span class="mc-price">28</span>
+            </div>
+            <div class="mc c7 feat">
+                <div><span class="mc-num">07</span><span class="mc-cat">Dolce</span>
+                <h3><span class="t-it">Dolci <strong>della casa</strong></span><span class="t-en">House <strong>desserts</strong></span></h3>
+                <p class="t-it">Tiramisù, crostata al limone, semifreddo al pistacchio. Fatti in casa.</p>
+                <p class="t-en">Tiramisu, lemon tart, pistachio semifreddo. All home-made.</p></div>
+                <span class="mc-price">7</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag">★ 4.1 · 604 rev</span>
+            <h2 class="hd t-it">Voci dalla <strong>spiaggia</strong>.</h2>
+            <h2 class="hd t-en">Voices from the <strong>beach</strong>.</h2>
+            <p class="sub t-it">Estratti da recensioni Google · Cirella, Calabria</p>
+            <p class="sub t-en">Google review excerpts · Cirella, Calabria</p>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Situato direttamente sulla spiaggia di Cirella, il ristorante offre un'esperienza culinaria di alto livello. La cucina è curata nei dettagli, con piatti fatti in casa. Atmosfera e sapori autentici.</p>
+                <p class="rev-text t-en">Directly on Cirella beach, a top-tier dining experience. Kitchen curated to detail, home-made dishes. Authentic atmosphere and flavours.</p>
+                <div class="rev-author">Peppe</div><div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">L'atmosfera accogliente e il personale cordiale e disponibile ci hanno immediatamente fatti sentire a nostro agio. Abbiamo particolarmente apprezzato il primo a base di pesce.</p>
+                <p class="rev-text t-en">Welcoming atmosphere, cordial and helpful staff — immediately made us feel at home. We especially enjoyed the seafood primo.</p>
+                <div class="rev-author">Debora Silenzi</div><div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★</div>
+                <p class="rev-text t-it">Prodotti buoni, cucina un po' ricca di olio ma per chi piace molto condimento va bene. Buon pranzo con i bambini.</p>
+                <p class="rev-text t-en">Good produce, kitchen a bit oil-heavy but great if you like strong seasoning. Good lunch with the kids.</p>
+                <div class="rev-author">Giuseppe Laino</div><div class="rev-time"><span class="t-it">4 mesi fa · Google</span><span class="t-en">4 months ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap"><div class="info-grid">
+        <div class="info-col">
+            <span class="tag"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></span>
+            <h3 class="hd t-it"><strong>Cirella</strong>.<br>Via V. Veneto 81.</h3>
+            <h3 class="hd t-en"><strong>Cirella</strong>.<br>Via V. Veneto 81.</h3>
+            <p class="sub t-it">Tra Scalea e Diamante, sulla costa. Prenota via WhatsApp.</p>
+            <p class="sub t-en">Between Scalea and Diamante, on the coast. Book via WhatsApp.</p>
+            <div class="hours-table">
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Mon</span></span><span class="hours-time">12:00—15:00 · 18:30—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tue</span></span><span class="hours-time">12:00—15:00 · 18:30—00:00</span></div>
+                <div class="hours-row closed"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wed</span></span><span class="hours-time">18:30—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thu</span></span><span class="hours-time">12:00—15:00 · 18:30—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Fri</span></span><span class="hours-time">12:00—15:00 · 18:30—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Sat</span></span><span class="hours-time">12:00—15:00 · 18:30—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sun</span></span><span class="hours-time">12:00—15:00 · 18:30—00:00</span></div>
+            </div>
+            <div class="contact"><h4>Addr</h4><p>Via Vittorio Veneto, 81<br>87023 Cirella (CS)</p></div>
+            <div class="contact"><h4>Tel</h4><a href="tel:+393482369898">+39 348 236 9898</a></div>
+        </div>
+        <div class="map-wrap"><iframe src="https://www.google.com/maps?q=Acqua+Salata+Cirella&output=embed" loading="lazy" title="Acqua Salata"></iframe></div>
+    </div></div>
+</section>
+
+<footer>
+    <div class="foot-row">
+        <div class="foot-logo">Acqua Salata</div>
+        <div class="foot-meta">VIA V. VENETO 81 · 87023 CIRELLA (CS) · +39 348 236 9898</div>
+    </div>
+    <div class="foot-copy">© 2026 ACQUA SALATA · <span class="t-it">SITO DI</span><span class="t-en">WEBSITE BY</span> <a href="#">VIKTORIA AGENCY</a></div>
+</footer>
+
+<a href="https://wa.me/393482369898" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>
+function setLang(l){document.body.classList.toggle('lang-en', l==='en');document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));}
+addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+</script>
+</body></html>
