@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizzeria Del Corso — Scalea · Pizza sul Corso Mediterraneo</title>
+<meta name="description" content="Pizzeria Del Corso a Scalea: pizza ottima, servizio velocissimo, personale cordiale e professionale. ★4.3 · 148 recensioni. Corso Mediterraneo 98.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Pizzeria Del Corso","servesCuisine":["Pizza","Italian"],"address":{"@type":"PostalAddress","streetAddress":"Corso Mediterraneo, 98","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+393482666742","priceRange":"€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.3","reviewCount":"148"},"geo":{"@type":"GeoCoordinates","latitude":39.8108174,"longitude":15.7899073}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Alegreya+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--midnight:#1E3A5F;--midnight-d:#0F2240;--midnight-l:#345780;--gold:#D4A853;--gold-d:#A67F2E;--gold-l:#E8C578;--panna:#FFF8F0;--panna-d:#F5EAD5;--ink:#1E3A5F;--mute:#6B7A91;--line:rgba(30,58,95,.14)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Alegreya Sans',sans-serif;color:var(--ink);background:var(--panna);line-height:1.65;overflow-x:hidden;font-weight:400}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+h1,h2,h3,h4{font-family:'Bodoni Moda',serif;font-weight:400;letter-spacing:-.005em}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:22px 44px;display:flex;justify-content:space-between;align-items:center;transition:all .35s}
+nav.scrolled{background:rgba(15,34,64,.94);padding:14px 44px;backdrop-filter:blur(12px)}
+.nav-logo{font-family:'Bodoni Moda',serif;font-style:italic;font-weight:500;font-size:1.55rem;color:var(--panna);text-decoration:none;letter-spacing:.02em}
+.nav-logo span{color:var(--gold-l)}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{font-family:'Alegreya Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:rgba(255,248,240,.82);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--gold-l)}
+.lang-toggle{position:fixed;top:22px;right:22px;z-index:100;display:flex;gap:2px;background:rgba(15,34,64,.85);padding:3px;border-radius:100px;backdrop-filter:blur(6px);border:1px solid var(--gold-d)}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(255,248,240,.62);font-family:'Alegreya Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;cursor:pointer;border-radius:100px;transition:all .25s}
+.lang-btn.active{background:var(--gold);color:var(--midnight)}
+/* HERO corso sfocato */
+.hero{position:relative;min-height:100vh;color:var(--panna);overflow:hidden;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;will-change:transform;animation:kenburns 25s ease-in-out infinite alternate}
+@keyframes kenburns{0%{transform:scale(1.03) translate3d(0,0,0)}100%{transform:scale(1.10) translate3d(-1.5%,-1%,0)}}
+@media(prefers-reduced-motion:reduce){.hero-bg img{animation:none;transform:scale(1.03)}}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.55) 40%,rgba(0,0,0,.75) 100%);pointer-events:none}
+.hero-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:130px 44px 90px;width:100%;text-align:center}
+.hero-kicker{display:inline-flex;align-items:center;gap:14px;font-family:'Alegreya Sans',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold-l);font-weight:500;margin-bottom:30px}
+.hero-kicker::before,.hero-kicker::after{content:'';width:36px;height:1px;background:var(--gold)}
+.hero h1{font-family:'Bodoni Moda',serif;font-weight:400;font-size:clamp(3.8rem,9vw,7.5rem);line-height:.98;color:#fff;margin-bottom:14px;letter-spacing:-.015em;text-shadow:0 4px 30px rgba(0,0,0,.7),0 2px 10px rgba(0,0,0,.5)}
+.hero h1 em{color:var(--gold-l);font-style:italic;font-weight:400}
+.hero-sub{font-family:'Bodoni Moda',serif;font-style:italic;font-weight:400;font-size:clamp(1.15rem,1.8vw,1.4rem);max-width:640px;margin:0 auto 42px;color:rgba(255,248,240,.92);line-height:1.45}
+.hero-meta{display:inline-flex;gap:1px;background:var(--gold);padding:1px;margin-bottom:40px;overflow:hidden;flex-wrap:wrap;justify-content:center}
+.hm{padding:16px 28px;background:rgba(15,34,64,.85);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;min-width:118px}
+.hm-v{font-family:'Bodoni Moda',serif;font-size:1.8rem;color:var(--gold-l);line-height:1;font-weight:400}
+.hm-l{font-family:'Alegreya Sans',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,248,240,.72);margin-top:6px;font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 38px;font-family:'Alegreya Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all .3s;border:none;cursor:pointer}
+.btn-gold{background:var(--gold);color:var(--midnight);box-shadow:0 12px 28px rgba(212,168,83,.35)}
+.btn-gold:hover{background:var(--gold-l);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--panna);border:1px solid rgba(212,168,83,.5);margin-left:12px}
+.btn-outline:hover{border-color:var(--gold-l);color:var(--gold-l)}
+section{padding:100px 44px}
+.wrap{max-width:1280px;margin:0 auto}
+.sec-head{max-width:740px;margin:0 auto 60px;text-align:center}
+.tag{display:inline-block;font-family:'Alegreya Sans',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-d);font-weight:500;margin-bottom:18px}
+.tag::before{content:'— '}.tag::after{content:' —'}
+h2.hd{font-family:'Bodoni Moda',serif;font-size:clamp(2.4rem,5vw,3.8rem);color:var(--midnight);line-height:1.08;margin-bottom:18px;font-weight:400;letter-spacing:-.005em}
+h2.hd em{color:var(--gold-d);font-style:italic}
+.sub{font-family:'Alegreya Sans',sans-serif;font-size:1.05rem;color:var(--mute);line-height:1.7}
+/* STORIA */
+.storia{background:var(--panna-d)}
+.storia-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center}
+.storia-img{aspect-ratio:4/5;overflow:hidden;position:relative;box-shadow:0 30px 60px rgba(15,34,64,.22)}
+.storia-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
+.storia-img::before{content:'';position:absolute;inset:12px;border:1px solid var(--gold);z-index:1;pointer-events:none}
+.storia-img::after{content:'Corso Mediterraneo · 98';position:absolute;bottom:22px;left:22px;right:22px;text-align:center;font-family:'Bodoni Moda',serif;font-style:italic;color:var(--gold-l);font-size:.95rem;letter-spacing:.04em;z-index:2;background:rgba(15,34,64,.65);padding:8px;backdrop-filter:blur(6px)}
+.storia-body .tag,.storia-body h2.hd,.storia-body .sub{text-align:left;margin-left:0}
+.storia-body p{font-size:1.05rem;margin-bottom:18px;line-height:1.8}
+.storia-body p em{color:var(--gold-d);font-style:italic;font-weight:500}
+.storia-quote{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.3rem;color:var(--midnight);padding:20px 28px;background:#fff;border-left:2px solid var(--gold);margin:26px 0;line-height:1.5;border-radius:0 4px 4px 0}
+/* MENU gold prices */
+.menu{background:var(--panna)}
+.menu-list{display:grid;grid-template-columns:1fr 1fr;gap:18px 52px;max-width:1100px;margin:44px auto 0}
+.mi{display:grid;grid-template-columns:1fr auto;gap:20px;padding:16px 0;border-bottom:1px dotted var(--line);align-items:baseline}
+.mi-body{flex:1}
+.mi-cat{font-family:'Alegreya Sans',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-d);font-weight:600;margin-bottom:3px}
+.mi h4{font-family:'Bodoni Moda',serif;font-size:1.3rem;color:var(--midnight);margin-bottom:4px;line-height:1.2;font-weight:400}
+.mi h4 em{color:var(--gold-d);font-style:italic}
+.mi p{font-family:'Alegreya Sans',sans-serif;font-size:.93rem;color:var(--mute);line-height:1.55}
+.mi-price{font-family:'Bodoni Moda',serif;font-style:italic;font-weight:500;font-size:1.5rem;color:var(--gold-d);white-space:nowrap}
+/* FORNO A VISTA */
+.forno{background:linear-gradient(180deg,var(--midnight) 0%,var(--midnight-d) 100%);color:var(--panna);position:relative;overflow:hidden}
+.forno::before{content:'';position:absolute;top:-10%;right:-10%;width:50%;height:120%;background:radial-gradient(ellipse at center,rgba(212,168,83,.15) 0%,transparent 60%);pointer-events:none}
+.forno .hd{color:var(--panna)}.forno .hd em{color:var(--gold-l)}
+.forno .sub{color:rgba(255,248,240,.75);margin:0 auto}.forno .tag{color:var(--gold-l)}
+.forno-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;margin-top:20px}
+.forno-media{aspect-ratio:4/5;overflow:hidden;position:relative;border:2px solid var(--gold)}
+.forno-media img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.05)}
+.forno-feat{list-style:none}
+.forno-feat li{padding:22px 0;border-bottom:1px solid rgba(212,168,83,.2);display:flex;gap:20px;align-items:flex-start}
+.forno-feat li:last-child{border:none}
+.forno-feat li strong{display:block;font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.3rem;color:var(--gold-l);margin-bottom:4px;font-weight:500;letter-spacing:-.005em}
+.forno-feat li p{font-family:'Alegreya Sans',sans-serif;font-size:.95rem;color:rgba(255,248,240,.8);line-height:1.55}
+.ff-num{font-family:'Bodoni Moda',serif;font-style:italic;font-weight:400;font-size:2.2rem;color:var(--gold);line-height:1;flex-shrink:0;width:54px}
+/* REVIEWS */
+.reviews{background:var(--panna-d)}
+.rev-band{display:flex;justify-content:center;gap:56px;margin-bottom:48px;flex-wrap:wrap;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.rb-i{text-align:center}
+.rb-v{font-family:'Bodoni Moda',serif;font-style:italic;font-size:3rem;color:var(--gold-d);line-height:1;font-weight:400}
+.rb-l{font-family:'Alegreya Sans',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--mute);margin-top:8px;font-weight:500}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rev-card{padding:32px 28px;background:var(--panna);border:1px solid var(--line);transition:all .35s;position:relative}
+.rev-card::before{content:'';position:absolute;top:14px;left:14px;right:14px;bottom:14px;border:1px solid transparent;transition:border-color .35s;pointer-events:none}
+.rev-card:hover::before{border-color:var(--gold)}
+.rev-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(30,58,95,.12)}
+.rev-stars{color:var(--gold-d);margin-bottom:12px;letter-spacing:2px}
+.rev-text{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.05rem;color:var(--ink);line-height:1.6;margin-bottom:20px;font-weight:400}
+.rev-author{font-family:'Alegreya Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--midnight)}
+.rev-time{font-family:'Alegreya Sans',sans-serif;font-size:10px;color:var(--mute);margin-top:3px;letter-spacing:.5px;font-weight:400}
+/* INFO */
+.info{background:var(--panna)}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.info-col h3.hd{font-size:2.3rem;margin-bottom:12px;text-align:left}
+.info-col .sub{margin-bottom:28px;max-width:none;text-align:left}
+.hours-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dotted var(--line);font-size:.95rem;align-items:center}
+.hours-day{font-family:'Bodoni Moda',serif;color:var(--midnight);font-size:1.05rem;font-weight:400}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums;font-family:'Alegreya Sans',sans-serif}
+.hours-row.closed{background:var(--midnight);margin:0 -14px;padding:12px 14px;border-radius:4px;border:none}
+.hours-row.closed .hours-day,.hours-row.closed .hours-time{color:var(--gold-l);font-style:italic}
+.contact{margin-top:28px}
+.contact h4{font-family:'Alegreya Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-d);font-weight:600;margin-bottom:6px}
+.contact p,.contact a{font-family:'Bodoni Moda',serif;font-size:1.25rem;color:var(--midnight);text-decoration:none;line-height:1.5;font-weight:400}
+.contact a:hover{color:var(--gold-d);font-style:italic}
+.map-wrap{overflow:hidden;box-shadow:0 30px 60px rgba(30,58,95,.2);aspect-ratio:4/5;border:2px solid var(--gold)}
+.map-wrap iframe{width:100%;height:100%;border:none;filter:saturate(.85)}
+footer{background:var(--midnight-d);color:rgba(255,248,240,.72);padding:54px 44px 28px;text-align:center;border-top:1px solid var(--gold)}
+.foot-logo{font-family:'Bodoni Moda',serif;font-style:italic;font-weight:500;font-size:1.8rem;color:var(--panna);margin-bottom:14px;letter-spacing:.02em}
+.foot-logo span{color:var(--gold-l)}
+.foot-meta{font-family:'Alegreya Sans',sans-serif;font-size:.88rem;margin-bottom:20px}
+.foot-copy{font-family:'Alegreya Sans',sans-serif;font-size:11px;letter-spacing:1.5px;color:rgba(255,248,240,.45);padding-top:18px;border-top:1px solid rgba(212,168,83,.2);margin-top:18px}
+.foot-copy a{color:var(--gold-l);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa:hover{transform:scale(1.08)}.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    nav{padding:14px 22px}.nav-links{display:none}section{padding:60px 22px}
+    .hero-inner{padding:120px 22px 70px}
+    .storia-grid,.forno-grid,.info-grid{grid-template-columns:1fr;gap:36px}
+    .menu-list{grid-template-columns:1fr}
+    .rev-grid{grid-template-columns:1fr}
+    .hero-meta{flex-direction:column;gap:1px}
+    .hm{min-width:auto}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle"><button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button></div>
+<nav id="mainNav"><a href="#" class="nav-logo">Pizzeria <span>Del Corso</span></a>
+    <ul class="nav-links"><li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li><li><a href="#menu">Menu</a></li><li><a href="#forno"><span class="t-it">Il Forno</span><span class="t-en">The Oven</span></a></li><li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li><li><a href="#info">Info</a></li></ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg"><img src="del-corso-photos/hero.png" alt="Pizzeria Del Corso Scalea"></div>
+    <div class="hero-inner">
+        <div class="hero-kicker"><span class="t-it">Corso Mediterraneo · 98</span><span class="t-en">Corso Mediterraneo · 98</span></div>
+        <h1 class="t-it">Pizzeria<br>del <em>Corso</em>.</h1>
+        <h1 class="t-en">Pizzeria<br>del <em>Corso</em>.</h1>
+        <p class="hero-sub t-it">Sul corso di Scalea, nell'ora della passeggiata serale. Pizza ottima, servizio velocissimo, personale cordiale e professionale.</p>
+        <p class="hero-sub t-en">On Scalea's promenade, at the hour of the evening stroll. Excellent pizza, fast service, cordial and professional staff.</p>
+        <div class="hero-meta">
+            <div class="hm"><span class="hm-v">4.3</span><span class="hm-l">Google ★</span></div>
+            <div class="hm"><span class="hm-v">148</span><span class="hm-l"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+            <div class="hm"><span class="hm-v">€</span><span class="hm-l"><span class="t-it">Prezzi</span><span class="t-en">Price</span></span></div>
+        </div>
+        <div>
+            <a href="https://wa.me/393482666742?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20alla%20Pizzeria%20Del%20Corso" target="_blank" rel="noopener" class="btn btn-gold"><span class="t-it">Prenota un tavolo</span><span class="t-en">Book a table</span></a>
+            <a href="#menu" class="btn btn-outline">Menu</a>
+        </div>
+    </div>
+</section>
+
+<section class="storia" id="storia">
+    <div class="wrap"><div class="storia-grid">
+        <div class="storia-img"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=900&q=80" alt="Pizza Del Corso"></div>
+        <div class="storia-body">
+            <div class="tag"><span class="t-it">La nostra storia</span><span class="t-en">Our story</span></div>
+            <h2 class="hd t-it">Sul <em>corso</em>,<br>dove passeggia Scalea.</h2>
+            <h2 class="hd t-en">On the <em>corso</em>,<br>where Scalea strolls.</h2>
+            <p class="t-it">La Pizzeria Del Corso sta sul <em>Corso Mediterraneo</em>, la via della passeggiata serale. Locale affollato come una classica pizzeria italiana — servizio <em>velocissimo</em> anche nelle sere di punta.</p>
+            <p class="t-en">Pizzeria Del Corso sits on <em>Corso Mediterraneo</em>, the street of the evening stroll. Bustling like a classic Italian pizzeria — <em>very fast</em> service even on peak nights.</p>
+            <blockquote class="storia-quote t-it">"Personale cordiale e professionale, pizza ottima." — Stefano, Google</blockquote>
+            <blockquote class="storia-quote t-en">"Cordial and professional staff, excellent pizza." — Stefano, Google</blockquote>
+            <p class="t-it">La comanda arriva subito, il cibo anche. Pizza <em>digeribile e buona</em>, panini in alternativa. Prezzi nella <em>media del corso</em> — qualità alta, velocità impeccabile.</p>
+            <p class="t-en">The order arrives fast, the food too. <em>Digestible, good</em> pizza, sandwiches as alternative. Prices <em>in line with the corso</em> — high quality, impeccable speed.</p>
+        </div>
+    </div></div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Il menu</span><span class="t-en">The menu</span></div>
+            <h2 class="hd t-it">La <em>carta</em><br>del Corso.</h2>
+            <h2 class="hd t-en">The <em>card</em><br>of the Corso.</h2>
+            <p class="sub t-it">Classiche napoletane, firme di casa, panini. Prezzi contenuti, porzioni giuste, cottura a legna.</p>
+            <p class="sub t-en">Neapolitan classics, house signatures, sandwiches. Fair prices, proper portions, wood-fired.</p>
+        </div>
+        <div class="menu-list">
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Classica</span><span class="t-en">Classic</span></div>
+                <h4>Margherita <em>DOC</em></h4>
+                <p class="t-it">San Marzano DOP, fior di latte, basilico, olio EVO.</p>
+                <p class="t-en">San Marzano DOP, fior di latte, basil, EVO.</p>
+            </div><div class="mi-price">€7</div></div>
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Piccante</span><span class="t-en">Spicy</span></div>
+                <h4>Diavola</h4>
+                <p class="t-it">Pomodoro, fior di latte, salame piccante, olive nere.</p>
+                <p class="t-en">Tomato, fior di latte, spicy salami, black olives.</p>
+            </div><div class="mi-price">€9</div></div>
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Firma</span><span class="t-en">Signature</span></div>
+                <h4>Del <em>Corso</em></h4>
+                <p class="t-it">Bufala, 'nduja calabrese, rucola, pomodorini gialli.</p>
+                <p class="t-en">Buffalo mozzarella, Calabrian 'nduja, rocket, yellow tomatoes.</p>
+            </div><div class="mi-price">€11</div></div>
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Bianca</span><span class="t-en">White</span></div>
+                <h4>4 <em>Formaggi</em></h4>
+                <p class="t-it">Fior di latte, gorgonzola DOP, taleggio, pecorino.</p>
+                <p class="t-en">Fior di latte, gorgonzola DOP, taleggio, pecorino.</p>
+            </div><div class="mi-price">€11</div></div>
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Ricca</span><span class="t-en">Loaded</span></div>
+                <h4>Capricciosa</h4>
+                <p class="t-it">Prosciutto cotto, funghi, carciofi, olive, uovo, mozzarella.</p>
+                <p class="t-en">Cooked ham, mushrooms, artichokes, olives, egg, mozzarella.</p>
+            </div><div class="mi-price">€10</div></div>
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Veggie</span><span class="t-en">Veggie</span></div>
+                <h4>Ortolana</h4>
+                <p class="t-it">Zucchine, melanzane, peperoni, pomodorini, olive taggiasche.</p>
+                <p class="t-en">Courgettes, aubergine, peppers, cherry tomatoes, taggiasche olives.</p>
+            </div><div class="mi-price">€9</div></div>
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Panino</span><span class="t-en">Sandwich</span></div>
+                <h4>Salsiccia &amp; <em>Broccoli</em></h4>
+                <p class="t-it">Pane casereccio, salsiccia calabrese, broccoli ripassati.</p>
+                <p class="t-en">Home bread, Calabrian sausage, sautéed broccoli.</p>
+            </div><div class="mi-price">€8</div></div>
+            <div class="mi"><div class="mi-body"><div class="mi-cat"><span class="t-it">Calzone</span><span class="t-en">Calzone</span></div>
+                <h4>Calzone <em>classico</em></h4>
+                <p class="t-it">Prosciutto cotto, ricotta, mozzarella, pepe nero.</p>
+                <p class="t-en">Cooked ham, ricotta, mozzarella, black pepper.</p>
+            </div><div class="mi-price">€9</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="forno" id="forno">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Il forno a vista</span><span class="t-en">Open-view oven</span></div>
+            <h2 class="hd t-it">Il <em>fuoco</em><br>che vedi dal tavolo.</h2>
+            <h2 class="hd t-en">The <em>fire</em><br>you see from the table.</h2>
+            <p class="sub t-it">Un forno a vista dove il fuoco si fa teatro — ogni pizza è uno spettacolo di 90 secondi.</p>
+            <p class="sub t-en">An open-view oven where fire becomes theatre — each pizza a 90-second show.</p>
+        </div>
+        <div class="forno-grid">
+            <div class="forno-media"><img src="del-corso-photos/forno.png" alt="Pizza appena sfornata Del Corso"></div>
+            <ul class="forno-feat">
+                <li><span class="ff-num">I.</span><div><strong><span class="t-it">L'impasto</span><span class="t-en">The dough</span></strong><p class="t-it">Lievitazione 24 ore, farina di grano tenero "00" macinata a pietra.</p><p class="t-en">24-hour proof, stone-ground "00" soft-wheat flour.</p></div></li>
+                <li><span class="ff-num">II.</span><div><strong><span class="t-it">Il fuoco</span><span class="t-en">The fire</span></strong><p class="t-it">Legna di ulivo e faggio, temperatura 430°—450°.</p><p class="t-en">Olive and beech wood, 430°—450° temperature.</p></div></li>
+                <li><span class="ff-num">III.</span><div><strong><span class="t-it">Il pomodoro</span><span class="t-en">The tomato</span></strong><p class="t-it">San Marzano DOP dell'Agro Nocerino, mai filtrato.</p><p class="t-en">San Marzano DOP from Agro Nocerino, never filtered.</p></div></li>
+                <li><span class="ff-num">IV.</span><div><strong><span class="t-it">La cottura</span><span class="t-en">The bake</span></strong><p class="t-it">90 secondi, rotazione manuale, cornicione pronunciato.</p><p class="t-en">90 seconds, hand rotation, pronounced crust.</p></div></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Le voci del corso</span><span class="t-en">Voices from the corso</span></div>
+            <h2 class="hd t-it">148 voci <em>dalla passeggiata</em>.</h2>
+            <h2 class="hd t-en">148 voices <em>from the stroll</em>.</h2>
+        </div>
+        <div class="rev-band">
+            <div class="rb-i"><div class="rb-v">4.3</div><div class="rb-l">Google ★</div></div>
+            <div class="rb-i"><div class="rb-v">148</div><div class="rb-l"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></div></div>
+            <div class="rb-i"><div class="rb-v">90''</div><div class="rb-l"><span class="t-it">Cottura</span><span class="t-en">Bake time</span></div></div>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Personale cordiale e professionale. Pizza ottima. Tornerò sicuramente.</p>
+                <p class="rev-text t-en">Cordial and professional staff. Excellent pizza. I'll definitely be back.</p>
+                <div class="rev-author">Stefano Maurizio</div><div class="rev-time"><span class="t-it">8 mesi fa · Google</span><span class="t-en">8 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★</div>
+                <p class="rev-text t-it">Ho mangiato una pizza con la mia famiglia. Pizza buona, servizio velocissimo — sia la comanda che il cibo sono arrivati velocemente anche se il locale era affollato. Ambiente di una classica pizzeria.</p>
+                <p class="rev-text t-en">I had pizza with my family. Good pizza, very fast service — both the order and the food arrived fast even though the place was crowded. Classic pizzeria atmosphere.</p>
+                <div class="rev-author">Luigi Buono</div><div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★</div>
+                <p class="rev-text t-it">Personale gentile e disponibile. Pizzeria abbastanza buona, unica pecca un po' bruciata sotto — ci può stare perché si sa che il sabato sera è un casino.</p>
+                <p class="rev-text t-en">Kind, helpful staff. Pretty good pizzeria — the only flaw was a bit burnt underneath, but Saturday nights are always chaos, so it's understandable.</p>
+                <div class="rev-author">Alessandro M.</div><div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap"><div class="info-grid">
+        <div class="info-col">
+            <div class="tag"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></div>
+            <h3 class="hd t-it">Sul <em>Corso</em><br>Mediterraneo.</h3>
+            <h3 class="hd t-en">On <em>Corso</em><br>Mediterraneo.</h3>
+            <p class="sub t-it">Aperti la sera dalle 17:30 a mezzanotte. Chiusi il mercoledì.</p>
+            <p class="sub t-en">Open evenings 5:30pm to midnight. Closed Wednesdays.</p>
+            <div class="hours-table">
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Mon</span></span><span class="hours-time">17:30—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tue</span></span><span class="hours-time">17:30—00:00</span></div>
+                <div class="hours-row closed"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wed</span></span><span class="hours-time t-it">Chiuso</span><span class="hours-time t-en">Closed</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thu</span></span><span class="hours-time">17:30—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Fri</span></span><span class="hours-time">17:30—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Sat</span></span><span class="hours-time">17:30—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sun</span></span><span class="hours-time">17:30—00:00</span></div>
+            </div>
+            <div class="contact"><h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4><p>Corso Mediterraneo, 98<br>87029 Scalea (CS)</p></div>
+            <div class="contact"><h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4><a href="tel:+393482666742">+39 348 266 6742</a></div>
+        </div>
+        <div class="map-wrap"><iframe src="https://www.google.com/maps?q=Pizzeria+Del+Corso+Scalea&output=embed" loading="lazy" title="Del Corso"></iframe></div>
+    </div></div>
+</section>
+
+<footer>
+    <div class="foot-logo">Pizzeria <span>Del Corso</span></div>
+    <div class="foot-meta">Corso Mediterraneo, 98 · 87029 Scalea (CS) · +39 348 266 6742</div>
+    <div class="foot-copy">&copy; 2026 Pizzeria Del Corso · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/393482666742" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>
+function setLang(l){document.body.classList.toggle('lang-en', l==='en');document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));}
+addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+</script>
+</body></html>

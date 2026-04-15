@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nausicaa — Scalea · Stabilimento balneare e ristorante sul mare</title>
+<meta name="description" content="Nausicaa Scalea: stabilimento balneare e ristorante sul mare. Il pesce più buono della Riviera dei Cedri, piatti originali. ★4.5 · 409 recensioni. SS18 km 262.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Ristorante Nausicaa","servesCuisine":["Italian","Seafood","Mediterranean"],"address":{"@type":"PostalAddress","streetAddress":"Corso Mediterraneo, SS 18 km 262","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+393385652239","priceRange":"€€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","reviewCount":"409"},"geo":{"@type":"GeoCoordinates","latitude":39.7916816,"longitude":15.7921543}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Questrial&display=swap" rel="stylesheet">
+<style>
+:root{--sea:#064E3B;--sea-d:#03362A;--sea-l:#0F6B52;--sand:#FEFCE8;--sand-d:#FAF5D9;--sand-l:#FFFEF5;--coral:#FB923C;--coral-d:#E2761F;--coral-l:#FDBA74;--ink:#064E3B;--mute:#6B7280;--line:rgba(6,78,59,.14)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Questrial',sans-serif;color:var(--ink);background:var(--sand);line-height:1.7;overflow-x:hidden}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+h1,h2,h3,h4{font-family:'Marcellus',serif;font-weight:400;letter-spacing:.005em}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:22px 44px;display:flex;justify-content:space-between;align-items:center;transition:all .35s}
+nav.scrolled{background:rgba(6,78,59,.96);padding:14px 44px;backdrop-filter:blur(12px)}
+.nav-logo{font-family:'Marcellus',serif;font-size:1.55rem;color:var(--sand);text-decoration:none;letter-spacing:.04em}
+.nav-logo span{color:var(--coral-l)}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{font-family:'Questrial',sans-serif;font-size:11px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:rgba(254,252,232,.78);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--coral-l)}
+.lang-toggle{position:fixed;top:22px;right:22px;z-index:100;display:flex;gap:2px;background:rgba(3,54,42,.85);padding:3px;border-radius:100px;backdrop-filter:blur(6px)}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(254,252,232,.62);font-family:'Questrial',sans-serif;font-size:11px;font-weight:400;letter-spacing:1.5px;cursor:pointer;border-radius:100px;transition:all .25s}
+.lang-btn.active{background:var(--coral);color:var(--sand-l)}
+/* HERO panoramic */
+.hero{position:relative;min-height:100vh;color:var(--sand);overflow:hidden;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.95)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,78,59,.2) 0%,rgba(3,54,42,.35) 55%,rgba(3,54,42,.7) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:120px 44px 80px;width:100%;text-align:center}
+.hero-kicker{display:inline-block;font-family:'Questrial',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--coral-l);font-weight:400;margin-bottom:26px}
+.hero-kicker::before{content:'◆ '}
+.hero-kicker::after{content:' ◆'}
+.hero h1{font-family:'Marcellus',serif;font-size:clamp(3.8rem,9vw,8rem);line-height:1;color:var(--sand);margin-bottom:20px;letter-spacing:-.01em}
+.hero h1 em{color:var(--coral-l);font-style:italic}
+.hero-tag{font-family:'Marcellus',serif;font-size:clamp(1.15rem,1.8vw,1.35rem);font-style:italic;max-width:640px;margin:0 auto 42px;color:rgba(254,252,232,.9);line-height:1.4}
+.hero-meta{display:inline-flex;gap:2px;background:rgba(6,78,59,.6);padding:2px;border-radius:100px;margin-bottom:40px;backdrop-filter:blur(8px);border:1px solid rgba(251,146,60,.3)}
+.hm{padding:16px 26px;display:flex;flex-direction:column;align-items:center;min-width:120px}
+.hm-v{font-family:'Marcellus',serif;font-size:1.8rem;color:var(--coral-l);line-height:1}
+.hm-l{font-family:'Questrial',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(254,252,232,.72);margin-top:5px;font-weight:400}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;font-family:'Questrial',sans-serif;font-size:11px;font-weight:400;letter-spacing:3px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s;border:none;cursor:pointer}
+.btn-coral{background:var(--coral);color:var(--sea-d);box-shadow:0 14px 30px rgba(251,146,60,.4)}
+.btn-coral:hover{background:var(--coral-l);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--sand);border:1px solid rgba(254,252,232,.45);margin-left:10px}
+.btn-ghost:hover{border-color:var(--coral-l);color:var(--coral-l)}
+/* wave SVG decoration */
+.wave-divider{display:block;width:100%;height:80px;color:var(--sand-l);background:var(--sea-d);margin-top:-1px}
+section{padding:100px 44px}
+.wrap{max-width:1300px;margin:0 auto}
+.sec-head{max-width:740px;margin:0 auto 60px;text-align:center}
+.tag{display:inline-block;font-family:'Questrial',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--coral-d);font-weight:400;margin-bottom:16px}
+.tag::before{content:'◆ '}.tag::after{content:' ◆'}
+h2.hd{font-family:'Marcellus',serif;font-size:clamp(2.4rem,4.8vw,3.8rem);color:var(--sea);line-height:1.08;margin-bottom:18px;letter-spacing:-.005em}
+h2.hd em{color:var(--coral-d);font-style:italic}
+.sub{font-family:'Questrial',sans-serif;font-size:1.05rem;color:var(--mute);line-height:1.75}
+/* DOUBLE — lido + ristorante */
+.double{background:var(--sand-l)}
+.double-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--sea-l);margin-top:40px;border-radius:6px;overflow:hidden;box-shadow:0 30px 60px rgba(6,78,59,.18)}
+.dp{padding:50px 42px;background:var(--sand-l);display:flex;flex-direction:column;position:relative}
+.dp-ico{width:64px;height:64px;border-radius:50%;background:var(--sea);color:var(--coral-l);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:22px}
+.dp-tag{font-family:'Questrial',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--coral-d);font-weight:400;margin-bottom:8px}
+.dp h3{font-family:'Marcellus',serif;font-size:2rem;color:var(--sea);margin-bottom:14px;letter-spacing:-.005em}
+.dp h3 em{color:var(--coral-d);font-style:italic}
+.dp p{font-family:'Questrial',sans-serif;font-size:1rem;color:var(--ink);line-height:1.75;margin-bottom:18px}
+.dp-list{list-style:none;margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+.dp-list li{padding:7px 0;font-family:'Questrial',sans-serif;font-size:.92rem;color:var(--ink);display:flex;gap:10px;align-items:baseline}
+.dp-list li::before{content:'—';color:var(--coral);flex-shrink:0;font-weight:bold}
+/* MENU wave icons */
+.menu{background:var(--sand)}
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:44px}
+.mi{display:grid;grid-template-columns:auto 1fr auto;gap:20px;padding:24px 26px;background:var(--sand-l);border:1px solid var(--line);border-radius:8px;transition:all .3s;align-items:center}
+.mi:hover{border-color:var(--coral);transform:translateX(4px);box-shadow:0 16px 32px rgba(6,78,59,.1)}
+.mi-wave{width:56px;height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--sea);border-radius:50%;color:var(--coral-l)}
+.mi-wave svg{width:30px;height:30px}
+.mi-body{flex:1}
+.mi-cat{font-family:'Questrial',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--coral-d);font-weight:400;margin-bottom:4px}
+.mi-body h4{font-family:'Marcellus',serif;font-size:1.3rem;color:var(--sea);margin-bottom:4px;line-height:1.25}
+.mi-body h4 em{color:var(--coral-d);font-style:italic}
+.mi-body p{font-family:'Questrial',sans-serif;font-size:.9rem;color:var(--mute);line-height:1.55}
+.mi-price{font-family:'Marcellus',serif;font-size:1.4rem;color:var(--sea);white-space:nowrap}
+/* TRAMONTO golden hour */
+.tramonto{background:linear-gradient(180deg,var(--sea-d) 0%,#5B2A18 55%,var(--coral-d) 100%);color:var(--sand);position:relative;overflow:hidden;padding:140px 44px}
+.tramonto::before{content:'';position:absolute;inset:0;background-image:radial-gradient(ellipse at 50% 100%,rgba(251,146,60,.6) 0%,transparent 50%);pointer-events:none}
+.tramonto .hd{color:var(--sand)}.tramonto .hd em{color:var(--coral-l)}
+.tramonto .sub{color:rgba(254,252,232,.82)}.tramonto .tag{color:var(--coral-l)}
+.tr-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;margin-top:20px}
+.tr-media{aspect-ratio:4/5;overflow:hidden;border-radius:8px;border:4px solid rgba(254,252,232,.18);box-shadow:0 40px 80px rgba(0,0,0,.4)}
+.tr-media img{width:100%;height:100%;object-fit:cover;filter:saturate(1.1)}
+.tr-body p{font-family:'Marcellus',serif;font-style:italic;font-size:1.2rem;color:var(--sand);line-height:1.55;margin-bottom:20px}
+.tr-body p em{color:var(--coral-l);font-style:italic}
+.tr-hours{margin-top:28px;padding:22px 26px;background:rgba(254,252,232,.08);border:1px solid rgba(251,146,60,.3);border-radius:8px;backdrop-filter:blur(6px)}
+.tr-hours h5{font-family:'Questrial',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--coral-l);margin-bottom:10px;font-weight:400}
+.tr-hours p{font-family:'Marcellus',serif;font-size:1.3rem;color:var(--sand);margin:0;font-style:italic}
+.tr-hours-sub{font-family:'Questrial',sans-serif;font-size:.9rem;color:rgba(254,252,232,.78);margin-top:4px}
+/* REVIEWS */
+.reviews{background:var(--sand-l)}
+.rev-band{display:flex;justify-content:center;gap:60px;margin-bottom:48px;flex-wrap:wrap;padding:24px 0}
+.rb-i{text-align:center}
+.rb-v{font-family:'Marcellus',serif;font-size:3.2rem;color:var(--coral-d);line-height:1}
+.rb-l{font-family:'Questrial',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--mute);margin-top:8px;font-weight:400}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rev-card{padding:32px 28px;background:var(--sand);border-radius:8px;border:1px solid var(--line);transition:all .3s;position:relative}
+.rev-card::before{content:'◆';position:absolute;top:-12px;left:28px;width:28px;height:28px;background:var(--coral);color:var(--sea);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px}
+.rev-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(6,78,59,.14);border-color:var(--coral)}
+.rev-stars{color:var(--coral-d);margin-bottom:12px;letter-spacing:2px;padding-top:8px}
+.rev-text{font-family:'Marcellus',serif;font-style:italic;font-size:1.02rem;color:var(--ink);line-height:1.65;margin-bottom:20px}
+.rev-author{font-family:'Questrial',sans-serif;font-size:11px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;color:var(--sea)}
+.rev-time{font-family:'Questrial',sans-serif;font-size:10px;color:var(--mute);margin-top:3px;letter-spacing:.5px}
+/* INFO */
+.info{background:var(--sand)}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.info-col h3.hd{font-size:2.3rem;margin-bottom:12px;text-align:left}
+.info-col .sub{margin-bottom:28px;max-width:none;text-align:left}
+.info-col .tag{text-align:left}
+.hours-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dotted var(--line);font-size:.95rem}
+.hours-day{font-family:'Marcellus',serif;color:var(--sea);font-size:1.05rem}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums}
+.contact{margin-top:28px}
+.contact h4{font-family:'Questrial',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--coral-d);font-weight:400;margin-bottom:6px}
+.contact p,.contact a{font-family:'Marcellus',serif;font-size:1.25rem;color:var(--sea);text-decoration:none;line-height:1.5}
+.contact a:hover{color:var(--coral-d)}
+.map-wrap{border-radius:8px;overflow:hidden;box-shadow:0 30px 60px rgba(6,78,59,.2);aspect-ratio:4/5}
+.map-wrap iframe{width:100%;height:100%;border:none;filter:saturate(.85)}
+footer{background:var(--sea-d);color:rgba(254,252,232,.75);padding:52px 44px 28px;text-align:center}
+.foot-logo{font-family:'Marcellus',serif;font-size:1.9rem;color:var(--sand);margin-bottom:12px;letter-spacing:.04em}
+.foot-logo span{color:var(--coral-l)}
+.foot-meta{font-family:'Questrial',sans-serif;font-size:.88rem;margin-bottom:20px}
+.foot-copy{font-family:'Questrial',sans-serif;font-size:11px;letter-spacing:1.5px;color:rgba(254,252,232,.45);padding-top:18px;border-top:1px solid rgba(251,146,60,.2);margin-top:18px}
+.foot-copy a{color:var(--coral-l);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa:hover{transform:scale(1.08)}.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    nav{padding:14px 22px}.nav-links{display:none}section{padding:70px 22px}
+    .hero-inner{padding:120px 22px 70px}
+    .hero-meta{flex-direction:column;gap:1px}
+    .hm{min-width:auto}
+    .double-grid{grid-template-columns:1fr}
+    .menu-grid{grid-template-columns:1fr}
+    .tr-grid,.info-grid{grid-template-columns:1fr;gap:36px}
+    .rev-grid{grid-template-columns:1fr}
+    .tramonto{padding:80px 22px}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle"><button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button></div>
+<nav id="mainNav"><a href="#" class="nav-logo">Nau<span>sicaa</span></a>
+    <ul class="nav-links"><li><a href="#double"><span class="t-it">Lido &amp; Ristorante</span><span class="t-en">Beach &amp; Restaurant</span></a></li><li><a href="#menu">Menu</a></li><li><a href="#tramonto"><span class="t-it">Tramonto</span><span class="t-en">Sunset</span></a></li><li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li><li><a href="#info">Info</a></li></ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80" alt="Tramonto Scalea"></div>
+    <div class="hero-inner">
+        <div class="hero-kicker"><span class="t-it">Scalea · SS18 km 262 · Sul mare</span><span class="t-en">Scalea · SS18 km 262 · On the sea</span></div>
+        <h1>Nausic<em>aa</em>.</h1>
+        <p class="hero-tag t-it">Stabilimento balneare e ristorante praticamente sulla spiaggia. Il pesce più buono della Riviera dei Cedri, piatti originali frutto di uno studio sugli accostamenti.</p>
+        <p class="hero-tag t-en">Beach club and restaurant practically on the sand. The finest fish of the Riviera dei Cedri, original dishes born from a study of pairings.</p>
+        <div class="hero-meta">
+            <div class="hm"><span class="hm-v">4.5</span><span class="hm-l">Google ★</span></div>
+            <div class="hm"><span class="hm-v">409</span><span class="hm-l"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+            <div class="hm"><span class="hm-v">€€€</span><span class="hm-l"><span class="t-it">Livello</span><span class="t-en">Tier</span></span></div>
+        </div>
+        <div>
+            <a href="https://wa.me/393385652239?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20al%20Nausicaa" target="_blank" rel="noopener" class="btn btn-coral"><span class="t-it">Prenota per il tramonto</span><span class="t-en">Book for sunset</span></a>
+            <a href="#menu" class="btn btn-ghost">Menu</a>
+        </div>
+    </div>
+</section>
+
+<section class="double" id="double">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Due anime, un mare</span><span class="t-en">Two souls, one sea</span></div>
+            <h2 class="hd t-it">Lido &amp; <em>Ristorante</em>.</h2>
+            <h2 class="hd t-en">Beach &amp; <em>Restaurant</em>.</h2>
+            <p class="sub t-it">Dalla mattina, lo stabilimento ti accoglie sulla spiaggia. A pranzo e cena, il ristorante serve il pesce più buono della costa.</p>
+            <p class="sub t-en">From morning, the beach club welcomes you on the sand. At lunch and dinner, the restaurant serves the finest fish on the coast.</p>
+        </div>
+        <div class="double-grid">
+            <div class="dp">
+                <div class="dp-ico">☀</div>
+                <div class="dp-tag"><span class="t-it">Lo stabilimento</span><span class="t-en">The beach club</span></div>
+                <h3><span class="t-it">Il <em>lido</em></span><span class="t-en">The <em>beach club</em></span></h3>
+                <p class="t-it">Lettini, ombrelloni, aperitivo in riva, musica di classe e mai invadente. Uno spazio curato dove passare la giornata, dal caffè mattutino al tramonto.</p>
+                <p class="t-en">Sunbeds, umbrellas, aperitivo on the shore, music classy and never intrusive. A curated space for your whole day — from morning coffee to sunset.</p>
+                <ul class="dp-list">
+                    <li><span class="t-it">Ombrelloni e lettini · dalle 8:30</span><span class="t-en">Umbrellas &amp; sunbeds · from 8:30am</span></li>
+                    <li><span class="t-it">Doccia calda, servizi impeccabili</span><span class="t-en">Hot showers, impeccable facilities</span></li>
+                    <li><span class="t-it">Aperitivo al tramonto · dalle 18</span><span class="t-en">Sunset aperitivo · from 6pm</span></li>
+                </ul>
+            </div>
+            <div class="dp">
+                <div class="dp-ico">🍴</div>
+                <div class="dp-tag"><span class="t-it">Il ristorante</span><span class="t-en">The restaurant</span></div>
+                <h3><span class="t-it">La <em>cucina</em></span><span class="t-en">The <em>kitchen</em></span></h3>
+                <p class="t-it">Il pesce più buono della Riviera dei Cedri. Antipasti favolosi cucinati con cura e originalità. Piatti <em>fuori menu</em> su richiesta — ci accontentano sempre.</p>
+                <p class="t-en">The finest fish of the Riviera dei Cedri. Fabulous starters cooked with care and originality. <em>Off-menu</em> dishes on request — we always make it work.</p>
+                <ul class="dp-list">
+                    <li><span class="t-it">Pranzo e cena tutti i giorni</span><span class="t-en">Lunch &amp; dinner every day</span></li>
+                    <li><span class="t-it">Piatti di pesce studiati sugli accostamenti</span><span class="t-en">Seafood with curated pairings</span></li>
+                    <li><span class="t-it">Ottimo rapporto qualità-prezzo</span><span class="t-en">Excellent quality/price</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Il menu</span><span class="t-en">The menu</span></div>
+            <h2 class="hd t-it">Piatti <em>studiati</em>.</h2>
+            <h2 class="hd t-en">Curated <em>plates</em>.</h2>
+            <p class="sub t-it">Menu di mare con pescato del giorno. Porzioni generose, prezzi onesti, originalità in ogni piatto.</p>
+            <p class="sub t-en">Seafood menu with the daily catch. Generous portions, fair prices, originality in each dish.</p>
+        </div>
+        <div class="menu-grid">
+            <div class="mi">
+                <div class="mi-wave"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2,12 Q6,8 10,12 T18,12 T26,12 L26,16 L2,16 Z"/></svg></div>
+                <div class="mi-body"><div class="mi-cat"><span class="t-it">Antipasto</span><span class="t-en">Starter</span></div>
+                    <h4><span class="t-it">Crudo <em>di mare</em></span><span class="t-en"><em>Raw</em> seafood</span></h4>
+                    <p class="t-it">Tartare di ricciola, gamberi rossi, ostriche del giorno, agrumi calabresi.</p>
+                    <p class="t-en">Amberjack tartare, red prawns, oysters of the day, Calabrian citrus.</p>
+                </div><div class="mi-price">€24</div>
+            </div>
+            <div class="mi">
+                <div class="mi-wave"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2,10 Q6,6 10,10 T18,10 T26,10 L26,18 Q22,14 18,18 T10,18 T2,18 Z"/></svg></div>
+                <div class="mi-body"><div class="mi-cat"><span class="t-it">Primo · Firma</span><span class="t-en">First · Signature</span></div>
+                    <h4><span class="t-it">Spaghettoni <em>ricci e menta</em></span><span class="t-en">Urchin <em>&amp; mint</em> spaghettoni</span></h4>
+                    <p class="t-it">Pasta di Gragnano, ricci di Diamante, menta fresca, scorza di limone.</p>
+                    <p class="t-en">Gragnano pasta, Diamante urchins, fresh mint, lemon zest.</p>
+                </div><div class="mi-price">€22</div>
+            </div>
+            <div class="mi">
+                <div class="mi-wave"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2,12 L26,12 L26,16 L2,16 Z M6,12 Q8,8 10,12 M12,12 Q14,8 16,12 M18,12 Q20,8 22,12"/></svg></div>
+                <div class="mi-body"><div class="mi-cat"><span class="t-it">Primo</span><span class="t-en">First</span></div>
+                    <h4><span class="t-it">Risotto <em>al nero</em></span><span class="t-en"><em>Squid-ink</em> risotto</span></h4>
+                    <p class="t-it">Carnaroli, nero di seppia, calamaretti spillo, cipollotto.</p>
+                    <p class="t-en">Carnaroli rice, squid ink, baby calamari, spring onion.</p>
+                </div><div class="mi-price">€20</div>
+            </div>
+            <div class="mi">
+                <div class="mi-wave"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2,14 Q6,10 10,14 T18,14 T26,14 M2,18 Q6,14 10,18 T18,18 T26,18"/></svg></div>
+                <div class="mi-body"><div class="mi-cat"><span class="t-it">Secondo</span><span class="t-en">Main</span></div>
+                    <h4><span class="t-it">Pescato <em>al sale</em></span><span class="t-en">Fish <em>in salt crust</em></span></h4>
+                    <p class="t-it">Intero cotto in crosta, patate al rosmarino, verdure dell'orto.</p>
+                    <p class="t-en">Whole in salt crust, rosemary potatoes, garden vegetables.</p>
+                </div><div class="mi-price">€45/kg</div>
+            </div>
+            <div class="mi">
+                <div class="mi-wave"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="10" r="2"/><circle cx="14" cy="8" r="1.5"/><circle cx="18" cy="12" r="2"/><path d="M2,14 Q14,18 26,14 L26,16 L2,16 Z"/></svg></div>
+                <div class="mi-body"><div class="mi-cat"><span class="t-it">Firma</span><span class="t-en">Signature</span></div>
+                    <h4><span class="t-it">Frittura <em>Nausicaa</em></span><span class="t-en"><em>Nausicaa</em> fry</span></h4>
+                    <p class="t-it">Paranza, calamaretti, gamberi, verdure miste — leggera, asciutta.</p>
+                    <p class="t-en">Paranza, baby squid, prawns, mixed veggies — light, crisp.</p>
+                </div><div class="mi-price">€22</div>
+            </div>
+            <div class="mi">
+                <div class="mi-wave"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4,8 Q8,4 12,8 L20,8 Q22,10 20,12 L6,12 Q4,10 4,8 Z M8,12 L8,18 L16,18 L16,12"/></svg></div>
+                <div class="mi-body"><div class="mi-cat"><span class="t-it">Dolce</span><span class="t-en">Dessert</span></div>
+                    <h4><span class="t-it">Sorbetto <em>al bergamotto</em></span><span class="t-en"><em>Bergamot</em> sorbet</span></h4>
+                    <p class="t-it">Frutto calabrese, cristalli di sale, menta fresca.</p>
+                    <p class="t-en">Calabrian fruit, salt crystals, fresh mint.</p>
+                </div><div class="mi-price">€7</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="tramonto" id="tramonto">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">L'ora dorata</span><span class="t-en">Golden hour</span></div>
+            <h2 class="hd t-it">Cena al <em>tramonto</em>.</h2>
+            <h2 class="hd t-en">Dinner at <em>sunset</em>.</h2>
+            <p class="sub t-it">Quando il sole cala sul Tirreno, la nostra terrazza diventa uno spettacolo. Prenota presto — i tavoli fronte mare vanno subito.</p>
+            <p class="sub t-en">When the sun sets on the Tyrrhenian, our terrace becomes a show. Book early — sea-facing tables go fast.</p>
+        </div>
+        <div class="tr-grid">
+            <div class="tr-media"><img src="nausicaa-photos/tramonto.png" alt="Tramonto al Nausicaa"></div>
+            <div class="tr-body">
+                <p class="t-it"><em>"Ottima struttura ed ottima location, praticamente sulla spiaggia. Il sottofondo musicale era perfetto, di classe e mai invadente. Piatti cucinati sapientemente."</em></p>
+                <p class="t-en"><em>"Great venue and great location, practically on the beach. The background music was perfect — classy and never intrusive. Dishes cooked with skill."</em></p>
+                <div class="tr-hours">
+                    <h5><span class="t-it">Il momento perfetto</span><span class="t-en">The right moment</span></h5>
+                    <p><span class="t-it">Arrivo consigliato: <em>19:30</em></span><span class="t-en">Recommended arrival: <em>7:30pm</em></span></p>
+                    <div class="tr-hours-sub"><span class="t-it">Aperitivo, tavolo fronte mare, tramonto incluso</span><span class="t-en">Aperitivo, sea-facing table, sunset included</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Le voci dalla spiaggia</span><span class="t-en">Voices from the beach</span></div>
+            <h2 class="hd t-it">409 voci <em>dal mare</em>.</h2>
+            <h2 class="hd t-en">409 voices <em>from the sea</em>.</h2>
+        </div>
+        <div class="rev-band">
+            <div class="rb-i"><div class="rb-v">4.5</div><div class="rb-l">Google ★</div></div>
+            <div class="rb-i"><div class="rb-v">409</div><div class="rb-l"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></div></div>
+            <div class="rb-i"><div class="rb-v">€€€</div><div class="rb-l"><span class="t-it">Raffinato</span><span class="t-en">Refined</span></div></div>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Il pesce più buono di tutta la Riviera dei Cedri. Se capitate a Scalea e volete ottimizzare la vacanza anche dal punto di vista della soddisfazione del palato — con un ottimo rapporto qualità-prezzo e porzioni generose.</p>
+                <p class="rev-text t-en">The finest fish on the entire Riviera dei Cedri. If you're in Scalea and want to optimise your holiday also by palate — with excellent value and generous portions.</p>
+                <div class="rev-author">Danilo Di Donna</div><div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Incantevole! Il posto e tutto il resto. Antipasti favolosi cucinati con cura e originalità. Gentilezza fin dalla prenotazione. Abbiamo chiesto un risotto fuori menù e ci hanno accontentato.</p>
+                <p class="rev-text t-en">Enchanting! The place and everything else. Fabulous starters cooked with care and originality. Kindness from the first call. We asked for an off-menu risotto — they made it for us.</p>
+                <div class="rev-author">Antonio Di Cino</div><div class="rev-time"><span class="t-it">6 mesi fa · Google</span><span class="t-en">6 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Bellissima struttura sul mare dove gustare ottimi piatti di pesce. Una differenza che ho notato: hanno piatti più particolari, frutto di uno "studio" sugli accostamenti di sapori.</p>
+                <p class="rev-text t-en">Beautiful sea-side venue to enjoy excellent fish dishes. Something distinctive I noticed: more unusual dishes, fruit of a real "study" of flavour pairings.</p>
+                <div class="rev-author">Rosa Maria Gaetano</div><div class="rev-time"><span class="t-it">2 anni fa · Google</span><span class="t-en">2 years ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap"><div class="info-grid">
+        <div class="info-col">
+            <div class="tag"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></div>
+            <h3 class="hd t-it">SS18 km 262,<br>sulla <em>costa</em>.</h3>
+            <h3 class="hd t-en">SS18 km 262,<br>on the <em>coast</em>.</h3>
+            <p class="sub t-it">Aperti tutti i giorni, dalle 8:30 fino a tarda notte. Ombrelloni al mattino, cena al tramonto.</p>
+            <p class="sub t-en">Open every day, from 8:30am till late. Umbrellas in the morning, dinner at sunset.</p>
+            <div class="hours-table">
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Mon</span></span><span class="hours-time">08:30—00:30</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tue</span></span><span class="hours-time">08:30—00:30</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wed</span></span><span class="hours-time">08:30—00:30</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thu</span></span><span class="hours-time">08:30—00:30</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Fri</span></span><span class="hours-time">08:30—00:30</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Sat</span></span><span class="hours-time">08:30—00:30</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sun</span></span><span class="hours-time">08:30—00:30</span></div>
+            </div>
+            <div class="contact"><h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4><p>Corso Mediterraneo, SS 18 km 262<br>87029 Scalea (CS)</p></div>
+            <div class="contact"><h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4><a href="tel:+393385652239">+39 338 565 2239</a></div>
+        </div>
+        <div class="map-wrap"><iframe src="https://www.google.com/maps?q=Nausicaa+Stabilimento+Scalea&output=embed" loading="lazy" title="Nausicaa"></iframe></div>
+    </div></div>
+</section>
+
+<footer>
+    <div class="foot-logo">Nau<span>sicaa</span></div>
+    <div class="foot-meta">SS18 km 262 · 87029 Scalea (CS) · +39 338 565 2239</div>
+    <div class="foot-copy">&copy; 2026 Ristorante Nausicaa · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/393385652239" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>
+function setLang(l){document.body.classList.toggle('lang-en', l==='en');document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));}
+addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+</script>
+</body></html>

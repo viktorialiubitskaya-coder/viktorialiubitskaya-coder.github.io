@@ -1,0 +1,364 @@
+<!-- v3 -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ristorante Vigrì — Scalea · Cucina di mare nel centro storico</title>
+<meta name="description" content="Ristorante Vigrì a Scalea: cucina di mare, ambiente raffinato sotto la rocca del centro storico. Dal 1028 recensioni, ★4.1. Via Napoleone 11.">
+<meta property="og:title" content="Ristorante Vigrì — Scalea">
+<meta property="og:type" content="restaurant.restaurant">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Ristorante Vigrì","servesCuisine":["Italian","Seafood","Mediterranean"],"address":{"@type":"PostalAddress","streetAddress":"Via Napoleone, 11","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+390985270235","priceRange":"€€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.1","reviewCount":"1028"},"geo":{"@type":"GeoCoordinates","latitude":39.8162991,"longitude":15.7883188},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"12:30","closes":"14:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"20:00","closes":"22:30"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0E1A2B;--navy-2:#152840;--ivory:#FAF8F2;--paper:#F3EFE4;--gold:#B89550;--gold-l:#D4B472;--ink:#1C1C1C;--mute:#6E6A62;--line:rgba(14,26,43,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',sans-serif;color:var(--ink);background:var(--ivory);line-height:1.6;overflow-x:hidden}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}
+body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600;letter-spacing:-.01em}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:22px 40px;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
+nav.scrolled{background:rgba(14,26,43,.96);padding:14px 40px;backdrop-filter:blur(12px)}
+.nav-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--ivory);text-decoration:none;letter-spacing:.01em}
+.nav-logo em{color:var(--gold-l)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:rgba(250,248,242,.72);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--gold-l)}
+.lang-toggle{position:fixed;top:20px;right:20px;z-index:100;display:flex;gap:2px;background:rgba(14,26,43,.9);padding:3px;border-radius:100px}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(250,248,242,.55);font-size:11px;font-weight:600;letter-spacing:1.5px;cursor:pointer;border-radius:100px;transition:all .25s}
+.lang-btn.active{background:var(--gold);color:var(--navy)}
+/* HERO fullscreen cinematic */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--navy);color:var(--ivory);overflow:hidden;padding:140px 40px 100px;text-align:center}
+.hero-media{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover;animation:kenburns 25s ease-in-out infinite alternate}
+@keyframes kenburns{0%{transform:scale(1.08) translate(-1%,-1%)}100%{transform:scale(1.18) translate(1%,1%)}}
+.hero-media::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.6) 50%,rgba(0,0,0,.75) 100%)}
+.hero-text{position:relative;z-index:2;max-width:860px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:0;text-shadow:0 2px 16px rgba(0,0,0,.5)}
+.hero-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-l);margin-bottom:26px;display:inline-flex;align-items:center;gap:12px;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.hero-tag::before,.hero-tag::after{content:'';width:34px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(4.2rem,9vw,8rem);line-height:.95;color:#fff;margin-bottom:22px;font-weight:400;font-style:italic;text-shadow:0 4px 24px rgba(0,0,0,.55)}
+.hero h1 em{color:var(--gold-l);font-style:italic;font-weight:700}
+.hero-lead{font-size:clamp(1.1rem,1.5vw,1.3rem);color:rgba(255,255,255,.94);margin-bottom:40px;max-width:620px;line-height:1.55;font-weight:300;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.hero-meta{display:flex;gap:44px;padding:26px 0;border-top:1px solid rgba(212,180,114,.4);border-bottom:1px solid rgba(212,180,114,.4);margin-bottom:38px;justify-content:center;flex-wrap:wrap}
+.hero-meta .meta-i{align-items:center}
+.meta-i{display:flex;flex-direction:column}
+.meta-v{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold-l);font-style:italic;line-height:1}
+.meta-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,248,242,.55);margin-top:5px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;transition:all .3s;border:none;cursor:pointer}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:var(--gold-l);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ivory);border:1px solid rgba(250,248,242,.4);margin-left:12px}
+.btn-ghost:hover{border-color:var(--gold-l);color:var(--gold-l)}
+section{padding:100px 40px}
+.wrap{max-width:1180px;margin:0 auto}
+.sec-head{text-align:center;max-width:680px;margin:0 auto 60px}
+.kicker{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
+.kicker::before{content:'— ';color:var(--gold)}
+h2.sec-title{font-size:clamp(2rem,4vw,3rem);color:var(--navy);font-weight:400;font-style:italic;line-height:1.1;margin-bottom:18px}
+h2.sec-title em{font-weight:700;color:var(--gold);font-style:normal}
+.sec-desc{font-size:1.05rem;color:var(--mute);line-height:1.7}
+/* STORIA */
+.storia{background:var(--paper)}
+.storia-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
+.storia-img{aspect-ratio:4/5;overflow:hidden;border-radius:2px;box-shadow:0 30px 60px rgba(14,26,43,.18)}
+.storia-img img{width:100%;height:100%;object-fit:cover;filter:sepia(10%)}
+.storia-body p{font-size:1.05rem;color:var(--ink);line-height:1.8;margin-bottom:20px}
+.storia-body p:first-of-type::first-letter{font-family:'Playfair Display',serif;font-size:4.5rem;font-style:italic;color:var(--gold);float:left;line-height:.9;padding:8px 14px 0 0}
+.storia-sign{display:flex;align-items:center;gap:16px;margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
+.storia-sign-name{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;color:var(--navy)}
+.storia-sign-role{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+/* MENU asymmetric */
+.menu{background:var(--ivory)}
+.menu-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:40px}
+.menu-card{padding:28px;background:#fff;border:1px solid var(--line);transition:all .35s;position:relative;overflow:visible;min-width:280px;display:flex;flex-direction:column}
+.menu-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 20px 40px rgba(14,26,43,.1)}
+.menu-card.c1{grid-column:span 5;grid-row:span 2}
+.menu-card.c2{grid-column:span 7}
+.menu-card.c3{grid-column:span 7}
+.menu-card.c4{grid-column:span 5}
+.menu-card.c5{grid-column:1 / span 7}
+.menu-card.c6{grid-column:8 / span 5}
+.menu-card p{word-break:normal;overflow-wrap:break-word;hyphens:none}
+.menu-card-cat{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+.menu-card h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;font-style:italic;color:var(--navy);margin-bottom:8px;line-height:1.2}
+.menu-card h3 em{font-weight:700;font-style:normal;color:var(--gold)}
+.menu-card p{font-size:.92rem;color:var(--mute);margin-bottom:14px;line-height:1.55}
+.menu-price{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);font-style:italic}
+.menu-card.c1{background:var(--navy);color:var(--ivory);border-color:var(--navy)}
+.menu-card.c1 .menu-card-cat{color:var(--gold-l)}
+.menu-card.c1 h3{color:var(--ivory)}
+.menu-card.c1 h3 em{color:var(--gold-l)}
+.menu-card.c1 p{color:rgba(250,248,242,.7)}
+.menu-card.c1 .menu-price{color:var(--gold-l)}
+/* REVIEWS */
+.reviews{background:var(--navy);color:var(--ivory)}
+.reviews .sec-title{color:var(--ivory)}
+.reviews .sec-title em{color:var(--gold-l);font-style:italic;font-weight:400}
+.reviews .sec-desc{color:rgba(250,248,242,.7)}
+.reviews .kicker{color:var(--gold-l)}
+.rev-stat{display:flex;justify-content:center;gap:60px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(212,180,114,.2)}
+.rev-stat-i{text-align:center}
+.rev-stat-v{font-family:'Playfair Display',serif;font-size:3.5rem;color:var(--gold-l);font-style:italic;line-height:1}
+.rev-stat-l{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(250,248,242,.5);margin-top:8px}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rev-card{padding:32px 28px;background:rgba(250,248,242,.04);border:1px solid rgba(212,180,114,.2);border-radius:2px;transition:all .3s}
+.rev-card:hover{background:rgba(250,248,242,.07);border-color:var(--gold)}
+.rev-stars{color:var(--gold-l);margin-bottom:14px;font-size:.95rem;letter-spacing:2px}
+.rev-text{font-family:'Playfair Display',serif;font-style:italic;font-size:1.02rem;line-height:1.65;color:rgba(250,248,242,.92);margin-bottom:18px}
+.rev-text::before{content:'"';color:var(--gold);font-size:2.5rem;line-height:0;vertical-align:-.3em;margin-right:2px}
+.rev-author{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-l)}
+.rev-time{font-size:10px;color:rgba(250,248,242,.45);margin-top:2px}
+/* HOURS */
+.info{background:var(--paper)}
+.info-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px}
+.info-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-style:italic;color:var(--navy);font-weight:400;margin-bottom:8px}
+.info-title em{font-weight:700;color:var(--gold);font-style:normal}
+.info-sub{font-size:.95rem;color:var(--mute);margin-bottom:32px}
+.hours-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dotted var(--line);font-size:.95rem}
+.hours-day{color:var(--navy);font-weight:500}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums}
+.hours-row.closed .hours-time{color:var(--gold);font-style:italic}
+.contact-block{margin-top:28px}
+.contact-block h4{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:600}
+.contact-block p,.contact-block a{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--navy);text-decoration:none;line-height:1.5}
+.contact-block a:hover{color:var(--gold)}
+.map-wrap{border-radius:2px;overflow:hidden;box-shadow:0 20px 50px rgba(14,26,43,.18);aspect-ratio:1}
+.map-wrap iframe{width:100%;height:100%;border:none;filter:grayscale(25%)}
+/* FOOTER */
+footer{background:var(--navy);color:rgba(250,248,242,.7);padding:48px 40px 28px;text-align:center}
+.foot-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:1.5rem;color:var(--ivory);margin-bottom:14px}
+.foot-logo em{color:var(--gold-l)}
+.foot-meta{font-size:.88rem;margin-bottom:18px}
+.foot-copy{font-size:11px;letter-spacing:1px;color:rgba(250,248,242,.4);padding-top:18px;border-top:1px solid rgba(212,180,114,.15);margin-top:18px}
+.foot-copy a{color:var(--gold-l);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    .hero{padding:120px 22px 80px}
+    .hero-meta{gap:22px}
+    .storia-grid,.info-grid{grid-template-columns:1fr;gap:36px}
+    .menu-card.c1,.menu-card.c2,.menu-card.c3,.menu-card.c4,.menu-card.c5,.menu-card.c6{grid-column:span 12}
+    .menu-card.c1{grid-row:auto}
+    .rev-grid{grid-template-columns:1fr}
+    .rev-stat{gap:32px;flex-wrap:wrap}
+    nav{padding:16px 20px}
+    .nav-links{display:none}
+    section{padding:60px 24px}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle">
+    <button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+</div>
+<nav id="mainNav">
+    <a href="#" class="nav-logo">Vigr<em>ì</em></a>
+    <ul class="nav-links">
+        <li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li>
+        <li><a href="#contatti"><span class="t-it">Contatti</span><span class="t-en">Contact</span></a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-media">
+        <img src="https://images.unsplash.com/photo-1579684947550-22e945225d9a?w=1200&q=80" alt="Ristorante Vigrì">
+    </div>
+    <div class="hero-text">
+        <div class="hero-tag"><span class="t-it">Scalea · Centro Storico</span><span class="t-en">Scalea · Old Town</span></div>
+        <h1>Vigr<em>ì</em></h1>
+        <p class="hero-lead t-it">Cucina di mare sotto la rocca. Un ristorante raffinato dove il pescato del giorno incontra la tradizione calabrese.</p>
+        <p class="hero-lead t-en">Seafood under the rock. A refined restaurant where the daily catch meets Calabrian tradition.</p>
+        <div class="hero-meta">
+            <div class="meta-i"><span class="meta-v">4.1</span><span class="meta-l">Google ★</span></div>
+            <div class="meta-i"><span class="meta-v">1.028</span><span class="meta-l"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+            <div class="meta-i"><span class="meta-v">€€€</span><span class="meta-l"><span class="t-it">Livello</span><span class="t-en">Tier</span></span></div>
+        </div>
+        <div>
+            <a href="https://wa.me/390985270235?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20al%20Vigr%C3%AC" target="_blank" rel="noopener" class="btn btn-gold"><span class="t-it">Prenota un tavolo</span><span class="t-en">Book a table</span></a>
+            <a href="#menu" class="btn btn-ghost">Menu</a>
+        </div>
+    </div>
+</section>
+
+<section class="storia" id="storia">
+    <div class="wrap">
+        <div class="storia-grid">
+            <div class="storia-img">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Sala del ristorante">
+            </div>
+            <div class="storia-body">
+                <div class="kicker"><span class="t-it">La nostra storia</span><span class="t-en">Our story</span></div>
+                <h2 class="sec-title t-it">Un ristorante <em>incastonato</em><br>nella roccia.</h2>
+                <h2 class="sec-title t-en">A restaurant <em>carved</em><br>into the rock.</h2>
+                <p class="t-it">Vigrì nasce nel cuore di Scalea vecchia, a due passi dal mare. I nostri tavoli si appoggiano alla roccia del centro storico, illuminati da una luce soffusa che rende l'ambiente intimo e accogliente.</p>
+                <p class="t-en">Vigrì was born in the heart of old Scalea, a stone's throw from the sea. Our tables rest against the rock of the historic centre, lit by a soft glow that makes the space intimate and welcoming.</p>
+                <p class="t-it">Lavoriamo solo pesce fresco del Tirreno, pasta artigianale e un menu fisso pensato per raccontare la costa calabrese in cinque portate.</p>
+                <p class="t-en">We work only with fresh Tyrrhenian fish, artisan pasta, and a fixed menu designed to tell the story of the Calabrian coast in five courses.</p>
+                <div class="storia-sign">
+                    <div>
+                        <div class="storia-sign-name">Via Napoleone 11</div>
+                        <div class="storia-sign-role">Scalea · Centro Storico</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="kicker"><span class="t-it">Il menu</span><span class="t-en">The menu</span></div>
+            <h2 class="sec-title t-it">Il <em>pescato</em> del giorno,<br>cucinato a regola d'arte.</h2>
+            <h2 class="sec-title t-en">The <em>daily catch</em>,<br>cooked by the book.</h2>
+            <p class="sec-desc t-it">Menu fisso degustazione o à la carte. Il pesce cambia con la giornata e il mare.</p>
+            <p class="sec-desc t-en">Tasting set menu or à la carte. The fish changes with the day and the sea.</p>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-card c1">
+                <div class="menu-card-cat"><span class="t-it">Menu Degustazione</span><span class="t-en">Tasting Menu</span></div>
+                <h3><span class="t-it">Cinque portate dal <em>Tirreno</em></span><span class="t-en">Five courses from the <em>Tyrrhenian</em></span></h3>
+                <p class="t-it">Antipasto crudo, primo di pesce, secondo di paranza, dolce della casa, caffè offerto.</p>
+                <p class="t-en">Raw appetiser, seafood pasta, fried paranza, house dessert, coffee on us.</p>
+                <span class="menu-price">€45</span>
+            </div>
+            <div class="menu-card c2">
+                <div class="menu-card-cat">Antipasto</div>
+                <h3><span class="t-it">Crudo di <em>mare</em></span><span class="t-en">Raw <em>seafood</em></span></h3>
+                <p class="t-it">Gamberi rossi di Scalea, carpaccio di ricciola, ostriche del giorno.</p>
+                <p class="t-en">Red prawns from Scalea, amberjack carpaccio, oysters of the day.</p>
+                <span class="menu-price">€22</span>
+            </div>
+            <div class="menu-card c3">
+                <div class="menu-card-cat">Primo</div>
+                <h3><span class="t-it">Spaghettino ai <em>frutti di mare</em></span><span class="t-en">Spaghetti with <em>seafood</em></span></h3>
+                <p class="t-it">A regola d'arte — come dicono i clienti.</p>
+                <p class="t-en">By the book — as our guests say.</p>
+                <span class="menu-price">€18</span>
+            </div>
+            <div class="menu-card c4">
+                <div class="menu-card-cat">Secondo</div>
+                <h3><span class="t-it">Frittura di <em>paranza</em></span><span class="t-en">Fried <em>paranza</em></span></h3>
+                <p class="t-it">Pescato misto, farina di grano duro, olio d'oliva.</p>
+                <p class="t-en">Mixed catch, durum wheat flour, olive oil.</p>
+                <span class="menu-price">€20</span>
+            </div>
+            <div class="menu-card c5">
+                <div class="menu-card-cat">Specialità</div>
+                <h3><span class="t-it">Ravioli <em>cernia e limone</em></span><span class="t-en">Grouper &amp; <em>lemon ravioli</em></span></h3>
+                <p class="t-it">Pasta fresca tirata a mano, burro di mare, scorza di limone di Amalfi.</p>
+                <p class="t-en">Fresh hand-pulled pasta, sea butter, Amalfi lemon zest.</p>
+                <span class="menu-price">€19</span>
+            </div>
+            <div class="menu-card c6">
+                <div class="menu-card-cat">Dolce</div>
+                <h3><span class="t-it">Dolce della <em>casa</em></span><span class="t-en">House <em>dessert</em></span></h3>
+                <p class="t-it">Cambia ogni settimana. Chiedi al cameriere.</p>
+                <p class="t-en">Changes weekly. Ask your waiter.</p>
+                <span class="menu-price">€7</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="kicker"><span class="t-it">Le voci degli ospiti</span><span class="t-en">Guest voices</span></div>
+            <h2 class="sec-title t-it">1.028 voci <em>dal Tirreno</em>.</h2>
+            <h2 class="sec-title t-en">1,028 voices <em>from the Tyrrhenian</em>.</h2>
+        </div>
+        <div class="rev-stat">
+            <div class="rev-stat-i"><span class="rev-stat-v">4.1</span><span class="rev-stat-l">Google ★</span></div>
+            <div class="rev-stat-i"><span class="rev-stat-v">1.028</span><span class="rev-stat-l"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+            <div class="rev-stat-i"><span class="rev-stat-v">€€€</span><span class="rev-stat-l"><span class="t-it">Raffinato</span><span class="t-en">Refined</span></span></div>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card">
+                <div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Esperienza molto positiva, ambiente raffinato e curato. Provato il menu fisso, dove abbiamo assaggiato uno spaghettino cucinato a regola d'arte a base di pesce. Buona anche la frittura di paranza.</p>
+                <p class="rev-text t-en">Very positive experience, refined and well-curated atmosphere. Tried the fixed menu — a fish spaghetti cooked by the book. The fried paranza was also excellent.</p>
+                <div class="rev-author">Raffaele Maurotti</div>
+                <div class="rev-time"><span class="t-it">2 mesi fa · Google</span><span class="t-en">2 months ago · Google</span></div>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Ristorante situato sotto una rocca che, unito al buon gusto dell'arredo, lo rende molto suggestivo. Bella l'illuminazione che lo rende rilassante e accogliente. Personale gentile e cordiale.</p>
+                <p class="rev-text t-en">A restaurant set beneath a rock — combined with the tasteful furnishing, it's truly evocative. Beautiful lighting, relaxing and welcoming. Polite, cordial staff.</p>
+                <div class="rev-author">Roberto</div>
+                <div class="rev-time"><span class="t-it">8 mesi fa · Google</span><span class="t-en">8 months ago · Google</span></div>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">★ ★ ★ ★</div>
+                <p class="rev-text t-it">Cotoletta per i bambini buona, camerieri molto gentili, frittura e antipasto buoni. Location a due passi dal centro, davvero carina con i tavoli incastrati nella roccia.</p>
+                <p class="rev-text t-en">Good cutlets for the kids, very kind waiters, excellent fried dishes and starters. Lovely location near the centre, tables nestled in the rock.</p>
+                <div class="rev-author">Francesca</div>
+                <div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="contatti">
+    <div class="wrap">
+        <div class="info-grid">
+            <div>
+                <div class="kicker"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></div>
+                <h3 class="info-title t-it">Ti aspettiamo in <em>Via Napoleone</em>.</h3>
+                <h3 class="info-title t-en">We await you on <em>Via Napoleone</em>.</h3>
+                <p class="info-sub t-it">Prenota un tavolo con un messaggio su WhatsApp.</p>
+                <p class="info-sub t-en">Book a table with a WhatsApp message.</p>
+                <div class="hours-table">
+                    <div class="hours-row closed"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Monday</span></span><span class="hours-time">12:00—17:00</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tuesday</span></span><span class="hours-time">12:30—14:30 · 20:00—22:30</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wednesday</span></span><span class="hours-time">12:30—14:30 · 20:00—22:30</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thursday</span></span><span class="hours-time">12:30—14:30 · 20:00—22:30</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Friday</span></span><span class="hours-time">12:30—14:30 · 20:00—22:30</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Saturday</span></span><span class="hours-time">12:30—14:30 · 20:00—22:30</span></div>
+                    <div class="hours-row closed"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sunday</span></span><span class="hours-time t-it">Chiuso</span><span class="hours-time t-en">Closed</span></div>
+                </div>
+                <div class="contact-block">
+                    <h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4>
+                    <p>Via Napoleone, 11<br>87029 Scalea (CS)</p>
+                </div>
+                <div class="contact-block">
+                    <h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4>
+                    <a href="tel:+390985270235">+39 0985 270235</a>
+                </div>
+            </div>
+            <div class="map-wrap">
+                <iframe src="https://www.google.com/maps?q=Ristorante+Vigri+Scalea&output=embed" loading="lazy" title="Ristorante Vigrì"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="foot-logo">Vigr<em>ì</em></div>
+    <div class="foot-meta">Via Napoleone, 11 · 87029 Scalea (CS) · +39 0985 270235</div>
+    <div class="foot-copy">&copy; 2026 Ristorante Vigrì · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/390985270235" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script>
+function setLang(l){
+    document.body.classList.toggle('lang-en', l==='en');
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+}
+const nav=document.getElementById('mainNav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+</script>
+</body>
+</html>

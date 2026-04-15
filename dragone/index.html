@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizzeria il Dragone — Scalea · Pinsa romana e pizza</title>
+<meta name="description" content="Pizzeria il Dragone a Scalea: specializzati in pinsa romana soffice, impasto leggero, ingredienti di qualità. ★4.4 · 324 recensioni. Corso Mediterraneo 60.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Pizzeria il Dragone","servesCuisine":["Italian","Pizza","Pinsa"],"address":{"@type":"PostalAddress","streetAddress":"Corso Mediterraneo, 60","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+393497068898","priceRange":"€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.4","reviewCount":"324"},"geo":{"@type":"GeoCoordinates","latitude":39.8121,"longitude":15.7896351}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Righteous&family=DM+Sans:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--dragon:#B91C1C;--dragon-d:#8F1212;--dragon-l:#DC3838;--black:#0F0F0F;--black-2:#1A1A1A;--gold:#F59E0B;--gold-l:#FBB040;--gold-d:#C67806;--white:#FFFFFF;--cream:#FFF9F2;--ink:#0F0F0F;--mute:#6B6B6B;--line:rgba(15,15,15,.1)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--white);line-height:1.55;overflow-x:hidden}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+.display,h1,h2,h3,h4{font-family:'Righteous',cursive;font-weight:400;letter-spacing:.005em;line-height:.95}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:18px 36px;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+nav.scrolled{background:var(--black);padding:12px 36px;border-bottom:2px solid var(--dragon)}
+.nav-logo{font-family:'Righteous',cursive;font-size:1.5rem;color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px;letter-spacing:.02em;text-transform:uppercase}
+.nav-logo::before{content:'🐉';font-size:1.4rem}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.78);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--gold-l)}
+.lang-toggle{position:fixed;top:18px;right:18px;z-index:100;display:flex;gap:2px;background:var(--black);padding:3px;border-radius:100px;border:2px solid var(--dragon)}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(255,255,255,.6);font-size:11px;font-weight:700;letter-spacing:1.5px;cursor:pointer;border-radius:100px;transition:all .25s}
+.lang-btn.active{background:var(--dragon);color:#fff}
+/* HERO w/ animated flames */
+.hero{position:relative;min-height:100vh;background:var(--black);color:#fff;overflow:hidden;display:flex;align-items:center;padding:120px 36px 60px}
+.hero::before{content:'';position:absolute;bottom:-20%;left:-10%;right:-10%;height:80%;background:radial-gradient(ellipse at 30% 100%,rgba(185,28,28,.55) 0%,transparent 55%),radial-gradient(ellipse at 70% 100%,rgba(245,158,11,.4) 0%,transparent 55%),radial-gradient(ellipse at 50% 100%,rgba(220,56,56,.3) 0%,transparent 60%);filter:blur(30px);animation:flame-dance 4s ease-in-out infinite alternate;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-10%;left:-5%;right:-5%;height:60%;background:radial-gradient(ellipse at 50% 100%,rgba(245,158,11,.35) 0%,transparent 55%);filter:blur(40px);animation:flame-dance2 2.8s ease-in-out infinite alternate;pointer-events:none}
+@keyframes flame-dance{0%,100%{opacity:.8;transform:scaleY(1) scaleX(1)}50%{opacity:1;transform:scaleY(1.08) scaleX(.96)}}
+@keyframes flame-dance2{0%,100%{opacity:.6;transform:translateX(-6%) scaleY(.95)}50%{opacity:.9;transform:translateX(6%) scaleY(1.05)}}
+.hero-inner{position:relative;z-index:2;max-width:1300px;margin:0 auto;width:100%;text-align:center}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;padding:8px 20px;background:rgba(185,28,28,.2);border:2px solid var(--dragon);border-radius:100px;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-l);margin-bottom:26px}
+.hero-kicker::before{content:'🔥'}
+.hero h1{font-size:clamp(4rem,14vw,13rem);color:#fff;line-height:.82;letter-spacing:-.02em;margin-bottom:20px;text-shadow:0 4px 40px rgba(185,28,28,.4)}
+.hero h1 em{color:var(--dragon-l);font-style:normal;-webkit-text-stroke:0;background:linear-gradient(180deg,var(--gold-l) 0%,var(--dragon) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+.hero-tag{font-family:'DM Sans',sans-serif;font-size:1.2rem;font-weight:400;max-width:620px;margin:0 auto 36px;color:rgba(255,255,255,.88);line-height:1.5}
+.hero-meta{display:inline-flex;gap:20px;margin-bottom:38px;flex-wrap:wrap;justify-content:center}
+.hm{padding:14px 24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;display:flex;flex-direction:column;min-width:110px;backdrop-filter:blur(10px)}
+.hm-v{font-family:'Righteous',cursive;font-size:1.8rem;color:var(--gold-l);line-height:1}
+.hm-l{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:5px;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s;border:none;cursor:pointer}
+.btn-dragon{background:linear-gradient(135deg,var(--dragon) 0%,var(--gold) 100%);color:#fff;box-shadow:0 14px 30px rgba(185,28,28,.5)}
+.btn-dragon:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(185,28,28,.65)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);margin-left:10px}
+.btn-outline:hover{border-color:var(--gold-l);color:var(--gold-l)}
+/* COUNTER */
+.counter-band{background:var(--dragon);color:#fff;padding:44px 36px;text-align:center;position:relative;overflow:hidden}
+.counter-band::before{content:'🔥🐉🔥🐉🔥🐉🔥🐉🔥🐉';position:absolute;inset:0;font-size:8rem;opacity:.05;display:flex;align-items:center;justify-content:center;pointer-events:none;overflow:hidden}
+.counter-row{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.ci{text-align:center}
+.ci-v{font-family:'Righteous',cursive;font-size:clamp(3rem,6vw,4.5rem);color:var(--gold-l);line-height:1;margin-bottom:8px}
+.ci-l{font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.88);font-weight:700}
+section{padding:90px 36px}
+.wrap{max-width:1300px;margin:0 auto}
+.sec-head{max-width:820px;margin:0 auto 52px;text-align:center}
+.tag{display:inline-block;padding:6px 16px;background:var(--black);color:var(--gold-l);font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;border-radius:100px;margin-bottom:16px;font-weight:800}
+h2.hd{font-size:clamp(2.8rem,7vw,5.5rem);color:var(--black);margin-bottom:18px;text-transform:uppercase;line-height:.9}
+h2.hd em{color:var(--dragon);font-style:normal}
+.sub{font-size:1.05rem;color:var(--mute);max-width:680px;margin:0 auto;line-height:1.65}
+/* STORIA */
+.storia{background:var(--cream)}
+.storia-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.storia-media{position:relative}
+.storia-media img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;border:6px solid var(--black);box-shadow:16px 16px 0 var(--dragon)}
+.storia-body p{font-size:1.06rem;margin-bottom:16px;line-height:1.7}
+.storia-body p em{background:var(--gold);padding:2px 8px;font-style:normal;font-weight:700;color:var(--black);border-radius:3px}
+/* MENU 2-col pizza grid */
+.menu{background:var(--white)}
+.pizza-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:44px}
+.pz{display:grid;grid-template-columns:120px 1fr auto;gap:20px;padding:22px;background:var(--cream);border:2px solid var(--black);border-radius:16px;align-items:center;transition:all .25s;position:relative;overflow:hidden}
+.pz::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--dragon);transition:width .25s}
+.pz:hover{transform:translateX(4px);box-shadow:8px 8px 0 var(--dragon)}
+.pz:hover::before{width:12px}
+.pz.feat{background:var(--black);color:#fff;border-color:var(--gold)}
+.pz.feat::before{background:var(--gold)}
+.pz.feat:hover{box-shadow:8px 8px 0 var(--gold)}
+.pz-num{font-family:'Righteous',cursive;font-size:3.5rem;color:var(--dragon);line-height:1;text-align:center;background:var(--white);width:90px;height:90px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:3px solid var(--black)}
+.pz.feat .pz-num{background:var(--dragon);color:#fff;border-color:var(--gold)}
+.pz-body{flex:1}
+.pz-cat{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dragon);font-weight:800;margin-bottom:4px}
+.pz.feat .pz-cat{color:var(--gold-l)}
+.pz h3{font-family:'Righteous',cursive;font-size:1.6rem;color:var(--black);letter-spacing:.01em;margin-bottom:5px;text-transform:uppercase;line-height:1}
+.pz.feat h3{color:var(--gold-l)}
+.pz p{font-size:.9rem;color:var(--mute);line-height:1.5}
+.pz.feat p{color:rgba(255,255,255,.78)}
+.pz-price{font-family:'Righteous',cursive;font-size:2rem;color:var(--black);white-space:nowrap;padding-left:8px}
+.pz-price::before{content:'€';font-size:.55em;vertical-align:top;opacity:.7}
+.pz.feat .pz-price{color:var(--gold-l)}
+/* DELIVERY */
+.delivery{background:linear-gradient(135deg,var(--black) 0%,var(--black-2) 100%);color:#fff;position:relative;overflow:hidden}
+.delivery::before{content:'';position:absolute;top:-50px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(245,158,11,.18) 0%,transparent 70%);border-radius:50%}
+.delivery .hd{color:#fff}.delivery .hd em{color:var(--gold-l)}
+.delivery .sub{color:rgba(255,255,255,.75)}.delivery .tag{background:var(--dragon);color:#fff}
+.del-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:48px;position:relative;z-index:1}
+.del-card{padding:36px 30px;background:rgba(255,255,255,.05);border:1px solid rgba(245,158,11,.25);border-radius:16px;text-align:center;transition:all .3s;backdrop-filter:blur(6px)}
+.del-card:hover{background:rgba(245,158,11,.08);border-color:var(--gold);transform:translateY(-4px)}
+.del-ico{font-size:3rem;margin-bottom:16px;line-height:1}
+.del-card h3{font-family:'Righteous',cursive;font-size:1.6rem;color:var(--gold-l);margin-bottom:8px;text-transform:uppercase;letter-spacing:.02em}
+.del-card p{font-size:.95rem;color:rgba(255,255,255,.8);line-height:1.55}
+.del-card p strong{color:#fff;display:block;margin-top:10px;font-size:.9rem;font-weight:700}
+/* REVIEWS */
+.reviews{background:var(--cream)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.rev-card{padding:30px 26px;background:var(--white);border-radius:16px;border:2px solid var(--black);transition:all .3s;position:relative}
+.rev-card::after{content:'';position:absolute;inset:0;border-radius:16px;background:linear-gradient(135deg,var(--dragon),var(--gold));z-index:-1;opacity:0;transition:opacity .3s;margin:-4px}
+.rev-card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--dragon)}
+.rev-card:nth-child(2):hover{box-shadow:8px 8px 0 var(--gold)}
+.rev-card:nth-child(3):hover{box-shadow:8px 8px 0 var(--black)}
+.rev-stars{color:var(--gold);font-size:1.05rem;letter-spacing:2.5px;margin-bottom:12px}
+.rev-text{font-family:'DM Sans',sans-serif;font-size:.98rem;color:var(--ink);line-height:1.65;margin-bottom:20px}
+.rev-author{font-family:'Righteous',cursive;font-size:1.15rem;color:var(--dragon);letter-spacing:.01em;text-transform:uppercase}
+.rev-time{font-family:'DM Sans',sans-serif;font-size:10px;color:var(--mute);margin-top:3px;letter-spacing:1px;text-transform:uppercase;font-weight:700}
+/* INFO */
+.info{background:var(--white)}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:52px;align-items:start}
+.info-col h3.hd{font-size:2.4rem;margin-bottom:12px}
+.info-col .sub{margin-bottom:28px;text-align:left;margin-left:0}
+.hours-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:2px dotted var(--line);font-size:.95rem;align-items:center}
+.hours-day{font-family:'Righteous',cursive;font-size:1.15rem;color:var(--black);letter-spacing:.03em}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums;font-weight:700}
+.hours-row.closed{background:var(--dragon);padding:10px 14px;margin:0 -14px;border:none;border-radius:8px}
+.hours-row.closed .hours-day,.hours-row.closed .hours-time{color:#fff}
+.contact{margin-top:28px}
+.contact h4{font-family:'Righteous',cursive;font-size:1.2rem;color:var(--dragon);letter-spacing:.04em;margin-bottom:6px;text-transform:uppercase}
+.contact p,.contact a{font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.15rem;color:var(--black);text-decoration:none;line-height:1.5}
+.contact a:hover{color:var(--dragon)}
+.map-wrap{border:4px solid var(--black);border-radius:20px;overflow:hidden;aspect-ratio:4/5;box-shadow:12px 12px 0 var(--gold)}
+.map-wrap iframe{width:100%;height:100%;border:none}
+footer{background:var(--black);color:rgba(255,255,255,.7);padding:46px 36px 26px;text-align:center;border-top:6px solid var(--dragon);position:relative;overflow:hidden}
+footer::before{content:'🐉';position:absolute;bottom:-30px;right:30px;font-size:8rem;opacity:.08;pointer-events:none}
+.foot-logo{font-family:'Righteous',cursive;font-size:2rem;color:var(--gold-l);margin-bottom:12px;letter-spacing:.03em;text-transform:uppercase;position:relative;z-index:1}
+.foot-logo span{color:var(--dragon-l)}
+.foot-meta{font-size:.88rem;margin-bottom:18px}
+.foot-copy{font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.45);padding-top:18px;border-top:1px solid rgba(255,255,255,.1);margin-top:18px}
+.foot-copy a{color:var(--gold-l);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:62px;height:62px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(37,211,102,.5);text-decoration:none;transition:transform .3s;border:3px solid var(--black)}
+.wa:hover{transform:scale(1.08)}.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    nav{padding:12px 20px}.nav-links{display:none}section{padding:60px 20px}
+    .counter-row,.del-grid{grid-template-columns:1fr;gap:24px}
+    .counter-band{padding:40px 20px}
+    .storia-grid,.info-grid{grid-template-columns:1fr;gap:32px}
+    .pizza-grid,.rev-grid{grid-template-columns:1fr}
+    .pz{grid-template-columns:70px 1fr;padding:16px;gap:14px}
+    .pz-num{width:60px;height:60px;font-size:2.2rem}
+    .pz-price{grid-column:1/-1;text-align:right;font-size:1.6rem;padding-left:0}
+    .storia-media img{box-shadow:8px 8px 0 var(--dragon)}
+    .map-wrap{box-shadow:8px 8px 0 var(--gold)}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle"><button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button></div>
+<nav id="mainNav"><a href="#" class="nav-logo">IL DRAGONE</a>
+    <ul class="nav-links"><li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li><li><a href="#menu">Menu</a></li><li><a href="#delivery">Delivery</a></li><li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li><li><a href="#info">Info</a></li></ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-kicker"><span class="t-it">Corso Mediterraneo 60 · Scalea</span><span class="t-en">Corso Mediterraneo 60 · Scalea</span></div>
+        <h1 class="t-it">LA <em>PINSA</em><br>DI SCALEA.</h1>
+        <h1 class="t-en">SCALEA'S<br><em>PINSA</em>.</h1>
+        <p class="hero-tag t-it">Pinsa romana soffice, impasto leggero, ingredienti freschi. Qualità alta, prezzi onesti, gentilezza in sala. Pizzeria, tavola calda, rosticceria.</p>
+        <p class="hero-tag t-en">Soft Roman pinsa, light dough, fresh ingredients. High quality, honest prices, kindness at the table. Pizzeria, hot deli, rotisserie.</p>
+        <div class="hero-meta">
+            <div class="hm"><span class="hm-v">4.4</span><span class="hm-l">Google ★</span></div>
+            <div class="hm"><span class="hm-v">324</span><span class="hm-l"><span class="t-it">Recens.</span><span class="t-en">Reviews</span></span></div>
+            <div class="hm"><span class="hm-v">€</span><span class="hm-l"><span class="t-it">Prezzi onesti</span><span class="t-en">Honest prices</span></span></div>
+            <div class="hm"><span class="hm-v">15'</span><span class="hm-l"><span class="t-it">Delivery</span><span class="t-en">Delivery</span></span></div>
+        </div>
+        <div>
+            <a href="https://wa.me/393497068898?text=Ciao%2C%20vorrei%20ordinare%20da%20Il%20Dragone" target="_blank" rel="noopener" class="btn btn-dragon">🔥 <span class="t-it">Ordina ora</span><span class="t-en">Order now</span></a>
+            <a href="#menu" class="btn btn-outline">Menu</a>
+        </div>
+    </div>
+</section>
+
+<div class="counter-band">
+    <div class="counter-row">
+        <div class="ci"><div class="ci-v">50.000+</div><div class="ci-l"><span class="t-it">Pinse sfornate</span><span class="t-en">Pinsa baked</span></div></div>
+        <div class="ci"><div class="ci-v">24h</div><div class="ci-l"><span class="t-it">Lievitazione</span><span class="t-en">Proofing</span></div></div>
+        <div class="ci"><div class="ci-v">100%</div><div class="ci-l"><span class="t-it">Fatto in casa</span><span class="t-en">House-made</span></div></div>
+    </div>
+</div>
+
+<section class="storia" id="storia">
+    <div class="wrap"><div class="storia-grid">
+        <div class="storia-media"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=900&q=80" alt="Pinsa al Dragone"></div>
+        <div class="storia-body">
+            <span class="tag"><span class="t-it">La nostra storia</span><span class="t-en">Our story</span></span>
+            <h2 class="hd t-it">Non<br>è solo<br><em>pizza</em>.</h2>
+            <h2 class="hd t-en">It's not<br>just<br><em>pizza</em>.</h2>
+            <p class="t-it">Il Dragone è <em>specializzato nella pinsa romana</em>: impasto lievitato 24 ore, soffice dentro e croccante fuori, <em>perfettamente digeribile</em>. Quattro anni di lavoro con Francesco il proprietario e la dolcissima Ivana in sala.</p>
+            <p class="t-en">Il Dragone is <em>specialised in Roman pinsa</em>: dough proofed 24 hours, soft inside and crisp outside, <em>perfectly digestible</em>. Four years of work with owner Francesco and the sweet Ivana serving.</p>
+            <p class="t-it">Il locale è <em>adiacente alla strada</em>, si raggiunge facilmente. Siamo pizzeria, tavola calda, rosticceria — ma il vero plus è la pinsa. L'impasto è <em>spettacolare e leggero</em>. Da provare assolutamente.</p>
+            <p class="t-en">The venue is <em>next to the road</em> — easy to reach. We're pizzeria, hot deli, rotisserie — but the real plus is pinsa. The dough is <em>spectacular and light</em>. A must-try.</p>
+        </div>
+    </div></div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag"><span class="t-it">Il menu</span><span class="t-en">The menu</span></span>
+            <h2 class="hd t-it">LA <em>PINSA</em>.</h2>
+            <h2 class="hd t-en">THE <em>PINSA</em>.</h2>
+            <p class="sub t-it">Grande varietà di scelta, perfettamente digeribili. Pizza classica, tavola calda e rosticceria a parte — questo è il cuore del menu.</p>
+            <p class="sub t-en">Great variety of choices, perfectly digestible. Classic pizza, hot deli and rotisserie apart — this is the heart of the menu.</p>
+        </div>
+        <div class="pizza-grid">
+            <div class="pz feat"><div class="pz-num">01</div>
+                <div class="pz-body"><div class="pz-cat"><span class="t-it">Bestseller</span><span class="t-en">Bestseller</span></div>
+                    <h3>Pinsa Dragone</h3>
+                    <p class="t-it">Mozzarella bufala, 'nduja calabrese, crema di burrata, basilico.</p>
+                    <p class="t-en">Buffalo mozzarella, Calabrian 'nduja, burrata cream, basil.</p>
+                </div><div class="pz-price">12</div>
+            </div>
+            <div class="pz"><div class="pz-num">02</div>
+                <div class="pz-body"><div class="pz-cat"><span class="t-it">Classica</span><span class="t-en">Classic</span></div>
+                    <h3>Pinsa Margherita</h3>
+                    <p class="t-it">San Marzano DOP, fior di latte, basilico, olio EVO.</p>
+                    <p class="t-en">San Marzano DOP, fior di latte, basil, EVO.</p>
+                </div><div class="pz-price">8</div>
+            </div>
+            <div class="pz"><div class="pz-num">03</div>
+                <div class="pz-body"><div class="pz-cat"><span class="t-it">Piccante</span><span class="t-en">Spicy</span></div>
+                    <h3>Pinsa Diavola</h3>
+                    <p class="t-it">Pomodoro, mozzarella, salame piccante, peperoncino.</p>
+                    <p class="t-en">Tomato, mozzarella, spicy salami, chilli.</p>
+                </div><div class="pz-price">10</div>
+            </div>
+            <div class="pz feat"><div class="pz-num">04</div>
+                <div class="pz-body"><div class="pz-cat"><span class="t-it">Specialità</span><span class="t-en">Specialty</span></div>
+                    <h3>Pinsa Ortolana</h3>
+                    <p class="t-it">Zucchine, melanzane, peperoni, pomodorini, olive nere.</p>
+                    <p class="t-en">Courgettes, aubergine, peppers, cherry tomatoes, olives.</p>
+                </div><div class="pz-price">11</div>
+            </div>
+            <div class="pz"><div class="pz-num">05</div>
+                <div class="pz-body"><div class="pz-cat">Pizza</div>
+                    <h3>Pizza Capricciosa</h3>
+                    <p class="t-it">Prosciutto cotto, funghi, carciofi, olive, uovo.</p>
+                    <p class="t-en">Cooked ham, mushrooms, artichokes, olives, egg.</p>
+                </div><div class="pz-price">11</div>
+            </div>
+            <div class="pz"><div class="pz-num">06</div>
+                <div class="pz-body"><div class="pz-cat"><span class="t-it">Tavola calda</span><span class="t-en">Hot deli</span></div>
+                    <h3>Rosticceria</h3>
+                    <p class="t-it">Arancini, crocchè, panzerotti, pizze al taglio.</p>
+                    <p class="t-en">Arancini, crocchè, panzerotti, pizza by the slice.</p>
+                </div><div class="pz-price">2—5</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="delivery" id="delivery">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag">🔥 Delivery</span>
+            <h2 class="hd t-it">La pinsa <em>a casa tua</em>.</h2>
+            <h2 class="hd t-en">Pinsa <em>to your door</em>.</h2>
+            <p class="sub t-it">Consegna rapida a Scalea e dintorni. Ordina su WhatsApp, paga al ritiro.</p>
+            <p class="sub t-en">Quick delivery in Scalea and nearby. Order on WhatsApp, pay on delivery.</p>
+        </div>
+        <div class="del-grid">
+            <div class="del-card">
+                <div class="del-ico">📱</div>
+                <h3><span class="t-it">1 · Ordina</span><span class="t-en">1 · Order</span></h3>
+                <p class="t-it">Mandaci la lista su WhatsApp. Rispondiamo con tempi e totale.</p>
+                <p class="t-en">WhatsApp us the list. We reply with timing and total.</p>
+                <strong>+39 349 706 8898</strong>
+            </div>
+            <div class="del-card">
+                <div class="del-ico">🔥</div>
+                <h3><span class="t-it">2 · Sforniamo</span><span class="t-en">2 · We bake</span></h3>
+                <p class="t-it">Impasto lievitato 24 ore, cotto al momento, consegnato caldo.</p>
+                <p class="t-en">Dough proofed 24h, baked to order, delivered hot.</p>
+                <strong>15—20 min</strong>
+            </div>
+            <div class="del-card">
+                <div class="del-ico">🛵</div>
+                <h3><span class="t-it">3 · Consegna</span><span class="t-en">3 · Delivery</span></h3>
+                <p class="t-it">Consegna gratuita in centro. Fuori Scalea, supplemento di €3.</p>
+                <p class="t-en">Free in centre. Outside Scalea, €3 surcharge.</p>
+                <strong><span class="t-it">Pagamento al ritiro</span><span class="t-en">Pay on delivery</span></strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag">★ 4.4 · 324 Google</span>
+            <h2 class="hd t-it">Voci <em>dal fuoco</em>.</h2>
+            <h2 class="hd t-en">Voices <em>from the fire</em>.</h2>
+            <p class="sub t-it">Estratti da recensioni Google · Corso Mediterraneo 60</p>
+            <p class="sub t-en">Google review excerpts · Corso Mediterraneo 60</p>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Siamo stati al Dragone per provare la pinsa romana, siamo stati molto soddisfatti! Era veramente ottima, leggera e ottimi ingredienti con l'imbarazzo della scelta. Personale molto gentile.</p>
+                <p class="rev-text t-en">We went to Dragone to try Roman pinsa — very satisfied! Truly excellent, light, great ingredients with an abundance of choice. Very kind staff.</p>
+                <div class="rev-author">Clementina Caponigro</div><div class="rev-time"><span class="t-it">8 mesi fa · Google</span><span class="t-en">8 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Siamo clienti abituali di ogni sabato, la pinsa è ogni volta più buona. La qualità è molto elevata a prezzi veramente onesti. Tutto lo staff è davvero gentile — Francesco il proprietario, la dolcissima Ivana.</p>
+                <p class="rev-text t-en">Regulars every Saturday — the pinsa gets better each time. Quality is very high at truly honest prices. The whole staff is so kind — owner Francesco, the sweet Ivana.</p>
+                <div class="rev-author">Luana Laino</div><div class="rev-time"><span class="t-it">5 mesi fa · Google</span><span class="t-en">5 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">È pizzeria, tavola calda, rosticceria — ma il vero plus è la pinsa che è super. Da provare assolutamente. L'impasto è spettacolare e leggero. Facile da raggiungere, adiacente la strada.</p>
+                <p class="rev-text t-en">It's pizzeria, hot deli, rotisserie — but the real plus is the pinsa, which is super. An absolute must. Dough is spectacular and light. Easy to reach, right on the road.</p>
+                <div class="rev-author">Federico Grande</div><div class="rev-time"><span class="t-it">3 anni fa · Google</span><span class="t-en">3 years ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap"><div class="info-grid">
+        <div class="info-col">
+            <span class="tag"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></span>
+            <h3 class="hd t-it">Aperti<br>dal <em>martedì</em>.</h3>
+            <h3 class="hd t-en">Open<br>from <em>Tuesday</em>.</h3>
+            <p class="sub t-it">Lunedì riposo. Da martedì a sabato pranzo e cena. Domenica solo cena.</p>
+            <p class="sub t-en">Monday off. Tue–Sat lunch &amp; dinner. Sunday dinner only.</p>
+            <div class="hours-table">
+                <div class="hours-row closed"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Mon</span></span><span class="hours-time t-it">CHIUSO</span><span class="hours-time t-en">CLOSED</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tue</span></span><span class="hours-time">12:00—23:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wed</span></span><span class="hours-time">12:00—23:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thu</span></span><span class="hours-time">12:00—23:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Fri</span></span><span class="hours-time">12:00—23:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Sat</span></span><span class="hours-time">12:00—23:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sun</span></span><span class="hours-time">18:00—23:00</span></div>
+            </div>
+            <div class="contact"><h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4><p>Corso Mediterraneo, 60<br>87029 Scalea (CS)</p></div>
+            <div class="contact"><h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4><a href="tel:+393497068898">+39 349 706 8898</a></div>
+        </div>
+        <div class="map-wrap"><iframe src="https://www.google.com/maps?q=Pizzeria+il+Dragone+Scalea&output=embed" loading="lazy" title="Il Dragone"></iframe></div>
+    </div></div>
+</section>
+
+<footer>
+    <div class="foot-logo">IL <span>DRAGONE</span></div>
+    <div class="foot-meta">Corso Mediterraneo, 60 · 87029 Scalea (CS) · +39 349 706 8898</div>
+    <div class="foot-copy">&copy; 2026 Pizzeria il Dragone · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/393497068898" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>
+function setLang(l){document.body.classList.toggle('lang-en', l==='en');document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));}
+addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+</script>
+</body></html>

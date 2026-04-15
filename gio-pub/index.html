@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giò Pub — Scalea · Pub terrazza, burger e birre sotto il castello</title>
+<meta name="description" content="Giò Pub a Scalea: terrazza a tre piani sotto il castello, hamburger gourmet con specialità locali, birre alla spina. ★4.4 · 624 recensioni. Via Vittorio Emanuele III 55.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Giò Pub","servesCuisine":["Italian","Pub","Burger"],"address":{"@type":"PostalAddress","streetAddress":"Via Vittorio Emanuele III, 55","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+393382995641","priceRange":"€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.4","reviewCount":"624"},"geo":{"@type":"GeoCoordinates","latitude":39.8160896,"longitude":15.7912349}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--wood:#2C1810;--wood-2:#3D2416;--wood-l:#4A2E1F;--amber:#F59E0B;--amber-d:#D97706;--amber-l:#FCD34D;--foam:#FEF3C7;--foam-d:#FDE68A;--cream:#FFFBEB;--ink:#2C1810;--mute:#78716C;--line:rgba(44,24,16,.14)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Public Sans',sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;overflow-x:hidden}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+h1,h2,h3,h4{font-family:'Bitter',serif;font-weight:700;letter-spacing:-.005em}
+/* wood texture */
+.wood-tex{background-color:var(--wood);background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.14) 0,rgba(0,0,0,.14) 1px,transparent 1px,transparent 80px),repeating-linear-gradient(180deg,rgba(0,0,0,.1) 0,rgba(0,0,0,.1) 1px,transparent 1px,transparent 15px),linear-gradient(135deg,var(--wood) 0%,var(--wood-2) 100%)}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+nav.scrolled{background:var(--wood);padding:12px 40px;border-bottom:3px solid var(--amber)}
+.nav-logo{font-family:'Bitter',serif;font-weight:700;font-size:1.55rem;color:var(--amber);text-decoration:none;letter-spacing:.01em;display:flex;align-items:center;gap:8px}
+.nav-logo::before{content:'🍺';font-size:1.3rem}
+.nav-logo span{color:var(--foam)}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{font-family:'Public Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(254,243,199,.82);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--amber-l)}
+.lang-toggle{position:fixed;top:18px;right:18px;z-index:100;display:flex;gap:2px;background:var(--wood);padding:3px;border:2px solid var(--amber);border-radius:100px}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(254,243,199,.65);font-family:'Public Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;cursor:pointer;border-radius:100px;transition:all .25s}
+.lang-btn.active{background:var(--amber);color:var(--wood)}
+/* HERO wood */
+.hero{position:relative;min-height:100vh;color:var(--foam);overflow:hidden;display:flex;align-items:center;padding:130px 40px 60px}
+.hero.wood-tex::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 50%,rgba(245,158,11,.14) 0%,transparent 60%),radial-gradient(ellipse at 80% 70%,rgba(217,119,6,.1) 0%,transparent 55%);pointer-events:none}
+.hero.wood-tex::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 15% 20%,rgba(0,0,0,.3) 0%,transparent 50%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:1280px;margin:0 auto;width:100%}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;padding:7px 18px;background:rgba(245,158,11,.15);border:1px solid var(--amber);border-radius:100px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--amber-l);margin-bottom:26px}
+.hero-kicker::before{content:'●';color:var(--amber)}
+.hero h1{font-family:'Bitter',serif;font-size:clamp(3.8rem,10vw,8rem);font-weight:700;line-height:.95;color:var(--foam);margin-bottom:18px;letter-spacing:-.02em}
+.hero h1 em{color:var(--amber);font-style:italic;font-weight:400}
+.hero-tag{font-family:'Public Sans',sans-serif;font-size:1.15rem;color:rgba(254,243,199,.85);max-width:500px;margin-bottom:36px;line-height:1.55;font-weight:400}
+.hero-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:36px;max-width:560px}
+.hm{padding:16px 18px;background:rgba(0,0,0,.35);border:1px solid rgba(245,158,11,.3);border-radius:8px;display:flex;flex-direction:column;backdrop-filter:blur(6px)}
+.hm-v{font-family:'Bitter',serif;font-weight:700;font-size:1.9rem;color:var(--amber);line-height:1}
+.hm-l{font-family:'Public Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(254,243,199,.7);margin-top:5px;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;font-family:'Public Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s;border:none;cursor:pointer}
+.btn-amber{background:var(--amber);color:var(--wood);box-shadow:0 14px 28px rgba(245,158,11,.35)}
+.btn-amber:hover{background:var(--amber-l);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--foam);border:2px solid rgba(254,243,199,.4);margin-left:10px}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
+/* beer mug visual */
+.hero-mug{position:relative;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center}
+.hero-mug img{width:100%;height:100%;object-fit:cover;border-radius:6px;filter:saturate(1.05) contrast(1.08);box-shadow:0 30px 60px rgba(0,0,0,.5),inset 0 0 0 4px var(--amber)}
+.hero-mug::before{content:'';position:absolute;top:-24px;left:-24px;right:-24px;bottom:-24px;background:repeating-linear-gradient(0deg,var(--wood-l) 0,var(--wood-l) 8px,var(--wood) 8px,var(--wood) 14px);z-index:-1;border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.hero-mug::after{content:'EST. 2016';position:absolute;bottom:-18px;right:10px;background:var(--amber);color:var(--wood);padding:6px 16px;font-family:'Bitter',serif;font-weight:700;font-size:.85rem;letter-spacing:.1em;border-radius:100px;border:3px solid var(--wood)}
+section{padding:90px 40px}
+.wrap{max-width:1280px;margin:0 auto}
+.sec-head{max-width:760px;margin:0 auto 54px;text-align:center}
+.tag{display:inline-flex;align-items:center;gap:10px;font-family:'Public Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--amber-d);font-weight:700;margin-bottom:14px}
+.tag::before,.tag::after{content:'✦';color:var(--amber);opacity:.7}
+h2.hd{font-family:'Bitter',serif;font-size:clamp(2.4rem,5vw,3.8rem);color:var(--wood);line-height:1.1;margin-bottom:16px;font-weight:700}
+h2.hd em{color:var(--amber-d);font-style:italic;font-weight:400}
+.sub{font-family:'Public Sans',sans-serif;font-size:1.05rem;color:var(--mute);max-width:620px;margin:0 auto;line-height:1.7}
+/* STORIA */
+.storia{background:var(--cream)}
+.storia-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.storia-media{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:8px;border:8px solid var(--wood);box-shadow:14px 14px 0 var(--amber)}
+.storia-media img{width:100%;height:100%;object-fit:cover;filter:sepia(10%) saturate(1.05)}
+.storia-body .tag,.storia-body h2.hd,.storia-body .sub{text-align:left;margin-left:0}
+.storia-body p{font-size:1.05rem;margin-bottom:16px;line-height:1.75;font-weight:400}
+.storia-body p em{color:var(--amber-d);font-style:italic;font-weight:600}
+.storia-quote{font-family:'Bitter',serif;font-style:italic;font-size:1.2rem;color:var(--wood);padding:20px 26px;background:var(--foam);border-left:4px solid var(--amber);margin:26px 0;line-height:1.55;border-radius:0 6px 6px 0}
+/* MENU burger stack */
+.menu{background:var(--foam);position:relative}
+.burger-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.bg{padding:28px 26px;background:var(--cream);border-radius:10px;border:2px solid var(--wood);transition:all .3s;box-shadow:0 8px 0 var(--wood)}
+.bg:hover{transform:translate(-3px,-3px);box-shadow:11px 11px 0 var(--wood)}
+.bg.feat{background:var(--wood);color:var(--foam);border-color:var(--amber);box-shadow:0 8px 0 var(--amber)}
+.bg.feat:hover{box-shadow:11px 11px 0 var(--amber)}
+.bg-img{width:90px;height:90px;margin:0 auto 18px;border-radius:50%;overflow:hidden;border:4px solid var(--amber);box-shadow:0 8px 16px rgba(44,24,16,.18)}
+.bg-img img{width:100%;height:100%;object-fit:cover}
+.bg-name{font-family:'Bitter',serif;font-size:1.5rem;font-weight:700;text-align:center;color:var(--wood);margin-bottom:4px;line-height:1.1}
+.bg.feat .bg-name{color:var(--amber-l)}
+.bg-sub{font-family:'Public Sans',sans-serif;font-size:.8rem;color:var(--amber-d);font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-align:center;margin-bottom:14px}
+.bg.feat .bg-sub{color:var(--foam)}
+.bg-stack{list-style:none;padding:14px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);margin-bottom:16px}
+.bg.feat .bg-stack{border-color:rgba(254,243,199,.2)}
+.bg-stack li{padding:5px 0;font-family:'Public Sans',sans-serif;font-size:.88rem;color:var(--ink);display:flex;align-items:center;gap:8px;line-height:1.4}
+.bg.feat .bg-stack li{color:rgba(254,243,199,.88)}
+.bg-stack li::before{content:'◆';color:var(--amber);flex-shrink:0;font-size:.7em}
+.bg-foot{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.bg-size{font-family:'Public Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mute);font-weight:700}
+.bg.feat .bg-size{color:rgba(254,243,199,.6)}
+.bg-price{font-family:'Bitter',serif;font-size:1.6rem;font-weight:700;color:var(--amber-d)}
+.bg.feat .bg-price{color:var(--amber-l)}
+/* BIRRE tap badges */
+.birre{background:var(--wood);color:var(--foam);position:relative;overflow:hidden}
+.birre::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.1) 0,rgba(0,0,0,.1) 1px,transparent 1px,transparent 80px);pointer-events:none}
+.birre .hd{color:var(--foam)}.birre .hd em{color:var(--amber)}
+.birre .sub{color:rgba(254,243,199,.72)}.birre .tag{color:var(--amber)}.birre .tag::before,.birre .tag::after{color:var(--amber-l)}
+.tap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;z-index:1}
+.tap{padding:28px 20px;background:rgba(254,243,199,.05);border:2px solid var(--amber-d);border-radius:14px;text-align:center;transition:all .3s;position:relative;padding-top:44px}
+.tap::before{content:'';position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:44px;height:24px;background:var(--amber);border-radius:6px 6px 2px 2px;border:3px solid var(--wood)}
+.tap:hover{background:rgba(245,158,11,.12);border-color:var(--amber-l);transform:translateY(-8px)}
+.tap-name{font-family:'Bitter',serif;font-weight:700;font-size:1.4rem;color:var(--amber-l);margin-bottom:8px;letter-spacing:.02em}
+.tap-type{font-family:'Public Sans',sans-serif;font-size:.85rem;color:rgba(254,243,199,.78);margin-bottom:14px;line-height:1.4}
+.tap-abv{font-family:'Public Sans',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:14px}
+.tap-price{font-family:'Bitter',serif;font-size:1.6rem;color:var(--foam);font-weight:700;padding-top:12px;border-top:1px solid rgba(245,158,11,.3)}
+/* REVIEWS */
+.reviews{background:var(--cream)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.rev-card{padding:30px 28px;background:var(--foam);border-radius:10px;border:2px solid var(--wood);transition:all .3s;position:relative}
+.rev-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(44,24,16,.14)}
+.rev-stars{color:var(--amber-d);margin-bottom:12px;letter-spacing:2px}
+.rev-text{font-family:'Bitter',serif;font-style:italic;font-size:1rem;color:var(--ink);line-height:1.65;margin-bottom:18px}
+.rev-author{font-family:'Bitter',serif;font-weight:700;font-size:1.1rem;color:var(--wood);letter-spacing:.01em}
+.rev-time{font-family:'Public Sans',sans-serif;font-size:10px;color:var(--mute);margin-top:3px;letter-spacing:1px;text-transform:uppercase;font-weight:600}
+/* INFO */
+.info{background:var(--foam)}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:52px;align-items:start}
+.info-col h3.hd{font-size:2.4rem;margin-bottom:12px;text-align:left}
+.info-col .sub{margin-bottom:28px;text-align:left;margin-left:0}
+.info-col .tag{text-align:left}
+.hours-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dashed var(--line);font-size:.95rem;align-items:center}
+.hours-day{font-family:'Bitter',serif;font-weight:700;color:var(--wood);font-size:1.05rem}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums;font-weight:600}
+.hours-row.late .hours-time{color:var(--amber-d);font-weight:800}
+.contact{margin-top:28px}
+.contact h4{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--amber-d);font-weight:800;margin-bottom:6px}
+.contact p,.contact a{font-family:'Bitter',serif;font-weight:700;font-size:1.25rem;color:var(--wood);text-decoration:none;line-height:1.5}
+.contact a:hover{color:var(--amber-d)}
+.map-wrap{border:8px solid var(--wood);border-radius:8px;overflow:hidden;aspect-ratio:1;box-shadow:14px 14px 0 var(--amber)}
+.map-wrap iframe{width:100%;height:100%;border:none;filter:sepia(15%) saturate(.9)}
+footer{background:var(--wood);color:rgba(254,243,199,.75);padding:48px 40px 26px;text-align:center;border-top:5px solid var(--amber)}
+.foot-logo{font-family:'Bitter',serif;font-weight:700;font-size:1.9rem;color:var(--foam);margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:10px}
+.foot-logo::before{content:'🍺'}
+.foot-logo span{color:var(--amber)}
+.foot-meta{font-size:.88rem;margin-bottom:18px}
+.foot-copy{font-size:11px;letter-spacing:1.5px;color:rgba(254,243,199,.5);padding-top:18px;border-top:1px solid rgba(245,158,11,.2);margin-top:18px}
+.foot-copy a{color:var(--amber-l);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa:hover{transform:scale(1.08)}.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    nav{padding:12px 20px}.nav-links{display:none}section{padding:60px 20px}
+    .hero-grid,.storia-grid,.info-grid{grid-template-columns:1fr;gap:36px}
+    .hero{padding:130px 20px 60px}
+    .hero-mug{max-width:340px;margin:0 auto;aspect-ratio:1}
+    .burger-grid{grid-template-columns:1fr}
+    .tap-grid{grid-template-columns:1fr 1fr}
+    .rev-grid{grid-template-columns:1fr}
+    .storia-media,.map-wrap{box-shadow:10px 10px 0 var(--amber)}
+    .hero-meta{grid-template-columns:1fr 1fr 1fr}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle"><button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button></div>
+<nav id="mainNav"><a href="#" class="nav-logo">Giò <span>Pub</span></a>
+    <ul class="nav-links"><li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li><li><a href="#menu">Menu</a></li><li><a href="#birre">Birre</a></li><li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li><li><a href="#info">Info</a></li></ul>
+</nav>
+
+<section class="hero wood-tex">
+    <div class="hero-inner"><div class="hero-grid">
+        <div class="hero-text">
+            <div class="hero-kicker"><span class="t-it">Scalea · Sotto il castello</span><span class="t-en">Scalea · Below the castle</span></div>
+            <h1 class="t-it">Giò Pub.<br><em>Terrazza</em><br>a tre piani.</h1>
+            <h1 class="t-en">Giò Pub.<br><em>Three-floor</em><br>terrace.</h1>
+            <p class="hero-tag t-it">Sotto il castello di Scalea — pub con terrazza aperta e parte al coperto. Hamburger strepitosi, birre alla spina, prodotti ottimi. Giovanni è cordialissimo e professionale.</p>
+            <p class="hero-tag t-en">Below Scalea's castle — pub with open terrace and indoor room. Incredible burgers, tap beers, excellent produce. Giovanni is warm and professional.</p>
+            <div class="hero-meta">
+                <div class="hm"><span class="hm-v">4.4</span><span class="hm-l">Google ★</span></div>
+                <div class="hm"><span class="hm-v">624</span><span class="hm-l"><span class="t-it">Recens.</span><span class="t-en">Reviews</span></span></div>
+                <div class="hm"><span class="hm-v">3</span><span class="hm-l"><span class="t-it">Piani</span><span class="t-en">Floors</span></span></div>
+            </div>
+            <div>
+                <a href="https://wa.me/393382995641?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20al%20Gi%C3%B2%20Pub" target="_blank" rel="noopener" class="btn btn-amber"><span class="t-it">Prenota un tavolo</span><span class="t-en">Book a table</span></a>
+                <a href="#menu" class="btn btn-ghost">Menu</a>
+            </div>
+        </div>
+        <div class="hero-mug"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=700&q=80" alt="Giò Pub terrazza"></div>
+    </div></div>
+</section>
+
+<section class="storia" id="storia">
+    <div class="wrap"><div class="storia-grid">
+        <div class="storia-media"><img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=800&q=80" alt="Hamburger gourmet"></div>
+        <div class="storia-body">
+            <div class="tag"><span class="t-it">La nostra storia</span><span class="t-en">Our story</span></div>
+            <h2 class="hd t-it">Cibo buono,<br>tanto <em>spazio</em>,<br>una vista.</h2>
+            <h2 class="hd t-en">Good food,<br>plenty of <em>space</em>,<br>a view.</h2>
+            <p class="t-it">Giò Pub è una <em>terrazza a tre piani</em> sotto il castello di Scalea. Tanto spazio, ideale anche per i bambini, feste di compleanno, gruppi. Parte <em>aperta</em> con la vista, e la <em>nuovissima parte al coperto</em>.</p>
+            <p class="t-en">Giò Pub is a <em>three-floor terrace</em> below Scalea's castle. Plenty of space, ideal also for kids, birthday parties, groups. An <em>open</em> side with the view, and the <em>brand-new indoor area</em>.</p>
+            <blockquote class="storia-quote t-it">"Giovanni è cordialissimo e molto professionale. Abbiamo preso due panini strepitosi." — Aniello, Google</blockquote>
+            <blockquote class="storia-quote t-en">"Giovanni is super warm and professional. We had two incredible burgers." — Aniello, Google</blockquote>
+            <p class="t-it">Lavoriamo con <em>specialità del luogo</em> — chianina, burrata, crema di pistacchio, O'Con Nduja. Ottimo rapporto <em>qualità-prezzo</em>, un posto per stare bene con gli amici.</p>
+            <p class="t-en">We work with <em>local specialties</em> — chianina beef, burrata, pistachio cream, O'Con Nduja. Great <em>value for money</em>, a place to be well with friends.</p>
+        </div>
+    </div></div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">I panini gourmet</span><span class="t-en">Gourmet burgers</span></div>
+            <h2 class="hd t-it">I <em>burger</em>.</h2>
+            <h2 class="hd t-en">The <em>burgers</em>.</h2>
+            <p class="sub t-it">Chianina 200g cotta come preferisci, pane dedicato, prodotti locali. Patatine incluse — grosse, croccanti.</p>
+            <p class="sub t-en">200g chianina beef cooked to your taste, dedicated bun, local produce. Fries included — thick, crisp.</p>
+        </div>
+        <div class="burger-grid">
+            <div class="bg feat">
+                <div class="bg-img"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80" alt="Burger Chianina"></div>
+                <div class="bg-name"><span class="t-it">Chianina <em>200g</em></span><span class="t-en">Chianina <em>200g</em></span></div>
+                <div class="bg-sub"><span class="t-it">Il bestseller</span><span class="t-en">Bestseller</span></div>
+                <ul class="bg-stack">
+                    <li><span class="t-it">Burrata pugliese fresca</span><span class="t-en">Fresh Apulian burrata</span></li>
+                    <li><span class="t-it">Crema di pistacchio di Bronte</span><span class="t-en">Bronte pistachio cream</span></li>
+                    <li><span class="t-it">Pane al sesamo tostato</span><span class="t-en">Toasted sesame bun</span></li>
+                    <li><span class="t-it">Rucola fresca, cipolla rossa</span><span class="t-en">Fresh rocket, red onion</span></li>
+                </ul>
+                <div class="bg-foot">
+                    <span class="bg-size"><span class="t-it">Con patatine</span><span class="t-en">With fries</span></span>
+                    <span class="bg-price">€15</span>
+                </div>
+            </div>
+            <div class="bg">
+                <div class="bg-img"><img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=400&q=80" alt="O'Con Nduja"></div>
+                <div class="bg-name">O'Con <em>Nduja</em></div>
+                <div class="bg-sub"><span class="t-it">Specialità calabrese</span><span class="t-en">Calabrian specialty</span></div>
+                <ul class="bg-stack">
+                    <li><span class="t-it">Manzo 180g, al sangue o medio</span><span class="t-en">180g beef, rare or medium</span></li>
+                    <li>'Nduja di Spilinga</li>
+                    <li><span class="t-it">Scamorza affumicata fusa</span><span class="t-en">Melted smoked scamorza</span></li>
+                    <li><span class="t-it">Friarielli saltati</span><span class="t-en">Sautéed friarielli</span></li>
+                </ul>
+                <div class="bg-foot">
+                    <span class="bg-size"><span class="t-it">Con patatine</span><span class="t-en">With fries</span></span>
+                    <span class="bg-price">€13</span>
+                </div>
+            </div>
+            <div class="bg">
+                <div class="bg-img"><img src="https://images.unsplash.com/photo-1550317138-10000687a72b?w=400&q=80" alt="Classic burger"></div>
+                <div class="bg-name">Classic <em>Giò</em></div>
+                <div class="bg-sub"><span class="t-it">Il nostro classico</span><span class="t-en">Our classic</span></div>
+                <ul class="bg-stack">
+                    <li><span class="t-it">Manzo 180g alla griglia</span><span class="t-en">180g grilled beef</span></li>
+                    <li><span class="t-it">Cheddar stagionato</span><span class="t-en">Aged cheddar</span></li>
+                    <li><span class="t-it">Bacon croccante</span><span class="t-en">Crispy bacon</span></li>
+                    <li><span class="t-it">Pomodoro, insalata, salsa BBQ</span><span class="t-en">Tomato, lettuce, BBQ sauce</span></li>
+                </ul>
+                <div class="bg-foot">
+                    <span class="bg-size"><span class="t-it">Con patatine</span><span class="t-en">With fries</span></span>
+                    <span class="bg-price">€11</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="birre" id="birre">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Birre alla spina</span><span class="t-en">On tap</span></div>
+            <h2 class="hd t-it">Quattro <em>spine</em>,<br>sempre fredde.</h2>
+            <h2 class="hd t-en">Four <em>taps</em>,<br>always cold.</h2>
+            <p class="sub t-it">Selezione di classiche e artigianali. Boccale 0.4L o pinta 0.5L.</p>
+            <p class="sub t-en">Classic and craft selection. 0.4L mug or 0.5L pint.</p>
+        </div>
+        <div class="tap-grid">
+            <div class="tap">
+                <div class="tap-name">Guinness</div>
+                <div class="tap-type"><span class="t-it">Stout irlandese</span><span class="t-en">Irish stout</span></div>
+                <div class="tap-abv">ABV 4.2%</div>
+                <div class="tap-price">€6</div>
+            </div>
+            <div class="tap">
+                <div class="tap-name">Kilkenny</div>
+                <div class="tap-type"><span class="t-it">Red ale · Irlanda</span><span class="t-en">Red ale · Ireland</span></div>
+                <div class="tap-abv">ABV 4.3%</div>
+                <div class="tap-price">€6</div>
+            </div>
+            <div class="tap">
+                <div class="tap-name">Heineken</div>
+                <div class="tap-type"><span class="t-it">Lager · Olanda</span><span class="t-en">Lager · Netherlands</span></div>
+                <div class="tap-abv">ABV 5.0%</div>
+                <div class="tap-price">€4</div>
+            </div>
+            <div class="tap">
+                <div class="tap-name">Calabrà</div>
+                <div class="tap-type"><span class="t-it">IPA artigianale</span><span class="t-en">Craft IPA</span></div>
+                <div class="tap-abv">ABV 6.0%</div>
+                <div class="tap-price">€7</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag">★ 4.4 · 624 Google</div>
+            <h2 class="hd t-it">624 voci <em>dal pub</em>.</h2>
+            <h2 class="hd t-en">624 voices <em>from the pub</em>.</h2>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Siamo stati benissimo, cibo buonissimo ed abbondante. Giovanni è cordialissimo e molto professionale. Abbiamo preso due panini strepitosi — uno con burrata e crema di pistacchio su chianina 200g.</p>
+                <p class="rev-text t-en">We had a great time, amazing and generous food. Giovanni is super warm and professional. We had two incredible burgers — one with burrata and pistachio cream on 200g chianina.</p>
+                <div class="rev-author">Aniello De Magistris</div><div class="rev-time"><span class="t-it">2 anni fa · Google</span><span class="t-en">2 years ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Locale molto bello, è una terrazza a tre piani. C'è tanto spazio anche per i bambini, ideale per una festa di compleanno. Facilmente raggiungibile anche in auto con tanto parcheggio vicino.</p>
+                <p class="rev-text t-en">Lovely venue — a three-floor terrace. Plenty of space also for kids, ideal for birthday parties. Easy to reach by car with plenty of nearby parking.</p>
+                <div class="rev-author">Andrea G</div><div class="rev-time"><span class="t-it">Google</span><span class="t-en">Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Personale gentile e simpatico, servizio buono, hamburger veramente gustoso e con specialità del luogo. Ottimo rapporto qualità-prezzo, rimasto colpito in positivo.</p>
+                <p class="rev-text t-en">Kind, friendly staff, good service, truly tasty burgers with local specialties. Great value for money — I was positively impressed.</p>
+                <div class="rev-author">Angelo Montagna</div><div class="rev-time"><span class="t-it">1 anno fa · Google</span><span class="t-en">1 year ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap"><div class="info-grid">
+        <div class="info-col">
+            <div class="tag"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></div>
+            <h3 class="hd t-it">Aperti<br>fino a <em>tardi</em>.</h3>
+            <h3 class="hd t-en">Open<br>until <em>late</em>.</h3>
+            <p class="sub t-it">Cena tutti i giorni dalle 18:30. Chiusura fino alle 2 di notte il sabato.</p>
+            <p class="sub t-en">Dinner every day from 6:30pm. Closing up to 2am on Saturdays.</p>
+            <div class="hours-table">
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Mon</span></span><span class="hours-time">18:30—01:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tue</span></span><span class="hours-time">18:30—01:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wed</span></span><span class="hours-time">18:30—01:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thu</span></span><span class="hours-time">18:30—01:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Fri</span></span><span class="hours-time">18:30—01:00</span></div>
+                <div class="hours-row late"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Sat</span></span><span class="hours-time">18:30—02:00</span></div>
+                <div class="hours-row late"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sun</span></span><span class="hours-time">18:30—01:30</span></div>
+            </div>
+            <div class="contact"><h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4><p>Via Vittorio Emanuele III, 55<br>87029 Scalea (CS)</p></div>
+            <div class="contact"><h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4><a href="tel:+393382995641">+39 338 299 5641</a></div>
+        </div>
+        <div class="map-wrap"><iframe src="https://www.google.com/maps?q=Gi%C3%B2+Pub+Scalea&output=embed" loading="lazy" title="Giò Pub"></iframe></div>
+    </div></div>
+</section>
+
+<footer>
+    <div class="foot-logo">Giò <span>Pub</span></div>
+    <div class="foot-meta">Via Vittorio Emanuele III, 55 · 87029 Scalea (CS) · +39 338 299 5641</div>
+    <div class="foot-copy">&copy; 2026 Giò Pub · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/393382995641" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>
+function setLang(l){document.body.classList.toggle('lang-en', l==='en');document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));}
+addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+</script>
+</body></html>

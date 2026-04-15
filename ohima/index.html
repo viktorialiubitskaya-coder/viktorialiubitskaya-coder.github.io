@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizzeria Ohimá — Scalea · Pizza napoletana a ruota di carro</title>
+<meta name="description" content="Pizzeria Ohimá a Scalea: napoletana vera, 2 forni, 4 pizzaioli. Montanare, frittatine, pizza a ruota di carro. ★4.3 · 403 recensioni.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Pizzeria Ohimá","servesCuisine":["Pizza","Neapolitan","Italian"],"address":{"@type":"PostalAddress","streetAddress":"Via Lauro, 196","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+393388040416","priceRange":"€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.3","reviewCount":"403"},"geo":{"@type":"GeoCoordinates","latitude":39.8083818,"longitude":15.7956168}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--yellow:#FFC107;--yellow-d:#D9A205;--yellow-l:#FFD54F;--nero:#1A1A1A;--nero-2:#2A2A2A;--white:#FFFFFF;--cream:#FFF9E6;--ink:#1A1A1A;--mute:#6B6B6B;--line:rgba(26,26,26,.1)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Karla',sans-serif;color:var(--ink);background:var(--white);line-height:1.55;overflow-x:hidden}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+.display,h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.01em;line-height:.95}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:18px 36px;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+nav.scrolled{background:var(--nero);padding:12px 36px}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--yellow);text-decoration:none;letter-spacing:.03em}
+.nav-logo::after{content:'!';color:var(--white)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:'Karla',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--yellow)}
+nav:not(.scrolled) .nav-links a{color:var(--nero)}
+nav:not(.scrolled) .nav-logo{color:var(--nero)}
+nav:not(.scrolled) .nav-logo::after{color:var(--yellow)}
+.lang-toggle{position:fixed;top:18px;right:18px;z-index:100;display:flex;gap:2px;background:var(--nero);padding:3px;border-radius:100px;border:2px solid var(--yellow)}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(255,255,255,.65);font-family:'Karla',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;cursor:pointer;border-radius:100px;transition:all .25s}
+.lang-btn.active{background:var(--yellow);color:var(--nero)}
+/* HERO angled */
+.hero{position:relative;background:var(--yellow);overflow:hidden;min-height:100vh;display:flex;align-items:center;padding:120px 36px 60px}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:100px;background:var(--white);clip-path:polygon(0 100%,100% 100%,100% 50%,0 0)}
+.hero-grid{display:grid;grid-template-columns:1fr .9fr;gap:40px;align-items:center;max-width:1300px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero-text{z-index:2}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--nero);color:var(--yellow);font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;border-radius:100px;margin-bottom:26px}
+.hero-kicker::before{content:'';width:8px;height:8px;background:var(--yellow);border-radius:50%}
+.hero h1{font-size:clamp(4rem,16vw,16rem);color:var(--nero);line-height:.82;letter-spacing:-.02em;margin-bottom:20px}
+.hero h1 em{color:var(--white);font-style:normal;text-shadow:5px 5px 0 var(--nero)}
+.hero-tag{font-family:'Karla',sans-serif;font-size:1.15rem;font-weight:500;max-width:520px;color:var(--nero);line-height:1.55;margin-bottom:32px}
+.hero-meta{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:32px}
+.hm{padding:14px 22px;background:var(--nero);color:var(--white);display:flex;flex-direction:column;border-radius:4px;transform:rotate(-1.5deg)}
+.hm:nth-child(even){transform:rotate(1.5deg)}
+.hm-v{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--yellow);line-height:.95}
+.hm-l{font-family:'Karla',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;font-family:'Karla',sans-serif;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .3s;border:none;cursor:pointer}
+.btn-nero{background:var(--nero);color:var(--yellow);box-shadow:6px 6px 0 var(--white)}
+.btn-nero:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--white)}
+.btn-outline{background:transparent;color:var(--nero);border:3px solid var(--nero);margin-left:14px}
+.btn-outline:hover{background:var(--nero);color:var(--yellow)}
+.hero-pizza{position:relative;z-index:1;transform:rotate(8deg);transition:transform .6s}
+.hero-pizza:hover{transform:rotate(-4deg)}
+.hero-pizza img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;box-shadow:0 40px 80px rgba(26,26,26,.3),inset 0 0 0 12px var(--nero)}
+.hero-pizza::before{content:'FRESCA!';position:absolute;top:-18px;right:-18px;width:100px;height:100px;background:var(--white);color:var(--nero);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;border:4px solid var(--nero);transform:rotate(-14deg);z-index:2;letter-spacing:.04em}
+/* MARQUEE */
+.marquee{background:var(--nero);color:var(--yellow);padding:16px 0;overflow:hidden;white-space:nowrap;border-top:4px solid var(--yellow);border-bottom:4px solid var(--yellow)}
+.marquee-track{display:inline-flex;animation:scroll 32s linear infinite;gap:50px;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.05em}
+.marquee-track span{display:inline-flex;align-items:center;gap:50px}
+.marquee-track i{color:var(--white);font-style:normal}
+.marquee-track em{font-style:normal;color:var(--yellow)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+section{padding:90px 36px}
+.wrap{max-width:1300px;margin:0 auto}
+.sec-head{max-width:820px;margin-bottom:56px}
+.tag{font-family:'Karla',sans-serif;display:inline-block;padding:6px 16px;background:var(--nero);color:var(--yellow);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:800;border-radius:100px;margin-bottom:16px}
+h2.hd{font-size:clamp(3rem,9vw,7rem);color:var(--nero);margin-bottom:16px}
+h2.hd em{color:var(--yellow-d);font-style:normal}
+.sub{font-size:1.1rem;color:var(--mute);max-width:680px;line-height:1.65}
+/* STORIA */
+.storia{background:var(--cream)}
+.storia-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.storia-media{position:relative}
+.storia-media img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;border:6px solid var(--nero);box-shadow:12px 12px 0 var(--yellow)}
+.storia-body p{font-size:1.05rem;margin-bottom:16px;line-height:1.7}
+.storia-body p em{background:var(--yellow);padding:2px 6px;font-style:normal;font-weight:700}
+/* MENU stacked vertical cards */
+.menu{background:var(--white);position:relative}
+.pizza-stack{display:flex;flex-direction:column;gap:0;margin-top:44px;border:4px solid var(--nero);border-radius:20px;overflow:hidden}
+.pr{display:grid;grid-template-columns:140px 1fr auto;gap:24px;padding:22px 28px;background:var(--white);transition:all .25s;align-items:center;border-bottom:3px solid var(--nero);position:relative;cursor:pointer}
+.pr:last-child{border-bottom:none}
+.pr:hover{background:var(--yellow);transform:translateX(8px)}
+.pr-num{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:var(--yellow);line-height:.85;width:110px;text-align:right}
+.pr:hover .pr-num{color:var(--nero)}
+.pr-body{flex:1}
+.pr-cat{font-family:'Karla',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--yellow-d);font-weight:800;margin-bottom:4px}
+.pr:hover .pr-cat{color:var(--nero)}
+.pr h3{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--nero);letter-spacing:.01em;margin-bottom:4px}
+.pr p{font-size:.95rem;color:var(--mute);line-height:1.45}
+.pr:hover p{color:var(--nero)}
+.pr-price{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--nero);padding-left:20px;white-space:nowrap}
+.pr-price::before{content:'€';font-size:.5em;vertical-align:top;opacity:.6;margin-right:2px}
+.pr.feat{background:var(--nero);color:var(--yellow)}
+.pr.feat .pr-num{color:var(--yellow)}
+.pr.feat .pr-cat{color:var(--yellow-l)}
+.pr.feat h3{color:var(--yellow)}.pr.feat p{color:rgba(255,255,255,.78)}
+.pr.feat .pr-price{color:var(--white)}
+.pr.feat:hover{background:var(--yellow);color:var(--nero)}
+.pr.feat:hover .pr-num,.pr.feat:hover h3,.pr.feat:hover .pr-cat,.pr.feat:hover p,.pr.feat:hover .pr-price{color:var(--nero)}
+/* REVIEWS */
+.reviews{background:var(--nero);color:var(--white);position:relative;overflow:hidden}
+.reviews::before{content:'OHIMÁ!';position:absolute;bottom:-80px;right:-30px;font-family:'Bebas Neue',sans-serif;font-size:22vw;color:rgba(255,193,7,.06);pointer-events:none;letter-spacing:-.02em}
+.reviews .hd{color:var(--white)}
+.reviews .hd em{color:var(--yellow)}
+.reviews .sub{color:rgba(255,255,255,.7)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative;z-index:1}
+.rev-card{padding:28px 26px;background:rgba(255,255,255,.06);border:2px solid rgba(255,193,7,.3);border-radius:12px;transition:all .35s}
+.rev-card:hover{background:var(--yellow);color:var(--nero);border-color:var(--yellow);transform:rotate(-1deg)}
+.rev-card:nth-child(even):hover{transform:rotate(1deg)}
+.rev-stars{color:var(--yellow);font-size:1.1rem;letter-spacing:3px;margin-bottom:14px}
+.rev-card:hover .rev-stars{color:var(--nero)}
+.rev-text{font-family:'Karla',sans-serif;font-size:.98rem;line-height:1.65;margin-bottom:18px;color:rgba(255,255,255,.9)}
+.rev-card:hover .rev-text{color:var(--nero)}
+.rev-author{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.04em;color:var(--yellow)}
+.rev-card:hover .rev-author{color:var(--nero)}
+.rev-time{font-family:'Karla',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:3px;font-weight:700}
+.rev-card:hover .rev-time{color:var(--nero)}
+/* INFO */
+.info{background:var(--cream)}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:52px;align-items:start}
+.info-col .hd{font-size:2.6rem;margin-bottom:12px}
+.info-col .sub{margin-bottom:30px}
+.hours-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:2px dotted var(--line);font-size:.95rem;align-items:center}
+.hours-day{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;color:var(--nero);letter-spacing:.05em}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums;font-weight:700}
+.hours-row.closed{background:var(--yellow);padding:10px 14px;margin:0 -14px;border:none}
+.hours-row.closed .hours-time{color:var(--nero);font-weight:800}
+.contact{margin-top:28px}
+.contact h4{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--yellow-d);letter-spacing:.06em;margin-bottom:6px}
+.contact p,.contact a{font-family:'Karla',sans-serif;font-weight:700;font-size:1.15rem;color:var(--nero);text-decoration:none;line-height:1.5}
+.contact a:hover{color:var(--yellow-d)}
+.map-wrap{border:6px solid var(--nero);overflow:hidden;aspect-ratio:4/5;box-shadow:12px 12px 0 var(--yellow);border-radius:12px}
+.map-wrap iframe{width:100%;height:100%;border:none}
+footer{background:var(--nero);color:rgba(255,255,255,.7);padding:44px 36px 24px;text-align:center;border-top:6px solid var(--yellow)}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--yellow);margin-bottom:12px;letter-spacing:.05em}
+.foot-logo span{color:var(--white)}
+.foot-meta{font-size:.88rem;margin-bottom:18px}
+.foot-copy{font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.45);padding-top:18px;border-top:1px solid rgba(255,255,255,.1);margin-top:18px}
+.foot-copy a{color:var(--yellow);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:62px;height:62px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(37,211,102,.45);text-decoration:none;transition:transform .3s;border:3px solid var(--nero)}
+.wa:hover{transform:scale(1.08)}.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    nav{padding:12px 20px}.nav-links{display:none}section{padding:60px 20px}
+    .hero{padding:120px 22px 60px}.hero-grid{grid-template-columns:1fr}
+    .hero h1{font-size:clamp(3.5rem,18vw,6rem)}.hero-pizza{max-width:260px;margin:0 auto}
+    .storia-grid,.info-grid{grid-template-columns:1fr;gap:36px}
+    .pr{grid-template-columns:60px 1fr;gap:14px;padding:18px}
+    .pr-num{font-size:2.8rem;width:60px}.pr-price{grid-column:1/-1;text-align:right;padding-left:0;font-size:2.2rem}
+    .rev-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle"><button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button></div>
+<nav id="mainNav"><a href="#" class="nav-logo">OHIMÁ</a>
+    <ul class="nav-links"><li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li><li><a href="#menu">Menu</a></li><li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li><li><a href="#info">Info</a></li></ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-grid">
+        <div class="hero-text">
+            <div class="hero-kicker"><span class="t-it">Scalea · Via Lauro 196</span><span class="t-en">Scalea · Via Lauro 196</span></div>
+            <h1>Pizza<br><em>Vera.</em></h1>
+            <p class="hero-tag t-it">Napoletana a ruota di carro, sottile, morbida, cornicione appena accennato. Due forni, quattro pizzaioli, una pizzeria moderna che ti fa sentire a Napoli.</p>
+            <p class="hero-tag t-en">Neapolitan cart-wheel style, thin, soft, barely-there crust. Two ovens, four pizza makers, a modern pizzeria that feels like Naples.</p>
+            <div class="hero-meta">
+                <div class="hm"><span class="hm-v">4.3</span><span class="hm-l">Google ★</span></div>
+                <div class="hm"><span class="hm-v">403</span><span class="hm-l"><span class="t-it">Recens.</span><span class="t-en">Reviews</span></span></div>
+                <div class="hm"><span class="hm-v">2×🔥</span><span class="hm-l"><span class="t-it">Forni</span><span class="t-en">Ovens</span></span></div>
+                <div class="hm"><span class="hm-v">4×👨‍🍳</span><span class="hm-l"><span class="t-it">Pizzaioli</span><span class="t-en">Pizzaioli</span></span></div>
+            </div>
+            <div>
+                <a href="https://wa.me/393388040416?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20da%20Ohim%C3%A1" target="_blank" rel="noopener" class="btn btn-nero"><span class="t-it">Prenota un tavolo</span><span class="t-en">Book a table</span> →</a>
+                <a href="#menu" class="btn btn-outline">Menu</a>
+            </div>
+        </div>
+        <div class="hero-pizza">
+            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80" alt="Pizza napoletana">
+        </div>
+    </div>
+</section>
+
+<div class="marquee"><div class="marquee-track">
+    <span>MARGHERITA <i>·</i> <em>DIAVOLA</em> <i>·</i> MONTANARA <i>·</i> <em>FRITTATINA</em> <i>·</i> NAPOLETANA <i>·</i> <em>PANUOZZO</em> <i>·</i> CALZONE <i>·</i></span>
+    <span>MARGHERITA <i>·</i> <em>DIAVOLA</em> <i>·</i> MONTANARA <i>·</i> <em>FRITTATINA</em> <i>·</i> NAPOLETANA <i>·</i> <em>PANUOZZO</em> <i>·</i> CALZONE <i>·</i></span>
+</div></div>
+
+<section class="storia" id="storia">
+    <div class="wrap"><div class="storia-grid">
+        <div class="storia-media"><img src="https://images.unsplash.com/photo-1604382355076-af4b0eb60143?w=800&q=80" alt="Forno Ohimá"></div>
+        <div class="storia-body">
+            <span class="tag"><span class="t-it">La Storia</span><span class="t-en">Story</span></span>
+            <h2 class="hd t-it">Un pezzo<br>di <em>Napoli</em><br>a Scalea.</h2>
+            <h2 class="hd t-en">A slice<br>of <em>Naples</em><br>in Scalea.</h2>
+            <p class="t-it">Ohimá è una <em>pizzeria moderna</em> e curata nei dettagli. Locale ampio con molti coperti, e nonostante il via vai il servizio resta <em>discretamente rapido</em>: 2 forni a pieno regime, 4 pizzaioli che non si fermano.</p>
+            <p class="t-en">Ohimá is a <em>modern pizzeria</em>, curated in detail. Large room, many covers, and despite the bustle the service stays <em>reasonably fast</em>: 2 full-power ovens, 4 pizzaioli who never stop.</p>
+            <p class="t-it">La pizza napoletana è <em>a ruota di carro</em> — sottile, morbida, con il cornicione appena accennato. Montanare squisite, frittatine golose, antipasti da standing ovation.</p>
+            <p class="t-en">Pizza is <em>cart-wheel style</em> — thin, soft, barely-there crust. Divine montanare, decadent frittatine, appetisers worth a standing ovation.</p>
+        </div>
+    </div></div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag"><span class="t-it">Il menu</span><span class="t-en">The menu</span></span>
+            <h2 class="hd t-it">Il <em>MENU</em>.</h2>
+            <h2 class="hd t-en">The <em>MENU</em>.</h2>
+            <p class="sub t-it">Pizza napoletana, montanare, frittatine e panuozzi. Senza glutine su richiesta, cotta in teglia a parte.</p>
+            <p class="sub t-en">Neapolitan pizza, montanare, frittatine, panuozzi. Gluten-free on request, baked in a separate tray.</p>
+        </div>
+        <div class="pizza-stack">
+            <div class="pr feat">
+                <div class="pr-num">01</div>
+                <div class="pr-body"><div class="pr-cat"><span class="t-it">La signora</span><span class="t-en">The lady</span></div>
+                    <h3>Margherita</h3>
+                    <p class="t-it">San Marzano, fior di latte, basilico, olio EVO, sale di Trapani.</p>
+                    <p class="t-en">San Marzano, fior di latte, basil, EVO, Trapani salt.</p></div>
+                <div class="pr-price">7,50</div>
+            </div>
+            <div class="pr">
+                <div class="pr-num">02</div>
+                <div class="pr-body"><div class="pr-cat"><span class="t-it">Il diavolo</span><span class="t-en">The devil</span></div>
+                    <h3>Diavola</h3>
+                    <p class="t-it">Pomodoro, mozzarella, salame piccante, peperoncino calabrese.</p>
+                    <p class="t-en">Tomato, mozzarella, spicy salami, Calabrian chilli.</p></div>
+                <div class="pr-price">9,50</div>
+            </div>
+            <div class="pr">
+                <div class="pr-num">03</div>
+                <div class="pr-body"><div class="pr-cat"><span class="t-it">Firma napoletana</span><span class="t-en">Neapolitan signature</span></div>
+                    <h3>Montanara</h3>
+                    <p class="t-it">Pizza fritta + pomodoro + mozzarella + basilico. Squisita.</p>
+                    <p class="t-en">Fried pizza + tomato + mozzarella + basil. Exquisite.</p></div>
+                <div class="pr-price">8</div>
+            </div>
+            <div class="pr feat">
+                <div class="pr-num">04</div>
+                <div class="pr-body"><div class="pr-cat"><span class="t-it">Antipasto</span><span class="t-en">Starter</span></div>
+                    <h3>Frittatina Ohimá</h3>
+                    <p class="t-it">Pasta, besciamella, prosciutto, piselli, mozzarella. Fritta come a Napoli.</p>
+                    <p class="t-en">Pasta, béchamel, ham, peas, mozzarella. Fried Naples-style.</p></div>
+                <div class="pr-price">4,50</div>
+            </div>
+            <div class="pr">
+                <div class="pr-num">05</div>
+                <div class="pr-body"><div class="pr-cat"><span class="t-it">Marinara</span><span class="t-en">Marinara</span></div>
+                    <h3>Marinara DOC</h3>
+                    <p class="t-it">Pomodoro San Marzano, aglio, origano, olio EVO. Senza mozzarella.</p>
+                    <p class="t-en">San Marzano, garlic, oregano, EVO. No mozzarella.</p></div>
+                <div class="pr-price">6</div>
+            </div>
+            <div class="pr">
+                <div class="pr-num">06</div>
+                <div class="pr-body"><div class="pr-cat"><span class="t-it">Extra</span><span class="t-en">Extra</span></div>
+                    <h3>Panuozzo</h3>
+                    <p class="t-it">Pane-pizza farcito a scelta: prosciutto, salumi, verdure, tonno.</p>
+                    <p class="t-en">Stuffed pizza-bread: ham, cold cuts, veggies, tuna.</p></div>
+                <div class="pr-price">8—12</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag">★ 4.3 · 403 Google</span>
+            <h2 class="hd t-it">Voci <em>dal forno</em>.</h2>
+            <h2 class="hd t-en">Voices <em>from the oven</em>.</h2>
+            <p class="sub t-it">Estratti da recensioni Google · Via Lauro, Scalea</p>
+            <p class="sub t-en">Google excerpts · Via Lauro, Scalea</p>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Una pizzeria che ti fa sentire a Napoli. La pizza napoletana era spettacolare, a ruota di carro, sottile e morbida con cornicione appena accennato. Margherita e Marinara da urlo.</p>
+                <p class="rev-text t-en">A pizzeria that makes you feel in Naples. Napoletana was spectacular — cart-wheel style, thin and soft with barely-there crust. Margherita and Marinara to scream for.</p>
+                <div class="rev-author">Siria Pugliese</div><div class="rev-time"><span class="t-it">8 mesi fa · Google</span><span class="t-en">8 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Siamo stati qui stasera ed è stato tutto perfetto. Il locale è moderno e molto curato, le pizze molto buone, gli antipasti squisiti — soprattutto le montanare e la frittatina. Servizio veloce.</p>
+                <p class="rev-text t-en">We came tonight — everything was perfect. Modern, well-curated space, excellent pizzas, exquisite starters — especially the montanare and frittatina. Fast service.</p>
+                <div class="rev-author">Bartolo Chianese</div><div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★</div>
+                <p class="rev-text t-it">Locale moderno con molti coperti; nonostante ciò il servizio è discretamente rapido (2 forni con 4 pizzaioli a pieno regime). Buona la pizza, la cortesia compensa qualche momento.</p>
+                <p class="rev-text t-en">Modern venue with lots of covers; still, service stays reasonably fast (2 ovens with 4 pizzaioli going full power). Good pizza, and friendliness smooths any hiccup.</p>
+                <div class="rev-author">Fauzer</div><div class="rev-time"><span class="t-it">6 mesi fa · Google</span><span class="t-en">6 months ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap"><div class="info-grid">
+        <div class="info-col">
+            <span class="tag"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></span>
+            <h3 class="hd t-it">Sempre <em>accesi</em>,<br>tranne mercoledì.</h3>
+            <h3 class="hd t-en">Always <em>on</em>,<br>except Wednesday.</h3>
+            <p class="sub t-it">Cena tutti i giorni. La domenica anche pranzo.</p>
+            <p class="sub t-en">Dinner every day. Lunch on Sunday too.</p>
+            <div class="hours-table">
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Mon</span></span><span class="hours-time">19:00—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tue</span></span><span class="hours-time">19:00—00:00</span></div>
+                <div class="hours-row closed"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wed</span></span><span class="hours-time t-it">CHIUSO</span><span class="hours-time t-en">CLOSED</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thu</span></span><span class="hours-time">19:00—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Fri</span></span><span class="hours-time">19:00—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Sat</span></span><span class="hours-time">19:00—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sun</span></span><span class="hours-time">11:30—15:00 · 19:00—00:00</span></div>
+            </div>
+            <div class="contact"><h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4><p>Via Lauro, 196<br>87029 Scalea (CS)</p></div>
+            <div class="contact"><h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4><a href="tel:+393388040416">+39 338 804 0416</a></div>
+        </div>
+        <div class="map-wrap"><iframe src="https://www.google.com/maps?q=Pizzeria+Ohima+Scalea&output=embed" loading="lazy" title="Pizzeria Ohimá"></iframe></div>
+    </div></div>
+</section>
+
+<footer>
+    <div class="foot-logo">OHIMÁ<span>!</span></div>
+    <div class="foot-meta">Via Lauro, 196 · 87029 Scalea (CS) · +39 338 804 0416</div>
+    <div class="foot-copy">&copy; 2026 Pizzeria Ohimá · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/393388040416" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>
+function setLang(l){document.body.classList.toggle('lang-en', l==='en');document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));}
+addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+</script>
+</body></html>

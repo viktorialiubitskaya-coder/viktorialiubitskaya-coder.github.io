@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nautica Lo Scoglio — Scalea · Ristorante di pesce sul mare</title>
+<meta name="description" content="Nautica Lo Scoglio a Scalea: ristorante di pesce fronte mare con Torre Talao. Titolare Domenico. ★3.8 · 1.547 recensioni. Via Nazario Sauro.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Nautica Lo Scoglio","servesCuisine":["Italian","Seafood","Mediterranean"],"address":{"@type":"PostalAddress","streetAddress":"Via Nazario Sauro","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+390985939735","priceRange":"€€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"3.8","reviewCount":"1547"},"geo":{"@type":"GeoCoordinates","latitude":39.8119498,"longitude":15.787544}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ocean:#1E40AF;--ocean-d:#1E3A8A;--ocean-l:#3B82F6;--sand:#F5F0E1;--sand-d:#E8DEC8;--coral:#F97316;--coral-d:#EA580C;--ink:#1E293B;--mute:#64748B;--line:rgba(30,64,175,.14)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;color:var(--ink);background:var(--sand);line-height:1.65;overflow-x:hidden;font-weight:400}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+h1,h2,h3,h4{font-family:'Merriweather',serif;font-weight:700;letter-spacing:-.01em}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:20px 44px;display:flex;justify-content:space-between;align-items:center;transition:all .35s}
+nav.scrolled{background:rgba(30,58,138,.96);padding:14px 44px;backdrop-filter:blur(12px)}
+.nav-logo{font-family:'Merriweather',serif;font-weight:900;font-size:1.4rem;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo::before{content:'⚓';color:var(--coral)}
+.nav-logo span{color:var(--coral)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(245,240,225,.78);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--coral)}
+.lang-toggle{position:fixed;top:20px;right:20px;z-index:100;display:flex;gap:2px;background:var(--ocean-d);padding:3px;border-radius:100px;border:1px solid var(--coral)}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(245,240,225,.65);font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;cursor:pointer;border-radius:100px;transition:all .25s}
+.lang-btn.active{background:var(--coral);color:#fff}
+/* HERO ocean */
+.hero{position:relative;min-height:100vh;color:#fff;overflow:hidden;display:flex;align-items:center;padding-bottom:120px}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,58,138,.35) 0%,rgba(30,64,175,.55) 60%,rgba(30,58,138,.85) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:140px 44px 40px;width:100%}
+.hero-kicker{display:inline-flex;align-items:center;gap:12px;padding:7px 18px;background:rgba(249,115,22,.15);border:1px solid var(--coral);border-radius:100px;font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--coral);margin-bottom:28px;backdrop-filter:blur(8px)}
+.hero-kicker::before{content:'⚓'}
+.hero h1{font-family:'Merriweather',serif;font-size:clamp(3.6rem,9vw,8rem);font-weight:900;line-height:.95;color:#fff;margin-bottom:20px;letter-spacing:-.02em}
+.hero h1 em{color:var(--coral);font-style:italic;font-weight:700}
+.hero-tag{font-family:'Merriweather',serif;font-style:italic;font-size:clamp(1.1rem,1.6vw,1.25rem);max-width:640px;margin-bottom:36px;color:rgba(245,240,225,.9);line-height:1.55;font-weight:400}
+.hero-meta{display:inline-flex;gap:2px;background:var(--coral);padding:2px;margin-bottom:38px;border-radius:4px;flex-wrap:wrap}
+.hm{padding:14px 26px;background:var(--ocean-d);display:flex;flex-direction:column;min-width:130px;border-radius:2px}
+.hm-v{font-family:'Merriweather',serif;font-weight:900;font-size:1.9rem;color:#fff;line-height:1}
+.hm-l{font-family:'Open Sans',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,225,.75);margin-top:5px;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;font-family:'Open Sans',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:all .3s;border:none;cursor:pointer}
+.btn-coral{background:var(--coral);color:#fff;box-shadow:0 14px 28px rgba(249,115,22,.35)}
+.btn-coral:hover{background:var(--coral-d);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(245,240,225,.4);margin-left:10px}
+.btn-outline:hover{border-color:var(--coral)}
+/* Animated waves at bottom of hero */
+.waves{position:absolute;bottom:0;left:0;right:0;z-index:1;height:100px;overflow:hidden;line-height:0}
+.waves svg{width:calc(200% + 1px);height:100%;display:block}
+.w1{animation:wave-lo 18s ease-in-out infinite}
+.w2{animation:wave-lo 14s ease-in-out infinite reverse;opacity:.6}
+.w3{animation:wave-lo 22s ease-in-out infinite;opacity:.4}
+@keyframes wave-lo{0%,100%{transform:translateX(0)}50%{transform:translateX(-25%)}}
+section{padding:90px 44px}
+.wrap{max-width:1280px;margin:0 auto}
+.sec-head{max-width:760px;margin:0 auto 56px;text-align:center}
+.tag{display:inline-flex;align-items:center;gap:10px;font-family:'Open Sans',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--coral-d);font-weight:700;margin-bottom:16px}
+.tag::before,.tag::after{content:'';width:22px;height:1px;background:var(--coral-d);opacity:.6}
+h2.hd{font-family:'Merriweather',serif;font-size:clamp(2.4rem,4.8vw,3.8rem);color:var(--ocean-d);line-height:1.05;margin-bottom:18px;font-weight:900}
+h2.hd em{color:var(--coral-d);font-style:italic;font-weight:700}
+.sub{font-family:'Open Sans',sans-serif;font-size:1.05rem;color:var(--mute);max-width:620px;margin:0 auto;line-height:1.7}
+/* STORIA w/ counter */
+.storia{background:#fff}
+.storia-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.storia-media{aspect-ratio:4/5;overflow:hidden;border-radius:8px;border:6px solid var(--ocean);box-shadow:0 30px 60px rgba(30,64,175,.22);position:relative}
+.storia-media img{width:100%;height:100%;object-fit:cover}
+.storia-media::after{content:'Via Nazario Sauro · Fronte mare';position:absolute;bottom:14px;left:14px;background:var(--coral);color:#fff;padding:8px 16px;font-family:'Open Sans',sans-serif;font-size:10px;letter-spacing:2px;font-weight:700;text-transform:uppercase;border-radius:4px}
+.storia-body .tag,.storia-body h2.hd,.storia-body .sub{text-align:left;margin-left:0}
+.storia-body p{font-size:1.05rem;margin-bottom:16px;line-height:1.75}
+.storia-body p em{color:var(--coral-d);font-style:italic;font-weight:600}
+.counter-big{margin-top:32px;padding:28px 30px;background:linear-gradient(135deg,var(--ocean) 0%,var(--ocean-d) 100%);color:#fff;border-radius:10px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+.counter-big-val{font-family:'Merriweather',serif;font-size:3.6rem;font-weight:900;color:var(--coral);line-height:1;letter-spacing:-.03em}
+.counter-big-label{font-family:'Open Sans',sans-serif;font-size:.95rem;line-height:1.4;color:rgba(245,240,225,.88)}
+.counter-big-label strong{display:block;font-size:1.1rem;color:#fff;margin-bottom:4px}
+/* MENU categorie */
+.menu{background:var(--sand)}
+.menu-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.mc{background:#fff;border-top:4px solid var(--coral);border-radius:6px;overflow:hidden;transition:all .35s}
+.mc:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(30,64,175,.18);border-top-color:var(--ocean)}
+.mc-head{padding:24px 26px 16px;background:var(--ocean-d);color:#fff;text-align:center}
+.mc-cat{font-family:'Open Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--coral);font-weight:700;margin-bottom:6px}
+.mc-title{font-family:'Merriweather',serif;font-size:1.5rem;font-weight:900;color:#fff;letter-spacing:-.01em;line-height:1.1}
+.mc-list{padding:22px 26px;list-style:none}
+.mc-list li{padding:12px 0;border-bottom:1px dotted var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.mc-list li:last-child{border:none}
+.mc-list li h4{font-family:'Merriweather',serif;font-size:1rem;color:var(--ocean-d);font-weight:700;margin-bottom:3px;line-height:1.25}
+.mc-list li p{font-family:'Open Sans',sans-serif;font-size:.82rem;color:var(--mute);line-height:1.45}
+.mc-list li span{font-family:'Merriweather',serif;font-weight:900;font-size:1.1rem;color:var(--coral-d);white-space:nowrap}
+/* VISTA MARE */
+.vista{background:var(--ocean);color:#fff;position:relative;overflow:hidden}
+.vista::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at center,rgba(249,115,22,.14) 0%,transparent 60%);pointer-events:none}
+.vista .hd{color:#fff}.vista .hd em{color:var(--coral)}.vista .sub{color:rgba(245,240,225,.75);margin:0 auto}
+.vista .tag{color:var(--coral)}.vista .tag::before,.vista .tag::after{background:var(--coral)}
+.vista-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center;position:relative;z-index:1;margin-top:20px}
+.vista-media{aspect-ratio:4/5;overflow:hidden;border-radius:8px;border:4px solid var(--coral);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.vista-media img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+.vista-body p{font-size:1.08rem;color:rgba(245,240,225,.9);line-height:1.75;margin-bottom:16px}
+.vista-body p em{color:var(--coral);font-style:italic;font-weight:600}
+.vista-feat{list-style:none;margin-top:24px;padding-top:24px;border-top:1px solid rgba(249,115,22,.3)}
+.vista-feat li{padding:14px 0;display:flex;gap:16px;align-items:flex-start;border-bottom:1px dotted rgba(245,240,225,.15)}
+.vista-feat li:last-child{border:none}
+.vista-feat li strong{font-family:'Merriweather',serif;font-size:1.1rem;color:var(--coral);font-weight:700;display:block;margin-bottom:3px}
+.vista-feat li p{font-size:.95rem;color:rgba(245,240,225,.78);margin:0;line-height:1.5}
+.vf-ico{width:44px;height:44px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+/* REVIEWS */
+.reviews{background:#fff}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.rev-card{padding:28px 26px;background:var(--sand);border-radius:6px;border-left:4px solid var(--coral);transition:all .3s}
+.rev-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(30,64,175,.14);background:#fff;border-left-color:var(--ocean)}
+.rev-stars{color:var(--coral);margin-bottom:12px;letter-spacing:2px}
+.rev-text{font-family:'Merriweather',serif;font-style:italic;font-size:.98rem;color:var(--ink);line-height:1.65;margin-bottom:18px}
+.rev-author{font-family:'Open Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ocean-d)}
+.rev-time{font-family:'Open Sans',sans-serif;font-size:10px;color:var(--mute);margin-top:3px;letter-spacing:.5px}
+/* INFO */
+.info{background:var(--sand)}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:52px;align-items:start}
+.info-col h3.hd{font-size:2.3rem;margin-bottom:12px;text-align:left}
+.info-col .sub{margin-bottom:28px;text-align:left;margin-left:0}
+.hours-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem;align-items:center}
+.hours-day{font-family:'Merriweather',serif;color:var(--ocean-d);font-weight:700}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums;font-weight:600}
+.always{background:var(--ocean);color:#fff;padding:24px 26px;border-radius:10px;margin-top:20px;text-align:center}
+.always strong{font-family:'Merriweather',serif;font-weight:900;font-size:2rem;color:var(--coral);display:block;margin-bottom:6px;letter-spacing:-.01em}
+.always p{font-size:.95rem;opacity:.92}
+.contact{margin-top:26px}
+.contact h4{font-family:'Open Sans',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--coral-d);font-weight:700;margin-bottom:6px}
+.contact p,.contact a{font-family:'Merriweather',serif;font-weight:700;font-size:1.2rem;color:var(--ocean-d);text-decoration:none;line-height:1.5}
+.contact a:hover{color:var(--coral-d)}
+.map-wrap{border-radius:8px;overflow:hidden;box-shadow:0 30px 60px rgba(30,64,175,.2);aspect-ratio:1;border:4px solid var(--ocean)}
+.map-wrap iframe{width:100%;height:100%;border:none}
+footer{background:var(--ocean-d);color:rgba(245,240,225,.72);padding:50px 44px 28px;text-align:center;border-top:4px solid var(--coral)}
+.foot-logo{font-family:'Merriweather',serif;font-weight:900;font-size:1.7rem;color:#fff;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:10px}
+.foot-logo::before{content:'⚓';color:var(--coral)}
+.foot-logo span{color:var(--coral)}
+.foot-meta{font-family:'Open Sans',sans-serif;font-size:.88rem;margin-bottom:20px}
+.foot-copy{font-family:'Open Sans',sans-serif;font-size:11px;letter-spacing:1.5px;color:rgba(245,240,225,.45);padding-top:18px;border-top:1px solid rgba(249,115,22,.2);margin-top:18px}
+.foot-copy a{color:var(--coral);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa:hover{transform:scale(1.08)}.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    nav{padding:14px 22px}.nav-links{display:none}section{padding:60px 22px}
+    .hero-inner{padding:130px 22px 40px}
+    .storia-grid,.vista-grid,.info-grid{grid-template-columns:1fr;gap:36px}
+    .menu-cats{grid-template-columns:1fr}
+    .rev-grid{grid-template-columns:1fr}
+    .counter-big{grid-template-columns:1fr;text-align:center}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle"><button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button></div>
+<nav id="mainNav"><a href="#" class="nav-logo">Nautica <span>Lo Scoglio</span></a>
+    <ul class="nav-links"><li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li><li><a href="#menu">Menu</a></li><li><a href="#vista"><span class="t-it">Vista Mare</span><span class="t-en">Sea View</span></a></li><li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li><li><a href="#info">Info</a></li></ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80" alt="Mare di Scalea"></div>
+    <div class="hero-inner">
+        <div class="hero-kicker"><span class="t-it">Via Nazario Sauro · Fronte mare</span><span class="t-en">Via Nazario Sauro · On the sea</span></div>
+        <h1 class="t-it">Nautica<br><em>Lo Scoglio</em>.</h1>
+        <h1 class="t-en">Nautica<br><em>Lo Scoglio</em>.</h1>
+        <p class="hero-tag t-it">Ristorante di pesce praticamente sul mare — con Torre Talao che fa da cornice. Domenico è una persona squisita come i piatti che offre.</p>
+        <p class="hero-tag t-en">Seafood restaurant practically on the sea — with Torre Talao as a frame. Domenico is as exquisite as the dishes he offers.</p>
+        <div class="hero-meta">
+            <div class="hm"><span class="hm-v">3.8</span><span class="hm-l">Google ★</span></div>
+            <div class="hm"><span class="hm-v">1.547</span><span class="hm-l"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+            <div class="hm"><span class="hm-v">€€€</span><span class="hm-l"><span class="t-it">Fronte mare</span><span class="t-en">Sea front</span></span></div>
+            <div class="hm"><span class="hm-v">24h</span><span class="hm-l"><span class="t-it">Aperto</span><span class="t-en">Open</span></span></div>
+        </div>
+        <div>
+            <a href="https://wa.me/390985939735?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20allo%20Scoglio" target="_blank" rel="noopener" class="btn btn-coral">⚓ <span class="t-it">Prenota un tavolo</span><span class="t-en">Book a table</span></a>
+            <a href="#menu" class="btn btn-outline">Menu</a>
+        </div>
+    </div>
+    <div class="waves">
+        <svg class="w1" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V72.85A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(245,240,225,.35)"/></svg>
+        <svg class="w2" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position:absolute;bottom:0"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V72.85A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(245,240,225,.55)"/></svg>
+        <svg class="w3" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position:absolute;bottom:0"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V72.85A600.21,600.21,0,0,0,321.39,56.44Z" fill="#F5F0E1"/></svg>
+    </div>
+</section>
+
+<section class="storia" id="storia">
+    <div class="wrap"><div class="storia-grid">
+        <div class="storia-media"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="Sala Lo Scoglio"></div>
+        <div class="storia-body">
+            <div class="tag"><span class="t-it">La nostra storia</span><span class="t-en">Our story</span></div>
+            <h2 class="hd t-it">Bellissima <em>location</em><br>fronte mare.</h2>
+            <h2 class="hd t-en">Beautiful <em>location</em><br>on the seafront.</h2>
+            <p class="t-it">Nautica Lo Scoglio sta <em>praticamente sul mare</em> in Via Nazario Sauro. La <em>Torre Talao</em> fa da cornice, il Tirreno riempie lo sguardo. Personale gentile e professionale, il titolare Domenico è una persona <em>squisita</em>.</p>
+            <p class="t-en">Nautica Lo Scoglio sits <em>practically on the sea</em> on Via Nazario Sauro. <em>Torre Talao</em> frames the view, the Tyrrhenian fills the eye. Kind, professional staff — owner Domenico is an <em>exquisite</em> host.</p>
+            <p class="t-it">Piatti <em>abbondanti</em> e ricercati — consigliato il pacchero al gambero rosso con stracciatella. Servizio informale, atmosfera di famiglia, vista che vale il viaggio.</p>
+            <p class="t-en">Dishes <em>generous</em> and refined — the paccheri with red prawn and stracciatella is highly recommended. Informal service, family atmosphere, a view worth the trip.</p>
+            <div class="counter-big">
+                <div class="counter-big-val">1.547</div>
+                <div class="counter-big-label">
+                    <strong><span class="t-it">Recensioni Google</span><span class="t-en">Google reviews</span></strong>
+                    <span class="t-it">Uno dei ristoranti più recensiti di Scalea — la nostra responsabilità ogni giorno.</span>
+                    <span class="t-en">One of Scalea's most-reviewed restaurants — our responsibility every day.</span>
+                </div>
+            </div>
+        </div>
+    </div></div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Il menu</span><span class="t-en">The menu</span></div>
+            <h2 class="hd t-it">La <em>carta</em><br>del Tirreno.</h2>
+            <h2 class="hd t-en">The <em>card</em><br>of the Tyrrhenian.</h2>
+            <p class="sub t-it">Tre categorie, il pescato del giorno. Porzioni abbondanti — in particolare gli antipasti.</p>
+            <p class="sub t-en">Three categories, the daily catch. Generous portions — especially the starters.</p>
+        </div>
+        <div class="menu-cats">
+            <div class="mc">
+                <div class="mc-head">
+                    <div class="mc-cat"><span class="t-it">I Categoria</span><span class="t-en">I</span></div>
+                    <div class="mc-title"><span class="t-it">Antipasti</span><span class="t-en">Starters</span></div>
+                </div>
+                <ul class="mc-list">
+                    <li><div><h4><span class="t-it">Crudo di mare</span><span class="t-en">Raw seafood</span></h4><p class="t-it">Tartare, carpacci, ostriche</p><p class="t-en">Tartare, carpaccio, oysters</p></div><span>€24</span></li>
+                    <li><div><h4><span class="t-it">Antipasto dello Scoglio</span><span class="t-en">Scoglio starter</span></h4><p class="t-it">Polpo, gamberi, cozze, bruschette</p><p class="t-en">Octopus, prawns, mussels, bruschette</p></div><span>€18</span></li>
+                    <li><div><h4><span class="t-it">Alici marinate</span><span class="t-en">Marinated anchovies</span></h4><p class="t-it">Limone, aglio, prezzemolo, olio EVO</p><p class="t-en">Lemon, garlic, parsley, EVO</p></div><span>€10</span></li>
+                    <li><div><h4><span class="t-it">Cozze alla marinara</span><span class="t-en">Marinara mussels</span></h4><p class="t-it">Pomodoro, aglio, peperoncino</p><p class="t-en">Tomato, garlic, chilli</p></div><span>€12</span></li>
+                </ul>
+            </div>
+            <div class="mc">
+                <div class="mc-head">
+                    <div class="mc-cat"><span class="t-it">II Categoria</span><span class="t-en">II</span></div>
+                    <div class="mc-title"><span class="t-it">Primi di Pesce</span><span class="t-en">Seafood Pasta</span></div>
+                </div>
+                <ul class="mc-list">
+                    <li><div><h4>Paccheri <em>gambero rosso</em></h4><p class="t-it">Gambero rosso di Scalea, stracciatella</p><p class="t-en">Red Scalea prawns, stracciatella</p></div><span>€22</span></li>
+                    <li><div><h4>Linguine allo scoglio</h4><p class="t-it">Cozze, vongole, gamberi, totano</p><p class="t-en">Mussels, clams, prawns, squid</p></div><span>€18</span></li>
+                    <li><div><h4><span class="t-it">Risotto ai frutti di mare</span><span class="t-en">Seafood risotto</span></h4><p class="t-it">Carnaroli, frutti di mare del giorno</p><p class="t-en">Carnaroli, daily seafood</p></div><span>€20</span></li>
+                    <li><div><h4><span class="t-it">Spaghetti vongole</span><span class="t-en">Clam spaghetti</span></h4><p class="t-it">Vongole veraci, aglio, prezzemolo</p><p class="t-en">True clams, garlic, parsley</p></div><span>€16</span></li>
+                </ul>
+            </div>
+            <div class="mc">
+                <div class="mc-head">
+                    <div class="mc-cat"><span class="t-it">III Categoria</span><span class="t-en">III</span></div>
+                    <div class="mc-title"><span class="t-it">Secondi &amp; Fritto</span><span class="t-en">Mains &amp; Fry</span></div>
+                </div>
+                <ul class="mc-list">
+                    <li><div><h4><span class="t-it">Pescato al forno</span><span class="t-en">Oven fish</span></h4><p class="t-it">Intero, con patate e pomodorini</p><p class="t-en">Whole, with potatoes &amp; tomatoes</p></div><span>€55/kg</span></li>
+                    <li><div><h4><span class="t-it">Frittura di paranza</span><span class="t-en">Paranza fry</span></h4><p class="t-it">Misto del giorno, leggera</p><p class="t-en">Daily mix, light</p></div><span>€22</span></li>
+                    <li><div><h4><span class="t-it">Grigliata mista</span><span class="t-en">Mixed grill</span></h4><p class="t-it">Scampi, gamberoni, calamari, orata</p><p class="t-en">Scampi, tiger prawns, squid, bream</p></div><span>€28</span></li>
+                    <li><div><h4><span class="t-it">Pezzogna al sale</span><span class="t-en">Pezzogna in salt</span></h4><p class="t-it">In crosta di sale marino</p><p class="t-en">In sea-salt crust</p></div><span>€48/kg</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="vista" id="vista">
+    <div class="wrap"><div class="vista-grid">
+        <div class="vista-media"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80" alt="Torre Talao"></div>
+        <div class="vista-body">
+            <div class="tag"><span class="t-it">La vista mare</span><span class="t-en">The sea view</span></div>
+            <h2 class="hd t-it"><em>Torre Talao</em><br>come cornice.</h2>
+            <h2 class="hd t-en"><em>Torre Talao</em><br>as a frame.</h2>
+            <p class="t-it">La nostra sala guarda dritta sul mare. A sinistra, il profilo della <em>Torre Talao</em> — fortezza saracena del XVI secolo. A destra, l'orizzonte del Tirreno.</p>
+            <p class="t-en">Our dining room faces the sea head-on. To the left, the profile of <em>Torre Talao</em> — a 16th-century Saracen fortress. To the right, the Tyrrhenian horizon.</p>
+            <ul class="vista-feat">
+                <li><div class="vf-ico">🏰</div><div><strong><span class="t-it">Torre Talao</span><span class="t-en">Torre Talao</span></strong><p class="t-it">Fortezza saracena del 1500, a 200 metri</p><p class="t-en">16th-century Saracen fortress, 200m away</p></div></li>
+                <li><div class="vf-ico">🌅</div><div><strong><span class="t-it">Tramonti ogni sera</span><span class="t-en">Sunsets every evening</span></strong><p class="t-it">Il sole cala direttamente nel Tirreno</p><p class="t-en">Sun sets straight into the Tyrrhenian</p></div></li>
+                <li><div class="vf-ico">🎵</div><div><strong><span class="t-it">Musica dal vivo</span><span class="t-en">Live music</span></strong><p class="t-it">Ogni venerdì e sabato, band acustiche</p><p class="t-en">Fri &amp; Sat, acoustic bands</p></div></li>
+            </ul>
+        </div>
+    </div></div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag">★ 3.8 · 1.547 Google</div>
+            <h2 class="hd t-it">1.547 voci <em>dal mare</em>.</h2>
+            <h2 class="hd t-en">1,547 voices <em>from the sea</em>.</h2>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Bellissima location fronte mare, con Torre Talao che fa da cornice. Personale gentile e professionale — il titolare Domenico è una persona squisita come i piatti che offre. Ottima scelta per godersi i profumi del mare.</p>
+                <p class="rev-text t-en">Beautiful seafront location, with Torre Talao as a frame. Kind, professional staff — owner Domenico is as exquisite as the dishes. A great choice to enjoy the sea scents.</p>
+                <div class="rev-author">Alessandro Bottone</div><div class="rev-time"><span class="t-it">6 mesi fa · Google</span><span class="t-en">6 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★</div>
+                <p class="rev-text t-it">Ristorante di pesce praticamente sul mare. Piatti abbondanti — in particolare l'antipasto. Consigliato il pacchero al gambero rosso con stracciatella. Servizio informale.</p>
+                <p class="rev-text t-en">Seafood restaurant practically on the sea. Generous dishes — especially the starter. Paccheri with red prawn and stracciatella is recommended. Informal service.</p>
+                <div class="rev-author">Giuseppe Francesco Gioffrè</div><div class="rev-time"><span class="t-it">8 mesi fa · Google</span><span class="t-en">8 months ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Vista mozzafiato, torre storica che si staglia all'orizzonte. Il crudo di mare è eccezionale, gamberi rossi dolci, ostriche fresche. Domenico racconta la sua passione ad ogni tavolo.</p>
+                <p class="rev-text t-en">Breathtaking view, historic tower on the horizon. The raw seafood is exceptional, sweet red prawns, fresh oysters. Domenico shares his passion with every table.</p>
+                <div class="rev-author">Ospite · Scalea</div><div class="rev-time"><span class="t-it">Google</span><span class="t-en">Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap"><div class="info-grid">
+        <div class="info-col">
+            <div class="tag"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></div>
+            <h3 class="hd t-it">Via <em>Nazario Sauro</em>.<br>Sul mare.</h3>
+            <h3 class="hd t-en">Via <em>Nazario Sauro</em>.<br>On the sea.</h3>
+            <p class="sub t-it">Aperti 24 ore su 24. La cucina è operativa pranzo e cena — chiedi sempre per le prenotazioni.</p>
+            <p class="sub t-en">Open 24 hours. Kitchen active at lunch and dinner — always ask about bookings.</p>
+            <div class="always">
+                <strong>24/7</strong>
+                <p class="t-it">Sette giorni su sette, 24 ore al giorno. Il mare non si ferma — noi neanche.</p>
+                <p class="t-en">Seven days a week, 24 hours a day. The sea doesn't stop — neither do we.</p>
+            </div>
+            <div class="contact"><h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4><p>Via Nazario Sauro<br>87029 Scalea (CS)</p></div>
+            <div class="contact"><h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4><a href="tel:+390985939735">+39 0985 939735</a></div>
+        </div>
+        <div class="map-wrap"><iframe src="https://www.google.com/maps?q=Nautica+Lo+Scoglio+Scalea&output=embed" loading="lazy" title="Lo Scoglio"></iframe></div>
+    </div></div>
+</section>
+
+<footer>
+    <div class="foot-logo">Nautica <span>Lo Scoglio</span></div>
+    <div class="foot-meta">Via Nazario Sauro · 87029 Scalea (CS) · +39 0985 939735</div>
+    <div class="foot-copy">&copy; 2026 Nautica Lo Scoglio · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/390985939735" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>
+function setLang(l){document.body.classList.toggle('lang-en', l==='en');document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));}
+addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+</script>
+</body></html>

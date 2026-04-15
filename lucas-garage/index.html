@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luca's Garage — Scalea · Pub e cucina con specialità calabresi</title>
+<meta name="description" content="Luca's Garage a Scalea: pub accogliente, cucina calabrese, palchetto per musica live, piatti senza glutine. ★4.5 · 232 recensioni. Viale Michelangelo 77.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Luca's Garage","servesCuisine":["Italian","Pub","Calabrian"],"address":{"@type":"PostalAddress","streetAddress":"Viale Michelangelo, 77","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+393392037367","priceRange":"€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","reviewCount":"232"},"geo":{"@type":"GeoCoordinates","latitude":39.8034791,"longitude":15.7913986}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--oil:#1C1C1C;--oil-2:#262626;--oil-3:#333333;--rust:#D45D22;--rust-d:#A84612;--rust-l:#F2803F;--concrete:#9CA3AF;--concrete-l:#D1D5DB;--white:#F5F5F5;--cream:#E8E4DE;--ink:#1C1C1C;--mute:#6B7280;--line:rgba(28,28,28,.12)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;color:var(--ink);background:var(--white);line-height:1.55;overflow-x:hidden}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+h1,h2,h3,h4,.display{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.01em;text-transform:uppercase}
+/* metal texture */
+.metal-tex{background-color:var(--oil);background-image:linear-gradient(135deg,rgba(255,255,255,.03) 0%,transparent 40%),repeating-linear-gradient(90deg,transparent 0,transparent 3px,rgba(255,255,255,.02) 3px,rgba(255,255,255,.02) 4px),repeating-linear-gradient(0deg,transparent 0,transparent 60px,rgba(212,93,34,.08) 60px,rgba(212,93,34,.08) 61px)}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:18px 36px;display:flex;justify-content:space-between;align-items:center;transition:all .3s;border-bottom:2px solid transparent}
+nav.scrolled{background:var(--oil);padding:12px 36px;border-color:var(--rust)}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.4rem;color:#fff;text-decoration:none;letter-spacing:.06em;display:flex;align-items:center;gap:10px}
+.nav-logo::before{content:'⚙';color:var(--rust-l);font-size:1.3rem;transition:transform .6s}
+.nav-logo:hover::before{transform:rotate(180deg)}
+.nav-logo span{color:var(--rust-l)}
+.nav-links{display:flex;gap:22px;list-style:none}
+.nav-links a{font-family:'Oswald',sans-serif;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.78);text-decoration:none;transition:color .25s;position:relative}
+.nav-links a:hover{color:var(--rust-l)}
+.lang-toggle{position:fixed;top:18px;right:18px;z-index:100;display:flex;gap:2px;background:var(--oil);padding:3px;border:1px solid var(--rust);border-radius:2px}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(255,255,255,.6);font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;cursor:pointer;transition:all .25s}
+.lang-btn.active{background:var(--rust);color:#fff}
+/* HERO metal */
+.hero{position:relative;min-height:100vh;color:#fff;overflow:hidden;display:flex;align-items:flex-end;padding:140px 36px 80px}
+.hero.metal-tex::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(212,93,34,.2) 0%,transparent 60%);pointer-events:none}
+.hero.metal-tex::after{content:'';position:absolute;top:0;left:0;right:0;height:50px;background:repeating-linear-gradient(90deg,var(--oil-2) 0,var(--oil-2) 30px,var(--rust) 30px,var(--rust) 32px,var(--oil-2) 32px,var(--oil-2) 60px);border-bottom:2px solid var(--rust-d);opacity:.4}
+.hero-inner{position:relative;z-index:1;max-width:1300px;margin:0 auto;width:100%}
+.hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:50px;align-items:end}
+.hero-text{position:relative}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;padding:6px 14px;background:var(--rust);color:#fff;font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:24px;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.hero h1{font-family:'Oswald',sans-serif;font-size:clamp(4rem,12vw,10rem);font-weight:700;line-height:.82;color:#fff;margin-bottom:18px;letter-spacing:-.01em;text-transform:uppercase}
+.hero h1 em{color:var(--rust-l);font-style:normal;-webkit-text-stroke:2px var(--rust);color:transparent}
+.hero-tag{font-family:'Barlow',sans-serif;font-size:1.15rem;font-weight:400;color:rgba(255,255,255,.85);max-width:580px;margin-bottom:34px;line-height:1.55}
+.hero-stats{display:inline-grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:36px;background:var(--rust);padding:2px}
+.hs{padding:12px 22px;background:var(--oil);display:flex;flex-direction:column;min-width:100px}
+.hs-v{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.7rem;color:var(--rust-l);line-height:1;letter-spacing:.01em}
+.hs-l{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--concrete);margin-top:5px;font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;border:none;cursor:pointer;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.btn-rust{background:var(--rust);color:#fff;padding-right:38px;padding-left:28px}
+.btn-rust:hover{background:var(--rust-d)}
+.btn-ghost{background:transparent;color:#fff;border:2px solid var(--concrete);margin-left:8px;clip-path:none}
+.btn-ghost:hover{border-color:var(--rust-l);color:var(--rust-l)}
+/* Garage door panel right */
+.garage-door{aspect-ratio:3/4;background:var(--oil-2);border:6px solid var(--oil);box-shadow:inset 0 0 0 2px var(--rust-d),0 30px 60px rgba(0,0,0,.5);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.garage-door::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.3) 0,rgba(0,0,0,.3) 2px,rgba(255,255,255,.03) 2px,rgba(255,255,255,.03) 4px,transparent 4px,transparent 50px,rgba(0,0,0,.2) 50px,rgba(0,0,0,.2) 52px)}
+.garage-door img{position:relative;z-index:1;width:92%;height:92%;object-fit:cover;filter:contrast(1.05)}
+.garage-door::after{content:'77';position:absolute;top:10px;right:14px;z-index:2;font-family:'Oswald',sans-serif;font-weight:700;font-size:2.2rem;color:var(--rust-l);-webkit-text-stroke:1px var(--oil);letter-spacing:-.02em}
+section{padding:90px 36px}
+.wrap{max-width:1300px;margin:0 auto}
+.sec-head{max-width:780px;margin-bottom:56px}
+.tag{display:inline-flex;align-items:center;gap:10px;font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--rust);font-weight:600;margin-bottom:14px}
+.tag::before{content:'//';color:var(--rust);font-weight:700}
+h2.hd{font-family:'Oswald',sans-serif;font-size:clamp(2.4rem,6vw,5rem);color:var(--oil);line-height:.95;margin-bottom:18px;font-weight:700}
+h2.hd em{color:var(--rust);font-style:normal}
+.sub{font-size:1.05rem;color:var(--mute);max-width:680px;line-height:1.7;font-weight:400}
+/* STORIA */
+.storia{background:var(--cream)}
+.storia-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:52px;align-items:center}
+.storia-media{aspect-ratio:4/5;overflow:hidden;position:relative;border:8px solid var(--oil);box-shadow:16px 16px 0 var(--rust)}
+.storia-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
+.storia-media::after{content:'GARAGE 77';position:absolute;bottom:14px;left:14px;background:var(--rust);color:#fff;padding:6px 12px;font-family:'Oswald',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px}
+.storia-body p{font-size:1.05rem;margin-bottom:16px;line-height:1.75}
+.storia-body p em{color:var(--rust);font-style:normal;font-weight:600}
+.storia-sign{margin-top:24px;padding-top:20px;border-top:3px solid var(--oil);display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.storia-sign div{font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mute)}
+.storia-sign div strong{display:block;font-weight:700;color:var(--oil);font-size:14px;margin-top:4px;letter-spacing:.02em}
+/* MENU mechanic board */
+.menu{background:var(--white);position:relative}
+.board{background:var(--oil);color:#fff;padding:50px 40px;border-radius:4px;margin-top:40px;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.3)}
+.board::before{content:'';position:absolute;top:-6px;left:-6px;right:-6px;bottom:-6px;background:repeating-linear-gradient(45deg,var(--rust-d) 0,var(--rust-d) 6px,var(--oil) 6px,var(--oil) 12px);z-index:-1;border-radius:6px}
+.board-title{font-family:'Oswald',sans-serif;font-size:2rem;color:var(--rust-l);margin-bottom:8px;letter-spacing:.04em;display:flex;align-items:center;gap:16px}
+.board-title::before,.board-title::after{content:'';flex:1;height:2px;background:var(--rust)}
+.board-sub{font-family:'Barlow',sans-serif;font-size:.9rem;color:var(--concrete);text-align:center;margin-bottom:36px;letter-spacing:.05em}
+.board-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 40px}
+.bi{display:grid;grid-template-columns:auto 1fr auto;gap:14px;padding:14px 0;border-bottom:1px dashed rgba(255,255,255,.15);align-items:baseline}
+.bi:last-child,.bi:nth-last-child(2){border-bottom:none}
+.bi-num{font-family:'Oswald',sans-serif;font-size:.9rem;color:var(--rust-l);font-weight:700;letter-spacing:.05em;width:36px}
+.bi-body h4{font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:500;color:#fff;margin-bottom:3px;letter-spacing:.02em}
+.bi-body h4 em{color:var(--rust-l);font-style:normal}
+.bi-body p{font-family:'Barlow',sans-serif;font-size:.85rem;color:var(--concrete);line-height:1.45}
+.bi-price{font-family:'Oswald',sans-serif;font-size:1.2rem;color:var(--rust-l);font-weight:600;white-space:nowrap}
+/* BIRRE tap */
+.birre{background:var(--oil);color:#fff;position:relative;overflow:hidden}
+.birre::before{content:'';position:absolute;top:-10%;right:-5%;width:50%;height:120%;background:radial-gradient(ellipse at center,rgba(212,93,34,.15) 0%,transparent 60%);pointer-events:none}
+.birre .hd{color:#fff}.birre .hd em{color:var(--rust-l)}
+.birre .sub{color:rgba(255,255,255,.72)}.birre .tag{color:var(--rust-l)}.birre .tag::before{color:var(--rust-l)}
+.tap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;z-index:1}
+.tap{padding:28px 20px;background:rgba(255,255,255,.04);border:2px solid var(--rust-d);border-radius:6px;text-align:center;transition:all .3s;position:relative}
+.tap::before{content:'';position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:30px;height:18px;background:var(--concrete);border-radius:4px 4px 0 0;border:2px solid var(--rust-d);border-bottom:none}
+.tap::after{content:'';position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:6px;height:8px;background:var(--rust);border-radius:3px 3px 0 0}
+.tap:hover{background:rgba(212,93,34,.1);border-color:var(--rust-l);transform:translateY(-6px)}
+.tap-name{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.3rem;color:var(--rust-l);margin-bottom:8px;letter-spacing:.02em;margin-top:12px}
+.tap-type{font-family:'Barlow',sans-serif;font-size:.85rem;color:rgba(255,255,255,.75);margin-bottom:14px;line-height:1.4}
+.tap-price{font-family:'Oswald',sans-serif;font-size:1.4rem;color:#fff;font-weight:700;padding-top:12px;border-top:1px solid rgba(255,255,255,.15)}
+/* REVIEWS */
+.reviews{background:var(--cream)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.rev-card{padding:28px 24px;background:var(--white);border-left:4px solid var(--rust);transition:all .3s;position:relative}
+.rev-card:hover{transform:translateX(4px);box-shadow:8px 8px 0 var(--oil)}
+.rev-stars{color:var(--rust);letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-family:'Barlow',sans-serif;font-size:.98rem;color:var(--ink);line-height:1.65;margin-bottom:18px}
+.rev-author{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--oil)}
+.rev-time{font-family:'Barlow',sans-serif;font-size:10px;color:var(--mute);margin-top:3px;letter-spacing:.5px;font-weight:500}
+/* INFO */
+.info{background:var(--white)}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:52px;align-items:start}
+.info-col h3.hd{font-size:2.4rem;margin-bottom:12px}
+.info-col .sub{margin-bottom:28px}
+.hours-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:2px solid var(--line);font-size:.95rem;align-items:center}
+.hours-day{font-family:'Oswald',sans-serif;font-size:1.1rem;color:var(--oil);letter-spacing:.04em;font-weight:500}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums;font-family:'Barlow',sans-serif;font-weight:500}
+.contact{margin-top:26px;padding-top:22px;border-top:3px solid var(--oil)}
+.contact h4{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--rust);font-weight:600;margin-bottom:6px}
+.contact p,.contact a{font-family:'Oswald',sans-serif;font-size:1.3rem;color:var(--oil);text-decoration:none;line-height:1.5;font-weight:500;letter-spacing:.02em}
+.contact a:hover{color:var(--rust)}
+.map-wrap{border:6px solid var(--oil);overflow:hidden;aspect-ratio:1;box-shadow:12px 12px 0 var(--rust)}
+.map-wrap iframe{width:100%;height:100%;border:none;filter:grayscale(40%) contrast(1.05)}
+footer{background:var(--oil);color:rgba(255,255,255,.7);padding:44px 36px 26px;text-align:center;border-top:4px solid var(--rust);position:relative}
+.foot-logo{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.8rem;color:#fff;margin-bottom:12px;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:12px}
+.foot-logo::before{content:'⚙';color:var(--rust-l)}
+.foot-logo span{color:var(--rust-l)}
+.foot-meta{font-family:'Barlow',sans-serif;font-size:.88rem;margin-bottom:18px;letter-spacing:.02em}
+.foot-copy{font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.45);padding-top:18px;border-top:1px solid rgba(255,255,255,.1);margin-top:18px;text-transform:uppercase}
+.foot-copy a{color:var(--rust-l);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:58px;height:58px;background:#25D366;border-radius:0;display:flex;align-items:center;justify-content:center;box-shadow:6px 6px 0 var(--rust-d);text-decoration:none;transition:all .3s}
+.wa:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--rust-d)}.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    nav{padding:12px 20px}.nav-links{display:none}section{padding:60px 20px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}.garage-door{max-width:320px;margin:0 auto}
+    .hero{padding:130px 20px 60px}
+    .storia-grid,.info-grid{grid-template-columns:1fr;gap:32px}
+    .board-grid{grid-template-columns:1fr}
+    .tap-grid{grid-template-columns:1fr 1fr}
+    .rev-grid{grid-template-columns:1fr}
+    .storia-media,.map-wrap{box-shadow:10px 10px 0 var(--rust)}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle"><button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button><button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button></div>
+<nav id="mainNav"><a href="#" class="nav-logo">Luca's <span>Garage</span></a>
+    <ul class="nav-links"><li><a href="#storia">Storia</a></li><li><a href="#menu">Menu</a></li><li><a href="#birre">Birre</a></li><li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li><li><a href="#info">Info</a></li></ul>
+</nav>
+
+<section class="hero metal-tex">
+    <div class="hero-inner"><div class="hero-grid">
+        <div class="hero-text">
+            <div class="hero-kicker"><span class="t-it">Pub · Kitchen · Calabria</span><span class="t-en">Pub · Kitchen · Calabria</span></div>
+            <h1>Luca's<br><em>Garage</em>.</h1>
+            <p class="hero-tag t-it">Pub dall'atmosfera calda, cibo ottimo, piatti senza glutine, palchetto per la musica live. E il Garage 4 con le specialità calabresi che non ti fanno dimenticare.</p>
+            <p class="hero-tag t-en">Warm pub atmosphere, great food, gluten-free options, live music stage. And the Garage 4 Calabrian special plate you won't forget.</p>
+            <div class="hero-stats">
+                <div class="hs"><span class="hs-v">4.5</span><span class="hs-l">Google ★</span></div>
+                <div class="hs"><span class="hs-v">232</span><span class="hs-l"><span class="t-it">Recens.</span><span class="t-en">Reviews</span></span></div>
+                <div class="hs"><span class="hs-v">16h</span><span class="hs-l"><span class="t-it">Aperto</span><span class="t-en">Open</span></span></div>
+            </div>
+            <div>
+                <a href="https://wa.me/393392037367?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20a%20Luca%27s%20Garage" target="_blank" rel="noopener" class="btn btn-rust"><span class="t-it">Prenota un tavolo</span><span class="t-en">Book a table</span></a>
+                <a href="#menu" class="btn btn-ghost">Menu</a>
+            </div>
+        </div>
+        <div class="garage-door">
+            <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=900&q=80" alt="Luca's Garage interior" onerror="this.src='https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=900&q=80'">
+        </div>
+    </div></div>
+</section>
+
+<section class="storia" id="storia">
+    <div class="wrap"><div class="storia-grid">
+        <div class="storia-media"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=900&q=80" alt="Luca's Garage pub"></div>
+        <div class="storia-body">
+            <span class="tag"><span class="t-it">La nostra storia</span><span class="t-en">Our story</span></span>
+            <h2 class="hd t-it">Personalità,<br><em>qualità</em>, musica.</h2>
+            <h2 class="hd t-en">Personality,<br><em>quality</em>, music.</h2>
+            <p class="t-it">Luca's Garage è un pub <em>ben curato</em>, con tanta personalità e uno stile accogliente. Il cibo è ottimo, il personale qualificato — e abbiamo anche un <em>palchetto interno</em> per la musica live dal vivo.</p>
+            <p class="t-en">Luca's Garage is a <em>well-curated</em> pub with plenty of personality and a welcoming style. Food is excellent, staff skilled — and we have an <em>indoor stage</em> for live music.</p>
+            <p class="t-it">Prenota un tavolo anche all'ultimo momento — di solito c'è posto. Prova il <em>Garage 4</em>: il nostro piatto firma con specialità calabresi che fa parlare tutti.</p>
+            <p class="t-en">Book a table even last-minute — usually room is available. Try the <em>Garage 4</em>: our signature plate with Calabrian specialties that gets everyone talking.</p>
+            <div class="storia-sign">
+                <div><span class="t-it">DAL</span><span class="t-en">SINCE</span><strong>2019</strong></div>
+                <div><span class="t-it">APERTO</span><span class="t-en">OPEN</span><strong>7/7</strong></div>
+                <div><span class="t-it">MUSICA</span><span class="t-en">MUSIC</span><strong>LIVE</strong></div>
+            </div>
+        </div>
+    </div></div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag"><span class="t-it">Menu</span><span class="t-en">Menu</span></span>
+            <h2 class="hd t-it">Il <em>menu</em>.</h2>
+            <h2 class="hd t-en">The <em>menu</em>.</h2>
+            <p class="sub t-it">Pub food di qualità, piatti calabresi, opzioni senza glutine. Prezzi onesti, porzioni giuste.</p>
+            <p class="sub t-en">Quality pub food, Calabrian plates, gluten-free options. Honest prices, proper portions.</p>
+        </div>
+        <div class="board">
+            <div class="board-title">⚙ Workshop Menu ⚙</div>
+            <div class="board-sub"><span class="t-it">◆ DAL GARAGE, CON ATTENZIONE ◆</span><span class="t-en">◆ FROM THE GARAGE, WITH CARE ◆</span></div>
+            <div class="board-grid">
+                <div class="bi"><div class="bi-num">#01</div>
+                    <div class="bi-body"><h4><span class="t-it">Garage <em>4</em></span><span class="t-en">Garage <em>4</em></span></h4>
+                    <p class="t-it">Tagliere calabrese: 'nduja, soppressata, pecorino, friarielli, pane tostato.</p>
+                    <p class="t-en">Calabrian board: 'nduja, soppressata, pecorino, friarielli, toast.</p></div>
+                    <div class="bi-price">€16</div>
+                </div>
+                <div class="bi"><div class="bi-num">#02</div>
+                    <div class="bi-body"><h4>Panino <em>Luca's</em></h4>
+                    <p class="t-it">Hamburger 200g, cipolla caramellata, cheddar, bacon, patate.</p>
+                    <p class="t-en">200g burger, caramelised onion, cheddar, bacon, fries.</p></div>
+                    <div class="bi-price">€12</div>
+                </div>
+                <div class="bi"><div class="bi-num">#03</div>
+                    <div class="bi-body"><h4><span class="t-it">Pasta <em>casereccia</em></span><span class="t-en"><em>Homemade</em> pasta</span></h4>
+                    <p class="t-it">Fileja al ragù di maiale, pecorino stagionato, peperoncino.</p>
+                    <p class="t-en">Fileja, pork ragù, aged pecorino, chilli.</p></div>
+                    <div class="bi-price">€11</div>
+                </div>
+                <div class="bi"><div class="bi-num">#04</div>
+                    <div class="bi-body"><h4><span class="t-it">Grigliata <em>mista</em></span><span class="t-en"><em>Mixed</em> grill</span></h4>
+                    <p class="t-it">Salsiccia, costine, spiedini di pollo, patate al forno.</p>
+                    <p class="t-en">Sausage, ribs, chicken skewers, oven potatoes.</p></div>
+                    <div class="bi-price">€18</div>
+                </div>
+                <div class="bi"><div class="bi-num">#05</div>
+                    <div class="bi-body"><h4><span class="t-it">Panino <em>senza glutine</em></span><span class="t-en"><em>Gluten-free</em> burger</span></h4>
+                    <p class="t-it">Pane GF, hamburger 180g, formaggio, pomodoro, insalata.</p>
+                    <p class="t-en">GF bun, 180g burger, cheese, tomato, salad.</p></div>
+                    <div class="bi-price">€13</div>
+                </div>
+                <div class="bi"><div class="bi-num">#06</div>
+                    <div class="bi-body"><h4><span class="t-it">Patatine <em>fritte</em></span><span class="t-en"><em>French</em> fries</span></h4>
+                    <p class="t-it">Grosse, croccanti, con salse della casa — BBQ, mayo, cheddar.</p>
+                    <p class="t-en">Thick, crispy, house sauces — BBQ, mayo, cheddar.</p></div>
+                    <div class="bi-price">€5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="birre" id="birre">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag"><span class="t-it">Le birre alla spina</span><span class="t-en">On tap</span></span>
+            <h2 class="hd t-it">Quattro <em>spine</em><br>sempre fresche.</h2>
+            <h2 class="hd t-en">Four <em>taps</em><br>always cold.</h2>
+            <p class="sub t-it">Selezione di birre artigianali e classiche. Boccale o media, secondo la sete.</p>
+            <p class="sub t-en">Craft and classic beer selection. Mug or medium, by thirst.</p>
+        </div>
+        <div class="tap-grid">
+            <div class="tap"><div class="tap-name">Moretti</div><div class="tap-type"><span class="t-it">Lager italiana · 5.0%</span><span class="t-en">Italian lager · 5.0%</span></div><div class="tap-price">€4</div></div>
+            <div class="tap"><div class="tap-name">Ichnusa</div><div class="tap-type"><span class="t-it">Non Filtrata · 5.0%</span><span class="t-en">Unfiltered · 5.0%</span></div><div class="tap-price">€5</div></div>
+            <div class="tap"><div class="tap-name">Guinness</div><div class="tap-type"><span class="t-it">Stout irlandese · 4.2%</span><span class="t-en">Irish stout · 4.2%</span></div><div class="tap-price">€6</div></div>
+            <div class="tap"><div class="tap-name">Calabrà IPA</div><div class="tap-type"><span class="t-it">IPA artigianale · 6.0%</span><span class="t-en">Craft IPA · 6.0%</span></div><div class="tap-price">€7</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <span class="tag">★ 4.5 · 232 Google</span>
+            <h2 class="hd t-it">232 voci <em>dal garage</em>.</h2>
+            <h2 class="hd t-en">232 voices <em>from the garage</em>.</h2>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Mi è piaciuto tantissimo questo locale! Qualità/prezzo lodevole, atmosfera calda con uno stile accogliente. Ha tanta personalità, e la cosa che abbiamo apprezzato ancora di più è il palchetto interno.</p>
+                <p class="rev-text t-en">I really loved this place! Praiseworthy quality/price, warm atmosphere with a welcoming style. Lots of personality, and what we loved even more is the indoor stage.</p>
+                <div class="rev-author">Angelica</div><div class="rev-time"><span class="t-it">3 anni fa · Google</span><span class="t-en">3 years ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Locale molto carino, personale qualificato, ci siamo state per 2 volte e abbiamo prenotato all'ultimo momento. Vi consiglio il Garage 4 con specialità calabresi molto buone.</p>
+                <p class="rev-text t-en">Very nice venue, skilled staff, we went twice and booked last-minute. I recommend the Garage 4 with excellent Calabrian specialities.</p>
+                <div class="rev-author">Felicia Nuzzo</div><div class="rev-time"><span class="t-it">2 anni fa · Google</span><span class="t-en">2 years ago · Google</span></div>
+            </div>
+            <div class="rev-card"><div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Personale molto gentile, ambiente ben curato. Cibo ottimo, possibilità di piatti senza glutine. Consigliato.</p>
+                <p class="rev-text t-en">Very kind staff, well-kept atmosphere. Excellent food, gluten-free options available. Recommended.</p>
+                <div class="rev-author">Vincenzo Mammalella</div><div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap"><div class="info-grid">
+        <div class="info-col">
+            <span class="tag"><span class="t-it">Orari &amp; Contatti</span><span class="t-en">Hours &amp; Contact</span></span>
+            <h3 class="hd t-it">Viale <em>Michelangelo</em><br>77.</h3>
+            <h3 class="hd t-en">Viale <em>Michelangelo</em><br>77.</h3>
+            <p class="sub t-it">Aperti tutti i giorni dalle 8 del mattino a mezzanotte. Riposo pomeridiano 15—18.</p>
+            <p class="sub t-en">Open every day 8am to midnight. Siesta 3—6pm.</p>
+            <div class="hours-table">
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Mon</span></span><span class="hours-time">08:00—15:00 · 18:00—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tue</span></span><span class="hours-time">08:00—15:00 · 18:00—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wed</span></span><span class="hours-time">08:00—15:00 · 18:00—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thu</span></span><span class="hours-time">08:00—15:00 · 18:00—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Fri</span></span><span class="hours-time">08:00—15:00 · 18:00—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Sat</span></span><span class="hours-time">08:00—15:00 · 18:00—00:00</span></div>
+                <div class="hours-row"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sun</span></span><span class="hours-time">08:00—15:00 · 18:00—00:00</span></div>
+            </div>
+            <div class="contact"><h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4><p>Viale Michelangelo, 77<br>87029 Scalea (CS)</p></div>
+            <div class="contact"><h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4><a href="tel:+393392037367">+39 339 203 7367</a></div>
+        </div>
+        <div class="map-wrap"><iframe src="https://www.google.com/maps?q=Luca%27s+Garage+Scalea&output=embed" loading="lazy" title="Luca's Garage"></iframe></div>
+    </div></div>
+</section>
+
+<footer>
+    <div class="foot-logo">Luca's <span>Garage</span></div>
+    <div class="foot-meta">Viale Michelangelo, 77 · 87029 Scalea (CS) · +39 339 203 7367</div>
+    <div class="foot-copy">&copy; 2026 Luca's Garage · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/393392037367" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>
+function setLang(l){document.body.classList.toggle('lang-en', l==='en');document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));}
+addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+</script>
+</body></html>

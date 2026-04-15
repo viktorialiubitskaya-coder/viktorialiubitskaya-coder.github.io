@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Veranda Lounge Bar — Scalea. Cucina italiana e sapori dell'Est. Cocktails, dolci, atmosfera lounge.">
+<title>Veranda Lounge Bar — Scalea · Cocktails & Cucina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0D0D0D; --bg-2:#141414; --bg-3:#1a1a1a;
+  --copper:#C9956B; --copper-l:#E2B58E; --teal:#2A8B8B;
+  --cream:#F5F0EB; --muted:#8a8a94; --line:rgba(245,240,235,.08);
+  --display:'Playfair Display',Georgia,serif;
+  --ui:'Outfit',system-ui,sans-serif;
+  --ease:.35s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--ui);background:var(--bg);color:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.55;font-weight:300}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.t-en{display:none}body.lang-en .t-en{display:inline}body.lang-en .t-it{display:none}
+
+/* === NAV === */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px clamp(20px,5vw,40px);display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,0));backdrop-filter:blur(4px);transition:background .4s,padding .3s}
+nav.scrolled{background:rgba(13,13,13,.92);backdrop-filter:blur(14px);padding:14px clamp(20px,5vw,40px);border-bottom:1px solid var(--line)}
+.brand{font-family:var(--display);font-style:italic;font-weight:500;font-size:1.4rem;color:var(--copper);letter-spacing:.01em}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,240,235,.78);transition:color .25s;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.nav-links a:hover{color:var(--copper)}
+.nav-right{display:flex;align-items:center;gap:18px}
+.lang{display:flex;gap:1px;background:rgba(245,240,235,.08);border:1px solid var(--line);border-radius:30px;padding:3px}
+.lang button{padding:4px 10px;border-radius:24px;font-size:10px;font-weight:600;letter-spacing:1px;color:rgba(245,240,235,.55);transition:all .2s}
+.lang button.on{background:var(--copper);color:#0D0D0D}
+.burger{display:none;color:var(--cream);font-size:22px}
+
+/* === HERO === */
+.hero{position:relative;height:100vh;min-height:680px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0a0a0a}
+.hero-bg{position:absolute;inset:0;background:url('veranda-photos/photo_00.jpg') center center/cover no-repeat;will-change:transform;animation:kenburns 25s ease-in-out infinite alternate;z-index:0}
+@keyframes kenburns{0%{transform:scale(1.03) translate3d(0,0,0)}100%{transform:scale(1.08) translate3d(-1.5%,-1%,0)}}
+@media(prefers-reduced-motion:reduce){.hero-bg{animation:none;transform:scale(1.03)}}
+.hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.6) 50%,rgba(0,0,0,.8) 100%)}
+
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;max-width:780px}
+.hero-eyebrow{font-family:var(--ui);font-size:.8rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:30px;text-shadow:0 2px 12px rgba(0,0,0,.6);opacity:0;transform:translateY(20px);animation:hUp .9s .2s cubic-bezier(.16,1,.3,1) forwards}
+
+.hero h1{font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(4rem,10vw,7rem);line-height:.95;color:var(--copper);margin-bottom:0;letter-spacing:-.02em;text-shadow:0 4px 30px rgba(0,0,0,.7),0 2px 10px rgba(0,0,0,.5);opacity:0;transform:translateY(20px);animation:hUp 1s .35s cubic-bezier(.16,1,.3,1) forwards}
+
+.hero-divider{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--copper),transparent);margin:30px auto;opacity:0;transform:scaleX(0);animation:hLine 1s .55s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes hLine{to{opacity:1;transform:scaleX(1)}}
+
+.hero-tagline{font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.85);margin-bottom:34px;text-shadow:0 2px 15px rgba(0,0,0,.6);opacity:0;transform:translateY(20px);animation:hUp .9s .7s cubic-bezier(.16,1,.3,1) forwards}
+
+.hero-rating{display:inline-flex;align-items:center;gap:10px;background:rgba(13,13,13,.55);backdrop-filter:blur(8px);border:1px solid rgba(201,149,107,.2);border-radius:100px;padding:9px 22px;margin-bottom:36px;color:#fff;opacity:0;transform:translateY(20px);animation:hUp .9s .85s cubic-bezier(.16,1,.3,1) forwards}
+.hero-rating .stars{color:var(--copper-l);letter-spacing:2px;font-size:14px}
+.hero-rating strong{font-family:var(--display);font-weight:500;font-size:1.2rem}
+.hero-rating .count{font-family:var(--ui);font-size:.7rem;color:rgba(255,255,255,.55);letter-spacing:.05em}
+
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;opacity:0;transform:translateY(20px);animation:hUp .9s 1s cubic-bezier(.16,1,.3,1) forwards}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;font-family:var(--ui);font-weight:600;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;border-radius:100px;transition:all .3s}
+.btn-primary{background:var(--copper);color:#0D0D0D;box-shadow:0 4px 20px rgba(201,149,107,.3)}
+.btn-primary:hover{background:var(--copper-l);transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,149,107,.45)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.btn-ghost:hover{border-color:var(--copper);color:var(--copper)}
+
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:hUp 1s 1.3s cubic-bezier(.16,1,.3,1) forwards}
+.hero-scroll .lbl{font-family:var(--ui);font-size:.6rem;font-weight:500;text-transform:uppercase;letter-spacing:.3em;color:rgba(255,255,255,.6);text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.hero-scroll .line{width:1px;height:32px;background:linear-gradient(180deg,rgba(201,149,107,0),var(--copper));animation:scrollPulse 2.2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.5;transform:scaleY(.7);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
+
+@keyframes hUp{to{opacity:1;transform:translateY(0)}}
+
+/* === SECTIONS === */
+.sec{padding:clamp(80px,10vw,140px) 0;position:relative}
+.sec-tag{font-family:var(--ui);font-size:11px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--copper);margin-bottom:18px}
+.sec-title{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.01em;margin-bottom:24px;color:var(--cream)}
+.sec-title em{font-style:italic;color:var(--copper)}
+.sec-desc{font-size:1rem;line-height:1.7;color:rgba(245,240,235,.65);max-width:620px}
+
+/* === DUE CULTURE === */
+.culture{background:var(--bg-2)}
+.culture-head{text-align:center;max-width:680px;margin:0 auto 60px}
+.culture-head .sec-desc{margin:0 auto}
+.culture-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.culture-card{position:relative;overflow:hidden;border-radius:6px;background:var(--bg-3);border:1px solid var(--line);transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s}
+.culture-card:hover{transform:translateY(-6px);border-color:rgba(201,149,107,.3)}
+.culture-img{aspect-ratio:5/4;overflow:hidden;position:relative}
+.culture-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.culture-card:hover .culture-img img{transform:scale(1.05)}
+.culture-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.85),transparent 50%);pointer-events:none}
+.culture-body{padding:30px 32px 36px}
+.culture-flag{display:inline-block;font-family:var(--ui);font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;padding:5px 12px;background:rgba(42,139,139,.1);border:1px solid rgba(42,139,139,.3);border-radius:30px}
+.culture-card.east .culture-flag{color:var(--copper);background:rgba(201,149,107,.1);border-color:rgba(201,149,107,.3)}
+.culture-h{font-family:var(--display);font-style:italic;font-weight:500;font-size:1.8rem;color:var(--cream);margin-bottom:14px;letter-spacing:-.005em}
+.culture-p{font-size:.95rem;color:rgba(245,240,235,.7);line-height:1.65;margin-bottom:18px}
+.culture-list{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.culture-list li{font-size:.78rem;letter-spacing:.05em;color:rgba(245,240,235,.6);padding:5px 11px;background:rgba(245,240,235,.04);border:1px solid var(--line);border-radius:30px}
+@media(max-width:780px){.culture-grid{grid-template-columns:1fr}}
+
+/* === COCKTAILS === */
+.cocktails{background:var(--bg);position:relative}
+.cocktails::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(201,149,107,.06),transparent 50%);pointer-events:none}
+.cocktail-head{text-align:center;max-width:680px;margin:0 auto 60px;position:relative;z-index:1}
+.cocktail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;position:relative;z-index:1}
+.cocktail-card{position:relative;overflow:hidden;border-radius:6px;aspect-ratio:4/5;border:1px solid var(--line);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.cocktail-card:hover{transform:translateY(-6px)}
+.cocktail-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.cocktail-card:hover img{transform:scale(1.06)}
+.cocktail-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.92) 0%,rgba(13,13,13,.3) 50%,transparent 75%);pointer-events:none}
+.cocktail-meta{position:absolute;bottom:0;left:0;right:0;padding:32px 30px;z-index:2}
+.cocktail-name{font-family:var(--display);font-style:italic;font-weight:500;font-size:2rem;color:var(--cream);margin-bottom:6px;text-shadow:0 2px 15px rgba(0,0,0,.6)}
+.cocktail-ing{font-family:var(--ui);font-size:.85rem;color:rgba(245,240,235,.75);text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.cocktail-price{position:absolute;top:18px;right:20px;background:rgba(13,13,13,.7);backdrop-filter:blur(6px);border:1px solid rgba(201,149,107,.25);border-radius:100px;padding:6px 14px;font-family:var(--display);font-style:italic;color:var(--copper);font-size:1rem;z-index:2}
+@media(max-width:680px){.cocktail-grid{grid-template-columns:1fr}}
+
+/* === GALLERIA === */
+.galleria{background:var(--bg-2)}
+.gal-head{text-align:center;margin-bottom:48px}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:minmax(220px,auto);gap:8px}
+.gal-item{position:relative;overflow:hidden;background:var(--bg-3)}
+.gal-item:nth-child(1){grid-row:span 2}
+.gal-item:nth-child(4){grid-column:span 2}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,13,.65),transparent 60%);opacity:0;transition:opacity .3s}
+.gal-item:hover::after{opacity:1}
+.gal-cap{position:absolute;bottom:18px;left:20px;right:20px;font-family:var(--display);font-style:italic;font-size:1rem;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6);opacity:0;transform:translateY(8px);transition:all .3s;z-index:2}
+.gal-item:hover .gal-cap{opacity:1;transform:translateY(0)}
+@media(max-width:780px){.gal-grid{grid-template-columns:repeat(2,1fr)}.gal-item:nth-child(1){grid-row:auto}.gal-item:nth-child(4){grid-column:auto}}
+
+/* === PRENOTA === */
+.prenota{background:var(--bg-3)}
+.prenota-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start}
+.prenota-form{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:38px 36px}
+.prenota-form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.prenota-form .field{display:flex;flex-direction:column;gap:6px}
+.prenota-form label{font-family:var(--ui);font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--copper)}
+.prenota-form input,.prenota-form select,.prenota-form textarea{padding:12px 14px;background:var(--bg-2);border:1px solid var(--line);border-radius:6px;color:var(--cream);font-family:var(--ui);font-size:.95rem;transition:border-color .25s;width:100%}
+.prenota-form input:focus,.prenota-form select:focus,.prenota-form textarea:focus{outline:none;border-color:var(--copper)}
+.prenota-form textarea{resize:vertical;min-height:80px}
+.prenota-form .full{grid-column:1 / -1}
+.prenota-form .submit{margin-top:18px;width:100%;justify-content:center}
+
+.prenota-info{padding-top:8px}
+.info-block{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--line)}
+.info-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.info-lbl{font-family:var(--ui);font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--copper);margin-bottom:10px}
+.info-val{font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--cream);line-height:1.4}
+.info-sub{font-size:.9rem;color:rgba(245,240,235,.65);margin-top:6px}
+.hours-list{list-style:none;font-size:.9rem;color:rgba(245,240,235,.7);line-height:1.95}
+.hours-list li{display:flex;justify-content:space-between;gap:18px}
+.hours-list li span:first-child{color:var(--cream)}
+.wa-cta{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:14px 26px;border-radius:100px;font-family:var(--ui);font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;box-shadow:0 4px 20px rgba(37,211,102,.3);transition:all .3s;margin-top:14px}
+.wa-cta:hover{background:#20bd5a;transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.45)}
+.wa-cta svg{width:18px;height:18px;fill:#fff}
+@media(max-width:880px){.prenota-grid{grid-template-columns:1fr}.prenota-form .row{grid-template-columns:1fr}}
+
+/* === FOOTER === */
+footer{background:var(--bg);padding:48px 0 24px;text-align:center}
+.foot-brand{font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--copper);margin-bottom:8px}
+.foot-meta{font-size:.8rem;color:var(--muted);letter-spacing:.05em}
+.foot-social{display:flex;gap:18px;justify-content:center;margin:18px 0}
+.foot-social a{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;color:rgba(245,240,235,.6);transition:all .25s}
+.foot-social a:hover{border-color:var(--copper);color:var(--copper)}
+.foot-social svg{width:14px;height:14px;fill:currentColor}
+
+.demo-banner{background:linear-gradient(135deg,#0D0D0D,#1a1a1a);border-top:1px solid rgba(201,149,107,.3);padding:28px 24px;display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;text-align:center}
+.demo-banner .lbl{font-family:var(--ui);font-size:.85rem;color:rgba(245,240,235,.7)}
+.demo-banner .lbl b{color:var(--copper);font-weight:600}
+.demo-banner a{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:transparent;border:1px solid var(--copper);color:var(--copper);border-radius:100px;font-family:var(--ui);font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;transition:all .3s}
+.demo-banner a:hover{background:var(--copper);color:#0D0D0D}
+
+/* === WA FLOAT === */
+.wa-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.4);z-index:99;transition:transform .3s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+
+@media(max-width:780px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-right .lang{display:none}
+  .demo-banner{flex-direction:column;gap:14px}
+}
+</style>
+</head>
+<body class="lang-it">
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#top" class="brand">Veranda</a>
+  <ul class="nav-links">
+    <li><a href="#culture"><span class="t-it">Cucina</span><span class="t-en">Cuisine</span></a></li>
+    <li><a href="#cocktails">Cocktails</a></li>
+    <li><a href="#galleria"><span class="t-it">Galleria</span><span class="t-en">Gallery</span></a></li>
+    <li><a href="#prenota"><span class="t-it">Prenota</span><span class="t-en">Book</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang">
+      <button class="on" onclick="setLang('it')">IT</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+  <button class="burger" aria-label="Menu">&#9776;</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Lounge · Cucina · Cocktails</div>
+    <h1>Veranda</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline"><span class="t-it">Dove due culture si incontrano</span><span class="t-en">Where two cultures meet</span></p>
+    <div class="hero-rating">
+      <span class="stars">★★★★★</span>
+      <strong>4.8</strong>
+      <span class="count"><span class="t-it">91 recensioni</span><span class="t-en">91 reviews</span></span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#prenota" class="btn btn-primary"><span class="t-it">Prenota</span><span class="t-en">Book</span></a>
+      <a href="#culture" class="btn btn-ghost"><span class="t-it">Il Menu</span><span class="t-en">The Menu</span></a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span class="lbl"><span class="t-it">Scopri</span><span class="t-en">Discover</span></span>
+    <span class="line"></span>
+  </div>
+</section>
+
+<!-- DUE CULTURE -->
+<section class="sec culture" id="culture">
+  <div class="wrap">
+    <div class="culture-head">
+      <div class="sec-tag"><span class="t-it">La Filosofia</span><span class="t-en">The Philosophy</span></div>
+      <h2 class="sec-title"><span class="t-it">Due culture, <em>una tavola</em></span><span class="t-en">Two cultures, <em>one table</em></span></h2>
+      <p class="sec-desc"><span class="t-it">Veranda nasce dall'incontro tra la tradizione italiana e i sapori dell'Est. Ogni piatto racconta un viaggio — dai dolci delle nonne alle ricette di famiglia di Viktoria.</span><span class="t-en">Veranda is born from the meeting between Italian tradition and Eastern flavors. Every dish tells a journey — from grandma's pastries to Viktoria's family recipes.</span></p>
+    </div>
+    <div class="culture-grid">
+      <article class="culture-card italia">
+        <div class="culture-img"><img src="veranda-photos/photo_03.jpg" alt="Cornetti Tre Marie"></div>
+        <div class="culture-body">
+          <span class="culture-flag">🇮🇹 Italia</span>
+          <h3 class="culture-h"><span class="t-it">Cucina Italiana</span><span class="t-en">Italian Kitchen</span></h3>
+          <p class="culture-p"><span class="t-it">Colazioni con cornetti Tre Marie freschi ogni mattina, dolci della casa, salumi, taglieri e pizze al taglio. La nostra anima italiana.</span><span class="t-en">Breakfast with fresh Tre Marie croissants every morning, house pastries, charcuterie boards and pizza al taglio. Our Italian soul.</span></p>
+          <ul class="culture-list">
+            <li>Cornetti</li><li>Dolci</li><li>Taglieri</li><li>Espresso</li><li>Aperitivi</li>
+          </ul>
+        </div>
+      </article>
+      <article class="culture-card east">
+        <div class="culture-img"><img src="veranda-photos/photo_06.jpg" alt="Borscht tradizionale"></div>
+        <div class="culture-body">
+          <span class="culture-flag">🌾 Sapori dell'Est</span>
+          <h3 class="culture-h"><span class="t-it">Sapori dell'Est</span><span class="t-en">Eastern Flavors</span></h3>
+          <p class="culture-p"><span class="t-it">Borscht caldo, pelmeni fatti a mano, dolma in foglie di vite, syrniki dorati. Le ricette di famiglia di Viktoria, autentiche come a casa.</span><span class="t-en">Warm borscht, hand-made pelmeni, vine-leaf dolma, golden syrniki. Viktoria's family recipes, authentic as at home.</span></p>
+          <ul class="culture-list">
+            <li>Borscht</li><li>Pelmeni</li><li>Dolma</li><li>Syrniki</li><li>Vareniki</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- COCKTAILS -->
+<section class="sec cocktails" id="cocktails">
+  <div class="wrap">
+    <div class="cocktail-head">
+      <div class="sec-tag">Cocktail List</div>
+      <h2 class="sec-title"><span class="t-it">La nostra <em>Cocktail List</em></span><span class="t-en">Our <em>Cocktail List</em></span></h2>
+      <p class="sec-desc" style="margin:0 auto"><span class="t-it">Cocktail signature, classici rivisitati e creazioni della casa. Bevete con noi fino alle 2 di notte.</span><span class="t-en">Signature cocktails, revisited classics and house creations. Drink with us until 2 AM.</span></p>
+    </div>
+    <div class="cocktail-grid">
+      <article class="cocktail-card">
+        <span class="cocktail-price">€ 9</span>
+        <img src="veranda-photos/photo_08.jpg" alt="Raspberry Martini">
+        <div class="cocktail-meta">
+          <h3 class="cocktail-name">Raspberry Martini</h3>
+          <p class="cocktail-ing"><span class="t-it">Vodka · Chambord · Lampone fresco · Lime</span><span class="t-en">Vodka · Chambord · Fresh raspberry · Lime</span></p>
+        </div>
+      </article>
+      <article class="cocktail-card">
+        <span class="cocktail-price">€ 8</span>
+        <img src="veranda-photos/photo_01.jpg" alt="Blue Veranda">
+        <div class="cocktail-meta">
+          <h3 class="cocktail-name">Blue Veranda</h3>
+          <p class="cocktail-ing"><span class="t-it">Gin · Curaçao · Tonica · Ciliegia</span><span class="t-en">Gin · Curaçao · Tonic · Cherry</span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERIA -->
+<section class="sec galleria" id="galleria">
+  <div class="wrap">
+    <div class="gal-head">
+      <div class="sec-tag"><span class="t-it">Galleria</span><span class="t-en">Gallery</span></div>
+      <h2 class="sec-title"><span class="t-it">L'<em>atmosfera</em> Veranda</span><span class="t-en">The <em>Veranda</em> atmosphere</span></h2>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item"><img src="veranda-photos/photo_00.jpg" alt="Interno Veranda"><div class="gal-cap"><span class="t-it">Il salone interno</span><span class="t-en">The dining room</span></div></div>
+      <div class="gal-item"><img src="veranda-photos/photo_07.jpg" alt="Carrot cake"><div class="gal-cap"><span class="t-it">Dolci della casa</span><span class="t-en">House pastries</span></div></div>
+      <div class="gal-item"><img src="veranda-photos/photo_09.jpg" alt="Syrniki"><div class="gal-cap">Syrniki</div></div>
+      <div class="gal-item"><img src="veranda-photos/photo_04.jpg" alt="Esterno"><div class="gal-cap"><span class="t-it">L'ingresso</span><span class="t-en">The entrance</span></div></div>
+      <div class="gal-item"><img src="veranda-photos/photo_05.jpg" alt="Pelmeni"><div class="gal-cap">Pelmeni</div></div>
+      <div class="gal-item"><img src="veranda-photos/photo_02.jpg" alt="Dolma"><div class="gal-cap">Dolma</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRENOTA -->
+<section class="sec prenota" id="prenota">
+  <div class="wrap">
+    <div class="prenota-grid">
+      <div>
+        <div class="sec-tag"><span class="t-it">Prenotazione</span><span class="t-en">Reservation</span></div>
+        <h2 class="sec-title"><span class="t-it">Prenota un <em>tavolo</em></span><span class="t-en">Book a <em>table</em></span></h2>
+        <form class="prenota-form" onsubmit="event.preventDefault();bookForm(this)">
+          <div class="row">
+            <div class="field"><label><span class="t-it">Nome</span><span class="t-en">Name</span></label><input type="text" name="name" required></div>
+            <div class="field"><label><span class="t-it">Telefono</span><span class="t-en">Phone</span></label><input type="tel" name="phone" required></div>
+          </div>
+          <div class="row">
+            <div class="field"><label>Data</label><input type="date" name="date" required></div>
+            <div class="field"><label><span class="t-it">Ora</span><span class="t-en">Time</span></label><input type="time" name="time" required></div>
+          </div>
+          <div class="row">
+            <div class="field"><label><span class="t-it">Persone</span><span class="t-en">Guests</span></label><select name="guests"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7+</option></select></div>
+            <div class="field"><label><span class="t-it">Occasione</span><span class="t-en">Occasion</span></label><select name="occ"><option>—</option><option>Aperitivo</option><option>Cena</option><option>Compleanno</option><option>Brunch</option></select></div>
+          </div>
+          <div class="field full"><label>Note</label><textarea name="notes" placeholder="Allergie, richieste speciali..."></textarea></div>
+          <button type="submit" class="btn btn-primary submit"><span class="t-it">Conferma Prenotazione</span><span class="t-en">Confirm Reservation</span></button>
+        </form>
+      </div>
+      <div class="prenota-info">
+        <div class="info-block">
+          <div class="info-lbl"><span class="t-it">Indirizzo</span><span class="t-en">Address</span></div>
+          <div class="info-val">Viale J. F. Kennedy</div>
+          <div class="info-sub">87029 Scalea (CS) · Italia</div>
+        </div>
+        <div class="info-block">
+          <div class="info-lbl"><span class="t-it">Telefono</span><span class="t-en">Phone</span></div>
+          <div class="info-val">+39 388 658 7536</div>
+          <a class="wa-cta" href="https://wa.me/393886587536?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20da%20Veranda" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+            WhatsApp
+          </a>
+        </div>
+        <div class="info-block">
+          <div class="info-lbl"><span class="t-it">Orari</span><span class="t-en">Hours</span></div>
+          <ul class="hours-list">
+            <li><span><span class="t-it">Lunedì</span><span class="t-en">Mon</span></span><span>06:00 — 13:00</span></li>
+            <li><span><span class="t-it">Mar — Dom</span><span class="t-en">Tue — Sun</span></span><span>06:00 — 02:00</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">Veranda</div>
+    <div class="foot-meta">© 2026 Veranda Lounge Bar · Scalea</div>
+    <div class="foot-social">
+      <a href="https://wa.me/393886587536" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg></a>
+      <a href="https://www.google.com/maps/place/?q=place_id:ChIJZ5KVVgAfPxMRyeQGjZRJot0" target="_blank" rel="noopener" aria-label="Google Maps"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<!-- DEMO BANNER -->
+<div class="demo-banner">
+  <span class="lbl"><span class="t-it">Sito demo gratuito creato per Veranda da <b>Viktoria Agency</b></span><span class="t-en">Free demo site created for Veranda by <b>Viktoria Agency</b></span></span>
+  <a href="https://wa.me/393513904408?text=Ciao!%20Voglio%20un%20sito%20cos%C3%AC%20per%20la%20mia%20attivit%C3%A0" target="_blank" rel="noopener"><span class="t-it">Voglio questo sito</span><span class="t-en">I want this site</span> →</a>
+</div>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/393886587536" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+</a>
+
+<script>
+function setLang(l){
+  document.body.classList.toggle('lang-en', l==='en');
+  document.body.classList.toggle('lang-it', l==='it');
+  document.querySelectorAll('.lang button').forEach((b,i)=>b.classList.toggle('on', (l==='it'&&i===0)||(l==='en'&&i===1)));
+}
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 80);
+}, {passive:true});
+function bookForm(f){
+  const d=Object.fromEntries(new FormData(f));
+  const msg=`Prenotazione Veranda%0A%0ANome: ${d.name}%0ATelefono: ${d.phone}%0AData: ${d.date} ore ${d.time}%0APersone: ${d.guests}${d.occ&&d.occ!=='—'?'%0AOccasione: '+d.occ:''}${d.notes?'%0ANote: '+encodeURIComponent(d.notes):''}`;
+  window.open(`https://wa.me/393886587536?text=${msg}`,'_blank');
+}
+</script>
+</body>
+</html>

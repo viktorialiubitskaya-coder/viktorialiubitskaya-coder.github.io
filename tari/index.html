@@ -1,0 +1,389 @@
+<!-- tari-v2 -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ristorante Tarì — Scalea · Cucina di mare nella piazzetta</title>
+<meta name="description" content="Ristorante Tarì nel cuore del centro storico di Scalea. Cucina di mare, atmosfera romantica, balconata con panorama mozzafiato. ★4.2 · 985 recensioni.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Ristorante Tarì","servesCuisine":["Italian","Seafood","Mediterranean"],"address":{"@type":"PostalAddress","streetAddress":"Piazza Maggiore de Palma, 8/9/10","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},"telephone":"+390985917777","priceRange":"€€","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.2","reviewCount":"985"},"geo":{"@type":"GeoCoordinates","latitude":39.8158637,"longitude":15.7910148}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{--sand:#EFE3CF;--sand-l:#F9F2E2;--cream:#FFF9ED;--terra:#C4522D;--terra-d:#9E3E20;--terra-l:#E07B52;--sea:#1D6E8A;--sea-d:#124859;--ink:#2C2317;--mute:#7C6E5B;--line:rgba(196,82,45,.18)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;overflow-x:hidden}
+.t-en{display:none}p.t-en,h1.t-en,h2.t-en,h3.t-en,h4.t-en,div.t-en,span.t-en,li.t-en{display:none}
+body.lang-en .t-it{display:none!important}
+body.lang-en .t-en{display:inline!important}
+body.lang-en p.t-en,body.lang-en h1.t-en,body.lang-en h2.t-en,body.lang-en h3.t-en,body.lang-en h4.t-en,body.lang-en div.t-en,body.lang-en li.t-en{display:block!important}
+body.lang-en li.t-en{display:list-item!important}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:-.005em}
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:20px 44px;display:flex;justify-content:space-between;align-items:center;transition:all .35s}
+nav.scrolled{background:rgba(255,249,237,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:12px 44px}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.6rem;color:var(--terra-d);text-decoration:none}
+.nav-logo span{color:var(--sea)}
+nav.scrolled .nav-logo{color:var(--terra-d)}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--terra)}
+nav:not(.scrolled) .nav-links a{color:var(--cream)}
+.lang-toggle{position:fixed;top:20px;right:20px;z-index:100;display:flex;gap:2px;background:rgba(44,35,23,.82);padding:3px;border-radius:100px}
+.lang-btn{padding:6px 13px;border:none;background:transparent;color:rgba(255,249,237,.6);font-size:11px;font-weight:700;letter-spacing:1.5px;cursor:pointer;border-radius:100px;transition:all .25s}
+.lang-btn.active{background:var(--terra);color:#fff}
+/* HERO full-width */
+.hero{position:relative;min-height:100vh;overflow:hidden;color:var(--cream);display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,110,138,.3) 0%,rgba(44,35,23,.2) 40%,rgba(44,35,23,.82) 100%)}
+.hero-inner{position:relative;z-index:1;width:100%;padding:0 44px 80px;max-width:1280px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;background:rgba(255,249,237,.14);backdrop-filter:blur(6px);border:1px solid rgba(255,249,237,.3);border-radius:100px;margin-bottom:26px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700}
+.hero-badge::before{content:'●';color:var(--terra-l)}
+.hero h1{font-size:clamp(3.5rem,9vw,8rem);color:var(--cream);font-weight:400;font-style:italic;line-height:.95;letter-spacing:-.02em;margin-bottom:12px}
+.hero h1 strong{font-weight:700;font-style:normal;color:var(--sand-l)}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2vw,1.6rem);font-style:italic;margin-bottom:28px;color:rgba(255,249,237,.92);max-width:640px;line-height:1.4}
+.hero-meta-row{display:flex;gap:36px;flex-wrap:wrap;margin-bottom:36px;padding:18px 0;border-top:1px solid rgba(255,249,237,.22);border-bottom:1px solid rgba(255,249,237,.22);max-width:640px}
+.hmi{display:flex;flex-direction:column}
+.hmi-v{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;color:var(--sand-l);line-height:1}
+.hmi-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,249,237,.7);margin-top:5px;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;border-radius:100px;transition:all .3s;border:none;cursor:pointer}
+.btn-terra{background:var(--terra);color:#fff;box-shadow:0 12px 24px rgba(196,82,45,.4)}
+.btn-terra:hover{background:var(--terra-d);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1.5px solid rgba(255,249,237,.5);color:var(--cream);margin-left:12px}
+.btn-ghost:hover{border-color:var(--sand-l);background:rgba(255,249,237,.08)}
+section{padding:100px 44px}
+.wrap{max-width:1280px;margin:0 auto}
+.sec-head{text-align:center;max-width:700px;margin:0 auto 56px}
+.tag{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);font-weight:700;margin-bottom:14px}
+.tag::before,.tag::after{content:'';width:24px;height:1px;background:var(--terra);opacity:.4}
+h2.hd{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:400;font-style:italic;color:var(--sea-d);line-height:1.05;margin-bottom:16px}
+h2.hd strong{font-weight:700;font-style:normal;color:var(--terra)}
+.sub{font-size:1.05rem;color:var(--mute);line-height:1.7}
+/* STORIA */
+.storia{background:var(--sand);position:relative;overflow:hidden}
+.storia::before{content:'';position:absolute;top:-100px;right:-100px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(224,123,82,.16) 0%,transparent 70%)}
+.storia-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:center;position:relative;z-index:1}
+.storia-media{aspect-ratio:4/5;overflow:hidden;border-radius:3px;box-shadow:0 30px 60px rgba(158,62,32,.2)}
+.storia-media img{width:100%;height:100%;object-fit:cover}
+.storia-body p{font-size:1.05rem;margin-bottom:18px;line-height:1.75}
+.storia-body p em{color:var(--terra);font-style:italic;font-weight:600}
+/* MENU cards */
+.menu{background:var(--cream)}
+.menu-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+.menu-card{background:var(--sand-l);border-radius:16px;overflow:hidden;box-shadow:0 18px 40px rgba(44,35,23,.08);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+.menu-card:hover{transform:translateY(-6px);box-shadow:0 28px 55px rgba(44,35,23,.14)}
+.mc-img{aspect-ratio:4/3;overflow:hidden;background:var(--sand)}
+.mc-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.menu-card:hover .mc-img img{transform:scale(1.05)}
+.mc-body{padding:26px 28px 30px;position:relative}
+.mc-tag{position:absolute;top:-16px;left:28px;padding:6px 14px;background:var(--terra);color:#fff;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;border-radius:100px}
+.mc-body h3{font-size:1.55rem;font-weight:700;color:var(--sea-d);margin-bottom:8px;font-style:italic;font-weight:400;line-height:1.2}
+.mc-body h3 strong{color:var(--terra);font-weight:700;font-style:normal}
+.mc-body p{font-size:.92rem;color:var(--mute);margin-bottom:18px;line-height:1.55}
+.mc-price{font-family:'Cormorant Garamond',serif;font-weight:700;font-style:italic;font-size:1.5rem;color:var(--terra)}
+/* GALLERY horizontal scroll */
+.gallery{background:var(--sea-d);color:var(--cream);overflow:hidden;padding:100px 0}
+.gallery .wrap{padding:0 44px;max-width:1280px;margin:0 auto}
+.gallery .hd{color:var(--cream)}
+.gallery .hd strong{color:var(--terra-l)}
+.gallery .tag{color:var(--terra-l)}
+.gallery .tag::before,.gallery .tag::after{background:var(--terra-l)}
+.gallery .sub{color:rgba(255,249,237,.72)}
+.scroll-row{display:flex;gap:18px;overflow-x:auto;margin-top:44px;padding:4px 44px 20px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--terra) rgba(255,249,237,.1)}
+.scroll-row::-webkit-scrollbar{height:6px}
+.scroll-row::-webkit-scrollbar-thumb{background:var(--terra);border-radius:3px}
+.scroll-row::-webkit-scrollbar-track{background:rgba(255,249,237,.08)}
+.gall-item{flex:0 0 340px;aspect-ratio:3/4;border-radius:6px;overflow:hidden;scroll-snap-align:start;position:relative}
+.gall-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gall-item:hover img{transform:scale(1.04)}
+.gall-item::after{content:attr(data-label);position:absolute;bottom:14px;left:16px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:#fff;background:rgba(29,72,89,.68);padding:5px 12px;border-radius:100px;backdrop-filter:blur(6px)}
+/* REVIEWS */
+.reviews{background:var(--sand);position:relative}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.rev-card{padding:30px 28px;background:var(--cream);border-radius:14px;border-left:4px solid var(--terra);box-shadow:0 14px 34px rgba(196,82,45,.08);position:relative;transition:all .35s}
+.rev-card:hover{transform:translateY(-3px);box-shadow:0 22px 44px rgba(196,82,45,.14)}
+.rev-stars{color:var(--terra);font-size:1rem;letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--ink);line-height:1.6;margin-bottom:18px}
+.rev-author{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--terra-d)}
+.rev-time{font-size:10px;color:var(--mute);margin-top:3px;letter-spacing:.5px}
+/* HOURS + MAP */
+.info{background:var(--cream)}
+.info-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.info-col h3.hd{font-size:2.2rem;margin-bottom:10px}
+.info-col .sub{margin-bottom:30px}
+.hours-table{margin-top:10px}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+.hours-day{color:var(--sea-d);font-weight:700}
+.hours-time{color:var(--mute);font-variant-numeric:tabular-nums}
+.hours-row.closed .hours-time{color:var(--terra);font-weight:700;font-style:italic}
+.contact{margin-top:28px}
+.contact h4{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);font-weight:700;margin-bottom:6px}
+.contact p,.contact a{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;color:var(--sea-d);text-decoration:none;line-height:1.5}
+.contact a:hover{color:var(--terra)}
+.map-b{border-radius:16px;overflow:hidden;box-shadow:0 24px 50px rgba(29,110,138,.18);aspect-ratio:4/5}
+.map-b iframe{width:100%;height:100%;border:none}
+/* FOOTER */
+footer{background:var(--sea-d);color:rgba(255,249,237,.7);padding:44px 44px 26px;text-align:center}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.8rem;color:var(--cream);margin-bottom:10px}
+.foot-logo span{color:var(--terra-l);font-style:italic;font-weight:400}
+.foot-meta{font-size:.88rem;margin-bottom:16px}
+.foot-copy{font-size:11px;letter-spacing:1px;color:rgba(255,249,237,.45);padding-top:18px;border-top:1px solid rgba(255,249,237,.1);margin-top:18px}
+.foot-copy a{color:var(--terra-l);text-decoration:none}
+.wa{position:fixed;bottom:26px;right:26px;z-index:98;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+    .storia-grid,.info-grid{grid-template-columns:1fr;gap:36px}
+    .menu-cards,.rev-grid{grid-template-columns:1fr}
+    .gall-item{flex:0 0 75vw}
+    nav{padding:14px 22px}
+    .nav-links{display:none}
+    section{padding:62px 22px}
+    .hero-inner{padding:0 22px 60px}
+    .gallery .wrap{padding:0 22px}
+    .scroll-row{padding:4px 22px 18px}
+}
+</style>
+</head>
+<body class="lang-it">
+<div class="lang-toggle">
+    <button class="lang-btn active" data-lang="it" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+</div>
+<nav id="mainNav">
+    <a href="#" class="nav-logo">Tar<span>ì</span></a>
+    <ul class="nav-links">
+        <li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span></a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery"><span class="t-it">Galleria</span><span class="t-en">Gallery</span></a></li>
+        <li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li>
+        <li><a href="#info">Info</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-bg">
+        <img src="./photos/tari_0.jpg" alt="Scalea centro storico">
+    </div>
+    <div class="hero-inner">
+        <div class="hero-badge"><span class="t-it">Centro Storico · Scalea</span><span class="t-en">Old Town · Scalea</span></div>
+        <h1>Tar<strong>ì</strong></h1>
+        <p class="hero-sub t-it">Nel cuore della piazzetta, dove il mare si affaccia dalla balconata e ogni piatto profuma di Calabria.</p>
+        <p class="hero-sub t-en">In the heart of the square, where the sea looks out from the balcony and every dish smells of Calabria.</p>
+        <div class="hero-meta-row">
+            <div class="hmi"><span class="hmi-v">4.2</span><span class="hmi-l">Google ★</span></div>
+            <div class="hmi"><span class="hmi-v">985</span><span class="hmi-l"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></span></div>
+            <div class="hmi"><span class="hmi-v">€€</span><span class="hmi-l"><span class="t-it">Livello</span><span class="t-en">Tier</span></span></div>
+            <div class="hmi"><span class="hmi-v">2015</span><span class="hmi-l"><span class="t-it">Dal</span><span class="t-en">Since</span></span></div>
+        </div>
+        <div>
+            <a href="https://wa.me/390985917777?text=Ciao%2C%20vorrei%20prenotare%20un%20tavolo%20al%20Tar%C3%AC" target="_blank" rel="noopener" class="btn btn-terra"><span class="t-it">Prenota su WhatsApp</span><span class="t-en">Book on WhatsApp</span></a>
+            <a href="#menu" class="btn btn-ghost"><span class="t-it">Scopri il menu</span><span class="t-en">Explore menu</span></a>
+        </div>
+    </div>
+</section>
+
+<section class="storia" id="storia">
+    <div class="wrap">
+        <div class="storia-grid">
+            <div class="storia-media">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80" alt="Sala del Tarì">
+            </div>
+            <div class="storia-body">
+                <div class="tag"><span class="t-it">La nostra storia</span><span class="t-en">Our story</span></div>
+                <h2 class="hd t-it">Una <strong>balconata</strong> sul<br>mare di Scalea.</h2>
+                <h2 class="hd t-en">A <strong>balcony</strong> over<br>the sea of Scalea.</h2>
+                <p class="t-it">Tarì nasce nella <em>piazzetta centrale</em> di Scalea vecchia, in un palazzo storico affacciato sulla costa. Arredi eleganti, luce soffusa, e una balconata con panorama <em>mozzafiato</em> che racconta il Mediterraneo in un solo sguardo.</p>
+                <p class="t-en">Tarì was born in the <em>central piazzetta</em> of old Scalea, in a historic building overlooking the coast. Elegant furnishings, soft light, and a <em>breathtaking</em> balcony that tells the Mediterranean story in a single glance.</p>
+                <p class="t-it">Il nostro menu è <em>prevalentemente di pesce</em>: linguine con astice blu, crudi di stagione, dolci della casa. I prezzi onesti, il servizio qualificato e all'altezza del luogo.</p>
+                <p class="t-en">Our menu is <em>mostly seafood</em>: linguine with blue lobster, seasonal raw fish, house desserts. Honest prices, skilled service worthy of the place.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Le nostre specialità</span><span class="t-en">Our specialties</span></div>
+            <h2 class="hd t-it">Il pescato del giorno,<br><strong>cucinato con cura</strong>.</h2>
+            <h2 class="hd t-en">The daily catch,<br><strong>cooked with care</strong>.</h2>
+            <p class="sub t-it">Menu prevalentemente di mare, con pasta fresca e una buona scelta di vini anche locali.</p>
+            <p class="sub t-en">Mostly seafood menu, fresh pasta, and a good selection of local wines.</p>
+        </div>
+        <div class="menu-cards">
+            <div class="menu-card">
+                <div class="mc-img"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=700&q=80" alt="Linguine con astice"></div>
+                <div class="mc-body">
+                    <div class="mc-tag"><span class="t-it">Bestseller</span><span class="t-en">Bestseller</span></div>
+                    <h3><span class="t-it">Linguine con <strong>astice blu</strong></span><span class="t-en">Linguine with <strong>blue lobster</strong></span></h3>
+                    <p class="t-it">Pasta fresca tirata a mano, astice blu, pomodorini del piennolo, basilico.</p>
+                    <p class="t-en">Hand-pulled fresh pasta, blue lobster, piennolo cherry tomatoes, basil.</p>
+                    <span class="mc-price">€24</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="mc-img"><img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=700&q=80" alt="Crudo di mare"></div>
+                <div class="mc-body">
+                    <div class="mc-tag"><span class="t-it">Antipasto</span><span class="t-en">Starter</span></div>
+                    <h3><span class="t-it">Crudi di <strong>stagione</strong></span><span class="t-en">Seasonal <strong>raw fish</strong></span></h3>
+                    <p class="t-it">Tartare di tonno rosso, gambero rosso di Scalea, ricciola marinata.</p>
+                    <p class="t-en">Red tuna tartare, red Scalea prawn, marinated amberjack.</p>
+                    <span class="mc-price">€22</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="mc-img"><img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=700&q=80" alt="Dolce della casa"></div>
+                <div class="mc-body">
+                    <div class="mc-tag"><span class="t-it">Dolce</span><span class="t-en">Dessert</span></div>
+                    <h3><span class="t-it">Dolci della <strong>casa</strong></span><span class="t-en">House <strong>desserts</strong></span></h3>
+                    <p class="t-it">Pasticceria fatta in casa, cambia ogni settimana secondo stagione.</p>
+                    <p class="t-en">Homemade pastries, changing weekly with the season.</p>
+                    <span class="mc-price">€8</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="mc-img"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=80" alt="Spaghetti ai ricci"></div>
+                <div class="mc-body">
+                    <div class="mc-tag"><span class="t-it">Primo</span><span class="t-en">First</span></div>
+                    <h3><span class="t-it">Spaghetti ai <strong>ricci di mare</strong></span><span class="t-en">Spaghetti with <strong>sea urchin</strong></span></h3>
+                    <p class="t-it">Ricci freschi di Diamante, pane croccante, aglio dolce.</p>
+                    <p class="t-en">Fresh sea urchins from Diamante, crisp bread, sweet garlic.</p>
+                    <span class="mc-price">€22</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="mc-img"><img src="https://images.unsplash.com/photo-1535473895227-bdecb20fb157?w=700&q=80" alt="Fritto misto"></div>
+                <div class="mc-body">
+                    <div class="mc-tag"><span class="t-it">Secondo</span><span class="t-en">Main</span></div>
+                    <h3><span class="t-it">Fritto <strong>della paranza</strong></span><span class="t-en"><strong>Paranza</strong> fry-up</span></h3>
+                    <p class="t-it">Pescato misto del giorno, farina di grano tenero, olio EVO.</p>
+                    <p class="t-en">Daily mixed catch, soft-wheat flour, extra-virgin olive oil.</p>
+                    <span class="mc-price">€20</span>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="mc-img"><img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?w=700&q=80" alt="Vino calabrese"></div>
+                <div class="mc-body">
+                    <div class="mc-tag"><span class="t-it">Cantina</span><span class="t-en">Cellar</span></div>
+                    <h3><span class="t-it">Vini <strong>locali</strong></span><span class="t-en">Local <strong>wines</strong></span></h3>
+                    <p class="t-it">Selezione di cantine calabresi: Cirò, Magliocco, Greco Bianco.</p>
+                    <p class="t-en">Calabrian cellar selection: Cirò, Magliocco, Greco Bianco.</p>
+                    <span class="mc-price"><span class="t-it">dal</span><span class="t-en">from</span> €18</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="gallery" id="gallery">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">Uno sguardo al ristorante</span><span class="t-en">A look inside</span></div>
+            <h2 class="hd t-it">L'<strong>atmosfera</strong> di Tarì.</h2>
+            <h2 class="hd t-en">The <strong>atmosphere</strong> of Tarì.</h2>
+            <p class="sub t-it">Scorri con il dito — una passeggiata tra tavoli, piatti e il panorama della balconata.</p>
+            <p class="sub t-en">Swipe — a walk through our tables, dishes, and the balcony view.</p>
+        </div>
+    </div>
+    <div class="scroll-row">
+        <div class="gall-item" data-label="Balconata"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="Balconata"></div>
+        <div class="gall-item" data-label="Linguine all'astice"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=700&q=80" alt="Linguine"></div>
+        <div class="gall-item" data-label="Piazzetta Scalea"><img src="./photos/tari_1.jpg" alt="Piazzetta"></div>
+        <div class="gall-item" data-label="Crudo di mare"><img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=700&q=80" alt="Crudo"></div>
+        <div class="gall-item" data-label="Dolci della casa"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=700&q=80" alt="Dolci"></div>
+        <div class="gall-item" data-label="Vini locali"><img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?w=700&q=80" alt="Vini"></div>
+        <div class="gall-item" data-label="Centro Storico"><img src="./photos/scalea_0.jpg" alt="Centro"></div>
+    </div>
+</section>
+
+<section class="reviews" id="recensioni">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="tag"><span class="t-it">La voce dei nostri ospiti</span><span class="t-en">Our guests' words</span></div>
+            <h2 class="hd t-it">985 voci <strong>dalla piazzetta</strong>.</h2>
+            <h2 class="hd t-en">985 voices <strong>from the square</strong>.</h2>
+            <p class="sub t-it">Estratti da recensioni Google · ★4.2</p>
+            <p class="sub t-en">Google review excerpts · ★4.2</p>
+        </div>
+        <div class="rev-grid">
+            <div class="rev-card">
+                <div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Un'esperienza molto positiva. L'atmosfera è curata al dettaglio, con arredi eleganti e una luce soffusa che crea un ambiente intimo e accogliente. Il servizio all'altezza del ristorante.</p>
+                <p class="rev-text t-en">A very positive experience. The atmosphere is curated to detail, with elegant furnishings and soft lighting that creates an intimate, welcoming setting. Service matching the restaurant.</p>
+                <div class="rev-author">Danilo Villani</div>
+                <div class="rev-time"><span class="t-it">11 mesi fa · Google</span><span class="t-en">11 months ago · Google</span></div>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">★ ★ ★ ★</div>
+                <p class="rev-text t-it">Bellissimo ristorante nella piazzetta centrale a Scalea vecchia. Molto romantico e ideale per coppie, cibo molto buono e buona scelta di vini anche locali, panorama dalla balconata mozzafiato.</p>
+                <p class="rev-text t-en">Beautiful restaurant in the central piazzetta of old Scalea. Romantic, ideal for couples. Excellent food and good local wine selection, breathtaking balcony view.</p>
+                <div class="rev-author">Andrea Arcangeli</div>
+                <div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+            <div class="rev-card">
+                <div class="rev-stars">★ ★ ★ ★ ★</div>
+                <p class="rev-text t-it">Location molto accogliente con personale gentile e puntuale. Menu prevalentemente di pesce con ottimi piatti: linguine con un astice blu squisite. Prezzo assolutamente giusto e coerente.</p>
+                <p class="rev-text t-en">Very welcoming location with kind, punctual staff. Mostly seafood menu with excellent dishes — linguine with blue lobster were divine. Absolutely fair, coherent price.</p>
+                <div class="rev-author">Vincenzo Frascogna</div>
+                <div class="rev-time"><span class="t-it">7 mesi fa · Google</span><span class="t-en">7 months ago · Google</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info" id="info">
+    <div class="wrap">
+        <div class="info-grid">
+            <div class="info-col">
+                <div class="tag"><span class="t-it">Orari &amp; contatti</span><span class="t-en">Hours &amp; contact</span></div>
+                <h3 class="hd t-it">Ti aspettiamo in <strong>piazzetta</strong>.</h3>
+                <h3 class="hd t-en">We await you in the <strong>piazzetta</strong>.</h3>
+                <p class="sub t-it">Prenota un tavolo con un messaggio su WhatsApp.</p>
+                <p class="sub t-en">Book a table with a WhatsApp message.</p>
+                <div class="hours-table">
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Monday</span></span><span class="hours-time">12:00—14:00 · 19:00—22:00</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tuesday</span></span><span class="hours-time">12:00—14:00 · 19:00—22:00</span></div>
+                    <div class="hours-row closed"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wednesday</span></span><span class="hours-time t-it">Chiuso</span><span class="hours-time t-en">Closed</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thursday</span></span><span class="hours-time">12:00—14:00 · 19:00—22:00</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Friday</span></span><span class="hours-time">12:00—14:00 · 19:00—22:00</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Saturday</span></span><span class="hours-time">12:00—14:00 · 19:00—22:00</span></div>
+                    <div class="hours-row"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sunday</span></span><span class="hours-time">12:00—14:00 · 19:00—22:00</span></div>
+                </div>
+                <div class="contact">
+                    <h4><span class="t-it">Indirizzo</span><span class="t-en">Address</span></h4>
+                    <p>Piazza Maggiore de Palma, 8/9/10<br>87029 Scalea (CS)</p>
+                </div>
+                <div class="contact">
+                    <h4><span class="t-it">Telefono</span><span class="t-en">Phone</span></h4>
+                    <a href="tel:+390985917777">+39 0985 91777</a>
+                </div>
+            </div>
+            <div class="map-b">
+                <iframe src="https://www.google.com/maps?q=Ristorante+Tari+Scalea&output=embed" loading="lazy" title="Ristorante Tarì"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="foot-logo">Tar<span>ì</span></div>
+    <div class="foot-meta">Piazza Maggiore de Palma, 8/9/10 · 87029 Scalea (CS) · +39 0985 91777</div>
+    <div class="foot-copy">&copy; 2026 Ristorante Tarì · <span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="#">Viktoria Agency</a></div>
+</footer>
+
+<a href="https://wa.me/390985917777" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script>
+function setLang(l){
+    document.body.classList.toggle('lang-en', l==='en');
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+}
+const nav=document.getElementById('mainNav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+</script>
+</body>
+</html>
