@@ -336,11 +336,11 @@ addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggl
   // 5. Parallax hero bg at 0.5x
   gsap.to('.hero-bg',{yPercent:50,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
 
-  // 3. Scroll reveal — sections fade up, children stagger
+  // 3. Scroll reveal — sections fade up, children stagger (immediateRender:false protects content if trigger miscalculates)
   document.querySelectorAll('section:not(.hero)').forEach(function(sec){
-    var kids=sec.querySelectorAll('.sec-head > *, .chart-item, .rev-card, .pesce-media, .pesce-text > *, .storia-img, .storia-body > *, .info-col > *, .map-wrap');
-    var targets=kids.length?kids:[sec];
-    gsap.from(targets,{opacity:0,y:40,duration:.9,ease:'power2.out',stagger:.15,scrollTrigger:{trigger:sec,start:'top 82%',toggleActions:'play none none none'}});
+    var kids=sec.querySelectorAll('.sec-head > *, .chart-item, .rev-card, .rev-band, .pesce-media, .pesce-text > *, .storia-img, .storia-body > *, .info-col > *, .map-wrap');
+    if(!kids.length) return;
+    gsap.from(kids,{opacity:0,y:40,duration:.9,ease:'power2.out',stagger:.12,immediateRender:false,scrollTrigger:{trigger:sec,start:'top 88%',toggleActions:'play none none none'}});
   });
 
   // 4. Counter animation for hero meta numbers
@@ -355,10 +355,20 @@ addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggl
   });
 
   // 6. Menu items slide in from left with stagger
-  gsap.from('.chart-item',{x:-60,opacity:0,duration:.7,ease:'power2.out',stagger:.1,scrollTrigger:{trigger:'.chart-grid',start:'top 78%',toggleActions:'play none none none'}});
+  gsap.from('.chart-item',{x:-60,opacity:0,duration:.7,ease:'power2.out',stagger:.08,immediateRender:false,scrollTrigger:{trigger:'.chart-grid',start:'top 88%',toggleActions:'play none none none'}});
 
   // Hero entrance
   gsap.from('.hero-kicker, .hero h1, .hero-tag, .hero-meta, .hero .btn',{opacity:0,y:30,duration:1,ease:'power2.out',stagger:.1,delay:.2});
+
+  // Refresh ScrollTrigger after images load (prevents miscalculated trigger positions)
+  window.addEventListener('load',function(){ScrollTrigger.refresh();});
+  // Safety net: force any stuck-invisible reveal targets visible after 3s
+  setTimeout(function(){
+    document.querySelectorAll('.sec-head > *, .chart-item, .rev-card, .rev-band, .pesce-media, .pesce-text > *, .storia-img, .storia-body > *, .info-col > *, .map-wrap').forEach(function(el){
+      var cs=getComputedStyle(el);
+      if(parseFloat(cs.opacity)<.1) gsap.set(el,{clearProps:'opacity,transform,x,y'});
+    });
+  },3000);
 })();
 </script>
 </body></html>
