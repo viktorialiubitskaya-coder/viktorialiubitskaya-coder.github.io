@@ -29,9 +29,9 @@ nav.scrolled{background:rgba(10,22,40,.96);padding:12px 42px;backdrop-filter:blu
 .lang-btn.active{background:var(--brass);color:var(--navy)}
 /* HERO w/ animated waves */
 .hero{position:relative;min-height:100vh;background:var(--navy);color:#fff;overflow:hidden;display:flex;align-items:center;padding-top:90px}
-.hero-bg{position:absolute;inset:0;z-index:0;opacity:.45}
+.hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,.5) 0%,rgba(10,22,40,.7) 70%,var(--navy) 100%)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,.18) 0%,rgba(10,22,40,.32) 55%,rgba(10,22,40,.72) 100%)}
 .hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:40px 42px 140px;width:100%}
 .hero-kicker{display:inline-flex;align-items:center;gap:12px;margin-bottom:26px;font-family:'Nunito Sans',sans-serif;font-size:11px;letter-spacing:3.5px;text-transform:uppercase;color:var(--brass-l);font-weight:700}
 .hero-kicker::before,.hero-kicker::after{content:'';width:30px;height:1px;background:var(--brass)}
@@ -85,19 +85,19 @@ h2.hd em{color:var(--brass-d);font-style:italic;font-weight:400}
 .chart-item p{font-family:'Crimson Pro',serif;font-style:italic;font-size:.95rem;color:var(--mute);line-height:1.45}
 .chart-price{font-family:'Crimson Pro',serif;font-weight:600;font-size:1.35rem;color:var(--navy);font-style:italic;white-space:nowrap}
 /* PESCE DEL GIORNO editorial */
-.pesce{background:var(--navy);color:#fff;position:relative;overflow:hidden}
-.pesce::before{content:'';position:absolute;top:-20%;right:-10%;width:60%;height:140%;background:radial-gradient(ellipse at center,rgba(197,153,58,.14) 0%,transparent 60%)}
+.pesce{background:var(--paper);color:var(--ink);position:relative;overflow:hidden}
+.pesce::before{content:'';position:absolute;top:-20%;right:-10%;width:60%;height:140%;background:radial-gradient(ellipse at center,rgba(197,153,58,.16) 0%,transparent 60%)}
 .pesce-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:center;position:relative;z-index:1}
-.pesce-text .tag{color:var(--brass-l)}.pesce-text .tag::before,.pesce-text .tag::after{background:var(--brass-l)}
-.pesce-text .hd{color:#fff}.pesce-text .hd em{color:var(--brass-l)}
-.pesce-text p{font-size:1.08rem;color:rgba(255,255,255,.82);line-height:1.7;margin-bottom:16px}
-.pesce-text p em{color:var(--brass-l);font-style:italic}
-.pesce-list{list-style:none;margin-top:24px;padding-top:24px;border-top:1px solid rgba(197,153,58,.3)}
-.pesce-list li{padding:10px 0;color:rgba(255,255,255,.88);display:flex;justify-content:space-between;font-size:1rem;border-bottom:1px dotted rgba(255,255,255,.1)}
+.pesce-text .tag{color:var(--brass-d)}.pesce-text .tag::before,.pesce-text .tag::after{background:var(--brass-d)}
+.pesce-text .hd{color:var(--navy)}.pesce-text .hd em{color:var(--brass-d)}
+.pesce-text p{font-size:1.08rem;color:rgba(10,22,40,.78);line-height:1.7;margin-bottom:16px}
+.pesce-text p em{color:var(--brass-d);font-style:italic}
+.pesce-list{list-style:none;margin-top:24px;padding-top:24px;border-top:1px solid rgba(197,153,58,.45)}
+.pesce-list li{padding:10px 0;color:var(--ink);display:flex;justify-content:space-between;font-size:1rem;border-bottom:1px dotted rgba(10,22,40,.12)}
 .pesce-list li:last-child{border:none}
-.pesce-list li strong{font-family:'Crimson Pro',serif;font-style:italic;color:#fff;font-weight:600}
-.pesce-list li span{color:var(--brass-l);font-family:'Crimson Pro',serif;font-style:italic;font-weight:600}
-.pesce-media{position:relative;aspect-ratio:1;overflow:hidden;border-radius:50%;border:6px solid var(--brass);box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.pesce-list li strong{font-family:'Crimson Pro',serif;font-style:italic;color:var(--navy);font-weight:600}
+.pesce-list li span{color:var(--brass-d);font-family:'Crimson Pro',serif;font-style:italic;font-weight:600}
+.pesce-media{position:relative;aspect-ratio:1;overflow:hidden;border-radius:50%;border:6px solid var(--brass);box-shadow:0 30px 60px rgba(10,22,40,.22)}
 .pesce-media img{width:100%;height:100%;object-fit:cover}
 .compass-badge{position:absolute;top:-12px;right:-12px;width:80px;height:80px;border-radius:50%;background:var(--brass);color:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Crimson Pro',serif;font-weight:700;font-size:.95rem;font-style:italic;text-align:center;line-height:1.15;border:3px solid var(--navy)}
 /* REVIEWS */
@@ -237,7 +237,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.7);padding:50px 42px 28px;
 <section class="pesce" id="pesce">
     <div class="wrap"><div class="pesce-grid">
         <div class="pesce-media">
-            <img src="https://images.unsplash.com/photo-1532636721-797b3dc065bd?w=800&q=80" alt="Pesce del giorno" onerror="this.src='https://images.unsplash.com/photo-1558030006-450675393462?w=800&q=80'">
+            <img src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?w=800&q=80" alt="Pesce del giorno" onerror="this.src='https://images.unsplash.com/photo-1485921325833-c519f76c4927?w=800&q=80'">
             <div class="compass-badge">Pesce<br>del<br>giorno</div>
         </div>
         <div class="pesce-text">
