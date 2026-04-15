@@ -272,6 +272,9 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
 @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+
+@keyframes kenburns-v{from{transform:scale(1.05) translate(-1%,-1%)}to{transform:scale(1.18) translate(1%,1%)}}
+.hero-bg img,.hero-media img,.hero-img img,.hero>img,.hero-photo img,.garage-door img{animation:kenburns-v 25s ease-in-out infinite alternate!important}
 </style>
 </head>
 <body>
