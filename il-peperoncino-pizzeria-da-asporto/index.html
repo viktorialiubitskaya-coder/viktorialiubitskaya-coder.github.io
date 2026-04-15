@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il Peperoncino Pizzeria Da Asporto — La Migliore Pizza a Scalea</title>
+<meta name="description" content="Il Peperoncino Pizzeria Da Asporto a Scalea. Pizza artigianale cotta nel forno a legna. Valutazione 4.7 stelle su 458 recensioni. Via Fiume Lao, 92.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Il Peperoncino Pizzeria Da Asporto",
+  "image": "./photos/photo_02.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Fiume Lao, 92",
+    "addressLocality": "Scalea",
+    "postalCode": "87029",
+    "addressRegion": "CS",
+    "addressCountry": "IT"
+  },
+  "telephone": "+393200664446",
+  "servesCuisine": "Pizza",
+  "priceRange": "€",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "458"
+  },
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification","dayOfWeek": "Monday","opens": "17:30","closes": "22:00"},
+    {"@type": "OpeningHoursSpecification","dayOfWeek": "Thursday","opens": "18:00","closes": "23:00"},
+    {"@type": "OpeningHoursSpecification","dayOfWeek": "Friday","opens": "18:00","closes": "23:00"},
+    {"@type": "OpeningHoursSpecification","dayOfWeek": "Saturday","opens": "18:00","closes": "23:30"},
+    {"@type": "OpeningHoursSpecification","dayOfWeek": "Sunday","opens": "18:00","closes": "00:00"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#b99269;
+  --secondary:#16130c;
+  --accent:#70563b;
+  --light:#ddd7c7;
+  --dark:#16130c;
+  --bg:#faf8f4;
+  --text:#1C1917;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);background:var(--bg);overflow-x:hidden;line-height:1.6;font-weight:300}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+/* Language switching */
+.t-en,.t-de,.t-ru{display:none}
+body.lang-en .t-it{display:none}
+body.lang-en .t-en{display:inline}
+body.lang-de .t-it{display:none}
+body.lang-de .t-de{display:inline}
+body.lang-ru .t-it{display:none}
+body.lang-ru .t-ru{display:inline}
+body.lang-en .t-it-block{display:none}
+body.lang-en .t-en-block{display:block}
+body.lang-de .t-it-block{display:none}
+body.lang-de .t-de-block{display:block}
+body.lang-ru .t-it-block{display:none}
+body.lang-ru .t-ru-block{display:block}
+.t-en-block,.t-de-block,.t-ru-block{display:none}
+.t-it-block{display:block}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;transition:background .3s,box-shadow .3s}
+.nav.scrolled{background:rgba(250,248,244,.97);box-shadow:0 1px 20px rgba(0,0,0,.08)}
+.nav-logo{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:#fff;transition:color .3s}
+.nav.scrolled .nav-logo{color:var(--dark)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:.85rem;font-weight:400;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.85);transition:color .3s}
+.nav.scrolled .nav-links a{color:var(--dark)}
+.nav-links a:hover{color:var(--primary)}
+.lang-switch{display:flex;gap:6px;margin-left:12px}
+.lang-btn{background:none;border:1.5px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8);font-family:var(--sans);font-size:.7rem;font-weight:500;padding:3px 8px;border-radius:3px;cursor:pointer;text-transform:uppercase;transition:all .25s}
+.nav.scrolled .lang-btn{border-color:var(--accent);color:var(--accent)}
+.lang-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.lang-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2px;background:#fff;transition:all .3s}
+.nav.scrolled .hamburger span{background:var(--dark)}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0 40px 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(22,19,12,.85) 0%,rgba(22,19,12,.4) 50%,rgba(22,19,12,.2) 100%)}
+.hero-content{position:relative;z-index:2;max-width:700px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(185,146,105,.2);backdrop-filter:blur(8px);border:1px solid rgba(185,146,105,.3);padding:8px 16px;border-radius:40px;font-size:.8rem;color:var(--light);margin-bottom:24px}
+.hero-badge .stars{color:#f0b840;letter-spacing:2px}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:700;color:#fff;line-height:1.05;margin-bottom:16px}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,.8);margin-bottom:36px;max-width:480px;font-weight:300}
+.hero-cta{display:inline-block;background:var(--primary);color:#fff;font-family:var(--sans);font-size:.9rem;font-weight:500;padding:16px 40px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase;transition:background .3s,transform .3s}
+.hero-cta:hover{background:var(--accent);transform:translateY(-2px)}
+
+/* Section base */
+.section{padding:100px 40px}
+.section-label{font-size:.75rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--primary);margin-bottom:12px}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:var(--dark);line-height:1.15;margin-bottom:20px}
+.section-text{max-width:560px;font-size:1rem;color:#5a5549;line-height:1.7}
+
+/* About */
+.about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto}
+.about-images{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:end}
+.about-images img{border-radius:6px;object-fit:cover}
+.about-images img:first-child{height:420px}
+.about-images img:last-child{height:300px}
+.about-stats{display:flex;gap:40px;margin-top:40px}
+.stat{text-align:left}
+.stat-num{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--primary);line-height:1}
+.stat-label{font-size:.8rem;color:#8a7f72;margin-top:4px;text-transform:uppercase;letter-spacing:.06em}
+
+/* Menu */
+.menu-section{background:var(--secondary);color:var(--light);padding:100px 40px}
+.menu-section .section-title{color:var(--light)}
+.menu-section .section-text{color:rgba(221,215,199,.65)}
+.menu-header{max-width:1200px;margin:0 auto 60px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px}
+.menu-grid{display:grid;grid-template-columns:1.1fr .9fr 1fr;gap:20px;max-width:1200px;margin:0 auto}
+.menu-card{position:relative;border-radius:8px;overflow:hidden;background:#1e1b14}
+.menu-card img{width:100%;height:280px;object-fit:cover;transition:transform .5s}
+.menu-card:hover img{transform:scale(1.05)}
+.menu-card-info{padding:20px}
+.menu-card-name{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--light);margin-bottom:4px}
+.menu-card-desc{font-size:.82rem;color:rgba(221,215,199,.55);line-height:1.5;margin-bottom:12px}
+.menu-card-price{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--primary)}
+.menu-row2{display:grid;grid-template-columns:1fr 1.2fr .8fr;gap:20px;max-width:1200px;margin:20px auto 0}
+
+/* Forno */
+.forno-section{position:relative;height:50vh;min-height:360px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.forno-section img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.forno-section::after{content:'';position:absolute;inset:0;background:rgba(22,19,12,.6)}
+.forno-quote{position:relative;z-index:2;text-align:center;max-width:600px;padding:0 20px}
+.forno-quote blockquote{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;font-style:italic;line-height:1.35}
+
+/* Reviews */
+.reviews-section{background:var(--bg);padding:100px 40px}
+.reviews-header{max-width:1200px;margin:0 auto 60px;text-align:center}
+.reviews-grid{display:grid;grid-template-columns:1.1fr .9fr 1fr;gap:24px;max-width:1200px;margin:0 auto}
+.review-card{background:#fff;border-radius:8px;padding:36px 30px;position:relative;box-shadow:0 2px 20px rgba(0,0,0,.04)}
+.review-card:nth-child(2){margin-top:40px}
+.review-stars{color:#f0b840;font-size:.9rem;letter-spacing:2px;margin-bottom:16px}
+.review-quote{font-size:.95rem;color:#5a5549;line-height:1.65;margin-bottom:20px;font-style:italic}
+.review-author{font-weight:500;color:var(--dark);font-size:.9rem}
+.review-source{font-size:.75rem;color:#a09888;margin-top:2px}
+
+/* Contact */
+.contact-section{background:var(--secondary);color:var(--light);padding:100px 40px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:1200px;margin:0 auto}
+.contact-info{display:flex;flex-direction:column;gap:32px}
+.hours-grid{display:grid;grid-template-columns:auto 1fr;gap:8px 24px;font-size:.9rem}
+.hours-day{font-weight:500;color:var(--light)}
+.hours-time{color:rgba(221,215,199,.6)}
+.hours-time.closed{color:#bd3023}
+.contact-detail{font-size:.95rem;color:rgba(221,215,199,.7);line-height:1.7}
+.contact-detail strong{color:var(--light);font-weight:500}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.contact-form input,.contact-form textarea,.contact-form select{background:rgba(255,255,255,.06);border:1px solid rgba(185,146,105,.2);color:var(--light);font-family:var(--sans);font-size:.9rem;padding:14px 18px;border-radius:4px;outline:none;transition:border-color .3s}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:var(--primary)}
+.contact-form textarea{height:100px;resize:vertical}
+.contact-form select option{background:var(--secondary);color:var(--light)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit{background:var(--primary);color:#fff;border:none;font-family:var(--sans);font-size:.9rem;font-weight:500;padding:16px;border-radius:4px;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;transition:background .3s}
+.form-submit:hover{background:var(--accent)}
+
+/* Map */
+.map-section{height:400px}
+.map-section iframe{width:100%;height:100%;border:0}
+
+/* Footer */
+.footer{background:#0e0c07;color:rgba(221,215,199,.5);padding:60px 40px 40px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:40px}
+.footer-brand{max-width:320px}
+.footer-brand h3{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--light);margin-bottom:8px}
+.footer-brand p{font-size:.85rem;line-height:1.6}
+.footer-links{display:flex;gap:60px}
+.footer-col h4{font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--primary);margin-bottom:12px}
+.footer-col a,.footer-col p{display:block;font-size:.85rem;color:rgba(221,215,199,.5);margin-bottom:6px;transition:color .3s}
+.footer-col a:hover{color:var(--primary)}
+.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(185,146,105,.12);display:flex;justify-content:space-between;font-size:.78rem;flex-wrap:wrap;gap:12px}
+.footer-bottom a{color:var(--primary);transition:color .3s}
+.footer-bottom a:hover{color:var(--light)}
+
+/* WhatsApp */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .3s}
+.whatsapp-float:hover{transform:scale(1.1)}
+.whatsapp-float svg{width:28px;height:28px;fill:#fff}
+
+/* Mobile nav overlay */
+.mobile-nav{position:fixed;inset:0;background:rgba(250,248,244,.98);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-nav.open{opacity:1;pointer-events:auto}
+.mobile-nav a{font-family:var(--serif);font-size:1.8rem;font-weight:600;color:var(--dark)}
+
+/* Responsive */
+@media(max-width:1024px){
+  .menu-grid,.menu-row2{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr 1fr}
+  .reviews-grid .review-card:nth-child(3){grid-column:span 2}
+}
+@media(max-width:768px){
+  .nav{padding:14px 20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero{padding:0 20px 60px;min-height:90vh}
+  .hero h1{font-size:2.4rem}
+  .section{padding:70px 20px}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-images img:first-child{height:300px}
+  .about-images img:last-child{height:220px}
+  .about-stats{gap:24px}
+  .stat-num{font-size:1.8rem}
+  .menu-section{padding:70px 20px}
+  .menu-grid,.menu-row2{grid-template-columns:1fr}
+  .menu-card img{height:220px}
+  .reviews-section{padding:70px 20px}
+  .reviews-grid{grid-template-columns:1fr}
+  .reviews-grid .review-card:nth-child(2){margin-top:0}
+  .reviews-grid .review-card:nth-child(3){grid-column:auto}
+  .contact-section{padding:70px 20px}
+  .contact-grid{grid-template-columns:1fr;gap:50px}
+  .form-row{grid-template-columns:1fr}
+  .footer{padding:50px 20px 30px}
+  .footer-inner{flex-direction:column}
+  .footer-links{flex-direction:column;gap:30px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .forno-section{height:40vh;min-height:280px}
+}
+</style>
+</head>
+<body class="lang-it">
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">Il Peperoncino</a>
+  <div class="nav-links">
+    <a href="#about"><span class="t-it">Chi Siamo</span><span class="t-en">About</span><span class="t-de">Über Uns</span><span class="t-ru">О Нас</span></a>
+    <a href="#menu">Menu</a>
+    <a href="#reviews"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span><span class="t-de">Bewertungen</span><span class="t-ru">Отзывы</span></a>
+    <a href="#contact"><span class="t-it">Contatti</span><span class="t-en">Contact</span><span class="t-de">Kontakt</span><span class="t-ru">Контакты</span></a>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="switchLang('it')">IT</button>
+      <button class="lang-btn" onclick="switchLang('en')">EN</button>
+    </div>
+  </div>
+  <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="toggleMobile()"><span class="t-it">Chi Siamo</span><span class="t-en">About</span><span class="t-de">Über Uns</span><span class="t-ru">О Нас</span></a>
+  <a href="#menu" onclick="toggleMobile()">Menu</a>
+  <a href="#reviews" onclick="toggleMobile()"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span><span class="t-de">Bewertungen</span><span class="t-ru">Отзывы</span></a>
+  <a href="#contact" onclick="toggleMobile()"><span class="t-it">Contatti</span><span class="t-en">Contact</span><span class="t-de">Kontakt</span><span class="t-ru">Контакты</span></a>
+  <div class="lang-switch">
+    <button class="lang-btn active" onclick="switchLang('it')">IT</button>
+    <button class="lang-btn" onclick="switchLang('en')">EN</button>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="./photos/photo_02.jpg" alt="Il pizzaiolo di Il Peperoncino presenta una pizza appena sfornata" loading="eager">
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>4.7 / 5 &mdash; 458 <span class="t-it">recensioni</span><span class="t-en">reviews</span><span class="t-de">Bewertungen</span><span class="t-ru">отзывов</span></span>
+    </div>
+    <h1>Il Peperoncino<br>Pizzeria Da Asporto</h1>
+    <p class="hero-sub">
+      <span class="t-it">Pizza artigianale cotta nel forno a legna nel cuore di Scalea. Tradizione, passione e ingredienti freschi.</span>
+      <span class="t-en">Artisan wood-fired pizza in the heart of Scalea. Tradition, passion, and fresh ingredients.</span>
+      <span class="t-de">Handwerkliche Pizza aus dem Holzofen im Herzen von Scalea. Tradition, Leidenschaft und frische Zutaten.</span>
+      <span class="t-ru">Пицца ручной работы из дровяной печи в самом сердце Скалеи. Традиции, страсть и свежие ингредиенты.</span>
+    </p>
+    <a href="#menu" class="hero-cta">
+      <span class="t-it">Scopri il Menu</span>
+      <span class="t-en">Explore the Menu</span>
+      <span class="t-de">Menü Entdecken</span>
+      <span class="t-ru">Смотреть Меню</span>
+    </a>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+  <div class="about-grid">
+    <div class="about-images">
+      <img src="./photos/photo_02.jpg" alt="Il pizzaiolo di Il Peperoncino" loading="lazy">
+      <img src="./photos/photo_00.jpg" alt="Esterno della pizzeria Il Peperoncino di sera" loading="lazy">
+    </div>
+    <div>
+      <p class="section-label">
+        <span class="t-it">La Nostra Storia</span>
+        <span class="t-en">Our Story</span>
+        <span class="t-de">Unsere Geschichte</span>
+        <span class="t-ru">Наша История</span>
+      </p>
+      <h2 class="section-title">
+        <span class="t-it">Passione per la pizza, amore per Scalea</span>
+        <span class="t-en">Passion for pizza, love for Scalea</span>
+        <span class="t-de">Leidenschaft für Pizza, Liebe für Scalea</span>
+        <span class="t-ru">Страсть к пицце, любовь к Скалее</span>
+      </h2>
+      <p class="section-text">
+        <span class="t-it">Da anni, Il Peperoncino è il punto di riferimento per chi cerca una pizza autentica a Scalea. Ogni impasto lievita lentamente, ogni ingrediente viene scelto con cura. Il nostro forno a legna regala a ogni pizza quel sapore unico che i nostri clienti amano. Vieni a trovarci in Via Fiume Lao e scopri perché siamo la pizzeria più amata della città.</span>
+        <span class="t-en">For years, Il Peperoncino has been the go-to spot for authentic pizza in Scalea. Every dough rises slowly, every ingredient is chosen with care. Our wood-fired oven gives each pizza that unique flavor our customers love. Visit us on Via Fiume Lao and discover why we're Scalea's most beloved pizzeria.</span>
+        <span class="t-de">Seit Jahren ist Il Peperoncino die erste Adresse für authentische Pizza in Scalea. Jeder Teig geht langsam auf, jede Zutat wird sorgfältig ausgewählt. Unser Holzofen verleiht jeder Pizza den einzigartigen Geschmack, den unsere Gäste lieben.</span>
+        <span class="t-ru">Уже много лет Il Peperoncino — главное место для настоящей пиццы в Скалее. Каждое тесто медленно поднимается, каждый ингредиент выбирается с заботой. Наша дровяная печь придаёт каждой пицце тот уникальный вкус, который обожают наши гости.</span>
+      </p>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-num">458+</div>
+          <div class="stat-label">
+            <span class="t-it">Recensioni</span>
+            <span class="t-en">Reviews</span>
+            <span class="t-de">Bewertungen</span>
+            <span class="t-ru">Отзывов</span>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4.7</div>
+          <div class="stat-label">
+            <span class="t-it">Stelle Google</span>
+            <span class="t-en">Google Stars</span>
+            <span class="t-de">Google Sterne</span>
+            <span class="t-ru">Звёзд Google</span>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">€</div>
+          <div class="stat-label">
+            <span class="t-it">Prezzi Accessibili</span>
+            <span class="t-en">Affordable</span>
+            <span class="t-de">Günstig</span>
+            <span class="t-ru">Доступные Цены</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section class="menu-section" id="menu">
+  <div class="menu-header">
+    <div>
+      <p class="section-label">
+        <span class="t-it">Il Nostro Menu</span>
+        <span class="t-en">Our Menu</span>
+        <span class="t-de">Unsere Speisekarte</span>
+        <span class="t-ru">Наше Меню</span>
+      </p>
+      <h2 class="section-title">
+        <span class="t-it">Pizze dal forno a legna</span>
+        <span class="t-en">Wood-fired pizzas</span>
+        <span class="t-de">Pizzen aus dem Holzofen</span>
+        <span class="t-ru">Пицца из дровяной печи</span>
+      </h2>
+    </div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <img src="./photos/photo_03.jpg" alt="Pizza Margherita classica" loading="lazy">
+      <div class="menu-card-info">
+        <h3 class="menu-card-name">Margherita</h3>
+        <p class="menu-card-desc">
+          <span class="t-it">Mozzarella, pomodoro San Marzano, basilico fresco, olio EVO</span>
+          <span class="t-en">Mozzarella, San Marzano tomato, fresh basil, EVO oil</span>
+          <span class="t-de">Mozzarella, San-Marzano-Tomate, frisches Basilikum, Olivenöl</span>
+          <span class="t-ru">Моцарелла, томаты Сан-Марцано, свежий базилик, оливковое масло</span>
+        </p>
+        <span class="menu-card-price">€5,00</span>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img src="./photos/photo_05.jpg" alt="Pizza Diavola" loading="lazy">
+      <div class="menu-card-info">
+        <h3 class="menu-card-name">Diavola</h3>
+        <p class="menu-card-desc">
+          <span class="t-it">Salame piccante, olive nere, cipolla rossa, pomodorini</span>
+          <span class="t-en">Spicy salami, black olives, red onion, cherry tomatoes</span>
+          <span class="t-de">Scharfe Salami, schwarze Oliven, rote Zwiebel, Kirschtomaten</span>
+          <span class="t-ru">Острая салями, чёрные оливки, красный лук, помидоры черри</span>
+        </p>
+        <span class="menu-card-price">€7,00</span>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img src="./photos/photo_07.jpg" alt="Pizza con mortadella e crema di pistacchio" loading="lazy">
+      <div class="menu-card-info">
+        <h3 class="menu-card-name">Pistacchiosa</h3>
+        <p class="menu-card-desc">
+          <span class="t-it">Mortadella, crema di pistacchio, granella di pistacchio, mozzarella</span>
+          <span class="t-en">Mortadella, pistachio cream, pistachio crumble, mozzarella</span>
+          <span class="t-de">Mortadella, Pistaziencreme, Pistazienkrümel, Mozzarella</span>
+          <span class="t-ru">Мортаделла, фисташковый крем, крошка фисташек, моцарелла</span>
+        </p>
+        <span class="menu-card-price">€8,50</span>
+      </div>
+    </div>
+  </div>
+  <div class="menu-row2">
+    <div class="menu-card">
+      <img src="./photos/photo_08.jpg" alt="Pizza bianca con olive e pancetta" loading="lazy">
+      <div class="menu-card-info">
+        <h3 class="menu-card-name">Rustica</h3>
+        <p class="menu-card-desc">
+          <span class="t-it">Mozzarella, olive nere, pancetta croccante, basilico</span>
+          <span class="t-en">Mozzarella, black olives, crispy bacon, basil</span>
+          <span class="t-de">Mozzarella, schwarze Oliven, knuspriger Speck, Basilikum</span>
+          <span class="t-ru">Моцарелла, чёрные оливки, хрустящая панчетта, базилик</span>
+        </p>
+        <span class="menu-card-price">€7,50</span>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img src="./photos/photo_04.jpg" alt="Pizza con patate e salsiccia" loading="lazy">
+      <div class="menu-card-info">
+        <h3 class="menu-card-name">Contadina</h3>
+        <p class="menu-card-desc">
+          <span class="t-it">Patate, salsiccia, funghi, mozzarella — bianca e generosa</span>
+          <span class="t-en">Potatoes, sausage, mushrooms, mozzarella — white and generous</span>
+          <span class="t-de">Kartoffeln, Wurst, Pilze, Mozzarella — weiß und großzügig</span>
+          <span class="t-ru">Картофель, колбаса, грибы, моцарелла — белая и щедрая</span>
+        </p>
+        <span class="menu-card-price">€7,00</span>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img src="./photos/photo_01.jpg" alt="Calzone con patatine fritte" loading="lazy">
+      <div class="menu-card-info">
+        <h3 class="menu-card-name">Calzone Fritto</h3>
+        <p class="menu-card-desc">
+          <span class="t-it">Calzone ripieno con patatine fritte e maionese — street food</span>
+          <span class="t-en">Stuffed calzone with fries and mayo — street food style</span>
+          <span class="t-de">Gefüllte Calzone mit Pommes und Mayo — Street Food</span>
+          <span class="t-ru">Кальцоне с картофелем фри и майонезом — уличная еда</span>
+        </p>
+        <span class="menu-card-price">€6,00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Forno intermezzo -->
+<section class="forno-section">
+  <img src="./photos/photo_06.jpg" alt="Pizze nel forno a legna" loading="lazy">
+  <div class="forno-quote">
+    <blockquote>
+      <span class="t-it">&ldquo;Ogni pizza racconta una storia di fuoco, farina e passione.&rdquo;</span>
+      <span class="t-en">&ldquo;Every pizza tells a story of fire, flour, and passion.&rdquo;</span>
+      <span class="t-de">&ldquo;Jede Pizza erzählt eine Geschichte von Feuer, Mehl und Leidenschaft.&rdquo;</span>
+      <span class="t-ru">&ldquo;Каждая пицца рассказывает историю огня, муки и страсти.&rdquo;</span>
+    </blockquote>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="reviews-section" id="reviews">
+  <div class="reviews-header">
+    <p class="section-label">
+      <span class="t-it">Cosa Dicono di Noi</span>
+      <span class="t-en">What They Say About Us</span>
+      <span class="t-de">Was Man Über Uns Sagt</span>
+      <span class="t-ru">Что О Нас Говорят</span>
+    </p>
+    <h2 class="section-title">
+      <span class="t-it">Le voci dei nostri clienti</span>
+      <span class="t-en">Our customers speak</span>
+      <span class="t-de">Unsere Gäste sprechen</span>
+      <span class="t-ru">Наши гости говорят</span>
+    </h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-quote">
+        <span class="t-it">&ldquo;La miglior pizza di Scalea! Estremamente deliziosa! La consiglio vivamente. Anche il personale è molto gentile. Grazie!&rdquo;</span>
+        <span class="t-en">&ldquo;The best pizza in Scalea! Extremely delicious! Highly recommend. Also, very lovely staff. Thank you!&rdquo;</span>
+        <span class="t-de">&ldquo;Die beste Pizza in Scalea! Extrem lecker! Sehr empfehlenswert. Auch sehr nettes Personal. Danke!&rdquo;</span>
+        <span class="t-ru">&ldquo;Лучшая пицца в Скалее! Невероятно вкусная! Очень рекомендую. Также очень приветливый персонал. Спасибо!&rdquo;</span>
+      </p>
+      <p class="review-author">Miglė Šalkauskaitė</p>
+      <p class="review-source">Google Reviews</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-quote">
+        <span class="t-it">&ldquo;Al mio primo viaggio a Scalea, ho visitato Il Peperoncino ogni giorno e ho apprezzato ogni pizza. La mia preferita era la Diavola con salame piccante. Servizio molto gentile.&rdquo;</span>
+        <span class="t-en">&ldquo;On my first trip to Scalea, I visited Il Peperoncino every day and enjoyed every pizza. My favorite was Diavola with salame piccante. Very kind service.&rdquo;</span>
+        <span class="t-de">&ldquo;Bei meinem ersten Besuch in Scalea war ich jeden Tag bei Il Peperoncino und habe jede Pizza genossen. Mein Favorit war die Diavola. Sehr freundlicher Service.&rdquo;</span>
+        <span class="t-ru">&ldquo;В свой первый визит в Скалею я каждый день ходил в Il Peperoncino и наслаждался каждой пиццей. Моя любимая — Дьявола с острой салями. Очень приветливое обслуживание.&rdquo;</span>
+      </p>
+      <p class="review-author">Sebastian</p>
+      <p class="review-source">Google Reviews</p>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="review-quote">
+        <span class="t-it">&ldquo;Quando dico LA MIGLIORE, intendo LA MIGLIORE pizza che abbia mai mangiato. Non era solo mangiare pizza, era un'esperienza italiana completa, specialmente quando la mangi in spiaggia guardando il mare.&rdquo;</span>
+        <span class="t-en">&ldquo;When I say THE BEST, I mean THE BEST pizza I have ever eaten. It was not just eating pizza, it was a whole Italian-soul experience, especially when you eat it on the beach watching the sea.&rdquo;</span>
+        <span class="t-de">&ldquo;Wenn ich DIE BESTE sage, meine ich DIE BESTE Pizza, die ich je gegessen habe. Es war nicht nur Pizza essen, es war ein ganzes italienisches Erlebnis, besonders am Strand.&rdquo;</span>
+        <span class="t-ru">&ldquo;Когда я говорю ЛУЧШАЯ, я имею в виду ЛУЧШАЯ пицца, которую я когда-либо ела. Это был настоящий итальянский опыт, особенно когда ешь её на пляже с видом на море.&rdquo;</span>
+      </p>
+      <p class="review-author">Arenariaxxx</p>
+      <p class="review-source">Google Reviews</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div>
+        <p class="section-label">
+          <span class="t-it">Contatti</span>
+          <span class="t-en">Contact</span>
+          <span class="t-de">Kontakt</span>
+          <span class="t-ru">Контакты</span>
+        </p>
+        <h2 class="section-title" style="color:var(--light)">
+          <span class="t-it">Vieni a trovarci</span>
+          <span class="t-en">Come visit us</span>
+          <span class="t-de">Besuchen Sie uns</span>
+          <span class="t-ru">Приходите к нам</span>
+        </h2>
+      </div>
+      <div class="contact-detail">
+        <strong><span class="t-it">Indirizzo</span><span class="t-en">Address</span><span class="t-de">Adresse</span><span class="t-ru">Адрес</span></strong><br>
+        Via Fiume Lao, 92, 87029 Scalea CS, Italy
+      </div>
+      <div class="contact-detail">
+        <strong><span class="t-it">Telefono</span><span class="t-en">Phone</span><span class="t-de">Telefon</span><span class="t-ru">Телефон</span></strong><br>
+        <a href="tel:+393200664446">+39 320 066 4446</a>
+      </div>
+      <div>
+        <strong style="color:var(--light);font-weight:500;font-size:.95rem">
+          <span class="t-it">Orari di Apertura</span>
+          <span class="t-en">Opening Hours</span>
+          <span class="t-de">Öffnungszeiten</span>
+          <span class="t-ru">Часы работы</span>
+        </strong>
+        <div class="hours-grid" style="margin-top:12px">
+          <span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Monday</span><span class="t-de">Montag</span><span class="t-ru">Понедельник</span></span>
+          <span class="hours-time">17:30 – 22:00</span>
+          <span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tuesday</span><span class="t-de">Dienstag</span><span class="t-ru">Вторник</span></span>
+          <span class="hours-time closed"><span class="t-it">Chiuso</span><span class="t-en">Closed</span><span class="t-de">Geschlossen</span><span class="t-ru">Закрыто</span></span>
+          <span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wednesday</span><span class="t-de">Mittwoch</span><span class="t-ru">Среда</span></span>
+          <span class="hours-time closed"><span class="t-it">Chiuso</span><span class="t-en">Closed</span><span class="t-de">Geschlossen</span><span class="t-ru">Закрыто</span></span>
+          <span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thursday</span><span class="t-de">Donnerstag</span><span class="t-ru">Четверг</span></span>
+          <span class="hours-time">18:00 – 23:00</span>
+          <span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Friday</span><span class="t-de">Freitag</span><span class="t-ru">Пятница</span></span>
+          <span class="hours-time">18:00 – 23:00</span>
+          <span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Saturday</span><span class="t-de">Samstag</span><span class="t-ru">Суббота</span></span>
+          <span class="hours-time">18:00 – 23:30</span>
+          <span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sunday</span><span class="t-de">Sonntag</span><span class="t-ru">Воскресенье</span></span>
+          <span class="hours-time">18:00 – 00:00</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form class="contact-form" onsubmit="event.preventDefault();alert('Demo');return false">
+        <div class="form-row">
+          <input type="text" placeholder="Nome / Name" required>
+          <input type="tel" placeholder="Telefono / Phone" required>
+        </div>
+        <input type="email" placeholder="Email">
+        <select>
+          <option value="" disabled selected>Tipo di richiesta / Request type</option>
+          <option value="prenotazione">Prenotazione / Reservation</option>
+          <option value="info">Informazioni / Information</option>
+          <option value="evento">Evento / Event</option>
+        </select>
+        <textarea placeholder="Messaggio / Message"></textarea>
+        <button type="submit" class="form-submit">
+          <span class="t-it">Invia Messaggio</span>
+          <span class="t-en">Send Message</span>
+          <span class="t-de">Nachricht Senden</span>
+          <span class="t-ru">Отправить</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Map -->
+<section class="map-section">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3107.5!2d15.7908!3d39.8145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f02c3eb5d2c5f%3A0xf12a8b6e9c5be868!2sIl%20Peperoncino%20Pizzeria%20Da%20Asporto!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Il Peperoncino su Google Maps"></iframe>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>Il Peperoncino</h3>
+      <p>
+        <span class="t-it">Pizzeria Da Asporto nel cuore di Scalea. Tradizione e qualità dal forno a legna.</span>
+        <span class="t-en">Takeaway Pizzeria in the heart of Scalea. Tradition and quality from the wood-fired oven.</span>
+        <span class="t-de">Pizzeria zum Mitnehmen im Herzen von Scalea. Tradition und Qualität aus dem Holzofen.</span>
+        <span class="t-ru">Пиццерия на вынос в сердце Скалеи. Традиции и качество из дровяной печи.</span>
+      </p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <a href="#about"><span class="t-it">Chi Siamo</span><span class="t-en">About</span><span class="t-de">Über Uns</span><span class="t-ru">О Нас</span></a>
+        <a href="#menu">Menu</a>
+        <a href="#reviews"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span><span class="t-de">Bewertungen</span><span class="t-ru">Отзывы</span></a>
+        <a href="#contact"><span class="t-it">Contatti</span><span class="t-en">Contact</span><span class="t-de">Kontakt</span><span class="t-ru">Контакты</span></a>
+      </div>
+      <div class="footer-col">
+        <h4><span class="t-it">Contatti</span><span class="t-en">Contact</span><span class="t-de">Kontakt</span><span class="t-ru">Контакты</span></h4>
+        <p>Via Fiume Lao, 92</p>
+        <p>87029 Scalea CS, Italy</p>
+        <p><a href="tel:+393200664446">+39 320 066 4446</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Il Peperoncino Pizzeria Da Asporto. <span class="t-it">Tutti i diritti riservati.</span><span class="t-en">All rights reserved.</span><span class="t-de">Alle Rechte vorbehalten.</span><span class="t-ru">Все права защищены.</span></span>
+    <span>
+      <span class="t-it">Sito web realizzato da</span>
+      <span class="t-en">Website by</span>
+      <span class="t-de">Webseite von</span>
+      <span class="t-ru">Сайт создан</span>
+      <a href="https://viktoriaagency.com" target="_blank" rel="noopener"> Viktoria Agency</a>
+    </span>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/393200664446" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.9 15.9 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.32 22.616c-.39 1.1-1.932 2.014-3.168 2.282-.846.18-1.95.324-5.67-1.218-4.762-1.972-7.828-6.81-8.066-7.126-.23-.316-1.916-2.554-1.916-4.87 0-2.318 1.212-3.456 1.642-3.928.39-.428 1.026-.624 1.636-.624.198 0 .374.01.534.018.47.02.706.048 1.016.788.39.928 1.338 3.246 1.454 3.484.118.238.236.554.078.87-.15.324-.282.526-.52.81-.238.284-.5.634-.712.85-.238.244-.486.508-.208.998.278.488 1.236 2.04 2.654 3.304 1.822 1.624 3.356 2.126 3.832 2.364.39.194.852.156 1.138-.156.366-.396.818-1.052 1.278-1.7.326-.462.738-.518 1.168-.35.434.16 2.746 1.296 3.216 1.532.47.238.784.354.9.55.116.194.116 1.134-.274 2.234z"/></svg>
+</a>
+
+<script>
+function switchLang(l){
+  document.body.classList.remove('lang-it','lang-en','lang-de','lang-ru');
+  document.body.classList.add('lang-'+l);
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.classList.toggle('active',b.textContent.trim().toLowerCase()===l);
+  });
+}
+
+function toggleMobile(){
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+window.addEventListener('scroll',function(){
+  var nav=document.getElementById('nav');
+  if(window.scrollY>60){nav.classList.add('scrolled')}else{nav.classList.remove('scrolled')}
+},{passive:true});
+</script>
+</body>
+</html>
