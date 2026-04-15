@@ -68,22 +68,12 @@ body {
 }
 
 /* ─── Language Switch ─── */
-.t-en, .t-de { display: none; }
-body.lang-en .t-it, body.lang-en .t-de { display: none; }
-body.lang-de .t-it, body.lang-de .t-en { display: none; }
-body.lang-en .t-en, body.lang-de .t-de { display: inline; }
-body.lang-en p.t-en, body.lang-de p.t-de,
-body.lang-en h1.t-en, body.lang-de h1.t-de,
-body.lang-en h2.t-en, body.lang-de h2.t-de,
-body.lang-en h3.t-en, body.lang-de h3.t-de,
-body.lang-en div.t-en, body.lang-de div.t-de,
-body.lang-en li.t-en, body.lang-de li.t-de,
-body.lang-en span.t-en, body.lang-de span.t-de,
-body.lang-en blockquote.t-en, body.lang-de blockquote.t-de,
-body.lang-en label.t-en, body.lang-de label.t-de,
-body.lang-en summary.t-en, body.lang-de summary.t-de,
-body.lang-en a.t-en, body.lang-de a.t-de { display: block; }
-body.lang-en span.t-en, body.lang-de span.t-de { display: inline; }
+/* Language switching — !important to win specificity vs. component display rules
+   (e.g. .btn { display:inline-block }, .booking-form label { display:block }) */
+.t-en, .t-de { display: none !important; }
+body.lang-en .t-it, body.lang-en .t-de,
+body.lang-de .t-it, body.lang-de .t-en { display: none !important; }
+body.lang-en .t-en, body.lang-de .t-de { display: revert !important; }
 
 /* ─── Typography ─── */
 h1, h2, h3 { font-family: var(--font-display); font-weight: 400; }
@@ -1370,7 +1360,7 @@ footer a:hover { color: #fff; }
 
 <!-- Map -->
 <section class="map">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3089.5!2d15.79!3d39.81!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2a5c9e5fa03a38f8!2sLa+Bruca+Resort!5e0!3m2!1sit!2sit!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="La Bruca Resort su Google Maps"></iframe>
+  <iframe src="https://www.google.com/maps?q=La+Bruca+Resort+Scalea+CS&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="La Bruca Resort su Google Maps"></iframe>
 </section>
 
 <!-- Footer -->
