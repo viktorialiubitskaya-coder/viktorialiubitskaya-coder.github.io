@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ristopub Naif — Praia a Mare · Cucina & Birra</title>
+<meta name="description" content="Ristopub Naif a Praia a Mare: cucina calabrese autentica, carne alla griglia all-you-can-eat, birre artigianali. Un locale curato nel centro, a due passi dalla piazza.">
+<meta name="keywords" content="ristopub naif, praia a mare, ristorante calabria, pub calabria, grigliata, birra artigianale, carne all you can eat, cena praia">
+<meta property="og:title" content="Ristopub Naif — Praia a Mare">
+<meta property="og:description" content="Cucina calabrese, grigliate abbondanti e birre artigianali nel cuore di Praia a Mare.">
+<meta property="og:image" content="./photos/photo_00.jpg">
+<meta property="og:url" content="https://ristopubnaif.example/">
+<meta property="og:type" content="restaurant.restaurant">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ristopub Naif — Praia a Mare">
+<meta name="twitter:description" content="Cucina calabrese, grigliate e birre artigianali.">
+<meta name="twitter:image" content="./photos/photo_00.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍺</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Ristopub Naif",
+  "image": "./photos/photo_00.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Cristoforo Colombo, 14",
+    "addressLocality": "Praia a Mare",
+    "addressRegion": "CS",
+    "postalCode": "87028",
+    "addressCountry": "IT"
+  },
+  "telephone": "+393292503022",
+  "priceRange": "€€",
+  "servesCuisine": ["Italian", "Calabrese", "Grill", "Pub"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "95"
+  },
+  "openingHours": [
+    "Mo-Tu 20:00-24:00",
+    "Th-Su 20:00-24:00"
+  ]
+}
+</script>
+<style>
+  :root {
+    --primary: #c4b186;
+    --secondary: #231c15;
+    --accent: #553d22;
+    --light: #f0ebde;
+    --dark: #231c15;
+    --cream: #faf6ec;
+    --muted: #8c929f;
+    --ink: #1c1713;
+    --rule: rgba(35, 28, 21, 0.14);
+    --gold: #87662a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.6;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Libre Caslon Text', serif;
+    font-weight: 400;
+    color: var(--secondary);
+    letter-spacing: -0.01em;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* Language Switching */
+  .t-en, .t-de { display: none !important; }
+  body.lang-en .t-it, body.lang-en .t-de { display: none !important; }
+  body.lang-en .t-en { display: revert !important; }
+
+  /* Container */
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 18px;
+    display: inline-block;
+  }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 20px auto 0;
+    color: var(--primary);
+  }
+  .ornament::before,
+  .ornament::after {
+    content: '';
+    width: 44px;
+    height: 1px;
+    background: var(--primary);
+  }
+  .ornament-mark {
+    font-size: 14px;
+    letter-spacing: 0.4em;
+  }
+
+  /* Nav */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 22px 0;
+    transition: all 0.4s ease;
+    background: transparent;
+  }
+  .nav.scrolled {
+    background: rgba(250, 246, 236, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 14px 0;
+    box-shadow: 0 1px 0 rgba(35,28,21,0.08);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .logo {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    transition: color 0.4s ease;
+  }
+  .logo-mark {
+    font-size: 13px;
+    letter-spacing: 0.32em;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--primary);
+    border-left: 1px solid rgba(255,255,255,0.35);
+    padding-left: 10px;
+    transition: border-color 0.4s ease;
+  }
+  .nav.scrolled .logo { color: var(--secondary); }
+  .nav.scrolled .logo-mark { border-left-color: rgba(35,28,21,0.2); color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 34px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.88);
+    font-weight: 400;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 1px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav.scrolled .nav-links a { color: var(--secondary); }
+
+  .lang-switcher {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .lang-btn {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    padding: 7px 12px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  .lang-btn:hover {
+    background: rgba(255,255,255,0.1);
+  }
+  .lang-btn.active {
+    color: #1a1a1a;
+    background: #fff;
+    border-color: #fff;
+  }
+  .nav.scrolled .lang-btn {
+    color: var(--secondary);
+    border-color: rgba(35,28,21,0.2);
+  }
+  .nav.scrolled .lang-btn:hover {
+    background: rgba(35,28,21,0.05);
+  }
+  .nav.scrolled .lang-btn.active {
+    color: #fff;
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.62) saturate(1.05);
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(35,28,21,0.55) 0%, rgba(35,28,21,0.25) 40%, rgba(35,28,21,0.8) 100%);
+    z-index: 1;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    padding: 140px 0 100px;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--primary);
+  }
+  .hero h1 {
+    font-size: clamp(3.4rem, 8vw, 6.8rem);
+    line-height: 1;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--primary);
+    font-weight: 400;
+  }
+  .hero-sub {
+    font-size: 18px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.88);
+    max-width: 560px;
+    margin-bottom: 42px;
+    font-weight: 300;
+  }
+  .hero-rating {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 42px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    max-width: 420px;
+  }
+  .rating-stars { color: var(--primary); letter-spacing: 2px; font-size: 15px; }
+  .rating-text { font-size: 13px; letter-spacing: 0.08em; color: rgba(255,255,255,0.82); }
+  .rating-text strong { color: #fff; font-weight: 500; margin-right: 4px; }
+
+  .cta-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 17px 38px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border: 1px solid transparent;
+    border-radius: 2px;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: var(--secondary);
+  }
+  .btn-primary:hover {
+    background: #d4c29b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(196,177,134,0.35);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.45);
+  }
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: #fff;
+  }
+  .btn-solid {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-solid:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(35,28,21,0.24);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: rgba(255,255,255,0.7);
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .hero-scroll::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.5);
+    margin: 12px auto 0;
+  }
+
+  /* Sections */
+  section { padding: 120px 0; position: relative; }
+  .bg-cream { background: var(--cream); }
+  .bg-light { background: var(--light); }
+  .bg-dark { background: var(--secondary); color: var(--light); }
+  .bg-dark h1, .bg-dark h2, .bg-dark h3 { color: var(--light); }
+  .bg-dark .eyebrow { color: var(--primary); }
+
+  .section-head {
+    text-align: center;
+    margin-bottom: 76px;
+  }
+  .section-head h2 {
+    font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  .section-head h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .section-head p {
+    max-width: 560px;
+    margin: 0 auto;
+    color: var(--accent);
+    font-size: 16px;
+  }
+  .bg-dark .section-head p { color: rgba(240,235,222,0.76); }
+
+  /* Storia */
+  .storia-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 90px;
+    align-items: center;
+  }
+  .storia-image {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+  .storia-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s ease;
+  }
+  .storia-image:hover img { transform: scale(1.05); }
+  .storia-image::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: -20px;
+    bottom: -20px;
+    border: 1px solid var(--primary);
+    z-index: -1;
+  }
+  .storia-content h2 {
+    font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+    line-height: 1.1;
+    margin-bottom: 28px;
+  }
+  .storia-content h2 em { font-style: italic; color: var(--accent); }
+  .storia-content p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .storia-signature {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: 'Libre Caslon Text', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--accent);
+  }
+  .storia-signature span {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 8px;
+    font-style: normal;
+  }
+
+  /* Menu */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .menu-card {
+    background: var(--cream);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .menu-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 48px rgba(35,28,21,0.14);
+  }
+  .menu-card-img {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+  .menu-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+  .menu-card:hover .menu-card-img img { transform: scale(1.06); }
+  .menu-card-body {
+    padding: 32px 28px 34px;
+    border: 1px solid var(--rule);
+    border-top: none;
+  }
+  .menu-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .menu-card-body h3 {
+    font-size: 1.45rem;
+    font-weight: 400;
+  }
+  .menu-card-price {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 1.25rem;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .menu-card-body p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--accent);
+  }
+  .menu-card-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  /* Reviews */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px;
+  }
+  .review-card {
+    background: rgba(240,235,222,0.04);
+    border: 1px solid rgba(240,235,222,0.14);
+    padding: 38px 34px;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+  .review-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+  }
+  .review-card::before {
+    content: '"';
+    position: absolute;
+    top: 8px;
+    left: 22px;
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 80px;
+    color: var(--primary);
+    opacity: 0.28;
+    line-height: 1;
+  }
+  .review-stars {
+    color: var(--primary);
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+  .review-text {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(240,235,222,0.92);
+    font-style: italic;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(240,235,222,0.14);
+  }
+  .review-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Libre Caslon Text', serif;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .review-meta strong {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--light);
+  }
+  .review-meta span {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(240,235,222,0.58);
+  }
+
+  /* Contact */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+  }
+  .contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+  .contact-block {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .contact-block:last-child { border-bottom: none; }
+  .contact-label {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .contact-value {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 1.1rem;
+    color: var(--secondary);
+    line-height: 1.5;
+  }
+  .contact-value a { color: var(--accent); transition: color 0.2s ease; }
+  .contact-value a:hover { color: var(--primary); }
+  .hours-list { list-style: none; }
+  .hours-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--accent);
+  }
+  .hours-list li strong {
+    color: var(--secondary);
+    font-weight: 500;
+  }
+  .hours-list li.closed span { color: #b36b4a; }
+
+  .booking-form {
+    background: var(--cream);
+    padding: 48px 44px;
+    border: 1px solid var(--rule);
+  }
+  .booking-form h3 {
+    font-size: 1.6rem;
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+  .form-field {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-field-full { grid-column: span 2; }
+  .booking-form label {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .booking-form input,
+  .booking-form select,
+  .booking-form textarea {
+    padding: 14px 0;
+    border: none;
+    border-bottom: 1px solid var(--rule);
+    background: transparent;
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    color: var(--secondary);
+    transition: border-color 0.2s ease;
+  }
+  .booking-form input:focus,
+  .booking-form select:focus,
+  .booking-form textarea:focus {
+    outline: none;
+    border-bottom-color: var(--accent);
+  }
+  .booking-form textarea {
+    resize: vertical;
+    min-height: 72px;
+  }
+  .booking-form button {
+    width: 100%;
+    margin-top: 8px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+  }
+
+  /* Map */
+  .map-wrapper {
+    margin-top: 70px;
+    position: relative;
+    height: 440px;
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(0.3) sepia(0.15);
+  }
+
+  /* Footer */
+  footer {
+    background: var(--secondary);
+    color: rgba(240,235,222,0.78);
+    padding: 90px 0 36px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 64px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(240,235,222,0.14);
+  }
+  .footer-brand {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+  .footer-brand-sub {
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(240,235,222,0.56);
+    margin-bottom: 20px;
+  }
+  .footer-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(240,235,222,0.72);
+    max-width: 340px;
+  }
+  .footer h4 {
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 18px;
+    font-weight: 500;
+    font-family: 'Jost', sans-serif;
+  }
+  .footer ul { list-style: none; }
+  .footer ul li { padding: 5px 0; font-size: 14px; }
+  .footer ul li a { color: rgba(240,235,222,0.78); transition: color 0.2s ease; }
+  .footer ul li a:hover { color: var(--primary); }
+  .footer-bottom {
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(240,235,222,0.54);
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .footer-bottom a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-decoration-color: rgba(196,177,134,0.4);
+    text-underline-offset: 3px;
+  }
+
+  /* WhatsApp Float */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    width: 58px;
+    height: 58px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 28px rgba(37,211,102,0.4);
+    transition: transform 0.3s ease;
+  }
+  .whatsapp-float:hover { transform: scale(1.08); }
+  .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+
+  /* Divider ornament */
+  .section-divider {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+  }
+  .section-divider svg {
+    width: 120px;
+    height: 20px;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    section { padding: 72px 0; }
+    .nav-links { display: none; }
+    .logo { font-size: 18px; }
+    .logo-mark { display: none; }
+    .lang-btn { padding: 6px 10px; font-size: 10px; }
+    .hero { min-height: 90vh; }
+    .hero-inner { padding: 120px 0 80px; }
+    .hero h1 { font-size: 3rem; }
+    .hero-sub { font-size: 16px; }
+    .hero-scroll { display: none; }
+    .cta-row { flex-direction: column; }
+    .btn { text-align: center; width: 100%; }
+
+    .section-head { margin-bottom: 48px; }
+
+    .storia-grid { grid-template-columns: 1fr; gap: 48px; }
+    .storia-image { aspect-ratio: 4/3; }
+    .storia-image::before { display: none; }
+
+    .menu-grid { grid-template-columns: 1fr; gap: 28px; }
+    .reviews-grid { grid-template-columns: 1fr; gap: 24px; }
+
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .booking-form { padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; gap: 14px; }
+    .form-field-full { grid-column: span 1; }
+
+    .map-wrapper { height: 320px; margin-top: 48px; }
+
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+
+    .whatsapp-float { width: 52px; height: 52px; bottom: 18px; right: 18px; }
+    .whatsapp-float svg { width: 26px; height: 26px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 2.5rem; }
+    .lang-switcher { gap: 3px; }
+    .lang-btn { padding: 5px 8px; }
+  }
+</style>
+</head>
+<body class="lang-it">
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">
+      Ristopub Naif
+      <span class="logo-mark">Praia a Mare</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#storia" class="t-it">Storia</a><a href="#storia" class="t-en">Story</a></li>
+      <li><a href="#menu" class="t-it">Menu</a><a href="#menu" class="t-en">Menu</a></li>
+      <li><a href="#recensioni" class="t-it">Recensioni</a><a href="#recensioni" class="t-en">Reviews</a></li>
+      <li><a href="#contatti" class="t-it">Contatti</a><a href="#contatti" class="t-en">Contact</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="it">IT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="./photos/photo_00.jpg" alt="Ristopub Naif — atmosfera">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-inner">
+    <div class="hero-eyebrow">
+      <span class="t-it">Praia a Mare · dal cuore della Calabria</span>
+      <span class="t-en">Praia a Mare · from the heart of Calabria</span>
+    </div>
+    <h1>
+      <span class="t-it">Ristopub <em>Naif</em></span>
+      <span class="t-en">Ristopub <em>Naif</em></span>
+    </h1>
+    <p class="hero-sub t-it">Un locale curato nei minimi dettagli, nel centro di Praia a Mare. Grigliate abbondanti, birre artigianali e quella cucina calabrese schietta che ti fa tornare.</p>
+    <p class="hero-sub t-en">A place cared for down to the last detail, in the centre of Praia a Mare. Abundant grills, craft beers and that honest Calabrian kitchen that brings you back.</p>
+
+    <div class="hero-rating">
+      <span class="rating-stars">★★★★★</span>
+      <span class="rating-text"><strong>4.7</strong><span class="t-it">— 95 recensioni verificate su Google</span><span class="t-en">— 95 verified Google reviews</span></span>
+    </div>
+
+    <div class="cta-row">
+      <a href="#contatti" class="btn btn-primary t-it">Prenota un Tavolo</a>
+      <a href="#contatti" class="btn btn-primary t-en">Reserve a Table</a>
+      <a href="#menu" class="btn btn-ghost t-it">Scopri il Menu</a>
+      <a href="#menu" class="btn btn-ghost t-en">Discover the Menu</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span class="t-it">Scorri</span>
+    <span class="t-en">Scroll</span>
+  </div>
+</section>
+
+<!-- STORIA -->
+<section id="storia" class="bg-cream">
+  <div class="container">
+    <div class="storia-grid">
+      <div class="storia-image">
+        <img src="./photos/photo_03.jpg" alt="Interno del Ristopub Naif">
+      </div>
+      <div class="storia-content">
+        <span class="eyebrow t-it">La Nostra Storia</span>
+        <span class="eyebrow t-en">Our Story</span>
+        <h2>
+          <span class="t-it">Un posto fuori dall'<em>ordinario</em></span>
+          <span class="t-en">A place <em>out of the ordinary</em></span>
+        </h2>
+        <p class="t-it">Siamo un locale nuovo, bello e fuori dagli schemi — assolutamente <em>Naif</em> — nel centro di Praia a Mare, dietro la piazza principale. Curato nei minimi dettagli dal punto di vista estetico, nasce dall'idea di Roberto e di sua moglie di offrire una cucina che non fa compromessi: materie prime selezionate, cotture precise, e quella mano familiare che si sente al primo boccone.</p>
+        <p class="t-it">La nostra specialità? La carne alla griglia all-you-can-eat: abbondante, di qualità eccezionale, servita con patate alla pancetta e peperoni cruschi. Accompagnata da birre artigianali e da quel calore calabrese che trasforma una cena in un ricordo.</p>
+
+        <p class="t-en">We are a new, beautiful and out-of-the-ordinary place — absolutely <em>Naif</em> — in the centre of Praia a Mare, behind the main square. Cared for down to the smallest aesthetic detail, it was born from Roberto and his wife's idea to offer a kitchen that makes no compromises: selected raw materials, precise cooking, and that family hand you feel on the first bite.</p>
+        <p class="t-en">Our signature? All-you-can-eat grilled meat: plentiful, exceptionally high in quality, served with pancetta potatoes and cruschi peppers. Paired with craft beers and the Calabrian warmth that turns a dinner into a memory.</p>
+
+        <div class="storia-signature">
+          <span class="t-it">— Roberto & Signora, i padroni di casa</span>
+          <span class="t-en">— Roberto & his wife, your hosts</span>
+          <span>Via Cristoforo Colombo, 14</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">
+  <svg viewBox="0 0 120 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1">
+    <line x1="0" y1="10" x2="48" y2="10"/>
+    <circle cx="60" cy="10" r="3"/>
+    <line x1="72" y1="10" x2="120" y2="10"/>
+  </svg>
+</div>
+
+<!-- MENU -->
+<section id="menu" class="bg-light">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow t-it">La Proposta</span>
+      <span class="eyebrow t-en">The Offering</span>
+      <h2>
+        <span class="t-it">Dalla <em>griglia</em> alla tavola</span>
+        <span class="t-en">From the <em>grill</em> to the table</span>
+      </h2>
+      <p class="t-it">Tre piatti che raccontano la nostra cucina: schietti, generosi, di territorio.</p>
+      <p class="t-en">Three dishes that tell our story: honest, generous, and rooted in the territory.</p>
+    </div>
+
+    <div class="menu-grid">
+      <article class="menu-card">
+        <div class="menu-card-img">
+          <img src="./photos/photo_04.jpg" alt="Grigliata di carne">
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-card-tag t-it">La Firma</span>
+          <span class="menu-card-tag t-en">Signature</span>
+          <div class="menu-card-head">
+            <h3>
+              <span class="t-it">Carne All-You-Can-Eat</span>
+              <span class="t-en">All-You-Can-Eat Meat</span>
+            </h3>
+            <span class="menu-card-price">€ 28</span>
+          </div>
+          <p class="t-it">Grigliata illimitata con tagli selezionati: costate, salsicce, spiedini e la nostra celebre fesa di vitello che si scioglie in bocca.</p>
+          <p class="t-en">Unlimited grill with selected cuts: ribs, sausages, skewers and our celebrated veal rib that melts in your mouth.</p>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img">
+          <img src="./photos/photo_05.jpg" alt="Stinco di maiale">
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-card-tag t-it">Piatto del Cuore</span>
+          <span class="menu-card-tag t-en">Heart of the House</span>
+          <div class="menu-card-head">
+            <h3>
+              <span class="t-it">Stinco di Maiale</span>
+              <span class="t-en">Pork Shank</span>
+            </h3>
+            <span class="menu-card-price">€ 18</span>
+          </div>
+          <p class="t-it">Cottura lenta, crosta dorata, interno tenerissimo. Servito con patate alla pancetta e peperoni cruschi calabresi.</p>
+          <p class="t-en">Slow-cooked, golden crust, tender within. Served with pancetta potatoes and Calabrian cruschi peppers.</p>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img">
+          <img src="./photos/photo_06.jpg" alt="Birre artigianali">
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-card-tag t-it">Alla Spina</span>
+          <span class="menu-card-tag t-en">On Tap</span>
+          <div class="menu-card-head">
+            <h3>
+              <span class="t-it">Selezione Birre</span>
+              <span class="t-en">Beer Selection</span>
+            </h3>
+            <span class="menu-card-price">€ 6</span>
+          </div>
+          <p class="t-it">Birre artigianali alla spina e in bottiglia, scelte per accompagnare carni alla griglia e serate lunghe. Consigli dal nostro oste.</p>
+          <p class="t-en">Craft beers on tap and bottled, chosen to pair with grilled meats and long evenings. Recommendations from our host.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="recensioni" class="bg-dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow t-it">Parlano di Noi</span>
+      <span class="eyebrow t-en">What They Say</span>
+      <h2>
+        <span class="t-it">Voci dei <em>nostri ospiti</em></span>
+        <span class="t-en">Voices of <em>our guests</em></span>
+      </h2>
+      <p class="t-it">Recensioni verificate, parole vere. Il resto lo assaggerete voi.</p>
+      <p class="t-en">Verified reviews, real words. The rest you'll taste yourself.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text t-it">Cibo eccellente, atmosfera calda e personale molto accogliente. La cucina è al livello dei migliori! Una grande esperienza.</p>
+        <p class="review-text t-en">Excellent food, warm ambiance, and very welcoming staff. The food is up there with the very best! A great experience!</p>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div class="review-meta">
+            <strong>Mark Sammut</strong>
+            <span>Google Reviews</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text t-it">Carne all-you-can-eat fantastica, abbondante e di qualità eccezionale. Posto curato e fuori dal comune. Complimenti a Roberto e a sua moglie in cucina. Vale assolutamente la pena.</p>
+        <p class="review-text t-en">Amazing all-you-can-eat meat, plentiful, and exceptionally high quality. A quaint and unique place. Kudos to Mr. Roberto and his wife's amazing cooking. Definitely worth a try!</p>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div class="review-meta">
+            <strong>Mattia De Patta</strong>
+            <span>Google Reviews</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text t-it">Locale molto bello, curato e accogliente. Personale gentilissimo, birra eccellente. Stinco di maiale e tagliata: piatti sopraffini. Patate alla pancetta e peperoni cruschi: super!</p>
+        <p class="review-text t-en">Very nice, well-kept, and welcoming place. Very kind staff. Excellent beer. Pork shank and sliced steak — excellent dishes. Potatoes with pancetta and cruski peppers: SUPERB!</p>
+        <div class="review-author">
+          <div class="review-avatar">C</div>
+          <div class="review-meta">
+            <strong>Cristina Di Mauro</strong>
+            <span>Google Reviews</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contatti" class="bg-cream">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow t-it">Prenotazioni</span>
+      <span class="eyebrow t-en">Reservations</span>
+      <h2>
+        <span class="t-it">Vi aspettiamo a <em>tavola</em></span>
+        <span class="t-en">We're waiting for you at <em>the table</em></span>
+      </h2>
+      <p class="t-it">Prenota via WhatsApp: vi rispondiamo direttamente.</p>
+      <p class="t-en">Book via WhatsApp: we'll reply to you directly.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-block">
+          <div class="contact-label t-it">Indirizzo</div>
+          <div class="contact-label t-en">Address</div>
+          <div class="contact-value">Via Cristoforo Colombo, 14<br>87028 Praia a Mare (CS)</div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label t-it">Telefono</div>
+          <div class="contact-label t-en">Phone</div>
+          <div class="contact-value"><a href="tel:+393292503022">+39 329 250 3022</a></div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label t-it">Orari di Apertura</div>
+          <div class="contact-label t-en">Opening Hours</div>
+          <ul class="hours-list">
+            <li><strong><span class="t-it">Lunedì</span><span class="t-en">Monday</span></strong><span>20:00 — 00:00</span></li>
+            <li><strong><span class="t-it">Martedì</span><span class="t-en">Tuesday</span></strong><span>20:00 — 00:00</span></li>
+            <li class="closed"><strong><span class="t-it">Mercoledì</span><span class="t-en">Wednesday</span></strong><span class="t-it">Chiuso</span><span class="t-en">Closed</span></li>
+            <li><strong><span class="t-it">Giovedì</span><span class="t-en">Thursday</span></strong><span>20:00 — 00:00</span></li>
+            <li><strong><span class="t-it">Venerdì</span><span class="t-en">Friday</span></strong><span>20:00 — 00:00</span></li>
+            <li><strong><span class="t-it">Sabato</span><span class="t-en">Saturday</span></strong><span>20:00 — 00:00</span></li>
+            <li><strong><span class="t-it">Domenica</span><span class="t-en">Sunday</span></strong><span>20:00 — 00:00</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="booking-form" id="bookingForm">
+        <h3>
+          <span class="t-it">Richiedi il tuo tavolo</span>
+          <span class="t-en">Request your table</span>
+        </h3>
+        <div class="form-row">
+          <div class="form-field form-field-full">
+            <label for="nome" class="t-it">Nome Completo</label>
+            <label for="nome" class="t-en">Full Name</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="data" class="t-it">Data</label>
+            <label for="data" class="t-en">Date</label>
+            <input type="date" id="data" name="data" required>
+          </div>
+          <div class="form-field">
+            <label for="persone" class="t-it">Persone</label>
+            <label for="persone" class="t-en">Guests</label>
+            <select id="persone" name="persone" required>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8+">8+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field form-field-full">
+            <label for="note" class="t-it">Richieste speciali</label>
+            <label for="note" class="t-en">Special requests</label>
+            <textarea id="note" name="note"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-solid t-it">Prenota via WhatsApp</button>
+        <button type="submit" class="btn btn-solid t-en">Book via WhatsApp</button>
+      </form>
+    </div>
+
+    <div class="map-wrapper">
+      <iframe src="https://www.google.com/maps?q=Ristopub+Naif+Via+Cristoforo+Colombo+14+Praia+a+Mare&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Ristopub Naif</div>
+        <div class="footer-brand-sub t-it">Cucina · Griglia · Birra</div>
+        <div class="footer-brand-sub t-en">Kitchen · Grill · Beer</div>
+        <p class="footer-text t-it">Un locale nuovo e fuori dagli schemi nel cuore di Praia a Mare. Carne alla griglia, birre artigianali, accoglienza di famiglia.</p>
+        <p class="footer-text t-en">A new and out-of-the-ordinary place in the heart of Praia a Mare. Grilled meat, craft beer, family hospitality.</p>
+      </div>
+      <div>
+        <h4 class="t-it">Contatti</h4>
+        <h4 class="t-en">Contact</h4>
+        <ul>
+          <li>Via Cristoforo Colombo, 14</li>
+          <li>87028 Praia a Mare (CS)</li>
+          <li><a href="tel:+393292503022">+39 329 250 3022</a></li>
+          <li><a href="https://wa.me/393292503022" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="t-it">Navigazione</h4>
+        <h4 class="t-en">Navigate</h4>
+        <ul>
+          <li><a href="#storia" class="t-it">Storia</a><a href="#storia" class="t-en">Story</a></li>
+          <li><a href="#menu" class="t-it">Menu</a><a href="#menu" class="t-en">Menu</a></li>
+          <li><a href="#recensioni" class="t-it">Recensioni</a><a href="#recensioni" class="t-en">Reviews</a></li>
+          <li><a href="#contatti" class="t-it">Prenota</a><a href="#contatti" class="t-en">Book</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> Ristopub Naif · P.IVA · <span class="t-it">Tutti i diritti riservati</span><span class="t-en">All rights reserved</span></div>
+      <div>
+        <span class="t-it">Sito creato da </span>
+        <span class="t-en">Site crafted by </span>
+        <a href="https://viktoria.agency" target="_blank" rel="noopener">Viktoria Agency</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/393292503022?text=Buongiorno%2C%20vorrei%20informazioni%20per%20una%20prenotazione%20al%20Ristopub%20Naif." target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 .5C7.44.5.5 7.44.5 16a15.4 15.4 0 0 0 2.09 7.74L.5 31.5l7.94-2.07A15.43 15.43 0 0 0 16 31.5c8.56 0 15.5-6.94 15.5-15.5S24.56.5 16 .5zm0 28a13 13 0 0 1-6.62-1.82l-.47-.28-4.72 1.23 1.26-4.6-.3-.48A12.98 12.98 0 1 1 16 28.5zm7.15-9.75c-.39-.2-2.31-1.14-2.67-1.27-.36-.13-.62-.2-.88.2-.26.39-1.01 1.27-1.24 1.53-.23.26-.46.29-.85.1-.39-.2-1.64-.6-3.12-1.92-1.15-1.03-1.93-2.3-2.16-2.69-.23-.39-.02-.6.17-.79.18-.18.39-.46.58-.69.2-.23.26-.39.39-.65.13-.26.06-.49-.03-.69-.1-.2-.88-2.12-1.2-2.9-.32-.76-.64-.66-.88-.67h-.75c-.26 0-.68.1-1.04.49-.36.39-1.37 1.34-1.37 3.27 0 1.93 1.4 3.79 1.6 4.05.2.26 2.76 4.2 6.68 5.9.93.4 1.66.64 2.23.82.94.3 1.79.26 2.47.16.75-.11 2.31-.94 2.64-1.85.33-.91.33-1.68.23-1.85-.1-.17-.36-.26-.75-.46z"/>
+  </svg>
+</a>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // Language switcher
+  const langBtns = document.querySelectorAll('.lang-btn');
+  langBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const l = btn.getAttribute('data-lang');
+      document.body.classList.remove('lang-it', 'lang-en', 'lang-de');
+      document.body.classList.add('lang-' + l);
+      document.documentElement.setAttribute('lang', l);
+      langBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Booking form → WhatsApp
+  const form = document.getElementById('bookingForm');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const nome = fd.get('nome') || '';
+    const data = fd.get('data') || '';
+    const persone = fd.get('persone') || '';
+    const note = fd.get('note') || '';
+    const isEn = document.body.classList.contains('lang-en');
+    const msg = isEn
+      ? `Hello, I'd like to book a table at Ristopub Naif:\nName: ${nome}\nDate: ${data}\nGuests: ${persone}\nNotes: ${note}`
+      : `Buongiorno, vorrei prenotare un tavolo al Ristopub Naif:\nNome: ${nome}\nData: ${data}\nPersone: ${persone}\nNote: ${note}`;
+    window.open(`https://wa.me/393292503022?text=${encodeURIComponent(msg)}`, '_blank');
+  });
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
