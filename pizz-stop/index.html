@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizz Stop · Pizza al Taglio · Praia a Mare, Calabria</title>
+<meta name="description" content="Pizz Stop a Praia a Mare — la migliore pizza al taglio in Calabria. Autentica, veloce, a prezzi onesti. Valutazione 4.5 su Google con oltre 400 recensioni.">
+<meta name="keywords" content="pizz stop, pizza al taglio praia a mare, pizzeria calabria, best pizza calabria, pizza scalea, pizza italy, cheap pizza italy">
+<meta property="og:title" content="Pizz Stop · Pizza al Taglio · Praia a Mare">
+<meta property="og:description" content="La miglior pizza al taglio sulla costa tirrenica calabrese. Impasto artigianale, prezzi onesti, sorriso compreso.">
+<meta property="og:image" content="./photos/photo_00.jpg">
+<meta property="og:url" content="https://pizzstop.it">
+<meta property="og:type" content="restaurant">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pizz Stop · Praia a Mare">
+<meta name="twitter:description" content="La migliore pizza al taglio della Calabria — 4.5★ con oltre 400 recensioni.">
+<meta name="twitter:image" content="./photos/photo_00.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍕</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Pizz Stop",
+  "image": "./photos/photo_00.jpg",
+  "url": "https://pizzstop.it",
+  "telephone": "+393533356941",
+  "priceRange": "€",
+  "servesCuisine": ["Italian", "Pizza", "Calabrese"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Viale della Libertà, 3",
+    "addressLocality": "Praia a Mare",
+    "addressRegion": "CS",
+    "postalCode": "87028",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "39.8988",
+    "longitude": "15.7841"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "400"
+  },
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "11:00", "closes": "23:00"}
+  ]
+}
+</script>
+
+<style>
+:root{
+  --primary:#86766d;
+  --secondary:#2b272a;
+  --accent:#d5d3d8;
+  --light:#f5f1ec;
+  --dark:#1c1917;
+  --terracotta:#9c4222;
+  --warm:#daae92;
+  --deep:#5f3310;
+  --cream:#f8f4ef;
+  --ink:#2b272a;
+  --muted:#86766d;
+  --font-display:'Cinzel', serif;
+  --font-body:'Manrope', system-ui, sans-serif;
+  --max:1280px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.65;
+  overflow-x:hidden;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* Language toggle */
+.t-en, .t-de { display:none !important; }
+body.lang-en .t-it, body.lang-en .t-de { display:none !important; }
+body.lang-de .t-it, body.lang-de .t-en { display:none !important; }
+body.lang-en .t-en, body.lang-de .t-de { display:revert !important; }
+
+/* Typography */
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:500;letter-spacing:.02em;color:var(--dark);line-height:1.15}
+h1{font-size:clamp(2.6rem,7vw,5.5rem);letter-spacing:.04em}
+h2{font-size:clamp(2rem,4.5vw,3.5rem)}
+h3{font-size:1.4rem;letter-spacing:.06em;text-transform:uppercase}
+p{font-size:1.05rem;color:#4a4545}
+
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+
+/* Section rhythm */
+section{padding:120px 0;position:relative}
+.bg-light{background:var(--cream)}
+.bg-tinted{background:var(--accent)}
+.bg-dark{background:var(--dark);color:var(--light)}
+.bg-dark h2,.bg-dark h3,.bg-dark p{color:var(--light)}
+.bg-dark p{color:rgba(245,241,236,.75)}
+
+.eyebrow{
+  font-family:var(--font-display);
+  font-size:.8rem;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  color:var(--terracotta);
+  margin-bottom:18px;
+  font-weight:500;
+}
+.bg-dark .eyebrow{color:var(--warm)}
+
+.section-head{text-align:center;margin-bottom:64px}
+.section-head h2{margin-bottom:12px}
+.section-head .divider{display:inline-block;width:60px;height:2px;background:var(--terracotta);margin-top:24px}
+
+/* Navigation */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:18px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background .4s var(--ease), box-shadow .4s var(--ease), padding .3s var(--ease);
+  background:transparent;
+}
+.nav.scrolled{
+  background:rgba(248,244,239,.97);
+  backdrop-filter:blur(14px);
+  box-shadow:0 2px 30px rgba(0,0,0,.08);
+  padding:12px 32px;
+}
+.nav-logo{
+  font-family:var(--font-display);
+  font-size:1.3rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:#fff;
+  transition:color .4s;
+}
+.nav.scrolled .nav-logo{color:var(--dark)}
+.nav-logo span{color:var(--terracotta)}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{
+  font-size:.82rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#fff;
+  font-weight:500;
+  transition:color .3s;
+  position:relative;
+}
+.nav.scrolled .nav-links a{color:var(--dark)}
+.nav-links a:hover{color:var(--terracotta)}
+.nav-links a.nav-cta{
+  padding:10px 22px;
+  background:var(--terracotta);
+  color:#fff !important;
+  border-radius:2px;
+}
+.nav-links a.nav-cta:hover{background:var(--deep);color:#fff !important}
+
+.lang-switcher{display:flex;gap:4px;margin-left:24px}
+.lang-btn{
+  width:36px;height:30px;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  font-weight:600;
+  border:1px solid rgba(255,255,255,.4);
+  background:transparent;
+  color:#fff;
+  border-radius:2px;
+  transition:all .25s;
+}
+.lang-btn.active{color:#1a1a1a;background:#fff;border-color:#fff}
+.nav.scrolled .lang-btn{color:#1a1a1a;border-color:rgba(0,0,0,.2);background:transparent}
+.nav.scrolled .lang-btn.active{color:#fff;background:var(--terracotta);border-color:var(--terracotta)}
+.lang-btn:hover{border-color:var(--terracotta)}
+
+.nav-mobile-toggle{display:none}
+
+/* Hero */
+.hero{
+  height:100vh;min-height:680px;
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;text-align:center;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  z-index:0;
+  overflow:hidden;
+}
+.hero-bg img{
+  width:100%;height:100%;object-fit:cover;
+  animation:kenburns 25s ease-in-out infinite alternate;
+}
+@keyframes kenburns{
+  from{transform:scale(1) translate(0,0)}
+  to{transform:scale(1.15) translate(-2%,-1%)}
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(28,25,23,.45) 0%, rgba(28,25,23,.25) 40%, rgba(28,25,23,.75) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:900px;padding:0 32px;
+}
+.hero-tag{
+  font-family:var(--font-display);
+  font-size:.8rem;
+  letter-spacing:.5em;
+  text-transform:uppercase;
+  margin-bottom:24px;
+  color:var(--warm);
+}
+.hero h1{
+  color:#fff;
+  font-weight:500;
+  margin-bottom:22px;
+  text-shadow:0 2px 20px rgba(0,0,0,.3);
+}
+.hero-sub{
+  font-size:1.2rem;
+  max-width:640px;margin:0 auto 40px;
+  color:rgba(255,255,255,.92);
+  font-weight:300;
+  letter-spacing:.02em;
+}
+.hero-rating{
+  display:inline-flex;align-items:center;gap:14px;
+  padding:10px 22px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:40px;
+  margin-bottom:36px;
+  font-size:.95rem;
+}
+.hero-rating .stars{color:#f5c518;letter-spacing:.1em}
+.hero-rating strong{font-weight:600}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  padding:16px 38px;
+  font-size:.82rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  font-weight:600;
+  border-radius:2px;
+  transition:all .3s var(--ease);
+  border:1px solid transparent;
+}
+.btn-primary{background:var(--terracotta);color:#fff}
+.btn-primary:hover{background:var(--deep);transform:translateY(-2px);box-shadow:0 12px 30px rgba(156,66,34,.3)}
+.btn-ghost{border:1px solid rgba(255,255,255,.5);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--dark)}
+.btn-dark{background:var(--dark);color:#fff}
+.btn-dark:hover{background:var(--terracotta)}
+
+.hero-scroll{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);z-index:2;
+}
+.hero-scroll::after{
+  content:'';display:block;width:1px;height:40px;
+  background:rgba(255,255,255,.4);margin:12px auto 0;
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{0%,100%{transform:scaleY(1);opacity:.4}50%{transform:scaleY(.5);opacity:1}}
+
+/* Storia */
+.storia-grid{
+  display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;
+}
+.storia-image{position:relative}
+.storia-image img{
+  width:100%;height:560px;object-fit:cover;
+  border-radius:2px;
+  box-shadow:0 20px 60px rgba(0,0,0,.15);
+}
+.storia-image::before{
+  content:'';position:absolute;top:24px;left:-24px;
+  width:100%;height:100%;
+  border:2px solid var(--terracotta);
+  z-index:-1;
+  border-radius:2px;
+}
+.storia-text p{margin-bottom:18px;font-size:1.08rem;line-height:1.85}
+.storia-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  margin-top:48px;gap:24px;
+  padding-top:36px;border-top:1px solid rgba(43,39,42,.15);
+}
+.stat .num{
+  font-family:var(--font-display);
+  font-size:3rem;font-weight:500;
+  color:var(--terracotta);
+  line-height:1;
+}
+.stat .lbl{
+  font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);margin-top:10px;font-weight:500;
+}
+
+/* Menu */
+.menu-grid{
+  display:grid;grid-template-columns:repeat(3, 1fr);gap:32px;
+}
+.menu-card{
+  background:var(--cream);
+  overflow:hidden;
+  transition:all .3s var(--ease);
+  border-radius:2px;
+  box-shadow:0 4px 24px rgba(0,0,0,.06);
+}
+.menu-card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 20px 50px rgba(0,0,0,.12)}
+.menu-card-img{height:260px;overflow:hidden;position:relative}
+.menu-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.menu-card:hover .menu-card-img img{transform:scale(1.08)}
+.menu-card-body{padding:28px}
+.menu-card h3{font-size:1.2rem;margin-bottom:8px;letter-spacing:.04em;text-transform:none;color:var(--dark)}
+.menu-card p{font-size:.95rem;color:#6a6460;margin-bottom:20px;min-height:48px}
+.menu-card-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(0,0,0,.08);padding-top:16px}
+.menu-card .price{font-family:var(--font-display);font-size:1.3rem;color:var(--terracotta);font-weight:600}
+.menu-card .tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* Punti di Forza */
+.forza-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+}
+.forza-card{
+  text-align:center;
+  padding:48px 28px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(213,211,216,.15);
+  border-radius:2px;
+  transition:all .3s var(--ease);
+}
+.forza-card:hover{transform:translateY(-4px);border-color:var(--warm);background:rgba(218,174,146,.08)}
+.forza-icon{font-size:2.8rem;margin-bottom:20px;display:block}
+.forza-card h3{font-size:.95rem;margin-bottom:12px;color:var(--warm)}
+.forza-card p{font-size:.92rem;color:rgba(245,241,236,.7);line-height:1.6}
+
+/* Gallery */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  grid-auto-rows:220px;
+  gap:16px;
+}
+.gallery-item{
+  overflow:hidden;position:relative;
+  border-radius:2px;
+  cursor:pointer;
+}
+.gallery-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .7s var(--ease);
+}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gallery-item:nth-child(4){grid-row:span 2}
+.gallery-item:nth-child(6){grid-column:span 2}
+
+/* Reviews */
+.reviews-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+}
+.review-card{
+  background:var(--cream);
+  padding:36px 30px;
+  border-radius:2px;
+  transition:all .3s var(--ease);
+  border-top:3px solid var(--terracotta);
+  display:flex;flex-direction:column;
+}
+.review-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
+.review-stars{color:#f5c518;letter-spacing:.1em;margin-bottom:16px;font-size:.95rem}
+.review-quote{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:1rem;
+  line-height:1.7;
+  margin-bottom:22px;
+  color:var(--dark);
+  flex:1;
+  font-weight:400;
+}
+.review-quote::before{
+  content:'"';
+  font-size:3rem;
+  color:var(--terracotta);
+  line-height:0;
+  display:block;
+  margin-bottom:14px;
+}
+.review-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(0,0,0,.08)}
+.review-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--terracotta);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:600;font-size:1rem;
+  font-family:var(--font-display);
+}
+.review-name{font-weight:600;font-size:.95rem}
+.review-source{font-size:.75rem;color:var(--muted);letter-spacing:.1em}
+
+/* FAQ */
+.faq-wrap{max-width:820px;margin:0 auto}
+.faq-item{
+  border-bottom:1px solid rgba(43,39,42,.15);
+  padding:4px 0;
+}
+.faq-item summary{
+  padding:28px 0;
+  font-family:var(--font-display);
+  font-size:1.2rem;
+  font-weight:500;
+  cursor:pointer;
+  list-style:none;
+  display:flex;justify-content:space-between;align-items:center;
+  color:var(--dark);
+  transition:color .3s;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{color:var(--terracotta)}
+.faq-item summary::after{
+  content:'+';font-size:1.6rem;font-weight:300;
+  transition:transform .3s;color:var(--terracotta);
+}
+.faq-item[open] summary::after{content:'−'}
+.faq-item[open] summary{color:var(--terracotta)}
+.faq-answer{padding:0 0 28px;color:#5a5550;line-height:1.75;font-size:1rem}
+
+/* Prenota */
+.prenota-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start}
+.prenota-info h3{color:var(--warm);margin-bottom:24px}
+.prenota-info p{color:rgba(245,241,236,.8);font-size:1.05rem;margin-bottom:30px;line-height:1.8}
+.info-list{list-style:none;margin-top:20px}
+.info-list li{
+  padding:14px 0;
+  border-bottom:1px solid rgba(213,211,216,.15);
+  display:flex;align-items:flex-start;gap:14px;
+  color:rgba(245,241,236,.85);
+  font-size:.95rem;
+}
+.info-list li::before{content:attr(data-ico);font-size:1.1rem;min-width:22px}
+.info-list strong{color:var(--warm);font-weight:600;letter-spacing:.05em;text-transform:uppercase;font-size:.78rem;display:block;margin-bottom:2px}
+
+.booking-form{
+  background:var(--cream);
+  padding:48px 40px;
+  border-radius:2px;
+  color:var(--ink);
+}
+.booking-form h3{color:var(--dark);margin-bottom:8px;font-size:1.4rem}
+.booking-form .form-sub{color:var(--muted);font-size:.9rem;margin-bottom:28px}
+.booking-form label{
+  display:block;
+  font-size:.72rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--muted);
+  margin-bottom:6px;
+  margin-top:18px;
+}
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+  width:100%;
+  padding:14px 16px;
+  border:1px solid rgba(43,39,42,.18);
+  background:#fff;
+  font-family:var(--font-body);
+  font-size:.98rem;
+  color:var(--ink);
+  border-radius:2px;
+  transition:border-color .2s;
+}
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus{outline:none;border-color:var(--terracotta)}
+.booking-form textarea{resize:vertical;min-height:90px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.booking-form button{
+  margin-top:28px;width:100%;
+  padding:18px;
+  background:var(--terracotta);color:#fff;
+  font-weight:600;letter-spacing:.25em;font-size:.82rem;
+  text-transform:uppercase;
+  border-radius:2px;
+  transition:all .25s;
+}
+.booking-form button:hover{background:var(--deep);transform:translateY(-1px)}
+
+/* Map */
+.map-wrap{
+  padding:0;margin:0;
+  height:480px;
+  overflow:hidden;
+  background:var(--dark);
+}
+.map-wrap iframe{width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
+
+/* Footer */
+footer{
+  background:var(--dark);color:rgba(245,241,236,.7);
+  padding:70px 0 30px;
+}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-logo{
+  font-family:var(--font-display);
+  font-size:1.4rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:#fff;margin-bottom:16px;font-weight:600;
+}
+.footer-logo span{color:var(--terracotta)}
+footer h4{
+  font-family:var(--font-display);
+  font-size:.85rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--warm);margin-bottom:18px;font-weight:500;
+}
+footer p,footer a,footer li{font-size:.92rem;color:rgba(245,241,236,.65);line-height:1.9}
+footer a:hover{color:var(--warm)}
+footer ul{list-style:none}
+.footer-bottom{
+  padding-top:28px;
+  border-top:1px solid rgba(213,211,216,.12);
+  display:flex;justify-content:space-between;
+  font-size:.82rem;color:rgba(245,241,236,.45);flex-wrap:wrap;gap:16px;
+}
+.footer-bottom a{color:var(--warm)}
+
+/* WhatsApp float */
+.wa-float{
+  position:fixed;bottom:24px;right:24px;z-index:999;
+  width:58px;height:58px;
+  background:#25D366;color:#fff;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 30px rgba(37,211,102,.45);
+  transition:transform .3s;
+}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:30px;height:30px}
+
+/* Parallax strip */
+.parallax{
+  background-image:url('./photos/photo_05.jpg');
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  min-height:420px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  text-align:center;
+  color:#fff;
+}
+.parallax::after{content:'';position:absolute;inset:0;background:rgba(28,25,23,.55)}
+.parallax-inner{position:relative;z-index:2;max-width:720px;padding:0 32px}
+.parallax h2{color:#fff;margin-bottom:20px}
+.parallax p{color:rgba(255,255,255,.9);font-size:1.15rem;font-style:italic;font-family:var(--font-display)}
+
+/* Mobile */
+@media (max-width: 768px){
+  body{overflow-x:hidden}
+  section{padding:80px 0}
+  .container{padding:0 22px}
+  h1{font-size:2.6rem}
+  h2{font-size:2rem}
+
+  .nav{padding:14px 22px}
+  .nav.scrolled{padding:10px 22px}
+  .nav-links{
+    position:fixed;top:0;left:0;right:0;bottom:0;
+    background:var(--cream);
+    flex-direction:column;justify-content:center;
+    gap:28px;
+    transform:translateX(100%);
+    transition:transform .4s var(--ease);
+    padding:60px 32px;
+  }
+  .nav-links.open{transform:translateX(0)}
+  .nav-links a{color:var(--dark) !important;font-size:1.1rem}
+  .nav.scrolled .nav-links a{color:var(--dark)}
+  .lang-switcher{margin-left:0;margin-top:20px}
+  .nav-links .lang-btn{color:var(--dark);border-color:rgba(0,0,0,.2);background:transparent}
+  .nav-mobile-toggle{
+    display:flex;flex-direction:column;gap:5px;
+    z-index:200;
+    width:28px;
+  }
+  .nav-mobile-toggle span{
+    width:28px;height:2px;background:#fff;transition:all .3s;
+  }
+  .nav.scrolled .nav-mobile-toggle span{background:var(--dark)}
+  .nav-mobile-toggle.open span{background:var(--dark) !important}
+  .nav-mobile-toggle.open span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+  .nav-mobile-toggle.open span:nth-child(2){opacity:0}
+  .nav-mobile-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+
+  .hero{min-height:560px}
+  .hero-ctas{flex-direction:column;gap:12px}
+  .btn{padding:14px 30px}
+
+  .storia-grid{grid-template-columns:1fr;gap:40px}
+  .storia-image img{height:360px}
+  .storia-image::before{display:none}
+  .storia-stats{grid-template-columns:1fr 1fr}
+  .storia-stats .stat:last-child{grid-column:span 2}
+
+  .menu-grid{grid-template-columns:1fr}
+  .forza-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .forza-card{padding:30px 18px}
+
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(4),
+  .gallery-item:nth-child(6){grid-column:auto;grid-row:auto}
+
+  .reviews-grid{grid-template-columns:1fr}
+  .prenota-grid{grid-template-columns:1fr;gap:36px}
+  .booking-form{padding:32px 22px}
+  .form-row{grid-template-columns:1fr}
+
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .footer-bottom{flex-direction:column;text-align:center}
+
+  .parallax{background-attachment:scroll;min-height:320px}
+  .wa-float{width:52px;height:52px;bottom:18px;right:18px}
+  .wa-float svg{width:26px;height:26px}
+}
+
+@media (max-width: 480px){
+  .footer-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr;grid-auto-rows:200px}
+}
+</style>
+</head>
+<body class="lang-it">
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">Pizz<span>.</span>Stop</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#storia" class="t-it">Storia</a>
+    <a href="#storia" class="t-en">Story</a>
+    <a href="#storia" class="t-de">Geschichte</a>
+
+    <a href="#menu" class="t-it">Menù</a>
+    <a href="#menu" class="t-en">Menu</a>
+    <a href="#menu" class="t-de">Speisekarte</a>
+
+    <a href="#gallery" class="t-it">Galleria</a>
+    <a href="#gallery" class="t-en">Gallery</a>
+    <a href="#gallery" class="t-de">Galerie</a>
+
+    <a href="#recensioni" class="t-it">Recensioni</a>
+    <a href="#recensioni" class="t-en">Reviews</a>
+    <a href="#recensioni" class="t-de">Bewertungen</a>
+
+    <a href="#prenota" class="nav-cta t-it">Ordina</a>
+    <a href="#prenota" class="nav-cta t-en">Order</a>
+    <a href="#prenota" class="nav-cta t-de">Bestellen</a>
+
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="it">IT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+  </div>
+  <button class="nav-mobile-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="./photos/photo_00.jpg" alt="Pizz Stop Praia a Mare">
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag t-it">Pizza al taglio · Praia a Mare, Calabria</div>
+    <div class="hero-tag t-en">Pizza by the slice · Praia a Mare, Calabria</div>
+    <div class="hero-tag t-de">Pizza auf Bestellung · Praia a Mare, Kalabrien</div>
+
+    <h1>Pizz Stop</h1>
+
+    <p class="hero-sub t-it">L'indirizzo cult della costa tirrenica per la vera pizza al taglio — impasto fragrante, ingredienti calabresi, prezzi onesti.</p>
+    <p class="hero-sub t-en">The cult address on the Tyrrhenian coast for authentic pizza by the slice — crisp dough, Calabrian ingredients, honest prices.</p>
+    <p class="hero-sub t-de">Die Kultadresse an der Tyrrhenischen Küste für echte Pizza auf Bestellung — knuspriger Teig, kalabrische Zutaten, faire Preise.</p>
+
+    <div class="hero-rating">
+      <span class="stars">★★★★★</span>
+      <span><strong>4.5</strong> · <span class="t-it">400+ recensioni Google</span><span class="t-en">400+ Google reviews</span><span class="t-de">400+ Google-Bewertungen</span></span>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#prenota" class="btn btn-primary t-it">Ordina Ora</a>
+      <a href="#prenota" class="btn btn-primary t-en">Order Now</a>
+      <a href="#prenota" class="btn btn-primary t-de">Jetzt Bestellen</a>
+
+      <a href="#menu" class="btn btn-ghost t-it">Vedi il Menù</a>
+      <a href="#menu" class="btn btn-ghost t-en">View Menu</a>
+      <a href="#menu" class="btn btn-ghost t-de">Speisekarte</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span class="t-it">Scorri</span><span class="t-en">Scroll</span><span class="t-de">Scrollen</span>
+  </div>
+</section>
+
+<!-- Storia -->
+<section id="storia" class="bg-light">
+  <div class="container">
+    <div class="storia-grid">
+      <div class="storia-image">
+        <img src="./photos/photo_01.jpg" alt="Pizz Stop interior">
+      </div>
+      <div class="storia-text">
+        <div class="eyebrow t-it">La nostra storia</div>
+        <div class="eyebrow t-en">Our story</div>
+        <div class="eyebrow t-de">Unsere Geschichte</div>
+
+        <h2 class="t-it">Un fermata, mille sapori.</h2>
+        <h2 class="t-en">One stop, a thousand flavours.</h2>
+        <h2 class="t-de">Ein Halt, tausend Aromen.</h2>
+
+        <div class="t-it">
+          <p>In Viale della Libertà, a pochi passi dal mare di Praia, Pizz Stop è il rifugio quotidiano di chi vive e chi attraversa la Calabria. Non è un ristorante: è una pizzeria al taglio — veloce, informale, accogliente — dove ogni trancio racconta il lavoro della mattina, l'impasto lievitato a lunga maturazione e la passione di chi ci mette le mani.</p>
+          <p>Dalle classiche margherita e marinara alle combinazioni più creative con 'nduja, salsiccia calabrese e verdure dell'orto, il bancone cambia durante il giorno. Chi entra sceglie a vista, paga poco e mangia da dio — come ci raccontano da Melbourne fino a Bratislava i nostri clienti.</p>
+          <p>Lo staff parla italiano, inglese e tedesco, è sempre pronto a consigliare la fetta giusta e a chiacchierare della tua vacanza. Perché dopo una giornata sulla spiaggia, l'unica sosta davvero necessaria è qui da noi.</p>
+        </div>
+
+        <div class="t-en">
+          <p>On Viale della Libertà, a few steps from the sea of Praia, Pizz Stop is the daily refuge for locals and travellers crossing Calabria. It's not a sit-down restaurant — it's a pizza-by-the-slice spot: fast, casual, welcoming, where every slice tells the story of a long-risen dough and the hands that shaped it that morning.</p>
+          <p>From the classic margherita and marinara to bolder combinations with 'nduja, Calabrian sausage and garden vegetables, the counter changes throughout the day. You pick by sight, pay little, and eat brilliantly — as our customers from Melbourne to Bratislava keep telling us.</p>
+          <p>The team speaks Italian, English and German, always ready to suggest the right slice and hear about your trip. Because after a day on the beach, the only stop you really need is right here.</p>
+        </div>
+
+        <div class="t-de">
+          <p>In der Viale della Libertà, nur wenige Schritte vom Meer von Praia entfernt, ist Pizz Stop der tägliche Rückzugsort für Einheimische und Reisende in Kalabrien. Kein klassisches Restaurant — eine Pizzeria auf Bestellung: schnell, unkompliziert, einladend, wo jede Scheibe die Arbeit des Morgens und den lang gereiften Teig erzählt.</p>
+          <p>Von der klassischen Margherita und Marinara bis zu kreativen Kombinationen mit 'Nduja, kalabrischer Wurst und Gartengemüse — der Tresen wechselt über den Tag. Man wählt nach Augenmaß, zahlt wenig und isst göttlich — bestätigen Gäste von Melbourne bis Bratislava.</p>
+          <p>Das Team spricht Italienisch, Englisch und Deutsch, berät gern die passende Scheibe und hört Ihre Urlaubsgeschichten. Denn nach einem Tag am Strand ist der einzige nötige Halt genau hier.</p>
+        </div>
+
+        <div class="storia-stats">
+          <div class="stat">
+            <div class="num">4.5<span style="font-size:1.5rem">★</span></div>
+            <div class="lbl t-it">Google Rating</div>
+            <div class="lbl t-en">Google Rating</div>
+            <div class="lbl t-de">Google Bewertung</div>
+          </div>
+          <div class="stat">
+            <div class="num">400+</div>
+            <div class="lbl t-it">Recensioni</div>
+            <div class="lbl t-en">Reviews</div>
+            <div class="lbl t-de">Bewertungen</div>
+          </div>
+          <div class="stat">
+            <div class="num">€</div>
+            <div class="lbl t-it">Prezzi onesti</div>
+            <div class="lbl t-en">Honest prices</div>
+            <div class="lbl t-de">Faire Preise</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section id="menu" class="bg-tinted">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow t-it">Il menù del giorno</div>
+      <div class="eyebrow t-en">Today's counter</div>
+      <div class="eyebrow t-de">Tageskarte</div>
+
+      <h2 class="t-it">Le nostre fette</h2>
+      <h2 class="t-en">Our slices</h2>
+      <h2 class="t-de">Unsere Scheiben</h2>
+      <span class="divider"></span>
+    </div>
+
+    <div class="menu-grid">
+      <article class="menu-card">
+        <div class="menu-card-img"><img src="./photos/photo_02.jpg" alt="Margherita"></div>
+        <div class="menu-card-body">
+          <h3 class="t-it">Margherita</h3>
+          <h3 class="t-en">Margherita</h3>
+          <h3 class="t-de">Margherita</h3>
+          <p class="t-it">Pomodoro San Marzano, fior di latte, basilico fresco, olio EVO calabrese.</p>
+          <p class="t-en">San Marzano tomato, fior di latte, fresh basil, Calabrian EVO oil.</p>
+          <p class="t-de">San-Marzano-Tomate, Fior di Latte, frisches Basilikum, kalabrisches Olivenöl.</p>
+          <div class="menu-card-foot">
+            <span class="price">€2,50</span>
+            <span class="tag t-it">La classica</span>
+            <span class="tag t-en">The classic</span>
+            <span class="tag t-de">Der Klassiker</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img"><img src="./photos/photo_03.jpg" alt="'Nduja"></div>
+        <div class="menu-card-body">
+          <h3 class="t-it">'Nduja Calabrese</h3>
+          <h3 class="t-en">Calabrian 'Nduja</h3>
+          <h3 class="t-de">Kalabrische 'Nduja</h3>
+          <p class="t-it">Mozzarella, 'nduja di Spilinga DOP, cipolla rossa di Tropea caramellata.</p>
+          <p class="t-en">Mozzarella, Spilinga DOP 'nduja, caramelised Tropea red onion.</p>
+          <p class="t-de">Mozzarella, 'Nduja aus Spilinga DOP, karamellisierte rote Tropea-Zwiebel.</p>
+          <div class="menu-card-foot">
+            <span class="price">€3,50</span>
+            <span class="tag t-it">Piccante</span>
+            <span class="tag t-en">Spicy</span>
+            <span class="tag t-de">Scharf</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img"><img src="./photos/photo_04.jpg" alt="Patate rosmarino"></div>
+        <div class="menu-card-body">
+          <h3 class="t-it">Patate & Rosmarino</h3>
+          <h3 class="t-en">Potato & Rosemary</h3>
+          <h3 class="t-de">Kartoffel & Rosmarin</h3>
+          <p class="t-it">Patate affettate fini, rosmarino fresco, sale grosso e un filo d'olio.</p>
+          <p class="t-en">Thinly sliced potato, fresh rosemary, coarse salt, a drizzle of oil.</p>
+          <p class="t-de">Dünn geschnittene Kartoffeln, frischer Rosmarin, grobes Salz, etwas Öl.</p>
+          <div class="menu-card-foot">
+            <span class="price">€2,80</span>
+            <span class="tag t-it">Vegetariana</span>
+            <span class="tag t-en">Vegetarian</span>
+            <span class="tag t-de">Vegetarisch</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img"><img src="./photos/photo_05.jpg" alt="Salsiccia"></div>
+        <div class="menu-card-body">
+          <h3 class="t-it">Salsiccia & Friarielli</h3>
+          <h3 class="t-en">Sausage & Friarielli</h3>
+          <h3 class="t-de">Salsiccia & Friarielli</h3>
+          <p class="t-it">Salsiccia calabrese, friarielli saltati, mozzarella, pepe nero.</p>
+          <p class="t-en">Calabrian sausage, sautéed friarielli greens, mozzarella, black pepper.</p>
+          <p class="t-de">Kalabrische Wurst, sautierte Friarielli, Mozzarella, schwarzer Pfeffer.</p>
+          <div class="menu-card-foot">
+            <span class="price">€3,20</span>
+            <span class="tag t-it">Bestseller</span>
+            <span class="tag t-en">Bestseller</span>
+            <span class="tag t-de">Bestseller</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img"><img src="./photos/photo_06.jpg" alt="Marinara"></div>
+        <div class="menu-card-body">
+          <h3 class="t-it">Marinara d'Autore</h3>
+          <h3 class="t-en">Signature Marinara</h3>
+          <h3 class="t-de">Marinara Spezial</h3>
+          <p class="t-it">Pomodoro, aglio, origano di montagna, olive di Belvedere e acciughe.</p>
+          <p class="t-en">Tomato, garlic, mountain oregano, Belvedere olives and anchovies.</p>
+          <p class="t-de">Tomate, Knoblauch, Bergoregano, Belvedere-Oliven und Sardellen.</p>
+          <div class="menu-card-foot">
+            <span class="price">€2,70</span>
+            <span class="tag t-it">Vegana possibile</span>
+            <span class="tag t-en">Vegan option</span>
+            <span class="tag t-de">Vegan möglich</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img"><img src="./photos/photo_07.jpg" alt="Dolce"></div>
+        <div class="menu-card-body">
+          <h3 class="t-it">Focaccia Dolce</h3>
+          <h3 class="t-en">Sweet Focaccia</h3>
+          <h3 class="t-de">Süße Focaccia</h3>
+          <p class="t-it">Impasto soffice, zucchero di canna, scorza di limone di Amalfi.</p>
+          <p class="t-en">Soft dough, cane sugar, Amalfi lemon zest.</p>
+          <p class="t-de">Weicher Teig, Rohrzucker, Amalfi-Zitronenabrieb.</p>
+          <div class="menu-card-foot">
+            <span class="price">€2,20</span>
+            <span class="tag t-it">Per merenda</span>
+            <span class="tag t-en">Snack time</span>
+            <span class="tag t-de">Zum Naschen</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Parallax -->
+<section class="parallax">
+  <div class="parallax-inner">
+    <h2 class="t-it">"La miglior pizza del mio viaggio in Italia."</h2>
+    <h2 class="t-en">"The best pizza of my trip through Italy."</h2>
+    <h2 class="t-de">"Die beste Pizza meiner Italien-Reise."</h2>
+    <p class="t-it">— Eva, Bratislava</p>
+    <p class="t-en">— Eva, Bratislava</p>
+    <p class="t-de">— Eva, Bratislava</p>
+  </div>
+</section>
+
+<!-- Punti di Forza -->
+<section class="bg-dark">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow t-it">Perché tornano</div>
+      <div class="eyebrow t-en">Why they come back</div>
+      <div class="eyebrow t-de">Warum sie wiederkommen</div>
+
+      <h2 class="t-it">Quattro buone ragioni</h2>
+      <h2 class="t-en">Four good reasons</h2>
+      <h2 class="t-de">Vier gute Gründe</h2>
+      <span class="divider"></span>
+    </div>
+
+    <div class="forza-grid">
+      <div class="forza-card">
+        <span class="forza-icon">📍</span>
+        <h3 class="t-it">A due passi dal mare</h3>
+        <h3 class="t-en">Steps from the sea</h3>
+        <h3 class="t-de">Nahe am Meer</h3>
+        <p class="t-it">Viale della Libertà, nel cuore di Praia a Mare. Parcheggio facile e spiaggia a 400 metri.</p>
+        <p class="t-en">Viale della Libertà, in the heart of Praia a Mare. Easy parking, beach 400m away.</p>
+        <p class="t-de">Viale della Libertà, im Herzen von Praia a Mare. Einfacher Parkplatz, Strand 400 m.</p>
+      </div>
+
+      <div class="forza-card">
+        <span class="forza-icon">⭐</span>
+        <h3 class="t-it">Qualità al taglio</h3>
+        <h3 class="t-en">Quality by the slice</h3>
+        <h3 class="t-de">Qualität auf Bestellung</h3>
+        <p class="t-it">Impasto a lunga maturazione, farine selezionate, ingredienti del territorio calabrese.</p>
+        <p class="t-en">Long-fermented dough, selected flours, ingredients sourced from Calabria.</p>
+        <p class="t-de">Lang gereifter Teig, ausgewählte Mehle, Zutaten direkt aus Kalabrien.</p>
+      </div>
+
+      <div class="forza-card">
+        <span class="forza-icon">💰</span>
+        <h3 class="t-it">Prezzo onesto</h3>
+        <h3 class="t-en">Honest pricing</h3>
+        <h3 class="t-de">Faire Preise</h3>
+        <p class="t-it">Si mangia bene con pochi euro. Perfetto per una pausa pranzo o uno spuntino veloce.</p>
+        <p class="t-en">Eat well for just a few euros. Perfect for lunch or a quick snack.</p>
+        <p class="t-de">Gut essen für wenige Euro. Perfekt zum Mittag oder als schneller Snack.</p>
+      </div>
+
+      <div class="forza-card">
+        <span class="forza-icon">🌍</span>
+        <h3 class="t-it">Si parlano 3 lingue</h3>
+        <h3 class="t-en">Three languages spoken</h3>
+        <h3 class="t-de">Wir sprechen drei Sprachen</h3>
+        <p class="t-it">Italiano, inglese, tedesco. Il nostro staff ama raccontare la Calabria ai viaggiatori.</p>
+        <p class="t-en">Italian, English, German. Our team loves sharing Calabria with travellers.</p>
+        <p class="t-de">Italienisch, Englisch, Deutsch. Unser Team erzählt gerne von Kalabrien.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery" class="bg-light">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow t-it">Galleria</div>
+      <div class="eyebrow t-en">Gallery</div>
+      <div class="eyebrow t-de">Galerie</div>
+
+      <h2 class="t-it">Dall'impasto alla fetta</h2>
+      <h2 class="t-en">From dough to slice</h2>
+      <h2 class="t-de">Vom Teig zur Scheibe</h2>
+      <span class="divider"></span>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="./photos/photo_00.jpg" alt="Pizz Stop"></div>
+      <div class="gallery-item"><img src="./photos/photo_01.jpg" alt="Pizza"></div>
+      <div class="gallery-item"><img src="./photos/photo_02.jpg" alt="Fetta"></div>
+      <div class="gallery-item"><img src="./photos/photo_03.jpg" alt="Interno"></div>
+      <div class="gallery-item"><img src="./photos/photo_04.jpg" alt="Pizza"></div>
+      <div class="gallery-item"><img src="./photos/photo_06.jpg" alt="Pizza"></div>
+      <div class="gallery-item"><img src="./photos/photo_08.jpg" alt="Pizza"></div>
+      <div class="gallery-item"><img src="./photos/photo_09.jpg" alt="Pizza"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section id="recensioni" class="bg-tinted">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow t-it">Quello che dicono</div>
+      <div class="eyebrow t-en">What they say</div>
+      <div class="eyebrow t-de">Was sie sagen</div>
+
+      <h2 class="t-it">Voci dal banco</h2>
+      <h2 class="t-en">Voices from the counter</h2>
+      <h2 class="t-de">Stimmen vom Tresen</h2>
+      <span class="divider"></span>
+    </div>
+
+    <div class="reviews-grid">
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote t-it">Da Melbourne alla Calabria, questo è il posto dove fermarsi per un buon pranzo e un'ottima accoglienza. Un ristorante rilassato con uno staff meraviglioso felice di ascoltare le tue storie di viaggio.</p>
+        <p class="review-quote t-en">From Melbourne to Calabria, this is the place to stop for a break and enjoy great food and hospitality. A beautiful relaxed restaurant with wonderful staff who are happy to hear your travel story.</p>
+        <p class="review-quote t-de">Von Melbourne nach Kalabrien — der perfekte Ort für eine Pause mit gutem Essen und herzlicher Gastfreundschaft. Ein entspanntes Lokal mit wunderbarem Personal.</p>
+        <div class="review-author">
+          <div class="review-avatar">V</div>
+          <div>
+            <div class="review-name">Vince LoMoro</div>
+            <div class="review-source">Google · Melbourne</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote t-it">Super sorpreso di trovare questo piccolo posto con una delle migliori pizze che ho mangiato in Italia. Non è un ristorante ma una pizza al taglio — casual e perfetto per una sosta veloce.</p>
+        <p class="review-quote t-en">I'm super surprised to find this little spot as one with among the best pizzas I had in Italy. It's not a restaurant but rather a pizza al taglio — casual and appropriate for a quick stop.</p>
+        <p class="review-quote t-de">Sehr überrascht, dass dieser kleine Laden eine der besten Pizzen meiner Italien-Reise serviert. Kein Restaurant, sondern Pizza auf Bestellung — leger und perfekt für schnell.</p>
+        <div class="review-author">
+          <div class="review-avatar">O</div>
+          <div>
+            <div class="review-name">Oh My Goshen</div>
+            <div class="review-source">Google</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote t-it">La miglior pizza che abbia mangiato durante i miei viaggi in Italia. La varietà di sapori era incredibile — ne abbiamo provate quante il nostro stomaco ha retto. ❤️</p>
+        <p class="review-quote t-en">This was the best pizza I've ever had during my travels through Italy. The variety of fantastic flavors was incredible — we tried as many as our stomachs could handle. ❤️</p>
+        <p class="review-quote t-de">Die beste Pizza meiner Italien-Reise. Die Vielfalt an fantastischen Geschmacksrichtungen war unglaublich — wir probierten alles, was der Magen aushielt. ❤️</p>
+        <div class="review-author">
+          <div class="review-avatar">E</div>
+          <div>
+            <div class="review-name">Eva Hoštáková</div>
+            <div class="review-source">Google · Bratislava</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote t-it">Un bel posto per uno spuntino veloce. Pizza deliziosa ed economica, e il proprietario parla inglese! Ci torneremo sicuramente.</p>
+        <p class="review-quote t-en">It's a nice place to grab a quick snack. Pizza is delicious and cheap, and the worker spoke English! We'll definitely come back.</p>
+        <p class="review-quote t-de">Ein schöner Ort für einen schnellen Snack. Pizza köstlich und günstig, und der Mitarbeiter sprach Englisch! Wir kommen wieder.</p>
+        <div class="review-author">
+          <div class="review-avatar">S</div>
+          <div>
+            <div class="review-name">Sven Müller</div>
+            <div class="review-source">Google · Deutschland</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bg-light">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow t-it">Domande frequenti</div>
+      <div class="eyebrow t-en">Frequently asked</div>
+      <div class="eyebrow t-de">Häufige Fragen</div>
+
+      <h2 class="t-it">Tutto quello che vuoi sapere</h2>
+      <h2 class="t-en">Everything you'd like to know</h2>
+      <h2 class="t-de">Alles was Sie wissen möchten</h2>
+      <span class="divider"></span>
+    </div>
+
+    <div class="faq-wrap">
+      <details class="faq-item">
+        <summary class="t-it">Quali sono gli orari di apertura?</summary>
+        <summary class="t-en">What are your opening hours?</summary>
+        <summary class="t-de">Was sind die Öffnungszeiten?</summary>
+        <div class="faq-answer t-it">Siamo aperti da martedì a domenica, dalle 11:00 alle 23:00. Lunedì chiuso. In alta stagione estendiamo spesso l'orario serale — controlla su Google prima di venire.</div>
+        <div class="faq-answer t-en">We're open Tuesday to Sunday, 11:00 – 23:00. Closed on Monday. In high season we often extend evening hours — check Google before visiting.</div>
+        <div class="faq-answer t-de">Dienstag bis Sonntag, 11:00 – 23:00. Montag geschlossen. In der Hochsaison verlängern wir oft abends — bitte vor dem Besuch bei Google prüfen.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="t-it">Dove posso parcheggiare?</summary>
+        <summary class="t-en">Where can I park?</summary>
+        <summary class="t-de">Wo kann ich parken?</summary>
+        <div class="faq-answer t-it">Ci sono parcheggi liberi e a pagamento lungo Viale della Libertà e nelle strade limitrofe. Sul lungomare trovi sempre posto fuori dai weekend di agosto.</div>
+        <div class="faq-answer t-en">Free and paid parking is available along Viale della Libertà and side streets. The seafront always has space outside of August weekends.</div>
+        <div class="faq-answer t-de">Kostenlose und gebührenpflichtige Parkplätze entlang Viale della Libertà und in den Seitenstraßen. Die Strandpromenade bietet außer an August-Wochenenden immer Platz.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="t-it">Accettate ordini per gruppi o asporto?</summary>
+        <summary class="t-en">Do you accept group or takeaway orders?</summary>
+        <summary class="t-de">Nehmen Sie Gruppen- oder Mitnahmebestellungen an?</summary>
+        <div class="faq-answer t-it">Certo! Per ordini di gruppo, feste in spiaggia o pizzate aziendali chiamaci o scrivici su WhatsApp almeno 2 ore prima. Prepariamo teglie su misura.</div>
+        <div class="faq-answer t-en">Of course! For group orders, beach parties or office lunches, call us or WhatsApp at least 2 hours ahead. We prepare custom trays.</div>
+        <div class="faq-answer t-de">Natürlich! Für Gruppen, Strandpartys oder Firmen-Lunches rufen Sie uns an oder schreiben Sie mindestens 2 Stunden vorher per WhatsApp. Wir bereiten individuelle Bleche vor.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="t-it">Ci sono opzioni per vegetariani o vegani?</summary>
+        <summary class="t-en">Any vegetarian or vegan options?</summary>
+        <summary class="t-de">Gibt es vegetarische oder vegane Optionen?</summary>
+        <div class="faq-answer t-it">Sì, ogni giorno abbiamo almeno 3 fette vegetariane e 1 vegana (marinara, patate, verdure). Basta chiedere al banco — consigliamo sempre volentieri.</div>
+        <div class="faq-answer t-en">Yes, every day we have at least 3 vegetarian and 1 vegan slice (marinara, potato, vegetables). Just ask at the counter — we love to suggest.</div>
+        <div class="faq-answer t-de">Ja, täglich mindestens 3 vegetarische und 1 vegane Scheibe (Marinara, Kartoffel, Gemüse). Fragen Sie einfach am Tresen — wir beraten gern.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Prenota -->
+<section id="prenota" class="bg-dark">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow t-it">Ordina su WhatsApp</div>
+      <div class="eyebrow t-en">Order by WhatsApp</div>
+      <div class="eyebrow t-de">Bestellen via WhatsApp</div>
+
+      <h2 class="t-it">Vieni a trovarci</h2>
+      <h2 class="t-en">Come visit us</h2>
+      <h2 class="t-de">Besuchen Sie uns</h2>
+      <span class="divider"></span>
+    </div>
+
+    <div class="prenota-grid">
+      <div class="prenota-info">
+        <div class="t-it">
+          <p>Chiama, scrivi su WhatsApp o semplicemente passa. Per ordini grandi consigliamo di avvisarci 2 ore prima — prepariamo tutto fresco all'arrivo.</p>
+        </div>
+        <div class="t-en">
+          <p>Call us, message us on WhatsApp, or just drop in. For large orders we recommend letting us know 2 hours ahead — we prepare everything fresh for pickup.</p>
+        </div>
+        <div class="t-de">
+          <p>Rufen Sie an, schreiben Sie via WhatsApp oder kommen Sie einfach vorbei. Für große Bestellungen gern 2 Stunden vorher Bescheid geben — wir bereiten frisch vor.</p>
+        </div>
+
+        <ul class="info-list">
+          <li data-ico="📍">
+            <div>
+              <strong class="t-it">Indirizzo</strong>
+              <strong class="t-en">Address</strong>
+              <strong class="t-de">Adresse</strong>
+              Viale della Libertà, 3 · 87028 Praia a Mare (CS)
+            </div>
+          </li>
+          <li data-ico="📞">
+            <div>
+              <strong class="t-it">Telefono</strong>
+              <strong class="t-en">Phone</strong>
+              <strong class="t-de">Telefon</strong>
+              +39 353 335 6941
+            </div>
+          </li>
+          <li data-ico="🕐">
+            <div>
+              <strong class="t-it">Orari</strong>
+              <strong class="t-en">Hours</strong>
+              <strong class="t-de">Öffnungszeiten</strong>
+              <span class="t-it">Mar–Dom · 11:00 – 23:00 · Lunedì chiuso</span>
+              <span class="t-en">Tue–Sun · 11:00 – 23:00 · Closed Monday</span>
+              <span class="t-de">Di–So · 11:00 – 23:00 · Montag geschlossen</span>
+            </div>
+          </li>
+          <li data-ico="💬">
+            <div>
+              <strong class="t-it">Lingue</strong>
+              <strong class="t-en">Languages</strong>
+              <strong class="t-de">Sprachen</strong>
+              Italiano · English · Deutsch
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <form class="booking-form" id="bookingForm">
+        <h3 class="t-it">Ordina al volo</h3>
+        <h3 class="t-en">Quick order</h3>
+        <h3 class="t-de">Schnellbestellung</h3>
+
+        <p class="form-sub t-it">Compila e ti apriremo WhatsApp con il tuo messaggio già pronto.</p>
+        <p class="form-sub t-en">Fill in and we'll open WhatsApp with your message ready to send.</p>
+        <p class="form-sub t-de">Ausfüllen und WhatsApp öffnet sich mit fertiger Nachricht.</p>
+
+        <label for="nome" class="t-it">Nome</label>
+        <label for="nome" class="t-en">Name</label>
+        <label for="nome" class="t-de">Name</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <div class="form-row">
+          <div>
+            <label for="data" class="t-it">Data</label>
+            <label for="data" class="t-en">Date</label>
+            <label for="data" class="t-de">Datum</label>
+            <input type="date" id="data" name="data" required>
+          </div>
+          <div>
+            <label for="persone" class="t-it">Persone</label>
+            <label for="persone" class="t-en">People</label>
+            <label for="persone" class="t-de">Personen</label>
+            <select id="persone" name="persone" required>
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6+">6+</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="note" class="t-it">Note (gusti preferiti, allergie)</label>
+        <label for="note" class="t-en">Notes (preferred slices, allergies)</label>
+        <label for="note" class="t-de">Notizen (Lieblingsscheiben, Allergien)</label>
+        <textarea id="note" name="note"></textarea>
+
+        <button type="submit">
+          <span class="t-it">Invia su WhatsApp</span>
+          <span class="t-en">Send via WhatsApp</span>
+          <span class="t-de">Per WhatsApp senden</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Map -->
+<div class="map-wrap">
+  <iframe src="https://www.google.com/maps?q=Pizz+Stop+Viale+della+Libert%C3%A0+3+Praia+a+Mare&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pizz Stop — Praia a Mare"></iframe>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Pizz<span>.</span>Stop</div>
+        <p class="t-it">Pizza al taglio autentica sulla costa tirrenica calabrese. Ogni fetta, una piccola promessa mantenuta.</p>
+        <p class="t-en">Authentic pizza by the slice on the Calabrian Tyrrhenian coast. Every slice, a small promise kept.</p>
+        <p class="t-de">Authentische Pizza auf Bestellung an der kalabrischen Tyrrhenischen Küste. Jede Scheibe ein kleines gehaltenes Versprechen.</p>
+      </div>
+
+      <div>
+        <h4 class="t-it">Contatti</h4>
+        <h4 class="t-en">Contact</h4>
+        <h4 class="t-de">Kontakt</h4>
+        <p>Viale della Libertà, 3<br>87028 Praia a Mare (CS)<br>+39 353 335 6941</p>
+      </div>
+
+      <div>
+        <h4 class="t-it">Orari</h4>
+        <h4 class="t-en">Hours</h4>
+        <h4 class="t-de">Öffnungszeiten</h4>
+        <ul class="t-it">
+          <li>Lun: chiuso</li>
+          <li>Mar – Dom: 11:00 – 23:00</li>
+        </ul>
+        <ul class="t-en">
+          <li>Mon: closed</li>
+          <li>Tue – Sun: 11:00 – 23:00</li>
+        </ul>
+        <ul class="t-de">
+          <li>Mo: geschlossen</li>
+          <li>Di – So: 11:00 – 23:00</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="t-it">Seguici</h4>
+        <h4 class="t-en">Follow</h4>
+        <h4 class="t-de">Folgen</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/pizzstop1" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://maps.google.com/?cid=2096455532573409168" target="_blank" rel="noopener">Google Maps</a></li>
+          <li><a href="https://wa.me/393533356941" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> Pizz Stop · Praia a Mare (CS)</div>
+      <div>
+        <span class="t-it">Sito creato da </span>
+        <span class="t-en">Site crafted by </span>
+        <span class="t-de">Website erstellt von </span>
+        <a href="https://viktoria.agency" target="_blank" rel="noopener">Viktoria Agency</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/393533356941?text=Buongiorno%20Pizz%20Stop%2C%20vorrei%20info%20sul%20men%C3%B9%20di%20oggi" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Language switcher
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const l = btn.dataset.lang;
+    document.body.classList.remove('lang-it','lang-en','lang-de');
+    document.body.classList.add('lang-'+l);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b === btn));
+    document.documentElement.lang = l;
+  });
+});
+
+// Mobile nav
+const toggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    toggle.classList.remove('open');
+    navLinks.classList.remove('open');
+  });
+});
+
+// Booking form → WhatsApp
+document.getElementById('bookingForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const lang = document.body.classList.contains('lang-en') ? 'en' :
+               document.body.classList.contains('lang-de') ? 'de' : 'it';
+  const templates = {
+    it: `Buongiorno Pizz Stop, vorrei ordinare:\nNome: ${fd.get('nome')}\nData: ${fd.get('data')}\nPersone: ${fd.get('persone')}\nNote: ${fd.get('note') || '—'}`,
+    en: `Hello Pizz Stop, I'd like to order:\nName: ${fd.get('nome')}\nDate: ${fd.get('data')}\nPeople: ${fd.get('persone')}\nNotes: ${fd.get('note') || '—'}`,
+    de: `Hallo Pizz Stop, ich möchte bestellen:\nName: ${fd.get('nome')}\nDatum: ${fd.get('data')}\nPersonen: ${fd.get('persone')}\nNotizen: ${fd.get('note') || '—'}`
+  };
+  window.open(`https://wa.me/393533356941?text=${encodeURIComponent(templates[lang])}`, '_blank');
+});
+</script>
+</body>
+</html>
