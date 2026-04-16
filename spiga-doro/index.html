@@ -2008,21 +2008,27 @@ function downloadMenuQR(){
 })();
 </script>
 <script>
-// Per-video autoplay: each video plays only when it's visible in the viewport,
-// pauses when it scrolls away. NO global "play everything on touch" handlers —
-// those caused every video on the page to start the moment the user tapped
-// anywhere.
+// Force autoplay on mobile
 document.addEventListener('DOMContentLoaded', function() {
   const videos = document.querySelectorAll('video');
 
-  // Make every video iOS-friendly + try a one-shot autoplay (fails silently if
-  // the browser blocks it; the IntersectionObserver below will retry per-video).
   videos.forEach(function(video) {
     video.muted = true;
     video.setAttribute('playsinline', '');
-    video.setAttribute('webkit-playsinline', '');
     video.play().catch(function() {});
   });
+
+  function playAll() {
+    videos.forEach(function(video) {
+      video.muted = true;
+      video.play().catch(function() {});
+    });
+    document.removeEventListener('touchstart', playAll);
+    document.removeEventListener('scroll', playAll);
+  }
+
+  document.addEventListener('touchstart', playAll, { once: true });
+  document.addEventListener('scroll', playAll, { once: true });
 
   const observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
