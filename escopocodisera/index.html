@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escopocodisera — Ristorante Pizzeria · Praia a Mare</title>
+<meta name="description" content="Escopocodisera a Praia a Mare: pizza, pasta ai frutti di mare e atmosfera calda nel cuore della Calabria. Aperto dal martedì alla domenica.">
+<meta name="keywords" content="Escopocodisera, ristorante Praia a Mare, pizzeria Calabria, pasta frutti di mare, pizza Praia, Piazza Luigi Sturzo">
+
+<meta property="og:title" content="Escopocodisera — Ristorante Pizzeria · Praia a Mare">
+<meta property="og:description" content="Pizza fragrante, pasta ai frutti di mare e atmosfera calda nel centro di Praia a Mare.">
+<meta property="og:image" content="./photos/photo_00.jpg">
+<meta property="og:url" content="https://escopocodisera.local">
+<meta property="og:type" content="restaurant.restaurant">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍕</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Escopocodisera",
+  "image": "./photos/photo_00.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Piazza Luigi Sturzo, 3",
+    "addressLocality": "Praia a Mare",
+    "addressRegion": "CS",
+    "postalCode": "87028",
+    "addressCountry": "IT"
+  },
+  "telephone": "+393773286295",
+  "priceRange": "€€",
+  "servesCuisine": ["Italian", "Calabrese", "Pizza"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.0",
+    "reviewCount": "1874"
+  },
+  "openingHoursSpecification": [
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday"],"opens":"19:30","closes":"00:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"12:30","closes":"15:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"19:30","closes":"00:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"12:30","closes":"15:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"19:30","closes":"00:00"}
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --primary:#c0bebb;
+    --secondary:#23241d;
+    --accent:#4d423d;
+    --warm:#a97c6a;
+    --cream:#e9e4dc;
+    --ink:#1a1a17;
+    --muted:#76716a;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Jost',system-ui,sans-serif;
+    font-weight:300;
+    font-size:16px;
+    line-height:1.65;
+    color:var(--ink);
+    background:var(--cream);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Forum',serif;
+    font-weight:400;
+    line-height:1.15;
+    letter-spacing:.01em;
+    color:var(--secondary);
+  }
+
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%;height:auto}
+
+  /* ---------- language ---------- */
+  .t-en{display:none !important}
+  body.lang-en .t-it{display:none !important}
+  body.lang-en .t-en{display:revert !important}
+
+  /* ---------- layout ---------- */
+  .container{width:min(1180px,92%);margin:0 auto}
+  section{padding:110px 0}
+  section + section{border-top:1px solid rgba(35,36,29,.06)}
+
+  .eyebrow{
+    font-family:'Jost',sans-serif;
+    font-size:.72rem;
+    font-weight:500;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:inline-block;
+    margin-bottom:22px;
+    position:relative;
+    padding-left:46px;
+  }
+  .eyebrow::before{
+    content:"";
+    position:absolute;
+    left:0;top:50%;
+    width:34px;height:1px;
+    background:var(--accent);
+    transform:translateY(-50%);
+  }
+
+  h2.section-title{
+    font-size:clamp(2.2rem,4.4vw,3.4rem);
+    margin-bottom:24px;
+    letter-spacing:.005em;
+  }
+  .lede{
+    font-size:1.08rem;
+    color:var(--muted);
+    max-width:62ch;
+    line-height:1.8;
+  }
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;
+    z-index:100;
+    padding:22px 0;
+    transition:background .4s ease, padding .4s ease, box-shadow .4s ease;
+    background:transparent;
+  }
+  .nav.scrolled{
+    background:rgba(233,228,220,.96);
+    backdrop-filter:blur(12px);
+    padding:14px 0;
+    box-shadow:0 1px 0 rgba(35,36,29,.08);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .logo{
+    font-family:'Forum',serif;
+    font-size:1.4rem;
+    letter-spacing:.04em;
+    color:#fff;
+    transition:color .4s ease;
+  }
+  .nav.scrolled .logo{color:var(--secondary)}
+  .logo span{color:var(--warm)}
+  .nav-links{display:flex;gap:34px;list-style:none}
+  .nav-links a{
+    font-size:.82rem;
+    font-weight:400;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:#fff;
+    position:relative;
+    padding:4px 0;
+    transition:color .3s;
+  }
+  .nav.scrolled .nav-links a{color:var(--secondary)}
+  .nav-links a::after{
+    content:"";
+    position:absolute;left:0;bottom:-2px;
+    width:0;height:1px;
+    background:var(--warm);
+    transition:width .3s;
+  }
+  .nav-links a:hover::after{width:100%}
+
+  .lang-switch{display:flex;gap:6px}
+  .lang-btn{
+    width:36px;height:32px;
+    display:flex;align-items:center;justify-content:center;
+    background:transparent;
+    border:1px solid rgba(255,255,255,.4);
+    color:#fff;
+    font-family:'Jost',sans-serif;
+    font-size:.72rem;
+    font-weight:500;
+    letter-spacing:.08em;
+    cursor:pointer;
+    transition:all .25s;
+  }
+  .lang-btn:hover{border-color:rgba(255,255,255,.85)}
+  .lang-btn.active{background:#fff;color:var(--secondary);border-color:#fff}
+  .nav.scrolled .lang-btn{color:var(--secondary);border-color:rgba(35,36,29,.25)}
+  .nav.scrolled .lang-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  .nav-toggle{display:none;background:none;border:none;color:#fff;cursor:pointer;padding:6px}
+  .nav.scrolled .nav-toggle{color:var(--secondary)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;align-items:flex-end;
+    padding:0 0 90px 0;
+    overflow:hidden;
+    color:#fff;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover}
+  .hero-bg::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(35,36,29,.25) 0%, rgba(35,36,29,.35) 50%, rgba(35,36,29,.85) 100%);
+  }
+  .hero-inner{position:relative;z-index:2;width:100%}
+  .hero-meta{
+    font-family:'Jost',sans-serif;
+    font-size:.75rem;
+    letter-spacing:.34em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.85);
+    margin-bottom:28px;
+    display:flex;align-items:center;gap:18px;
+    flex-wrap:wrap;
+  }
+  .hero-meta::before{
+    content:"";width:36px;height:1px;background:rgba(255,255,255,.6);
+  }
+  .hero h1{
+    font-size:clamp(3rem,9vw,7.5rem);
+    line-height:.95;
+    color:#fff;
+    margin-bottom:28px;
+    letter-spacing:.005em;
+  }
+  .hero-sub{
+    font-family:'Forum',serif;
+    font-size:clamp(1.1rem,1.8vw,1.4rem);
+    line-height:1.5;
+    max-width:48ch;
+    color:rgba(255,255,255,.88);
+    margin-bottom:44px;
+    font-style:italic;
+  }
+  .hero-row{display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+  .rating{
+    display:flex;align-items:center;gap:14px;
+    padding:14px 20px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:2px;
+  }
+  .rating-stars{color:#e4b65a;letter-spacing:2px;font-size:.95rem}
+  .rating-text{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+  .rating-text b{font-weight:500;color:#fff}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:14px;
+    padding:18px 34px;
+    background:var(--warm);
+    color:#fff;
+    font-family:'Jost',sans-serif;
+    font-size:.78rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    font-weight:500;
+    border:none;
+    cursor:pointer;
+    transition:all .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .btn::after{content:"→";transition:transform .35s}
+  .btn:hover{background:var(--secondary);transform:translateY(-2px)}
+  .btn:hover::after{transform:translateX(4px)}
+  .btn-ghost{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.55);
+    color:#fff;
+  }
+  .btn-ghost:hover{background:#fff;color:var(--secondary);border-color:#fff}
+
+  .hero-scroll{
+    position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+    z-index:3;
+    font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;
+    color:rgba(255,255,255,.7);
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .hero-scroll::after{
+    content:"";width:1px;height:36px;background:rgba(255,255,255,.5);
+    animation:scroll-bounce 2.4s ease-in-out infinite;
+  }
+  @keyframes scroll-bounce{
+    0%,100%{transform:scaleY(1);transform-origin:top}
+    50%{transform:scaleY(.3);transform-origin:top}
+  }
+
+  /* ---------- storia ---------- */
+  .storia{background:var(--cream)}
+  .storia-grid{
+    display:grid;
+    grid-template-columns:1fr 1.05fr;
+    gap:90px;
+    align-items:center;
+  }
+  .storia-copy p + p{margin-top:20px}
+  .storia-copy p{font-size:1.02rem;line-height:1.85;color:#3a3a33}
+  .storia-copy p:first-of-type::first-letter{
+    font-family:'Forum',serif;
+    font-size:4.2rem;
+    float:left;
+    line-height:.85;
+    padding:6px 14px 0 0;
+    color:var(--warm);
+  }
+  .storia-visual{position:relative}
+  .storia-visual img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    filter:saturate(.92);
+  }
+  .storia-badge{
+    position:absolute;
+    bottom:-32px;left:-32px;
+    background:var(--secondary);
+    color:var(--cream);
+    padding:30px 34px;
+    text-align:left;
+    border:1px solid var(--accent);
+  }
+  .storia-badge .num{
+    font-family:'Forum',serif;
+    font-size:3rem;
+    line-height:1;
+    color:var(--warm);
+    display:block;
+  }
+  .storia-badge .lbl{
+    font-size:.68rem;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:rgba(233,228,220,.75);
+    margin-top:10px;
+    display:block;
+  }
+
+  /* ---------- menu ---------- */
+  .menu{background:#f3efe7;position:relative}
+  .menu-head{text-align:center;margin-bottom:70px}
+  .menu-head h2{margin-inline:auto}
+  .menu-head .lede{margin:24px auto 0}
+  .menu-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:44px;
+  }
+  .dish{
+    background:#fff;
+    border:1px solid rgba(35,36,29,.06);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+  }
+  .dish:hover{
+    transform:translateY(-4px) scale(1.01);
+    box-shadow:0 24px 60px -24px rgba(35,36,29,.28);
+  }
+  .dish-img{aspect-ratio:4/3;overflow:hidden}
+  .dish-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+  .dish:hover .dish-img img{transform:scale(1.08)}
+  .dish-body{padding:30px 32px 34px}
+  .dish-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    gap:12px;margin-bottom:14px;
+    border-bottom:1px dotted rgba(35,36,29,.2);
+    padding-bottom:12px;
+  }
+  .dish h3{
+    font-size:1.38rem;
+    letter-spacing:.01em;
+  }
+  .dish .price{
+    font-family:'Forum',serif;
+    font-size:1.15rem;
+    color:var(--warm);
+    white-space:nowrap;
+  }
+  .dish p{font-size:.93rem;color:var(--muted);line-height:1.7}
+  .dish .tag{
+    display:inline-block;
+    font-size:.68rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-top:14px;
+    padding-top:12px;
+    border-top:1px solid rgba(35,36,29,.08);
+  }
+
+  /* ---------- reviews ---------- */
+  .reviews{background:var(--secondary);color:var(--cream)}
+  .reviews h2.section-title{color:var(--cream)}
+  .reviews .eyebrow{color:var(--warm)}
+  .reviews .eyebrow::before{background:var(--warm)}
+  .reviews .lede{color:rgba(233,228,220,.7)}
+  .reviews-head{text-align:center;margin-bottom:70px}
+  .reviews-head .lede{margin:24px auto 0}
+  .reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+  }
+  .review{
+    background:rgba(192,190,187,.05);
+    border:1px solid rgba(192,190,187,.15);
+    padding:38px 34px 34px;
+    position:relative;
+  }
+  .review::before{
+    content:"“";
+    position:absolute;top:-6px;left:22px;
+    font-family:'Forum',serif;
+    font-size:5rem;
+    line-height:1;
+    color:var(--warm);
+  }
+  .review-stars{color:#e4b65a;letter-spacing:2px;margin-bottom:18px;font-size:.9rem}
+  .review p{
+    font-size:.98rem;
+    line-height:1.75;
+    color:rgba(233,228,220,.92);
+    font-style:italic;
+    margin-bottom:28px;
+  }
+  .review-author{
+    display:flex;align-items:center;gap:14px;
+    padding-top:20px;
+    border-top:1px solid rgba(192,190,187,.12);
+  }
+  .avatar{
+    width:44px;height:44px;
+    background:var(--warm);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Forum',serif;
+    font-size:1.2rem;
+  }
+  .review-name{font-size:.92rem;color:var(--cream);font-weight:400}
+  .review-source{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(233,228,220,.5)}
+
+  /* ---------- contact ---------- */
+  .contact{background:var(--cream)}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:80px;
+    align-items:start;
+  }
+  .info-list{list-style:none;margin-top:38px}
+  .info-item{
+    display:grid;
+    grid-template-columns:90px 1fr;
+    gap:22px;
+    padding:22px 0;
+    border-bottom:1px solid rgba(35,36,29,.1);
+    align-items:start;
+  }
+  .info-item:last-child{border-bottom:none}
+  .info-label{
+    font-size:.7rem;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--accent);
+    padding-top:2px;
+  }
+  .info-value{font-size:1rem;line-height:1.65;color:#2a2a22}
+  .info-value a{border-bottom:1px solid var(--warm);transition:color .2s}
+  .info-value a:hover{color:var(--warm)}
+  .hours-row{display:flex;justify-content:space-between;gap:18px;padding:3px 0;font-size:.94rem}
+  .hours-row span:first-child{color:var(--accent)}
+
+  .booking{
+    background:#fff;
+    padding:48px 46px;
+    border:1px solid rgba(35,36,29,.08);
+  }
+  .booking h3{font-size:1.6rem;margin-bottom:6px}
+  .booking .sub{color:var(--muted);font-size:.92rem;margin-bottom:30px}
+  .field{margin-bottom:20px}
+  .field label{
+    display:block;
+    font-size:.7rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:10px;
+  }
+  .field input, .field select, .field textarea{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid rgba(35,36,29,.15);
+    background:var(--cream);
+    font-family:'Jost',sans-serif;
+    font-size:.95rem;
+    color:var(--ink);
+    transition:border-color .25s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none;border-color:var(--warm);
+  }
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .booking .btn{width:100%;justify-content:center;margin-top:8px}
+
+  /* ---------- map ---------- */
+  .map-section{padding:0}
+  .map-wrap{height:460px;overflow:hidden;background:var(--secondary);border-top:1px solid rgba(35,36,29,.08)}
+  .map-wrap iframe{width:100%;height:100%;border:0;filter:grayscale(25%) contrast(1.02)}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--secondary);
+    color:rgba(233,228,220,.75);
+    padding:80px 0 30px;
+    font-size:.92rem;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:60px;
+    margin-bottom:54px;
+  }
+  footer h4{
+    color:var(--cream);
+    font-size:1.08rem;
+    margin-bottom:20px;
+    letter-spacing:.02em;
+  }
+  .footer-logo{
+    font-family:'Forum',serif;
+    font-size:1.6rem;
+    color:var(--cream);
+    margin-bottom:16px;
+    display:block;
+  }
+  .footer-logo span{color:var(--warm)}
+  footer p{line-height:1.8;max-width:44ch}
+  footer ul{list-style:none}
+  footer li{margin-bottom:10px}
+  footer a{transition:color .25s}
+  footer a:hover{color:var(--warm)}
+  .footer-bottom{
+    padding-top:30px;
+    border-top:1px solid rgba(192,190,187,.1);
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:.8rem;
+    flex-wrap:wrap;gap:14px;
+    letter-spacing:.04em;
+  }
+  .footer-bottom a{color:var(--warm);border-bottom:1px solid transparent;transition:border-color .25s}
+  .footer-bottom a:hover{border-bottom-color:var(--warm)}
+
+  /* ---------- whatsapp float ---------- */
+  .wa-float{
+    position:fixed;
+    bottom:24px;right:24px;
+    z-index:999;
+    width:58px;height:58px;
+    background:#25d366;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 14px 40px -8px rgba(37,211,102,.5);
+    transition:transform .25s;
+  }
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  /* ---------- mobile ---------- */
+  @media (max-width:860px){
+    section{padding:80px 0}
+    .nav-toggle{display:block}
+    .nav-links{
+      position:fixed;top:68px;left:0;right:0;
+      flex-direction:column;gap:0;
+      background:var(--cream);
+      padding:20px 0;
+      transform:translateY(-120%);
+      transition:transform .4s ease;
+      box-shadow:0 20px 40px -20px rgba(35,36,29,.25);
+    }
+    .nav-links.open{transform:translateY(0)}
+    .nav-links a{
+      color:var(--secondary) !important;
+      padding:14px 24px;
+      width:100%;
+      border-bottom:1px solid rgba(35,36,29,.06);
+    }
+    .hero{padding-bottom:70px;min-height:92vh}
+    .hero h1{font-size:clamp(2.6rem,13vw,4.4rem)}
+    .hero-row{flex-direction:column;align-items:flex-start;gap:24px}
+    .btn{width:100%;justify-content:center}
+    .storia-grid{grid-template-columns:1fr;gap:50px}
+    .storia-badge{position:static;margin-top:0;display:inline-block}
+    .menu-grid{grid-template-columns:1fr;gap:24px}
+    .reviews-grid{grid-template-columns:1fr;gap:20px}
+    .contact-grid{grid-template-columns:1fr;gap:50px}
+    .booking{padding:32px 24px}
+    .footer-grid{grid-template-columns:1fr;gap:40px}
+    .field-row{grid-template-columns:1fr}
+    .footer-bottom{flex-direction:column;text-align:center}
+    .info-item{grid-template-columns:1fr;gap:6px;padding:16px 0}
+  }
+</style>
+</head>
+<body class="lang-it">
+
+<!-- ====== NAV ====== -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo">Escopoco<span>disera</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#storia" class="t-it">Storia</a><a href="#storia" class="t-en">Story</a></li>
+      <li><a href="#menu" class="t-it">Menu</a><a href="#menu" class="t-en">Menu</a></li>
+      <li><a href="#reviews" class="t-it">Recensioni</a><a href="#reviews" class="t-en">Reviews</a></li>
+      <li><a href="#contact" class="t-it">Prenota</a><a href="#contact" class="t-en">Book</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="it">IT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<header class="hero" id="top">
+  <div class="hero-bg">
+    <img src="./photos/photo_00.jpg" alt="Escopocodisera — Praia a Mare">
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-meta">
+      <span class="t-it">Praia a Mare · Calabria</span>
+      <span class="t-en">Praia a Mare · Calabria</span>
+    </div>
+    <h1>Escopo<br>codisera</h1>
+    <p class="hero-sub t-it">Pizza fragrante, pasta ai frutti di mare e un'atmosfera che sa di casa, affacciata su Piazza Luigi Sturzo.</p>
+    <p class="hero-sub t-en">Wood-oven pizza, seafood pasta and a warm family atmosphere on Piazza Luigi Sturzo.</p>
+    <div class="hero-row">
+      <a href="#contact" class="btn t-it">Prenota un tavolo</a>
+      <a href="#contact" class="btn t-en">Book a table</a>
+      <a href="#menu" class="btn btn-ghost t-it">Scopri il menu</a>
+      <a href="#menu" class="btn btn-ghost t-en">Discover the menu</a>
+      <div class="rating">
+        <span class="rating-stars">★★★★☆</span>
+        <span class="rating-text"><b>4.0</b> · <span class="t-it">1.874 recensioni</span><span class="t-en">1,874 reviews</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span class="t-it">Scorri</span>
+    <span class="t-en">Scroll</span>
+  </div>
+</header>
+
+<!-- ====== STORIA ====== -->
+<section class="storia" id="storia">
+  <div class="container">
+    <div class="storia-grid">
+      <div class="storia-copy">
+        <span class="eyebrow t-it">La nostra storia</span>
+        <span class="eyebrow t-en">Our story</span>
+        <h2 class="section-title t-it">Un angolo caldo<br>nel cuore di Praia</h2>
+        <h2 class="section-title t-en">A warm corner<br>in the heart of Praia</h2>
+        <p class="t-it">Escopocodisera è un piccolo ristorante-pizzeria nel centro di Praia a Mare, in Calabria, a pochi passi dalla spiaggia e dall'Isola di Dino. Una sala accogliente, qualche tavolo fuori sulla piazza nelle sere d'estate, e la semplicità sincera di una cucina che non si prende troppo sul serio ma che cura i dettagli.</p>
+        <p class="t-it">Gli ospiti lo scelgono per la pizza — cotta con la giusta croccantezza — e per i primi di mare, in particolare la pasta ai frutti di mare che molti definiscono la migliore della zona. I prezzi restano onesti, il servizio è attento anche con chi non parla italiano, e l'atmosfera resta quella delle trattorie di paese: calda, familiare, vera.</p>
+        <p class="t-en">Escopocodisera is a small restaurant-pizzeria in the centre of Praia a Mare, Calabria, just a short walk from the beach and the Isola di Dino. A cosy dining room, a handful of tables out on the square on summer evenings, and the honest simplicity of a kitchen that doesn't take itself too seriously but cares about the details.</p>
+        <p class="t-en">Guests come for the pizza — baked with just the right crunch — and the seafood pasta that many describe as the best in the area. Prices stay fair, the service is kind even when you don't speak Italian, and the atmosphere remains that of the village trattoria: warm, familiar, real.</p>
+      </div>
+      <div class="storia-visual">
+        <img src="./photos/photo_02.jpg" alt="Interno Escopocodisera">
+        <div class="storia-badge">
+          <span class="num">4.0</span>
+          <span class="lbl t-it">1.874 recensioni</span>
+          <span class="lbl t-en">1,874 reviews</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MENU ====== -->
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="menu-head">
+      <span class="eyebrow t-it">Dal nostro menu</span>
+      <span class="eyebrow t-en">From our menu</span>
+      <h2 class="section-title t-it">I piatti preferiti<br>dai nostri ospiti</h2>
+      <h2 class="section-title t-en">The dishes our<br>guests love most</h2>
+      <p class="lede t-it">Pochi piatti, fatti con cura. Tra i più richiesti, secondo chi ha lasciato la sua recensione.</p>
+      <p class="lede t-en">A short menu, prepared with care. These are the most loved, according to our guests.</p>
+    </div>
+
+    <div class="menu-grid">
+      <article class="dish">
+        <div class="dish-img"><img src="./photos/photo_03.jpg" alt="Pizza Margherita"></div>
+        <div class="dish-body">
+          <div class="dish-head">
+            <h3 class="t-it">Pizza Margherita</h3>
+            <h3 class="t-en">Margherita Pizza</h3>
+            <span class="price">€ 6</span>
+          </div>
+          <p class="t-it">Pomodoro, fiordilatte, basilico fresco. La classica che gli ospiti descrivono come "amazing" — croccante, leggera, dal giusto equilibrio.</p>
+          <p class="t-en">Tomato, fior di latte and fresh basil. The classic our guests call "amazing" — crisp, light, perfectly balanced.</p>
+          <span class="tag t-it">La più richiesta</span>
+          <span class="tag t-en">Most ordered</span>
+        </div>
+      </article>
+
+      <article class="dish">
+        <div class="dish-img"><img src="./photos/photo_04.jpg" alt="Pizza Siciliana"></div>
+        <div class="dish-body">
+          <div class="dish-head">
+            <h3 class="t-it">Pizza Siciliana</h3>
+            <h3 class="t-en">Sicilian Pizza</h3>
+            <span class="price">€ 9</span>
+          </div>
+          <p class="t-it">Pomodoro, capperi, olive nere, acciughe, origano. Saporita e decisa — una delle pizze più amate anche dai clienti stranieri.</p>
+          <p class="t-en">Tomato, capers, black olives, anchovies and oregano. Bold and aromatic — one of our visitors' favourites.</p>
+          <span class="tag t-it">Firma della casa</span>
+          <span class="tag t-en">House signature</span>
+        </div>
+      </article>
+
+      <article class="dish">
+        <div class="dish-img"><img src="./photos/photo_05.jpg" alt="Pasta ai Frutti di Mare"></div>
+        <div class="dish-body">
+          <div class="dish-head">
+            <h3 class="t-it">Pasta ai Frutti di Mare</h3>
+            <h3 class="t-en">Seafood Pasta</h3>
+            <span class="price">€ 14</span>
+          </div>
+          <p class="t-it">Linguine con cozze, vongole, gamberi e pomodorino fresco. "Delicious" — la descrizione dei nostri ospiti dice tutto.</p>
+          <p class="t-en">Linguine with mussels, clams, prawns and fresh cherry tomatoes. "Delicious" — in our guests' own words.</p>
+          <span class="tag t-it">Specialità di mare</span>
+          <span class="tag t-en">Seafood specialty</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== REVIEWS ====== -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-head">
+      <span class="eyebrow t-it">Dicono di noi</span>
+      <span class="eyebrow t-en">What they say</span>
+      <h2 class="section-title t-it">Le parole<br>dei nostri ospiti</h2>
+      <h2 class="section-title t-en">In our<br>guests' words</h2>
+      <p class="lede t-it">Recensioni verificate lasciate su Google da chi è venuto a trovarci.</p>
+      <p class="lede t-en">Verified Google reviews from guests who have visited us.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <article class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="t-it">"Il miglior ristorante della zona. Il servizio è stato gentilissimo anche se non parlavamo italiano. Cibo fantastico e anche economico. Un'atmosfera calda. La miglior esperienza di tutto il sud."</p>
+        <p class="t-en">"All out best restaurant near the area. The service was really nice even when we didn't speak italian. Food was fantastic and also cheap. The restaurant has warm atmosphere. Best experience in all south."</p>
+        <div class="review-author">
+          <div class="avatar">L</div>
+          <div>
+            <div class="review-name">Lukáš Kubíček</div>
+            <div class="review-source">Google</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="t-it">"Pasta deliziosa ai frutti di mare e un bel posto dove sedersi. Lo staff parla un po' di inglese, e questo è molto comodo!"</p>
+        <p class="t-en">"Delicious pasta with seafood, and a good place to sit. Staff can speak a little english so that is handy!"</p>
+        <div class="review-author">
+          <div class="avatar">M</div>
+          <div>
+            <div class="review-name">Minouk Broekers</div>
+            <div class="review-source">Google</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review">
+        <div class="review-stars">★★★★☆</div>
+        <p class="t-it">"Ottima pizza, prezzi bassi. La Margherita e la Siciliana erano fantastiche."</p>
+        <p class="t-en">"Very good pizza, low price. Margherita pizza and the Siciliana were amazing."</p>
+        <div class="review-author">
+          <div class="avatar">S</div>
+          <div>
+            <div class="review-name">Sandro Abdelhafith</div>
+            <div class="review-source">Google</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow t-it">Prenota un tavolo</span>
+        <span class="eyebrow t-en">Book a table</span>
+        <h2 class="section-title t-it">Ti aspettiamo<br>in piazza</h2>
+        <h2 class="section-title t-en">See you<br>on the square</h2>
+        <p class="lede t-it">Una chiamata, un messaggio WhatsApp o il modulo qui a lato: scegli come preferisci.</p>
+        <p class="lede t-en">A phone call, a WhatsApp message, or the form on the right — whichever suits you best.</p>
+
+        <ul class="info-list">
+          <li class="info-item">
+            <span class="info-label t-it">Indirizzo</span>
+            <span class="info-label t-en">Address</span>
+            <span class="info-value">Piazza Luigi Sturzo, 3<br>87028 Praia a Mare (CS)</span>
+          </li>
+          <li class="info-item">
+            <span class="info-label t-it">Telefono</span>
+            <span class="info-label t-en">Phone</span>
+            <span class="info-value"><a href="tel:+393773286295">+39 377 328 6295</a></span>
+          </li>
+          <li class="info-item">
+            <span class="info-label t-it">Orari</span>
+            <span class="info-label t-en">Hours</span>
+            <span class="info-value">
+              <div class="t-it">
+                <div class="hours-row"><span>Lunedì</span><span>Chiuso</span></div>
+                <div class="hours-row"><span>Mar–Ven</span><span>19:30 – 24:00</span></div>
+                <div class="hours-row"><span>Sabato</span><span>12:30 – 15:30 · 19:30 – 00:30</span></div>
+                <div class="hours-row"><span>Domenica</span><span>12:30 – 15:30 · 19:30 – 24:00</span></div>
+              </div>
+              <div class="t-en">
+                <div class="hours-row"><span>Monday</span><span>Closed</span></div>
+                <div class="hours-row"><span>Tue–Fri</span><span>7:30 PM – 12:00 AM</span></div>
+                <div class="hours-row"><span>Saturday</span><span>12:30 – 3:30 PM · 7:30 PM – 12:30 AM</span></div>
+                <div class="hours-row"><span>Sunday</span><span>12:30 – 3:30 PM · 7:30 PM – 12:00 AM</span></div>
+              </div>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <form class="booking" id="bookingForm">
+        <h3 class="t-it">Prenota il tuo tavolo</h3>
+        <h3 class="t-en">Reserve your table</h3>
+        <p class="sub t-it">Ti confermeremo in pochi minuti via WhatsApp.</p>
+        <p class="sub t-en">We'll confirm in a few minutes via WhatsApp.</p>
+
+        <div class="field">
+          <label for="nome" class="t-it">Nome</label>
+          <label for="nome" class="t-en">Name</label>
+          <input id="nome" name="nome" type="text" required>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="data" class="t-it">Data</label>
+            <label for="data" class="t-en">Date</label>
+            <input id="data" name="data" type="date" required>
+          </div>
+          <div class="field">
+            <label for="ora" class="t-it">Ora</label>
+            <label for="ora" class="t-en">Time</label>
+            <input id="ora" name="ora" type="time" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="persone" class="t-it">Persone</label>
+          <label for="persone" class="t-en">Guests</label>
+          <select id="persone" name="persone" required>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7+">7+</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="note" class="t-it">Note (tavolo fuori, celiaci, compleanni...)</label>
+          <label for="note" class="t-en">Notes (outside table, allergies, birthdays...)</label>
+          <textarea id="note" name="note" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn t-it">Invia su WhatsApp</button>
+        <button type="submit" class="btn t-en">Send via WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MAP ====== -->
+<section class="map-section">
+  <div class="map-wrap">
+    <iframe loading="lazy" src="https://www.google.com/maps?q=Escopocodisera+Piazza+Luigi+Sturzo+Praia+a+Mare&output=embed" title="Mappa Escopocodisera"></iframe>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="footer-logo">Escopoco<span>disera</span></a>
+        <p class="t-it">Ristorante pizzeria nel cuore di Praia a Mare, sulla costa tirrenica della Calabria. Pizza, pasta di mare e accoglienza sincera.</p>
+        <p class="t-en">A restaurant-pizzeria in the heart of Praia a Mare, on the Tyrrhenian coast of Calabria. Pizza, seafood pasta and honest hospitality.</p>
+      </div>
+      <div>
+        <h4 class="t-it">Contatti</h4>
+        <h4 class="t-en">Contact</h4>
+        <ul>
+          <li>Piazza Luigi Sturzo, 3</li>
+          <li>87028 Praia a Mare (CS)</li>
+          <li><a href="tel:+393773286295">+39 377 328 6295</a></li>
+          <li><a href="https://www.facebook.com/Escopocodiserapraia/" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="t-it">Navigazione</h4>
+        <h4 class="t-en">Navigation</h4>
+        <ul>
+          <li><a href="#storia" class="t-it">La nostra storia</a><a href="#storia" class="t-en">Our story</a></li>
+          <li><a href="#menu" class="t-it">Menu</a><a href="#menu" class="t-en">Menu</a></li>
+          <li><a href="#reviews" class="t-it">Recensioni</a><a href="#reviews" class="t-en">Reviews</a></li>
+          <li><a href="#contact" class="t-it">Prenota</a><a href="#contact" class="t-en">Book</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Escopocodisera · P.I. —</span>
+      <span><span class="t-it">Realizzato da</span><span class="t-en">Crafted by</span> <a href="https://viktoria.agency" target="_blank" rel="noopener">Viktoria Agency</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ====== WHATSAPP FLOAT ====== -->
+<a class="wa-float" id="waFloat" href="https://wa.me/393773286295?text=Buongiorno%2C%20vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.003 3.2C9.048 3.2 3.402 8.846 3.4 15.8a12.56 12.56 0 0 0 1.685 6.3L3.2 28.8l6.864-1.8a12.58 12.58 0 0 0 5.937 1.51h.005c6.954 0 12.6-5.646 12.603-12.6a12.52 12.52 0 0 0-3.692-8.912A12.5 12.5 0 0 0 16.003 3.2Zm0 22.92h-.004a10.46 10.46 0 0 1-5.329-1.46l-.382-.228-3.97 1.042 1.06-3.87-.25-.396a10.43 10.43 0 0 1-1.6-5.608c.003-5.78 4.706-10.48 10.48-10.48a10.41 10.41 0 0 1 7.41 3.073 10.41 10.41 0 0 1 3.067 7.414c-.003 5.78-4.706 10.48-10.482 10.48Zm5.748-7.848c-.315-.158-1.864-.92-2.154-1.025-.288-.105-.498-.158-.708.158-.21.315-.813 1.025-.996 1.236-.184.21-.367.236-.682.079-.315-.158-1.33-.49-2.534-1.563-.937-.836-1.568-1.867-1.752-2.182-.184-.315-.02-.485.138-.642.142-.141.315-.368.472-.552.158-.184.21-.315.315-.525.105-.21.053-.394-.026-.552-.079-.158-.708-1.706-.97-2.337-.256-.614-.516-.53-.708-.54l-.603-.011a1.16 1.16 0 0 0-.84.394c-.288.315-1.102 1.077-1.102 2.625s1.128 3.044 1.286 3.254c.158.21 2.22 3.39 5.38 4.755.751.325 1.338.518 1.795.664.754.24 1.44.206 1.982.125.605-.09 1.864-.762 2.127-1.498.263-.736.263-1.367.184-1.498-.079-.132-.288-.21-.603-.368Z"/></svg>
+</a>
+
+<script>
+  // Language switcher
+  const setLang = (l) => {
+    document.body.classList.remove('lang-it','lang-en');
+    document.body.classList.add('lang-'+l);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+    // Update WA float default message
+    const wa = document.getElementById('waFloat');
+    const msgs = {
+      it: 'Buongiorno, vorrei prenotare un tavolo.',
+      en: 'Hello, I would like to book a table.'
+    };
+    wa.href = `https://wa.me/393773286295?text=${encodeURIComponent(msgs[l])}`;
+  };
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // Mobile nav
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Booking form → WhatsApp
+  const form = document.getElementById('bookingForm');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const lang = document.body.classList.contains('lang-en') ? 'en' : 'it';
+    const templates = {
+      it: `Buongiorno, vorrei prenotare un tavolo:\n\nNome: ${fd.get('nome')}\nData: ${fd.get('data')}\nOra: ${fd.get('ora')}\nPersone: ${fd.get('persone')}\nNote: ${fd.get('note') || '—'}`,
+      en: `Hello, I'd like to book a table:\n\nName: ${fd.get('nome')}\nDate: ${fd.get('data')}\nTime: ${fd.get('ora')}\nGuests: ${fd.get('persone')}\nNotes: ${fd.get('note') || '—'}`
+    };
+    window.open(`https://wa.me/393773286295?text=${encodeURIComponent(templates[lang])}`, '_blank');
+  });
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
