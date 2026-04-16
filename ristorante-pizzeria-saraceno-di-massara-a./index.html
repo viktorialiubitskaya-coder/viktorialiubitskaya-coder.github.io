@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ristorante Pizzeria Saraceno — Praia a Mare | Vista Isola Dino</title>
+<meta name="description" content="Ristorante e pizzeria sul mare a Praia a Mare con terrazza panoramica sull'Isola di Dino. Cucina calabrese, pesce fresco e pizza tradizionale.">
+<meta name="keywords" content="ristorante Praia a Mare, pizzeria Praia a Mare, Saraceno, Isola di Dino, vista mare Calabria, cucina calabrese">
+<meta property="og:title" content="Ristorante Pizzeria Saraceno — Praia a Mare">
+<meta property="og:description" content="Terrazza panoramica sull'Isola di Dino, cucina calabrese e pizza tradizionale.">
+<meta property="og:image" content="./photos/photo_00.jpg">
+<meta property="og:url" content="https://saraceno-praia.it">
+<meta property="og:type" content="restaurant">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ristorante Pizzeria Saraceno">
+<meta name="twitter:description" content="Vista sull'Isola di Dino, cucina calabrese autentica.">
+<meta name="twitter:image" content="./photos/photo_00.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍕</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Ristorante Pizzeria Saraceno",
+  "image":"./photos/photo_00.jpg",
+  "address":{"@type":"PostalAddress","streetAddress":"SS18, Km 250, Via Saracinello","addressLocality":"Praia a Mare","addressRegion":"CS","postalCode":"87028","addressCountry":"IT"},
+  "telephone":"+390985777675",
+  "priceRange":"€€",
+  "servesCuisine":["Italian","Calabrese","Pizza"],
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.1","reviewCount":"538"},
+  "openingHours":["Tu-Fr 18:00-24:00","Sa-Su 12:00-24:00"]
+}
+</script>
+<style>
+:root{
+  --primary:#474443;
+  --secondary:#cfd0d2;
+  --accent:#938f8c;
+  --light:#f5f3f0;
+  --dark:#0e0908;
+  --terracotta:#9c6c51;
+  --sunset:#d0816a;
+  --paper:#faf7f2;
+  --ink:#1c1917;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Marcellus',serif;font-weight:400;letter-spacing:.01em;line-height:1.15;color:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ===== Language switching ===== */
+.t-en{display:none !important}
+body.lang-en .t-it{display:none !important}
+body.lang-en .t-en{display:revert !important}
+
+/* ===== Navigation ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:22px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background .4s ease, padding .4s ease, box-shadow .4s ease;
+  background:transparent;
+}
+.nav.scrolled{
+  background:rgba(250,247,242,.96);
+  backdrop-filter:blur(12px);
+  padding:14px 48px;
+  box-shadow:0 1px 0 rgba(0,0,0,.06);
+}
+.nav-logo{
+  font-family:'Marcellus',serif;
+  font-size:22px;
+  color:#fff;
+  letter-spacing:.08em;
+  transition:color .4s ease;
+}
+.nav.scrolled .nav-logo{color:var(--ink)}
+.nav-logo span{display:block;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.3em;opacity:.8;margin-top:2px}
+.nav-links{display:flex;gap:38px;align-items:center}
+.nav-links a{
+  font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#fff;
+  transition:color .3s;position:relative;
+}
+.nav.scrolled .nav-links a{color:var(--ink)}
+.nav-links a:hover{color:var(--sunset)}
+.nav.scrolled .nav-links a:hover{color:var(--terracotta)}
+.lang-switcher{display:flex;gap:6px;margin-left:18px;padding-left:22px;border-left:1px solid rgba(255,255,255,.28)}
+.nav.scrolled .lang-switcher{border-left-color:rgba(0,0,0,.12)}
+.lang-btn{
+  font-family:'Jost',sans-serif;
+  font-size:11px;letter-spacing:.14em;
+  padding:6px 11px;
+  border:1px solid rgba(255,255,255,.4);
+  background:transparent;color:#fff;
+  cursor:pointer;transition:all .3s;
+  text-transform:uppercase;
+}
+.lang-btn:hover{border-color:#fff}
+.lang-btn.active{color:#1a1a1a;background:#fff;border-color:#fff}
+.nav.scrolled .lang-btn{color:var(--ink);border-color:rgba(0,0,0,.2)}
+.nav.scrolled .lang-btn:hover{border-color:var(--terracotta)}
+.nav.scrolled .lang-btn.active{color:#fff;background:var(--terracotta);border-color:var(--terracotta)}
+.nav-toggle{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+.nav.scrolled .nav-toggle{color:var(--ink)}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;height:100vh;min-height:640px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;text-align:center;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:1;
+  background:url('./photos/photo_00.jpg') center/cover no-repeat;
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(14,9,8,.35) 0%,rgba(14,9,8,.55) 60%,rgba(14,9,8,.75) 100%);
+}
+.hero-content{position:relative;z-index:2;max-width:880px;padding:0 32px}
+.hero-eyebrow{
+  font-family:'Jost',sans-serif;
+  font-size:11px;letter-spacing:.5em;text-transform:uppercase;
+  opacity:.85;margin-bottom:28px;
+  display:flex;align-items:center;justify-content:center;gap:16px;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{
+  content:'';height:1px;width:40px;background:rgba(255,255,255,.6);
+}
+.hero h1{
+  font-size:clamp(48px,8vw,96px);
+  color:#fff;
+  margin-bottom:20px;
+  line-height:1.02;
+  font-weight:400;
+}
+.hero-tagline{
+  font-family:'Marcellus',serif;
+  font-style:italic;
+  font-size:clamp(17px,2vw,22px);
+  opacity:.9;
+  max-width:580px;margin:0 auto 42px;
+  letter-spacing:.02em;
+}
+.hero-meta{
+  display:flex;justify-content:center;gap:36px;flex-wrap:wrap;
+  margin-bottom:42px;
+  font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+}
+.hero-meta span{display:flex;align-items:center;gap:10px}
+.hero-meta .stars{color:#e8b85d;letter-spacing:2px;font-size:14px}
+.hero-cta{
+  display:inline-block;
+  padding:17px 44px;
+  background:var(--terracotta);
+  color:#fff;
+  font-family:'Jost',sans-serif;
+  font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+  transition:all .35s cubic-bezier(.2,.8,.2,1);
+  border:1px solid var(--terracotta);
+}
+.hero-cta:hover{background:transparent;color:#fff;border-color:#fff;transform:translateY(-2px)}
+.hero-scroll{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  z-index:2;font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+  opacity:.7;display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.hero-scroll::after{
+  content:'';width:1px;height:40px;background:#fff;opacity:.5;
+  animation:scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine{0%,100%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+/* ===== Sections ===== */
+section{padding:120px 48px;position:relative}
+.section-light{background:var(--paper)}
+.section-tinted{background:#ede8e0}
+.section-dark{background:var(--ink);color:var(--paper)}
+.section-dark h2,.section-dark h3{color:var(--paper)}
+.container{max-width:1240px;margin:0 auto}
+.section-label{
+  font-family:'Jost',sans-serif;
+  font-size:11px;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--terracotta);margin-bottom:18px;
+  display:flex;align-items:center;gap:14px;
+}
+.section-label::before{content:'';width:28px;height:1px;background:var(--terracotta)}
+.section-title{
+  font-size:clamp(36px,5vw,60px);
+  margin-bottom:28px;
+  max-width:720px;
+}
+
+/* ===== Storia ===== */
+.storia{display:grid;grid-template-columns:1.1fr 1fr;gap:90px;align-items:center}
+.storia-text p{
+  font-size:16px;color:#4a453f;margin-bottom:20px;
+}
+.storia-text p:first-of-type{
+  font-family:'Marcellus',serif;
+  font-size:22px;line-height:1.5;color:var(--ink);
+  margin-bottom:28px;font-style:italic;
+}
+.storia-image{
+  position:relative;
+}
+.storia-image img{
+  width:100%;aspect-ratio:4/5;object-fit:cover;
+  box-shadow:20px 20px 0 var(--sunset);
+}
+.storia-ornament{
+  margin-top:42px;display:flex;gap:32px;align-items:center;
+  font-family:'Marcellus',serif;font-style:italic;font-size:15px;color:var(--accent);
+}
+.storia-ornament::before{content:'';width:50px;height:1px;background:var(--accent)}
+
+/* ===== Menu ===== */
+.menu-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:40px;
+  margin-top:64px;
+}
+.menu-card{
+  background:var(--paper);
+  overflow:hidden;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;
+  position:relative;
+}
+.menu-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(14,9,8,.3)}
+.menu-card-img{aspect-ratio:4/3;overflow:hidden;position:relative}
+.menu-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.menu-card:hover .menu-card-img img{transform:scale(1.06)}
+.menu-card-body{padding:30px 28px 34px}
+.menu-card-tag{
+  font-family:'Jost',sans-serif;
+  font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--sunset);margin-bottom:10px;
+}
+.menu-card h3{font-size:24px;margin-bottom:10px}
+.menu-card p{font-size:14px;color:#635a52;margin-bottom:18px;line-height:1.55}
+.menu-card-price{
+  font-family:'Marcellus',serif;
+  font-size:18px;color:var(--ink);
+  padding-top:16px;border-top:1px solid rgba(0,0,0,.08);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.menu-card-price small{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+
+/* ===== Reviews ===== */
+.reviews-header{text-align:center;margin-bottom:60px}
+.reviews-header .section-label{justify-content:center}
+.reviews-header .section-label::before{background:var(--sunset)}
+.reviews-header .section-label{color:var(--sunset)}
+.reviews-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+}
+.review{
+  padding:38px 32px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  position:relative;
+}
+.review-stars{color:#e8b85d;letter-spacing:3px;margin-bottom:18px;font-size:14px}
+.review-text{
+  font-family:'Marcellus',serif;
+  font-size:16px;line-height:1.65;font-style:italic;
+  color:#ddd8cf;margin-bottom:26px;
+}
+.review-author{display:flex;align-items:center;gap:14px}
+.review-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--terracotta);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Marcellus',serif;color:#fff;font-size:18px;
+}
+.review-author-name{font-size:14px;color:var(--paper);font-weight:500}
+.review-author-source{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-top:2px}
+
+/* ===== Contact ===== */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-info h2{margin-bottom:28px}
+.contact-intro{font-size:17px;color:#4a453f;margin-bottom:42px;max-width:480px;line-height:1.65}
+.contact-list{list-style:none}
+.contact-list li{
+  display:flex;gap:20px;padding:22px 0;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.contact-list li:last-child{border-bottom:none}
+.contact-icon{
+  width:42px;height:42px;flex-shrink:0;
+  background:var(--light);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+}
+.contact-label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.contact-value{font-family:'Marcellus',serif;font-size:18px;color:var(--ink);line-height:1.4}
+.contact-hours-row{display:flex;justify-content:space-between;font-size:14px;padding:4px 0}
+.contact-hours-row.closed{color:var(--accent)}
+.contact-hours-row span:last-child{font-family:'Jost',sans-serif;font-variant-numeric:tabular-nums}
+
+.booking-form{
+  background:var(--paper);
+  padding:48px 42px;
+  border:1px solid rgba(0,0,0,.08);
+}
+.booking-form h3{font-size:26px;margin-bottom:8px}
+.booking-form-intro{font-size:13px;color:var(--accent);margin-bottom:28px;letter-spacing:.05em}
+.form-group{margin-bottom:20px}
+.form-group label{
+  display:block !important;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:8px;
+}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;padding:14px 16px;
+  border:1px solid rgba(0,0,0,.12);background:#fff;
+  font-family:'Jost',sans-serif;font-size:15px;color:var(--ink);
+  transition:border-color .3s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--terracotta);
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit{
+  width:100%;padding:17px;
+  background:var(--terracotta);color:#fff;
+  border:1px solid var(--terracotta);
+  font-family:'Jost',sans-serif;
+  font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+  cursor:pointer;transition:all .35s;
+  margin-top:8px;
+}
+.form-submit:hover{background:var(--ink);border-color:var(--ink)}
+
+/* ===== Map ===== */
+.map-section{padding:0;position:relative}
+.map-section iframe{
+  width:100%;height:480px;border:0;display:block;
+  filter:grayscale(.3) contrast(1.05);
+}
+
+/* ===== Footer ===== */
+footer{
+  background:var(--ink);color:#a8a39a;
+  padding:80px 48px 32px;
+}
+.footer-grid{
+  max-width:1240px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;
+  padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.footer-brand-name{
+  font-family:'Marcellus',serif;font-size:28px;color:#fff;
+  letter-spacing:.04em;margin-bottom:14px;
+}
+.footer-brand p{font-size:14px;line-height:1.7;max-width:340px}
+.footer-col h4{
+  font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+  color:#fff;margin-bottom:20px;font-weight:500;
+}
+.footer-col p,.footer-col a{display:block;font-size:14px;margin-bottom:10px;color:#a8a39a;transition:color .3s}
+.footer-col a:hover{color:var(--sunset)}
+.footer-bottom{
+  max-width:1240px;margin:32px auto 0;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  font-size:12px;letter-spacing:.06em;color:#716c64;
+}
+.footer-bottom a{color:var(--sunset)}
+
+/* ===== WhatsApp Float ===== */
+.wa-float{
+  position:fixed;bottom:24px;right:24px;z-index:999;
+  width:58px;height:58px;border-radius:50%;
+  background:#25d366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 32px rgba(37,211,102,.45);
+  transition:transform .3s;
+}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:28px;height:28px}
+
+/* ===== Decorative divider ===== */
+.divider{
+  display:flex;align-items:center;justify-content:center;gap:20px;
+  margin:0 auto 50px;max-width:500px;
+  color:var(--accent);
+}
+.divider::before,.divider::after{content:'';height:1px;flex:1;background:rgba(0,0,0,.12)}
+.divider svg{width:18px;height:18px;opacity:.6}
+
+/* ===== Mobile ===== */
+@media (max-width:768px){
+  .nav{padding:16px 20px}
+  .nav.scrolled{padding:12px 20px}
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    background:var(--paper);flex-direction:column;gap:0;
+    padding:20px;box-shadow:0 20px 40px rgba(0,0,0,.1);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{
+    color:var(--ink);padding:14px 0;
+    border-bottom:1px solid rgba(0,0,0,.06);width:100%;
+  }
+  .nav.scrolled .nav-links a{color:var(--ink)}
+  .lang-switcher{
+    margin-left:0;padding-left:0;border-left:none;
+    border-top:1px solid rgba(0,0,0,.08);
+    padding-top:18px;margin-top:10px;width:100%;justify-content:center;
+  }
+  .nav.scrolled .lang-switcher{border-top-color:rgba(0,0,0,.08);border-left:none}
+  .lang-btn{color:var(--ink);border-color:rgba(0,0,0,.2)}
+  .nav-toggle{display:block}
+  .nav-logo{font-size:18px}
+
+  .hero{min-height:560px;height:85vh}
+  .hero-meta{gap:18px;font-size:11px}
+  .hero-eyebrow{font-size:10px;letter-spacing:.35em}
+  .hero-eyebrow::before,.hero-eyebrow::after{width:22px}
+
+  section{padding:72px 24px}
+  .section-title{font-size:34px}
+
+  .storia{grid-template-columns:1fr;gap:48px}
+  .storia-image img{box-shadow:12px 12px 0 var(--sunset)}
+  .storia-ornament{margin-top:28px;font-size:13px}
+
+  .menu-grid{grid-template-columns:1fr;gap:28px;margin-top:44px}
+  .menu-card-body{padding:24px 22px 28px}
+
+  .reviews-grid{grid-template-columns:1fr;gap:20px}
+  .review{padding:30px 24px}
+
+  .contact{grid-template-columns:1fr;gap:48px}
+  .booking-form{padding:36px 24px}
+  .form-row{grid-template-columns:1fr}
+
+  .map-section iframe{height:340px}
+
+  footer{padding:60px 24px 28px}
+  .footer-grid{grid-template-columns:1fr;gap:40px;padding-bottom:36px}
+  .footer-bottom{flex-direction:column;text-align:center}
+
+  .wa-float{width:52px;height:52px;bottom:18px;right:18px}
+  .wa-float svg{width:24px;height:24px}
+}
+
+@media (max-width:480px){
+  .hero h1{font-size:44px}
+  .section-title{font-size:28px}
+  .hero-meta{flex-direction:column;gap:12px}
+}
+</style>
+</head>
+<body class="lang-it">
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-logo">
+    Saraceno
+    <span class="t-it">Ristorante · Pizzeria</span>
+    <span class="t-en">Restaurant · Pizzeria</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#storia" class="t-it">Storia</a>
+    <a href="#storia" class="t-en">Story</a>
+    <a href="#menu" class="t-it">Menu</a>
+    <a href="#menu" class="t-en">Menu</a>
+    <a href="#recensioni" class="t-it">Recensioni</a>
+    <a href="#recensioni" class="t-en">Reviews</a>
+    <a href="#contatti" class="t-it">Contatti</a>
+    <a href="#contatti" class="t-en">Contact</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="it">IT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="t-it">Praia a Mare · Calabria</span>
+      <span class="t-en">Praia a Mare · Calabria</span>
+    </div>
+    <h1>
+      <span class="t-it">Saraceno</span>
+      <span class="t-en">Saraceno</span>
+    </h1>
+    <p class="hero-tagline">
+      <span class="t-it">Terrazza sul mare con vista sull'Isola di Dino — cucina calabrese e pizza tradizionale dal 1985.</span>
+      <span class="t-en">Seaside terrace overlooking Dino Island — Calabrian cuisine and traditional pizza since 1985.</span>
+    </p>
+    <div class="hero-meta">
+      <span>
+        <span class="stars">★★★★☆</span>
+        <span>4.1 · 538 <span class="t-it">recensioni</span><span class="t-en">reviews</span></span>
+      </span>
+      <span>
+        <span class="t-it">Vista Isola di Dino</span>
+        <span class="t-en">Dino Island view</span>
+      </span>
+    </div>
+    <a href="#contatti" class="hero-cta t-it">Prenota il tuo tavolo</a>
+    <a href="#contatti" class="hero-cta t-en">Reserve your table</a>
+  </div>
+  <div class="hero-scroll">
+    <span class="t-it">Scorri</span>
+    <span class="t-en">Scroll</span>
+  </div>
+</section>
+
+<!-- ============ STORIA ============ -->
+<section class="section-light" id="storia">
+  <div class="container">
+    <div class="storia">
+      <div class="storia-text">
+        <div class="section-label">
+          <span class="t-it">La nostra storia</span>
+          <span class="t-en">Our story</span>
+        </div>
+        <h2 class="section-title">
+          <span class="t-it">Dove il mare incontra la tavola</span>
+          <span class="t-en">Where the sea meets the table</span>
+        </h2>
+        <p>
+          <span class="t-it">Affacciati sull'Isola di Dino, al chilometro 250 della Statale Jonica, accogliamo ospiti da oltre tre decenni con una promessa semplice: portare in tavola il sapore autentico della Calabria, con vista sul suo tratto di costa più amato.</span>
+          <span class="t-en">Overlooking Dino Island, on the 250th kilometre of the Ionian State Road, we've welcomed guests for over three decades with a simple promise: to bring the authentic flavour of Calabria to your table, with a view of its most beloved stretch of coast.</span>
+        </p>
+        <p>
+          <span class="t-it">La nostra terrazza panoramica è famosa tra chi cerca il tramonto più bello della zona: un bicchiere di spumante all'arrivo, il profumo del pane caldo, e davanti a voi l'isola, il mare, la scogliera. Qui ogni cena è una ricorrenza.</span>
+          <span class="t-en">Our panoramic terrace is known to those seeking the area's most beautiful sunset: a glass of sparkling wine on arrival, the scent of warm bread, and before you the island, the sea, the cliffs. Here every dinner is a celebration.</span>
+        </p>
+        <p>
+          <span class="t-it">Il pesce arriva dalla costa tirrenica, la pizza esce dal forno a legna con l'impasto di nostra tradizione, e la nostra pasticceria — la cheesecake in particolare — ha fatto innamorare ospiti venuti da ogni parte del mondo.</span>
+          <span class="t-en">The fish comes from the Tyrrhenian coast, the pizza from our wood-fired oven with our traditional dough, and our pastry — the cheesecake in particular — has won the hearts of guests from all over the world.</span>
+        </p>
+        <div class="storia-ornament">
+          <span class="t-it">Dal 1985 · a Praia a Mare</span>
+          <span class="t-en">Since 1985 · in Praia a Mare</span>
+        </div>
+      </div>
+      <div class="storia-image">
+        <img src="./photos/photo_03.jpg" alt="Saraceno terrace view">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="section-tinted" id="menu">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-label" style="justify-content:center">
+        <span class="t-it">Il menu</span>
+        <span class="t-en">The menu</span>
+      </div>
+      <h2 class="section-title" style="margin-left:auto;margin-right:auto;text-align:center">
+        <span class="t-it">Assaggi di Calabria</span>
+        <span class="t-en">Tastes of Calabria</span>
+      </h2>
+      <div class="divider">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5z"/></svg>
+      </div>
+    </div>
+    <div class="menu-grid">
+      <article class="menu-card">
+        <div class="menu-card-img"><img src="./photos/photo_05.jpg" alt="Pesce fresco"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-tag">
+            <span class="t-it">Dal mare</span>
+            <span class="t-en">From the sea</span>
+          </div>
+          <h3>
+            <span class="t-it">Antipasti di Pesce</span>
+            <span class="t-en">Seafood Antipasti</span>
+          </h3>
+          <p>
+            <span class="t-it">Alici marinate, polpo tiepido, gamberi crudi e crudaiole del Tirreno — serviti con olio di Calabria e pane caldo.</span>
+            <span class="t-en">Marinated anchovies, warm octopus, raw prawns and Tyrrhenian tartares — served with Calabrian oil and warm bread.</span>
+          </p>
+          <div class="menu-card-price">
+            <span>€ 22</span>
+            <small>
+              <span class="t-it">Stagionale</span>
+              <span class="t-en">Seasonal</span>
+            </small>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img"><img src="./photos/photo_06.jpg" alt="Pizza tradizionale"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-tag">
+            <span class="t-it">Forno a legna</span>
+            <span class="t-en">Wood-fired</span>
+          </div>
+          <h3>
+            <span class="t-it">Pizza ai Frutti di Mare</span>
+            <span class="t-en">Seafood Pizza</span>
+          </h3>
+          <p>
+            <span class="t-it">La nostra pizza più amata: impasto a lunga lievitazione, pomodoro San Marzano, cozze, vongole, gamberi e un filo di prezzemolo fresco.</span>
+            <span class="t-en">Our most beloved pizza: long-proofed dough, San Marzano tomato, mussels, clams, prawns and a drizzle of fresh parsley.</span>
+          </p>
+          <div class="menu-card-price">
+            <span>€ 14</span>
+            <small>
+              <span class="t-it">Specialità</span>
+              <span class="t-en">Signature</span>
+            </small>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img"><img src="./photos/photo_08.jpg" alt="Cheesecake"></div>
+        <div class="menu-card-body">
+          <div class="menu-card-tag">
+            <span class="t-it">La dolcezza</span>
+            <span class="t-en">Something sweet</span>
+          </div>
+          <h3>
+            <span class="t-it">Cheesecake della Casa</span>
+            <span class="t-en">House Cheesecake</span>
+          </h3>
+          <p>
+            <span class="t-it">Secondo i nostri ospiti "la migliore mai assaggiata": base croccante, crema vellutata, coulis di frutti rossi della Calabria.</span>
+            <span class="t-en">According to our guests "the best ever tasted": crunchy base, velvety cream, red berry coulis from Calabria.</span>
+          </p>
+          <div class="menu-card-price">
+            <span>€ 8</span>
+            <small>
+              <span class="t-it">Cult</span>
+              <span class="t-en">Cult</span>
+            </small>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECENSIONI ============ -->
+<section class="section-dark" id="recensioni">
+  <div class="container">
+    <div class="reviews-header">
+      <div class="section-label">
+        <span class="t-it">Le voci dei nostri ospiti</span>
+        <span class="t-en">Our guests' voices</span>
+      </div>
+      <h2 class="section-title" style="margin:0 auto;color:var(--paper)">
+        <span class="t-it">Quattrocinquantotto motivi per tornare</span>
+        <span class="t-en">Five-hundred reasons to come back</span>
+      </h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          <span class="t-it">"Che esperienza fantastica per il nostro anniversario. All'arrivo ci hanno offerto un calice di spumante, e ci hanno sistemato davanti alla vista mozzafiato dell'isola."</span>
+          <span class="t-en">"What a fantastic experience we had on our annual anniversary. Upon reception we were given a glass of sparkling wine. We were positioned at the front over looking the breathtaking view of the island."</span>
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">T</div>
+          <div>
+            <div class="review-author-name">Thermoman69691</div>
+            <div class="review-author-source">Tripadvisor</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          <span class="t-it">"La terrazza ha una vista eccezionale, andateci per pranzo o poco prima del tramonto. Staff attento, cibo straordinario… la cheesecake migliore che abbia mai assaggiato."</span>
+          <span class="t-en">"The terrasse has an exceptional view, go there for lunch or just before sunset. Very calm place, caring staff, the food was amazing… best cheesecake I have ever tasted."</span>
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">I</div>
+          <div>
+            <div class="review-author-name">Issam Elleuch</div>
+            <div class="review-author-source">Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          <span class="t-it">"Viste incredibili e cibo davvero buono. Uno di quei posti in Calabria dove torni volentieri appena ne hai l'occasione."</span>
+          <span class="t-en">"The views are amazing, food was really good. One of those places in Calabria you happily return to whenever you have the chance."</span>
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">K</div>
+          <div>
+            <div class="review-author-name">Kevin Adams</div>
+            <div class="review-author-source">Google</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATTI ============ -->
+<section class="section-light" id="contatti">
+  <div class="container">
+    <div class="contact">
+      <div class="contact-info">
+        <div class="section-label">
+          <span class="t-it">Prenotazioni</span>
+          <span class="t-en">Reservations</span>
+        </div>
+        <h2>
+          <span class="t-it">Vi aspettiamo</span>
+          <span class="t-en">We look forward to you</span>
+        </h2>
+        <p class="contact-intro">
+          <span class="t-it">Il tavolo con vista va prenotato. Chiamateci, scriveteci su WhatsApp o compilate il modulo: vi ricontatteremo per confermare.</span>
+          <span class="t-en">The view table requires booking. Call us, message us on WhatsApp or fill in the form: we'll get back to confirm.</span>
+        </p>
+        <ul class="contact-list">
+          <li>
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">
+                <span class="t-it">Indirizzo</span>
+                <span class="t-en">Address</span>
+              </div>
+              <div class="contact-value">SS18, Km 250<br>Via Saracinello · 87028 Praia a Mare (CS)</div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-label">
+                <span class="t-it">Telefono</span>
+                <span class="t-en">Phone</span>
+              </div>
+              <div class="contact-value"><a href="tel:+390985777675">+39 0985 777675</a></div>
+            </div>
+          </li>
+          <li>
+            <div class="contact-icon">🕒</div>
+            <div style="flex:1">
+              <div class="contact-label">
+                <span class="t-it">Orari di apertura</span>
+                <span class="t-en">Opening hours</span>
+              </div>
+              <div style="margin-top:10px">
+                <div class="contact-hours-row closed"><span><span class="t-it">Lunedì</span><span class="t-en">Monday</span></span><span><span class="t-it">Chiuso</span><span class="t-en">Closed</span></span></div>
+                <div class="contact-hours-row"><span><span class="t-it">Mar–Ven</span><span class="t-en">Tue–Fri</span></span><span>18:00 – 24:00</span></div>
+                <div class="contact-hours-row"><span><span class="t-it">Sab–Dom</span><span class="t-en">Sat–Sun</span></span><span>12:00 – 24:00</span></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <form class="booking-form" id="bookingForm">
+        <h3>
+          <span class="t-it">Richiedi un tavolo</span>
+          <span class="t-en">Request a table</span>
+        </h3>
+        <p class="booking-form-intro">
+          <span class="t-it">Conferma via WhatsApp in pochi secondi</span>
+          <span class="t-en">Confirmed via WhatsApp in seconds</span>
+        </p>
+
+        <div class="form-group">
+          <label for="nome" class="t-it">Nome e cognome</label>
+          <label for="nome" class="t-en">Full name</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="data" class="t-it">Data</label>
+            <label for="data" class="t-en">Date</label>
+            <input type="date" id="data" name="data" required>
+          </div>
+          <div class="form-group">
+            <label for="persone" class="t-it">Persone</label>
+            <label for="persone" class="t-en">Guests</label>
+            <select id="persone" name="persone" required>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7+">7+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ora" class="t-it">Orario preferito</label>
+          <label for="ora" class="t-en">Preferred time</label>
+          <input type="time" id="ora" name="ora">
+        </div>
+
+        <div class="form-group">
+          <label for="note" class="t-it">Note (allergie, occasioni speciali, tavolo vista)</label>
+          <label for="note" class="t-en">Notes (allergies, occasions, view table)</label>
+          <textarea id="note" name="note" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">
+          <span class="t-it">Invia via WhatsApp</span>
+          <span class="t-en">Send via WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAP ============ -->
+<section class="map-section">
+  <iframe
+    src="https://www.google.com/maps?q=Ristorante+Pizzeria+Saraceno+Praia+a+Mare&output=embed"
+    loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    title="Saraceno Praia a Mare"></iframe>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Saraceno</div>
+      <p>
+        <span class="t-it">Ristorante e pizzeria sul mare, a Praia a Mare, con vista sull'Isola di Dino. Cucina calabrese e pizza tradizionale dal 1985.</span>
+        <span class="t-en">Seaside restaurant and pizzeria in Praia a Mare, overlooking Dino Island. Calabrian cuisine and traditional pizza since 1985.</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4><span class="t-it">Contatti</span><span class="t-en">Contact</span></h4>
+      <p>SS18, Km 250</p>
+      <p>Via Saracinello</p>
+      <p>87028 Praia a Mare (CS)</p>
+      <a href="tel:+390985777675">+39 0985 777675</a>
+    </div>
+    <div class="footer-col">
+      <h4><span class="t-it">Menu</span><span class="t-en">Menu</span></h4>
+      <a href="#storia"><span class="t-it">La nostra storia</span><span class="t-en">Our story</span></a>
+      <a href="#menu"><span class="t-it">Il menu</span><span class="t-en">The menu</span></a>
+      <a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a>
+      <a href="#contatti"><span class="t-it">Prenotazioni</span><span class="t-en">Reservations</span></a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© <span id="year"></span> Ristorante Saraceno · P.IVA <span class="t-it">riservata</span><span class="t-en">available on request</span></div>
+    <div><span class="t-it">Sito realizzato da</span><span class="t-en">Website by</span> <a href="https://viktoria.agency" target="_blank" rel="noopener">Viktoria Agency</a></div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP ============ -->
+<a href="https://wa.me/390985777675?text=Buongiorno%2C%20vorrei%20informazioni%20sul%20ristorante%20Saraceno" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Language switcher
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const l=btn.dataset.lang;
+    document.body.classList.remove('lang-it','lang-en');
+    document.body.classList.add('lang-'+l);
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b===btn));
+  });
+});
+
+// Nav scroll state
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>60);
+});
+
+// Mobile menu
+document.getElementById('navToggle').addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+// Booking form → WhatsApp
+document.getElementById('bookingForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const fd=new FormData(e.target);
+  const isEn=document.body.classList.contains('lang-en');
+  const msg=isEn
+    ? `Hello, I'd like to book a table:\nName: ${fd.get('nome')}\nDate: ${fd.get('data')}\nGuests: ${fd.get('persone')}\nTime: ${fd.get('ora')||'—'}\nNotes: ${fd.get('note')||'—'}`
+    : `Buongiorno, vorrei prenotare un tavolo:\nNome: ${fd.get('nome')}\nData: ${fd.get('data')}\nPersone: ${fd.get('persone')}\nOrario: ${fd.get('ora')||'—'}\nNote: ${fd.get('note')||'—'}`;
+  window.open(`https://wa.me/390985777675?text=${encodeURIComponent(msg)}`,'_blank');
+});
+
+// Year
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
