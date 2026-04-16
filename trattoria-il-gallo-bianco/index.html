@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trattoria Il Gallo Bianco · Cucina Calabrese Autentica · Scalea</title>
+<meta name="description" content="Trattoria familiare a Scalea (CS). Angela e Francesco ti accolgono con stufato di capra, fusilli al ragù, antipasti calabresi e peperoncino locale. ⭐ 4.7 · 315 recensioni.">
+<meta name="keywords" content="trattoria scalea, ristorante calabrese, stufato di capra, cucina casalinga, Sant'Angelo, peperoncino calabrese, Angela Francesco, Gallo Bianco">
+<meta property="og:title" content="Trattoria Il Gallo Bianco · Cucina Calabrese Autentica">
+<meta property="og:description" content="Gestione familiare, stufato di capra, fusilli al ragù e antipasti misti. L'ospitalità di Angela e Francesco a Sant'Angelo, Scalea.">
+<meta property="og:image" content="./photos/photo_09.jpg">
+<meta property="og:url" content="https://trattoriailgallobianco.it">
+<meta property="og:type" content="restaurant.restaurant">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trattoria Il Gallo Bianco · Scalea">
+<meta name="twitter:description" content="Cucina calabrese autentica sotto la pergola di viti. ⭐ 4.7 · 315 recensioni.">
+<meta name="twitter:image" content="./photos/photo_09.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐓</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Trattoria Il Gallo Bianco",
+  "image":["./photos/photo_09.jpg","./photos/photo_08.jpg","./photos/photo_02.jpg"],
+  "address":{"@type":"PostalAddress","streetAddress":"Località Sant'Angelo","addressLocality":"Scalea","addressRegion":"CS","postalCode":"87029","addressCountry":"IT"},
+  "telephone":"+393935791566",
+  "url":"https://trattoriailgallobianco.it",
+  "priceRange":"€",
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"315"},
+  "servesCuisine":["Italian","Calabrese","Mediterranean"],
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"19:00","closes":"23:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"19:00","closes":"23:30"}
+  ]
+}
+</script>
+<style>
+:root{
+  --primary:#514c40;
+  --secondary:#cdc5d3;
+  --accent:#a9a3be;
+  --light:#f5ede0;
+  --dark:#4b0b04;
+  --terracotta:#ba380a;
+  --ocra:#e0832b;
+  --ink:#1C1917;
+  --paper:#fbf7f0;
+  --muted:#978c84;
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Outfit', system-ui, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+
+/* ===== LANGUAGE TOGGLING ===== */
+.t-en,.t-de{display:none !important;}
+body.lang-en .t-it,body.lang-en .t-de{display:none !important;}
+body.lang-de .t-it,body.lang-de .t-en{display:none !important;}
+body.lang-en .t-en,body.lang-de .t-de{display:revert !important;}
+
+/* ===== NAV ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:22px 5vw;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all .35s cubic-bezier(.2,.8,.2,1);
+  background:transparent;
+}
+.nav.scrolled{
+  background:rgba(251,247,240,.96);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  padding:14px 5vw;
+  box-shadow:0 1px 0 rgba(0,0,0,.06);
+}
+.logo{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:1.35rem;
+  letter-spacing:.01em;
+  color:#fff;
+  transition:color .35s;
+  display:flex;align-items:center;gap:10px;
+}
+.logo-mark{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--terracotta);
+  color:#fff;
+  display:grid;place-items:center;
+  font-size:1.1rem;
+  font-style:italic;
+  font-family:var(--serif);
+}
+.nav.scrolled .logo{color:var(--ink)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{
+  color:#fff;
+  text-decoration:none;
+  font-size:.92rem;
+  font-weight:400;
+  letter-spacing:.04em;
+  transition:color .3s;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-6px;
+  width:0;height:1px;background:currentColor;transition:width .3s;
+}
+.nav-links a:hover::after{width:100%}
+.nav.scrolled .nav-links a{color:var(--ink)}
+.lang-switcher{display:flex;gap:6px}
+.lang-btn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.4);
+  color:#fff;
+  padding:7px 12px;
+  font-family:var(--sans);
+  font-size:.78rem;
+  font-weight:500;
+  letter-spacing:.08em;
+  cursor:pointer;
+  border-radius:2px;
+  transition:all .25s;
+}
+.lang-btn:hover{border-color:#fff}
+.lang-btn.active{color:#1a1a1a;background:#fff;border-color:#fff}
+.nav.scrolled .lang-btn{color:var(--ink);border-color:rgba(0,0,0,.2)}
+.nav.scrolled .lang-btn:hover{border-color:var(--terracotta)}
+.nav.scrolled .lang-btn.active{color:#fff;background:var(--terracotta);border-color:var(--terracotta)}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  height:100vh;min-height:640px;
+  overflow:hidden;
+  color:#fff;
+  display:flex;align-items:center;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('./photos/photo_09.jpg');
+  background-size:cover;
+  background-position:center;
+  animation:kenburns 25s ease-in-out infinite alternate;
+}
+@keyframes kenburns{
+  from{transform:scale(1) translate(0,0)}
+  to{transform:scale(1.15) translate(-1%,-1%)}
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(28,23,23,.25) 0%,rgba(28,23,23,.35) 45%,rgba(28,23,23,.7) 100%);
+  z-index:1;
+}
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1280px;margin:0 auto;
+  padding:0 5vw;
+  width:100%;
+}
+.hero-eyebrow{
+  font-family:var(--sans);
+  font-size:.78rem;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  font-weight:400;
+  margin-bottom:24px;
+  display:inline-block;
+  padding:8px 16px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:40px;
+  backdrop-filter:blur(6px);
+}
+.hero h1{
+  font-family:var(--serif);
+  font-weight:300;
+  font-style:italic;
+  font-size:clamp(3rem,8vw,7rem);
+  line-height:1;
+  letter-spacing:-.02em;
+  max-width:16ch;
+  margin-bottom:22px;
+  font-variation-settings:"opsz" 144;
+}
+.hero h1 strong{
+  font-style:normal;font-weight:500;
+  display:block;
+}
+.hero-sub{
+  font-family:var(--sans);
+  font-size:clamp(1rem,1.5vw,1.15rem);
+  max-width:46ch;
+  font-weight:300;
+  line-height:1.55;
+  margin-bottom:36px;
+  opacity:.92;
+}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:48px}
+.btn{
+  display:inline-block;
+  padding:16px 32px;
+  font-family:var(--sans);
+  font-size:.88rem;
+  font-weight:500;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  text-decoration:none;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:all .3s cubic-bezier(.2,.8,.2,1);
+  border-radius:2px;
+}
+.btn-primary{background:var(--terracotta);color:#fff}
+.btn-primary:hover{background:#d04a14;transform:translateY(-2px);box-shadow:0 12px 30px rgba(186,56,10,.35)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.hero-meta{
+  display:flex;gap:40px;align-items:center;flex-wrap:wrap;
+  padding-top:28px;
+  border-top:1px solid rgba(255,255,255,.18);
+  max-width:580px;
+}
+.hero-stat{display:flex;flex-direction:column;gap:4px}
+.hero-stat .num{
+  font-family:var(--serif);
+  font-size:1.9rem;
+  font-weight:400;
+  line-height:1;
+  font-style:italic;
+}
+.hero-stat .lab{
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.75;
+}
+.stars{color:#e0832b;letter-spacing:.1em}
+
+.hero-scroll{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  z-index:2;color:#fff;
+  font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;
+  opacity:.7;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.hero-scroll::after{
+  content:'';width:1px;height:40px;background:rgba(255,255,255,.5);
+  animation:scrolline 2s ease-in-out infinite;
+}
+@keyframes scrolline{
+  0%,100%{transform:scaleY(.4);transform-origin:top}
+  50%{transform:scaleY(1);transform-origin:top}
+}
+
+/* ===== SECTION CHROME ===== */
+section{padding:120px 5vw;position:relative}
+.container{max-width:1280px;margin:0 auto}
+.eyebrow{
+  font-family:var(--sans);
+  font-size:.72rem;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  color:var(--terracotta);
+  margin-bottom:18px;
+  display:inline-block;
+  font-weight:500;
+}
+h2{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(2.2rem,5vw,4rem);
+  line-height:1.05;
+  letter-spacing:-.015em;
+  margin-bottom:28px;
+  color:var(--ink);
+  font-variation-settings:"opsz" 96;
+}
+h2 em{font-style:italic;font-weight:300;color:var(--primary)}
+h3{
+  font-family:var(--serif);
+  font-size:1.5rem;
+  font-weight:500;
+  line-height:1.2;
+  margin-bottom:10px;
+  letter-spacing:-.01em;
+}
+.section-lead{
+  font-size:1.05rem;
+  max-width:58ch;
+  color:#5a544e;
+  margin-bottom:60px;
+  line-height:1.7;
+}
+
+/* ===== STORIA ===== */
+#storia{background:var(--paper)}
+.storia-grid{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:90px;
+  align-items:center;
+}
+.storia-copy p{
+  margin-bottom:20px;
+  color:#44403a;
+  font-size:1.02rem;
+  line-height:1.8;
+}
+.storia-copy p:first-of-type::first-letter{
+  font-family:var(--serif);
+  font-size:4.2rem;
+  float:left;
+  line-height:.85;
+  padding:4px 10px 0 0;
+  color:var(--terracotta);
+  font-style:italic;
+  font-weight:400;
+}
+.storia-sig{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1.3rem;
+  margin-top:24px;
+  color:var(--primary);
+}
+.storia-sig::before{content:'— '}
+.storia-visual{
+  position:relative;
+  aspect-ratio:3/4;
+}
+.storia-visual .img-main{
+  position:absolute;inset:0;
+  background:url('./photos/photo_08.jpg') center/cover;
+  border-radius:4px;
+  box-shadow:0 30px 80px rgba(0,0,0,.15);
+}
+.storia-visual .img-sec{
+  position:absolute;
+  bottom:-40px;right:-40px;
+  width:58%;aspect-ratio:3/4;
+  background:url('./photos/photo_00.jpg') center/cover;
+  border-radius:4px;
+  box-shadow:0 30px 80px rgba(0,0,0,.22);
+  border:8px solid var(--paper);
+}
+.storia-tag{
+  position:absolute;top:-20px;left:-20px;
+  background:var(--terracotta);
+  color:#fff;
+  padding:18px 22px;
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1.1rem;
+  border-radius:4px;
+  line-height:1.2;
+  max-width:180px;
+  box-shadow:0 18px 40px rgba(186,56,10,.35);
+}
+
+/* ===== MENU ===== */
+#menu{background:var(--light)}
+.menu-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:70px;flex-wrap:wrap;gap:30px}
+.menu-head .eyebrow{color:var(--dark)}
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:28px;
+}
+.dish{
+  background:var(--paper);
+  border-radius:4px;
+  overflow:hidden;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;
+  cursor:default;
+  display:flex;flex-direction:column;
+}
+.dish:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 30px 60px rgba(28,23,23,.14)}
+.dish .ph{aspect-ratio:4/3;background-size:cover;background-position:center}
+.dish .body{padding:28px 26px 30px;display:flex;flex-direction:column;flex:1}
+.dish-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:10px}
+.dish-row h3{margin:0}
+.dish .price{
+  font-family:var(--serif);
+  font-size:1.25rem;
+  font-style:italic;
+  color:var(--terracotta);
+  font-weight:500;
+  white-space:nowrap;
+}
+.dish .desc{color:#5a544e;font-size:.94rem;line-height:1.6;flex:1}
+.dish .tag{
+  display:inline-block;
+  margin-top:16px;
+  font-size:.7rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--primary);
+  font-weight:500;
+}
+.dish.wide{grid-column:span 6}
+.dish.narrow{grid-column:span 4}
+.dish.feature{grid-column:span 8}
+.dish.short{grid-column:span 4}
+
+/* ===== PUNTI FORZA ===== */
+#punti{background:var(--primary);color:#fff}
+#punti h2{color:#fff}
+#punti h2 em{color:var(--secondary)}
+#punti .eyebrow{color:var(--ocra)}
+.punti-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:32px;
+  margin-top:50px;
+}
+.punto{
+  padding:40px 28px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:4px;
+  transition:all .35s cubic-bezier(.2,.8,.2,1);
+}
+.punto:hover{
+  transform:translateY(-4px);
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.2);
+}
+.punto .ico{font-size:2.4rem;margin-bottom:22px;display:block;filter:saturate(1.1)}
+.punto h3{color:#fff;margin-bottom:10px;font-size:1.15rem}
+.punto p{color:rgba(255,255,255,.75);font-size:.92rem;line-height:1.55}
+
+/* ===== GALLERY ===== */
+#gallery{background:var(--paper);padding-bottom:130px}
+.gal-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:220px;
+  gap:14px;
+}
+.gal-grid .g{
+  background-size:cover;background-position:center;
+  border-radius:3px;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1),filter .4s;
+  cursor:pointer;
+}
+.gal-grid .g:hover{transform:scale(1.015);filter:brightness(1.05)}
+.g1{grid-column:span 2;grid-row:span 2;background-image:url('./photos/photo_09.jpg')}
+.g2{grid-column:span 1;grid-row:span 1;background-image:url('./photos/photo_01.jpg')}
+.g3{grid-column:span 1;grid-row:span 1;background-image:url('./photos/photo_03.jpg')}
+.g4{grid-column:span 1;grid-row:span 1;background-image:url('./photos/photo_04.jpg')}
+.g5{grid-column:span 1;grid-row:span 1;background-image:url('./photos/photo_06.jpg')}
+.g6{grid-column:span 2;grid-row:span 1;background-image:url('./photos/photo_05.jpg')}
+.g7{grid-column:span 1;grid-row:span 1;background-image:url('./photos/photo_07.jpg')}
+.g8{grid-column:span 1;grid-row:span 1;background-image:url('./photos/photo_02.jpg')}
+
+/* ===== REVIEWS ===== */
+#reviews{background:var(--secondary)}
+.reviews-head{text-align:center;max-width:680px;margin:0 auto 70px}
+.reviews-head .eyebrow{color:var(--dark)}
+.reviews-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:26px;
+}
+.review{
+  background:var(--paper);
+  padding:36px 30px 34px;
+  border-radius:4px;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;
+  display:flex;flex-direction:column;gap:16px;
+  position:relative;
+}
+.review:hover{transform:translateY(-5px);box-shadow:0 30px 60px rgba(75,11,4,.15)}
+.review::before{
+  content:'\201C';
+  position:absolute;top:10px;right:20px;
+  font-family:var(--serif);
+  font-size:5rem;
+  color:var(--terracotta);
+  opacity:.14;
+  line-height:1;
+}
+.review .stars{color:var(--ocra);font-size:.92rem;letter-spacing:.15em}
+.review p{
+  font-family:var(--serif);
+  font-size:1.02rem;
+  line-height:1.55;
+  font-weight:400;
+  color:#2a2623;
+  flex:1;
+  font-style:italic;
+}
+.review .author{
+  display:flex;align-items:center;gap:12px;margin-top:auto;
+  padding-top:14px;
+  border-top:1px solid rgba(0,0,0,.08);
+}
+.review .av{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--primary);color:#fff;
+  display:grid;place-items:center;
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:1rem;
+  flex-shrink:0;
+}
+.review .name{font-weight:500;font-size:.92rem;color:var(--ink)}
+.review .src{font-size:.75rem;color:var(--muted);letter-spacing:.05em}
+
+/* ===== FAQ ===== */
+#faq{background:var(--light)}
+.faq-grid{display:grid;grid-template-columns:.9fr 1.3fr;gap:80px;align-items:start}
+.faq-list{display:flex;flex-direction:column;gap:14px}
+details{
+  background:var(--paper);
+  padding:24px 28px;
+  border-radius:4px;
+  border:1px solid rgba(0,0,0,.06);
+  transition:all .25s;
+}
+details[open]{border-color:var(--terracotta);box-shadow:0 18px 40px rgba(0,0,0,.06)}
+summary{
+  cursor:pointer;
+  font-family:var(--serif);
+  font-size:1.1rem;
+  font-weight:500;
+  list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:'+';
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:1.8rem;
+  color:var(--terracotta);
+  transition:transform .25s;
+  line-height:1;
+}
+details[open] summary::after{transform:rotate(45deg)}
+details p{
+  margin-top:14px;
+  color:#5a544e;
+  font-size:.95rem;
+  line-height:1.7;
+}
+
+/* ===== PRENOTA ===== */
+#prenota{background:var(--paper)}
+.prenota-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.prenota-info h2{margin-bottom:22px}
+.prenota-info .lead{color:#5a544e;font-size:1.02rem;line-height:1.7;margin-bottom:32px}
+.info-list{list-style:none;padding:0;margin:28px 0 0}
+.info-list li{
+  display:flex;gap:16px;
+  padding:18px 0;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.info-list .ic{
+  font-size:1.2rem;color:var(--terracotta);
+  flex-shrink:0;width:32px;
+}
+.info-list .lb{
+  font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:2px;
+  font-weight:500;
+}
+.info-list .vl{font-size:1.02rem;color:var(--ink);font-weight:400}
+.info-list .vl a{color:inherit;text-decoration:none;transition:color .2s}
+.info-list .vl a:hover{color:var(--terracotta)}
+
+.booking-form{
+  background:var(--light);
+  padding:44px 40px;
+  border-radius:6px;
+  border:1px solid rgba(0,0,0,.05);
+}
+.booking-form h3{
+  font-family:var(--serif);
+  font-size:1.6rem;
+  font-weight:500;
+  margin-bottom:8px;
+}
+.booking-form .hint{color:var(--muted);font-size:.9rem;margin-bottom:28px}
+.form-row{margin-bottom:20px}
+.form-row.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.booking-form label{
+  display:block;
+  font-size:.72rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  font-weight:500;
+  margin-bottom:8px;
+  color:var(--primary);
+}
+.booking-form input,.booking-form select,.booking-form textarea{
+  width:100%;
+  padding:14px 16px;
+  background:var(--paper);
+  border:1px solid rgba(0,0,0,.1);
+  border-radius:3px;
+  font-family:var(--sans);
+  font-size:.95rem;
+  color:var(--ink);
+  transition:border .2s,box-shadow .2s;
+}
+.booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{
+  outline:none;border-color:var(--terracotta);
+  box-shadow:0 0 0 3px rgba(186,56,10,.1);
+}
+.booking-form textarea{resize:vertical;min-height:90px}
+.form-submit{
+  width:100%;
+  background:var(--terracotta);
+  color:#fff;
+  border:none;
+  padding:18px;
+  font-family:var(--sans);
+  font-size:.88rem;
+  font-weight:500;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  border-radius:3px;
+  cursor:pointer;
+  transition:all .3s cubic-bezier(.2,.8,.2,1);
+  margin-top:8px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+}
+.form-submit:hover{background:#d04a14;transform:translateY(-2px);box-shadow:0 14px 30px rgba(186,56,10,.3)}
+.form-submit svg{width:18px;height:18px}
+
+/* ===== MAP ===== */
+#map{padding:0;height:500px;position:relative;background:var(--primary)}
+#map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(20%) contrast(1.05)}
+.map-card{
+  position:absolute;top:40px;left:40px;
+  background:var(--paper);
+  padding:28px 30px;
+  max-width:340px;
+  border-radius:4px;
+  box-shadow:0 30px 80px rgba(0,0,0,.22);
+  z-index:2;
+}
+.map-card h3{color:var(--terracotta);font-size:1.2rem;margin-bottom:10px}
+.map-card p{font-size:.92rem;color:#5a544e;line-height:1.6;margin-bottom:8px}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--ink);
+  color:rgba(255,255,255,.7);
+  padding:80px 5vw 30px;
+}
+.foot-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:60px;
+  max-width:1280px;margin:0 auto 50px;
+}
+.foot-brand{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.foot-brand .logo-mark{width:46px;height:46px;font-size:1.3rem}
+.foot-brand-name{
+  font-family:var(--serif);
+  color:#fff;
+  font-size:1.4rem;
+  font-weight:500;
+}
+.foot-desc{font-size:.92rem;line-height:1.7;max-width:38ch;margin-bottom:18px}
+.foot-col h4{
+  font-family:var(--sans);
+  color:#fff;
+  font-size:.78rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  font-weight:500;
+  margin-bottom:20px;
+}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.92rem;transition:color .2s}
+.foot-col a:hover{color:var(--ocra)}
+.foot-bottom{
+  max-width:1280px;margin:0 auto;
+  border-top:1px solid rgba(255,255,255,.1);
+  padding-top:26px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+  font-size:.82rem;
+}
+.foot-bottom a{color:var(--ocra);text-decoration:none;font-weight:500}
+
+/* ===== WHATSAPP FLOAT ===== */
+.wa-float{
+  position:fixed;
+  bottom:24px;right:24px;
+  z-index:999;
+  width:58px;height:58px;
+  background:#25D366;
+  border-radius:50%;
+  display:grid;place-items:center;
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 14px 40px rgba(37,211,102,.45),0 0 0 rgba(37,211,102,.5);
+  transition:transform .3s;
+  animation:wapulse 2.4s ease-in-out infinite;
+}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+@keyframes wapulse{
+  0%,100%{box-shadow:0 14px 40px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,.5)}
+  50%{box-shadow:0 14px 40px rgba(37,211,102,.45),0 0 0 18px rgba(37,211,102,0)}
+}
+
+/* Divider ornament */
+.ornament{
+  display:flex;align-items:center;justify-content:center;gap:18px;
+  margin:0 auto 50px;max-width:240px;
+  color:var(--terracotta);opacity:.6;
+}
+.ornament::before,.ornament::after{
+  content:'';flex:1;height:1px;background:currentColor;
+}
+.ornament span{font-size:1.2rem;font-family:var(--serif);font-style:italic}
+
+/* ===== MOBILE ===== */
+@media (max-width:768px){
+  .nav{padding:14px 5vw}
+  .nav-links{display:none}
+  .lang-switcher{gap:4px}
+  .lang-btn{padding:6px 9px;font-size:.7rem}
+  .logo{font-size:1.1rem}
+  .logo-mark{width:32px;height:32px;font-size:.95rem}
+  .hero{height:100vh;min-height:560px}
+  .hero h1{font-size:clamp(2.4rem,10vw,3.6rem)}
+  .hero-meta{gap:24px;padding-top:20px}
+  .hero-stat .num{font-size:1.5rem}
+  .hero-ctas{flex-direction:column;align-items:stretch;gap:12px;width:100%}
+  .btn{width:100%;text-align:center;padding:15px 24px}
+  section{padding:70px 5vw}
+  h2{font-size:clamp(1.9rem,8vw,2.4rem)}
+  .section-lead{margin-bottom:40px;font-size:.98rem}
+  .storia-grid{grid-template-columns:1fr;gap:60px}
+  .storia-visual{aspect-ratio:4/5}
+  .storia-visual .img-sec{width:50%;bottom:-20px;right:-15px;border-width:5px}
+  .storia-tag{padding:12px 16px;font-size:.95rem;max-width:140px;top:-12px;left:-12px}
+  .menu-head{margin-bottom:40px}
+  .menu-grid{grid-template-columns:1fr;gap:20px}
+  .dish.wide,.dish.narrow,.dish.feature,.dish.short{grid-column:span 1}
+  .punti-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .punto{padding:24px 18px}
+  .punto .ico{font-size:1.9rem;margin-bottom:14px}
+  .punto h3{font-size:1rem}
+  .punto p{font-size:.85rem}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px;gap:10px}
+  .g1{grid-column:span 2;grid-row:span 2}
+  .g6{grid-column:span 2}
+  .reviews-row{grid-template-columns:1fr;gap:18px}
+  .faq-grid{grid-template-columns:1fr;gap:40px}
+  details{padding:18px 20px}
+  summary{font-size:1rem}
+  .prenota-grid{grid-template-columns:1fr;gap:50px}
+  .booking-form{padding:30px 22px}
+  .form-row.split{grid-template-columns:1fr}
+  #map{height:360px}
+  .map-card{top:20px;left:20px;right:20px;max-width:none;padding:20px 22px}
+  .foot-grid{grid-template-columns:1fr;gap:40px;margin-bottom:30px}
+  .foot-bottom{flex-direction:column;text-align:center;gap:12px}
+  .wa-float{width:52px;height:52px;bottom:18px;right:18px}
+  .wa-float svg{width:24px;height:24px}
+  /* Disable any fixed backgrounds on mobile */
+  *{background-attachment:scroll !important}
+}
+@media (max-width:480px){
+  .hero h1{font-size:2.2rem}
+  .hero-eyebrow{font-size:.7rem;padding:6px 12px}
+  .hero-meta{flex-direction:column;align-items:flex-start;gap:16px}
+  .punti-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body class="lang-it">
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <a href="#" class="logo">
+    <span class="logo-mark">G</span>
+    <span>Il Gallo Bianco</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#storia" class="t-it">Storia</a><a href="#storia" class="t-en">Story</a><a href="#storia" class="t-de">Geschichte</a></li>
+    <li><a href="#menu" class="t-it">Menu</a><a href="#menu" class="t-en">Menu</a><a href="#menu" class="t-de">Speisekarte</a></li>
+    <li><a href="#gallery" class="t-it">Galleria</a><a href="#gallery" class="t-en">Gallery</a><a href="#gallery" class="t-de">Galerie</a></li>
+    <li><a href="#reviews" class="t-it">Recensioni</a><a href="#reviews" class="t-en">Reviews</a><a href="#reviews" class="t-de">Bewertungen</a></li>
+    <li><a href="#prenota" class="t-it">Prenota</a><a href="#prenota" class="t-en">Book</a><a href="#prenota" class="t-de">Reservieren</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="it">IT</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="de">DE</button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <span class="hero-eyebrow t-it">Scalea · Dal cuore della Calabria</span>
+    <span class="hero-eyebrow t-en">Scalea · From the heart of Calabria</span>
+    <span class="hero-eyebrow t-de">Scalea · Aus dem Herzen Kalabriens</span>
+
+    <h1 class="t-it">Cucina di casa, <strong>sotto la pergola</strong></h1>
+    <h1 class="t-en">Home cooking, <strong>under the vines</strong></h1>
+    <h1 class="t-de">Hausmannskost, <strong>unter der Pergola</strong></h1>
+
+    <p class="hero-sub t-it">Angela e Francesco vi accolgono nella loro trattoria a Sant'Angelo con stufato di capra, fusilli al ragù e il peperoncino calabrese coltivato qui vicino. Una tavola di famiglia, aperta a tutti.</p>
+    <p class="hero-sub t-en">Angela and Francesco welcome you to their family trattoria in Sant'Angelo — goat stew, hand-rolled fusilli with ragù, and Calabrian peperoncino grown just down the road. A family table, open to all.</p>
+    <p class="hero-sub t-de">Angela und Francesco heißen Sie in ihrer Familien-Trattoria in Sant'Angelo willkommen — Ziegenragout, handgemachte Fusilli mit Ragù und der kalabrische Peperoncino, direkt von nebenan. Ein Familientisch, offen für alle.</p>
+
+    <div class="hero-ctas">
+      <a href="#prenota" class="btn btn-primary t-it">Prenota un tavolo</a>
+      <a href="#prenota" class="btn btn-primary t-en">Reserve a table</a>
+      <a href="#prenota" class="btn btn-primary t-de">Tisch reservieren</a>
+
+      <a href="#menu" class="btn btn-ghost t-it">Scopri il menu</a>
+      <a href="#menu" class="btn btn-ghost t-en">See the menu</a>
+      <a href="#menu" class="btn btn-ghost t-de">Speisekarte ansehen</a>
+    </div>
+
+    <div class="hero-meta">
+      <div class="hero-stat">
+        <span class="num">4.7</span>
+        <span class="lab stars">★ ★ ★ ★ ★</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">315</span>
+        <span class="lab t-it">Recensioni Google</span>
+        <span class="lab t-en">Google reviews</span>
+        <span class="lab t-de">Google Bewertungen</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">100%</span>
+        <span class="lab t-it">Cucina casalinga</span>
+        <span class="lab t-en">Home-made</span>
+        <span class="lab t-de">Hausgemacht</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span class="t-it">Scorri</span>
+    <span class="t-en">Scroll</span>
+    <span class="t-de">Scrollen</span>
+  </div>
+</header>
+
+<!-- ===== STORIA ===== -->
+<section id="storia">
+  <div class="container">
+    <div class="storia-grid">
+      <div class="storia-copy">
+        <span class="eyebrow t-it">La Nostra Storia</span>
+        <span class="eyebrow t-en">Our Story</span>
+        <span class="eyebrow t-de">Unsere Geschichte</span>
+
+        <h2 class="t-it">Una tavola <em>in famiglia</em>, da sempre</h2>
+        <h2 class="t-en">A family table, <em>as it has always been</em></h2>
+        <h2 class="t-de">Ein Familientisch, <em>wie immer</em></h2>
+
+        <div class="t-it">
+          <p>Siamo una trattoria piccola, fuori mano, in località Sant'Angelo — e forse è proprio per questo che ci avete trovato. I viaggiatori arrivano qui seguendo le recensioni: "dieci minuti di strada, ma ne vale la pena". Angela accoglie ogni tavolo con un sorriso e due parole; Francesco sta in cucina, tra pentole di rame e salse che sobbollono da ore.</p>
+          <p>Il nostro menu nasce ogni mattina dal mercato e dall'orto. Lo stufato di capra — il piatto per cui i clienti tornano — si cuoce lentamente con peperoncino calabrese coltivato qui vicino, pomodori maturi e verdure dell'orto. I fusilli sono tirati a mano, uno per uno, sul ferretto di ferro che tramandiamo da tre generazioni.</p>
+          <p>Non troverete piatti complicati né presentazioni d'autore. Troverete antipasti misti calabresi — salumi, formaggi, peperoni sott'olio, arancini — serviti come si serviva una volta. Troverete carne alla brace, pasta fumante, un bicchiere di vino sincero. E troverete, soprattutto, due persone che vi tratteranno come se foste arrivati a casa loro.</p>
+          <div class="storia-sig">Angela &amp; Francesco</div>
+        </div>
+        <div class="t-en">
+          <p>We are a small trattoria, tucked off the beaten path in Località Sant'Angelo — and maybe that is exactly why you found us. Travellers arrive here by following the reviews: "a ten-minute drive, but absolutely worth it". Angela greets every table with a smile and a few warm words; Francesco stays in the kitchen, among copper pots and sauces that have been simmering for hours.</p>
+          <p>Our menu is born each morning, from the market and the garden. The goat stew — the dish our guests return for — is slow-cooked with Calabrian peperoncino grown just down the road, ripe tomatoes and vegetables from the orto. Our fusilli are rolled by hand, one by one, on the iron wire we have been passing down for three generations.</p>
+          <p>You will not find complicated dishes nor designer plating. You will find antipasti misti calabresi — cured meats, cheeses, peppers in oil, arancini — served the way they were always served. You will find grilled meats, steaming pasta, a glass of honest wine. Above all, you will find two people who will treat you as if you had just walked into their own home.</p>
+          <div class="storia-sig">Angela &amp; Francesco</div>
+        </div>
+        <div class="t-de">
+          <p>Wir sind eine kleine Trattoria, abseits der Wege im Località Sant'Angelo — und vielleicht ist genau das der Grund, warum Sie uns gefunden haben. Reisende kommen hierher, weil sie den Bewertungen folgen: "zehn Minuten Fahrt, aber es lohnt sich". Angela begrüßt jeden Tisch mit einem Lächeln und ein paar warmen Worten; Francesco bleibt in der Küche, zwischen Kupfertöpfen und Saucen, die seit Stunden köcheln.</p>
+          <p>Unsere Speisekarte entsteht jeden Morgen neu, auf dem Markt und im Garten. Das Ziegenragout — das Gericht, für das unsere Gäste zurückkommen — wird langsam gegart, mit kalabrischem Peperoncino aus der Nachbarschaft, reifen Tomaten und Gemüse aus dem Orto. Unsere Fusilli werden von Hand gerollt, einer nach dem anderen, auf dem Eisendraht, den wir seit drei Generationen weitergeben.</p>
+          <p>Sie werden keine komplizierten Gerichte und keine Designer-Anrichtungen finden. Sie werden Antipasti misti calabresi finden — Salumi, Käse, Peperoni in Öl, Arancini — so serviert, wie sie schon immer serviert wurden. Sie werden gegrilltes Fleisch, dampfende Pasta, ein Glas ehrlichen Weins finden. Und vor allem werden Sie zwei Menschen finden, die Sie behandeln, als wären Sie bei ihnen zu Hause angekommen.</p>
+          <div class="storia-sig">Angela &amp; Francesco</div>
+        </div>
+      </div>
+
+      <div class="storia-visual">
+        <div class="img-main" role="img" aria-label="Sala della trattoria con travi in legno"></div>
+        <div class="img-sec" role="img" aria-label="Pergola di viti"></div>
+        <div class="storia-tag t-it">Gestione familiare · Dal 1987</div>
+        <div class="storia-tag t-en">Family-run · Since 1987</div>
+        <div class="storia-tag t-de">Familienbetrieb · Seit 1987</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section id="menu">
+  <div class="container">
+    <div class="menu-head">
+      <div>
+        <span class="eyebrow t-it">Menu del giorno</span>
+        <span class="eyebrow t-en">Today's menu</span>
+        <span class="eyebrow t-de">Tageskarte</span>
+
+        <h2 class="t-it">Piatti <em>della tradizione</em></h2>
+        <h2 class="t-en">Dishes <em>of the tradition</em></h2>
+        <h2 class="t-de">Gerichte <em>der Tradition</em></h2>
+      </div>
+      <p class="section-lead" style="margin-bottom:0;max-width:42ch">
+        <span class="t-it">La cucina cambia ogni giorno. Questi sono i piatti che vi aspettano più spesso — tutti fatti in casa, con ingredienti del territorio calabrese.</span>
+        <span class="t-en">The kitchen changes daily. These are the dishes you'll most often find — all homemade, with ingredients from the Calabrian land.</span>
+        <span class="t-de">Die Küche wechselt täglich. Das sind die Gerichte, die Sie am häufigsten finden — alles hausgemacht, mit Zutaten aus dem kalabrischen Land.</span>
+      </p>
+    </div>
+
+    <div class="menu-grid">
+
+      <article class="dish feature">
+        <div class="ph" style="background-image:url('./photos/photo_06.jpg')"></div>
+        <div class="body">
+          <div class="dish-row">
+            <h3 class="t-it">Stufato di capra</h3>
+            <h3 class="t-en">Slow-cooked goat stew</h3>
+            <h3 class="t-de">Langsam gegartes Ziegenragout</h3>
+            <span class="price">€ 16</span>
+          </div>
+          <p class="desc t-it">Il piatto della domenica, cotto per ore nel suo sugo con pomodoro, peperoncino calabrese, patate e verdure dell'orto. Servito con pane casereccio per fare la scarpetta.</p>
+          <p class="desc t-en">The Sunday dish, simmered for hours in its own sauce with tomato, Calabrian chilli, potatoes and garden vegetables. Served with homemade bread for the "scarpetta".</p>
+          <p class="desc t-de">Das Sonntagsgericht, stundenlang geschmort mit Tomaten, kalabrischem Chili, Kartoffeln und Gartengemüse. Serviert mit hausgemachtem Brot zum Tunken.</p>
+          <span class="tag t-it">⭐ Specialità della casa</span>
+          <span class="tag t-en">⭐ House speciality</span>
+          <span class="tag t-de">⭐ Spezialität des Hauses</span>
+        </div>
+      </article>
+
+      <article class="dish short">
+        <div class="ph" style="background-image:url('./photos/photo_02.jpg')"></div>
+        <div class="body">
+          <div class="dish-row">
+            <h3 class="t-it">Fusilli al ragù</h3>
+            <h3 class="t-en">Fusilli al ragù</h3>
+            <h3 class="t-de">Fusilli al Ragù</h3>
+            <span class="price">€ 12</span>
+          </div>
+          <p class="desc t-it">Fusilli tirati a mano sul ferretto, conditi con un ragù di capra lentamente ridotto.</p>
+          <p class="desc t-en">Hand-rolled fusilli on the ferretto, dressed with a slow-reduced goat ragù.</p>
+          <p class="desc t-de">Handgerollte Fusilli auf dem Ferretto, mit langsam reduziertem Ziegenragout.</p>
+          <span class="tag t-it">Pasta fatta a mano</span>
+          <span class="tag t-en">Hand-made pasta</span>
+          <span class="tag t-de">Handgemachte Pasta</span>
+        </div>
+      </article>
+
+      <article class="dish narrow">
+        <div class="ph" style="background-image:url('./photos/photo_03.jpg')"></div>
+        <div class="body">
+          <div class="dish-row">
+            <h3 class="t-it">Antipasti misti calabresi</h3>
+            <h3 class="t-en">Calabrian mixed antipasti</h3>
+            <h3 class="t-de">Kalabrische Vorspeisen</h3>
+            <span class="price">€ 14</span>
+          </div>
+          <p class="desc t-it">Salumi locali, formaggi, peperoni sott'olio, arancini e olive taggiasche. Per cominciare come si deve.</p>
+          <p class="desc t-en">Local cured meats, cheeses, peppers in oil, arancini and taggiasche olives. The right way to start.</p>
+          <p class="desc t-de">Lokale Wurstwaren, Käse, Peperoni in Öl, Arancini und Taggiasca-Oliven. Der richtige Anfang.</p>
+          <span class="tag t-it">Da condividere</span>
+          <span class="tag t-en">To share</span>
+          <span class="tag t-de">Zum Teilen</span>
+        </div>
+      </article>
+
+      <article class="dish narrow">
+        <div class="ph" style="background-image:url('./photos/photo_04.jpg')"></div>
+        <div class="body">
+          <div class="dish-row">
+            <h3 class="t-it">Grigliata di carne</h3>
+            <h3 class="t-en">Mixed grilled meat</h3>
+            <h3 class="t-de">Gemischtes Grillfleisch</h3>
+            <span class="price">€ 18</span>
+          </div>
+          <p class="desc t-it">Costine, capretto e salsiccia alla brace, con peperoni arrostiti e patate.</p>
+          <p class="desc t-en">Ribs, young goat and sausage on the grill, with roasted peppers and potatoes.</p>
+          <p class="desc t-de">Rippchen, Zicklein und Wurst vom Grill, mit gerösteten Paprika und Kartoffeln.</p>
+          <span class="tag t-it">Alla brace</span>
+          <span class="tag t-en">Charcoal grilled</span>
+          <span class="tag t-de">Holzkohlegegrillt</span>
+        </div>
+      </article>
+
+      <article class="dish narrow">
+        <div class="ph" style="background-image:url('./photos/photo_01.jpg')"></div>
+        <div class="body">
+          <div class="dish-row">
+            <h3 class="t-it">Polpette al sugo</h3>
+            <h3 class="t-en">Meatballs in sauce</h3>
+            <h3 class="t-de">Fleischbällchen in Sauce</h3>
+            <span class="price">€ 10</span>
+          </div>
+          <p class="desc t-it">Polpette di carne mista nel sugo di pomodoro della domenica, come le faceva la nonna.</p>
+          <p class="desc t-en">Mixed-meat meatballs in Sunday tomato sauce, the way grandma made them.</p>
+          <p class="desc t-de">Fleischbällchen in Sonntags-Tomatensauce, wie Oma sie gemacht hat.</p>
+          <span class="tag t-it">Ricetta di famiglia</span>
+          <span class="tag t-en">Family recipe</span>
+          <span class="tag t-de">Familienrezept</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PUNTI DI FORZA ===== -->
+<section id="punti">
+  <div class="container">
+    <span class="eyebrow t-it">Perché sceglierci</span>
+    <span class="eyebrow t-en">Why choose us</span>
+    <span class="eyebrow t-de">Warum uns wählen</span>
+
+    <h2 class="t-it">Quattro ragioni per <em>fermarsi qui</em></h2>
+    <h2 class="t-en">Four reasons to <em>stop here</em></h2>
+    <h2 class="t-de">Vier Gründe <em>anzuhalten</em></h2>
+
+    <div class="punti-grid">
+      <div class="punto">
+        <span class="ico">👨‍👩‍👧</span>
+        <h3 class="t-it">Gestione familiare</h3>
+        <h3 class="t-en">Family-run</h3>
+        <h3 class="t-de">Familienbetrieb</h3>
+        <p class="t-it">Angela in sala, Francesco in cucina. Vi trattiamo come se foste a casa nostra.</p>
+        <p class="t-en">Angela in the dining room, Francesco at the stove. We treat you as if you were at our home.</p>
+        <p class="t-de">Angela im Speisesaal, Francesco am Herd. Wir behandeln Sie wie zu Hause.</p>
+      </div>
+
+      <div class="punto">
+        <span class="ico">🌶️</span>
+        <h3 class="t-it">Calabrese autentica</h3>
+        <h3 class="t-en">Authentic Calabrian</h3>
+        <h3 class="t-de">Echt kalabrisch</h3>
+        <p class="t-it">Peperoncino locale, stufato di capra, fusilli al ferretto. Sapori del territorio, senza scorciatoie.</p>
+        <p class="t-en">Local peperoncino, goat stew, hand-rolled fusilli. Flavours of this land, no shortcuts.</p>
+        <p class="t-de">Heimischer Peperoncino, Ziegenragout, handgerollte Fusilli. Aromen dieses Landes, ohne Abkürzungen.</p>
+      </div>
+
+      <div class="punto">
+        <span class="ico">💰</span>
+        <h3 class="t-it">Prezzo giusto</h3>
+        <h3 class="t-en">Fair price</h3>
+        <h3 class="t-de">Fairer Preis</h3>
+        <p class="t-it">Menu del giorno a buon prezzo — porzioni abbondanti, ingredienti di prima scelta.</p>
+        <p class="t-en">Affordable set menu — generous portions, first-choice ingredients.</p>
+        <p class="t-de">Erschwingliches Tagesmenü — großzügige Portionen, erstklassige Zutaten.</p>
+      </div>
+
+      <div class="punto">
+        <span class="ico">🍇</span>
+        <h3 class="t-it">Pergola di viti</h3>
+        <h3 class="t-en">Vine pergola</h3>
+        <h3 class="t-de">Weinlaube</h3>
+        <p class="t-it">Terrazza all'aperto sotto la pergola naturale — aperta nelle sere d'estate calabresi.</p>
+        <p class="t-en">Outdoor terrace under the natural pergola — open on warm Calabrian evenings.</p>
+        <p class="t-de">Terrasse unter der natürlichen Pergola — in warmen kalabrischen Abenden geöffnet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery">
+  <div class="container">
+    <div class="ornament"><span>✦</span></div>
+    <span class="eyebrow t-it" style="text-align:center;display:block">Galleria</span>
+    <span class="eyebrow t-en" style="text-align:center;display:block">Gallery</span>
+    <span class="eyebrow t-de" style="text-align:center;display:block">Galerie</span>
+
+    <h2 style="text-align:center;margin-bottom:60px">
+      <span class="t-it">Uno <em>sguardo</em> alla trattoria</span>
+      <span class="t-en">A <em>glance</em> at the trattoria</span>
+      <span class="t-de">Ein <em>Blick</em> in die Trattoria</span>
+    </h2>
+
+    <div class="gal-grid">
+      <div class="g g1" role="img" aria-label="Terrazza sotto la pergola"></div>
+      <div class="g g2" role="img" aria-label="Polpette al sugo"></div>
+      <div class="g g3" role="img" aria-label="Antipasti misti"></div>
+      <div class="g g4" role="img" aria-label="Carne alla brace"></div>
+      <div class="g g5" role="img" aria-label="Stufato di capra"></div>
+      <div class="g g6" role="img" aria-label="Tavola con due piatti"></div>
+      <div class="g g7" role="img" aria-label="Cotoletta con patate"></div>
+      <div class="g g8" role="img" aria-label="Fusilli al ragù"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section id="reviews">
+  <div class="container">
+    <div class="reviews-head">
+      <span class="eyebrow t-it">Cosa dicono gli ospiti</span>
+      <span class="eyebrow t-en">What guests say</span>
+      <span class="eyebrow t-de">Was Gäste sagen</span>
+
+      <h2 class="t-it">315 voci, <em>un solo sorriso</em></h2>
+      <h2 class="t-en">315 voices, <em>one smile</em></h2>
+      <h2 class="t-de">315 Stimmen, <em>ein Lächeln</em></h2>
+
+      <p style="color:#2a2623;font-size:1rem">
+        <span class="t-it">Valutazione media 4.7 ⭐ su Google — le parole sono dei nostri ospiti.</span>
+        <span class="t-en">Average rating 4.7 ⭐ on Google — these words belong to our guests.</span>
+        <span class="t-de">Durchschnittsbewertung 4.7 ⭐ auf Google — diese Worte gehören unseren Gästen.</span>
+      </p>
+    </div>
+
+    <div class="reviews-row">
+
+      <article class="review">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="t-it">«Abbiamo trovato questo posto per caso dalle recensioni e siamo così felici di aver fatto quei dieci minuti di strada. Angela ci ha accolto con calore e dato consigli eccellenti. Lo stufato di capra con verdure...»</p>
+        <p class="t-en">"We found this place by chance through reviews and are so glad we made the short 10-minute trip. Angela, the host, warmly welcomed us and gave excellent recommendations. We had the goat stew with veggies..."</p>
+        <p class="t-de">„Wir haben diesen Ort zufällig über die Bewertungen gefunden und sind so froh, die kurzen zehn Minuten gefahren zu sein. Angela hat uns herzlich begrüßt und ausgezeichnete Empfehlungen gegeben. Wir hatten das Ziegenragout..."</p>
+        <div class="author">
+          <div class="av">O</div>
+          <div>
+            <div class="name">Orianna Rose</div>
+            <div class="src">Google</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="t-it">«Posto trovato per caso con la famiglia. Tavola calda in vecchio stile che serve piatti fissi del giorno — salumi, pasta e carni alla brace. Un'esperienza vera.»</p>
+        <p class="t-en">"Off-the-cuff location with a chanced family meal. An old-style tavola calda that serves fixed plates for the day — cold cuts, pasta and grilled meats. A real experience."</p>
+        <p class="t-de">„Zufällig entdeckter Ort mit spontanem Familienessen. Ein altmodisches Tavola calda mit festen Tagesgerichten — Aufschnitt, Pasta und Grillfleisch. Ein echtes Erlebnis."</p>
+        <div class="author">
+          <div class="av">J</div>
+          <div>
+            <div class="name">John Minghella</div>
+            <div class="src">Google</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="t-it">«La miglior esperienza di cena che ho avuto in Calabria! Un po' fuori dai percorsi, ma questo ristorante a conduzione familiare è fuori scala: il cibo è semplice eppure delizioso.»</p>
+        <p class="t-en">"Best diner experience so far in Calabria! It is a little off the grid but this family-owned and operated restaurant is off the charts — the food is simple yet delicious."</p>
+        <p class="t-de">„Das beste Restaurant-Erlebnis bisher in Kalabrien! Etwas abgelegen, aber dieses familiengeführte Lokal ist einfach großartig — das Essen ist schlicht und doch köstlich."</p>
+        <div class="author">
+          <div class="av">A</div>
+          <div>
+            <div class="name">Alfredo Giachino</div>
+            <div class="src">Google</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="t-it">«Un sogno di posto. Le persone sono così gentili e calorose. Il cibo è fresco e delizioso. Un must. Un'esperienza che crea un ricordo. Grazie per un ottimo pasto.»</p>
+        <p class="t-en">"What a dream this place is. The people are so kind and warm. The food is fresh and delicious. This is a must. An experience that will create a memory. Thank you for a great meal."</p>
+        <p class="t-de">„Was für ein Traumort. Die Menschen sind so freundlich und herzlich. Das Essen ist frisch und köstlich. Ein Muss. Ein Erlebnis, das in Erinnerung bleibt. Danke für ein tolles Essen."</p>
+        <div class="author">
+          <div class="av">C</div>
+          <div>
+            <div class="name">Chris Upsdell</div>
+            <div class="src">Tripadvisor</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div>
+        <span class="eyebrow t-it">Domande frequenti</span>
+        <span class="eyebrow t-en">Frequently asked</span>
+        <span class="eyebrow t-de">Häufige Fragen</span>
+
+        <h2 class="t-it">Prima di <em>venire</em></h2>
+        <h2 class="t-en">Before you <em>come</em></h2>
+        <h2 class="t-de">Bevor Sie <em>kommen</em></h2>
+
+        <p style="color:#5a544e;font-size:.98rem;line-height:1.7">
+          <span class="t-it">Se avete una domanda particolare, chiamate pure Angela al 393 579 1566 — risponde sempre lei.</span>
+          <span class="t-en">If you have a specific question, just call Angela at +39 393 579 1566 — she always answers.</span>
+          <span class="t-de">Bei besonderen Fragen rufen Sie Angela einfach unter +39 393 579 1566 an — sie geht immer ran.</span>
+        </p>
+      </div>
+
+      <div class="faq-list">
+
+        <details>
+          <summary>
+            <span class="t-it">Quali sono gli orari di apertura?</span>
+            <span class="t-en">What are your opening hours?</span>
+            <span class="t-de">Was sind die Öffnungszeiten?</span>
+          </summary>
+          <p class="t-it">Siamo aperti tutte le sere dalle 19:00 alle 23:00 (domenica fino alle 23:30). La cucina inizia a servire appena aprite la porta — vi consigliamo di prenotare soprattutto nei weekend estivi.</p>
+          <p class="t-en">We are open every evening from 7:00 PM to 11:00 PM (Sunday until 11:30 PM). The kitchen starts serving as soon as you walk in — we recommend booking, especially on summer weekends.</p>
+          <p class="t-de">Wir sind jeden Abend von 19:00 bis 23:00 Uhr geöffnet (Sonntags bis 23:30 Uhr). Die Küche beginnt zu servieren, sobald Sie eintreten — wir empfehlen eine Reservierung, besonders an Sommerwochenenden.</p>
+        </details>
+
+        <details>
+          <summary>
+            <span class="t-it">C'è parcheggio?</span>
+            <span class="t-en">Is there parking?</span>
+            <span class="t-de">Gibt es Parkplätze?</span>
+          </summary>
+          <p class="t-it">Sì, abbiamo parcheggio gratuito davanti al locale. Siamo un po' fuori mano in località Sant'Angelo — seguite le indicazioni stradali e troverete lo spazio per la macchina senza problemi.</p>
+          <p class="t-en">Yes, we have free parking right in front. We are a little off the main road in Località Sant'Angelo — follow the road signs and you will find a space easily.</p>
+          <p class="t-de">Ja, direkt vor dem Lokal gibt es kostenlose Parkplätze. Wir liegen etwas abseits im Località Sant'Angelo — folgen Sie den Straßenschildern und Sie finden problemlos einen Platz.</p>
+        </details>
+
+        <details>
+          <summary>
+            <span class="t-it">Accettate gruppi e famiglie?</span>
+            <span class="t-en">Do you welcome groups and families?</span>
+            <span class="t-de">Nehmen Sie Gruppen und Familien auf?</span>
+          </summary>
+          <p class="t-it">Volentieri! I gruppi e le famiglie con bambini sono il nostro cuore. Per tavolate di 8 o più persone chiamateci in anticipo così organizziamo il tavolo giusto. I bambini ricevono mezze porzioni a metà prezzo.</p>
+          <p class="t-en">Absolutely! Groups and families with children are our heart. For tables of 8 or more, call us in advance so we can set things up properly. Children get half portions at half price.</p>
+          <p class="t-de">Sehr gerne! Gruppen und Familien mit Kindern sind unser Herz. Für Tische ab 8 Personen rufen Sie uns bitte im Voraus an. Kinder bekommen halbe Portionen zum halben Preis.</p>
+        </details>
+
+        <details>
+          <summary>
+            <span class="t-it">Parlate inglese o tedesco?</span>
+            <span class="t-en">Do you speak English or German?</span>
+            <span class="t-de">Sprechen Sie Englisch oder Deutsch?</span>
+          </summary>
+          <p class="t-it">Angela parla un po' di inglese e riesce a farsi capire in tedesco con qualche parola. Se siete stranieri, non preoccupatevi: con un sorriso e qualche gesto ci capiamo sempre, e il menu lo raccontiamo piatto per piatto.</p>
+          <p class="t-en">Angela speaks some English and can manage a few words in German. If you are a foreign guest, don't worry — with a smile and a few gestures we always understand each other, and we'll walk you through the menu dish by dish.</p>
+          <p class="t-de">Angela spricht etwas Englisch und kommt mit ein paar Worten Deutsch zurecht. Keine Sorge, wenn Sie ausländischer Gast sind — mit einem Lächeln und Gesten verstehen wir uns immer, und wir erklären die Speisekarte Gericht für Gericht.</p>
+        </details>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRENOTA ===== -->
+<section id="prenota">
+  <div class="container">
+    <div class="prenota-grid">
+      <div class="prenota-info">
+        <span class="eyebrow t-it">Prenotazione</span>
+        <span class="eyebrow t-en">Reservation</span>
+        <span class="eyebrow t-de">Reservierung</span>
+
+        <h2 class="t-it">Unisciti alla <em>nostra tavola</em></h2>
+        <h2 class="t-en">Join <em>our table</em></h2>
+        <h2 class="t-de">Zu <em>unserem Tisch</em></h2>
+
+        <p class="lead t-it">Compila il modulo qui accanto: vi contatteremo su WhatsApp per confermare il tavolo. Oppure chiamate direttamente Angela — risponderà lei stessa.</p>
+        <p class="lead t-en">Fill in the form: we'll message you on WhatsApp to confirm the table. Or call Angela directly — she'll pick up herself.</p>
+        <p class="lead t-de">Füllen Sie das Formular aus: Wir melden uns per WhatsApp zur Bestätigung. Oder rufen Sie Angela direkt an — sie geht selbst ran.</p>
+
+        <ul class="info-list">
+          <li>
+            <span class="ic">📍</span>
+            <div>
+              <div class="lb t-it">Indirizzo</div>
+              <div class="lb t-en">Address</div>
+              <div class="lb t-de">Adresse</div>
+              <div class="vl">Località Sant'Angelo, 87029 Scalea (CS)</div>
+            </div>
+          </li>
+          <li>
+            <span class="ic">📞</span>
+            <div>
+              <div class="lb t-it">Telefono</div>
+              <div class="lb t-en">Phone</div>
+              <div class="lb t-de">Telefon</div>
+              <div class="vl"><a href="tel:+393935791566">+39 393 579 1566</a></div>
+            </div>
+          </li>
+          <li>
+            <span class="ic">🕗</span>
+            <div>
+              <div class="lb t-it">Orari</div>
+              <div class="lb t-en">Opening hours</div>
+              <div class="lb t-de">Öffnungszeiten</div>
+              <div class="vl t-it">Tutti i giorni · 19:00 – 23:00 (Dom. fino alle 23:30)</div>
+              <div class="vl t-en">Every day · 7:00 PM – 11:00 PM (Sun. until 11:30 PM)</div>
+              <div class="vl t-de">Täglich · 19:00 – 23:00 Uhr (So. bis 23:30)</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <form class="booking-form" id="bookingForm">
+        <h3 class="t-it">Prenota il tuo tavolo</h3>
+        <h3 class="t-en">Book your table</h3>
+        <h3 class="t-de">Reservieren Sie Ihren Tisch</h3>
+
+        <p class="hint t-it">Apriremo WhatsApp con il messaggio già compilato</p>
+        <p class="hint t-en">We'll open WhatsApp with the message pre-filled</p>
+        <p class="hint t-de">Wir öffnen WhatsApp mit einer vorausgefüllten Nachricht</p>
+
+        <div class="form-row">
+          <label for="nome" class="t-it">Nome e cognome</label>
+          <label for="nome" class="t-en">Full name</label>
+          <label for="nome" class="t-de">Vor- und Nachname</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+
+        <div class="form-row split">
+          <div>
+            <label for="data" class="t-it">Data</label>
+            <label for="data" class="t-en">Date</label>
+            <label for="data" class="t-de">Datum</label>
+            <input type="date" id="data" name="data" required>
+          </div>
+          <div>
+            <label for="ora" class="t-it">Ora</label>
+            <label for="ora" class="t-en">Time</label>
+            <label for="ora" class="t-de">Uhrzeit</label>
+            <input type="time" id="ora" name="ora" value="20:00" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="persone" class="t-it">Numero di persone</label>
+          <label for="persone" class="t-en">Number of people</label>
+          <label for="persone" class="t-de">Anzahl der Personen</label>
+          <select id="persone" name="persone" required>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8+">8+</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="note" class="t-it">Note (allergie, bambini, occasione…)</label>
+          <label for="note" class="t-en">Notes (allergies, children, occasion…)</label>
+          <label for="note" class="t-de">Anmerkungen (Allergien, Kinder, Anlass…)</label>
+          <textarea id="note" name="note"></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span class="t-it">Invia su WhatsApp</span>
+          <span class="t-en">Send via WhatsApp</span>
+          <span class="t-de">Per WhatsApp senden</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAP ===== -->
+<section id="map">
+  <div class="map-card">
+    <h3 class="t-it">Ci trovate qui</h3>
+    <h3 class="t-en">Find us here</h3>
+    <h3 class="t-de">Sie finden uns hier</h3>
+    <p class="t-it">Località Sant'Angelo, Scalea (CS). Dieci minuti dal centro, sulla strada per la collina — vale il tragitto.</p>
+    <p class="t-en">Località Sant'Angelo, Scalea (CS). Ten minutes from the centre, up the hill road — worth the trip.</p>
+    <p class="t-de">Località Sant'Angelo, Scalea (CS). Zehn Minuten vom Zentrum, die Bergstraße hinauf — die Fahrt lohnt sich.</p>
+    <p style="margin-top:12px">
+      <a href="https://maps.google.com/?cid=12981541175784448705" target="_blank" rel="noopener" style="color:var(--terracotta);font-weight:500;text-decoration:none;font-size:.9rem;letter-spacing:.05em">
+        <span class="t-it">→ Apri in Google Maps</span>
+        <span class="t-en">→ Open in Google Maps</span>
+        <span class="t-de">→ In Google Maps öffnen</span>
+      </a>
+    </p>
+  </div>
+  <iframe src="https://www.google.com/maps?q=Trattoria+Il+Gallo+Bianco+Scalea&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Trattoria Il Gallo Bianco"></iframe>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">
+        <span class="logo-mark">G</span>
+        <span class="foot-brand-name">Trattoria Il Gallo Bianco</span>
+      </div>
+      <p class="foot-desc t-it">Cucina calabrese casalinga in località Sant'Angelo, Scalea. Angela &amp; Francesco vi aspettano per una cena di famiglia sotto la pergola di viti.</p>
+      <p class="foot-desc t-en">Home-style Calabrian cooking in Località Sant'Angelo, Scalea. Angela &amp; Francesco await you for a family dinner under the vine pergola.</p>
+      <p class="foot-desc t-de">Kalabrische Hausmannskost im Località Sant'Angelo, Scalea. Angela &amp; Francesco erwarten Sie zu einem Familienessen unter der Weinlaube.</p>
+    </div>
+
+    <div class="foot-col">
+      <h4 class="t-it">Contatti</h4>
+      <h4 class="t-en">Contact</h4>
+      <h4 class="t-de">Kontakt</h4>
+      <ul>
+        <li><a href="tel:+393935791566">+39 393 579 1566</a></li>
+        <li><a href="https://wa.me/393935791566">WhatsApp</a></li>
+        <li><a href="https://maps.google.com/?cid=12981541175784448705" target="_blank" rel="noopener">Google Maps</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4 class="t-it">Orari</h4>
+      <h4 class="t-en">Hours</h4>
+      <h4 class="t-de">Öffnungszeiten</h4>
+      <ul>
+        <li class="t-it">Lun – Sab · 19:00 – 23:00</li>
+        <li class="t-en">Mon – Sat · 7 PM – 11 PM</li>
+        <li class="t-de">Mo – Sa · 19:00 – 23:00</li>
+        <li class="t-it">Domenica · 19:00 – 23:30</li>
+        <li class="t-en">Sunday · 7 PM – 11:30 PM</li>
+        <li class="t-de">Sonntag · 19:00 – 23:30</li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4 class="t-it">Esplora</h4>
+      <h4 class="t-en">Explore</h4>
+      <h4 class="t-de">Entdecken</h4>
+      <ul>
+        <li><a href="#menu" class="t-it">Menu</a><a href="#menu" class="t-en">Menu</a><a href="#menu" class="t-de">Speisekarte</a></li>
+        <li><a href="#gallery" class="t-it">Galleria</a><a href="#gallery" class="t-en">Gallery</a><a href="#gallery" class="t-de">Galerie</a></li>
+        <li><a href="#reviews" class="t-it">Recensioni</a><a href="#reviews" class="t-en">Reviews</a><a href="#reviews" class="t-de">Bewertungen</a></li>
+        <li><a href="#prenota" class="t-it">Prenota</a><a href="#prenota" class="t-en">Book</a><a href="#prenota" class="t-de">Reservieren</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <div>
+      <span class="t-it">© <span id="year"></span> Trattoria Il Gallo Bianco · Tutti i diritti riservati</span>
+      <span class="t-en">© <span class="yr"></span> Trattoria Il Gallo Bianco · All rights reserved</span>
+      <span class="t-de">© <span class="yr"></span> Trattoria Il Gallo Bianco · Alle Rechte vorbehalten</span>
+    </div>
+    <div>
+      <span class="t-it">Sito realizzato da </span>
+      <span class="t-en">Website by </span>
+      <span class="t-de">Website von </span>
+      <a href="https://viktoria.agency" target="_blank" rel="noopener">Viktoria Agency</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a class="wa-float" href="https://wa.me/393935791566?text=Buongiorno%2C%20vorrei%20prenotare%20un%20tavolo%20al%20Gallo%20Bianco" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.52-1.303a1.72 1.72 0 0 0 .128-.758c0-.215 0-.416-.058-.588-.144-.244-2.692-1.362-2.78-1.362zm-2.91 7.593c-1.73 0-3.41-.47-4.87-1.35l-3.41.892.93-3.31a9.378 9.378 0 0 1-1.49-5.107c0-5.195 4.23-9.423 9.44-9.423 2.52 0 4.888.98 6.67 2.76a9.32 9.32 0 0 1 2.76 6.66c0 5.196-4.25 9.424-9.44 9.424zm0-20.65c-6.178 0-11.22 5.042-11.24 11.223 0 1.977.53 3.914 1.507 5.615L4.463 27.4l5.69-1.49a11.211 11.211 0 0 0 5.358 1.364h.004c6.182 0 11.24-5.04 11.24-11.222a11.156 11.156 0 0 0-3.288-7.955 11.157 11.157 0 0 0-7.955-3.29z"/></svg>
+</a>
+
+<script>
+// ===== NAV SCROLL =====
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+// ===== LANGUAGE =====
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const l = btn.dataset.lang;
+    document.body.classList.remove('lang-it','lang-en','lang-de');
+    document.body.classList.add('lang-'+l);
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b === btn));
+    document.documentElement.lang = l;
+  });
+});
+
+// ===== YEAR =====
+const y = new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = y;
+document.querySelectorAll('.yr').forEach(e => e.textContent = y);
+
+// ===== BOOKING FORM → WHATSAPP =====
+const form = document.getElementById('bookingForm');
+form.onsubmit = e => {
+  e.preventDefault();
+  const fd = new FormData(form);
+  const lang = document.body.classList.contains('lang-en') ? 'en'
+              : document.body.classList.contains('lang-de') ? 'de' : 'it';
+  const templates = {
+    it: `Buongiorno Angela, vorrei prenotare un tavolo:\n• Nome: ${fd.get('nome')}\n• Data: ${fd.get('data')} alle ${fd.get('ora')}\n• Persone: ${fd.get('persone')}\n• Note: ${fd.get('note') || '—'}\nGrazie!`,
+    en: `Hello Angela, I'd like to book a table:\n• Name: ${fd.get('nome')}\n• Date: ${fd.get('data')} at ${fd.get('ora')}\n• People: ${fd.get('persone')}\n• Notes: ${fd.get('note') || '—'}\nThank you!`,
+    de: `Guten Tag Angela, ich möchte einen Tisch reservieren:\n• Name: ${fd.get('nome')}\n• Datum: ${fd.get('data')} um ${fd.get('ora')}\n• Personen: ${fd.get('persone')}\n• Anmerkungen: ${fd.get('note') || '—'}\nDanke!`
+  };
+  const msg = templates[lang];
+  window.open(`https://wa.me/393935791566?text=${encodeURIComponent(msg)}`, '_blank');
+};
+
+// ===== DATE MIN = TODAY =====
+const dateInput = document.getElementById('data');
+if (dateInput) {
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.min = today;
+  dateInput.value = today;
+}
+</script>
+
+</body>
+</html>
