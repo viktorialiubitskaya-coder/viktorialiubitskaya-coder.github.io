@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C'ama fà — Pizzeria a Praia a Mare | Cucina Calabrese e Pizza Napoletana</title>
+<meta name="description" content="C'ama fà — pizzeria e ristorante nel cuore di Praia a Mare. Pizza napoletana, specialità calabresi, ambiente accogliente. Via Garibaldi, Praia a Mare (CS).">
+<meta name="keywords" content="C'ama fà, pizzeria Praia a Mare, ristorante Praia a Mare, pizza napoletana Calabria, cucina calabrese, ristorante Via Garibaldi, senza lattosio, celiaci Praia a Mare">
+<meta property="og:title" content="C'ama fà — Pizzeria a Praia a Mare">
+<meta property="og:description" content="Pizza napoletana e specialità calabresi. Un posto accogliente in Via Garibaldi, Praia a Mare.">
+<meta property="og:image" content="./photos/photo_00.jpg">
+<meta property="og:url" content="https://camafa.it">
+<meta property="og:type" content="restaurant">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="C'ama fà — Pizzeria a Praia a Mare">
+<meta name="twitter:description" content="Pizza napoletana e specialità calabresi.">
+<meta name="twitter:image" content="./photos/photo_00.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍕</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"C'ama fà",
+  "image":"./photos/photo_00.jpg",
+  "address":{"@type":"PostalAddress","streetAddress":"Via Giuseppe Garibaldi","addressLocality":"Praia a Mare","addressRegion":"CS","postalCode":"87028","addressCountry":"IT"},
+  "telephone":"+393533760892",
+  "priceRange":"€€",
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.2","reviewCount":"642"},
+  "servesCuisine":["Italian","Calabrese","Pizza Napoletana"],
+  "openingHours":["Mo-Fr 19:30-24:00","Sa-Su 12:30-15:00","Sa-Su 19:30-24:00"],
+  "url":"https://www.facebook.com/camafapizzeria/"
+}
+</script>
+<style>
+  :root{
+    --primary:#24201b;
+    --secondary:#bfb1a2;
+    --accent:#776754;
+    --light:#f5e6da;
+    --dark:#1a1714;
+    --ink:#2b2620;
+    --paper:#faf3ea;
+    --line:rgba(36,32,27,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+
+  /* LANG */
+  .t-en{display:none !important}
+  body.lang-en .t-it{display:none !important}
+  body.lang-en .t-en{display:revert !important}
+
+  /* TYPE */
+  h1,h2,h3,h4{font-family:'Unna',serif;font-weight:400;letter-spacing:-.01em;line-height:1.1;color:var(--primary)}
+  h1{font-size:clamp(2.8rem,6vw,5.2rem)}
+  h2{font-size:clamp(2rem,4.2vw,3.4rem)}
+  h3{font-size:1.35rem;font-weight:700}
+  .eyebrow{
+    font-family:'Jost',sans-serif;
+    font-size:.72rem;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:500;
+    display:inline-block;
+    margin-bottom:1rem;
+  }
+  .ornament{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    margin:.5rem auto 1.4rem;color:var(--accent);
+  }
+  .ornament::before,.ornament::after{content:"";display:block;width:36px;height:1px;background:var(--accent);opacity:.5}
+  .ornament span{font-size:.9rem;letter-spacing:.3em}
+
+  /* LAYOUT */
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  section{padding:110px 0;position:relative}
+  .alt{background:#efe3d5}
+  .dark-sec{background:var(--primary);color:var(--light)}
+  .dark-sec h2,.dark-sec h3{color:var(--light)}
+  .dark-sec .eyebrow{color:var(--secondary)}
+
+  /* NAV */
+  nav.nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:22px 40px;
+    display:flex;align-items:center;justify-content:space-between;
+    transition:background .4s ease,backdrop-filter .4s ease,padding .4s ease,border-color .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  nav.nav.scrolled{
+    background:rgba(250,243,234,.92);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    padding:16px 40px;
+    border-bottom-color:var(--line);
+  }
+  .logo{
+    font-family:'Unna',serif;
+    font-size:1.55rem;
+    color:#fff;
+    letter-spacing:.01em;
+    transition:color .4s ease;
+  }
+  .logo i{font-style:italic;color:var(--secondary)}
+  nav.nav.scrolled .logo{color:var(--primary)}
+  nav.nav.scrolled .logo i{color:var(--accent)}
+  .nav-links{display:flex;gap:38px;align-items:center}
+  .nav-links a{
+    font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;
+    color:rgba(255,255,255,.92);font-weight:400;
+    transition:color .3s ease;position:relative;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;
+    background:currentColor;transform:scaleX(0);transform-origin:left;
+    transition:transform .35s ease;
+  }
+  .nav-links a:hover::after{transform:scaleX(1)}
+  nav.nav.scrolled .nav-links a{color:var(--primary)}
+  .lang-switch{display:flex;gap:6px;margin-left:20px}
+  .lang-btn{
+    border:1px solid rgba(255,255,255,.4);
+    background:transparent;
+    color:#fff;
+    padding:6px 12px;
+    font-family:'Jost',sans-serif;
+    font-size:.72rem;letter-spacing:.16em;
+    cursor:pointer;border-radius:2px;
+    transition:all .25s ease;
+  }
+  .lang-btn:hover{border-color:#fff}
+  .lang-btn.active{color:var(--primary);background:#fff;border-color:#fff}
+  nav.nav.scrolled .lang-btn{color:var(--primary);border-color:rgba(36,32,27,.22)}
+  nav.nav.scrolled .lang-btn:hover{border-color:var(--primary)}
+  nav.nav.scrolled .lang-btn.active{color:#fff;background:var(--accent);border-color:var(--accent)}
+  .burger{display:none}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;align-items:flex-end;
+    padding:0 0 90px;
+    color:#fff;
+    overflow:hidden;
+  }
+  .hero-bg{position:absolute;inset:0;z-index:1}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(36,32,27,.25) 0%,rgba(36,32,27,.15) 40%,rgba(36,32,27,.7) 100%);
+  }
+  .hero-inner{position:relative;z-index:2;width:100%}
+  .hero .wrap{max-width:1180px}
+  .hero-kicker{
+    display:inline-flex;align-items:center;gap:14px;
+    font-size:.75rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--secondary);margin-bottom:28px;
+  }
+  .hero-kicker::before{content:"";width:42px;height:1px;background:var(--secondary)}
+  .hero h1{
+    color:#fff;
+    max-width:900px;
+    margin-bottom:28px;
+  }
+  .hero h1 i{color:var(--secondary);font-style:italic;font-weight:400}
+  .hero-sub{
+    font-size:1.08rem;
+    color:rgba(255,255,255,.85);
+    max-width:560px;
+    margin-bottom:44px;
+    font-weight:300;
+  }
+  .hero-meta{
+    display:flex;align-items:center;gap:38px;flex-wrap:wrap;
+    padding-top:30px;
+    border-top:1px solid rgba(255,255,255,.2);
+  }
+  .hero-meta-item{display:flex;flex-direction:column;gap:4px}
+  .hero-meta-item .v{font-family:'Unna',serif;font-size:1.6rem;color:#fff}
+  .hero-meta-item .l{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--secondary)}
+  .stars{color:#e8b875;letter-spacing:.05em}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+  .btn{
+    display:inline-block;
+    padding:16px 34px;
+    font-family:'Jost',sans-serif;
+    font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;
+    font-weight:500;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:all .3s cubic-bezier(.2,.8,.2,1);
+    border-radius:2px;
+  }
+  .btn-primary{background:var(--light);color:var(--primary)}
+  .btn-primary:hover{background:#fff;transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:#fff}
+  .btn-accent{background:var(--accent);color:var(--light)}
+  .btn-accent:hover{background:var(--primary);transform:translateY(-2px)}
+
+  /* STORIA */
+  .storia-grid{
+    display:grid;
+    grid-template-columns:1.05fr 1fr;
+    gap:90px;
+    align-items:center;
+  }
+  .storia-img{position:relative}
+  .storia-img img{
+    width:100%;height:620px;object-fit:cover;
+    border-radius:2px;
+  }
+  .storia-img::after{
+    content:"";position:absolute;
+    top:24px;left:24px;right:-24px;bottom:-24px;
+    border:1px solid var(--accent);
+    z-index:-1;
+  }
+  .storia-text p{
+    margin-bottom:1.2rem;
+    font-size:1.02rem;
+    color:var(--ink);
+  }
+  .storia-text p:first-of-type::first-letter{
+    font-family:'Unna',serif;
+    font-size:3.8rem;
+    float:left;
+    line-height:.9;
+    padding:6px 10px 0 0;
+    color:var(--accent);
+  }
+  .sign{
+    margin-top:2rem;
+    font-family:'Unna',serif;
+    font-style:italic;
+    color:var(--accent);
+    font-size:1.2rem;
+  }
+
+  /* SECTION HEAD */
+  .s-head{text-align:center;margin-bottom:68px}
+  .s-head p.lead{
+    max-width:620px;margin:18px auto 0;
+    color:var(--accent);
+    font-style:italic;
+    font-family:'Unna',serif;
+    font-size:1.15rem;
+    line-height:1.5;
+  }
+
+  /* MENU */
+  .menu-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+  }
+  .menu-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;
+  }
+  .menu-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 30px 60px -24px rgba(36,32,27,.28);
+  }
+  .menu-card .pic{aspect-ratio:4/3;overflow:hidden;position:relative}
+  .menu-card .pic img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+  .menu-card:hover .pic img{transform:scale(1.06)}
+  .menu-card .pic .tag{
+    position:absolute;top:16px;left:16px;
+    background:rgba(250,243,234,.94);
+    color:var(--primary);
+    font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+    padding:6px 12px;
+  }
+  .menu-card .body{padding:28px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .menu-card h3{margin-bottom:4px}
+  .menu-card .desc{font-size:.92rem;color:rgba(43,38,32,.75);flex:1}
+  .menu-card .foot{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding-top:16px;margin-top:6px;
+    border-top:1px dashed var(--line);
+  }
+  .price{font-family:'Unna',serif;font-size:1.4rem;color:var(--accent)}
+  .menu-card .foot small{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+
+  /* REVIEWS */
+  .reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  .review{
+    background:rgba(245,230,218,.08);
+    border:1px solid rgba(245,230,218,.14);
+    padding:38px 32px 34px;
+    position:relative;
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .review .q{
+    position:absolute;top:-4px;left:20px;
+    font-family:'Unna',serif;font-size:5rem;
+    color:var(--secondary);opacity:.5;line-height:1;
+  }
+  .review .stars{font-size:1rem;color:#e8b875}
+  .review p{font-size:.98rem;line-height:1.65;color:rgba(245,230,218,.88);font-weight:300}
+  .review .who{
+    display:flex;align-items:center;gap:14px;
+    margin-top:auto;padding-top:18px;
+    border-top:1px solid rgba(245,230,218,.14);
+  }
+  .avatar{
+    width:42px;height:42px;border-radius:50%;
+    background:var(--accent);color:var(--light);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Unna',serif;font-size:1.15rem;
+  }
+  .who .n{font-size:.95rem;color:var(--light);font-weight:400}
+  .who .src{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--secondary)}
+
+  /* CONTATTI */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:start;
+  }
+  .contact-info{display:flex;flex-direction:column;gap:28px}
+  .info-item{display:flex;gap:18px;align-items:flex-start}
+  .info-ico{
+    width:42px;height:42px;flex:none;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--accent);font-size:1.1rem;
+  }
+  .info-item .k{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+  .info-item .v{font-family:'Unna',serif;font-size:1.2rem;color:var(--primary);line-height:1.3}
+  .info-item .v a:hover{color:var(--accent)}
+  .hours-grid{display:grid;grid-template-columns:1fr auto;gap:8px 24px;font-size:.92rem}
+  .hours-grid .d{color:var(--accent);letter-spacing:.04em}
+  .hours-grid .h{color:var(--ink)}
+  .map-wrap{
+    border:1px solid var(--line);
+    height:100%;min-height:420px;
+    overflow:hidden;
+  }
+  .map-wrap iframe{width:100%;height:100%;min-height:420px;border:0;filter:grayscale(.15) contrast(.95)}
+
+  /* FOOTER */
+  footer{
+    background:var(--dark);
+    color:var(--secondary);
+    padding:70px 0 30px;
+  }
+  .foot-grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr;
+    gap:50px;
+    margin-bottom:50px;
+  }
+  footer h4{color:var(--light);font-family:'Unna',serif;font-size:1.25rem;margin-bottom:18px}
+  footer p,footer a{font-size:.93rem;color:rgba(245,230,218,.75);line-height:1.7}
+  footer a:hover{color:var(--secondary)}
+  footer .brand{font-family:'Unna',serif;font-size:1.6rem;color:var(--light);margin-bottom:14px}
+  footer .brand i{color:var(--secondary)}
+  .foot-bot{
+    padding-top:26px;
+    border-top:1px solid rgba(245,230,218,.12);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+    font-size:.82rem;letter-spacing:.08em;
+  }
+  .foot-bot a{color:var(--secondary)}
+  .foot-bot a:hover{color:var(--light)}
+
+  /* WA FLOAT */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;z-index:999;
+    width:60px;height:60px;border-radius:50%;
+    background:#25D366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 40px rgba(37,211,102,.42);
+    transition:transform .3s ease;
+  }
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  /* DIVIDER */
+  .wave-div{
+    height:60px;background:var(--paper);position:relative;overflow:hidden;
+  }
+  .wave-div svg{width:100%;height:100%;display:block}
+  .alt + section, section + .alt{position:relative}
+
+  /* MOBILE */
+  @media (max-width:860px){
+    nav.nav{padding:16px 22px}
+    nav.nav.scrolled{padding:12px 22px}
+    .nav-links{
+      position:fixed;top:0;right:-100%;
+      width:78%;max-width:340px;height:100vh;
+      background:var(--paper);
+      flex-direction:column;justify-content:center;gap:30px;
+      padding:40px;
+      transition:right .4s ease;
+      box-shadow:-20px 0 50px rgba(0,0,0,.2);
+    }
+    .nav-links.open{right:0}
+    .nav-links a{color:var(--primary) !important;font-size:1rem}
+    .lang-switch{margin:20px 0 0}
+    .nav-links .lang-btn{color:var(--primary) !important;border-color:rgba(36,32,27,.22) !important}
+    .nav-links .lang-btn.active{color:#fff !important;background:var(--accent) !important;border-color:var(--accent) !important}
+    .burger{
+      display:flex;flex-direction:column;gap:5px;
+      background:transparent;border:0;cursor:pointer;z-index:102;
+      padding:8px;
+    }
+    .burger span{width:26px;height:1.5px;background:#fff;transition:all .3s}
+    nav.nav.scrolled .burger span{background:var(--primary)}
+    .burger.open span{background:var(--primary)}
+    .burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .burger.open span:nth-child(2){opacity:0}
+    .burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    section{padding:72px 0}
+    .storia-grid,.contact-grid,.foot-grid{grid-template-columns:1fr;gap:44px}
+    .menu-grid,.reviews-grid{grid-template-columns:1fr}
+    .storia-img img{height:420px}
+    .storia-img::after{display:none}
+    .hero{padding-bottom:60px;min-height:92vh}
+    .hero-meta{gap:24px}
+    .foot-bot{flex-direction:column;text-align:center}
+  }
+</style>
+</head>
+<body class="lang-it">
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#top" class="logo">C'ama <i>fà</i></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#storia" class="t-it">Storia</a>
+    <a href="#storia" class="t-en">Story</a>
+    <a href="#menu" class="t-it">Menu</a>
+    <a href="#menu" class="t-en">Menu</a>
+    <a href="#reviews" class="t-it">Recensioni</a>
+    <a href="#reviews" class="t-en">Reviews</a>
+    <a href="#contatti" class="t-it">Contatti</a>
+    <a href="#contatti" class="t-en">Contact</a>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-l="it">IT</button>
+      <button class="lang-btn" data-l="en">EN</button>
+    </div>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding:0">
+  <div class="hero-bg">
+    <img src="./photos/photo_00.jpg" alt="C'ama fà — Pizzeria a Praia a Mare">
+  </div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <span class="hero-kicker t-it">Praia a Mare · Calabria · dal cuore</span>
+      <span class="hero-kicker t-en">Praia a Mare · Calabria · from the heart</span>
+
+      <h1 class="t-it">C'ama fà.<br>La pizza <i>napoletana</i><br>che sa di casa.</h1>
+      <h1 class="t-en">C'ama fà.<br>The Neapolitan <i>pizza</i><br>that tastes like home.</h1>
+
+      <p class="hero-sub t-it">Nel cuore di Via Garibaldi, una pizzeria dove il menù è grande quanto il sorriso di chi ti accoglie — con opzioni senza lattosio, senza glutine e un'attenzione vera per chi siede al tavolo.</p>
+      <p class="hero-sub t-en">In the heart of Via Garibaldi, a pizzeria where the menu is as wide as the smile that greets you — with lactose-free, gluten-free options and real care for everyone at the table.</p>
+
+      <div class="hero-cta">
+        <a href="#contatti" class="btn btn-primary t-it">Prenota un Tavolo</a>
+        <a href="#contatti" class="btn btn-primary t-en">Book a Table</a>
+        <a href="#menu" class="btn btn-ghost t-it">Scopri il Menu</a>
+        <a href="#menu" class="btn btn-ghost t-en">Discover the Menu</a>
+      </div>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="v"><span class="stars">★★★★</span><span style="color:rgba(255,255,255,.4)">★</span> 4.2</span>
+          <span class="l t-it">642 recensioni Google</span>
+          <span class="l t-en">642 Google reviews</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="v t-it">Via Garibaldi</span>
+          <span class="v t-en">Via Garibaldi</span>
+          <span class="l t-it">Praia a Mare (CS)</span>
+          <span class="l t-en">Praia a Mare (CS)</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="v">19:30 — 24:00</span>
+          <span class="l t-it">tutte le sere</span>
+          <span class="l t-en">every evening</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORIA -->
+<section id="storia">
+  <div class="wrap">
+    <div class="storia-grid">
+      <div class="storia-img">
+        <img src="./photos/photo_03.jpg" alt="L'ambiente di C'ama fà">
+      </div>
+      <div class="storia-text">
+        <span class="eyebrow t-it">La nostra storia</span>
+        <span class="eyebrow t-en">Our story</span>
+
+        <h2 class="t-it">Una pizzeria con la <i style="color:var(--accent);font-weight:400">stessa anima</i> di Praia.</h2>
+        <h2 class="t-en">A pizzeria with the <i style="color:var(--accent);font-weight:400">same soul</i> as Praia.</h2>
+
+        <div class="ornament"><span>✦</span></div>
+
+        <div class="t-it">
+          <p>C'ama fà nasce dall'idea semplice di fare quello che a Praia a Mare si fa bene da sempre: accogliere chi entra come se fosse di casa. Un menù ampio, una pizza napoletana cotta come si deve, e — per chi ne ha bisogno — opzioni pensate davvero: senza lattosio, senza glutine, senza compromessi sul gusto.</p>
+          <p>Siamo in Via Garibaldi, nel cuore pedonale del paese, a pochi passi dal lungomare. Serate calme di metà maggio o sere d'agosto affollate: il ritmo cambia, ma la sostanza resta la stessa — ingredienti scelti, staff attento, un tavolo libero anche senza prenotazione se arrivi all'ora giusta.</p>
+          <p>Se hai un'intolleranza, chiedi: il nostro staff è abituato a trovare la soluzione insieme a te, piatto per piatto. È questo — più di qualsiasi altra cosa — il modo in cui noi intendiamo il servizio.</p>
+          <p class="sign">— La famiglia C'ama fà</p>
+        </div>
+
+        <div class="t-en">
+          <p>C'ama fà was born from a simple idea: do what Praia a Mare has always done well — welcome whoever walks in as if they were family. A wide menu, Neapolitan pizza baked the way it should be, and — for those who need them — options that are actually thought through: lactose-free, gluten-free, no compromise on flavour.</p>
+          <p>We're on Via Garibaldi, in the pedestrian heart of town, a few steps from the seafront. Quiet mid-May evenings or crowded August nights: the rhythm changes, the substance doesn't — chosen ingredients, attentive staff, often a free table even without a booking if you arrive at the right time.</p>
+          <p>If you have an allergy or intolerance, ask: our staff is used to working it out with you, dish by dish. That — more than anything — is how we understand hospitality.</p>
+          <p class="sign">— The C'ama fà family</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="alt">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow t-it">Il menù</span>
+      <span class="eyebrow t-en">The menu</span>
+
+      <h2 class="t-it">Tre <i style="color:var(--accent)">firme</i> della casa.</h2>
+      <h2 class="t-en">Three house <i style="color:var(--accent)">signatures</i>.</h2>
+
+      <p class="lead t-it">Una selezione dal nostro menù, ampio e pensato per tutti — dalle pizze napoletane ai piatti della tradizione, con opzioni senza lattosio e senza glutine.</p>
+      <p class="lead t-en">A selection from our menu, wide and thought for everyone — from Neapolitan pizzas to traditional dishes, with lactose-free and gluten-free options.</p>
+    </div>
+
+    <div class="menu-grid">
+      <article class="menu-card">
+        <div class="pic">
+          <img src="./photos/photo_05.jpg" alt="Pizza Napoletana Margherita">
+          <span class="tag t-it">Firma</span>
+          <span class="tag t-en">Signature</span>
+        </div>
+        <div class="body">
+          <h3 class="t-it">Margherita Napoletana</h3>
+          <h3 class="t-en">Neapolitan Margherita</h3>
+          <p class="desc t-it">Impasto a lunga lievitazione, pomodoro San Marzano, fior di latte, basilico fresco e un filo d'olio extravergine. La base di tutto.</p>
+          <p class="desc t-en">Long-leavened dough, San Marzano tomato, fior di latte, fresh basil and a drizzle of extra-virgin olive oil. Where it all begins.</p>
+          <div class="foot">
+            <span class="price">€ 7,50</span>
+            <small class="t-it">Napoletana</small>
+            <small class="t-en">Neapolitan</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="pic">
+          <img src="./photos/photo_07.jpg" alt="Pizza con salumi calabresi">
+          <span class="tag t-it">Calabra</span>
+          <span class="tag t-en">Calabrian</span>
+        </div>
+        <div class="body">
+          <h3 class="t-it">C'ama fà</h3>
+          <h3 class="t-en">C'ama fà Signature</h3>
+          <p class="desc t-it">La pizza della casa: fior di latte, 'nduja calabrese, salsiccia di maiale nero, cipolla di Tropea e un tocco di miele d'acacia a crudo.</p>
+          <p class="desc t-en">Our signature: fior di latte, Calabrian 'nduja, black pork sausage, Tropea onion and a finishing touch of raw acacia honey.</p>
+          <div class="foot">
+            <span class="price">€ 12,00</span>
+            <small class="t-it">Specialità</small>
+            <small class="t-en">Specialty</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="pic">
+          <img src="./photos/photo_09.jpg" alt="Opzione senza lattosio">
+          <span class="tag t-it">Senza lattosio</span>
+          <span class="tag t-en">Lactose-free</span>
+        </div>
+        <div class="body">
+          <h3 class="t-it">Senza Lattosio Mediterranea</h3>
+          <h3 class="t-en">Lactose-Free Mediterranea</h3>
+          <p class="desc t-it">Pizza interamente senza lattosio: pomodoro, mozzarella delattosata, pomodorini confit, olive nere di Gaeta, origano e basilico.</p>
+          <p class="desc t-en">Fully lactose-free pizza: tomato, lactose-free mozzarella, confit cherry tomatoes, Gaeta black olives, oregano and basil.</p>
+          <div class="foot">
+            <span class="price">€ 11,00</span>
+            <small class="t-it">Lactose free</small>
+            <small class="t-en">Lactose free</small>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="dark-sec">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow t-it">Parole dei clienti</span>
+      <span class="eyebrow t-en">Guest voices</span>
+
+      <h2 class="t-it">Quello che <i style="color:var(--secondary)">dicono</i> di noi.</h2>
+      <h2 class="t-en">What our guests <i style="color:var(--secondary)">say</i>.</h2>
+    </div>
+
+    <div class="reviews-grid">
+      <article class="review">
+        <span class="q">&ldquo;</span>
+        <div class="stars">★★★★★</div>
+        <p class="t-it">Che esperienza fantastica! Siamo venuti a metà maggio verso le 22 — senza prenotazione, il posto era tranquillo e accogliente, e il cibo è arrivato in fretta. Tantissime scelte buone nel menu.</p>
+        <p class="t-en">What a fantastic experience! We visited in mid-May around 10 PM — no reservation needed, the place was calm and welcoming, and the food came quickly. So many tasty choices on the menu.</p>
+        <div class="who">
+          <div class="avatar">R</div>
+          <div>
+            <div class="n">Roosa Turunen</div>
+            <div class="src">Google · ★★★★★</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review">
+        <span class="q">&ldquo;</span>
+        <div class="stars">★★★★★</div>
+        <p class="t-it">È stata davvero una bella esperienza, soprattutto perché lo staff è stato molto attento alle esigenze dei clienti: allergie e intolleranze? Disponibili ad aiutarti a trovare ciò che fa per te.</p>
+        <p class="t-en">It was really a pleasant experience, especially because the staff was very careful to the customers' needs — whenever you have allergies or intolerances, they are willing to help you sort out what fits.</p>
+        <div class="who">
+          <div class="avatar">V</div>
+          <div>
+            <div class="n">Virginia Badioli</div>
+            <div class="src">Google · ★★★★★</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review">
+        <span class="q">&ldquo;</span>
+        <div class="stars">★★★★★</div>
+        <p class="t-it">La pizza migliore che abbiamo mangiato in tutto il nostro viaggio in Italia. Opzioni anche senza lattosio. Prezzi ragionevoli e servizio ottimo. Ci siamo tornati due volte.</p>
+        <p class="t-en">Best pizza we ate on our whole trip around ALL of Italy. Lactose-free options available too. Prices are reasonable and service is great. We went twice.</p>
+        <div class="who">
+          <div class="avatar">A</div>
+          <div>
+            <div class="n">Austin Bertone</div>
+            <div class="src">Google · ★★★★★</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section id="contatti">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow t-it">Dove trovarci</span>
+      <span class="eyebrow t-en">Find us</span>
+
+      <h2 class="t-it">Vieni a <i style="color:var(--accent)">trovarci</i>.</h2>
+      <h2 class="t-en">Come <i style="color:var(--accent)">say hello</i>.</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="info-ico">✦</div>
+          <div>
+            <div class="k t-it">Indirizzo</div>
+            <div class="k t-en">Address</div>
+            <div class="v">Via Giuseppe Garibaldi<br>87028 Praia a Mare (CS)</div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-ico">☏</div>
+          <div>
+            <div class="k t-it">Telefono</div>
+            <div class="k t-en">Phone</div>
+            <div class="v"><a href="tel:+393533760892">+39 353 376 0892</a></div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-ico">◷</div>
+          <div>
+            <div class="k t-it">Orari</div>
+            <div class="k t-en">Opening hours</div>
+            <div class="v" style="font-size:1rem;margin-top:10px">
+              <div class="hours-grid t-it">
+                <span class="d">Lun — Ven</span><span class="h">19:30 — 24:00</span>
+                <span class="d">Sabato</span><span class="h">12:30 — 15:00 · 19:30 — 24:00</span>
+                <span class="d">Domenica</span><span class="h">12:30 — 15:00 · 19:30 — 24:00</span>
+              </div>
+              <div class="hours-grid t-en">
+                <span class="d">Mon — Fri</span><span class="h">7:30 PM — 12:00 AM</span>
+                <span class="d">Saturday</span><span class="h">12:30 — 3:00 PM · 7:30 PM — 12:00 AM</span>
+                <span class="d">Sunday</span><span class="h">12:30 — 3:00 PM · 7:30 PM — 12:00 AM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-cta" style="margin-top:10px">
+          <a href="https://wa.me/393533760892?text=Buongiorno%2C%20vorrei%20prenotare%20un%20tavolo%20da%20C%27ama%20f%C3%A0." target="_blank" rel="noopener" class="btn btn-accent t-it">Prenota via WhatsApp</a>
+          <a href="https://wa.me/393533760892?text=Hello%2C%20I%27d%20like%20to%20book%20a%20table%20at%20C%27ama%20f%C3%A0." target="_blank" rel="noopener" class="btn btn-accent t-en">Book via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps?q=C%27ama+f%C3%A0+Via+Garibaldi+Praia+a+Mare&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">C'ama <i>fà</i></div>
+        <p class="t-it">Pizzeria e ristorante nel cuore di Praia a Mare. Pizza napoletana, cucina calabrese e un'accoglienza sincera da ormai tanti anni.</p>
+        <p class="t-en">Pizzeria and restaurant in the heart of Praia a Mare. Neapolitan pizza, Calabrian cuisine and sincere hospitality.</p>
+      </div>
+      <div>
+        <h4 class="t-it">Contatti</h4>
+        <h4 class="t-en">Contact</h4>
+        <p>Via Giuseppe Garibaldi<br>87028 Praia a Mare (CS)</p>
+        <p><a href="tel:+393533760892">+39 353 376 0892</a></p>
+        <p><a href="https://www.facebook.com/camafapizzeria/" target="_blank" rel="noopener">Facebook</a></p>
+      </div>
+      <div>
+        <h4 class="t-it">Orari</h4>
+        <h4 class="t-en">Hours</h4>
+        <p class="t-it">Lun — Ven · 19:30 — 24:00<br>Sab · 12:30 — 15:00 / 19:30 — 24:00<br>Dom · 12:30 — 15:00 / 19:30 — 24:00</p>
+        <p class="t-en">Mon — Fri · 7:30 PM — 12:00 AM<br>Sat · 12:30 — 3:00 PM / 7:30 PM — 12:00 AM<br>Sun · 12:30 — 3:00 PM / 7:30 PM — 12:00 AM</p>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div>&copy; <span id="yr">2026</span> C'ama fà · P.IVA — Praia a Mare (CS)</div>
+      <div>
+        <span class="t-it">Sito realizzato da </span>
+        <span class="t-en">Site by </span>
+        <a href="https://viktoria.agency" target="_blank" rel="noopener">Viktoria Agency</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/393533760892?text=Buongiorno%2C%20vorrei%20informazioni%20su%20C%27ama%20f%C3%A0." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.02 0C5.4 0 .03 5.37.03 11.99c0 2.11.55 4.17 1.6 5.99L0 24l6.18-1.62a12 12 0 0 0 5.84 1.49h.01c6.62 0 11.99-5.37 11.99-11.99 0-3.2-1.25-6.21-3.5-8.4ZM12.03 21.8h-.01a9.79 9.79 0 0 1-5-1.37l-.36-.21-3.67.96.98-3.58-.23-.37A9.8 9.8 0 0 1 2.22 12c0-5.4 4.4-9.8 9.81-9.8 2.62 0 5.08 1.02 6.93 2.87A9.74 9.74 0 0 1 21.83 12c0 5.4-4.4 9.8-9.8 9.8Zm5.38-7.33c-.29-.15-1.74-.86-2.02-.95-.27-.1-.47-.15-.67.15-.2.3-.76.95-.93 1.14-.17.2-.35.22-.64.07a8.08 8.08 0 0 1-2.37-1.46 8.94 8.94 0 0 1-1.64-2.04c-.17-.3-.02-.45.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.11 3.23 5.12 4.53.72.31 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.08 1.74-.71 1.99-1.4.25-.68.25-1.26.18-1.4-.07-.12-.27-.2-.56-.35Z"/></svg>
+</a>
+
+<script>
+  // Language switch
+  const body = document.body;
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const l = btn.dataset.l;
+      body.classList.remove('lang-it','lang-en');
+      body.classList.add('lang-'+l);
+      document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.l===l));
+      document.documentElement.lang = l;
+    });
+  });
+
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  const setScroll = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  setScroll();
+  window.addEventListener('scroll', setScroll, {passive:true});
+
+  // Burger
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click',()=>{
+    burger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    burger.classList.remove('open');
+    navLinks.classList.remove('open');
+  }));
+
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
