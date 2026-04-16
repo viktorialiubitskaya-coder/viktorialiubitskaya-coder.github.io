@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ristorante Serrago · Tradizione & Innovazione · Praia a Mare</title>
+<meta name="description" content="Ristorante Serrago a Praia a Mare — cucina di mare calabrese tra tradizione e innovazione. Pesce fresco, gnocchi di patate viola, materie prime locali. A due passi dal lungomare.">
+<meta name="keywords" content="ristorante Praia a Mare, pesce Calabria, cena romantica, gnocchi patate viola, cucina calabrese, seafood restaurant, Ristorante Serrago">
+<meta property="og:title" content="Ristorante Serrago · Tradizione & Innovazione">
+<meta property="og:description" content="Cucina di mare a Praia a Mare. Pesce del giorno, ricette calabresi rivisitate, atmosfera accogliente a un passo dal lungomare.">
+<meta property="og:image" content="./photos/photo_00.jpg">
+<meta property="og:url" content="https://ristoranteserrago.it">
+<meta property="og:type" content="restaurant.restaurant">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ristorante Serrago · Praia a Mare">
+<meta name="twitter:description" content="Cucina di mare calabrese. Tradizione e innovazione a due passi dal mare.">
+<meta name="twitter:image" content="./photos/photo_00.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Ristorante Serrago tradizioneinnovazione",
+  "image":"./photos/photo_00.jpg",
+  "address":{"@type":"PostalAddress","streetAddress":"Via della Grotta, 15","addressLocality":"Praia a Mare","addressRegion":"CS","postalCode":"87028","addressCountry":"IT"},
+  "telephone":"+393802384386",
+  "priceRange":"€€",
+  "url":"https://ristoranteserrago.it",
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"144"},
+  "servesCuisine":["Italian","Calabrese","Seafood","Mediterranean"],
+  "openingHours":["Fr-Sa 19:30-23:30","Su 12:00-14:30"]
+}
+</script>
+<style>
+:root{
+  --primary:#212727;
+  --secondary:#d4d2cc;
+  --accent:#9b632d;
+  --sand:#929288;
+  --light:#f3f1ec;
+  --paper:#faf8f3;
+  --dark:#1a1f1f;
+  --red:#d24942;
+  --line:rgba(33,39,39,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Manrope',sans-serif;
+  font-weight:400;
+  color:var(--primary);
+  background:var(--paper);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Prata',serif;font-weight:400;letter-spacing:.01em}
+
+/* --- LANG SWITCH --- */
+.t-en,.t-de{display:none !important;}
+body.lang-en .t-it,body.lang-en .t-de{display:none !important;}
+body.lang-de .t-it,body.lang-de .t-en{display:none !important;}
+body.lang-en .t-en,body.lang-de .t-de{display:revert !important;}
+
+/* --- NAV --- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:22px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background .4s ease,padding .4s ease,box-shadow .4s ease;
+}
+.nav.scrolled{
+  background:rgba(250,248,243,.96);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  padding:14px 48px;
+  box-shadow:0 1px 0 rgba(33,39,39,.06);
+}
+.logo{
+  font-family:'Prata',serif;
+  font-size:1.35rem;
+  letter-spacing:.04em;
+  color:#fff;
+  transition:color .4s ease;
+  line-height:1;
+}
+.logo small{display:block;font-family:'Manrope',sans-serif;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;margin-top:4px;opacity:.8}
+.nav.scrolled .logo{color:var(--primary)}
+
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{
+  font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+  color:#fff;transition:color .3s,opacity .3s;opacity:.85;font-weight:500;
+}
+.nav-links a:hover{opacity:1}
+.nav.scrolled .nav-links a{color:var(--primary)}
+
+.lang-switch{display:flex;gap:6px;margin-left:28px;border-left:1px solid rgba(255,255,255,.3);padding-left:24px;transition:border-color .4s}
+.nav.scrolled .lang-switch{border-left-color:rgba(33,39,39,.15)}
+.lang-btn{
+  background:transparent;border:1px solid rgba(255,255,255,.4);
+  color:#fff;
+  padding:6px 10px;font-size:.68rem;letter-spacing:.14em;font-weight:600;
+  cursor:pointer;font-family:inherit;border-radius:2px;
+  transition:all .25s;
+}
+.lang-btn:hover{border-color:#fff}
+.lang-btn.active{color:#1a1a1a;background:#fff;border-color:#fff}
+.nav.scrolled .lang-btn{color:var(--primary);border-color:rgba(33,39,39,.2)}
+.nav.scrolled .lang-btn:hover{border-color:var(--primary)}
+.nav.scrolled .lang-btn.active{color:#fff;background:var(--primary);border-color:var(--primary)}
+
+.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+.nav.scrolled .menu-toggle{color:var(--primary)}
+
+/* --- HERO --- */
+.hero{
+  position:relative;height:100vh;min-height:640px;
+  overflow:hidden;color:#fff;
+  display:flex;align-items:center;
+}
+.hero-bg{position:absolute;inset:0;z-index:1}
+.hero-bg img{
+  width:100%;height:100%;object-fit:cover;
+  animation:kenburns 28s ease-in-out infinite alternate;
+}
+@keyframes kenburns{
+  from{transform:scale(1) translate(0,0)}
+  to{transform:scale(1.15) translate(-2%,1%)}
+}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,rgba(26,31,31,.55) 0%,rgba(26,31,31,.25) 40%,rgba(26,31,31,.75) 100%);
+}
+.hero-content{
+  position:relative;z-index:3;
+  padding:0 48px;
+  max-width:1100px;
+  width:100%;
+  margin:0 auto;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+  margin-bottom:28px;opacity:.92;font-weight:500;
+}
+.hero-eyebrow::before{content:"";width:32px;height:1px;background:#fff}
+.hero h1{
+  font-family:'Prata',serif;
+  font-size:clamp(2.8rem,7vw,6rem);
+  line-height:1;letter-spacing:-.01em;
+  margin-bottom:24px;font-weight:400;
+}
+.hero h1 em{font-style:italic;color:#e6c39a;display:block;font-size:.58em;margin-top:10px;letter-spacing:.04em}
+.hero-sub{
+  font-size:1.1rem;max-width:540px;line-height:1.65;
+  margin-bottom:44px;font-weight:300;opacity:.92;
+}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 32px;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:600;font-family:inherit;border:1px solid;cursor:pointer;
+  transition:all .3s cubic-bezier(.2,.8,.2,1);
+  text-decoration:none;
+}
+.btn-primary{background:#fff;color:var(--primary);border-color:#fff}
+.btn-primary:hover{background:transparent;color:#fff;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-ghost:hover{background:#fff;color:var(--primary);border-color:#fff}
+.btn-dark{background:var(--primary);color:#fff;border-color:var(--primary)}
+.btn-dark:hover{background:transparent;color:var(--primary);transform:translateY(-2px)}
+
+.hero-rating{
+  position:absolute;bottom:48px;left:48px;z-index:3;
+  display:flex;align-items:center;gap:16px;
+  padding:16px 22px;
+  background:rgba(26,31,31,.55);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:2px;
+}
+.hero-rating .score{font-family:'Prata',serif;font-size:2rem;line-height:1}
+.hero-rating .stars{color:#f5c14f;letter-spacing:2px;font-size:.85rem}
+.hero-rating .meta{font-size:.72rem;letter-spacing:.1em;opacity:.85;text-transform:uppercase;margin-top:3px}
+
+.hero-scroll{
+  position:absolute;bottom:32px;right:48px;z-index:3;
+  font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  display:flex;align-items:center;gap:14px;opacity:.7;
+}
+.hero-scroll::after{content:"";width:1px;height:60px;background:#fff;animation:scrollLine 2.2s ease-in-out infinite}
+@keyframes scrollLine{0%,100%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+/* --- SECTIONS --- */
+section{padding:120px 48px;position:relative}
+.container{max-width:1280px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:80px;max-width:680px;margin-left:auto;margin-right:auto}
+.eyebrow{
+  display:inline-block;font-size:.72rem;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:20px;font-weight:600;
+}
+.section-head h2{
+  font-family:'Prata',serif;
+  font-size:clamp(2.2rem,4.2vw,3.6rem);
+  line-height:1.1;margin-bottom:20px;font-weight:400;letter-spacing:-.01em;
+}
+.section-head h2 em{font-style:italic;color:var(--accent)}
+.section-head p{color:#4a5252;font-size:1.05rem;line-height:1.75;font-weight:300}
+
+/* --- STORIA --- */
+.storia{background:var(--paper)}
+.storia-grid{
+  display:grid;grid-template-columns:1fr 1.1fr;gap:90px;align-items:center;
+}
+.storia-img{position:relative}
+.storia-img img{
+  width:100%;height:620px;object-fit:cover;
+  box-shadow:0 30px 80px rgba(33,39,39,.18);
+}
+.storia-img::before{
+  content:"";position:absolute;inset:-18px -18px auto auto;
+  width:120px;height:120px;border:1px solid var(--accent);z-index:-1;
+}
+.storia-img::after{
+  content:"";position:absolute;inset:auto auto -18px -18px;
+  width:160px;height:160px;background:rgba(155,99,45,.1);z-index:-1;
+}
+.storia-text .eyebrow{margin-bottom:18px}
+.storia-text h2{
+  font-family:'Prata',serif;
+  font-size:clamp(2rem,3.6vw,3.2rem);line-height:1.1;
+  margin-bottom:32px;font-weight:400;
+}
+.storia-text h2 em{font-style:italic;color:var(--accent)}
+.storia-text p{color:#3a4141;line-height:1.85;margin-bottom:20px;font-size:1.02rem;font-weight:300}
+.storia-text p + p{font-size:.98rem}
+.storia-sig{
+  font-family:'Prata',serif;font-style:italic;
+  font-size:1.25rem;color:var(--accent);margin-top:28px;
+}
+
+/* --- MENU --- */
+.menu{background:#1a1f1f;color:#f3f1ec}
+.menu .section-head h2{color:#f3f1ec}
+.menu .section-head p{color:rgba(243,241,236,.7)}
+.menu .eyebrow{color:#e6c39a}
+.menu-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:32px;
+}
+.menu-card{
+  background:#252c2c;
+  overflow:hidden;position:relative;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;
+  border:1px solid rgba(243,241,236,.06);
+}
+.menu-card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.menu-card-img{height:240px;overflow:hidden;position:relative}
+.menu-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.menu-card:hover .menu-card-img img{transform:scale(1.06)}
+.menu-card-tag{
+  position:absolute;top:16px;left:16px;
+  background:rgba(26,31,31,.75);backdrop-filter:blur(10px);
+  color:#e6c39a;padding:5px 12px;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  border:1px solid rgba(230,195,154,.3);
+}
+.menu-card-body{padding:28px 28px 30px}
+.menu-card-body h3{
+  font-family:'Prata',serif;font-size:1.45rem;line-height:1.2;
+  margin-bottom:10px;font-weight:400;
+}
+.menu-card-body p{color:rgba(243,241,236,.65);font-size:.92rem;line-height:1.7;margin-bottom:20px;font-weight:300}
+.menu-card-price{
+  display:flex;align-items:baseline;gap:10px;
+  padding-top:18px;border-top:1px solid rgba(243,241,236,.1);
+}
+.menu-card-price .amount{font-family:'Prata',serif;font-size:1.5rem;color:#e6c39a}
+.menu-card-price .label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,241,236,.5)}
+
+/* --- FORZA --- */
+.forza{background:var(--paper)}
+.forza-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+}
+.forza-card{
+  padding:44px 28px;text-align:center;
+  background:#fff;border:1px solid var(--line);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .4s;
+  position:relative;
+}
+.forza-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 20px 40px rgba(33,39,39,.08)}
+.forza-icon{font-size:2.6rem;margin-bottom:20px;display:block;line-height:1}
+.forza-card h3{
+  font-family:'Prata',serif;font-size:1.2rem;
+  margin-bottom:12px;font-weight:400;
+}
+.forza-card p{color:#5a6161;font-size:.9rem;line-height:1.65;font-weight:300}
+
+/* --- GALLERY --- */
+.gallery{background:var(--secondary)}
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:200px;gap:12px;
+}
+.gallery-item{overflow:hidden;position:relative;cursor:pointer}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-item::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 60%,rgba(26,31,31,.4));
+  opacity:0;transition:opacity .4s;
+}
+.gallery-item:hover::after{opacity:1}
+.gi-1{grid-column:span 2;grid-row:span 2}
+.gi-2{grid-column:span 1;grid-row:span 1}
+.gi-3{grid-column:span 1;grid-row:span 1}
+.gi-4{grid-column:span 1;grid-row:span 2}
+.gi-5{grid-column:span 1;grid-row:span 1}
+.gi-6{grid-column:span 2;grid-row:span 1}
+
+/* --- REVIEWS --- */
+.reviews{background:var(--paper)}
+.reviews-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+}
+.review-card{
+  background:#fff;padding:32px 28px;
+  border:1px solid var(--line);position:relative;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;
+}
+.review-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(33,39,39,.1)}
+.review-card::before{
+  content:"\201C";position:absolute;top:-12px;left:22px;
+  font-family:'Prata',serif;font-size:5rem;color:var(--accent);line-height:1;
+  opacity:.5;
+}
+.review-stars{color:#f5c14f;letter-spacing:3px;font-size:.95rem;margin-bottom:16px;margin-top:16px}
+.review-text{
+  font-family:'Prata',serif;font-style:italic;
+  line-height:1.65;color:#3a4141;
+  font-size:1rem;margin-bottom:24px;
+}
+.review-author{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--line)}
+.review-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),#c08147);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:'Prata',serif;font-size:1.15rem;
+}
+.review-meta{flex:1}
+.review-name{font-weight:600;font-size:.92rem;color:var(--primary)}
+.review-source{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sand);margin-top:2px}
+
+/* --- FAQ --- */
+.faq{background:var(--primary);color:#f3f1ec}
+.faq .section-head h2{color:#f3f1ec}
+.faq .section-head p{color:rgba(243,241,236,.7)}
+.faq .eyebrow{color:#e6c39a}
+.faq-list{max-width:860px;margin:0 auto}
+.faq-item{
+  border-bottom:1px solid rgba(243,241,236,.14);
+  padding:4px 0;
+}
+.faq-item summary{
+  padding:24px 0;cursor:pointer;list-style:none;
+  font-family:'Prata',serif;font-size:1.2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:24px;transition:color .3s;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";font-size:1.8rem;font-family:'Manrope',sans-serif;font-weight:300;
+  color:#e6c39a;transition:transform .3s;line-height:1;
+}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item[open] summary{color:#e6c39a}
+.faq-answer{padding:0 0 24px;color:rgba(243,241,236,.75);line-height:1.8;font-weight:300;font-size:.98rem;max-width:80%}
+
+/* --- CONTACT --- */
+.contact{background:var(--paper)}
+.contact-grid{
+  display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start;
+}
+.contact-info h3{
+  font-family:'Prata',serif;font-size:1.9rem;margin-bottom:8px;font-weight:400;line-height:1.2;
+}
+.contact-info > p{color:#5a6161;margin-bottom:36px;line-height:1.75;font-weight:300}
+.info-block{
+  display:flex;gap:18px;margin-bottom:22px;
+  padding-bottom:22px;border-bottom:1px solid var(--line);
+}
+.info-icon{
+  width:44px;height:44px;flex-shrink:0;border-radius:50%;
+  background:var(--secondary);color:var(--primary);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.info-txt{flex:1}
+.info-label{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--sand);margin-bottom:4px;font-weight:600}
+.info-value{font-size:1rem;line-height:1.55;color:var(--primary)}
+.info-value a:hover{color:var(--accent)}
+
+.booking-form{
+  background:#fff;padding:44px 38px;
+  border:1px solid var(--line);
+  box-shadow:0 20px 50px rgba(33,39,39,.06);
+}
+.booking-form h3{
+  font-family:'Prata',serif;font-size:1.5rem;margin-bottom:6px;font-weight:400;
+}
+.booking-form > p{font-size:.88rem;color:#666;margin-bottom:28px;font-weight:300}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field.full{grid-column:1/-1}
+.booking-form label{
+  font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--primary);font-weight:600;
+}
+.booking-form input,.booking-form select,.booking-form textarea{
+  padding:13px 14px;border:1px solid var(--line);background:var(--paper);
+  font-family:inherit;font-size:.94rem;color:var(--primary);
+  border-radius:2px;transition:border-color .25s;
+}
+.booking-form input:focus,.booking-form select:focus,.booking-form textarea:focus{
+  outline:none;border-color:var(--accent);
+}
+.booking-form textarea{resize:vertical;min-height:88px}
+.booking-form button{width:100%;margin-top:12px}
+
+/* --- MAP --- */
+.map-wrap{background:#fff;padding-bottom:0}
+.map-wrap iframe{width:100%;height:460px;border:0;display:block;filter:grayscale(.2) contrast(1.02)}
+
+/* --- FOOTER --- */
+footer{background:#141818;color:rgba(243,241,236,.75);padding:70px 48px 24px}
+.footer-grid{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:50px;
+}
+.footer-brand .logo{color:#f3f1ec;font-size:1.5rem;margin-bottom:14px}
+.footer-brand p{font-size:.9rem;line-height:1.75;max-width:320px;font-weight:300}
+.footer-col h4{
+  font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;
+  color:#e6c39a;margin-bottom:18px;font-weight:600;
+}
+.footer-col a,.footer-col p{display:block;font-size:.9rem;margin-bottom:10px;font-weight:300;line-height:1.6}
+.footer-col a:hover{color:#e6c39a}
+.footer-bottom{
+  max-width:1280px;margin:0 auto;
+  padding-top:24px;border-top:1px solid rgba(243,241,236,.1);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  font-size:.78rem;color:rgba(243,241,236,.55);
+}
+.footer-bottom a{color:#e6c39a}
+
+/* --- WHATSAPP FLOAT --- */
+.wa-float{
+  position:fixed;bottom:24px;right:24px;z-index:999;
+  width:58px;height:58px;border-radius:50%;
+  background:#25d366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(37,211,102,.4);
+  transition:transform .3s;
+}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px}
+.wa-float::before{
+  content:"";position:absolute;inset:-6px;border-radius:50%;
+  background:rgba(37,211,102,.4);z-index:-1;
+  animation:pulse 2s ease-out infinite;
+}
+@keyframes pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.5);opacity:0}}
+
+/* --- MOBILE --- */
+@media(max-width:768px){
+  .nav{padding:14px 20px}
+  .nav.scrolled{padding:10px 20px}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(250,248,243,.98);backdrop-filter:blur(16px);padding:20px;gap:14px;box-shadow:0 10px 40px rgba(0,0,0,.1)}
+  .nav-links.open{display:flex}
+  .nav-links a{color:var(--primary) !important}
+  .lang-switch{margin-left:12px;padding-left:12px;border-left-color:rgba(255,255,255,.2)}
+  .lang-btn{padding:5px 8px;font-size:.62rem}
+  .menu-toggle{display:block}
+  section{padding:70px 20px}
+  .hero-content{padding:0 20px}
+  .hero-rating{left:20px;bottom:28px;padding:12px 16px;gap:12px}
+  .hero-rating .score{font-size:1.6rem}
+  .hero-scroll{display:none}
+  .hero h1{font-size:2.8rem}
+  .storia-grid{grid-template-columns:1fr;gap:50px}
+  .storia-img img{height:380px}
+  .forza-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px;gap:8px}
+  .gi-1,.gi-4,.gi-6{grid-column:span 2}
+  .gi-1{grid-row:span 1}.gi-4{grid-row:span 1}
+  .reviews-grid{grid-template-columns:1fr;gap:16px}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:30px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .booking-form{padding:32px 22px}
+}
+</style>
+</head>
+<body class="lang-it">
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="logo">Serrago<small>Tradizione · Innovazione</small></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#storia" class="t-it">Storia</a><a href="#storia" class="t-en">Story</a><a href="#storia" class="t-de">Geschichte</a>
+    <a href="#menu" class="t-it">Menu</a><a href="#menu" class="t-en">Menu</a><a href="#menu" class="t-de">Speisekarte</a>
+    <a href="#gallery" class="t-it">Galleria</a><a href="#gallery" class="t-en">Gallery</a><a href="#gallery" class="t-de">Galerie</a>
+    <a href="#reviews" class="t-it">Recensioni</a><a href="#reviews" class="t-en">Reviews</a><a href="#reviews" class="t-de">Bewertungen</a>
+    <a href="#contact" class="t-it">Prenota</a><a href="#contact" class="t-en">Book</a><a href="#contact" class="t-de">Buchen</a>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="it">IT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="./photos/photo_00.jpg" alt="Ristorante Serrago">
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="t-it">Praia a Mare · Calabria</span>
+      <span class="t-en">Praia a Mare · Calabria</span>
+      <span class="t-de">Praia a Mare · Kalabrien</span>
+    </div>
+    <h1 class="serif">
+      Serrago
+      <em class="t-it">Tradizione & Innovazione</em>
+      <em class="t-en">Tradition & Innovation</em>
+      <em class="t-de">Tradition & Innovation</em>
+    </h1>
+    <p class="hero-sub t-it">Cucina di mare a due passi dal lungomare. Pesce fresco del giorno, ricette calabresi rivisitate con gusto contemporaneo, in un ambiente accogliente a Via della Grotta.</p>
+    <p class="hero-sub t-en">Seafood cuisine just steps from the promenade. Fresh catch of the day, Calabrian recipes reimagined with contemporary taste, in a warm setting on Via della Grotta.</p>
+    <p class="hero-sub t-de">Meeresküche nur wenige Schritte von der Strandpromenade. Fangfrischer Fisch, kalabrische Rezepte mit zeitgemäßem Geschmack, in einem einladenden Ambiente in der Via della Grotta.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary t-it">Prenota un Tavolo</a>
+      <a href="#contact" class="btn btn-primary t-en">Reserve a Table</a>
+      <a href="#contact" class="btn btn-primary t-de">Tisch Reservieren</a>
+      <a href="#menu" class="btn btn-ghost t-it">Scopri il Menu</a>
+      <a href="#menu" class="btn btn-ghost t-en">Discover the Menu</a>
+      <a href="#menu" class="btn btn-ghost t-de">Speisekarte Entdecken</a>
+    </div>
+  </div>
+  <div class="hero-rating">
+    <div>
+      <div class="score">4.8</div>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div>
+      <div class="meta t-it">144 recensioni</div>
+      <div class="meta t-en">144 reviews</div>
+      <div class="meta t-de">144 Bewertungen</div>
+      <div class="meta" style="opacity:.6;margin-top:2px">Google</div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span class="t-it">Scorri</span>
+    <span class="t-en">Scroll</span>
+    <span class="t-de">Scrollen</span>
+  </div>
+</section>
+
+<!-- STORIA -->
+<section class="storia" id="storia">
+  <div class="container">
+    <div class="storia-grid">
+      <div class="storia-img">
+        <img src="./photos/photo_02.jpg" alt="Sala Ristorante Serrago">
+      </div>
+      <div class="storia-text">
+        <div class="eyebrow t-it">La Nostra Storia</div>
+        <div class="eyebrow t-en">Our Story</div>
+        <div class="eyebrow t-de">Unsere Geschichte</div>
+        <h2 class="t-it">Dove la <em>tradizione</em> calabrese incontra la creatività.</h2>
+        <h2 class="t-en">Where Calabrian <em>tradition</em> meets creativity.</h2>
+        <h2 class="t-de">Wo kalabrische <em>Tradition</em> auf Kreativität trifft.</h2>
+
+        <p class="t-it">Serrago nasce a Via della Grotta, in pieno centro storico di Praia a Mare, a pochi passi dal lungomare e dall'Isola di Dino. Un ristorante di mare giovane, pensato per chi cerca un'esperienza gastronomica curata — piatti belli da vedere e superbi al palato, come scrivono i nostri ospiti.</p>
+        <p class="t-it">La cucina è guidata dal pesce fresco del Tirreno e dalle materie prime calabresi. Gli gnocchi di patate viola con spigola e lime, i gamberi con insalata di finocchio, la parmigiana, il pesce marinato: piatti che raccontano la Calabria rivisitandola con tecnica e leggerezza contemporanea.</p>
+        <p class="t-it">Uno staff giovane e professionale accoglie ogni cliente con attenzione sincera. È la filosofia del nome: <em>tradizione & innovazione</em> — rispetto per la cucina di famiglia, coraggio di cercare nuove armonie.</p>
+
+        <p class="t-en">Serrago was born on Via della Grotta, in the heart of Praia a Mare's old town, just steps from the seafront and Dino Island. A young seafood restaurant for those seeking a thoughtful gastronomic experience — dishes beautiful to look at and superb on the palate, as our guests write.</p>
+        <p class="t-en">The cuisine is guided by the fresh fish of the Tyrrhenian Sea and Calabrian ingredients. Purple potato gnocchi with bream and lime, prawns with fennel salad, parmigiana, marinated fish: plates that tell the story of Calabria, reimagined with contemporary technique and lightness.</p>
+        <p class="t-en">A young, professional team welcomes every guest with genuine attention. This is the philosophy of the name: <em>tradition & innovation</em> — respect for family cuisine, and the courage to seek new harmonies.</p>
+
+        <p class="t-de">Serrago entstand in der Via della Grotta, mitten in der Altstadt von Praia a Mare, nur wenige Schritte vom Meer und der Insel Dino entfernt. Ein junges Fischrestaurant für alle, die ein sorgfältig gestaltetes kulinarisches Erlebnis suchen — Gerichte, die schön anzusehen und am Gaumen hervorragend sind, wie unsere Gäste schreiben.</p>
+        <p class="t-de">Die Küche wird vom frischen Fisch des Tyrrhenischen Meeres und kalabrischen Zutaten geleitet. Gnocchi aus violetten Kartoffeln mit Wolfsbarsch und Limette, Garnelen mit Fenchelsalat, Parmigiana, marinierter Fisch: Gerichte, die Kalabrien mit zeitgemäßer Technik und Leichtigkeit neu erzählen.</p>
+        <p class="t-de">Ein junges, professionelles Team heißt jeden Gast mit aufrichtiger Aufmerksamkeit willkommen. Das ist die Philosophie des Namens: <em>Tradition & Innovation</em> — Respekt für die Familienküche, der Mut, neue Harmonien zu suchen.</p>
+
+        <div class="storia-sig">— Ristorante Serrago</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow t-it">Il Menu</div>
+      <div class="eyebrow t-en">The Menu</div>
+      <div class="eyebrow t-de">Die Speisekarte</div>
+      <h2 class="t-it">I piatti <em>firma</em> della casa</h2>
+      <h2 class="t-en">Our <em>signature</em> dishes</h2>
+      <h2 class="t-de">Unsere <em>Signatur</em>-Gerichte</h2>
+      <p class="t-it">Una selezione di piatti di mare che cambiano con il pescato e la stagione. Chiedete al nostro staff per il pescato del giorno.</p>
+      <p class="t-en">A curated selection of seafood dishes that change with the catch and the season. Ask our staff about today's fresh catch.</p>
+      <p class="t-de">Eine Auswahl an Fischgerichten, die sich mit dem Fang und der Saison ändern. Fragen Sie unser Personal nach dem Fang des Tages.</p>
+    </div>
+    <div class="menu-grid">
+
+      <article class="menu-card">
+        <div class="menu-card-img">
+          <img src="./photos/photo_03.jpg" alt="Gnocchi di patate viola">
+          <span class="menu-card-tag t-it">Firma</span>
+          <span class="menu-card-tag t-en">Signature</span>
+          <span class="menu-card-tag t-de">Signatur</span>
+        </div>
+        <div class="menu-card-body">
+          <h3 class="t-it">Gnocchi di Patate Viola</h3>
+          <h3 class="t-en">Purple Potato Gnocchi</h3>
+          <h3 class="t-de">Gnocchi aus violetten Kartoffeln</h3>
+          <p class="t-it">Gnocchi fatti a mano con patate viola, ragù di spigola e lime fresco.</p>
+          <p class="t-en">Handmade gnocchi with purple sweet potato, bream ragù and fresh lime.</p>
+          <p class="t-de">Handgemachte Gnocchi mit violetter Süßkartoffel, Wolfsbarsch-Ragout und frischer Limette.</p>
+          <div class="menu-card-price">
+            <span class="amount">€18</span>
+            <span class="label t-it">Piatto</span>
+            <span class="label t-en">Plate</span>
+            <span class="label t-de">Gericht</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img">
+          <img src="./photos/photo_04.jpg" alt="Gamberi e finocchio">
+          <span class="menu-card-tag t-it">Antipasto</span>
+          <span class="menu-card-tag t-en">Starter</span>
+          <span class="menu-card-tag t-de">Vorspeise</span>
+        </div>
+        <div class="menu-card-body">
+          <h3 class="t-it">Gamberi & Finocchio</h3>
+          <h3 class="t-en">Prawns & Fennel</h3>
+          <h3 class="t-de">Garnelen & Fenchel</h3>
+          <p class="t-it">Insalata di gamberi crudi, finocchio croccante, agrumi e olio calabrese.</p>
+          <p class="t-en">Raw prawn salad with crisp fennel, citrus and Calabrian olive oil.</p>
+          <p class="t-de">Salat aus rohen Garnelen, knackigem Fenchel, Zitrusfrüchten und kalabrischem Olivenöl.</p>
+          <div class="menu-card-price">
+            <span class="amount">€16</span>
+            <span class="label t-it">Piatto</span>
+            <span class="label t-en">Plate</span>
+            <span class="label t-de">Gericht</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img">
+          <img src="./photos/photo_05.jpg" alt="Pesce del giorno">
+          <span class="menu-card-tag t-it">Pescato</span>
+          <span class="menu-card-tag t-en">Catch</span>
+          <span class="menu-card-tag t-de">Fang</span>
+        </div>
+        <div class="menu-card-body">
+          <h3 class="t-it">Pesce del Giorno</h3>
+          <h3 class="t-en">Catch of the Day</h3>
+          <h3 class="t-de">Fisch des Tages</h3>
+          <p class="t-it">Pesce fresco locale, al forno o alla griglia, con verdure di stagione.</p>
+          <p class="t-en">Fresh local fish, oven-roasted or grilled, with seasonal vegetables.</p>
+          <p class="t-de">Frischer Fisch, im Ofen oder vom Grill, mit saisonalem Gemüse.</p>
+          <div class="menu-card-price">
+            <span class="amount">€24</span>
+            <span class="label t-it">All'etto</span>
+            <span class="label t-en">Per 100g</span>
+            <span class="label t-de">Pro 100g</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img">
+          <img src="./photos/photo_06.jpg" alt="Antipasti misti">
+          <span class="menu-card-tag t-it">Degustazione</span>
+          <span class="menu-card-tag t-en">Tasting</span>
+          <span class="menu-card-tag t-de">Verkostung</span>
+        </div>
+        <div class="menu-card-body">
+          <h3 class="t-it">Antipasti della Casa</h3>
+          <h3 class="t-en">House Appetizers</h3>
+          <h3 class="t-de">Haus-Vorspeisen</h3>
+          <p class="t-it">Selezione di antipasti di mare: pesce marinato, parmigiana, crudo del giorno.</p>
+          <p class="t-en">Seafood appetizer selection: marinated fish, parmigiana, raw fish of the day.</p>
+          <p class="t-de">Meeresfrüchte-Vorspeisen-Auswahl: marinierter Fisch, Parmigiana, roher Fisch des Tages.</p>
+          <div class="menu-card-price">
+            <span class="amount">€22</span>
+            <span class="label t-it">Piatto</span>
+            <span class="label t-en">Plate</span>
+            <span class="label t-de">Gericht</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img">
+          <img src="./photos/photo_07.jpg" alt="Parmigiana">
+          <span class="menu-card-tag t-it">Tradizione</span>
+          <span class="menu-card-tag t-en">Tradition</span>
+          <span class="menu-card-tag t-de">Tradition</span>
+        </div>
+        <div class="menu-card-body">
+          <h3 class="t-it">Parmigiana Calabrese</h3>
+          <h3 class="t-en">Calabrian Parmigiana</h3>
+          <h3 class="t-de">Kalabrische Parmigiana</h3>
+          <p class="t-it">Melanzane strato su strato, pomodoro del Pollino, caciocavallo e basilico.</p>
+          <p class="t-en">Aubergines layered with Pollino tomato, caciocavallo cheese and basil.</p>
+          <p class="t-de">Auberginen in Schichten mit Pollino-Tomate, Caciocavallo-Käse und Basilikum.</p>
+          <div class="menu-card-price">
+            <span class="amount">€12</span>
+            <span class="label t-it">Piatto</span>
+            <span class="label t-en">Plate</span>
+            <span class="label t-de">Gericht</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img">
+          <img src="./photos/photo_08.jpg" alt="Dessert">
+          <span class="menu-card-tag t-it">Dolci</span>
+          <span class="menu-card-tag t-en">Desserts</span>
+          <span class="menu-card-tag t-de">Desserts</span>
+        </div>
+        <div class="menu-card-body">
+          <h3 class="t-it">Dolci della Casa</h3>
+          <h3 class="t-en">House Desserts</h3>
+          <h3 class="t-de">Haus-Desserts</h3>
+          <p class="t-it">Tiramisù, panna cotta agli agrumi, sorbetto al bergamotto di Calabria.</p>
+          <p class="t-en">Tiramisù, citrus panna cotta, Calabrian bergamot sorbet.</p>
+          <p class="t-de">Tiramisù, Zitrus-Panna-Cotta, kalabrisches Bergamotte-Sorbet.</p>
+          <div class="menu-card-price">
+            <span class="amount">€8</span>
+            <span class="label t-it">Piatto</span>
+            <span class="label t-en">Plate</span>
+            <span class="label t-de">Gericht</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PUNTI DI FORZA -->
+<section class="forza">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow t-it">Perché Serrago</div>
+      <div class="eyebrow t-en">Why Serrago</div>
+      <div class="eyebrow de-only t-de">Warum Serrago</div>
+      <h2 class="t-it">Quattro motivi per <em>tornare</em></h2>
+      <h2 class="t-en">Four reasons to <em>come back</em></h2>
+      <h2 class="t-de">Vier Gründe, um <em>wiederzukommen</em></h2>
+    </div>
+    <div class="forza-grid">
+      <div class="forza-card">
+        <span class="forza-icon">📍</span>
+        <h3 class="t-it">Posizione</h3>
+        <h3 class="t-en">Location</h3>
+        <h3 class="t-de">Lage</h3>
+        <p class="t-it">A due passi dal lungomare di Praia a Mare, nel cuore del centro storico.</p>
+        <p class="t-en">Just steps from the Praia a Mare promenade, in the heart of the old town.</p>
+        <p class="t-de">Nur wenige Schritte von der Strandpromenade, im Herzen der Altstadt.</p>
+      </div>
+      <div class="forza-card">
+        <span class="forza-icon">🐟</span>
+        <h3 class="t-it">Pesce Fresco</h3>
+        <h3 class="t-en">Fresh Fish</h3>
+        <h3 class="t-de">Frischer Fisch</h3>
+        <p class="t-it">Pescato locale del Tirreno, selezionato ogni giorno dalla costa calabrese.</p>
+        <p class="t-en">Local Tyrrhenian catch, selected daily from the Calabrian coast.</p>
+        <p class="t-de">Lokaler Fang aus dem Tyrrhenischen Meer, täglich von der kalabrischen Küste ausgewählt.</p>
+      </div>
+      <div class="forza-card">
+        <span class="forza-icon">✨</span>
+        <h3 class="t-it">Giovane & Curato</h3>
+        <h3 class="t-en">Young & Polished</h3>
+        <h3 class="t-de">Jung & Gepflegt</h3>
+        <p class="t-it">Staff professionale e attento. Piatti belli da vedere, superbi al palato.</p>
+        <p class="t-en">Professional, attentive staff. Plates beautiful to look at, superb on the palate.</p>
+        <p class="t-de">Professionelles, aufmerksames Personal. Schön angerichtete Gerichte mit großartigem Geschmack.</p>
+      </div>
+      <div class="forza-card">
+        <span class="forza-icon">🌊</span>
+        <h3 class="t-it">Atmosfera</h3>
+        <h3 class="t-en">Atmosphere</h3>
+        <h3 class="t-de">Atmosphäre</h3>
+        <p class="t-it">Ambiente accogliente, ideale per una cena romantica o in famiglia.</p>
+        <p class="t-en">Warm, welcoming setting — ideal for a romantic dinner or family evening.</p>
+        <p class="t-de">Einladende Atmosphäre, ideal für ein romantisches Abendessen oder die Familie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow t-it">Galleria</div>
+      <div class="eyebrow t-en">Gallery</div>
+      <div class="eyebrow t-de">Galerie</div>
+      <h2 class="t-it">Uno <em>sguardo</em> dentro Serrago</h2>
+      <h2 class="t-en">A <em>glimpse</em> inside Serrago</h2>
+      <h2 class="t-de">Ein <em>Blick</em> ins Serrago</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item gi-1"><img src="./photos/photo_01.jpg" alt="Piatto del ristorante"></div>
+      <div class="gallery-item gi-2"><img src="./photos/photo_05.jpg" alt="Piatto di mare"></div>
+      <div class="gallery-item gi-3"><img src="./photos/photo_06.jpg" alt="Antipasti"></div>
+      <div class="gallery-item gi-4"><img src="./photos/photo_09.jpg" alt="Sala"></div>
+      <div class="gallery-item gi-5"><img src="./photos/photo_03.jpg" alt="Gnocchi"></div>
+      <div class="gallery-item gi-6"><img src="./photos/photo_07.jpg" alt="Parmigiana"></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow t-it">Le Voci dei Nostri Ospiti</div>
+      <div class="eyebrow t-en">Guest Voices</div>
+      <div class="eyebrow t-de">Stimmen unserer Gäste</div>
+      <h2 class="t-it">4.8 stelle · <em>144 recensioni</em></h2>
+      <h2 class="t-en">4.8 stars · <em>144 reviews</em></h2>
+      <h2 class="t-de">4.8 Sterne · <em>144 Bewertungen</em></h2>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text t-it">"Capitati qui per caso — fortunatamente — erano i migliori gnocchi mai provati in Italia. Splendidi gnocchi di patate viola con spigola e lime. Davvero perfetti."</p>
+        <p class="review-text t-en">"Stumbled across this place, luckily, as it was the best gnocchi I've had in Italy. Beautiful purple sweet potato gnocchi with bream and lime. Honestly perfect."</p>
+        <p class="review-text t-de">"Wir sind zufällig hierher gekommen — zum Glück — es waren die besten Gnocchi, die ich je in Italien hatte. Wunderbare violette Süßkartoffel-Gnocchi mit Wolfsbarsch und Limette. Ehrlich perfekt."</p>
+        <div class="review-author">
+          <div class="review-avatar">G</div>
+          <div class="review-meta">
+            <div class="review-name">Georgia</div>
+            <div class="review-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text t-it">"Personale molto gentile con cibo italiano delizioso. Hanno fatto sentire me e mia moglie davvero benvenuti. Meritano ogni stella."</p>
+        <p class="review-text t-en">"Very nice staff with delicious Italian food. They made my wife and I feel very welcome. They deserve every star."</p>
+        <p class="review-text t-de">"Sehr nettes Personal mit köstlichem italienischem Essen. Sie haben meine Frau und mich sehr willkommen geheißen. Sie verdienen jeden Stern."</p>
+        <div class="review-author">
+          <div class="review-avatar">T</div>
+          <div class="review-meta">
+            <div class="review-name">Tim Winters</div>
+            <div class="review-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text t-it">"Un posto molto affascinante con staff giovane e professionale, sempre attento alle esigenze del cliente. Abbiamo provato diversi antipasti, tutti deliziosi: dal pesce marinato alla parmigiana, una vera delizia."</p>
+        <p class="review-text t-en">"A very charming place with young, professional staff who are always attentive to their customers' needs. We tried several appetizers, all delicious: from marinated fish to parmigiana, a true delight."</p>
+        <p class="review-text t-de">"Ein sehr charmanter Ort mit jungem, professionellem Personal, das stets auf die Bedürfnisse der Kunden achtet. Wir haben mehrere Vorspeisen probiert, alle köstlich: vom marinierten Fisch bis zur Parmigiana — eine wahre Freude."</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div class="review-meta">
+            <div class="review-name">Assunta Sirica</div>
+            <div class="review-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text t-it">"Piacevole scoperta a due passi dal lungomare di Praja a Mare. Finalmente un ristorante di pesce all'altezza delle aspettative. Servizio eccellente. Piatti belli da vedere e superbi al palato."</p>
+        <p class="review-text t-en">"A pleasant discovery just steps from the Praja a Mare promenade. Finally, a seafood restaurant worthy of our expectations. Excellent service. The dishes are beautiful to look at and superb on the palate."</p>
+        <p class="review-text t-de">"Eine angenehme Entdeckung nur wenige Schritte von der Strandpromenade von Praja a Mare. Endlich ein Fischrestaurant, das unseren Erwartungen entspricht. Ausgezeichneter Service. Die Gerichte sind schön anzusehen und hervorragend am Gaumen."</p>
+        <div class="review-author">
+          <div class="review-avatar">N</div>
+          <div class="review-meta">
+            <div class="review-name">Nicola Nappo</div>
+            <div class="review-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow t-it">Informazioni Utili</div>
+      <div class="eyebrow t-en">Useful Info</div>
+      <div class="eyebrow t-de">Nützliche Infos</div>
+      <h2 class="t-it">Domande <em>frequenti</em></h2>
+      <h2 class="t-en">Frequently <em>asked</em></h2>
+      <h2 class="t-de">Häufige <em>Fragen</em></h2>
+    </div>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="t-it">Quali sono gli orari di apertura?</summary>
+        <summary class="t-en">What are your opening hours?</summary>
+        <summary class="t-de">Wie sind Ihre Öffnungszeiten?</summary>
+        <div class="faq-answer t-it">Siamo aperti venerdì e sabato sera dalle 19:30 alle 23:30, e la domenica a pranzo dalle 12:00 alle 14:30. Consigliamo sempre la prenotazione.</div>
+        <div class="faq-answer t-en">We are open Friday and Saturday evenings from 7:30 PM to 11:30 PM, and Sunday for lunch from 12:00 to 2:30 PM. Reservations are recommended.</div>
+        <div class="faq-answer t-de">Wir haben Freitag und Samstag von 19:30 bis 23:30 Uhr sowie sonntags zum Mittagessen von 12:00 bis 14:30 Uhr geöffnet. Wir empfehlen eine Reservierung.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="t-it">È possibile parcheggiare nelle vicinanze?</summary>
+        <summary class="t-en">Is there parking nearby?</summary>
+        <summary class="t-de">Gibt es Parkmöglichkeiten in der Nähe?</summary>
+        <div class="faq-answer t-it">Sì, a pochi passi si trovano parcheggi pubblici lungo il lungomare e aree di sosta vicine al centro storico di Praia a Mare.</div>
+        <div class="faq-answer t-en">Yes. Public parking is available a short walk away along the seafront and in parking areas close to the historic centre of Praia a Mare.</div>
+        <div class="faq-answer t-de">Ja. Öffentliche Parkplätze befinden sich in wenigen Gehminuten entlang der Strandpromenade und in Parkzonen in der Nähe der Altstadt von Praia a Mare.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="t-it">Avete opzioni per celiaci o vegetariani?</summary>
+        <summary class="t-en">Do you have gluten-free or vegetarian options?</summary>
+        <summary class="t-de">Haben Sie glutenfreie oder vegetarische Optionen?</summary>
+        <div class="faq-answer t-it">Sì. Molti dei nostri piatti sono naturalmente senza glutine e lo staff è felice di guidarvi. Abbiamo sempre alternative vegetariane — vi preghiamo di segnalare qualsiasi esigenza al momento della prenotazione.</div>
+        <div class="faq-answer t-en">Yes. Many of our dishes are naturally gluten-free and our staff is happy to guide you. We always offer vegetarian alternatives — please let us know any requirements when booking.</div>
+        <div class="faq-answer t-de">Ja. Viele unserer Gerichte sind von Natur aus glutenfrei, und unser Personal berät Sie gerne. Wir bieten stets vegetarische Alternativen — bitte teilen Sie uns bei der Reservierung Ihre Wünsche mit.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="t-it">Accettate gruppi o eventi privati?</summary>
+        <summary class="t-en">Do you accept groups or private events?</summary>
+        <summary class="t-de">Nehmen Sie Gruppen oder private Veranstaltungen an?</summary>
+        <div class="faq-answer t-it">Accogliamo con piacere gruppi, compleanni e ricorrenze. Contattateci via WhatsApp al 380 238 4386 per un preventivo personalizzato.</div>
+        <div class="faq-answer t-en">We happily welcome groups, birthdays and special occasions. Contact us via WhatsApp at +39 380 238 4386 for a tailored proposal.</div>
+        <div class="faq-answer t-de">Wir empfangen gerne Gruppen, Geburtstage und besondere Anlässe. Kontaktieren Sie uns per WhatsApp unter +39 380 238 4386 für ein individuelles Angebot.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow t-it">Prenota</div>
+      <div class="eyebrow t-en">Reserve</div>
+      <div class="eyebrow t-de">Reservieren</div>
+      <h2 class="t-it">Un <em>tavolo</em> per te</h2>
+      <h2 class="t-en">A <em>table</em> for you</h2>
+      <h2 class="t-de">Ein <em>Tisch</em> für Sie</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3 class="t-it">Vieni a trovarci</h3>
+        <h3 class="t-en">Come visit us</h3>
+        <h3 class="t-de">Besuchen Sie uns</h3>
+        <p class="t-it">Scrivici su WhatsApp o compila il form qui a fianco: il messaggio arriva direttamente al nostro telefono e ti rispondiamo il prima possibile.</p>
+        <p class="t-en">Message us on WhatsApp or fill out the form: it arrives directly on our phone and we'll reply as soon as possible.</p>
+        <p class="t-de">Schreiben Sie uns per WhatsApp oder füllen Sie das Formular aus: Die Nachricht geht direkt an unser Telefon und wir antworten so schnell wie möglich.</p>
+
+        <div class="info-block">
+          <div class="info-icon">📍</div>
+          <div class="info-txt">
+            <div class="info-label t-it">Indirizzo</div>
+            <div class="info-label t-en">Address</div>
+            <div class="info-label t-de">Adresse</div>
+            <div class="info-value">Via della Grotta, 15<br>87028 Praia a Mare (CS), Italia</div>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon">📞</div>
+          <div class="info-txt">
+            <div class="info-label t-it">Telefono</div>
+            <div class="info-label t-en">Phone</div>
+            <div class="info-label t-de">Telefon</div>
+            <div class="info-value"><a href="tel:+393802384386">+39 380 238 4386</a></div>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon">🕐</div>
+          <div class="info-txt">
+            <div class="info-label t-it">Orari</div>
+            <div class="info-label t-en">Hours</div>
+            <div class="info-label t-de">Öffnungszeiten</div>
+            <div class="info-value t-it">Ven–Sab: 19:30 – 23:30<br>Domenica: 12:00 – 14:30<br>Lun–Gio: chiuso</div>
+            <div class="info-value t-en">Fri–Sat: 7:30 PM – 11:30 PM<br>Sunday: 12:00 – 2:30 PM<br>Mon–Thu: closed</div>
+            <div class="info-value t-de">Fr–Sa: 19:30 – 23:30 Uhr<br>Sonntag: 12:00 – 14:30 Uhr<br>Mo–Do: geschlossen</div>
+          </div>
+        </div>
+      </div>
+
+      <form class="booking-form" id="bookingForm">
+        <h3 class="t-it">Prenota un tavolo</h3>
+        <h3 class="t-en">Book a table</h3>
+        <h3 class="t-de">Tisch reservieren</h3>
+        <p class="t-it">Compila i campi — il messaggio si aprirà su WhatsApp.</p>
+        <p class="t-en">Fill in the fields — the message will open in WhatsApp.</p>
+        <p class="t-de">Füllen Sie die Felder aus — die Nachricht öffnet sich in WhatsApp.</p>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="nome" class="t-it">Nome</label>
+            <label for="nome" class="t-en">Name</label>
+            <label for="nome" class="t-de">Name</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          <div class="form-field">
+            <label for="persone" class="t-it">Persone</label>
+            <label for="persone" class="t-en">Guests</label>
+            <label for="persone" class="t-de">Gäste</label>
+            <select id="persone" name="persone" required>
+              <option value="2">2</option><option value="3">3</option><option value="4">4</option>
+              <option value="5">5</option><option value="6">6</option><option value="7+">7+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="data" class="t-it">Data</label>
+            <label for="data" class="t-en">Date</label>
+            <label for="data" class="t-de">Datum</label>
+            <input type="date" id="data" name="data" required>
+          </div>
+          <div class="form-field">
+            <label for="ora" class="t-it">Ora</label>
+            <label for="ora" class="t-en">Time</label>
+            <label for="ora" class="t-de">Uhrzeit</label>
+            <input type="time" id="ora" name="ora" required value="20:00">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field full">
+            <label for="note" class="t-it">Note (allergie, occasione, ecc.)</label>
+            <label for="note" class="t-en">Notes (allergies, occasion, etc.)</label>
+            <label for="note" class="t-de">Anmerkungen (Allergien, Anlass, usw.)</label>
+            <textarea id="note" name="note"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-dark t-it">Invia su WhatsApp</button>
+        <button type="submit" class="btn btn-dark t-en">Send on WhatsApp</button>
+        <button type="submit" class="btn btn-dark t-de">Per WhatsApp Senden</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-wrap" style="padding:0">
+  <iframe src="https://www.google.com/maps?q=Via+della+Grotta+15+Praia+a+Mare+CS&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa Ristorante Serrago"></iframe>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Serrago<small>Tradizione · Innovazione</small></div>
+      <p class="t-it">Ristorante di mare nel cuore di Praia a Mare. Pesce fresco del Tirreno, tradizione calabrese e creatività contemporanea.</p>
+      <p class="t-en">Seafood restaurant in the heart of Praia a Mare. Fresh Tyrrhenian catch, Calabrian tradition and contemporary creativity.</p>
+      <p class="t-de">Fischrestaurant im Herzen von Praia a Mare. Frischer Fang aus dem Tyrrhenischen Meer, kalabrische Tradition und zeitgemäße Kreativität.</p>
+    </div>
+    <div class="footer-col">
+      <h4 class="t-it">Contatti</h4>
+      <h4 class="t-en">Contact</h4>
+      <h4 class="t-de">Kontakt</h4>
+      <p>Via della Grotta, 15</p>
+      <p>87028 Praia a Mare (CS)</p>
+      <a href="tel:+393802384386">+39 380 238 4386</a>
+    </div>
+    <div class="footer-col">
+      <h4 class="t-it">Orari</h4>
+      <h4 class="t-en">Hours</h4>
+      <h4 class="t-de">Öffnungszeiten</h4>
+      <p class="t-it">Ven–Sab 19:30–23:30</p>
+      <p class="t-it">Domenica 12:00–14:30</p>
+      <p class="t-en">Fri–Sat 7:30 PM–11:30 PM</p>
+      <p class="t-en">Sunday 12:00–2:30 PM</p>
+      <p class="t-de">Fr–Sa 19:30–23:30</p>
+      <p class="t-de">Sonntag 12:00–14:30</p>
+    </div>
+    <div class="footer-col">
+      <h4 class="t-it">Naviga</h4>
+      <h4 class="t-en">Navigate</h4>
+      <h4 class="t-de">Navigation</h4>
+      <a href="#storia" class="t-it">Storia</a><a href="#storia" class="t-en">Story</a><a href="#storia" class="t-de">Geschichte</a>
+      <a href="#menu" class="t-it">Menu</a><a href="#menu" class="t-en">Menu</a><a href="#menu" class="t-de">Speisekarte</a>
+      <a href="#gallery" class="t-it">Galleria</a><a href="#gallery" class="t-en">Gallery</a><a href="#gallery" class="t-de">Galerie</a>
+      <a href="#contact" class="t-it">Prenota</a><a href="#contact" class="t-en">Reserve</a><a href="#contact" class="t-de">Reservieren</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© <span id="year"></span> Ristorante Serrago · P.IVA —</div>
+    <div>
+      <span class="t-it">Design </span><span class="t-en">Design </span><span class="t-de">Design </span>
+      <a href="#" rel="noopener">Viktoria Agency</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/393802384386?text=Buongiorno%2C%20vorrei%20informazioni%20sul%20Ristorante%20Serrago" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+// NAV scrolled state
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+// Language switch
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const l = btn.dataset.lang;
+    document.body.classList.remove('lang-it','lang-en','lang-de');
+    document.body.classList.add('lang-'+l);
+    document.documentElement.lang = l;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b === btn));
+  });
+});
+
+// Mobile menu
+document.getElementById('menuToggle').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('#navLinks a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+
+// Booking form -> WhatsApp
+const phone = '393802384386';
+document.getElementById('bookingForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const nome = fd.get('nome'), persone = fd.get('persone'), data = fd.get('data'), ora = fd.get('ora'), note = fd.get('note') || '—';
+  const lang = [...document.body.classList].find(c => c.startsWith('lang-'))?.replace('lang-','') || 'it';
+  const headers = {
+    it: `Buongiorno, vorrei prenotare al Ristorante Serrago:`,
+    en: `Hello, I'd like to book at Ristorante Serrago:`,
+    de: `Guten Tag, ich möchte im Ristorante Serrago reservieren:`
+  };
+  const labels = {
+    it: ['Nome','Persone','Data','Ora','Note'],
+    en: ['Name','Guests','Date','Time','Notes'],
+    de: ['Name','Gäste','Datum','Uhrzeit','Anmerkungen']
+  };
+  const L = labels[lang];
+  const msg = `${headers[lang]}\n${L[0]}: ${nome}\n${L[1]}: ${persone}\n${L[2]}: ${data}\n${L[3]}: ${ora}\n${L[4]}: ${note}`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+});
+
+// Year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Min date today
+const dateInput = document.getElementById('data');
+if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+</script>
+</body>
+</html>
