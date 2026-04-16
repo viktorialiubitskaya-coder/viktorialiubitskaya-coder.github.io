@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lido Azzurro Naty · Ristorante sul mare a Scalea | Pesce fresco & vista panoramica</title>
+<meta name="description" content="Lido Azzurro Naty — ristorante di pesce fresco sul Lungomare di Scalea. Cucina calabrese, terrazza vista mare, ospitalità di Ewa e Fabrizio. ⭐ 4.8 su Google.">
+<meta name="keywords" content="ristorante Scalea, pesce fresco Scalea, lido Scalea, ristorante vista mare Calabria, Lido Azzurro Naty, frutti di mare, terrazza mare Scalea">
+<meta property="og:title" content="Lido Azzurro Naty · Ristorante sul mare a Scalea">
+<meta property="og:description" content="Pesce fresco cucinato al momento, terrazza panoramica e l'ospitalità di Ewa e Fabrizio. Uno dei ristoranti più amati di Scalea.">
+<meta property="og:image" content="./photos/photo_09.jpg">
+<meta property="og:url" content="https://lidoazzurronaty.it">
+<meta property="og:type" content="restaurant">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lido Azzurro Naty · Ristorante sul mare a Scalea">
+<meta name="twitter:description" content="Pesce fresco, vista mare, ospitalità autentica. ⭐ 4.8 / 334 recensioni.">
+<meta name="twitter:image" content="./photos/photo_09.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Lido Azzurro Naty",
+  "image": ["./photos/photo_09.jpg", "./photos/photo_00.jpg", "./photos/photo_07.jpg"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Lungomare Ruggero di Lauria",
+    "addressLocality": "Scalea",
+    "addressRegion": "CS",
+    "postalCode": "87029",
+    "addressCountry": "IT"
+  },
+  "telephone": "+393383734797",
+  "priceRange": "€€",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "334"
+  },
+  "servesCuisine": ["Italian", "Calabrese", "Seafood"],
+  "url": "https://lidoazzurronaty.it",
+  "hasMap": "https://maps.google.com/?cid=2250208183085641862"
+}
+</script>
+
+<style>
+:root {
+  --primary: #7f736d;
+  --secondary: #211f1e;
+  --accent: #e0d1b8;
+  --accent-deep: #c9b48f;
+  --rust: #9b6728;
+  --umber: #654f39;
+  --sea: #8ca2ca;
+  --bg: #faf6f0;
+  --bg-tinted: #f1ebe1;
+  --bg-dark: #211f1e;
+  --text: #211f1e;
+  --text-soft: #5a504a;
+  --line: rgba(33, 31, 30, 0.12);
+  --shadow-sm: 0 4px 14px rgba(33, 31, 30, 0.06);
+  --shadow-md: 0 10px 30px rgba(33, 31, 30, 0.1);
+  --shadow-lg: 0 24px 60px rgba(33, 31, 30, 0.16);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: 'Italiana', Georgia, serif; font-weight: 400; line-height: 1.15; letter-spacing: 0.01em; }
+h1 { font-size: clamp(2.6rem, 6.5vw, 5.4rem); }
+h2 { font-size: clamp(2rem, 4.2vw, 3.4rem); }
+h3 { font-size: clamp(1.4rem, 2vw, 1.8rem); }
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ============ LANGUAGE SWITCHING ============ */
+.t-en, .t-de { display: none !important; }
+body.lang-en .t-it, body.lang-en .t-de { display: none !important; }
+body.lang-de .t-it, body.lang-de .t-en { display: none !important; }
+body.lang-en .t-en, body.lang-de .t-de { display: revert !important; }
+
+/* ============ NAV ============ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 22px 6vw;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(250, 246, 240, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 14px 6vw;
+  box-shadow: 0 2px 20px rgba(33, 31, 30, 0.06);
+}
+.logo {
+  font-family: 'Italiana', serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  transition: color 0.4s ease;
+}
+.logo span { color: var(--accent); font-style: italic; }
+.nav.scrolled .logo { color: var(--secondary); }
+.nav.scrolled .logo span { color: var(--rust); }
+
+.nav-links {
+  display: flex; gap: 36px; list-style: none;
+}
+.nav-links a {
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav.scrolled .nav-links a { color: var(--secondary); }
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; bottom: -6px;
+  width: 0; height: 1px; background: var(--accent);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after { width: 100%; }
+
+.lang-switcher { display: flex; gap: 6px; }
+.lang-btn {
+  padding: 7px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: #fff;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.lang-btn.active {
+  color: var(--secondary);
+  background: #fff;
+  border-color: #fff;
+}
+.nav.scrolled .lang-btn {
+  color: var(--secondary);
+  border-color: rgba(33, 31, 30, 0.2);
+}
+.nav.scrolled .lang-btn.active {
+  color: #fff;
+  background: var(--rust);
+  border-color: var(--rust);
+}
+
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; }
+
+/* ============ HERO ============ */
+.hero {
+  height: 100vh; min-height: 640px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  display: flex; align-items: center;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(33,31,30,0.45) 0%, rgba(33,31,30,0.25) 50%, rgba(33,31,30,0.7) 100%);
+  z-index: 2;
+}
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+  animation: kenburns 25s ease-in-out infinite alternate;
+}
+@keyframes kenburns {
+  from { transform: scale(1) translate(0, 0); }
+  to { transform: scale(1.15) translate(-2%, -2%); }
+}
+.hero-content {
+  position: relative; z-index: 3;
+  padding: 0 6vw;
+  max-width: 1100px;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.78rem; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--accent); font-weight: 500;
+  margin-bottom: 28px;
+  padding-left: 60px; position: relative;
+}
+.hero-eyebrow::before {
+  content: ''; position: absolute; left: 0; top: 50%;
+  width: 44px; height: 1px; background: var(--accent);
+}
+.hero h1 {
+  margin-bottom: 26px;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.3);
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-sub {
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  max-width: 560px;
+  margin-bottom: 44px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.92);
+}
+.hero-ctas { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+
+.btn {
+  display: inline-block;
+  padding: 16px 34px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s cubic-bezier(.2,.8,.2,1);
+  text-align: center;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--secondary);
+}
+.btn-primary:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+.btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.55);
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+}
+
+.hero-rating {
+  position: absolute;
+  bottom: 44px; right: 6vw;
+  z-index: 3;
+  text-align: right;
+  color: #fff;
+}
+.hero-rating .stars {
+  font-size: 1rem;
+  letter-spacing: 4px;
+  color: var(--accent);
+}
+.hero-rating .num {
+  font-family: 'Italiana', serif;
+  font-size: 2.2rem;
+  margin: 4px 0;
+  display: block;
+}
+.hero-rating small {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 40px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 1px; height: 50px;
+  background: rgba(255,255,255,0.4);
+  overflow: hidden;
+}
+.scroll-cue::after {
+  content: ''; position: absolute; top: -50%; left: 0;
+  width: 1px; height: 50%;
+  background: #fff;
+  animation: scrollCue 2.4s ease-in-out infinite;
+}
+@keyframes scrollCue {
+  0% { top: -50%; } 100% { top: 100%; }
+}
+
+/* ============ SECTION DEFAULTS ============ */
+section { padding: 120px 6vw; position: relative; }
+.section-eyebrow {
+  display: block;
+  font-size: 0.74rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--rust);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.section-head { max-width: 760px; margin-bottom: 72px; }
+.section-head h2 em { font-style: italic; color: var(--rust); }
+.section-head p {
+  margin-top: 22px;
+  color: var(--text-soft);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.divider {
+  display: flex; align-items: center; justify-content: center;
+  margin: 24px 0;
+  color: var(--accent-deep);
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; max-width: 80px; height: 1px;
+  background: currentColor;
+  margin: 0 18px;
+}
+.divider svg { width: 22px; height: 22px; }
+
+/* ============ STORIA ============ */
+.storia { background: var(--bg); }
+.storia-wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 90px;
+  align-items: center;
+}
+.storia-text h2 { margin-bottom: 32px; }
+.storia-text p {
+  font-size: 1.02rem;
+  color: var(--text-soft);
+  margin-bottom: 22px;
+  line-height: 1.85;
+}
+.storia-text p:first-of-type::first-letter {
+  font-family: 'Italiana', serif;
+  font-size: 4.2rem;
+  float: left;
+  line-height: 0.85;
+  margin: 6px 14px 0 0;
+  color: var(--rust);
+}
+.storia-img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+}
+.storia-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  box-shadow: var(--shadow-lg);
+}
+.storia-img-wrap::before {
+  content: '';
+  position: absolute;
+  top: 30px; left: -30px;
+  width: 100%; height: 100%;
+  border: 1px solid var(--accent-deep);
+  z-index: -1;
+}
+.storia-badge {
+  position: absolute;
+  bottom: -36px; right: -36px;
+  background: var(--secondary);
+  color: var(--accent);
+  padding: 26px 30px;
+  text-align: center;
+  font-family: 'Italiana', serif;
+  box-shadow: var(--shadow-md);
+}
+.storia-badge .big { display: block; font-size: 2.4rem; line-height: 1; }
+.storia-badge .small {
+  display: block; font-family: 'Manrope', sans-serif;
+  font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase;
+  margin-top: 6px; color: rgba(255,255,255,0.7); font-weight: 500;
+}
+
+/* ============ MENU ============ */
+.menu { background: var(--bg-tinted); }
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+}
+.menu-card {
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(.2,.8,.2,1), box-shadow 0.4s ease;
+  box-shadow: var(--shadow-sm);
+}
+.menu-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: var(--shadow-lg);
+}
+.menu-card-img { aspect-ratio: 4/3; overflow: hidden; }
+.menu-card-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.menu-card:hover .menu-card-img img { transform: scale(1.06); }
+.menu-card-body { padding: 28px 26px 30px; }
+.menu-card h3 { margin-bottom: 8px; color: var(--secondary); }
+.menu-card .menu-sub {
+  font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--rust); font-weight: 600; margin-bottom: 14px;
+}
+.menu-card p { color: var(--text-soft); font-size: 0.94rem; line-height: 1.7; margin-bottom: 18px; }
+.menu-card .price {
+  font-family: 'Italiana', serif;
+  font-size: 1.6rem;
+  color: var(--secondary);
+}
+.menu-card .price small {
+  font-family: 'Manrope', sans-serif; font-size: 0.7rem;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-soft);
+  font-weight: 500; margin-left: 6px;
+}
+
+/* asymmetric layout */
+.menu-card.featured { grid-column: span 6; }
+.menu-card.featured .menu-card-img { aspect-ratio: 5/4; }
+.menu-card.regular { grid-column: span 3; }
+.menu-card.wide { grid-column: span 6; }
+
+/* ============ PUNTI DI FORZA ============ */
+.forza { background: var(--bg); }
+.forza-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+.forza-card {
+  padding: 44px 28px;
+  text-align: center;
+  border: 1px solid var(--line);
+  background: #fff;
+  transition: all 0.4s cubic-bezier(.2,.8,.2,1);
+}
+.forza-card:hover {
+  border-color: var(--accent-deep);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.forza-icon {
+  font-size: 2.6rem;
+  margin-bottom: 18px;
+  display: inline-block;
+}
+.forza-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--secondary);
+}
+.forza-card p {
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+/* ============ GALLERY ============ */
+.gallery { background: var(--bg-dark); color: #fff; }
+.gallery .section-eyebrow { color: var(--accent); }
+.gallery .section-head h2 { color: #fff; }
+.gallery .section-head h2 em { color: var(--accent); }
+.gallery .section-head p { color: rgba(255,255,255,0.7); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 14px;
+}
+.gallery-item {
+  overflow: hidden;
+  position: relative;
+}
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.8s cubic-bezier(.2,.8,.2,1);
+}
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-item::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(33,31,30,0.0);
+  transition: background 0.3s ease;
+}
+.gallery-item:hover::after { background: rgba(33,31,30,0.15); }
+
+.gallery-item.tall { grid-row: span 2; }
+.gallery-item.wide { grid-column: span 2; }
+.gallery-item.big { grid-column: span 2; grid-row: span 2; }
+
+/* ============ REVIEWS ============ */
+.reviews { background: var(--bg); }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.review-card {
+  background: #fff;
+  padding: 36px 28px 32px;
+  border-top: 3px solid var(--rust);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.review-stars {
+  color: var(--rust);
+  font-size: 0.95rem;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+.review-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-soft);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.review-author {
+  display: flex; align-items: center; gap: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.review-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Italiana', serif;
+  font-size: 1.2rem;
+}
+.review-name { font-weight: 600; font-size: 0.92rem; color: var(--secondary); }
+.review-source { font-size: 0.74rem; color: var(--text-soft); letter-spacing: 0.08em; }
+
+/* ============ FAQ ============ */
+.faq { background: var(--bg-tinted); }
+.faq-wrap { max-width: 820px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-item summary {
+  padding: 28px 0;
+  font-family: 'Italiana', serif;
+  font-size: 1.3rem;
+  color: var(--secondary);
+  cursor: pointer;
+  list-style: none;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: color 0.3s ease;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.6rem; font-weight: 300;
+  color: var(--rust);
+  transition: transform 0.3s ease;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover { color: var(--rust); }
+.faq-answer {
+  padding: 0 0 28px 0;
+  color: var(--text-soft);
+  font-size: 0.98rem;
+  line-height: 1.8;
+  max-width: 90%;
+}
+
+/* ============ PRENOTA + MAP ============ */
+.prenota { background: var(--bg); padding-bottom: 0; }
+.prenota-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.prenota-info p {
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+.contact-list {
+  list-style: none;
+  margin-top: 32px;
+}
+.contact-list li {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: flex-start; gap: 16px;
+  font-size: 0.96rem;
+  color: var(--text);
+}
+.contact-list li strong {
+  font-weight: 600;
+  min-width: 110px;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rust);
+  padding-top: 3px;
+}
+
+.booking-form {
+  background: #fff;
+  padding: 44px 38px;
+  box-shadow: var(--shadow-md);
+  border-top: 4px solid var(--rust);
+}
+.booking-form h3 { margin-bottom: 8px; }
+.booking-form .form-sub {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  margin-bottom: 28px;
+}
+.booking-form label {
+  display: block;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-bottom: 8px;
+}
+.booking-form input, .booking-form select, .booking-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.96rem;
+  color: var(--text);
+  margin-bottom: 22px;
+  border-radius: 0;
+  transition: border-color 0.3s ease;
+}
+.booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus {
+  outline: none;
+  border-color: var(--rust);
+}
+.booking-form textarea { resize: vertical; min-height: 90px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.booking-form button {
+  width: 100%;
+  padding: 18px;
+  background: var(--secondary);
+  color: var(--accent);
+  border: none;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.booking-form button:hover { background: var(--rust); }
+
+.map { padding: 0; }
+.map iframe {
+  width: 100%; height: 480px;
+  border: 0;
+  display: block;
+  filter: grayscale(0.2) contrast(1.05);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--secondary);
+  color: rgba(255,255,255,0.78);
+  padding: 80px 6vw 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-col h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 22px;
+  font-weight: 600;
+}
+.footer-col p, .footer-col a, .footer-col li {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.94rem;
+  line-height: 1.85;
+  list-style: none;
+}
+.footer-col a:hover { color: var(--accent); }
+.footer-logo {
+  font-family: 'Italiana', serif;
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 18px;
+  display: inline-block;
+}
+.footer-logo span { color: var(--accent); font-style: italic; }
+.footer-tagline {
+  font-style: italic;
+  max-width: 320px;
+  font-size: 0.95rem;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 28px;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+}
+.footer-bottom a { color: var(--accent); border-bottom: 1px dotted rgba(224,209,184,0.4); }
+
+/* ============ WHATSAPP FLOAT ============ */
+.wa-float {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  width: 60px; height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  transition: transform 0.3s ease;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+.wa-float:hover { transform: scale(1.08); }
+.wa-float svg { width: 32px; height: 32px; fill: #fff; }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 6px 28px rgba(37, 211, 102, 0.7); }
+}
+
+/* ============ MOBILE ============ */
+@media (max-width: 968px) {
+  .menu-card.featured, .menu-card.regular, .menu-card.wide { grid-column: span 12; }
+  .forza-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+  .gallery-item.big, .gallery-item.wide { grid-column: span 2; }
+  .gallery-item.tall { grid-row: span 1; }
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  .storia-wrap { grid-template-columns: 1fr; gap: 60px; }
+  .storia-img-wrap::before { display: none; }
+  .prenota-wrap { grid-template-columns: 1fr; gap: 50px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+@media (max-width: 768px) {
+  section { padding: 80px 6vw; }
+  .nav { padding: 16px 5vw; }
+  .nav.scrolled { padding: 12px 5vw; }
+  .nav-links { display: none; }
+  .menu-toggle {
+    display: flex;
+    flex-direction: column; gap: 5px;
+    width: 28px; height: 22px;
+    justify-content: center;
+  }
+  .menu-toggle span {
+    display: block; height: 1.5px; background: #fff;
+    transition: background 0.3s ease;
+  }
+  .nav.scrolled .menu-toggle span { background: var(--secondary); }
+  .nav-links.open {
+    display: flex;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    background: rgba(250, 246, 240, 0.98);
+    padding: 24px;
+    gap: 20px;
+  }
+  .nav-links.open a { color: var(--secondary); }
+  .hero-rating { position: static; padding: 30px 6vw 60px; text-align: center; }
+  .hero { height: auto; padding: 140px 0 0; min-height: 0; }
+  .hero-content { padding: 60px 6vw 80px; }
+  .scroll-cue { display: none; }
+  .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; }
+  .gallery-item.big, .gallery-item.wide { grid-column: span 1; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .storia-badge { right: 0; bottom: -28px; padding: 18px 22px; }
+  .storia-badge .big { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body class="lang-it">
+
+<!-- ========== NAV ========== -->
+<nav class="nav" id="nav">
+  <a href="#" class="logo">Lido <span>Azzurro</span> Naty</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#storia"><span class="t-it">Storia</span><span class="t-en">Story</span><span class="t-de">Geschichte</span></a></li>
+    <li><a href="#menu"><span class="t-it">Menu</span><span class="t-en">Menu</span><span class="t-de">Karte</span></a></li>
+    <li><a href="#gallery"><span class="t-it">Galleria</span><span class="t-en">Gallery</span><span class="t-de">Galerie</span></a></li>
+    <li><a href="#reviews"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span><span class="t-de">Bewertungen</span></a></li>
+    <li><a href="#prenota"><span class="t-it">Prenota</span><span class="t-en">Book</span><span class="t-de">Reservieren</span></a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="it">IT</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="de">DE</button>
+  </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="hero-bg">
+    <img src="./photos/photo_09.jpg" alt="Terrazza sul mare con vista panoramica">
+  </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">
+      <span class="t-it">Scalea · Calabria · dal 1998</span>
+      <span class="t-en">Scalea · Calabria · since 1998</span>
+      <span class="t-de">Scalea · Kalabrien · seit 1998</span>
+    </span>
+    <h1>
+      <span class="t-it">Pesce fresco,<br>vista <em>infinita</em></span>
+      <span class="t-en">Fresh seafood,<br><em>endless</em> sea view</span>
+      <span class="t-de">Frischer Fisch,<br><em>endloser</em> Meerblick</span>
+    </h1>
+    <p class="hero-sub">
+      <span class="t-it">Sul Lungomare di Scalea, dove il Tirreno tocca la Calabria. La cucina di Ewa e Fabrizio: pescato del giorno, ricette di famiglia, ospitalità che ricorderete.</span>
+      <span class="t-en">On the Scalea seafront, where the Tyrrhenian meets Calabria. Ewa and Fabrizio's kitchen: catch of the day, family recipes, hospitality you'll remember.</span>
+      <span class="t-de">An der Promenade von Scalea, wo das Tyrrhenische Meer auf Kalabrien trifft. Die Küche von Ewa und Fabrizio: Tagesfang, Familienrezepte, unvergessliche Gastfreundschaft.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#prenota" class="btn btn-primary t-it">Prenota un Tavolo</a>
+      <a href="#prenota" class="btn btn-primary t-en">Book a Table</a>
+      <a href="#prenota" class="btn btn-primary t-de">Tisch Reservieren</a>
+      <a href="#menu" class="btn btn-ghost t-it">Scopri il Menu</a>
+      <a href="#menu" class="btn btn-ghost t-en">Discover Menu</a>
+      <a href="#menu" class="btn btn-ghost t-de">Karte Entdecken</a>
+    </div>
+  </div>
+  <div class="hero-rating">
+    <div class="stars">★★★★★</div>
+    <span class="num">4.8</span>
+    <small>
+      <span class="t-it">334 recensioni · Google</span>
+      <span class="t-en">334 reviews · Google</span>
+      <span class="t-de">334 Bewertungen · Google</span>
+    </small>
+  </div>
+  <div class="scroll-cue"></div>
+</header>
+
+<!-- ========== STORIA ========== -->
+<section class="storia" id="storia">
+  <div class="storia-wrap">
+    <div class="storia-text">
+      <span class="section-eyebrow">
+        <span class="t-it">La Nostra Storia</span>
+        <span class="t-en">Our Story</span>
+        <span class="t-de">Unsere Geschichte</span>
+      </span>
+      <h2>
+        <span class="t-it">Una <em>famiglia</em>, due cucine,<br>un solo orizzonte di mare</span>
+        <span class="t-en">One <em>family</em>, two kitchens,<br>one endless horizon of sea</span>
+        <span class="t-de">Eine <em>Familie</em>, zwei Küchen,<br>ein einziger Meeres-Horizont</span>
+      </h2>
+      <div class="t-it">
+        <p>Quando arrivate al Lido Azzurro vi accolgono Ewa e Fabrizio — lei polacca, lui calabrese, insieme da una vita davanti al Tirreno. La loro è una cucina che parla due lingue ma racconta una storia sola: quella del pesce sbarcato all'alba dai pescherecci di Scalea, lavorato a vista con la calma di chi conosce ogni gesto a memoria.</p>
+        <p>I clienti tornano per la frittura mista croccante e leggera, per gli gnocchi con frutti di mare misti che il proprietario consiglia personalmente, per i paccheri con il pesce spada cotti come una volta. E poi il tartufo di gelato locale, che non si dimentica.</p>
+        <p>Ma sono i piccoli dettagli che fanno la differenza: il modo in cui Fabrizio descrive ogni piatto, l'attenzione di Ewa per ogni tavolo, la sensazione che qualcuno qui ti stia davvero aspettando. Non un ristorante turistico — una casa sul mare con la porta aperta.</p>
+      </div>
+      <div class="t-en">
+        <p>When you arrive at Lido Azzurro, Ewa and Fabrizio welcome you — she's Polish, he's Calabrese, together for a lifetime facing the Tyrrhenian. Their cooking speaks two languages but tells one story: the fish landed at dawn by Scalea's boats, prepared in plain sight with the calm of someone who knows every gesture by heart.</p>
+        <p>Guests return for the light, crisp fritura mista, for the gnocchi with mixed seafood the owner recommends personally, for the swordfish paccheri cooked the way they used to be. And then the local "tartufo" ice cream, the one you don't forget.</p>
+        <p>But it's the small details that make the difference: the way Fabrizio describes every dish, Ewa's care for every table, the feeling that someone here is genuinely waiting for you. Not a tourist restaurant — a house by the sea with its door open.</p>
+      </div>
+      <div class="t-de">
+        <p>Wenn Sie im Lido Azzurro ankommen, empfangen Sie Ewa und Fabrizio — sie aus Polen, er aus Kalabrien, ein Leben lang gemeinsam am Tyrrhenischen Meer. Ihre Küche spricht zwei Sprachen, erzählt aber eine einzige Geschichte: vom Fisch, der bei Morgengrauen von den Booten Scaleas angelandet wird, vor den Augen der Gäste mit der Ruhe dessen zubereitet, der jede Handbewegung auswendig kennt.</p>
+        <p>Die Gäste kommen wieder für die leichte, knusprige Fritura mista, für die Gnocchi mit gemischten Meeresfrüchten, die der Wirt persönlich empfiehlt, für die Schwertfisch-Paccheri nach altem Rezept. Und für das lokale "Tartufo"-Eis, das man nicht vergisst.</p>
+        <p>Doch es sind die kleinen Details, die den Unterschied machen: wie Fabrizio jedes Gericht beschreibt, Ewas Aufmerksamkeit für jeden Tisch, das Gefühl, dass hier jemand wirklich auf Sie wartet. Kein Touristenlokal — ein Haus am Meer mit offener Tür.</p>
+      </div>
+    </div>
+    <div class="storia-img-wrap">
+      <img src="./photos/photo_03.jpg" alt="Interno del ristorante con vista mare">
+      <div class="storia-badge">
+        <span class="big">25+</span>
+        <span class="small">
+          <span class="t-it">anni sul mare</span>
+          <span class="t-en">years by the sea</span>
+          <span class="t-de">Jahre am Meer</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MENU ========== -->
+<section class="menu" id="menu">
+  <div class="section-head">
+    <span class="section-eyebrow">
+      <span class="t-it">La Nostra Cucina</span>
+      <span class="t-en">Our Kitchen</span>
+      <span class="t-de">Unsere Küche</span>
+    </span>
+    <h2>
+      <span class="t-it">I piatti che <em>tornano</em><br>nei vostri ricordi</span>
+      <span class="t-en">The dishes that <em>linger</em><br>in your memory</span>
+      <span class="t-de">Die Gerichte, die <em>bleiben</em><br>in der Erinnerung</span>
+    </h2>
+    <p>
+      <span class="t-it">Pesce del giorno, paste fatte in casa, dolci preparati al momento. Ricette semplici, ingredienti veri, niente effetti speciali: solo la Calabria nel piatto.</span>
+      <span class="t-en">Fish of the day, homemade pasta, desserts prepared on the spot. Simple recipes, real ingredients, no special effects — just Calabria on the plate.</span>
+      <span class="t-de">Tagesfisch, hausgemachte Pasta, frisch zubereitete Desserts. Einfache Rezepte, echte Zutaten, keine Tricks — nur Kalabrien auf dem Teller.</span>
+    </p>
+  </div>
+
+  <div class="menu-grid">
+
+    <article class="menu-card featured">
+      <div class="menu-card-img"><img src="./photos/photo_06.jpg" alt="Spaghetti alle vongole"></div>
+      <div class="menu-card-body">
+        <div class="menu-sub">
+          <span class="t-it">Specialità della casa · Pasta</span>
+          <span class="t-en">House specialty · Pasta</span>
+          <span class="t-de">Hausspezialität · Pasta</span>
+        </div>
+        <h3>
+          <span class="t-it">Spaghetti alle Vongole Veraci</span>
+          <span class="t-en">Spaghetti with Wild Clams</span>
+          <span class="t-de">Spaghetti mit Venusmuscheln</span>
+        </h3>
+        <p>
+          <span class="t-it">Vongole appena pescate, aglio in camicia, prezzemolo fresco e un filo del nostro olio. Il piatto che racconta tutto il Mediterraneo in una forchettata.</span>
+          <span class="t-en">Fresh-caught clams, gentle garlic, parsley and a drizzle of our olive oil. The whole Mediterranean in one forkful.</span>
+          <span class="t-de">Frisch gefangene Muscheln, sanfter Knoblauch, Petersilie und ein Schuss unseres Olivenöls. Das ganze Mittelmeer in einer Gabel.</span>
+        </p>
+        <div class="price">€18 <small>
+          <span class="t-it">a porzione</span>
+          <span class="t-en">per portion</span>
+          <span class="t-de">pro Portion</span>
+        </small></div>
+      </div>
+    </article>
+
+    <article class="menu-card regular">
+      <div class="menu-card-img"><img src="./photos/photo_02.jpg" alt="Spaghetti con alici e peperoncino"></div>
+      <div class="menu-card-body">
+        <div class="menu-sub">
+          <span class="t-it">Tradizione</span>
+          <span class="t-en">Tradition</span>
+          <span class="t-de">Tradition</span>
+        </div>
+        <h3>
+          <span class="t-it">Spaghetti Alici & Pangrattato</span>
+          <span class="t-en">Spaghetti Anchovies & Crumb</span>
+          <span class="t-de">Spaghetti mit Sardellen</span>
+        </h3>
+        <p>
+          <span class="t-it">Alici di Cetara, peperoncino calabrese, mollica tostata.</span>
+          <span class="t-en">Cetara anchovies, Calabrian chilli, toasted breadcrumbs.</span>
+          <span class="t-de">Sardellen aus Cetara, kalabresische Chili, geröstete Brösel.</span>
+        </p>
+        <div class="price">€14</div>
+      </div>
+    </article>
+
+    <article class="menu-card regular">
+      <div class="menu-card-img"><img src="./photos/photo_05.jpg" alt="Gamberi alla griglia"></div>
+      <div class="menu-card-body">
+        <div class="menu-sub">
+          <span class="t-it">Dal mare</span>
+          <span class="t-en">From the sea</span>
+          <span class="t-de">Aus dem Meer</span>
+        </div>
+        <h3>
+          <span class="t-it">Gamberi alla Griglia</span>
+          <span class="t-en">Grilled Prawns</span>
+          <span class="t-de">Gegrillte Garnelen</span>
+        </h3>
+        <p>
+          <span class="t-it">Gamberoni rossi, brace di legno, limone di Amalfi.</span>
+          <span class="t-en">Red prawns, wood embers, Amalfi lemon.</span>
+          <span class="t-de">Rote Garnelen, Holzkohle, Amalfi-Zitrone.</span>
+        </p>
+        <div class="price">€24</div>
+      </div>
+    </article>
+
+    <article class="menu-card wide">
+      <div class="menu-card-img"><img src="./photos/photo_04.jpg" alt="Pesce alla griglia con verdure"></div>
+      <div class="menu-card-body">
+        <div class="menu-sub">
+          <span class="t-it">Il pescato del giorno</span>
+          <span class="t-en">Today's catch</span>
+          <span class="t-de">Tagesfang</span>
+        </div>
+        <h3>
+          <span class="t-it">Pesce Fresco alla Griglia</span>
+          <span class="t-en">Fresh Grilled Fish</span>
+          <span class="t-de">Frischer Fisch vom Grill</span>
+        </h3>
+        <p>
+          <span class="t-it">Branzino, orata, pesce spada — quello che i pescatori portano la mattina. Cotto sulla brace, accompagnato da insalata di stagione e patate al rosmarino.</span>
+          <span class="t-en">Sea bass, sea bream, swordfish — whatever the fishermen bring at dawn. Charcoal grilled with seasonal salad and rosemary potatoes.</span>
+          <span class="t-de">Wolfsbarsch, Dorade, Schwertfisch — was die Fischer morgens bringen. Auf Holzkohle gegrillt, mit Saisonsalat und Rosmarin-Kartoffeln.</span>
+        </p>
+        <div class="price">€8 <small>
+          <span class="t-it">all'etto</span>
+          <span class="t-en">per 100g</span>
+          <span class="t-de">pro 100g</span>
+        </small></div>
+      </div>
+    </article>
+
+    <article class="menu-card wide">
+      <div class="menu-card-img"><img src="./photos/photo_01.jpg" alt="Tiramisù della casa"></div>
+      <div class="menu-card-body">
+        <div class="menu-sub">
+          <span class="t-it">Il dolce</span>
+          <span class="t-en">Dessert</span>
+          <span class="t-de">Dessert</span>
+        </div>
+        <h3>
+          <span class="t-it">Tiramisù della Nonna</span>
+          <span class="t-en">Grandmother's Tiramisù</span>
+          <span class="t-de">Großmutters Tiramisù</span>
+        </h3>
+        <p>
+          <span class="t-it">Mascarpone montato a mano, savoiardi inzuppati nel caffè ristretto, cacao amaro. Servito al momento — come a casa, ma con la vista in più.</span>
+          <span class="t-en">Hand-whipped mascarpone, savoiardi soaked in espresso, bitter cocoa. Served on the spot — like home, just with the view.</span>
+          <span class="t-de">Handgeschlagener Mascarpone, in Espresso getauchte Löffelbiskuits, bitterer Kakao. Frisch serviert — wie zuhause, nur mit Aussicht.</span>
+        </p>
+        <div class="price">€7</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== PUNTI DI FORZA ========== -->
+<section class="forza">
+  <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
+    <span class="section-eyebrow">
+      <span class="t-it">Perché Sceglierci</span>
+      <span class="t-en">Why Choose Us</span>
+      <span class="t-de">Warum Wir</span>
+    </span>
+    <h2>
+      <span class="t-it">Quattro <em>buone ragioni</em></span>
+      <span class="t-en">Four <em>good reasons</em></span>
+      <span class="t-de">Vier <em>gute Gründe</em></span>
+    </h2>
+  </div>
+  <div class="forza-grid">
+    <div class="forza-card">
+      <div class="forza-icon">📍</div>
+      <h3>
+        <span class="t-it">Sul Lungomare</span>
+        <span class="t-en">On the Seafront</span>
+        <span class="t-de">An der Promenade</span>
+      </h3>
+      <p>
+        <span class="t-it">Direttamente sul Lungomare Ruggero di Lauria, terrazza vista mare aperta sul Tirreno.</span>
+        <span class="t-en">Directly on Lungomare Ruggero di Lauria, sea-view terrace facing the Tyrrhenian.</span>
+        <span class="t-de">Direkt am Lungomare Ruggero di Lauria, Terrasse mit Blick aufs Tyrrhenische Meer.</span>
+      </p>
+    </div>
+    <div class="forza-card">
+      <div class="forza-icon">🐟</div>
+      <h3>
+        <span class="t-it">Pesce del Giorno</span>
+        <span class="t-en">Catch of the Day</span>
+        <span class="t-de">Tagesfang</span>
+      </h3>
+      <p>
+        <span class="t-it">Tutto fresco, sbarcato all'alba dai pescherecci locali, cucinato al momento.</span>
+        <span class="t-en">All fresh, landed at dawn by local boats, cooked to order.</span>
+        <span class="t-de">Alles frisch, morgens von lokalen Booten angelandet, frisch zubereitet.</span>
+      </p>
+    </div>
+    <div class="forza-card">
+      <div class="forza-icon">💛</div>
+      <h3>
+        <span class="t-it">Ospitalità Vera</span>
+        <span class="t-en">Real Hospitality</span>
+        <span class="t-de">Echte Gastfreundschaft</span>
+      </h3>
+      <p>
+        <span class="t-it">Ewa e Fabrizio vi accolgono come a casa: consigli sui piatti, attenzione al dettaglio.</span>
+        <span class="t-en">Ewa and Fabrizio welcome you like family: dish suggestions, attentive care.</span>
+        <span class="t-de">Ewa und Fabrizio empfangen Sie wie Familie: persönliche Empfehlungen, Aufmerksamkeit.</span>
+      </p>
+    </div>
+    <div class="forza-card">
+      <div class="forza-icon">🌅</div>
+      <h3>
+        <span class="t-it">Tramonto sul Mare</span>
+        <span class="t-en">Sunset over the Sea</span>
+        <span class="t-de">Sonnenuntergang am Meer</span>
+      </h3>
+      <p>
+        <span class="t-it">L'ora migliore per cenare con il sole che scende dietro l'isola di Dino.</span>
+        <span class="t-en">The best hour to dine, with the sun setting behind Dino island.</span>
+        <span class="t-de">Die beste Stunde zum Essen, wenn die Sonne hinter der Dino-Insel versinkt.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section class="gallery" id="gallery">
+  <div class="section-head">
+    <span class="section-eyebrow">
+      <span class="t-it">Galleria</span>
+      <span class="t-en">Gallery</span>
+      <span class="t-de">Galerie</span>
+    </span>
+    <h2>
+      <span class="t-it">L'<em>atmosfera</em> in immagini</span>
+      <span class="t-en">The <em>atmosphere</em> in pictures</span>
+      <span class="t-de">Die <em>Atmosphäre</em> in Bildern</span>
+    </h2>
+    <p>
+      <span class="t-it">Sala, terrazza, piatti, tramonti — un assaggio prima di sedersi al nostro tavolo.</span>
+      <span class="t-en">Dining room, terrace, dishes, sunsets — a taste before you sit at our table.</span>
+      <span class="t-de">Speisesaal, Terrasse, Gerichte, Sonnenuntergänge — ein Vorgeschmack, bevor Sie Platz nehmen.</span>
+    </p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item big"><img src="./photos/photo_09.jpg" alt="Terrazza con vista mare"></div>
+    <div class="gallery-item tall"><img src="./photos/photo_06.jpg" alt="Spaghetti alle vongole"></div>
+    <div class="gallery-item"><img src="./photos/photo_05.jpg" alt="Gamberi alla griglia"></div>
+    <div class="gallery-item"><img src="./photos/photo_08.jpg" alt="Aperol Spritz aperitivi"></div>
+    <div class="gallery-item wide"><img src="./photos/photo_00.jpg" alt="Sala interna del ristorante"></div>
+    <div class="gallery-item"><img src="./photos/photo_04.jpg" alt="Pesce fresco grigliato"></div>
+    <div class="gallery-item"><img src="./photos/photo_02.jpg" alt="Spaghetti alici"></div>
+    <div class="gallery-item wide"><img src="./photos/photo_07.jpg" alt="Esterno del Lido Azzurro Naty"></div>
+    <div class="gallery-item"><img src="./photos/photo_01.jpg" alt="Tiramisù"></div>
+    <div class="gallery-item"><img src="./photos/photo_03.jpg" alt="Interno con shutters bianchi"></div>
+  </div>
+</section>
+
+<!-- ========== REVIEWS ========== -->
+<section class="reviews" id="reviews">
+  <div class="section-head">
+    <span class="section-eyebrow">
+      <span class="t-it">Cosa dicono i nostri ospiti</span>
+      <span class="t-en">What our guests say</span>
+      <span class="t-de">Was unsere Gäste sagen</span>
+    </span>
+    <h2>
+      <span class="t-it">⭐ 4.8 / 5 — <em>334 recensioni verificate</em></span>
+      <span class="t-en">⭐ 4.8 / 5 — <em>334 verified reviews</em></span>
+      <span class="t-de">⭐ 4.8 / 5 — <em>334 verifizierte Bewertungen</em></span>
+    </h2>
+  </div>
+  <div class="reviews-grid">
+
+    <article class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">
+        <span class="t-it">"Cibo eccellente. Tutto fresco e cotto al momento. La frittura mista da acquolina, dolci squisiti. Ewa e Fabrizio incredibili — cura, attenzione, ospitalità."</span>
+        <span class="t-en">"Excellent food. Everything fresh and cooked to order. Fritura mista mouth-watering, delicious desserts. We were amazed by Ewa and Fabrizio's care, attention and hospitality."</span>
+        <span class="t-de">"Hervorragendes Essen. Alles frisch und auf Bestellung zubereitet. Die Fritura mista zum Dahinschmelzen, köstliche Desserts. Ewa und Fabrizio mit unglaublicher Sorgfalt und Gastfreundschaft."</span>
+      </p>
+      <div class="review-author">
+        <div class="review-avatar">M</div>
+        <div>
+          <div class="review-name">Magda Stefanska</div>
+          <div class="review-source">Google · ⭐ 5/5</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">
+        <span class="t-it">"Ristorante straordinario. Cibo delizioso con vista pazzesca. Atmosfera assolutamente perfetta. I proprietari così cordiali. Il miglior cibo della città!"</span>
+        <span class="t-en">"Amazing restaurant. The food was very delicious with amazing views. Absolutely perfect atmosphere. The owners are so friendly. The best food in town!"</span>
+        <span class="t-de">"Erstaunliches Restaurant. Sehr leckeres Essen mit fantastischer Aussicht. Perfekte Atmosphäre. Die Inhaber so freundlich. Das beste Essen der Stadt!"</span>
+      </p>
+      <div class="review-author">
+        <div class="review-avatar">J</div>
+        <div>
+          <div class="review-name">Joanna Dykas</div>
+          <div class="review-source">Google · ⭐ 5/5</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">
+        <span class="t-it">"Ospitalità incredibile e cibo delizioso. Il proprietario ci ha consigliato gli gnocchi con frutti di mare e i paccheri al pesce spada — entrambi gustosissimi. Anche il tartufo gelato locale era memorabile."</span>
+        <span class="t-en">"Incredible hospitality and delicious food! The owner recommended Gnocchi with mixed seafood and swordfish Paccheri — both tasty. The local 'tartufo' ice cream was also impressive."</span>
+        <span class="t-de">"Unglaubliche Gastfreundschaft und köstliches Essen! Der Wirt empfahl Gnocchi mit Meeresfrüchten und Schwertfisch-Paccheri — beides köstlich. Das lokale Tartufo-Eis war ebenfalls beeindruckend."</span>
+      </p>
+      <div class="review-author">
+        <div class="review-avatar">J</div>
+        <div>
+          <div class="review-name">Joyce Yang</div>
+          <div class="review-source">Google · ⭐ 5/5</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">
+        <span class="t-it">"Siamo arrivati 20 minuti prima della chiusura, ma ci hanno servito velocemente. Menu semplice, tutto saporito. Personale attentissimo. Pesce fresco e ben cucinato. Caldamente consigliato."</span>
+        <span class="t-en">"We arrived 20 min before closing, but were served very fast. Menu is simple, everything we tried was tasty. Staff very attentive. Fish was fresh and well made. Warmly recommended."</span>
+        <span class="t-de">"Wir kamen 20 Min. vor Schluss, wurden aber sehr schnell bedient. Karte einfach, alles lecker. Personal sehr aufmerksam. Fisch frisch und gut zubereitet. Wärmstens empfohlen."</span>
+      </p>
+      <div class="review-author">
+        <div class="review-avatar">T</div>
+        <div>
+          <div class="review-name">Tamara K.</div>
+          <div class="review-source">Tripadvisor · ⭐ 5/5</div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="faq">
+  <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
+    <span class="section-eyebrow">FAQ</span>
+    <h2>
+      <span class="t-it">Le <em>domande</em> più frequenti</span>
+      <span class="t-en">Frequently <em>asked</em> questions</span>
+      <span class="t-de">Häufig <em>gestellte</em> Fragen</span>
+    </h2>
+  </div>
+  <div class="faq-wrap">
+
+    <details class="faq-item">
+      <summary>
+        <span class="t-it">È necessario prenotare?</span>
+        <span class="t-en">Do I need to book in advance?</span>
+        <span class="t-de">Muss ich reservieren?</span>
+      </summary>
+      <div class="faq-answer">
+        <span class="t-it">In alta stagione (giugno–settembre) la prenotazione è caldamente consigliata, soprattutto per la terrazza al tramonto. Potete prenotare via WhatsApp, telefono o usando il form qui sotto.</span>
+        <span class="t-en">In high season (June–September) booking is strongly recommended, especially for the sunset terrace. You can reserve via WhatsApp, phone or the form below.</span>
+        <span class="t-de">In der Hochsaison (Juni–September) wird eine Reservierung dringend empfohlen, besonders für die Sonnenuntergangs-Terrasse. Sie können per WhatsApp, Telefon oder über das Formular unten reservieren.</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>
+        <span class="t-it">Avete opzioni per intolleranze (glutine, lattosio)?</span>
+        <span class="t-en">Do you cater for intolerances (gluten, lactose)?</span>
+        <span class="t-de">Haben Sie Optionen bei Unverträglichkeiten?</span>
+      </summary>
+      <div class="faq-answer">
+        <span class="t-it">Sì, abbiamo diverse alternative senza glutine e senza lattosio. Avvisateci al momento della prenotazione e prepareremo il vostro menu su misura.</span>
+        <span class="t-en">Yes, we offer several gluten-free and lactose-free alternatives. Just let us know when booking and we'll prepare a tailored menu for you.</span>
+        <span class="t-de">Ja, wir bieten mehrere glutenfreie und laktosefreie Alternativen. Teilen Sie uns dies bei der Reservierung mit, und wir gestalten Ihr Menü individuell.</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>
+        <span class="t-it">C'è il parcheggio nelle vicinanze?</span>
+        <span class="t-en">Is there parking nearby?</span>
+        <span class="t-de">Gibt es Parkplätze in der Nähe?</span>
+      </summary>
+      <div class="faq-answer">
+        <span class="t-it">Sì, lungo il Lungomare Ruggero di Lauria trovate parcheggio pubblico (a pagamento in alta stagione) a pochi passi dal ristorante.</span>
+        <span class="t-en">Yes, along Lungomare Ruggero di Lauria you'll find public parking (paid in high season) just steps from the restaurant.</span>
+        <span class="t-de">Ja, am Lungomare Ruggero di Lauria gibt es öffentliche Parkplätze (in der Hochsaison kostenpflichtig) nur wenige Schritte vom Restaurant entfernt.</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>
+        <span class="t-it">Parlate inglese, tedesco o polacco?</span>
+        <span class="t-en">Do you speak English, German or Polish?</span>
+        <span class="t-de">Sprechen Sie Englisch, Deutsch oder Polnisch?</span>
+      </summary>
+      <div class="faq-answer">
+        <span class="t-it">Sì! Ewa parla polacco, inglese e italiano; Fabrizio italiano e inglese. Riusciamo a farci capire anche in tedesco e francese — qui i nostri ospiti vengono da tutta Europa.</span>
+        <span class="t-en">Yes! Ewa speaks Polish, English and Italian; Fabrizio Italian and English. We manage in German and French too — our guests come from all over Europe.</span>
+        <span class="t-de">Ja! Ewa spricht Polnisch, Englisch und Italienisch; Fabrizio Italienisch und Englisch. Wir kommen auch auf Deutsch und Französisch zurecht — unsere Gäste kommen aus ganz Europa.</span>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ========== PRENOTA ========== -->
+<section class="prenota" id="prenota">
+  <div class="prenota-wrap">
+    <div class="prenota-info">
+      <span class="section-eyebrow">
+        <span class="t-it">Prenota un Tavolo</span>
+        <span class="t-en">Book a Table</span>
+        <span class="t-de">Tisch Reservieren</span>
+      </span>
+      <h2>
+        <span class="t-it">Vi <em>aspettiamo</em><br>sul mare</span>
+        <span class="t-en">We're <em>waiting</em><br>by the sea</span>
+        <span class="t-de">Wir <em>warten</em><br>am Meer</span>
+      </h2>
+      <p>
+        <span class="t-it">Compilate il modulo: il messaggio si aprirà direttamente in WhatsApp e vi confermeremo entro pochi minuti. Per richieste urgenti, chiamateci.</span>
+        <span class="t-en">Fill in the form: your message will open in WhatsApp and we'll confirm within minutes. For urgent requests, call us directly.</span>
+        <span class="t-de">Füllen Sie das Formular aus: Ihre Nachricht öffnet sich direkt in WhatsApp und wir bestätigen innerhalb weniger Minuten. Für dringende Anfragen rufen Sie uns an.</span>
+      </p>
+
+      <ul class="contact-list">
+        <li>
+          <strong>
+            <span class="t-it">Indirizzo</span>
+            <span class="t-en">Address</span>
+            <span class="t-de">Adresse</span>
+          </strong>
+          <span>Lungomare Ruggero di Lauria,<br>87029 Scalea (CS), Italia</span>
+        </li>
+        <li>
+          <strong>
+            <span class="t-it">Telefono</span>
+            <span class="t-en">Phone</span>
+            <span class="t-de">Telefon</span>
+          </strong>
+          <a href="tel:+393383734797">+39 338 373 4797</a>
+        </li>
+        <li>
+          <strong>WhatsApp</strong>
+          <a href="https://wa.me/393383734797" target="_blank">+39 338 373 4797</a>
+        </li>
+        <li>
+          <strong>
+            <span class="t-it">Orari</span>
+            <span class="t-en">Hours</span>
+            <span class="t-de">Öffnungszeiten</span>
+          </strong>
+          <span>
+            <span class="t-it">12:30 – 15:00 · 19:00 – 23:30<br>Stagione: maggio – ottobre</span>
+            <span class="t-en">12:30 – 15:00 · 19:00 – 23:30<br>Season: May – October</span>
+            <span class="t-de">12:30 – 15:00 · 19:00 – 23:30<br>Saison: Mai – Oktober</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <form class="booking-form" id="bookingForm">
+      <h3>
+        <span class="t-it">Richiesta di Prenotazione</span>
+        <span class="t-en">Reservation Request</span>
+        <span class="t-de">Reservierungsanfrage</span>
+      </h3>
+      <p class="form-sub">
+        <span class="t-it">Risposta via WhatsApp entro pochi minuti</span>
+        <span class="t-en">Reply via WhatsApp within minutes</span>
+        <span class="t-de">Antwort per WhatsApp innerhalb weniger Minuten</span>
+      </p>
+
+      <label for="bf-nome" class="t-it">Nome e Cognome</label>
+      <label for="bf-nome" class="t-en">Full Name</label>
+      <label for="bf-nome" class="t-de">Vor- und Nachname</label>
+      <input type="text" id="bf-nome" name="nome" required>
+
+      <div class="form-row">
+        <div>
+          <label for="bf-data" class="t-it">Data</label>
+          <label for="bf-data" class="t-en">Date</label>
+          <label for="bf-data" class="t-de">Datum</label>
+          <input type="date" id="bf-data" name="data" required>
+        </div>
+        <div>
+          <label for="bf-persone" class="t-it">Persone</label>
+          <label for="bf-persone" class="t-en">Guests</label>
+          <label for="bf-persone" class="t-de">Personen</label>
+          <select id="bf-persone" name="persone" required>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7+">7+</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="bf-orario" class="t-it">Orario preferito</label>
+      <label for="bf-orario" class="t-en">Preferred time</label>
+      <label for="bf-orario" class="t-de">Wunschzeit</label>
+      <select id="bf-orario" name="orario" required>
+        <option value="13:00">13:00</option>
+        <option value="13:30">13:30</option>
+        <option value="14:00">14:00</option>
+        <option value="19:30">19:30</option>
+        <option value="20:00" selected>20:00</option>
+        <option value="20:30">20:30</option>
+        <option value="21:00">21:00</option>
+        <option value="21:30">21:30</option>
+      </select>
+
+      <label for="bf-note" class="t-it">Note (allergie, occasione speciale...)</label>
+      <label for="bf-note" class="t-en">Notes (allergies, special occasion...)</label>
+      <label for="bf-note" class="t-de">Hinweise (Allergien, besonderer Anlass...)</label>
+      <textarea id="bf-note" name="note"></textarea>
+
+      <button type="submit">
+        <span class="t-it">Invia su WhatsApp</span>
+        <span class="t-en">Send via WhatsApp</span>
+        <span class="t-de">Per WhatsApp Senden</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ========== MAP ========== -->
+<section class="map">
+  <iframe
+    src="https://www.google.com/maps?q=Lido+Azzurro+Naty+Lungomare+Ruggero+di+Lauria+Scalea&output=embed"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Lido Azzurro Naty su Google Maps">
+  </iframe>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <a href="#" class="footer-logo">Lido <span>Azzurro</span> Naty</a>
+      <p class="footer-tagline">
+        <span class="t-it">"Una casa sul mare con la porta aperta. Pesce fresco, ricette di famiglia, vista infinita."</span>
+        <span class="t-en">"A house by the sea with its door open. Fresh seafood, family recipes, endless view."</span>
+        <span class="t-de">"Ein Haus am Meer mit offener Tür. Frischer Fisch, Familienrezepte, endloser Blick."</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>
+        <span class="t-it">Contatti</span>
+        <span class="t-en">Contact</span>
+        <span class="t-de">Kontakt</span>
+      </h4>
+      <p>Lungomare Ruggero di Lauria<br>87029 Scalea (CS) · Italia</p>
+      <p><a href="tel:+393383734797">+39 338 373 4797</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>
+        <span class="t-it">Orari</span>
+        <span class="t-en">Hours</span>
+        <span class="t-de">Öffnungszeiten</span>
+      </h4>
+      <p>
+        <span class="t-it">Pranzo: 12:30 – 15:00<br>Cena: 19:00 – 23:30<br>Stagione: mag – ott</span>
+        <span class="t-en">Lunch: 12:30 – 15:00<br>Dinner: 19:00 – 23:30<br>Season: May – Oct</span>
+        <span class="t-de">Mittag: 12:30 – 15:00<br>Abend: 19:00 – 23:30<br>Saison: Mai – Okt</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>
+        <span class="t-it">Naviga</span>
+        <span class="t-en">Navigate</span>
+        <span class="t-de">Navigation</span>
+      </h4>
+      <ul>
+        <li><a href="#storia"><span class="t-it">La Storia</span><span class="t-en">Our Story</span><span class="t-de">Geschichte</span></a></li>
+        <li><a href="#menu"><span class="t-it">Menu</span><span class="t-en">Menu</span><span class="t-de">Karte</span></a></li>
+        <li><a href="#gallery"><span class="t-it">Galleria</span><span class="t-en">Gallery</span><span class="t-de">Galerie</span></a></li>
+        <li><a href="#prenota"><span class="t-it">Prenota</span><span class="t-en">Book</span><span class="t-de">Reservieren</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> Lido Azzurro Naty · P.IVA — ·
+      <span class="t-it">Tutti i diritti riservati</span>
+      <span class="t-en">All rights reserved</span>
+      <span class="t-de">Alle Rechte vorbehalten</span>
+    </span>
+    <span>
+      <span class="t-it">Sito realizzato da</span>
+      <span class="t-en">Site by</span>
+      <span class="t-de">Website von</span>
+      <a href="https://viktoria.agency" target="_blank">Viktoria Agency</a>
+    </span>
+  </div>
+</footer>
+
+<!-- ========== WHATSAPP FLOAT ========== -->
+<a href="https://wa.me/393383734797?text=Buongiorno%2C%20vorrei%20informazioni%20sul%20Lido%20Azzurro%20Naty" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+// ===== Year =====
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ===== Nav scroll =====
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// ===== Mobile menu =====
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// ===== Language switcher =====
+const langButtons = document.querySelectorAll('.lang-btn');
+function setLang(l) {
+  document.body.classList.remove('lang-it', 'lang-en', 'lang-de');
+  document.body.classList.add('lang-' + l);
+  document.documentElement.lang = l;
+  langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+}
+langButtons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+
+// Auto-detect browser language on first load
+const browserLang = (navigator.language || 'it').slice(0, 2);
+if (['en', 'de'].includes(browserLang)) setLang(browserLang);
+
+// ===== Booking form =====
+const form = document.getElementById('bookingForm');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const fd = new FormData(form);
+  const lang = document.body.classList.contains('lang-en') ? 'en'
+             : document.body.classList.contains('lang-de') ? 'de' : 'it';
+  const greetings = {
+    it: { hello: 'Buongiorno', wish: 'vorrei prenotare un tavolo:', name: 'Nome', date: 'Data', time: 'Orario', people: 'Persone', notes: 'Note' },
+    en: { hello: 'Hello', wish: "I'd like to book a table:", name: 'Name', date: 'Date', time: 'Time', people: 'Guests', notes: 'Notes' },
+    de: { hello: 'Guten Tag', wish: 'ich möchte einen Tisch reservieren:', name: 'Name', date: 'Datum', time: 'Uhrzeit', people: 'Personen', notes: 'Hinweise' }
+  };
+  const g = greetings[lang];
+  const msg = `${g.hello},\n${g.wish}\n\n${g.name}: ${fd.get('nome')}\n${g.date}: ${fd.get('data')}\n${g.time}: ${fd.get('orario')}\n${g.people}: ${fd.get('persone')}\n${g.notes}: ${fd.get('note') || '—'}`;
+  window.open(`https://wa.me/393383734797?text=${encodeURIComponent(msg)}`, '_blank');
+});
+
+// Set min date on date input to today
+document.getElementById('bf-data').min = new Date().toISOString().split('T')[0];
+</script>
+
+</body>
+</html>
