@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>N'ata Pasta — Pizzeria artigianale · Praia a Mare</title>
+<meta name="description" content="N'ata Pasta — pizzeria artigianale nel cuore di Praia a Mare. Pizze fresche, ingredienti genuini e prezzi onesti. ⭐ 4.8 su Google.">
+<meta name="keywords" content="pizzeria Praia a Mare, N'ata Pasta, pizza artigianale Calabria, pizza da asporto Praia, Via Gandhi">
+
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="N'ata Pasta — Pizzeria artigianale · Praia a Mare">
+<meta property="og:description" content="Pizze cotte al momento, ingredienti freschi e prezzi onesti. Un angolo di pizzeria autentica a Praia a Mare.">
+<meta property="og:image" content="./photos/photo_00.jpg">
+<meta property="og:url" content="https://natapasta.it">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="N'ata Pasta — Pizzeria artigianale · Praia a Mare">
+<meta name="twitter:description" content="Pizze artigianali a Praia a Mare. Veloci, fragranti, oneste.">
+<meta name="twitter:image" content="./photos/photo_00.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍕</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "N'ata Pasta",
+  "image": "./photos/photo_00.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Gandhi, 22",
+    "addressLocality": "Praia a Mare",
+    "addressRegion": "CS",
+    "postalCode": "87028",
+    "addressCountry": "IT"
+  },
+  "telephone": "+393342468806",
+  "priceRange": "€",
+  "servesCuisine": ["Italian", "Pizza", "Calabrese"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "38"
+  },
+  "url": "https://natapasta.it"
+}
+</script>
+
+<style>
+  /* ---------- RESET & TOKENS ---------- */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { overflow-x: hidden; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; background: none; border: none; color: inherit; }
+
+  :root {
+    --primary: #816a4b;
+    --secondary: #dbd7cb;
+    --accent: #2a240b;
+    --light: #f5f1e8;
+    --dark: #1C1917;
+    --terracotta: #c8a778;
+    --cream: #faf7f0;
+    --ink: #2a240b;
+    --rule: rgba(42, 36, 11, 0.14);
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --container: 1240px;
+    --radius: 4px;
+
+    --ease: cubic-bezier(.2, .8, .2, 1);
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- LANGUAGE TOGGLE ---------- */
+  .t-en { display: none !important; }
+  body.lang-en .t-it { display: none !important; }
+  body.lang-en .t-en { display: revert !important; }
+
+  /* ---------- TYPOGRAPHY ---------- */
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--primary);
+    display: inline-block;
+    margin-bottom: 18px;
+    position: relative;
+    padding-left: 42px;
+  }
+  .eyebrow::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background: var(--primary);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  h2 { font-size: clamp(38px, 5.5vw, 68px); }
+  h3 { font-size: clamp(22px, 2.2vw, 28px); font-weight: 500; }
+
+  p { color: #3a3221; font-size: 16px; line-height: 1.75; }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 22px 0;
+    transition: all .5s var(--ease);
+    background: transparent;
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .nav-brand {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.01em;
+    transition: color .4s var(--ease);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .nav-brand-mark {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--terracotta);
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 0;
+    transition: color .4s var(--ease);
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width .35s var(--ease);
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  .lang-switch {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+  }
+  .lang-btn {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #fff;
+    background: transparent;
+    transition: all .3s var(--ease);
+  }
+  .lang-btn.active {
+    color: var(--accent);
+    background: #fff;
+  }
+
+  /* scrolled nav */
+  .nav.scrolled {
+    background: rgba(250, 247, 240, 0.95);
+    backdrop-filter: blur(14px);
+    padding: 14px 0;
+    box-shadow: 0 1px 0 rgba(42, 36, 11, 0.06);
+  }
+  .nav.scrolled .nav-brand { color: var(--accent); }
+  .nav.scrolled .nav-links a { color: var(--accent); }
+  .nav.scrolled .lang-switch {
+    border-color: rgba(42,36,11,0.18);
+    background: rgba(42,36,11,0.03);
+  }
+  .nav.scrolled .lang-btn { color: var(--accent); }
+  .nav.scrolled .lang-btn.active {
+    color: #fff;
+    background: var(--primary);
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 999px;
+    transition: all .4s var(--ease);
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--cream);
+  }
+  .btn-primary:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(42, 36, 11, 0.25);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.6);
+  }
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: #fff;
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .btn-outline:hover {
+    background: var(--accent);
+    color: var(--cream);
+  }
+  .btn .arr {
+    width: 14px; height: 8px;
+    transition: transform .3s var(--ease);
+  }
+  .btn:hover .arr { transform: translateX(4px); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 96px;
+    overflow: hidden;
+    color: #fff;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(28, 25, 23, 0.25) 0%, rgba(28, 25, 23, 0.35) 40%, rgba(28, 25, 23, 0.85) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+  .hero-eyebrow {
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow::before {
+    background: rgba(255,255,255,0.7);
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 9vw, 128px);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 28px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--terracotta);
+  }
+  .hero-sub {
+    font-size: clamp(16px, 1.4vw, 19px);
+    color: rgba(255,255,255,0.88);
+    max-width: 540px;
+    margin-bottom: 44px;
+    line-height: 1.6;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    max-width: 640px;
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-meta-val {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hero-meta-val .stars {
+    color: var(--terracotta);
+    font-size: 24px;
+    margin-left: 4px;
+  }
+  .hero-meta-lbl {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    font-weight: 500;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    z-index: 2;
+    writing-mode: vertical-rl;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-scroll::after {
+    content: "";
+    width: 1px;
+    height: 48px;
+    background: rgba(255,255,255,0.4);
+  }
+
+  /* ---------- SECTION BASE ---------- */
+  section {
+    padding: 140px 0;
+    position: relative;
+  }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 48px;
+    margin-bottom: 80px;
+  }
+  .section-head h2 { max-width: 720px; }
+  .section-head p {
+    max-width: 380px;
+    color: #6b5d44;
+    font-size: 15px;
+  }
+
+  /* ---------- STORIA ---------- */
+  .storia {
+    background: var(--cream);
+  }
+  .storia-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 96px;
+    align-items: center;
+  }
+  .storia-media {
+    position: relative;
+  }
+  .storia-img-main {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .storia-img-main img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s var(--ease);
+  }
+  .storia-img-main:hover img { transform: scale(1.04); }
+  .storia-img-accent {
+    position: absolute;
+    width: 42%;
+    aspect-ratio: 1 / 1;
+    bottom: -40px;
+    right: -40px;
+    overflow: hidden;
+    border: 10px solid var(--cream);
+    border-radius: 2px;
+    box-shadow: 0 20px 60px rgba(42, 36, 11, 0.18);
+  }
+  .storia-img-accent img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .storia-badge {
+    position: absolute;
+    top: -24px;
+    left: -24px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-display);
+    text-align: center;
+    padding: 16px;
+    box-shadow: 0 14px 40px rgba(129, 106, 75, 0.35);
+    transform: rotate(-6deg);
+  }
+  .storia-badge strong {
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 500;
+  }
+  .storia-badge span {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 6px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    opacity: 0.9;
+  }
+
+  .storia-copy h2 { margin-bottom: 28px; }
+  .storia-copy p { margin-bottom: 20px; font-size: 17px; }
+  .storia-copy p:first-of-type {
+    font-size: 20px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1.45;
+    font-style: italic;
+  }
+  .storia-sign {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+  }
+  .storia-sign-txt {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--primary);
+  }
+  .storia-sign-lbl {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6b5d44;
+  }
+
+  /* ---------- MENU ---------- */
+  .menu {
+    background: var(--secondary);
+    position: relative;
+  }
+  .menu .section-head { align-items: flex-end; }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px;
+  }
+  .menu-card {
+    grid-column: span 4;
+    background: var(--cream);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+    display: flex;
+    flex-direction: column;
+  }
+  .menu-card:nth-child(1) { grid-column: span 5; margin-top: 48px; }
+  .menu-card:nth-child(2) { grid-column: span 4; }
+  .menu-card:nth-child(3) { grid-column: span 3; margin-top: 72px; }
+
+  .menu-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 24px 50px rgba(42, 36, 11, 0.18);
+  }
+  .menu-card-img {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+  .menu-card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1s var(--ease);
+  }
+  .menu-card:hover .menu-card-img img { transform: scale(1.08); }
+
+  .menu-card-body {
+    padding: 32px 28px 34px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .menu-card-tag {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .menu-card h3 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+  .menu-card-desc {
+    font-size: 14px;
+    color: #6b5d44;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 22px;
+  }
+  .menu-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+  .menu-card-price {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .menu-card-price small {
+    font-size: 12px;
+    font-weight: 400;
+    color: #6b5d44;
+    margin-left: 4px;
+  }
+  .menu-card-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--primary);
+  }
+
+  .menu-note {
+    margin-top: 64px;
+    text-align: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--accent);
+    padding-top: 40px;
+    position: relative;
+  }
+  .menu-note::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 48px; height: 1px;
+    background: var(--primary);
+  }
+
+  /* ---------- REVIEWS ---------- */
+  .reviews {
+    background: var(--cream);
+  }
+  .reviews-head {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+  .reviews-head .eyebrow { padding: 0; }
+  .reviews-head .eyebrow::before { display: none; }
+  .reviews-head h2 { max-width: 680px; margin: 0 auto 20px; }
+
+  .reviews-score {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 18px;
+    padding: 10px 22px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--cream);
+  }
+  .reviews-score-stars {
+    color: var(--terracotta);
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+  .reviews-score-val {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .reviews-score-sep {
+    width: 1px; height: 14px; background: var(--rule);
+  }
+  .reviews-score-count {
+    font-size: 13px;
+    color: #6b5d44;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .review-card {
+    background: #fff;
+    padding: 36px 32px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid var(--rule);
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+    position: relative;
+  }
+  .review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 48px rgba(42, 36, 11, 0.12);
+  }
+  .review-card::before {
+    content: "\201C";
+    position: absolute;
+    top: 8px; right: 24px;
+    font-family: var(--font-display);
+    font-size: 96px;
+    color: var(--secondary);
+    line-height: 1;
+  }
+  .review-stars {
+    color: var(--terracotta);
+    letter-spacing: 3px;
+    font-size: 14px;
+  }
+  .review-quote {
+    font-family: var(--font-display);
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--accent);
+    font-weight: 400;
+    flex: 1;
+    font-style: italic;
+  }
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+  .review-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .review-author-info strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+  .review-author-info span {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8a7a5e;
+  }
+
+  /* ---------- CONTATTI + MAP ---------- */
+  .contact {
+    background: var(--accent);
+    color: var(--cream);
+    padding: 140px 0 0;
+  }
+  .contact-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 120px;
+  }
+  .contact h2 {
+    color: var(--cream);
+    margin-bottom: 24px;
+  }
+  .contact .eyebrow {
+    color: var(--terracotta);
+  }
+  .contact .eyebrow::before {
+    background: var(--terracotta);
+  }
+  .contact-intro {
+    color: rgba(245, 241, 232, 0.72);
+    font-size: 17px;
+    margin-bottom: 40px;
+    max-width: 420px;
+  }
+
+  .contact-info {
+    list-style: none;
+    padding: 0;
+  }
+  .contact-info li {
+    padding: 22px 0;
+    border-top: 1px solid rgba(245, 241, 232, 0.14);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .contact-info li:last-child { border-bottom: 1px solid rgba(245, 241, 232, 0.14); }
+  .contact-info-lbl {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    flex-shrink: 0;
+    min-width: 120px;
+  }
+  .contact-info-val {
+    font-family: var(--font-display);
+    font-size: 19px;
+    color: var(--cream);
+    text-align: right;
+  }
+  .contact-info-val a:hover { color: var(--terracotta); }
+
+  .contact-form {
+    background: rgba(245, 241, 232, 0.04);
+    border: 1px solid rgba(245, 241, 232, 0.12);
+    padding: 44px 40px;
+    border-radius: 2px;
+  }
+  .contact-form-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .contact-form-sub {
+    font-size: 14px;
+    color: rgba(245,241,232,0.6);
+    margin-bottom: 28px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .form-field { margin-bottom: 20px; }
+  .form-field label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .form-field input,
+  .form-field textarea {
+    width: 100%;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(245, 241, 232, 0.2);
+    color: var(--cream);
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color .3s var(--ease);
+  }
+  .form-field input:focus,
+  .form-field textarea:focus {
+    outline: none;
+    border-bottom-color: var(--terracotta);
+  }
+  .form-field textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  .contact-form button[type="submit"] {
+    margin-top: 16px;
+    width: 100%;
+    background: var(--terracotta);
+    color: var(--accent);
+    padding: 18px;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-size: 13px;
+    transition: all .3s var(--ease);
+  }
+  .contact-form button[type="submit"]:hover {
+    background: var(--cream);
+    transform: translateY(-2px);
+  }
+
+  .map-wrap {
+    width: 100%;
+    height: 460px;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(0.3) contrast(0.92) brightness(0.9);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--dark);
+    color: rgba(245,241,232,0.65);
+    padding: 72px 0 32px;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 56px;
+    margin-bottom: 56px;
+  }
+  .foot-brand {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--cream);
+    margin-bottom: 14px;
+  }
+  .foot-brand em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  .foot-tag {
+    font-size: 14px;
+    color: rgba(245,241,232,0.55);
+    max-width: 280px;
+    line-height: 1.7;
+  }
+  .foot-col h4 {
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .foot-col ul { list-style: none; padding: 0; }
+  .foot-col li {
+    font-size: 14px;
+    color: rgba(245,241,232,0.65);
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  .foot-col a:hover { color: var(--terracotta); }
+  .foot-bar {
+    padding-top: 28px;
+    border-top: 1px solid rgba(245, 241, 232, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(245,241,232,0.4);
+    letter-spacing: 0.04em;
+  }
+  .foot-bar a {
+    color: rgba(245,241,232,0.7);
+    font-weight: 500;
+  }
+  .foot-bar a:hover { color: var(--terracotta); }
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .wa-float:hover {
+    transform: scale(1.08);
+    box-shadow: 0 14px 38px rgba(37, 211, 102, 0.55);
+  }
+  .wa-float::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 211, 102, 0.35);
+    animation: wa-pulse 2s ease-out infinite;
+  }
+  @keyframes wa-pulse {
+    0% { transform: scale(0.9); opacity: 1; }
+    100% { transform: scale(1.4); opacity: 0; }
+  }
+  .wa-float svg { width: 28px; height: 28px; fill: currentColor; }
+
+  /* ---------- MOBILE — @media (max-width:768px) ---------- */
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    section { padding: 80px 0; }
+
+    .nav { padding: 14px 0; }
+    .nav.scrolled { padding: 10px 0; }
+    .nav-links { display: none; }
+    .nav-brand { font-size: 18px; }
+    .lang-switch { padding: 3px; }
+    .lang-btn { padding: 5px 10px; font-size: 10px; }
+
+    .hero {
+      padding: 0 0 56px;
+      min-height: 92vh;
+      align-items: flex-end;
+    }
+    .hero h1 { font-size: 56px; line-height: 1.02; }
+    .hero-sub { font-size: 15px; margin-bottom: 32px; }
+    .hero-ctas { flex-direction: column; align-items: flex-start; }
+    .hero-ctas .btn { width: auto; padding: 14px 26px; }
+    .hero-meta {
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-top: 24px;
+    }
+    .hero-meta-val { font-size: 26px; }
+    .hero-scroll { display: none; }
+
+    .section-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    h2 { font-size: 36px; }
+    h3 { font-size: 22px; }
+
+    .storia-grid { grid-template-columns: 1fr; gap: 64px; }
+    .storia-img-accent { width: 48%; bottom: -24px; right: -18px; border-width: 6px; }
+    .storia-badge {
+      width: 100px; height: 100px;
+      top: -16px; left: -12px;
+    }
+    .storia-badge strong { font-size: 24px; }
+    .storia-copy p:first-of-type { font-size: 18px; }
+
+    .menu-grid { gap: 18px; }
+    .menu-card,
+    .menu-card:nth-child(1),
+    .menu-card:nth-child(2),
+    .menu-card:nth-child(3) {
+      grid-column: span 12;
+      margin-top: 0;
+    }
+    .menu-card-body { padding: 24px 22px 26px; }
+
+    .reviews-grid { grid-template-columns: 1fr; gap: 20px; }
+    .review-card { padding: 28px 24px; }
+
+    .contact { padding-top: 80px; }
+    .contact-wrap {
+      grid-template-columns: 1fr;
+      gap: 48px;
+      margin-bottom: 72px;
+    }
+    .contact-form { padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .contact-info li {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .contact-info-val { text-align: left; font-size: 17px; }
+    .map-wrap { height: 320px; }
+
+    .foot-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .foot-grid > :first-child { grid-column: 1 / -1; }
+    .foot-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .wa-float { bottom: 18px; right: 18px; width: 52px; height: 52px; }
+    .wa-float svg { width: 24px; height: 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 46px; }
+    .storia-img-accent { display: none; }
+  }
+</style>
+</head>
+<body class="lang-it">
+
+<!-- ============= NAV ============= -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-brand">
+      N'ata Pasta <span class="nav-brand-mark">—</span> <span class="nav-brand-mark">Praia</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#storia" class="t-it">Storia</a><a href="#storia" class="t-en">Story</a></li>
+      <li><a href="#menu" class="t-it">Menù</a><a href="#menu" class="t-en">Menu</a></li>
+      <li><a href="#reviews" class="t-it">Recensioni</a><a href="#reviews" class="t-en">Reviews</a></li>
+      <li><a href="#contact" class="t-it">Contatti</a><a href="#contact" class="t-en">Contact</a></li>
+    </ul>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button class="lang-btn active" data-lang="it">IT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============= HERO ============= -->
+<header class="hero" id="top">
+  <div class="hero-bg">
+    <img src="./photos/photo_00.jpg" alt="N'ata Pasta — Pizzeria a Praia a Mare" loading="eager">
+  </div>
+  <div class="container hero-content">
+    <span class="eyebrow hero-eyebrow t-it">Pizzeria artigianale · Praia a Mare</span>
+    <span class="eyebrow hero-eyebrow t-en">Artisan pizzeria · Praia a Mare</span>
+
+    <h1 class="t-it">N'ata <em>Pasta</em><br>Una pizza onesta.</h1>
+    <h1 class="t-en">N'ata <em>Pasta</em><br>An honest pizza.</h1>
+
+    <p class="hero-sub t-it">Un bancone, il forno a vista, ingredienti freschi e pizze pronte in cinque minuti. Nel cuore di Praia a Mare, dove la pizza si fa come una volta — veloce, fragrante, senza fronzoli.</p>
+    <p class="hero-sub t-en">One counter, an open kitchen, fresh ingredients and pizzas ready in five minutes. In the heart of Praia a Mare, where pizza is made the old way — fast, fragrant, no fuss.</p>
+
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary t-it">Ordina una pizza
+        <svg class="arr" viewBox="0 0 14 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 4h12m0 0L9 1m4 3L9 7"/></svg>
+      </a>
+      <a href="#contact" class="btn btn-primary t-en">Order a pizza
+        <svg class="arr" viewBox="0 0 14 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 4h12m0 0L9 1m4 3L9 7"/></svg>
+      </a>
+      <a href="#menu" class="btn btn-ghost t-it">Scopri il menù</a>
+      <a href="#menu" class="btn btn-ghost t-en">See the menu</a>
+    </div>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-val">4.8<span class="stars">★</span></span>
+        <span class="hero-meta-lbl t-it">Su Google · 38 recensioni</span>
+        <span class="hero-meta-lbl t-en">On Google · 38 reviews</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-val">5'</span>
+        <span class="hero-meta-lbl t-it">Tempo medio di attesa</span>
+        <span class="hero-meta-lbl t-en">Average wait time</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-val">00</span>
+        <span class="hero-meta-lbl t-it">Farina tipo 00</span>
+        <span class="hero-meta-lbl t-en">Type 00 flour</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll t-it">Scorri</div>
+  <div class="hero-scroll t-en">Scroll</div>
+</header>
+
+<!-- ============= STORIA ============= -->
+<section class="storia" id="storia">
+  <div class="container">
+    <div class="storia-grid">
+      <div class="storia-media">
+        <div class="storia-badge">
+          <strong>4.8</strong>
+          <span class="t-it">Google · 38 rec.</span>
+          <span class="t-en">Google · 38 rev.</span>
+        </div>
+        <div class="storia-img-main">
+          <img src="./photos/photo_04.jpg" alt="La pizza appena sfornata">
+        </div>
+        <div class="storia-img-accent">
+          <img src="./photos/photo_07.jpg" alt="Il bancone e il forno">
+        </div>
+      </div>
+
+      <div class="storia-copy">
+        <span class="eyebrow t-it">La nostra storia</span>
+        <span class="eyebrow t-en">Our story</span>
+
+        <h2 class="t-it">Un bancone, un forno,<br>le cose fatte bene.</h2>
+        <h2 class="t-en">One counter, one oven,<br>things done right.</h2>
+
+        <p class="t-it">«Un posto un po' nascosto, solo un bancone da cui ordinare, affacciato sulla cucina e sugli ingredienti freschi.» — così ci ha descritto Eleonora, e noi non sapremmo dirlo meglio.</p>
+        <p class="t-en">"A bit of a hidden spot, just a counter to order at, overlooking the kitchen and the fresh ingredients." — that's how Eleonora described us, and we couldn't put it better ourselves.</p>
+
+        <p class="t-it">N'ata Pasta nasce dall'idea semplice che una buona pizza non debba essere un'occasione speciale. Aprendo in serata — spesso già alle 18:30 — impastiamo e inforniamo nell'arco di pochi minuti, con farina di tipo 00 fatta lievitare con calma e pomodoro del Sud.</p>
+        <p class="t-en">N'ata Pasta was born from a simple idea: a good pizza doesn't have to be a special occasion. We open in the early evening — often as early as 6:30 pm — kneading and baking in a matter of minutes, with slow-proofed type 00 flour and Southern tomato.</p>
+
+        <p class="t-it">I clienti arrivano dalla spiaggia di Praia, dal centro, e qualche volta dalla Lettonia. Ordinano al volo, aspettano cinque minuti scarsi, e tornano — perché una pizza onesta, a prezzo giusto, è una cosa rara. Qui non si cena elegante: qui si mangia bene. E questo per noi basta e avanza.</p>
+        <p class="t-en">Our customers come from Praia's beach, from the old town, and sometimes from Latvia. They order on the fly, wait barely five minutes, and come back — because an honest pizza, at an honest price, is a rare thing. This isn't a place for fancy dinners: it's a place where you eat well. And that, for us, is more than enough.</p>
+
+        <div class="storia-sign">
+          <div class="storia-sign-txt">N'ata Pasta</div>
+          <div>
+            <div class="storia-sign-lbl t-it">Via Gandhi, 22 — Praia a Mare</div>
+            <div class="storia-sign-lbl t-en">Via Gandhi, 22 — Praia a Mare</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= MENU ============= -->
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow t-it">Il nostro menù</span>
+        <span class="eyebrow t-en">Our menu</span>
+        <h2 class="t-it">Tre pizze<br>per cominciare.</h2>
+        <h2 class="t-en">Three pizzas<br>to start with.</h2>
+      </div>
+      <p class="t-it">Una selezione dalle nostre preferite — quelle che escono dal forno quasi ogni sera. Il menù completo cambia con gli ingredienti del momento.</p>
+      <p class="t-en">A selection of our favourites — the ones that come out of the oven almost every evening. The full menu changes with what's fresh that week.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <article class="menu-card">
+        <div class="menu-card-img">
+          <img src="./photos/photo_01.jpg" alt="Pizza Margherita">
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-card-tag t-it">La classica</span>
+          <span class="menu-card-tag t-en">The classic</span>
+          <h3 class="t-it">Margherita</h3>
+          <h3 class="t-en">Margherita</h3>
+          <p class="menu-card-desc t-it">Pomodoro San Marzano, fiordilatte di Agerola, basilico fresco e un filo d'olio extravergine. La prova del fuoco di ogni pizzeria — la nostra l'ha passata 38 volte su 38.</p>
+          <p class="menu-card-desc t-en">San Marzano tomato, Agerola fiordilatte mozzarella, fresh basil and a drizzle of extra virgin olive oil. The litmus test of any pizzeria — ours has passed it 38 times out of 38.</p>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">€ 6<small class="t-it">,50</small><small class="t-en">.50</small></div>
+            <div class="menu-card-num">N.° 01</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img">
+          <img src="./photos/photo_02.jpg" alt="Pizza Diavola">
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-card-tag t-it">Un pizzico di Calabria</span>
+          <span class="menu-card-tag t-en">A hint of Calabria</span>
+          <h3 class="t-it">Diavola del Sud</h3>
+          <h3 class="t-en">Diavola del Sud</h3>
+          <p class="menu-card-desc t-it">Pomodoro, mozzarella, salame piccante calabrese e qualche goccia di nduja di Spilinga. Per chi vuole portarsi a casa un ricordo vero della Calabria.</p>
+          <p class="menu-card-desc t-en">Tomato, mozzarella, spicy Calabrian salami and a few drops of Spilinga nduja. For those who want to take home a real taste of Calabria.</p>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">€ 8<small class="t-it">,50</small><small class="t-en">.50</small></div>
+            <div class="menu-card-num">N.° 02</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="menu-card">
+        <div class="menu-card-img">
+          <img src="./photos/photo_03.jpg" alt="Pizza Bianca ai frutti di mare">
+        </div>
+        <div class="menu-card-body">
+          <span class="menu-card-tag t-it">Dal mare di Praia</span>
+          <span class="menu-card-tag t-en">From Praia's sea</span>
+          <h3 class="t-it">Bianca del Tirreno</h3>
+          <h3 class="t-en">Bianca del Tirreno</h3>
+          <p class="menu-card-desc t-it">Base bianca, fiordilatte, gamberi rosa, pomodorini confit e scorza di limone. Un omaggio al mare che abbiamo a duecento metri.</p>
+          <p class="menu-card-desc t-en">White base, fiordilatte, pink prawns, confit cherry tomatoes and lemon zest. A tribute to the sea just two hundred metres away.</p>
+          <div class="menu-card-foot">
+            <div class="menu-card-price">€ 10</div>
+            <div class="menu-card-num">N.° 03</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="menu-note t-it">« Tutte le nostre pizze si preparano al momento — in meno di cinque minuti. »</p>
+    <p class="menu-note t-en">" All our pizzas are made to order — in less than five minutes. "</p>
+  </div>
+</section>
+
+<!-- ============= REVIEWS ============= -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-head">
+      <span class="eyebrow t-it">Voci dai clienti</span>
+      <span class="eyebrow t-en">From our guests</span>
+      <h2 class="t-it">Cosa dicono<br>di noi.</h2>
+      <h2 class="t-en">What they say<br>about us.</h2>
+      <div class="reviews-score">
+        <span class="reviews-score-stars">★★★★★</span>
+        <span class="reviews-score-val">4.8</span>
+        <span class="reviews-score-sep"></span>
+        <span class="reviews-score-count t-it">38 recensioni Google</span>
+        <span class="reviews-score-count t-en">38 Google reviews</span>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote t-it">« Martedì hanno aperto verso le 18:30, ottime pizze a un ottimo prezzo. Pronte in cinque minuti. Accoglienti e gentili. Saluti dalla Lettonia. »</p>
+        <p class="review-quote t-en">"On Tuesday they opened around 6:30 pm — great pizzas at a great price. Ready in five minutes. Welcoming and friendly. Greetings from Latvia."</p>
+        <div class="review-author">
+          <div class="review-avatar">D</div>
+          <div class="review-author-info">
+            <strong>Dāvis</strong>
+            <span class="t-it">Google · Lettonia</span>
+            <span class="t-en">Google · Latvia</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote t-it">« Da quando abbiamo scoperto questa pizzeria, ci torniamo ogni volta che possiamo. Un posto un po' nascosto, solo un bancone affacciato sulla cucina e gli ingredienti freschi in vista. »</p>
+        <p class="review-quote t-en">"Since we discovered this pizzeria, we've been coming back every chance we get. A bit of a hidden spot — just a counter overlooking the kitchen and the fresh ingredients on display."</p>
+        <div class="review-author">
+          <div class="review-avatar">E</div>
+          <div class="review-author-info">
+            <strong>Eleonora</strong>
+            <span>Google · Italia</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote t-it">« La scelta perfetta per chi vuole una buona pizza senza troppe pretese. Ideale per l'asporto — sono velocissimi. E i prezzi sono giusti. »</p>
+        <p class="review-quote t-en">"The perfect choice for those wanting a good pizza without too many expectations. Ideal for takeaway — they're lightning fast. And the prices are fair."</p>
+        <div class="review-author">
+          <div class="review-avatar">G</div>
+          <div class="review-author-info">
+            <strong>G. I.</strong>
+            <span>Google · Italia</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============= CONTACT + MAP ============= -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div>
+        <span class="eyebrow t-it">Prenota · Ordina</span>
+        <span class="eyebrow t-en">Book · Order</span>
+        <h2 class="t-it">Passa, chiama,<br>o scrivici su<br>WhatsApp.</h2>
+        <h2 class="t-en">Drop by, call,<br>or message us<br>on WhatsApp.</h2>
+
+        <p class="contact-intro t-it">Per l'asporto il modo più veloce è una chiamata o un messaggio su WhatsApp — la pizza sarà pronta quando arrivi. Ti aspettiamo al bancone.</p>
+        <p class="contact-intro t-en">For takeaway, a call or WhatsApp message is the fastest way — your pizza will be ready when you get here. See you at the counter.</p>
+
+        <ul class="contact-info">
+          <li>
+            <span class="contact-info-lbl t-it">Indirizzo</span>
+            <span class="contact-info-lbl t-en">Address</span>
+            <span class="contact-info-val">Via Gandhi, 22 · 87028 Praia a Mare (CS)</span>
+          </li>
+          <li>
+            <span class="contact-info-lbl t-it">Telefono</span>
+            <span class="contact-info-lbl t-en">Phone</span>
+            <span class="contact-info-val"><a href="tel:+393342468806">+39 334 246 8806</a></span>
+          </li>
+          <li>
+            <span class="contact-info-lbl">WhatsApp</span>
+            <span class="contact-info-val"><a href="https://wa.me/393342468806?text=Buongiorno,%20vorrei%20ordinare%20una%20pizza." target="_blank" rel="noopener">+39 334 246 8806</a></span>
+          </li>
+          <li>
+            <span class="contact-info-lbl t-it">Orari</span>
+            <span class="contact-info-lbl t-en">Hours</span>
+            <span class="contact-info-val t-it">Sera · dalle 18:30 circa</span>
+            <span class="contact-info-val t-en">Evenings · from around 6:30 pm</span>
+          </li>
+        </ul>
+      </div>
+
+      <form class="contact-form" id="bookForm">
+        <h3 class="contact-form-title t-it">Ordina via WhatsApp</h3>
+        <h3 class="contact-form-title t-en">Order via WhatsApp</h3>
+        <p class="contact-form-sub t-it">Compila e premi invio — apriremo una chat WhatsApp con il tuo ordine già scritto.</p>
+        <p class="contact-form-sub t-en">Fill in and submit — we'll open a WhatsApp chat with your order already written out.</p>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-nome" class="t-it">Il tuo nome</label>
+            <label for="f-nome" class="t-en">Your name</label>
+            <input type="text" id="f-nome" name="nome" required>
+          </div>
+          <div class="form-field">
+            <label for="f-persone" class="t-it">Pizze</label>
+            <label for="f-persone" class="t-en">Pizzas</label>
+            <input type="number" id="f-persone" name="persone" min="1" value="2" required>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="f-data" class="t-it">Per quando</label>
+          <label for="f-data" class="t-en">For when</label>
+          <input type="text" id="f-data" name="data" placeholder="Stasera · 20:30" required>
+        </div>
+
+        <div class="form-field">
+          <label for="f-note" class="t-it">Note — scelta pizze, allergie</label>
+          <label for="f-note" class="t-en">Notes — pizza choices, allergies</label>
+          <textarea id="f-note" name="note" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="t-it">Invia su WhatsApp →</button>
+        <button type="submit" class="t-en">Send on WhatsApp →</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="map-wrap">
+    <iframe
+      src="https://www.google.com/maps?q=Via+Gandhi+22,+Praia+a+Mare,+CS,+Italy&output=embed"
+      loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa N'ata Pasta"></iframe>
+  </div>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">N'ata <em>Pasta</em></div>
+        <p class="foot-tag t-it">Pizzeria artigianale a Praia a Mare. Un bancone, un forno, ingredienti freschi — e cinque minuti di attesa.</p>
+        <p class="foot-tag t-en">Artisan pizzeria in Praia a Mare. One counter, one oven, fresh ingredients — and a five-minute wait.</p>
+      </div>
+      <div class="foot-col">
+        <h4 class="t-it">Dove siamo</h4>
+        <h4 class="t-en">Find us</h4>
+        <ul>
+          <li>Via Gandhi, 22</li>
+          <li>87028 Praia a Mare (CS)</li>
+          <li>Italia</li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4 class="t-it">Contatti</h4>
+        <h4 class="t-en">Contact</h4>
+        <ul>
+          <li><a href="tel:+393342468806">+39 334 246 8806</a></li>
+          <li><a href="https://wa.me/393342468806">WhatsApp</a></li>
+          <li><a href="https://maps.google.com/?cid=17274305884602181822" target="_blank" rel="noopener">Google Maps</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4 class="t-it">Menù</h4>
+        <h4 class="t-en">Menu</h4>
+        <ul>
+          <li><a href="#menu" class="t-it">Le nostre pizze</a><a href="#menu" class="t-en">Our pizzas</a></li>
+          <li><a href="#reviews" class="t-it">Recensioni</a><a href="#reviews" class="t-en">Reviews</a></li>
+          <li><a href="#storia" class="t-it">La storia</a><a href="#storia" class="t-en">The story</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <div>
+        <span class="t-it">© <span id="y"></span> N'ata Pasta · P.IVA IT00000000000 · Tutti i diritti riservati</span>
+        <span class="t-en">© <span id="y2"></span> N'ata Pasta · All rights reserved</span>
+      </div>
+      <div>
+        <span class="t-it">Sito creato da</span>
+        <span class="t-en">Website by</span>
+        <a href="https://viktoria.agency" target="_blank" rel="noopener">Viktoria Agency ↗</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============= WHATSAPP FLOAT ============= -->
+<a class="wa-float" id="waFloat"
+   href="https://wa.me/393342468806?text=Buongiorno,%20vorrei%20ordinare%20una%20pizza."
+   target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.588-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.867-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.298-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<!-- ============= JS ============= -->
+<script>
+(function () {
+  /* NAV scroll */
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* LANGUAGE switch */
+  const langButtons = document.querySelectorAll('.lang-btn');
+  const setLang = (l) => {
+    document.body.classList.remove('lang-it', 'lang-en');
+    document.body.classList.add('lang-' + l);
+    langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+    document.documentElement.setAttribute('data-lang', l);
+  };
+  langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  /* YEAR */
+  const y = new Date().getFullYear();
+  const yEl = document.getElementById('y');
+  const yEl2 = document.getElementById('y2');
+  if (yEl) yEl.textContent = y;
+  if (yEl2) yEl2.textContent = y;
+
+  /* FORM -> WhatsApp */
+  const form = document.getElementById('bookForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const nome = fd.get('nome') || '';
+      const data = fd.get('data') || '';
+      const persone = fd.get('persone') || '';
+      const note = fd.get('note') || '';
+      const lang = document.body.classList.contains('lang-en') ? 'en' : 'it';
+
+      const msg = lang === 'en'
+        ? `Hello, I'd like to order a pizza:\nName: ${nome}\nFor when: ${data}\nHow many pizzas: ${persone}\nNotes: ${note}`
+        : `Buongiorno, vorrei ordinare una pizza:\nNome: ${nome}\nQuando: ${data}\nPizze: ${persone}\nNote: ${note}`;
+
+      window.open('https://wa.me/393342468806?text=' + encodeURIComponent(msg), '_blank');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
