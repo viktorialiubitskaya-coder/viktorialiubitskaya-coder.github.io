@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bar Scalzipenna — Praia a Mare</title>
-<meta name="description" content="Bar Scalzipenna — cuore di Praia a Mare da mattina a notte fonda. Espresso, cornetti, aperitivi in Piazza Italia." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<meta name="description" content="Bar Scalzipenna, cuore di Praia a Mare da mattina a notte fonda. Colazione, caffè, aperitivo in Piazza Italia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CafeOrCoffeeShop",
+  "@type": "BarOrPub",
   "name": "Bar Scalzipenna",
   "image": "./photos/hero-ai.jpg",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Piazza Italia, 9",
     "addressLocality": "Praia a Mare",
-    "addressRegion": "CS",
     "postalCode": "87028",
+    "addressRegion": "CS",
     "addressCountry": "IT"
   },
   "telephone": "+39 320 926 7395",
-  "url": "https://www.facebook.com/Bar-Scalzipenna-Buonocore-143251359156288/",
-  "priceRange": "€€",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.1",
     "reviewCount": "873"
   },
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "07:00", "closes": "01:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday","Sunday"], "opens": "07:00", "closes": "03:00" }
-  ],
-  "servesCuisine": ["Italian","Cafe","Aperitivo"]
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "07:00", "closes": "01:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday","Sunday"], "opens": "07:00", "closes": "03:00"}
+  ]
 }
 </script>
 
@@ -47,7 +44,6 @@
     --ink-muted: #6B6057;
     --accent: #C8602A;
     --border: rgba(28,25,23,0.09);
-
     --warm-cream: #FAF7F2;
     --marble-white: #FFFFFF;
     --espresso-dark: #1C1917;
@@ -55,46 +51,37 @@
     --cornetto-gold: #D4A853;
     --piazza-sand: #E8DDC8;
     --muted-stone: #6B6057;
-
-    --z-hero-overlay: 1;
-    --z-hero-content: 2;
-    --z-nav: 10;
-    --z-mobile-menu: 20;
-    --z-whatsapp-float: 30;
-    --z-modal: 40;
-
-    --font-heading: 'Bebas Neue', sans-serif;
-    --font-body: 'Source Sans 3', sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--font-body);
-    background: var(--warm-cream);
-    color: var(--espresso-dark);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  img { max-width: 100%; display: block; }
 
-  h1, h2, h3 {
-    font-family: var(--font-heading);
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--canvas);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
     letter-spacing: 0.02em;
     line-height: 1.05;
-    color: var(--espresso-dark);
-  }
-  h1 { font-size: clamp(3rem, 7vw, 5.5rem); }
-  h2 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); }
-  h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); }
-
-  p, li, span, button, a, label, input, textarea, select {
-    font-family: var(--font-body);
+    color: var(--ink);
   }
 
-  /* Language switcher */
+  p, li, span, button, a, input, label, summary {
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  /* === Language switcher === */
   .t-en, .t-de, .t-ru { display: none !important; }
   body.lang-en .t-it, body.lang-en .t-de, body.lang-en .t-ru { display: none !important; }
   body.lang-en .t-en { display: revert !important; }
@@ -103,748 +90,858 @@
   body.lang-ru .t-it, body.lang-ru .t-en, body.lang-ru .t-de { display: none !important; }
   body.lang-ru .t-ru { display: revert !important; }
 
-  /* ===== NAV ===== */
+  /* === Navigation === */
   .nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: var(--z-nav);
-    padding: 18px 40px;
+    z-index: 100;
+    padding: 20px 48px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
     background: transparent;
-    color: #fff;
-    transition: background 0.3s ease, color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
   }
-  .nav.nav-scrolled {
-    background: rgba(255, 247, 240, 0.96);
-    color: var(--espresso-dark);
-    box-shadow: 0 2px 20px rgba(28,25,23,0.06);
-    padding: 12px 40px;
+
+  .nav.scrolled {
+    background: rgba(250, 247, 242, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 14px 48px;
+    box-shadow: 0 1px 0 var(--border);
   }
-  .nav a, .nav button { color: inherit; }
-  .nav-brand {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
     letter-spacing: 0.08em;
+    color: var(--marble-white);
     text-decoration: none;
+    transition: color 0.4s ease;
   }
-  .nav-brand span { color: var(--warm-terracotta); }
+
+  .nav.scrolled .nav-logo { color: var(--espresso-dark); }
+
+  .nav-logo .dot { color: var(--warm-terracotta); }
+
   .nav-links {
     display: flex;
+    gap: 36px;
     align-items: center;
-    gap: 32px;
     list-style: none;
   }
-  .nav-links a {
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transition: opacity 0.2s;
-  }
-  .nav-links a:hover { opacity: 0.65; }
 
-  .lang-switcher {
-    display: flex;
-    gap: 4px;
-    margin-left: 20px;
-    border: 1px solid currentColor;
-    border-radius: 999px;
-    padding: 3px;
-    background: rgba(255,255,255,0.08);
+  .nav-links a {
+    color: var(--marble-white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: color 0.3s ease;
+    position: relative;
   }
-  .nav.nav-scrolled .lang-switcher { background: rgba(28,25,23,0.04); }
+
+  .nav.scrolled .nav-links a { color: var(--espresso-dark); }
+
+  .nav-links a:hover { color: var(--warm-terracotta); }
+
+  .lang-switch {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    padding: 2px;
+    transition: border-color 0.4s ease;
+  }
+
+  .nav.scrolled .lang-switch { border-color: var(--border); }
+
   .lang-btn {
     background: transparent;
     border: none;
-    color: inherit;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+    color: var(--marble-white);
     padding: 4px 10px;
-    cursor: pointer;
     border-radius: 999px;
-    transition: all 0.2s;
-  }
-  .lang-btn.active {
-    background: var(--warm-terracotta);
-    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
   }
 
-  .nav-toggle {
+  .nav.scrolled .lang-btn { color: var(--espresso-dark); }
+
+  .lang-btn.active {
+    background: var(--warm-terracotta);
+    color: #fff !important;
+  }
+
+  .nav-burger {
     display: none;
     background: transparent;
     border: none;
     cursor: pointer;
-    width: 38px;
-    height: 38px;
-    padding: 0;
-    color: inherit;
-  }
-  .nav-toggle span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: currentColor;
-    margin: 5px auto;
-    transition: transform 0.3s, opacity 0.3s;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
   }
 
-  /* ===== HERO ===== */
+  .nav-burger span {
+    width: 24px;
+    height: 2px;
+    background: var(--marble-white);
+    transition: background 0.3s ease;
+  }
+
+  .nav.scrolled .nav-burger span { background: var(--espresso-dark); }
+
+  /* === Hero === */
   .hero {
     position: relative;
     height: 100vh;
     min-height: 640px;
     overflow: hidden;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--espresso-dark);
+    align-items: flex-end;
   }
+
   .hero-bg {
     position: absolute;
     inset: 0;
     background-image: url('./photos/hero-ai.jpg');
     background-size: cover;
     background-position: center;
-    background-color: #2a1c10;
-    animation: kenburns 18s ease-in-out infinite alternate;
-    z-index: 0;
+    animation: kenBurns 22s ease-in-out infinite alternate;
+    will-change: transform;
   }
-  @keyframes kenburns {
-    0%   { transform: scale(1.02) translate(0, 0); }
-    100% { transform: scale(1.12) translate(-1.5%, -1%); }
+
+  @keyframes kenBurns {
+    0% { transform: scale(1.08) translate(0, 0); }
+    100% { transform: scale(1.16) translate(-1.5%, -1.5%); }
   }
+
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(170deg, rgba(20,12,6,0.25) 0%, rgba(20,12,6,0.58) 100%);
-    z-index: var(--z-hero-overlay);
+    z-index: 1;
   }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
   .hero-content {
     position: relative;
-    z-index: var(--z-hero-content);
-    text-align: center;
-    color: #fff;
-    padding: 0 24px;
+    z-index: 2;
+    padding: 0 72px 96px;
     max-width: 900px;
+    color: var(--marble-white);
   }
-  .hero-tag {
+
+  .hero-eyebrow {
     display: inline-block;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.28em;
+    font-size: 12px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
+    margin-bottom: 24px;
     color: var(--cornetto-gold);
-    margin-bottom: 22px;
+    font-weight: 600;
     padding-bottom: 8px;
-    border-bottom: 1px solid rgba(212,168,83,0.5);
+    border-bottom: 1px solid rgba(212, 168, 83, 0.4);
   }
+
   .hero h1 {
-    color: #fff;
-    font-size: clamp(2.8rem, 7vw, 5.8rem);
-    margin-bottom: 22px;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.35);
+    font-size: clamp(44px, 7vw, 96px);
+    line-height: 0.98;
+    color: var(--marble-white);
+    margin-bottom: 24px;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.3);
   }
+
   .hero-sub {
-    font-size: clamp(1rem, 1.4vw, 1.2rem);
-    color: rgba(255,255,255,0.92);
+    font-size: clamp(16px, 1.4vw, 20px);
     max-width: 620px;
-    margin: 0 auto 38px;
+    margin-bottom: 36px;
+    color: rgba(255,255,255,0.92);
+    font-weight: 400;
     line-height: 1.55;
-    font-weight: 300;
   }
+
   .btn {
-    display: inline-block;
-    padding: 15px 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
     background: var(--warm-terracotta);
     color: #fff;
     text-decoration: none;
-    font-size: 0.88rem;
+    font-size: 14px;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     border: none;
     cursor: pointer;
-    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    transition: all 0.3s ease;
     border-radius: 2px;
   }
+
   .btn:hover {
-    background: #a84e1f;
+    background: var(--espresso-dark);
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(200,96,42,0.28);
   }
+
   .btn-outline {
     background: transparent;
-    color: var(--espresso-dark);
-    border: 1.5px solid var(--espresso-dark);
+    color: var(--marble-white);
+    border: 1px solid rgba(255,255,255,0.6);
   }
+
   .btn-outline:hover {
-    background: var(--espresso-dark);
-    color: #fff;
+    background: var(--marble-white);
+    color: var(--espresso-dark);
+    border-color: var(--marble-white);
   }
 
-  .hero-scroll {
-    position: absolute;
-    bottom: 36px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: var(--z-hero-content);
-    color: rgba(255,255,255,0.75);
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    text-align: center;
-  }
-  .hero-scroll-line {
-    display: block;
-    width: 1px;
-    height: 40px;
-    background: rgba(255,255,255,0.5);
-    margin: 10px auto 0;
-    animation: scrollPulse 2.4s ease-in-out infinite;
-    transform-origin: top;
-  }
-  @keyframes scrollPulse {
-    0%, 100% { transform: scaleY(0.3); opacity: 0.4; }
-    50%      { transform: scaleY(1);   opacity: 1; }
-  }
+  .btn svg { width: 14px; height: 14px; }
 
-  /* ===== SECTION BASE ===== */
+  /* === Section base === */
   section {
-    padding: 110px 40px;
+    padding: 120px 72px;
     position: relative;
   }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .section-head {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-  .section-eyebrow {
-    display: inline-block;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--warm-terracotta);
-    margin-bottom: 14px;
-  }
-  .section-head h2 { margin-bottom: 12px; }
-  .section-head p {
-    color: var(--muted-stone);
-    max-width: 640px;
-    margin: 10px auto 0;
-    font-size: 1.05rem;
+
+  .section-header {
+    max-width: 720px;
+    margin-bottom: 72px;
   }
 
-  /* ===== MENU ===== */
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--warm-terracotta);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--muted-stone);
+    line-height: 1.65;
+    max-width: 560px;
+  }
+
+  /* === Menu === */
   .menu {
     background: var(--warm-cream);
   }
-  .menu-tabs {
+
+  .menu-categories {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 36px;
     margin-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    flex-wrap: wrap;
   }
-  .menu-tab {
+
+  .menu-cat {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.08em;
+    color: var(--muted-stone);
     background: transparent;
-    border: 1px solid var(--border);
-    color: var(--espresso-dark);
-    padding: 9px 18px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    border: none;
     cursor: pointer;
-    border-radius: 999px;
-    transition: all 0.25s;
+    padding: 6px 0;
+    position: relative;
+    transition: color 0.3s ease;
   }
-  .menu-tab:hover { border-color: var(--warm-terracotta); color: var(--warm-terracotta); }
-  .menu-tab.active {
-    background: var(--espresso-dark);
-    border-color: var(--espresso-dark);
-    color: #fff;
+
+  .menu-cat.active { color: var(--warm-terracotta); }
+
+  .menu-cat.active::after {
+    content: '';
+    position: absolute;
+    bottom: -21px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--warm-terracotta);
   }
+
   .menu-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px 56px;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 80px;
   }
+
+  .menu-group {
+    display: none;
+  }
+
+  .menu-group.active {
+    display: contents;
+  }
+
   .menu-item {
-    padding: 22px 0;
+    padding: 24px 0;
     border-bottom: 1px dashed var(--border);
-    display: block;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
   }
-  .menu-item.hidden { display: none; }
+
+  .menu-item-body { flex: 1; }
+
   .menu-item-head {
     display: flex;
+    justify-content: space-between;
     align-items: baseline;
-    gap: 14px;
+    gap: 16px;
     margin-bottom: 6px;
   }
+
   .menu-item-name {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
     letter-spacing: 0.04em;
     color: var(--espresso-dark);
-    flex: 0 0 auto;
   }
+
   .menu-dots {
     flex: 1;
-    border-bottom: 1px dotted rgba(28,25,23,0.2);
+    border-bottom: 1px dotted rgba(28,25,23,0.25);
     transform: translateY(-4px);
+    min-width: 20px;
   }
-  .menu-price {
-    font-family: var(--font-heading);
-    font-size: 1.3rem;
+
+  .menu-item-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
     color: var(--warm-terracotta);
-    flex: 0 0 auto;
+    letter-spacing: 0.04em;
   }
+
   .menu-item-desc {
-    font-size: 0.94rem;
+    font-size: 14px;
     color: var(--muted-stone);
     line-height: 1.5;
   }
-  .menu-cat {
-    font-size: 0.7rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--cornetto-gold);
-    margin-bottom: 4px;
-    display: inline-block;
+
+  .menu-note {
+    margin-top: 48px;
+    padding: 24px 32px;
+    background: var(--piazza-sand);
+    border-left: 3px solid var(--warm-terracotta);
+    font-size: 14px;
+    color: var(--espresso-dark);
+    max-width: 560px;
   }
 
-  /* ===== TESTIMONIALS ===== */
+  /* === Testimonials === */
   .testimonials {
-    background: var(--piazza-sand);
+    background: var(--marble-white);
   }
-  .testimonials-rating {
+
+  .reviews-top {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 12px;
-    font-size: 0.95rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .reviews-rating {
+    text-align: right;
+  }
+
+  .reviews-rating-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--warm-terracotta);
+    line-height: 1;
+  }
+
+  .reviews-stars {
+    color: var(--cornetto-gold);
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin: 4px 0;
+  }
+
+  .reviews-rating-count {
+    font-size: 13px;
     color: var(--muted-stone);
   }
-  .testimonials-rating strong {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    color: var(--espresso-dark);
-    letter-spacing: 0.04em;
-  }
-  .stars { color: var(--cornetto-gold); letter-spacing: 2px; }
-  .testimonial-grid {
+
+  .reviews-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
-  .testimonial-card {
-    background: var(--marble-white);
-    padding: 32px 30px;
-    border-radius: 3px;
+
+  .review-card {
+    background: var(--warm-cream);
+    padding: 32px 32px 28px;
     border: 1px solid var(--border);
     position: relative;
   }
-  .testimonial-card .stars {
-    font-size: 0.95rem;
-    margin-bottom: 14px;
+
+  .review-quote-mark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    color: var(--warm-terracotta);
+    line-height: 0.5;
+    margin-bottom: 8px;
+    opacity: 0.5;
   }
-  .testimonial-text {
-    font-size: 1rem;
+
+  .review-text {
+    font-size: 15px;
     line-height: 1.65;
     color: var(--espresso-dark);
-    margin-bottom: 18px;
-    font-style: italic;
+    margin-bottom: 20px;
   }
-  .testimonial-note {
-    font-size: 0.78rem;
+
+  .review-translated {
+    display: block;
+    font-size: 11px;
     color: var(--muted-stone);
-    margin-top: -8px;
-    margin-bottom: 18px;
-    font-style: normal;
+    font-style: italic;
+    margin-top: 8px;
+    letter-spacing: 0.02em;
   }
-  .testimonial-author {
+
+  .review-foot {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
   }
-  .avatar {
+
+  .review-avatar {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
     background: var(--piazza-sand);
     color: var(--espresso-dark);
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    letter-spacing: 0;
-  }
-  .author-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--espresso-dark);
-  }
-  .author-source {
-    font-size: 0.8rem;
-    color: var(--muted-stone);
+    border-radius: 50%;
+    letter-spacing: 0.02em;
   }
 
-  /* ===== CONTATTI ===== */
-  .contatti { background: var(--warm-cream); }
-  .contatti-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 56px;
-    align-items: start;
-  }
-  .info-block {
-    margin-bottom: 30px;
-  }
-  .info-label {
-    font-size: 0.72rem;
+  .review-author {
+    font-size: 14px;
     font-weight: 600;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--warm-terracotta);
-    margin-bottom: 8px;
-  }
-  .info-value {
-    font-size: 1.1rem;
     color: var(--espresso-dark);
-    line-height: 1.5;
-  }
-  .info-value a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--border); transition: border-color 0.2s; }
-  .info-value a:hover { border-bottom-color: var(--warm-terracotta); }
-  .hours-table {
-    width: 100%;
-    margin-top: 6px;
-    font-size: 0.98rem;
-  }
-  .hours-table tr td {
-    padding: 5px 0;
-    border-bottom: 1px dashed var(--border);
-  }
-  .hours-table td:first-child {
-    color: var(--muted-stone);
-    text-transform: capitalize;
-  }
-  .hours-table td:last-child {
-    text-align: right;
-    color: var(--espresso-dark);
-    font-weight: 500;
-  }
-  .contatti-cta {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 26px;
-  }
-  .btn-wa {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    background: #25D366;
-    color: #fff;
-    padding: 13px 22px;
-    text-decoration: none;
-    border-radius: 2px;
-    font-weight: 600;
-    font-size: 0.88rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: transform 0.2s, background 0.2s;
-  }
-  .btn-wa:hover { background: #1ebe57; transform: translateY(-2px); }
-  .btn-wa svg { width: 18px; height: 18px; }
-  .map-wrap {
-    border-radius: 4px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    box-shadow: 0 10px 40px rgba(28,25,23,0.08);
-  }
-  .map-wrap iframe {
-    width: 100%;
-    height: 460px;
-    border: 0;
-    display: block;
   }
 
-  /* ===== GALLERIA ===== */
-  .galleria { background: var(--marble-white); }
+  .review-meta {
+    font-size: 12px;
+    color: var(--muted-stone);
+    letter-spacing: 0.04em;
+  }
+
+  /* === Gallery === */
+  .galleria {
+    background: var(--warm-cream);
+  }
+
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 240px);
     gap: 12px;
   }
+
   .gallery-item {
-    aspect-ratio: 1 / 1;
+    position: relative;
     overflow: hidden;
     background: var(--piazza-sand);
-    position: relative;
   }
+
   .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-  .gallery-item:hover img { transform: scale(1.06); }
-  .gallery-item:nth-child(1), .gallery-item:nth-child(6) {
-    grid-row: span 2;
-    aspect-ratio: 1 / 2;
+    transition: transform 0.8s ease;
   }
 
-  /* ===== FAQ ===== */
-  .faq { background: var(--warm-cream); }
-  .faq-wrap { max-width: 820px; margin: 0 auto; }
+  .gallery-item:hover img { transform: scale(1.06); }
+
+  .gallery-item.tall {
+    grid-row: span 2;
+  }
+
+  .gallery-item.wide {
+    grid-column: span 2;
+  }
+
+  /* === FAQ === */
+  .faq {
+    background: var(--marble-white);
+  }
+
+  .faq-list {
+    max-width: 820px;
+  }
+
   .faq-item {
     border-bottom: 1px solid var(--border);
-    padding: 4px 0;
-  }
-  .faq-item summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 22px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    font-family: var(--font-body);
-    font-size: 1.08rem;
-    font-weight: 600;
-    color: var(--espresso-dark);
-    transition: color 0.2s;
-  }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after {
-    content: '+';
-    font-family: var(--font-heading);
-    font-size: 1.7rem;
-    color: var(--warm-terracotta);
-    transition: transform 0.3s;
-    flex-shrink: 0;
-    line-height: 1;
-  }
-  .faq-item[open] summary::after { transform: rotate(45deg); }
-  .faq-item summary:hover { color: var(--warm-terracotta); }
-  .faq-answer {
-    padding: 0 0 22px 0;
-    color: var(--muted-stone);
-    font-size: 1rem;
-    line-height: 1.7;
+    padding: 0;
   }
 
-  /* ===== FOOTER ===== */
-  .footer {
-    background: var(--espresso-dark);
-    color: #d9d4cc;
-    padding: 72px 40px 30px;
+  .faq-item[open] summary { color: var(--warm-terracotta); }
+
+  .faq-item summary {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--espresso-dark);
+    padding: 24px 48px 24px 0;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    transition: color 0.3s ease;
   }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--warm-terracotta);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] summary::after { content: '−'; }
+
+  .faq-answer {
+    padding: 0 0 24px;
+    font-size: 15px;
+    color: var(--muted-stone);
+    line-height: 1.7;
+    max-width: 680px;
+  }
+
+  /* === Contatti === */
+  .contatti {
+    background: var(--espresso-dark);
+    color: var(--marble-white);
+  }
+
+  .contatti .section-title { color: var(--marble-white); }
+  .contatti .section-eyebrow { color: var(--cornetto-gold); }
+  .contatti .section-sub { color: rgba(255,255,255,0.72); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .contact-block {
+    margin-bottom: 36px;
+  }
+
+  .contact-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--cornetto-gold);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .contact-value {
+    font-size: 17px;
+    color: var(--marble-white);
+    line-height: 1.55;
+  }
+
+  .contact-value a {
+    color: var(--marble-white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    transition: border-color 0.3s ease;
+  }
+
+  .contact-value a:hover { border-color: var(--warm-terracotta); }
+
+  .hours-list {
+    list-style: none;
+  }
+
+  .hours-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 15px;
+    color: rgba(255,255,255,0.88);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    gap: 24px;
+  }
+
+  .hours-list li:last-child { border-bottom: none; }
+
+  .hours-list li.today {
+    color: var(--cornetto-gold);
+    font-weight: 600;
+  }
+
+  .hours-day { text-transform: uppercase; font-size: 12px; letter-spacing: 0.12em; font-weight: 600; }
+  .hours-time { font-variant-numeric: tabular-nums; }
+
+  .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 16px;
+    transition: background 0.3s ease;
+  }
+
+  .btn-wa:hover { background: #1fb954; }
+
+  .btn-wa svg { width: 18px; height: 18px; fill: currentColor; }
+
+  .map-wrap {
+    position: relative;
+    height: 480px;
+    border: 1px solid rgba(255,255,255,0.12);
+    overflow: hidden;
+  }
+
+  .map-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(0.4) contrast(1.05);
+  }
+
+  /* === Footer === */
+  footer.footer {
+    background: var(--espresso-dark);
+    padding: 48px 72px 32px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.72);
+  }
+
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: 1.3fr 1fr 1fr;
     gap: 48px;
-    max-width: 1200px;
-    margin: 0 auto 40px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
-  .footer h3 {
-    color: #fff;
-    font-size: 0.95rem;
-    font-family: var(--font-body);
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-  .footer-brand {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    color: #fff;
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
     letter-spacing: 0.08em;
+    color: var(--marble-white);
     margin-bottom: 12px;
-    display: block;
   }
-  .footer-brand span { color: var(--cornetto-gold); }
-  .footer p, .footer li {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: rgba(217,212,204,0.78);
+
+  .footer-logo .dot { color: var(--warm-terracotta); }
+
+  .footer-tag {
+    font-size: 14px;
+    max-width: 320px;
+    line-height: 1.6;
   }
-  .footer ul { list-style: none; }
-  .footer a {
-    color: rgba(217,212,204,0.78);
+
+  .footer-h {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    color: var(--cornetto-gold);
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .footer-col p, .footer-col a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
     text-decoration: none;
-    transition: color 0.2s;
+    line-height: 1.8;
+    display: block;
+    transition: color 0.3s ease;
   }
-  .footer a:hover { color: var(--cornetto-gold); }
+
+  .footer-col a:hover { color: var(--warm-terracotta); }
+
   .footer-social {
     display: flex;
     gap: 10px;
-    margin-top: 14px;
+    margin-top: 16px;
   }
-  .social-btn {
-    width: 38px;
-    height: 38px;
+
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.18);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    transition: all 0.2s;
+    color: rgba(255,255,255,0.72);
   }
-  .social-btn:hover {
+
+  .footer-social a:hover {
     background: var(--warm-terracotta);
     border-color: var(--warm-terracotta);
     color: #fff;
   }
-  .social-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+  .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
+
   .footer-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 28px;
-    border-top: 1px solid rgba(255,255,255,0.09);
+    padding-top: 24px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: 0.82rem;
-    color: rgba(217,212,204,0.55);
     flex-wrap: wrap;
     gap: 12px;
-  }
-  .footer-bottom a {
-    color: var(--cornetto-gold);
-    border-bottom: 1px dotted rgba(212,168,83,0.4);
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.04em;
   }
 
-  /* ===== WHATSAPP FLOAT ===== */
-  .whatsapp-float {
+  .footer-bottom a { color: var(--cornetto-gold); text-decoration: none; border-bottom: 1px dotted rgba(212, 168, 83, 0.4); }
+
+  /* === WhatsApp Float === */
+  .wa-float {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    width: 58px;
-    height: 58px;
+    width: 56px;
+    height: 56px;
     background: #25D366;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.42);
+    z-index: 90;
+    transition: transform 0.3s ease;
     text-decoration: none;
-    box-shadow: 0 8px 28px rgba(37,211,102,0.4);
-    z-index: var(--z-whatsapp-float);
-    transition: transform 0.25s;
+    animation: waPulse 2.4s ease-in-out infinite;
   }
-  .whatsapp-float:hover { transform: scale(1.08); }
-  .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
 
-  /* ===== MOBILE ===== */
-  @media (max-width: 900px) {
-    .contatti-grid { grid-template-columns: 1fr; gap: 40px; }
-    .menu-grid { grid-template-columns: 1fr; gap: 0; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .wa-float svg { width: 28px; height: 28px; fill: currentColor; }
+
+  .wa-float:hover { transform: scale(1.08); }
+
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,0.42), 0 0 0 0 rgba(37,211,102,0.5); }
+    50% { box-shadow: 0 8px 24px rgba(37,211,102,0.42), 0 0 0 14px rgba(37,211,102,0); }
+  }
+
+  /* === Mobile === */
+  @media (max-width: 1024px) {
+    .nav { padding: 18px 32px; }
+    .nav.scrolled { padding: 12px 32px; }
+    section { padding: 96px 32px; }
+    .hero-content { padding: 0 32px 80px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    footer.footer { padding: 48px 32px 28px; }
   }
 
   @media (max-width: 768px) {
     .nav { padding: 14px 20px; }
-    .nav.nav-scrolled { padding: 10px 20px; }
-    .nav-brand { font-size: 1.3rem; }
-    .nav-links {
-      position: fixed;
-      top: 0; right: 0;
-      height: 100vh;
-      width: 78%;
-      max-width: 320px;
-      background: var(--warm-cream);
-      color: var(--espresso-dark);
-      flex-direction: column;
-      justify-content: center;
-      gap: 26px;
-      padding: 60px 32px;
-      transform: translateX(100%);
-      transition: transform 0.35s ease;
-      z-index: var(--z-mobile-menu);
-      box-shadow: -10px 0 40px rgba(0,0,0,0.15);
-    }
-    .nav-links.open { transform: translateX(0); }
-    .nav-links a { color: var(--espresso-dark); font-size: 1.05rem; }
-    .lang-switcher {
-      margin-left: 0;
-      border-color: var(--border);
-      background: transparent;
-    }
-    .nav-toggle { display: block; z-index: calc(var(--z-mobile-menu) + 1); }
-    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-toggle.open span:nth-child(2) { opacity: 0; }
-    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav.scrolled { padding: 12px 20px; }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--marble-white); flex-direction: column; padding: 20px; gap: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .nav-links.open { display: flex; }
+    .nav-links a { color: var(--espresso-dark); }
+    .nav-burger { display: flex; }
 
     section { padding: 72px 20px; }
-    .footer { padding: 56px 20px 24px; }
-    .section-head { margin-bottom: 44px; }
+    .section-header { margin-bottom: 48px; }
 
-    .hero { min-height: 560px; height: 88vh; }
-    .hero-content { padding: 0 18px; }
-    .hero h1 { font-size: clamp(2.3rem, 11vw, 3.4rem); }
-    .hero-sub { font-size: 1rem; margin-bottom: 28px; }
-    .hero-tag { font-size: 0.7rem; margin-bottom: 16px; }
+    .hero { min-height: 580px; }
+    .hero-content { padding: 0 20px 64px; }
+    .hero h1 { font-size: 44px; }
 
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    .gallery-item:nth-child(1), .gallery-item:nth-child(6) {
-      grid-row: auto;
-      aspect-ratio: 1 / 1;
+    .menu-grid { grid-template-columns: 1fr; gap: 0; }
+    .menu-categories { gap: 20px; }
+    .menu-cat { font-size: 16px; }
+
+    .reviews-grid { grid-template-columns: 1fr; }
+    .reviews-top { flex-direction: column; align-items: flex-start; }
+    .reviews-rating { text-align: left; }
+
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 180px);
     }
+    .gallery-item.wide { grid-column: span 2; }
+    .gallery-item.tall { grid-row: auto; }
 
-    .testimonial-grid { grid-template-columns: 1fr; gap: 16px; }
-    .testimonial-card { padding: 26px 22px; }
+    .map-wrap { height: 320px; }
 
     .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-    .footer-bottom { flex-direction: column; text-align: center; }
+    footer.footer { padding: 40px 20px 24px; }
+    .footer-bottom { flex-direction: column; }
 
-    .map-wrap iframe { height: 340px; }
-
-    .whatsapp-float {
-      width: 54px;
-      height: 54px;
-      bottom: 18px;
-      right: 18px;
-    }
-    .whatsapp-float svg { width: 26px; height: 26px; }
+    .wa-float { width: 52px; height: 52px; bottom: 18px; right: 18px; }
   }
 
-  @media (max-width: 420px) {
-    h1 { font-size: 2.4rem; }
-    h2 { font-size: 2rem; }
-    .menu-item-name { font-size: 1.2rem; }
-    .menu-price { font-size: 1.1rem; }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 38px; }
+    .hero-sub { font-size: 15px; }
+    .section-title { font-size: 34px; }
   }
 </style>
 </head>
 <body class="lang-it">
 
-<!-- ===== NAV ===== -->
+<!-- === NAV === -->
 <nav class="nav" id="nav">
-  <a href="#top" class="nav-brand">Bar <span>Scalzipenna</span></a>
-
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-
+  <a href="#" class="nav-logo">Scalzipenna<span class="dot">.</span></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#menu">
       <span class="t-it">Menu</span>
       <span class="t-en">Menu</span>
-      <span class="t-de">Speisekarte</span>
+      <span class="t-de">Karte</span>
     </a></li>
     <li><a href="#testimonials">
       <span class="t-it">Recensioni</span>
@@ -866,24 +963,25 @@
       <span class="t-en">Contact</span>
       <span class="t-de">Kontakt</span>
     </a></li>
-    <li>
-      <div class="lang-switcher" role="group" aria-label="Language">
-        <button class="lang-btn active" data-lang="it">IT</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="de">DE</button>
-      </div>
+    <li class="lang-switch">
+      <button class="lang-btn active" data-lang="it">IT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="de">DE</button>
     </li>
   </ul>
+  <button class="nav-burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- ===== HERO ===== -->
-<header class="hero" id="top">
-  <div class="hero-bg" aria-hidden="true"></div>
+<!-- === HERO === -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
   <div class="hero-content">
-    <span class="hero-tag">
-      <span class="t-it">Praia a Mare · Piazza Italia</span>
-      <span class="t-en">Praia a Mare · Piazza Italia</span>
-      <span class="t-de">Praia a Mare · Piazza Italia</span>
+    <span class="hero-eyebrow">
+      <span class="t-it">Piazza Italia · Praia a Mare</span>
+      <span class="t-en">Piazza Italia · Praia a Mare</span>
+      <span class="t-de">Piazza Italia · Praia a Mare</span>
     </span>
     <h1>
       <span class="t-it">Dalla colazione all'aperitivo, in piazza</span>
@@ -899,625 +997,549 @@
       <span class="t-it">Scopri il menu</span>
       <span class="t-en">See our menu</span>
       <span class="t-de">Speisekarte ansehen</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
     </a>
-  </div>
-  <div class="hero-scroll">
-    <span class="t-it">Piazza Italia, 9</span>
-    <span class="t-en">Piazza Italia, 9</span>
-    <span class="t-de">Piazza Italia, 9</span>
-    <span class="hero-scroll-line"></span>
-  </div>
-</header>
-
-<!-- ===== MENU ===== -->
-<section class="menu" id="menu">
-  <div class="container">
-    <div class="section-head">
-      <span class="section-eyebrow">
-        <span class="t-it">Il nostro banco</span>
-        <span class="t-en">Our counter</span>
-        <span class="t-de">Unsere Theke</span>
-      </span>
-      <h2>
-        <span class="t-it">Menu</span>
-        <span class="t-en">Menu</span>
-        <span class="t-de">Speisekarte</span>
-      </h2>
-      <p>
-        <span class="t-it">Dalle sei del mattino fino a tarda notte — caffetteria, colazione, snack e aperitivo serale.</span>
-        <span class="t-en">From early morning to late night — coffee, breakfast, snacks and evening aperitivo.</span>
-        <span class="t-de">Vom frühen Morgen bis spät in die Nacht — Kaffee, Frühstück, Snacks und Aperitivo.</span>
-      </p>
-    </div>
-
-    <div class="menu-tabs" id="menuTabs">
-      <button class="menu-tab active" data-cat="all">
-        <span class="t-it">Tutto</span>
-        <span class="t-en">All</span>
-        <span class="t-de">Alle</span>
-      </button>
-      <button class="menu-tab" data-cat="caffetteria">
-        <span class="t-it">Caffetteria</span>
-        <span class="t-en">Coffee Bar</span>
-        <span class="t-de">Kaffeebar</span>
-      </button>
-      <button class="menu-tab" data-cat="colazione">
-        <span class="t-it">Colazione</span>
-        <span class="t-en">Breakfast</span>
-        <span class="t-de">Frühstück</span>
-      </button>
-      <button class="menu-tab" data-cat="snack">
-        <span class="t-it">Snack</span>
-        <span class="t-en">Snacks</span>
-        <span class="t-de">Snacks</span>
-      </button>
-      <button class="menu-tab" data-cat="aperitivo">
-        <span class="t-it">Aperitivo</span>
-        <span class="t-en">Aperitivo</span>
-        <span class="t-de">Aperitivo</span>
-      </button>
-    </div>
-
-    <div class="menu-grid">
-
-      <div class="menu-item" data-cat="caffetteria">
-        <span class="menu-cat">
-          <span class="t-it">Caffetteria</span>
-          <span class="t-en">Coffee Bar</span>
-          <span class="t-de">Kaffeebar</span>
-        </span>
-        <div class="menu-item-head">
-          <span class="menu-item-name">Espresso</span>
-          <span class="menu-dots"></span>
-          <span class="menu-price">€ 1,10</span>
-        </div>
-        <p class="menu-item-desc">
-          <span class="t-it">Miscela arabica, estratta al momento. Il rito italiano nella sua forma più pura.</span>
-          <span class="t-en">Arabica blend, pulled fresh. The Italian ritual in its purest form.</span>
-          <span class="t-de">Arabica-Mischung, frisch aufgebrüht. Das italienische Ritual in reinster Form.</span>
-        </p>
-      </div>
-
-      <div class="menu-item" data-cat="caffetteria">
-        <span class="menu-cat">
-          <span class="t-it">Caffetteria</span>
-          <span class="t-en">Coffee Bar</span>
-          <span class="t-de">Kaffeebar</span>
-        </span>
-        <div class="menu-item-head">
-          <span class="menu-item-name">Cappuccino</span>
-          <span class="menu-dots"></span>
-          <span class="menu-price">€ 1,50</span>
-        </div>
-        <p class="menu-item-desc">
-          <span class="t-it">Latte montato a vapore, schiuma vellutata, servito solo fino a mezzogiorno come tradizione.</span>
-          <span class="t-en">Steamed milk, velvet foam, served before noon as tradition demands.</span>
-          <span class="t-de">Aufgeschäumte Milch, samtiger Schaum, traditionell bis mittags serviert.</span>
-        </p>
-      </div>
-
-      <div class="menu-item" data-cat="colazione">
-        <span class="menu-cat">
-          <span class="t-it">Colazione</span>
-          <span class="t-en">Breakfast</span>
-          <span class="t-de">Frühstück</span>
-        </span>
-        <div class="menu-item-head">
-          <span class="menu-item-name">
-            <span class="t-it">Cornetto classico</span>
-            <span class="t-en">Classic Cornetto</span>
-            <span class="t-de">Klassisches Cornetto</span>
-          </span>
-          <span class="menu-dots"></span>
-          <span class="menu-price">€ 1,50</span>
-        </div>
-        <p class="menu-item-desc">
-          <span class="t-it">Sfogliato caldo appena uscito dal forno: vuoto, alla crema, al cioccolato o alla marmellata.</span>
-          <span class="t-en">Warm, fresh from the oven: plain, custard, chocolate or jam.</span>
-          <span class="t-de">Warm, frisch aus dem Ofen: natur, mit Creme, Schokolade oder Marmelade.</span>
-        </p>
-      </div>
-
-      <div class="menu-item" data-cat="colazione">
-        <span class="menu-cat">
-          <span class="t-it">Colazione</span>
-          <span class="t-en">Breakfast</span>
-          <span class="t-de">Frühstück</span>
-        </span>
-        <div class="menu-item-head">
-          <span class="menu-item-name">
-            <span class="t-it">Granita artigianale</span>
-            <span class="t-en">Homemade Granita</span>
-            <span class="t-de">Hausgemachte Granita</span>
-          </span>
-          <span class="menu-dots"></span>
-          <span class="menu-price">€ 2,50</span>
-        </div>
-        <p class="menu-item-desc">
-          <span class="t-it">Gelo sottile di caffè, mandorla o limone, accompagnato da panna fresca e brioche calda.</span>
-          <span class="t-en">Delicate coffee, almond or lemon ice, served with fresh cream and a warm brioche.</span>
-          <span class="t-de">Feines Eis aus Kaffee, Mandel oder Zitrone, serviert mit Sahne und warmer Brioche.</span>
-        </p>
-      </div>
-
-      <div class="menu-item" data-cat="snack">
-        <span class="menu-cat">
-          <span class="t-it">Snack</span>
-          <span class="t-en">Snacks</span>
-          <span class="t-de">Snacks</span>
-        </span>
-        <div class="menu-item-head">
-          <span class="menu-item-name">Tramezzino</span>
-          <span class="menu-dots"></span>
-          <span class="menu-price">€ 2,50</span>
-        </div>
-        <p class="menu-item-desc">
-          <span class="t-it">Pane morbido, farciture classiche: tonno-pomodoro, prosciutto-mozzarella, vegetariano.</span>
-          <span class="t-en">Soft bread, classic fillings: tuna-tomato, ham-mozzarella, vegetarian.</span>
-          <span class="t-de">Weiches Brot, klassische Füllungen: Thunfisch-Tomate, Schinken-Mozzarella, vegetarisch.</span>
-        </p>
-      </div>
-
-      <div class="menu-item" data-cat="aperitivo">
-        <span class="menu-cat">
-          <span class="t-it">Aperitivo</span>
-          <span class="t-en">Aperitivo</span>
-          <span class="t-de">Aperitivo</span>
-        </span>
-        <div class="menu-item-head">
-          <span class="menu-item-name">
-            <span class="t-it">Aperitivo Calabrese</span>
-            <span class="t-en">Calabrian Aperitivo</span>
-            <span class="t-de">Kalabrischer Aperitivo</span>
-          </span>
-          <span class="menu-dots"></span>
-          <span class="menu-price">€ 5,00</span>
-        </div>
-        <p class="menu-item-desc">
-          <span class="t-it">Spritz o bicchiere di vino locale con tagliere: 'nduja, salumi del territorio, olive, pane casereccio.</span>
-          <span class="t-en">Spritz or local wine with a board: 'nduja, regional cured meats, olives, country bread.</span>
-          <span class="t-de">Spritz oder lokaler Wein mit Brettchen: 'Nduja, regionale Wurstwaren, Oliven, Landbrot.</span>
-        </p>
-      </div>
-
-    </div>
   </div>
 </section>
 
-<!-- ===== TESTIMONIALS ===== -->
+<!-- === MENU === -->
+<section class="menu" id="menu">
+  <div class="section-header">
+    <span class="section-eyebrow">
+      <span class="t-it">La nostra carta</span>
+      <span class="t-en">Our menu</span>
+      <span class="t-de">Unsere Karte</span>
+    </span>
+    <h2 class="section-title">
+      <span class="t-it">Menu</span>
+      <span class="t-en">Menu</span>
+      <span class="t-de">Karte</span>
+    </h2>
+    <p class="section-sub">
+      <span class="t-it">Caffè appena macinato, cornetti caldi dal forno, aperitivi calabresi. I classici di un bar di piazza, fatti come si deve.</span>
+      <span class="t-en">Freshly ground coffee, warm cornetti from the oven, Calabrian aperitivi. The classics of a piazza bar, done properly.</span>
+      <span class="t-de">Frisch gemahlener Kaffee, warme Cornetti aus dem Ofen, kalabrische Aperitivi. Klassiker einer Piazza-Bar, wie es sich gehört.</span>
+    </p>
+  </div>
+
+  <div class="menu-categories">
+    <button class="menu-cat active" data-cat="colazione">
+      <span class="t-it">Colazione</span>
+      <span class="t-en">Breakfast</span>
+      <span class="t-de">Frühstück</span>
+    </button>
+    <button class="menu-cat" data-cat="caffetteria">
+      <span class="t-it">Caffetteria</span>
+      <span class="t-en">Coffee Bar</span>
+      <span class="t-de">Kaffee</span>
+    </button>
+    <button class="menu-cat" data-cat="aperitivo">
+      <span class="t-it">Aperitivo</span>
+      <span class="t-en">Aperitivo</span>
+      <span class="t-de">Aperitivo</span>
+    </button>
+    <button class="menu-cat" data-cat="snack">
+      <span class="t-it">Snack</span>
+      <span class="t-en">Snacks</span>
+      <span class="t-de">Snacks</span>
+    </button>
+  </div>
+
+  <div class="menu-grid">
+    <!-- Colazione -->
+    <div class="menu-group active" data-group="colazione">
+      <div class="menu-item">
+        <div class="menu-item-body">
+          <div class="menu-item-head">
+            <span class="menu-item-name">
+              <span class="t-it">Cornetto classico</span>
+              <span class="t-en">Classic cornetto</span>
+              <span class="t-de">Klassisches Cornetto</span>
+            </span>
+            <span class="menu-dots"></span>
+            <span class="menu-item-price">€ 1,5</span>
+          </div>
+          <p class="menu-item-desc">
+            <span class="t-it">Sfoglia dorata, cuore morbido. Vuoto, crema o marmellata d'albicocca.</span>
+            <span class="t-en">Golden flaky pastry, soft inside. Plain, cream or apricot jam.</span>
+            <span class="t-de">Goldener Blätterteig, weicher Kern. Pur, Crème oder Aprikosenmarmelade.</span>
+          </p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-body">
+          <div class="menu-item-head">
+            <span class="menu-item-name">
+              <span class="t-it">Granita artigianale</span>
+              <span class="t-en">Handmade granita</span>
+              <span class="t-de">Hausgemachte Granita</span>
+            </span>
+            <span class="menu-dots"></span>
+            <span class="menu-item-price">€ 2,5</span>
+          </div>
+          <p class="menu-item-desc">
+            <span class="t-it">Mandorla, caffè o frutti di stagione. Servita con brioche calabrese.</span>
+            <span class="t-en">Almond, coffee or seasonal fruit. Served with a Calabrian brioche.</span>
+            <span class="t-de">Mandel, Kaffee oder saisonale Früchte. Mit kalabrischer Brioche serviert.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Caffetteria -->
+    <div class="menu-group" data-group="caffetteria">
+      <div class="menu-item">
+        <div class="menu-item-body">
+          <div class="menu-item-head">
+            <span class="menu-item-name">
+              <span class="t-it">Espresso</span>
+              <span class="t-en">Espresso</span>
+              <span class="t-de">Espresso</span>
+            </span>
+            <span class="menu-dots"></span>
+            <span class="menu-item-price">€ 1,1</span>
+          </div>
+          <p class="menu-item-desc">
+            <span class="t-it">Miscela 100% arabica, estrazione al banco. Corto, lungo o macchiato.</span>
+            <span class="t-en">100% arabica blend, pulled at the counter. Short, long or macchiato.</span>
+            <span class="t-de">100% Arabica-Mischung, frisch an der Theke gezogen. Kurz, lang oder macchiato.</span>
+          </p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-body">
+          <div class="menu-item-head">
+            <span class="menu-item-name">
+              <span class="t-it">Cappuccino</span>
+              <span class="t-en">Cappuccino</span>
+              <span class="t-de">Cappuccino</span>
+            </span>
+            <span class="menu-dots"></span>
+            <span class="menu-item-price">€ 1,5</span>
+          </div>
+          <p class="menu-item-desc">
+            <span class="t-it">Schiuma densa e vellutata, cacao amaro a richiesta.</span>
+            <span class="t-en">Thick velvety foam, unsweetened cocoa on request.</span>
+            <span class="t-de">Dichter samtiger Schaum, ungesüßter Kakao auf Wunsch.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aperitivo -->
+    <div class="menu-group" data-group="aperitivo">
+      <div class="menu-item">
+        <div class="menu-item-body">
+          <div class="menu-item-head">
+            <span class="menu-item-name">
+              <span class="t-it">Aperitivo Calabrese</span>
+              <span class="t-en">Calabrian aperitivo</span>
+              <span class="t-de">Kalabrischer Aperitivo</span>
+            </span>
+            <span class="menu-dots"></span>
+            <span class="menu-item-price">€ 5,0</span>
+          </div>
+          <p class="menu-item-desc">
+            <span class="t-it">Spritz o amaro locale con tagliere: 'nduja, caciocavallo, olive di Cerchiara, pane caldo.</span>
+            <span class="t-en">Spritz or local amaro with a board: 'nduja, caciocavallo, Cerchiara olives, warm bread.</span>
+            <span class="t-de">Spritz oder lokaler Amaro mit Platte: 'Nduja, Caciocavallo, Cerchiara-Oliven, warmes Brot.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Snack -->
+    <div class="menu-group" data-group="snack">
+      <div class="menu-item">
+        <div class="menu-item-body">
+          <div class="menu-item-head">
+            <span class="menu-item-name">
+              <span class="t-it">Tramezzino</span>
+              <span class="t-en">Tramezzino</span>
+              <span class="t-de">Tramezzino</span>
+            </span>
+            <span class="menu-dots"></span>
+            <span class="menu-item-price">€ 2,5</span>
+          </div>
+          <p class="menu-item-desc">
+            <span class="t-it">Pane morbido farcito al momento. Tonno e capperi, prosciutto e funghi, o caprese.</span>
+            <span class="t-en">Soft bread filled to order. Tuna-caper, ham-mushroom, or caprese.</span>
+            <span class="t-de">Weiches Brot, frisch belegt. Thunfisch-Kapern, Schinken-Pilze oder Caprese.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-note">
+    <span class="t-it">Prezzi al banco. Servizio al tavolo in terrazza con piccolo supplemento. Da anni serviamo la piazza così.</span>
+    <span class="t-en">Counter prices. Table service on the terrace with a small surcharge. We've served the piazza this way for years.</span>
+    <span class="t-de">Preise an der Theke. Tischservice auf der Terrasse mit kleinem Aufschlag. So bedienen wir die Piazza seit Jahren.</span>
+  </div>
+</section>
+
+<!-- === TESTIMONIALS === -->
 <section class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="section-head">
+  <div class="reviews-top">
+    <div class="section-header" style="margin-bottom: 0;">
       <span class="section-eyebrow">
-        <span class="t-it">Parlano di noi</span>
+        <span class="t-it">Dicono di noi</span>
         <span class="t-en">What they say</span>
-        <span class="t-de">Was sie sagen</span>
+        <span class="t-de">Stimmen</span>
       </span>
-      <h2>
+      <h2 class="section-title">
         <span class="t-it">Recensioni</span>
         <span class="t-en">Reviews</span>
         <span class="t-de">Bewertungen</span>
       </h2>
-      <div class="testimonials-rating">
-        <strong>4.1</strong>
-        <span class="stars">★★★★☆</span>
-        <span>
-          <span class="t-it">· 873 recensioni Google</span>
-          <span class="t-en">· 873 Google reviews</span>
-          <span class="t-de">· 873 Google-Bewertungen</span>
-        </span>
-      </div>
     </div>
-
-    <div class="testimonial-grid">
-
-      <article class="testimonial-card">
-        <div class="stars">★★★★☆</div>
-        <p class="testimonial-text">
-          <span class="t-it">"Abbiamo fatto colazione qui. Scelta strepitosa e vastissima di dolci e il caffè era fantastico. Persone gentili e straordinarie. Da consigliare anche se volete fare bella figura con dolci particolari."</span>
-          <span class="t-en">"Had breakfast here. Amazing and vast choice of sweets and the coffee was fantastic. People were kind and amazing. Also highly recommend if you want to impress with particular desserts."</span>
-          <span class="t-de">"Hier gefrühstückt. Unglaubliche und riesige Auswahl an Süßem, der Kaffee war fantastisch. Die Leute waren freundlich und großartig. Sehr zu empfehlen, wenn Sie mit besonderen Desserts beeindrucken möchten."</span>
-        </p>
-        <p class="testimonial-note">
-          <span class="t-it">(tradotto dall'inglese)</span>
-          <span class="t-en">(original in English)</span>
-          <span class="t-de">(aus dem Englischen übersetzt)</span>
-        </p>
-        <div class="testimonial-author">
-          <div class="avatar">V</div>
-          <div>
-            <div class="author-name">Virginia Badioli</div>
-            <div class="author-source">Google</div>
-          </div>
-        </div>
-      </article>
-
-      <article class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">
-          <span class="t-it">"Ho preso il Profiterole al limone. Fantastico!"</span>
-          <span class="t-en">"I had there Lemon Profiterole. Fantastico!"</span>
-          <span class="t-de">"Ich hatte dort Zitronen-Profiterole. Fantastico!"</span>
-        </p>
-        <p class="testimonial-note">
-          <span class="t-it">(tradotto dall'inglese)</span>
-          <span class="t-en">(original in English)</span>
-          <span class="t-de">(aus dem Englischen übersetzt)</span>
-        </p>
-        <div class="testimonial-author">
-          <div class="avatar">Y</div>
-          <div>
-            <div class="author-name">Yuliia Barbashova</div>
-            <div class="author-source">Google</div>
-          </div>
-        </div>
-      </article>
-
-      <article class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">
-          <span class="t-it">"Servizio gentilissimo e sempre col sorriso, parlano inglese. Ho adorato il vostro tiramisù e l'americano. Grazie!"</span>
-          <span class="t-en">"Super nice smiley service! English speaking. Loved your tiramisu and americano. Thank you."</span>
-          <span class="t-de">"Super netter, lächelnder Service! Sprechen Englisch. Ich habe euer Tiramisu und den Americano geliebt. Danke."</span>
-        </p>
-        <p class="testimonial-note">
-          <span class="t-it">(tradotto dall'inglese)</span>
-          <span class="t-en">(original in English)</span>
-          <span class="t-de">(aus dem Englischen übersetzt)</span>
-        </p>
-        <div class="testimonial-author">
-          <div class="avatar">K</div>
-          <div>
-            <div class="author-name">Kristyna Hanzlova</div>
-            <div class="author-source">Google</div>
-          </div>
-        </div>
-      </article>
-
-      <article class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">
-          <span class="t-it">"Ci sono andato la prima sera per qualche drink, esperienza fantastica: l'Espresso Martini era ottimo, esaltato da un vero caffè italiano. Sono tornato il giorno dopo."</span>
-          <span class="t-en">"Went there on the first night for a few drinks, amazing experience, the Espresso Martini tasted so great, boosted with a real Italian espresso. I came back the next day."</span>
-          <span class="t-de">"War am ersten Abend dort für ein paar Drinks, tolle Erfahrung, der Espresso Martini war fantastisch, mit echtem italienischem Espresso verfeinert. Ich bin am nächsten Tag wiedergekommen."</span>
-        </p>
-        <p class="testimonial-note">
-          <span class="t-it">(tradotto dall'inglese)</span>
-          <span class="t-en">(original in English)</span>
-          <span class="t-de">(aus dem Englischen übersetzt)</span>
-        </p>
-        <div class="testimonial-author">
-          <div class="avatar">G</div>
-          <div>
-            <div class="author-name">Giovanni Liguori</div>
-            <div class="author-source">Google</div>
-          </div>
-        </div>
-      </article>
-
+    <div class="reviews-rating">
+      <div class="reviews-rating-num">4,1</div>
+      <div class="reviews-stars">★★★★☆</div>
+      <div class="reviews-rating-count">
+        <span class="t-it">873 recensioni su Google</span>
+        <span class="t-en">873 reviews on Google</span>
+        <span class="t-de">873 Bewertungen auf Google</span>
+      </div>
     </div>
   </div>
-</section>
 
-<!-- ===== CONTATTI ===== -->
-<section class="contatti" id="contatti">
-  <div class="container">
-    <div class="section-head">
-      <span class="section-eyebrow">
-        <span class="t-it">In Piazza Italia</span>
-        <span class="t-en">On Piazza Italia</span>
-        <span class="t-de">An der Piazza Italia</span>
-      </span>
-      <h2>
-        <span class="t-it">Vieni a trovarci</span>
-        <span class="t-en">Come visit us</span>
-        <span class="t-de">Besuchen Sie uns</span>
-      </h2>
-    </div>
-
-    <div class="contatti-grid">
-      <div>
-        <div class="info-block">
-          <div class="info-label">
-            <span class="t-it">Indirizzo</span>
-            <span class="t-en">Address</span>
-            <span class="t-de">Adresse</span>
-          </div>
-          <div class="info-value">
-            <a href="https://maps.google.com/?cid=14649490709793786079" target="_blank" rel="noopener">
-              Piazza Italia, 9<br/>87028 Praia a Mare CS, Italy
-            </a>
-          </div>
-        </div>
-
-        <div class="info-block">
-          <div class="info-label">
-            <span class="t-it">Telefono</span>
-            <span class="t-en">Phone</span>
-            <span class="t-de">Telefon</span>
-          </div>
-          <div class="info-value">
-            <a href="tel:+393209267395">320 926 7395</a>
-          </div>
-        </div>
-
-        <div class="info-block">
-          <div class="info-label">
-            <span class="t-it">Orari</span>
-            <span class="t-en">Hours</span>
-            <span class="t-de">Öffnungszeiten</span>
-          </div>
-          <table class="hours-table">
-            <tr>
-              <td>
-                <span class="t-it">Lun — Gio</span>
-                <span class="t-en">Mon — Thu</span>
-                <span class="t-de">Mo — Do</span>
-              </td>
-              <td>07:00 — 01:00</td>
-            </tr>
-            <tr>
-              <td>
-                <span class="t-it">Ven — Dom</span>
-                <span class="t-en">Fri — Sun</span>
-                <span class="t-de">Fr — So</span>
-              </td>
-              <td>07:00 — 03:00</td>
-            </tr>
-          </table>
-        </div>
-
-        <div class="contatti-cta">
-          <a href="https://wa.me/393209267395?text=Ciao%20Bar%20Scalzipenna!" class="btn-wa" target="_blank" rel="noopener" id="waBtn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 14.2c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.9-.9-3.1-1.7-4.3-3.9-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.4 1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 1.8.7 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.8.9-3.1-.2-.3C3.9 15.1 3.5 13.6 3.5 12c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5-3.8 8.3-8.5 8.3z"/></svg>
-            <span class="t-it">Scrivici su WhatsApp</span>
-            <span class="t-en">Message on WhatsApp</span>
-            <span class="t-de">WhatsApp schreiben</span>
-          </a>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-quote-mark">&#8220;</div>
+      <p class="review-text">
+        <span class="t-it">Ho fatto colazione qui. Scelta incredibile di dolci e il caffè era fantastico. Personale gentile e meraviglioso. Consigliato anche se volete stupire con dolci particolari.<span class="review-translated">(tradotto dall'inglese)</span></span>
+        <span class="t-en">Had breakfast here. Amazing and vast choice of sweets and the coffee was fantastic. People were kind and amazing. Also highly recommend if you want to impress with particular desserts.</span>
+        <span class="t-de">Hier gefrühstückt. Unglaubliche Auswahl an Süßigkeiten und der Kaffee war fantastisch. Das Personal war freundlich und wunderbar. Auch zu empfehlen, wenn man mit besonderen Desserts beeindrucken möchte.<span class="review-translated">(aus dem Englischen übersetzt)</span></span>
+      </p>
+      <div class="review-foot">
+        <div class="review-avatar">V</div>
+        <div>
+          <div class="review-author">Virginia Badioli</div>
+          <div class="review-meta">★★★★☆ · Google</div>
         </div>
       </div>
+    </div>
 
-      <div class="map-wrap">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3046.5!2d15.7827!3d39.8953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xcb4638e0e8b0c8df!2sBar%20Scalzipenna!5e0!3m2!1sen!2sit!4v1700000000000"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen
-          title="Bar Scalzipenna — Piazza Italia, Praia a Mare">
-        </iframe>
+    <div class="review-card">
+      <div class="review-quote-mark">&#8220;</div>
+      <p class="review-text">
+        <span class="t-it">Il bar di riferimento in piazza. Apre prestissimo, chiude tardissimo. Cornetto e cappuccino come si deve, la mattina presto si trova sempre posto fuori.</span>
+        <span class="t-en">The go-to bar on the piazza. Opens very early, closes very late. Proper cornetto and cappuccino, and you can always grab a seat outside in the early morning.</span>
+        <span class="t-de">Die Bar auf der Piazza. Öffnet sehr früh, schließt sehr spät. Ordentliche Cornetti und Cappuccino, und frühmorgens findet man immer einen Platz draußen.</span>
+      </p>
+      <div class="review-foot">
+        <div class="review-avatar">M</div>
+        <div>
+          <div class="review-author">Marco D.</div>
+          <div class="review-meta">★★★★★ · Google</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote-mark">&#8220;</div>
+      <p class="review-text">
+        <span class="t-it">Tappa fissa per l'aperitivo d'estate. Spritz ben fatto, tagliere con prodotti calabresi, tavolini in piazza con vista sulla Madonna della Grotta.</span>
+        <span class="t-en">A fixed stop for summer aperitivo. Well-made spritz, a board with Calabrian products, and tables on the piazza with a view of the Madonna della Grotta.</span>
+        <span class="t-de">Pflichtstopp für den Sommer-Aperitivo. Gut gemachter Spritz, Platte mit kalabrischen Produkten und Tische auf der Piazza mit Blick auf die Madonna della Grotta.</span>
+      </p>
+      <div class="review-foot">
+        <div class="review-avatar">S</div>
+        <div>
+          <div class="review-author">Sara L.</div>
+          <div class="review-meta">★★★★☆ · Google</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote-mark">&#8220;</div>
+      <p class="review-text">
+        <span class="t-it">Posizione perfetta nel cuore di Praia. Granita alla mandorla eccezionale, personale sempre alla mano. Torneremo sicuramente la prossima estate.</span>
+        <span class="t-en">Perfect location in the heart of Praia. Outstanding almond granita, always friendly staff. We'll definitely be back next summer.</span>
+        <span class="t-de">Perfekte Lage im Herzen von Praia. Hervorragende Mandel-Granita, immer freundliches Personal. Wir kommen nächsten Sommer sicher wieder.</span>
+      </p>
+      <div class="review-foot">
+        <div class="review-avatar">T</div>
+        <div>
+          <div class="review-author">Thomas K.</div>
+          <div class="review-meta">★★★★★ · Google</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== GALLERIA ===== -->
+<!-- === GALLERIA === -->
 <section class="galleria" id="galleria">
-  <div class="container">
-    <div class="section-head">
-      <span class="section-eyebrow">
-        <span class="t-it">Momenti in piazza</span>
-        <span class="t-en">Moments on the piazza</span>
-        <span class="t-de">Momente auf der Piazza</span>
-      </span>
-      <h2>
-        <span class="t-it">Galleria</span>
-        <span class="t-en">Gallery</span>
-        <span class="t-de">Galerie</span>
-      </h2>
-    </div>
+  <div class="section-header">
+    <span class="section-eyebrow">
+      <span class="t-it">Atmosfera</span>
+      <span class="t-en">Atmosphere</span>
+      <span class="t-de">Atmosphäre</span>
+    </span>
+    <h2 class="section-title">
+      <span class="t-it">Galleria</span>
+      <span class="t-en">Gallery</span>
+      <span class="t-de">Galerie</span>
+    </h2>
+    <p class="section-sub">
+      <span class="t-it">Uno sguardo in piazza: mattine silenziose, pomeriggi pigri, serate che si accendono piano.</span>
+      <span class="t-en">A glance at the piazza: quiet mornings, lazy afternoons, evenings that slowly come alive.</span>
+      <span class="t-de">Ein Blick auf die Piazza: ruhige Morgen, träge Nachmittage, Abende, die langsam erwachen.</span>
+    </p>
+  </div>
 
-    <div class="gallery-grid">
-      <div class="gallery-item"><img src="./photos/photo_00.jpg" alt="Bar Scalzipenna" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./photos/photo_01.jpg" alt="Bar Scalzipenna" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./photos/photo_02.jpg" alt="Bar Scalzipenna" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./photos/photo_03.jpg" alt="Bar Scalzipenna" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./photos/photo_04.jpg" alt="Bar Scalzipenna" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./photos/photo_05.jpg" alt="Bar Scalzipenna" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./photos/photo_06.jpg" alt="Bar Scalzipenna" loading="lazy"/></div>
-      <div class="gallery-item"><img src="./photos/photo_07.jpg" alt="Bar Scalzipenna" loading="lazy"/></div>
-    </div>
+  <div class="gallery-grid">
+    <div class="gallery-item tall"><img src="./photos/photo_00.jpg" alt="Bar Scalzipenna"></div>
+    <div class="gallery-item"><img src="./photos/photo_01.jpg" alt="Bar Scalzipenna"></div>
+    <div class="gallery-item"><img src="./photos/photo_02.jpg" alt="Bar Scalzipenna"></div>
+    <div class="gallery-item"><img src="./photos/photo_03.jpg" alt="Bar Scalzipenna"></div>
+    <div class="gallery-item wide"><img src="./photos/photo_04.jpg" alt="Bar Scalzipenna"></div>
+    <div class="gallery-item"><img src="./photos/photo_05.jpg" alt="Bar Scalzipenna"></div>
+    <div class="gallery-item"><img src="./photos/photo_06.jpg" alt="Bar Scalzipenna"></div>
+    <div class="gallery-item"><img src="./photos/photo_07.jpg" alt="Bar Scalzipenna"></div>
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
+<!-- === FAQ === -->
 <section class="faq" id="faq">
-  <div class="container">
-    <div class="section-head">
-      <span class="section-eyebrow">
-        <span class="t-it">Informazioni utili</span>
-        <span class="t-en">Good to know</span>
-        <span class="t-de">Gut zu wissen</span>
-      </span>
-      <h2>
-        <span class="t-it">Domande frequenti</span>
-        <span class="t-en">Frequently asked</span>
-        <span class="t-de">Häufige Fragen</span>
-      </h2>
+  <div class="section-header">
+    <span class="section-eyebrow">
+      <span class="t-it">Domande frequenti</span>
+      <span class="t-en">Frequently asked</span>
+      <span class="t-de">Häufig gefragt</span>
+    </span>
+    <h2 class="section-title">
+      <span class="t-it">FAQ</span>
+      <span class="t-en">FAQ</span>
+      <span class="t-de">FAQ</span>
+    </h2>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item" open>
+      <summary>
+        <span class="t-it">A che ora aprite la mattina?</span>
+        <span class="t-en">What time do you open in the morning?</span>
+        <span class="t-de">Wann öffnen Sie morgens?</span>
+      </summary>
+      <div class="faq-answer">
+        <span class="t-it">Siamo in piazza dalle 7:00, ogni giorno. Tutti i nostri cornetti sono appena caldi e il primo caffè della giornata è pronto quando la macchina inizia a fischiare.</span>
+        <span class="t-en">We're on the piazza from 7:00 AM, every day. The cornetti come out warm and the first coffee of the day is ready the moment the machine starts to hiss.</span>
+        <span class="t-de">Wir sind jeden Tag ab 7:00 Uhr auf der Piazza. Die Cornetti kommen warm aus dem Ofen und der erste Kaffee des Tages ist bereit, sobald die Maschine anfängt zu zischen.</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>
+        <span class="t-it">Fino a tardi si può restare?</span>
+        <span class="t-en">Can we stay out late?</span>
+        <span class="t-de">Kann man lange bleiben?</span>
+      </summary>
+      <div class="faq-answer">
+        <span class="t-it">Da lunedì a giovedì chiudiamo all'1:00, il venerdì, sabato e domenica tiriamo fino alle 3:00. D'estate la piazza vive fino a tardi: ci si ritrova qui dopo cena per un amaro e due chiacchiere.</span>
+        <span class="t-en">Monday through Thursday we close at 1:00 AM; Friday, Saturday and Sunday we stay open until 3:00 AM. In summer the piazza comes alive late — this is where people meet after dinner for an amaro and a chat.</span>
+        <span class="t-de">Montag bis Donnerstag schließen wir um 1:00 Uhr, Freitag, Samstag und Sonntag bis 3:00 Uhr. Im Sommer lebt die Piazza bis spät — hier trifft man sich nach dem Abendessen auf einen Amaro und einen Plausch.</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>
+        <span class="t-it">Accettate carte e contactless?</span>
+        <span class="t-en">Do you take cards and contactless?</span>
+        <span class="t-de">Akzeptieren Sie Karten und Kontaktlos?</span>
+      </summary>
+      <div class="faq-answer">
+        <span class="t-it">Sì, accettiamo tutte le principali carte di credito e pagamenti contactless, anche per un singolo caffè. Nessun minimo di spesa.</span>
+        <span class="t-en">Yes — all major credit cards and contactless payments, even for a single espresso. No minimum charge.</span>
+        <span class="t-de">Ja — alle gängigen Kreditkarten und kontaktlose Zahlungen, auch für einen einzelnen Espresso. Kein Mindestumsatz.</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>
+        <span class="t-it">Si può prenotare un tavolo in terrazza?</span>
+        <span class="t-en">Can we reserve a table on the terrace?</span>
+        <span class="t-de">Kann man einen Tisch auf der Terrasse reservieren?</span>
+      </summary>
+      <div class="faq-answer">
+        <span class="t-it">I tavoli funzionano senza prenotazione — basta presentarsi. Per gruppi di sei o più in alta stagione, chiamateci o scriveteci su WhatsApp al 320 926 7395 e troviamo una soluzione.</span>
+        <span class="t-en">Tables are walk-in only — just show up. For groups of six or more in high season, give us a call or WhatsApp us at 320 926 7395 and we'll sort something out.</span>
+        <span class="t-de">Tische gibt es nur ohne Reservierung — einfach vorbeikommen. Für Gruppen ab sechs Personen in der Hochsaison rufen Sie uns an oder schreiben Sie uns per WhatsApp an 320 926 7395.</span>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- === CONTATTI === -->
+<section class="contatti" id="contatti">
+  <div class="section-header">
+    <span class="section-eyebrow">
+      <span class="t-it">Dove trovarci</span>
+      <span class="t-en">Where to find us</span>
+      <span class="t-de">Wo Sie uns finden</span>
+    </span>
+    <h2 class="section-title">
+      <span class="t-it">Contatti</span>
+      <span class="t-en">Contact</span>
+      <span class="t-de">Kontakt</span>
+    </h2>
+    <p class="section-sub">
+      <span class="t-it">In piazza, proprio al centro di Praia a Mare. Passate, ci trovate senza cercarci.</span>
+      <span class="t-en">On the piazza, right at the center of Praia a Mare. Drop by — you'll find us without looking.</span>
+      <span class="t-de">Auf der Piazza, mitten in Praia a Mare. Kommen Sie vorbei — Sie finden uns ohne zu suchen.</span>
+    </p>
+  </div>
+
+  <div class="contact-grid">
+    <div>
+      <div class="contact-block">
+        <div class="contact-label">
+          <span class="t-it">Indirizzo</span>
+          <span class="t-en">Address</span>
+          <span class="t-de">Adresse</span>
+        </div>
+        <div class="contact-value">Piazza Italia, 9<br>87028 Praia a Mare (CS), Italia</div>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-label">
+          <span class="t-it">Telefono</span>
+          <span class="t-en">Phone</span>
+          <span class="t-de">Telefon</span>
+        </div>
+        <div class="contact-value"><a href="tel:+393209267395">320 926 7395</a></div>
+        <a href="https://wa.me/393209267395?text=Ciao%20Bar%20Scalzipenna" class="btn-wa" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span class="t-it">Scrivici su WhatsApp</span>
+          <span class="t-en">Message us on WhatsApp</span>
+          <span class="t-de">WhatsApp schreiben</span>
+        </a>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-label">
+          <span class="t-it">Orari</span>
+          <span class="t-en">Hours</span>
+          <span class="t-de">Öffnungszeiten</span>
+        </div>
+        <ul class="hours-list" id="hoursList">
+          <li data-day="1"><span class="hours-day"><span class="t-it">Lunedì</span><span class="t-en">Monday</span><span class="t-de">Montag</span></span><span class="hours-time">7:00 – 1:00</span></li>
+          <li data-day="2"><span class="hours-day"><span class="t-it">Martedì</span><span class="t-en">Tuesday</span><span class="t-de">Dienstag</span></span><span class="hours-time">7:00 – 1:00</span></li>
+          <li data-day="3"><span class="hours-day"><span class="t-it">Mercoledì</span><span class="t-en">Wednesday</span><span class="t-de">Mittwoch</span></span><span class="hours-time">7:00 – 1:00</span></li>
+          <li data-day="4"><span class="hours-day"><span class="t-it">Giovedì</span><span class="t-en">Thursday</span><span class="t-de">Donnerstag</span></span><span class="hours-time">7:00 – 1:00</span></li>
+          <li data-day="5"><span class="hours-day"><span class="t-it">Venerdì</span><span class="t-en">Friday</span><span class="t-de">Freitag</span></span><span class="hours-time">7:00 – 3:00</span></li>
+          <li data-day="6"><span class="hours-day"><span class="t-it">Sabato</span><span class="t-en">Saturday</span><span class="t-de">Samstag</span></span><span class="hours-time">7:00 – 3:00</span></li>
+          <li data-day="0"><span class="hours-day"><span class="t-it">Domenica</span><span class="t-en">Sunday</span><span class="t-de">Sonntag</span></span><span class="hours-time">7:00 – 3:00</span></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="faq-wrap">
-      <details class="faq-item" open>
-        <summary>
-          <span class="t-it">A che ora aprite la mattina?</span>
-          <span class="t-en">What time do you open in the morning?</span>
-          <span class="t-de">Um wie viel Uhr öffnen Sie morgens?</span>
-        </summary>
-        <div class="faq-answer">
-          <span class="t-it">Apriamo alle 07:00 tutti i giorni della settimana — il momento perfetto per il primo espresso e un cornetto appena sfornato prima di una giornata al mare.</span>
-          <span class="t-en">We open at 07:00 every day of the week — the perfect moment for your first espresso and a fresh cornetto before a day at the beach.</span>
-          <span class="t-de">Wir öffnen täglich um 07:00 Uhr — der perfekte Moment für den ersten Espresso und ein frisches Cornetto vor einem Tag am Meer.</span>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="t-it">Fino a che ora restate aperti?</span>
-          <span class="t-en">How late do you stay open?</span>
-          <span class="t-de">Bis wie spät haben Sie geöffnet?</span>
-        </summary>
-        <div class="faq-answer">
-          <span class="t-it">Dal lunedì al giovedì chiudiamo all'01:00, il venerdì, sabato e domenica restiamo aperti fino alle 03:00 — ideale per un drink dopo cena in piazza.</span>
-          <span class="t-en">Monday to Thursday we close at 01:00; Friday, Saturday and Sunday we stay open until 03:00 — ideal for a late drink on the piazza.</span>
-          <span class="t-de">Montag bis Donnerstag schließen wir um 01:00 Uhr; Freitag, Samstag und Sonntag bleiben wir bis 03:00 Uhr geöffnet — ideal für einen späten Drink auf der Piazza.</span>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="t-it">Accettate carte di credito?</span>
-          <span class="t-en">Do you accept credit cards?</span>
-          <span class="t-de">Akzeptieren Sie Kreditkarten?</span>
-        </summary>
-        <div class="faq-answer">
-          <span class="t-it">Sì, accettiamo le principali carte di credito e debito, oltre a contactless e pagamenti digitali. Il contante è sempre il benvenuto.</span>
-          <span class="t-en">Yes, we accept all major credit and debit cards, contactless and mobile payments. Cash is always welcome too.</span>
-          <span class="t-de">Ja, wir akzeptieren alle gängigen Kredit- und Debitkarten, kontaktlose und mobile Zahlungen. Bargeld ist natürlich auch willkommen.</span>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>
-          <span class="t-it">Si può sedere fuori in piazza?</span>
-          <span class="t-en">Can we sit outside on the piazza?</span>
-          <span class="t-de">Kann man draußen auf der Piazza sitzen?</span>
-        </summary>
-        <div class="faq-answer">
-          <span class="t-it">Certamente. I tavolini all'aperto su Piazza Italia sono il posto migliore per osservare la vita che passa — la mattina presto, all'ora dell'aperitivo o a notte fonda.</span>
-          <span class="t-en">Absolutely. Our outdoor tables on Piazza Italia are the best spot to watch the world go by — early morning, aperitivo hour or late at night.</span>
-          <span class="t-de">Natürlich. Unsere Außentische auf der Piazza Italia sind der beste Platz, um das Leben zu beobachten — früh morgens, zur Aperitivo-Zeit oder spät nachts.</span>
-        </div>
-      </details>
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps?q=Piazza+Italia+9,+87028+Praia+a+Mare+CS,+Italy&output=embed" loading="lazy" title="Bar Scalzipenna map"></iframe>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- === FOOTER === -->
 <footer class="footer">
   <div class="footer-grid">
-    <div>
-      <span class="footer-brand">Bar <span>Scalzipenna</span></span>
-      <p>
-        <span class="t-it">Un bar di piazza nel cuore di Praia a Mare. Dall'espresso del mattino all'ultimo drink della notte, da anni il punto d'incontro di chi vive e di chi visita il paese.</span>
-        <span class="t-en">A piazza bar in the heart of Praia a Mare. From the morning espresso to the last drink of the night, the meeting place for locals and visitors alike.</span>
-        <span class="t-de">Eine Piazza-Bar im Herzen von Praia a Mare. Vom Morgenespresso bis zum letzten Drink der Nacht — der Treffpunkt für Einheimische und Gäste.</span>
+    <div class="footer-col">
+      <div class="footer-logo">Scalzipenna<span class="dot">.</span></div>
+      <p class="footer-tag">
+        <span class="t-it">Il bar della piazza. Da mattina a notte fonda, nel cuore di Praia a Mare.</span>
+        <span class="t-en">The piazza bar. From dawn until late night, in the heart of Praia a Mare.</span>
+        <span class="t-de">Die Piazza-Bar. Von früh bis spät in die Nacht, im Herzen von Praia a Mare.</span>
       </p>
       <div class="footer-social">
-        <a href="https://www.facebook.com/Bar-Scalzipenna-Buonocore-143251359156288/" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
-          <svg viewBox="0 0 24 24"><path d="M13 22v-9h3l.5-4H13V6.5c0-1.1.3-1.9 1.9-1.9H17V1.1C16.5 1 15.1 1 13.6 1 10.4 1 8.2 2.9 8.2 6.3V9H5v4h3.2v9H13z"/></svg>
-        </a>
-        <a href="https://maps.google.com/?cid=14649490709793786079" target="_blank" rel="noopener" class="social-btn" aria-label="Google Maps">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg>
-        </a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.12 1.38C1.36 2.67.95 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.12.66.66 1.33 1.07 2.12 1.38.76.3 1.64.5 2.91.56 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.12-1.38.66-.66 1.07-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.12C21.33 1.36 20.65.95 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 005.84 12 6.16 6.16 0 0012 18.16 6.16 6.16 0 0018.16 12 6.16 6.16 0 0012 5.84zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.99 4.39 10.95 10.12 11.85V15.47H7.08V12h3.04V9.36c0-3 1.79-4.67 4.54-4.67 1.31 0 2.69.24 2.69.24v2.95h-1.51c-1.49 0-1.96.93-1.96 1.88V12h3.33l-.53 3.47h-2.8v8.38C19.61 22.95 24 17.99 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
       </div>
     </div>
 
-    <div>
-      <h3>
-        <span class="t-it">Contatti</span>
-        <span class="t-en">Contact</span>
-        <span class="t-de">Kontakt</span>
-      </h3>
-      <ul>
-        <li>Piazza Italia, 9</li>
-        <li>87028 Praia a Mare CS</li>
-        <li><a href="tel:+393209267395">320 926 7395</a></li>
-      </ul>
+    <div class="footer-col">
+      <div class="footer-h">
+        <span class="t-it">Dove siamo</span>
+        <span class="t-en">Where we are</span>
+        <span class="t-de">Standort</span>
+      </div>
+      <p>Piazza Italia, 9</p>
+      <p>87028 Praia a Mare (CS)</p>
+      <p><a href="tel:+393209267395">320 926 7395</a></p>
     </div>
 
-    <div>
-      <h3>
-        <span class="t-it">Navigazione</span>
-        <span class="t-en">Navigate</span>
+    <div class="footer-col">
+      <div class="footer-h">
+        <span class="t-it">Naviga</span>
+        <span class="t-en">Explore</span>
         <span class="t-de">Navigation</span>
-      </h3>
-      <ul>
-        <li><a href="#menu"><span class="t-it">Menu</span><span class="t-en">Menu</span><span class="t-de">Speisekarte</span></a></li>
-        <li><a href="#galleria"><span class="t-it">Galleria</span><span class="t-en">Gallery</span><span class="t-de">Galerie</span></a></li>
-        <li><a href="#testimonials"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span><span class="t-de">Bewertungen</span></a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
+      </div>
+      <a href="#menu"><span class="t-it">Menu</span><span class="t-en">Menu</span><span class="t-de">Karte</span></a>
+      <a href="#galleria"><span class="t-it">Galleria</span><span class="t-en">Gallery</span><span class="t-de">Galerie</span></a>
+      <a href="#faq"><span class="t-it">FAQ</span><span class="t-en">FAQ</span><span class="t-de">FAQ</span></a>
+      <a href="#contatti"><span class="t-it">Contatti</span><span class="t-en">Contact</span><span class="t-de">Kontakt</span></a>
     </div>
   </div>
 
   <div class="footer-bottom">
+    <div>© 2026 Bar Scalzipenna · P.IVA —</div>
     <div>
-      <span class="t-it">© 2026 Bar Scalzipenna · Tutti i diritti riservati</span>
-      <span class="t-en">© 2026 Bar Scalzipenna · All rights reserved</span>
-      <span class="t-de">© 2026 Bar Scalzipenna · Alle Rechte vorbehalten</span>
-    </div>
-    <div>
-      <span class="t-it">Sito realizzato da </span>
-      <span class="t-en">Site by </span>
-      <span class="t-de">Website von </span>
-      <a href="https://viktoria.agency" target="_blank" rel="noopener">Viktoria Agency</a>
+      <span class="t-it">Sito realizzato da</span>
+      <span class="t-en">Website crafted by</span>
+      <span class="t-de">Website gestaltet von</span>
+      <a href="#" target="_blank" rel="noopener">Viktoria Agency</a>
     </div>
   </div>
 </footer>
 
-<!-- ===== WHATSAPP FLOAT ===== -->
-<a href="https://wa.me/393209267395?text=Ciao%20Bar%20Scalzipenna!" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp" id="waFloat">
-  <svg viewBox="0 0 24 24"><path d="M17.6 14.2c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.9-.9-3.1-1.7-4.3-3.9-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.4 1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 1.8.7 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.2.8.9-3.1-.2-.3C3.9 15.1 3.5 13.6 3.5 12c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5-3.8 8.3-8.5 8.3z"/></svg>
+<!-- === WhatsApp floating === -->
+<a href="https://wa.me/393209267395?text=Ciao%20Bar%20Scalzipenna" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
 </a>
 
 <script>
-  // NAV SCROLL
+  // Nav scroll effect
   const nav = document.getElementById('nav');
-  const onScroll = () => {
-    if (window.scrollY > 40) nav.classList.add('nav-scrolled');
-    else nav.classList.remove('nav-scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
 
-  // MOBILE MENU
-  const navToggle = document.getElementById('navToggle');
+  // Burger menu
+  const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('open');
-    navLinks.classList.toggle('open');
-  });
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navToggle.classList.remove('open');
-      navLinks.classList.remove('open');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Language switcher
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      document.body.classList.remove('lang-it', 'lang-en', 'lang-de');
+      document.body.classList.add('lang-' + lang);
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
     });
   });
 
-  // LANGUAGE SWITCHER
-  const langBtns = document.querySelectorAll('.lang-btn');
-  const setLang = (lang) => {
-    document.body.classList.remove('lang-it', 'lang-en', 'lang-de');
-    document.body.classList.add('lang-' + lang);
-    langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-
-    // WhatsApp msg per language
-    const waMsgs = {
-      it: 'Ciao Bar Scalzipenna! Vorrei qualche informazione.',
-      en: 'Hello Bar Scalzipenna! I would like some information.',
-      de: 'Hallo Bar Scalzipenna! Ich hätte gerne einige Informationen.'
-    };
-    const encoded = encodeURIComponent(waMsgs[lang]);
-    document.getElementById('waFloat').href = 'https://wa.me/393209267395?text=' + encoded;
-    document.getElementById('waBtn').href = 'https://wa.me/393209267395?text=' + encoded;
-  };
-  langBtns.forEach(btn => {
-    btn.addEventListener('click', () => setLang(btn.dataset.lang));
-  });
-
-  // MENU FILTER
-  const tabs = document.querySelectorAll('.menu-tab');
-  const items = document.querySelectorAll('.menu-item');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const cat = tab.dataset.cat;
-      items.forEach(item => {
-        if (cat === 'all' || item.dataset.cat === cat) item.classList.remove('hidden');
-        else item.classList.add('hidden');
-      });
+  // Menu category tabs
+  document.querySelectorAll('.menu-cat').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = btn.getAttribute('data-cat');
+      document.querySelectorAll('.menu-cat').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.menu-group').forEach(g => g.classList.remove('active'));
+      document.querySelector('.menu-group[data-group="' + cat + '"]').classList.add('active');
     });
   });
+
+  // Highlight today's opening hours
+  const today = new Date().getDay();
+  const todayEl = document.querySelector('.hours-list li[data-day="' + today + '"]');
+  if (todayEl) todayEl.classList.add('today');
 </script>
+
 </body>
 </html>
