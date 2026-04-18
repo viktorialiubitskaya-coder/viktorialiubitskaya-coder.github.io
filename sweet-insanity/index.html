@@ -127,6 +127,9 @@
     }
     .wa-pulse { animation: wa-ring 2.2s ease-in-out infinite; }
 
+    /* ── Anchor scroll offset (accounts for sticky navbar) ── */
+    section { scroll-margin-top: 100px; }
+
     @media (prefers-reduced-motion: reduce) {
       .reveal, .stagger > * { transition: none; opacity: 1; transform: none; }
       .hero-mesh { animation: none; background: #FF6BA8; }
@@ -247,7 +250,7 @@
     <div class="grid md:grid-cols-2 gap-10 items-center">
 
       <!-- Left: text -->
-      <div>
+      <div class="min-w-0">
         <!-- Rating badge -->
         <div class="inline-flex items-center gap-2 clay bg-white px-4 py-2 mb-6 reveal">
           <div class="flex text-limone">
@@ -262,8 +265,8 @@
         </div>
 
         <h1 class="font-display font-extrabold leading-[0.95] mb-5 reveal" style="transition-delay:.08s">
-          <span class="block text-7xl sm:text-8xl md:text-8xl lg:text-9xl text-notte">SWEET</span>
-          <span class="block text-7xl sm:text-8xl md:text-8xl lg:text-9xl text-fragola">INSANITY</span>
+          <span class="block text-7xl sm:text-8xl md:text-8xl lg:text-8xl text-notte">SWEET</span>
+          <span class="block text-7xl sm:text-8xl md:text-8xl lg:text-8xl text-fragola">INSANITY</span>
         </h1>
 
         <p class="font-body text-lg md:text-xl text-grafite leading-relaxed max-w-md mb-8 reveal" style="transition-delay:.18s"
@@ -501,8 +504,8 @@
       </div>
 
       <div class="gal-item clay overflow-hidden cursor-pointer" style="border:3px solid #C9A8FF80">
-        <img src="https://images.unsplash.com/photo-1629385701021-fcd9a980f5d9?q=80&w=600&auto=format&fit=crop"
-             alt="Dessert creativo" class="gal-img w-full h-48 object-cover" loading="lazy"/>
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=600&auto=format&fit=crop"
+             alt="Dessert creativo gelato" class="gal-img w-full h-48 object-cover" loading="lazy"/>
       </div>
 
       <div class="gal-item clay overflow-hidden cursor-pointer" style="border:3px solid #FFD93D80">
@@ -511,8 +514,8 @@
       </div>
 
       <div class="gal-item clay overflow-hidden cursor-pointer" style="border:3px solid #FFD1E8">
-        <img src="https://images.unsplash.com/photo-1557142046-c704a3adf364?q=80&w=600&auto=format&fit=crop"
-             alt="Gelato artigianale" class="gal-img w-full h-48 object-cover" loading="lazy"/>
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600&auto=format&fit=crop"
+             alt="Gelato artigianale colorato" class="gal-img w-full h-48 object-cover" loading="lazy"/>
       </div>
 
       <div class="gal-item clay overflow-hidden col-span-2 md:col-span-1 cursor-pointer" style="border:3px solid #8FE0B480">
