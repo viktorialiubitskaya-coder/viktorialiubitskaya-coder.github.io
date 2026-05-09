@@ -1252,6 +1252,12 @@ footer {
 </div>
 
 <script>
+// Unregister any stale service workers
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function(regs) {
+    regs.forEach(function(r){ r.unregister(); });
+  });
+}
 // ── STARS ──
 (function(){
   const layer = document.getElementById('starsLayer');
