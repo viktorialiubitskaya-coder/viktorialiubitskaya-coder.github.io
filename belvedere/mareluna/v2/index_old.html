@@ -9,33 +9,19 @@
 <style>
 /* ── TOKENS ── */
 :root {
-  /* Blues */
-  --navy-deep:  #0a1838;
-  --navy-mid:   #152a52;
-  --cobalt:     #1e3a8a;
-  --navy-soft:  #1e3a5c;
-  /* Light sections */
-  --cream-light: #f5f1e8;
-  --cream-dark:  #ede5d4;
-  /* Accents */
-  --oro:        #c9a961;
-  --oro-dim:    rgba(201,169,97,0.35);
-  --oro-glow:   0 0 28px rgba(201,169,97,0.35);
-  --oro-soft:   #d4b87a;
-  /* Text */
-  --text-light: #e8e6e1;
-  --text-dark:  #1a1a1a;
-  --text-muted-light: #c4c8d4;
-  --text-muted-dark:  #6b6359;
-  /* Legacy aliases (keep for nav/footer) */
-  --bg:         #0a1838;
-  --bg-sec:     #152a52;
-  --cream:      #e8e6e1;
-  --cream-dim:  rgba(232,230,225,0.6);
-  --white:      #ffffff;
-  --overlay:    rgba(3,8,15,0.96);
-  --glass-bg:   rgba(255,255,255,0.04);
-  --glass-bd:   rgba(255,255,255,0.08);
+  --bg:        #05111e;
+  --bg-sec:    #081a30;
+  --bg-card:   rgba(8,26,48,0.7);
+  --oro:       #c9a961;
+  --oro-dim:   rgba(201,169,97,0.35);
+  --oro-glow:  0 0 28px rgba(201,169,97,0.35);
+  --cream:     #ede9e3;
+  --cream-dim: rgba(237,233,227,0.6);
+  --white:     #ffffff;
+  --overlay:   rgba(3,8,15,0.96);
+  --glass-bg:  rgba(255,255,255,0.04);
+  --glass-bd:  rgba(255,255,255,0.08);
+  --glass-blur:backdrop-filter:blur(18px);
 }
 
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -219,7 +205,7 @@ section { padding:72px 60px; }
 }
 
 /* ══════════ CHI SIAMO ══════════ */
-#about { background:linear-gradient(160deg,#0a1838 0%,#152a52 100%); position:relative; overflow:hidden; }
+#about { background:var(--bg-sec); }
 .about-grid {
   max-width:1200px; margin:0 auto;
   display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;
@@ -272,7 +258,7 @@ section { padding:72px 60px; }
 }
 
 /* ══════════ PIZZA & DRINK ══════════ */
-#pizza-drink { background:var(--cream-light); position:relative; overflow:hidden; }
+#pizza-drink { background:var(--bg); }
 .pd-header { text-align:center; margin-bottom:44px; }
 .pd-tagline {
   font-family:'Cormorant Garamond',serif; font-style:italic;
@@ -340,7 +326,7 @@ section { padding:72px 60px; }
 }
 
 /* ══════════ MENU HIGHLIGHTS ══════════ */
-#menu { background:var(--cream-dark); position:relative; overflow:hidden; }
+#menu { background:var(--bg-sec); }
 .menu-header { text-align:center; margin-bottom:36px; }
 .menu-header .s-desc { margin:0 auto; }
 
@@ -415,123 +401,8 @@ section { padding:72px 60px; }
 }
 .menu-cta:hover { background:var(--oro); color:var(--bg); }
 
-/* ══════════ LIGHT SECTIONS ══════════ */
-#pizza-drink .s-eyebrow,
-#menu .s-eyebrow { color:var(--navy-mid); }
-#pizza-drink .s-title,
-#menu .s-title { color:var(--navy-deep); }
-#pizza-drink .s-desc,
-#menu .s-desc { color:var(--text-muted-dark); }
-#pizza-drink .pd-tagline { color:var(--navy-soft); text-shadow:none; }
-
-/* Menu on light bg */
-#menu .m-name { color:var(--navy-deep); }
-#menu .m-desc { color:var(--text-muted-dark); }
-#menu .m-price { color:var(--oro); }
-#menu .m-item { border-bottom-color:rgba(10,24,56,0.1); border-right-color:rgba(10,24,56,0.1); }
-#menu .m-item:hover { background:rgba(10,24,56,0.04); }
-#menu .menu-grid { border-color:rgba(10,24,56,0.12); }
-#menu .menu-featured { border-color:rgba(10,24,56,0.15); background:rgba(10,24,56,0.04); }
-#menu .mf-name { color:var(--navy-deep); }
-#menu .mf-desc { color:var(--text-muted-dark); }
-#menu .menu-footer { border-color:rgba(10,24,56,0.1); }
-#menu .menu-lactose { color:var(--text-muted-dark); }
-#menu .menu-cta { border-color:rgba(10,24,56,0.35); color:var(--navy-deep); }
-#menu .menu-cta:hover { background:var(--navy-deep); color:var(--cream-light); }
-
-/* Cocktail cards keep dark bg on light section */
-.c-card {
-  background:#0a1838;
-  border:1px solid rgba(201,169,97,0.18);
-}
-.c-card:hover { border-color:rgba(201,169,97,0.45); }
-
-/* Recensioni on light bg */
-#recensioni .s-eyebrow { color:var(--navy-mid); }
-#recensioni .rec-stars { color:var(--oro); }
-#recensioni .rec-count { color:var(--text-muted-dark); }
-#recensioni .rec-marks { color:var(--navy-deep); opacity:0.15; }
-#recensioni .rec-text { color:var(--navy-deep); }
-#recensioni .rec-author { color:var(--text-muted-dark); }
-#recensioni .rec-dot { background:rgba(10,24,56,0.15); }
-#recensioni .rec-dot.active { background:var(--oro); }
-
-/* ══════════ AZULEJO DECORATORS ══════════ */
-/* Pizza & Drink: top-right + bottom-left */
-#pizza-drink::before {
-  content:''; position:absolute; top:0; right:0;
-  width:360px; height:500px; pointer-events:none; z-index:1;
-  background:url('../assets/azulejo-corner-top-right.png') no-repeat top right;
-  background-size:contain; opacity:0.8;
-}
-#pizza-drink::after {
-  content:''; position:absolute; bottom:0; left:0;
-  width:300px; height:340px; pointer-events:none; z-index:1;
-  background:url('../assets/azulejo-corner-bottom-left.png') no-repeat bottom left;
-  background-size:contain; opacity:0.65;
-}
-#pizza-drink .pd-header,
-#pizza-drink .pd-scroll { position:relative; z-index:2; }
-
-/* Menu: bottom-right rotated to top-left (subtle) */
-#menu::before {
-  content:''; position:absolute; top:0; left:0;
-  width:280px; height:280px; pointer-events:none; z-index:1;
-  background:url('../assets/azulejo-corner-bottom-right.png') no-repeat top left;
-  background-size:contain; opacity:0.22; transform:rotate(180deg);
-}
-#menu .menu-header,
-#menu .menu-featured,
-#menu .menu-grid,
-#menu .menu-footer { position:relative; z-index:2; }
-
-/* Chi Siamo: top-right, dark section → blend screen */
-#about::after {
-  content:''; position:absolute; top:0; right:0;
-  width:320px; height:440px; pointer-events:none; z-index:1;
-  background:url('../assets/azulejo-corner-top-right.png') no-repeat top right;
-  background-size:contain; opacity:0.17; mix-blend-mode:screen;
-}
-#about .about-grid { position:relative; z-index:2; }
-
-/* Contatti: bottom-right, dark → blend screen */
-#contatti::after {
-  content:''; position:absolute; bottom:0; right:0;
-  width:280px; height:280px; pointer-events:none; z-index:1;
-  background:url('../assets/azulejo-corner-bottom-right.png') no-repeat bottom right;
-  background-size:contain; opacity:0.14; mix-blend-mode:screen;
-}
-#contatti .contatti-inner { position:relative; z-index:2; }
-
-/* Recensioni: side-right */
-#recensioni::before {
-  content:''; position:absolute; top:0; right:0;
-  width:260px; height:360px; pointer-events:none; z-index:1;
-  background:url('../assets/azulejo-side-right.png') no-repeat top right;
-  background-size:contain; opacity:0.45;
-}
-#recensioni .rec-inner { position:relative; z-index:2; }
-
-/* ══════════ CHI SIAMO IMAGE BLEND ══════════ */
-.about-img-glow {
-  position:absolute; inset:0;
-  background:radial-gradient(ellipse at center, transparent 40%, #0a1838 100%),
-             linear-gradient(to top, #0a1838 0%, transparent 40%);
-  pointer-events:none;
-}
-
-/* Mobile: hide or shrink azulejo */
-@media(max-width:768px) {
-  #pizza-drink::before { width:180px; height:240px; opacity:0.5; }
-  #pizza-drink::after { width:150px; height:160px; opacity:0.4; }
-  #menu::before { width:140px; height:140px; }
-  #about::after { width:160px; height:220px; }
-  #contatti::after { display:none; }
-  #recensioni::before { display:none; }
-}
-
 /* ══════════ GALLERY ══════════ */
-#gallery { background:linear-gradient(160deg,#152a52 0%,#0a1838 100%); padding:0 0 60px; position:relative; overflow:hidden; }
+#gallery { background:var(--bg); padding:0 0 60px; }
 .gallery-headline {
   text-align:center; padding:72px 60px 44px;
 }
@@ -568,7 +439,7 @@ section { padding:72px 60px; }
 .gallery-ig a:hover { color:var(--oro); }
 
 /* ══════════ RECENSIONI ══════════ */
-#recensioni { background:var(--cream-light); position:relative; overflow:hidden; }
+#recensioni { background:var(--bg-sec); }
 .rec-inner { max-width:900px; margin:0 auto; text-align:center; }
 .rec-stars { color:var(--oro); font-size:1rem; letter-spacing:5px; margin-bottom:12px; }
 .rec-count { font-size:0.68rem; color:rgba(255,255,255,0.25); letter-spacing:3px; text-transform:uppercase; margin-bottom:70px; }
@@ -602,7 +473,7 @@ section { padding:72px 60px; }
 .rec-dot.active { background:var(--oro); box-shadow:var(--oro-glow); width:18px; border-radius:3px; }
 
 /* ══════════ CONTATTI ══════════ */
-#contatti { background:linear-gradient(160deg,#152a52 0%,#0a1838 100%); position:relative; overflow:hidden; }
+#contatti { background:var(--bg); }
 .contatti-inner { max-width:1200px; margin:0 auto; }
 .contatti-header { margin-bottom:60px; }
 .contatti-grid {
@@ -838,9 +709,9 @@ footer {
 </section>
 
 <!-- wave -->
-<div class="wave-divider" style="background:#0a1838;">
+<div class="wave-divider" style="background:#081a30;">
   <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
-    <path d="M0,60 C360,0 1080,60 1440,20 L1440,0 L0,0 Z" fill="#0a1838"/>
+    <path d="M0,60 C360,0 1080,60 1440,20 L1440,0 L0,0 Z" fill="#05111e"/>
   </svg>
 </div>
 
@@ -876,7 +747,7 @@ footer {
 
       <div class="about-cards">
         <div class="about-card reveal">
-          <h4 data-it="Farina Molino Madre dal 1939" data-en="Molino Madre flour since 1939">Farina Molino Madre dal 1939</h4>
+          <h4 data-it="Farina Molino Madre 1939" data-en="Molino Madre flour 1939">Farina Molino Madre 1939</h4>
           <p data-it="Impasto leggero, alta idratazione, altamente digeribile" data-en="Light dough, high hydration, highly digestible">Impasto leggero, alta idratazione, altamente digeribile</p>
         </div>
         <div class="about-card reveal">
@@ -889,7 +760,7 @@ footer {
         </div>
         <div class="about-card reveal">
           <h4 data-it="Pet Friendly" data-en="Pet Friendly">Pet Friendly</h4>
-          <p data-it="Un posto per tutti, anche per i tuoi amici a 4 zampe" data-en="A place for everyone, pets welcome too">Un posto per tutti, anche per i tuoi amici a 4 zampe</p>
+          <p data-it="Un posto per tutta la famiglia, anche per i tuoi amici a 4 zampe" data-en="A place for the whole family, pets welcome too">Un posto per tutta la famiglia, anche per i tuoi amici a 4 zampe</p>
         </div>
       </div>
     </div>
@@ -902,13 +773,6 @@ footer {
     </div>
   </div>
 </section>
-
-<!-- wave: dark about → light menu -->
-<div class="wave-divider" style="background:var(--cream-dark);">
-  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" height="80">
-    <path d="M0,0 C360,80 1080,0 1440,60 L1440,80 L0,80 Z" fill="#152a52"/>
-  </svg>
-</div>
 
 <!-- ══════════════════════════ MENU HIGHLIGHTS ══════════════════════════ -->
 <section id="menu">
@@ -996,9 +860,9 @@ footer {
 </section>
 
 <!-- wave -->
-<div class="wave-divider" style="background:var(--cream-light);">
+<div class="wave-divider" style="background:#05111e;">
   <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
-    <path d="M0,20 C400,70 1000,0 1440,40 L1440,60 L0,60 Z" fill="#ede5d4"/>
+    <path d="M0,20 C400,70 1000,0 1440,40 L1440,60 L0,60 Z" fill="#081a30"/>
   </svg>
 </div>
 
@@ -1081,16 +945,16 @@ footer {
 </section>
 
 <!-- wave -->
-<div class="wave-divider" style="background:#152a52;">
+<div class="wave-divider" style="background:#081a30;">
   <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
-    <path d="M0,40 C480,0 960,60 1440,20 L1440,60 L0,60 Z" fill="#f5f1e8"/>
+    <path d="M0,40 C480,0 960,60 1440,20 L1440,60 L0,60 Z" fill="#05111e"/>
   </svg>
 </div>
 
 <!-- ══════════════════════════ GALLERIA ══════════════════════════ -->
 <section id="gallery" style="padding:0 0 70px;">
   <div class="gallery-headline reveal">
-    <div class="s-eyebrow" data-it="Galleria" data-en="Gallery">Galleria</div>
+    <div class="s-eyebrow" data-it="Dal nostro Instagram" data-en="From our Instagram">Dal nostro Instagram</div>
     <h2 class="s-title" data-it="Pizza fatta con amore" data-en="Pizza made with love">Pizza fatta con amore</h2>
   </div>
   <div class="gallery-magazine">
@@ -1129,9 +993,9 @@ footer {
 </section>
 
 <!-- wave -->
-<div class="wave-divider" style="background:var(--cream-light);">
+<div class="wave-divider" style="background:#05111e;">
   <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
-    <path d="M0,0 C480,60 1000,0 1440,50 L1440,60 L0,60 Z" fill="#0a1838"/>
+    <path d="M0,0 C480,60 1000,0 1440,50 L1440,60 L0,60 Z" fill="#081a30"/>
   </svg>
 </div>
 
@@ -1175,9 +1039,9 @@ footer {
 </section>
 
 <!-- wave -->
-<div class="wave-divider" style="background:#152a52;">
+<div class="wave-divider" style="background:#081a30;">
   <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
-    <path d="M0,50 C360,10 1080,60 1440,20 L1440,0 L0,0 Z" fill="#f5f1e8"/>
+    <path d="M0,50 C360,10 1080,60 1440,20 L1440,0 L0,0 Z" fill="#05111e"/>
   </svg>
 </div>
 
@@ -1186,11 +1050,11 @@ footer {
   <div class="contatti-inner">
     <div class="contatti-header reveal">
       <div class="s-eyebrow" data-it="Vieni a trovarci" data-en="Come visit us">Vieni a trovarci</div>
-      <h2 class="s-title" data-it="Contatti" data-en="Contacts">Contatti</h2>
+      <h2 class="s-title" data-it="Quando &amp; Dove" data-en="When &amp; Where">Quando &amp; Dove</h2>
     </div>
 
     <div class="contatti-grid">
-      <!-- LEFT: Orari -->
+      <!-- LEFT: Info -->
       <div>
         <div class="c-section-label" data-it="Orari di apertura" data-en="Opening hours">Orari di apertura</div>
         <div class="c-section-h reveal" data-it="Quando trovarci" data-en="When to find us">Quando trovarci</div>
@@ -1204,67 +1068,62 @@ footer {
           <li data-day="0"><span class="day" data-it="Domenica"  data-en="Sunday">Domenica</span>  <span class="time">19:00 – 23:30</span></li>
         </ul>
         <p class="orari-note" data-it="solo cena · cucina aperta dalle 19:00" data-en="dinner only · kitchen open from 19:00">solo cena · cucina aperta dalle 19:00</p>
-      </div>
 
-      <!-- RIGHT: Contacts -->
-      <div>
-        <div class="c-section-label" data-it="Dove siamo" data-en="Where to find us">Dove siamo</div>
-        <div class="contact-items" style="margin-top:10px;">
-          <div class="ci" style="margin-bottom:1.5rem;">
-            <div class="ci-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <div style="margin-top:28px;">
+          <div class="c-section-label" data-it="Dove siamo" data-en="Find us">Dove siamo</div>
+          <div class="c-section-h reveal" data-it="Contatti" data-en="Contacts">Contatti</div>
+          <div class="contact-items">
+            <div class="ci">
+              <div class="ci-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <div>
+                <div class="ci-label" data-it="Indirizzo" data-en="Address">Indirizzo</div>
+                <div class="ci-val">Via Giuseppe Fiorillo, 39<br>87021 Belvedere Marittimo (CS)</div>
+              </div>
             </div>
-            <div>
-              <div class="ci-label" data-it="Indirizzo" data-en="Address">Indirizzo</div>
-              <div class="ci-val">Via Giuseppe Fiorillo, 39<br>87021 Belvedere Marittimo (CS)</div>
-            </div>
+            <a href="tel:+393205551687" class="ci">
+              <div class="ci-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <div>
+                <div class="ci-label" data-it="Telefono" data-en="Phone">Telefono</div>
+                <div class="ci-val">+39 320 555 1687</div>
+              </div>
+            </a>
+            <a href="https://wa.me/393205551687" class="ci" target="_blank" rel="noopener noreferrer" 
+              <div class="ci-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div>
+                <div class="ci-label">WhatsApp</div>
+                <div class="ci-val" data-it="Scrivici su WhatsApp" data-en="Message us on WhatsApp">Scrivici su WhatsApp</div>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/___mareluna___/" class="ci" target="_blank" rel="noopener noreferrer" 
+              <div class="ci-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </div>
+              <div>
+                <div class="ci-label">Instagram</div>
+                <div class="ci-val">@___mareluna___</div>
+              </div>
+            </a>
           </div>
-          <a href="tel:+393205551687" class="ci" style="margin-bottom:1.5rem;">
-            <div class="ci-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            </div>
-            <div>
-              <div class="ci-label" data-it="Telefono" data-en="Phone">Telefono</div>
-              <div class="ci-val">+39 320 555 1687</div>
-            </div>
-          </a>
-          <a href="https://wa.me/393205551687" class="ci" target="_blank" rel="noopener noreferrer" style="margin-bottom:1.5rem;">
-            <div class="ci-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            </div>
-            <div>
-              <div class="ci-label">WhatsApp</div>
-              <div class="ci-val" data-it="Scrivici su WhatsApp" data-en="Message us on WhatsApp">Scrivici su WhatsApp</div>
-            </div>
-          </a>
-          <a href="https://www.instagram.com/___mareluna___/" class="ci" target="_blank" rel="noopener noreferrer" style="margin-bottom:1.5rem;">
-            <div class="ci-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </div>
-            <div>
-              <div class="ci-label">Instagram</div>
-              <div class="ci-val">@___mareluna___</div>
-            </div>
-          </a>
-          <a href="https://www.facebook.com/p/Mareluna-61577213431492/" class="ci" target="_blank" rel="noopener noreferrer">
-            <div class="ci-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </div>
-            <div>
-              <div class="ci-label">Facebook</div>
-              <div class="ci-val" data-it="Seguici su Facebook" data-en="Follow us on Facebook">Seguici su Facebook</div>
-            </div>
-          </a>
         </div>
       </div>
-    </div>
 
-    <!-- Map full width -->
-    <div class="map-wrap" style="margin-top:48px;">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3050.5!2d15.8539883!3d39.6209761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f03389bd8e31f%3A0x850420d879c0130d!2sMARELUNA%20PIZZERIA%20%26%20BAR!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
-        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        title="Mareluna Pizzeria & Bar — Via Giuseppe Fiorillo 39, Belvedere Marittimo"
-        style="width:100%;height:320px;border:0;display:block;filter:invert(88%) hue-rotate(180deg) saturate(0.7);"></iframe>
+      <!-- RIGHT: Map -->
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:flex-start;">
+        <div class="c-section-label" data-it="Posizione" data-en="Location">Posizione</div>
+        <div class="c-section-h" data-it="Dove siamo" data-en="Where to find us">Dove siamo</div>
+        <div class="map-wrap" style="flex:1;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3050.5!2d15.8539883!3d39.6209761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f03389bd8e31f%3A0x850420d879c0130d!2sMARELUNA%20PIZZERIA%20%26%20BAR!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Mareluna Pizzeria & Bar — Via Giuseppe Fiorillo 39, Belvedere Marittimo"
+            style="height:100%;min-height:420px;"></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </section>
