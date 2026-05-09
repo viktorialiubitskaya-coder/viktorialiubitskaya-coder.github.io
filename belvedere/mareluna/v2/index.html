@@ -806,6 +806,44 @@ footer {
   .corona, .corona2 { animation:none; }
 }
 
+/* ══════════ FAQ ══════════ */
+#faq { background:#f5f1e8; position:relative; overflow:hidden; }
+.faq-wrap { max-width:780px; margin:0 auto; position:relative; z-index:2; }
+.faq-head { text-align:center; margin-bottom:52px; }
+#faq .s-eyebrow { color:var(--navy-mid); }
+#faq .s-title   { color:var(--navy-deep); }
+#faq .s-desc    { color:var(--text-muted-dark); }
+
+.faq-item { border-bottom:1px solid rgba(10,24,56,0.1); }
+.faq-item:first-of-type { border-top:1px solid rgba(10,24,56,0.1); }
+.faq-q {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 0; cursor:pointer;
+  font-family:'Cormorant Garamond',serif; font-size:1.12rem; font-weight:600;
+  color:var(--navy-deep); line-height:1.35;
+  background:none; border:none; width:100%; text-align:left;
+  transition:color 0.22s;
+}
+.faq-q:hover { color:var(--oro); }
+.faq-q:focus-visible { outline:2px solid var(--oro); outline-offset:2px; }
+.faq-icon {
+  width:24px; height:24px; flex-shrink:0; margin-left:20px;
+  border:1px solid rgba(10,24,56,0.2); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  transition:transform 0.32s cubic-bezier(.4,0,.2,1), border-color 0.25s, background 0.25s;
+}
+.faq-icon svg { width:10px; height:10px; stroke:var(--navy-mid); transition:stroke 0.25s; }
+.faq-item.open .faq-icon { background:var(--oro); border-color:var(--oro); transform:rotate(45deg); }
+.faq-item.open .faq-icon svg { stroke:#fff; }
+.faq-item.open .faq-q { color:var(--navy-deep); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height 0.38s cubic-bezier(.4,0,.2,1); }
+.faq-a-inner {
+  padding:0 0 22px;
+  font-size:0.85rem; color:var(--text-muted-dark); font-weight:300; line-height:1.85;
+  max-width:680px;
+}
+.faq-item.open .faq-a { max-height:300px; }
+
 /* ══════════ RESPONSIVE ══════════ */
 @media(max-width:1200px) {
   #menu .pizza-grid { grid-template-columns:repeat(2,1fr); }
@@ -876,6 +914,7 @@ footer {
     <li><a href="#pizza-drink" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">Pizza &amp; Drink</a></li>
     <li><a href="#gallery"     data-it="Galleria"          data-en="Gallery">Galleria</a></li>
     <li><a href="#ordina"      data-it="Ordina"            data-en="Order" style="color:var(--oro);">Ordina</a></li>
+    <li><a href="#faq"         data-it="FAQ"               data-en="FAQ">FAQ</a></li>
     <li><a href="#recensioni"  data-it="Recensioni"        data-en="Reviews">Recensioni</a></li>
     <li><a href="#contatti"    data-it="Contatti"          data-en="Contacts">Contatti</a></li>
   </ul>
@@ -896,6 +935,7 @@ footer {
   <a href="#pizza-drink" onclick="toggleMenu()" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">Pizza &amp; Drink</a>
   <a href="#gallery"     onclick="toggleMenu()" data-it="Galleria"          data-en="Gallery">Galleria</a>
   <a href="#ordina"      onclick="toggleMenu()" data-it="Ordina"            data-en="Order" style="color:var(--oro);">Ordina</a>
+  <a href="#faq"         onclick="toggleMenu()" data-it="FAQ"               data-en="FAQ">FAQ</a>
   <a href="#recensioni"  onclick="toggleMenu()" data-it="Recensioni"        data-en="Reviews">Recensioni</a>
   <a href="#contatti"    onclick="toggleMenu()" data-it="Contatti"          data-en="Contacts">Contatti</a>
 </div>
@@ -1296,6 +1336,102 @@ footer {
   </div>
 </section>
 
+<!-- ══════════════════════════ FAQ ══════════════════════════ -->
+<section id="faq">
+  <div class="faq-wrap">
+
+    <div class="faq-head reveal">
+      <div class="s-eyebrow" data-it="Hai delle domande?" data-en="Got questions?">Hai delle domande?</div>
+      <h2 class="s-title" data-it="Domande Frequenti" data-en="Frequently Asked Questions">Domande Frequenti</h2>
+      <p class="s-desc" data-it="Tutto quello che devi sapere su Mareluna" data-en="Everything you need to know about Mareluna">Tutto quello che devi sapere su Mareluna</p>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span data-it="Dove consegnate la pizza a domicilio?" data-en="Where do you deliver?">Dove consegnate la pizza a domicilio?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner" data-it="Consegniamo in tutto il territorio di Belvedere Marittimo. Per zone limitrofe ti chiediamo di contattarci direttamente su WhatsApp al +39 320 555 1687." data-en="We deliver across all of Belvedere Marittimo. For nearby areas, please contact us directly on WhatsApp at +39 320 555 1687.">Consegniamo in tutto il territorio di Belvedere Marittimo. Per zone limitrofe ti chiediamo di contattarci direttamente su WhatsApp al +39 320 555 1687.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span data-it="Quanto ci vuole per la consegna?" data-en="How long does delivery take?">Quanto ci vuole per la consegna?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner" data-it="I tempi di consegna sono generalmente 30–45 minuti. Nei weekend o durante l'alta stagione potrebbe essere leggermente più lungo. Riceverai una conferma telefonica entro 5 minuti dall'ordine." data-en="Delivery usually takes 30–45 minutes. On weekends or during peak season it may be slightly longer. You'll receive a phone confirmation within 5 minutes of placing your order.">I tempi di consegna sono generalmente 30–45 minuti. Nei weekend o durante l'alta stagione potrebbe essere leggermente più lungo. Riceverai una conferma telefonica entro 5 minuti dall'ordine.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span data-it="Come posso pagare?" data-en="How can I pay?">Come posso pagare?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner" data-it="Accettiamo contanti alla consegna e pagamento con carta di credito o POS. Per il ritiro in loco accettiamo tutti i metodi di pagamento disponibili." data-en="We accept cash on delivery and credit card or POS payment. For in-house pickup, all available payment methods are accepted.">Accettiamo contanti alla consegna e pagamento con carta di credito o POS. Per il ritiro in loco accettiamo tutti i metodi di pagamento disponibili.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span data-it="Avete opzioni per allergie o intolleranze?" data-en="Do you cater for allergies or intolerances?">Avete opzioni per allergie o intolleranze?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner" data-it="Sì! Offriamo mozzarella senza lattosio su richiesta. Per allergie specifiche (glutine, frutta secca ecc.) ti chiediamo di segnalarlo nelle note dell'ordine o di contattarci direttamente — troveremo la soluzione giusta per te." data-en="Yes! We offer lactose-free mozzarella on request. For specific allergies (gluten, nuts etc.) please note it in your order or contact us directly — we'll find the right solution for you.">Sì! Offriamo mozzarella senza lattosio su richiesta. Per allergie specifiche (glutine, frutta secca ecc.) ti chiediamo di segnalarlo nelle note dell'ordine o di contattarci direttamente — troveremo la soluzione giusta per te.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span data-it="C'è un ordine minimo per la consegna?" data-en="Is there a minimum order for delivery?">C'è un ordine minimo per la consegna?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner" data-it="L'ordine minimo per la consegna a domicilio è di €15. Non è previsto costo aggiuntivo di consegna per le zone di Belvedere Marittimo." data-en="The minimum order for home delivery is €15. There is no additional delivery charge within Belvedere Marittimo.">L'ordine minimo per la consegna a domicilio è di €15. Non è previsto costo aggiuntivo di consegna per le zone di Belvedere Marittimo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span data-it="Posso prenotare un tavolo?" data-en="Can I book a table?">Posso prenotare un tavolo?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner" data-it="Certo! Puoi prenotare un tavolo su WhatsApp al +39 320 555 1687 o chiamandoci. La prenotazione è consigliata nei fine settimana e durante l'alta stagione estiva." data-en="Of course! You can book a table on WhatsApp at +39 320 555 1687 or by calling us. Reservations are recommended on weekends and during peak summer season.">Certo! Puoi prenotare un tavolo su WhatsApp al +39 320 555 1687 o chiamandoci. La prenotazione è consigliata nei fine settimana e durante l'alta stagione estiva.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span data-it="Siete pet friendly?" data-en="Are you pet friendly?">Siete pet friendly?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner" data-it="Assolutamente sì! Mareluna è pet friendly — i tuoi amici a 4 zampe sono i benvenuti. Abbiamo spazio all'aperto dove potrete godervi la serata tutti insieme." data-en="Absolutely yes! Mareluna is pet friendly — your four-legged friends are always welcome. We have outdoor space where you can all enjoy the evening together.">Assolutamente sì! Mareluna è pet friendly — i tuoi amici a 4 zampe sono i benvenuti. Abbiamo spazio all'aperto dove potrete godervi la serata tutti insieme.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span data-it="Come funziona l'ordine online?" data-en="How does online ordering work?">Come funziona l'ordine online?</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p class="faq-a-inner" data-it="Seleziona le pizze nella sezione 'Ordina Online', inserisci i tuoi dati e clicca il tasto. Verrai reindirizzato su WhatsApp con il riepilogo già precompilato. Noi confermeremo telefonicamente entro 5 minuti." data-en="Select your pizzas in the 'Order Online' section, enter your details and click the button. You'll be redirected to WhatsApp with your order pre-filled. We'll confirm by phone within 5 minutes.">Seleziona le pizze nella sezione 'Ordina Online', inserisci i tuoi dati e clicca il tasto. Verrai reindirizzato su WhatsApp con il riepilogo già precompilato. Noi confermeremo telefonicamente entro 5 minuti.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════════════════ RECENSIONI ══════════════════════════ -->
 <section id="recensioni">
   <div class="rec-inner">
@@ -1597,10 +1733,26 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{
   });
 })();
 
+// ── FAQ ACCORDION ──
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>{
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+    });
+    if(!wasOpen){
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
+
 // ── ADAPTIVE NAV THEME ──
 (function(){
   const nav=document.querySelector('nav');
-  const lightIds=new Set(['pizza-drink','menu','recensioni']);
+  const lightIds=new Set(['pizza-drink','menu','recensioni','faq']);
   const navObs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting)
