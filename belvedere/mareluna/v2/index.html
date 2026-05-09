@@ -265,9 +265,19 @@ section { padding:72px 60px; }
   font-size:1.2rem; color:var(--oro); text-shadow:var(--oro-glow);
   margin-top:8px;
 }
-.pd-grid {
-  max-width:1350px; margin:0 auto;
-  display:grid; grid-template-columns:repeat(5,1fr); gap:20px;
+.pd-scroll {
+  display:flex; gap:16px;
+  overflow-x:auto; overflow-y:visible;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  padding:4px 0 20px;
+  scrollbar-width:none;
+}
+.pd-scroll::-webkit-scrollbar { display:none; }
+.pd-scroll .c-card {
+  min-width:280px; width:280px;
+  flex-shrink:0;
+  scroll-snap-align:start;
 }
 
 /* Glassmorphism cocktail card */
@@ -575,7 +585,6 @@ footer {
 
 /* ══════════ RESPONSIVE ══════════ */
 @media(max-width:1200px) {
-  .pd-grid { grid-template-columns:repeat(3,1fr); }
   .menu-grid { grid-template-columns:repeat(2,1fr); }
   .m-item:nth-child(3n) { border-right:1px solid rgba(201,169,97,0.06); }
   .m-item:nth-child(2n) { border-right:none; }
@@ -601,7 +610,6 @@ footer {
 @media(max-width:768px) {
   section { padding:44px 20px; }
   .hero-logo { width:240px; }
-  .pd-grid { grid-template-columns:1fr 1fr; }
   .about-cards { grid-template-columns:1fr; }
   .about-stats { flex-direction:column; }
   .about-stat { border-right:none; border-bottom:1px solid var(--oro-dim); }
@@ -622,7 +630,7 @@ footer {
   footer { padding:40px 20px 32px; }
 }
 @media(max-width:480px) {
-  .pd-grid { grid-template-columns:1fr; max-width:360px; margin:0 auto; }
+  .pd-scroll .c-card { min-width:240px; width:240px; }
 }
 </style>
 </head>
@@ -638,8 +646,8 @@ footer {
   </a>
   <ul class="nav-links">
     <li><a href="#about"       data-it="Chi Siamo"        data-en="About">Chi Siamo</a></li>
-    <li><a href="#pizza-drink" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">Pizza &amp; Drink</a></li>
     <li><a href="#menu"        data-it="Menu"              data-en="Menu">Menu</a></li>
+    <li><a href="#pizza-drink" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">Pizza &amp; Drink</a></li>
     <li><a href="#gallery"     data-it="Galleria"          data-en="Gallery">Galleria</a></li>
     <li><a href="#recensioni"  data-it="Recensioni"        data-en="Reviews">Recensioni</a></li>
     <li><a href="#contatti"    data-it="Contatti"          data-en="Contacts">Contatti</a></li>
@@ -657,8 +665,8 @@ footer {
 <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true">
   <button class="close-btn" onclick="toggleMenu()" aria-label="Chiudi menu">×</button>
   <a href="#about"       onclick="toggleMenu()" data-it="Chi Siamo"        data-en="About">Chi Siamo</a>
-  <a href="#pizza-drink" onclick="toggleMenu()" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">Pizza &amp; Drink</a>
   <a href="#menu"        onclick="toggleMenu()" data-it="Menu"              data-en="Menu">Menu</a>
+  <a href="#pizza-drink" onclick="toggleMenu()" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">Pizza &amp; Drink</a>
   <a href="#gallery"     onclick="toggleMenu()" data-it="Galleria"          data-en="Gallery">Galleria</a>
   <a href="#recensioni"  onclick="toggleMenu()" data-it="Recensioni"        data-en="Reviews">Recensioni</a>
   <a href="#contatti"    onclick="toggleMenu()" data-it="Contatti"          data-en="Contacts">Contatti</a>
@@ -766,98 +774,6 @@ footer {
   </div>
 </section>
 
-<!-- wave -->
-<div class="wave-divider" style="background:#05111e;">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
-    <path d="M0,20 C400,70 1000,0 1440,40 L1440,60 L0,60 Z" fill="#081a30"/>
-  </svg>
-</div>
-
-<!-- ══════════════════════════ PIZZA & DRINK ══════════════════════════ -->
-<section id="pizza-drink">
-  <div class="pd-header">
-    <div class="s-eyebrow reveal" data-it="Abbinamenti del Maestro" data-en="Master Pairings">Abbinamenti del Maestro</div>
-    <h2 class="s-title reveal" style="text-align:center;" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">
-      Pizza <span style="color:var(--oro);opacity:0.5;font-weight:300;">·</span> Drink
-    </h2>
-    <p class="pd-tagline reveal" data-it="Vuoi provare?" data-en="Want to try?">Vuoi provare?</p>
-  </div>
-
-  <div class="pd-grid">
-    <div class="c-card reveal">
-      <div class="c-img">
-        <img src="../images/cocktail-gin-monique.jpg" alt="Gin Monique" loading="lazy">
-        <div class="c-img-overlay"></div>
-      </div>
-      <div class="c-body">
-        <div class="c-name">Gin Monique</div>
-        <div class="c-price">€9</div>
-        <div class="c-ing" data-it="Gin Sartoriale · Tonica Fever Tree Premium · Petali di Rosa commestibili" data-en="Artisan Gin · Fever Tree Premium Tonic · Edible Rose petals">Gin Sartoriale · Tonica Fever Tree Premium · Petali di Rosa commestibili</div>
-        <div class="c-pairing" data-it="In abbinamento alla Pizza Vasinicola" data-en="Pairs with Pizza Vasinicola">In abbinamento alla <em>Pizza Vasinicola</em></div>
-      </div>
-    </div>
-
-    <div class="c-card reveal">
-      <div class="c-img">
-        <img src="../images/cocktail-gin-lemon.jpg" alt="Gin Lemon" loading="lazy">
-        <div class="c-img-overlay"></div>
-      </div>
-      <div class="c-body">
-        <div class="c-name">Gin Lemon</div>
-        <div class="c-price">€7</div>
-        <div class="c-ing" data-it="Gin · Lemon Tonic" data-en="Gin · Lemon Tonic">Gin · Lemon Tonic</div>
-        <div class="c-pairing" data-it="In abbinamento alla Pizza Diavola" data-en="Pairs with Pizza Diavola">In abbinamento alla <em>Pizza Diavola</em></div>
-      </div>
-    </div>
-
-    <div class="c-card reveal">
-      <div class="c-img">
-        <img src="../images/cocktail-negroni.jpg" alt="Negroni" loading="lazy">
-        <div class="c-img-overlay"></div>
-      </div>
-      <div class="c-body">
-        <div class="c-name">Negroni</div>
-        <div class="c-price">€5</div>
-        <div class="c-ing" data-it="Gin · Campari · Vermouth Rosso" data-en="Gin · Campari · Red Vermouth">Gin · Campari · Vermouth Rosso</div>
-        <div class="c-pairing" data-it="In abbinamento alla Pizza Leonessa &amp; Napoli" data-en="Pairs with Pizza Leonessa &amp; Napoli">In abbinamento alla <em>Pizza Leonessa &amp; Napoli</em></div>
-      </div>
-    </div>
-
-    <div class="c-card reveal">
-      <div class="c-img">
-        <img src="../images/cocktail-negroni-sbagliato.jpg" alt="Negroni Sbagliato" loading="lazy">
-        <div class="c-img-overlay"></div>
-      </div>
-      <div class="c-body">
-        <div class="c-name">Negroni Sbagliato</div>
-        <div class="c-price">€6</div>
-        <div class="c-ing" data-it="Prosecco · Campari · Vermouth Rosso" data-en="Prosecco · Campari · Red Vermouth">Prosecco · Campari · Vermouth Rosso</div>
-        <div class="c-pairing" data-it="In abbinamento alla Pizza Mareluna" data-en="Pairs with Pizza Mareluna">In abbinamento alla <em>Pizza Mareluna</em></div>
-      </div>
-    </div>
-
-    <div class="c-card reveal">
-      <div class="c-img">
-        <img src="../images/cocktail-spritz.jpg" alt="Spritz" loading="lazy">
-        <div class="c-img-overlay"></div>
-      </div>
-      <div class="c-body">
-        <div class="c-name">Spritz</div>
-        <div class="c-price">€6</div>
-        <div class="c-ing" data-it="Aperol o Campari · Prosecco · Soda" data-en="Aperol or Campari · Prosecco · Soda">Aperol o Campari · Prosecco · Soda</div>
-        <div class="c-pairing" data-it="In abbinamento alla Pizza Regina di Bufala" data-en="Pairs with Pizza Regina di Bufala">In abbinamento alla <em>Pizza Regina di Bufala</em></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- wave -->
-<div class="wave-divider" style="background:#05111e;">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
-    <path d="M0,40 C480,0 960,60 1440,20 L1440,60 L0,60 Z" fill="#081a30"/>
-  </svg>
-</div>
-
 <!-- ══════════════════════════ MENU HIGHLIGHTS ══════════════════════════ -->
 <section id="menu">
   <div class="menu-header reveal">
@@ -942,6 +858,98 @@ footer {
     </a>
   </div>
 </section>
+
+<!-- wave -->
+<div class="wave-divider" style="background:#05111e;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+    <path d="M0,20 C400,70 1000,0 1440,40 L1440,60 L0,60 Z" fill="#081a30"/>
+  </svg>
+</div>
+
+<!-- ══════════════════════════ PIZZA & DRINK ══════════════════════════ -->
+<section id="pizza-drink">
+  <div class="pd-header">
+    <div class="s-eyebrow reveal" data-it="Abbinamenti del Maestro" data-en="Master Pairings">Abbinamenti del Maestro</div>
+    <h2 class="s-title reveal" style="text-align:center;" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">
+      Pizza <span style="color:var(--oro);opacity:0.5;font-weight:300;">·</span> Drink
+    </h2>
+    <p class="pd-tagline reveal" data-it="Vuoi provare?" data-en="Want to try?">Vuoi provare?</p>
+  </div>
+
+  <div class="pd-scroll">
+    <div class="c-card reveal">
+      <div class="c-img">
+        <img src="../images/cocktail-gin-monique.jpg" alt="Gin Monique" loading="lazy">
+        <div class="c-img-overlay"></div>
+      </div>
+      <div class="c-body">
+        <div class="c-name">Gin Monique</div>
+        <div class="c-price">€9</div>
+        <div class="c-ing" data-it="Gin Sartoriale · Tonica Fever Tree Premium · Petali di Rosa commestibili" data-en="Artisan Gin · Fever Tree Premium Tonic · Edible Rose petals">Gin Sartoriale · Tonica Fever Tree Premium · Petali di Rosa commestibili</div>
+        <div class="c-pairing" data-it="In abbinamento alla Pizza Vasinicola" data-en="Pairs with Pizza Vasinicola">In abbinamento alla <em>Pizza Vasinicola</em></div>
+      </div>
+    </div>
+
+    <div class="c-card reveal">
+      <div class="c-img">
+        <img src="../images/cocktail-gin-lemon.jpg" alt="Gin Lemon" loading="lazy">
+        <div class="c-img-overlay"></div>
+      </div>
+      <div class="c-body">
+        <div class="c-name">Gin Lemon</div>
+        <div class="c-price">€7</div>
+        <div class="c-ing" data-it="Gin · Lemon Tonic" data-en="Gin · Lemon Tonic">Gin · Lemon Tonic</div>
+        <div class="c-pairing" data-it="In abbinamento alla Pizza Diavola" data-en="Pairs with Pizza Diavola">In abbinamento alla <em>Pizza Diavola</em></div>
+      </div>
+    </div>
+
+    <div class="c-card reveal">
+      <div class="c-img">
+        <img src="../images/cocktail-negroni.jpg" alt="Negroni" loading="lazy">
+        <div class="c-img-overlay"></div>
+      </div>
+      <div class="c-body">
+        <div class="c-name">Negroni</div>
+        <div class="c-price">€5</div>
+        <div class="c-ing" data-it="Gin · Campari · Vermouth Rosso" data-en="Gin · Campari · Red Vermouth">Gin · Campari · Vermouth Rosso</div>
+        <div class="c-pairing" data-it="In abbinamento alla Pizza Leonessa &amp; Napoli" data-en="Pairs with Pizza Leonessa &amp; Napoli">In abbinamento alla <em>Pizza Leonessa &amp; Napoli</em></div>
+      </div>
+    </div>
+
+    <div class="c-card reveal">
+      <div class="c-img">
+        <img src="../images/cocktail-negroni-sbagliato.jpg" alt="Negroni Sbagliato" loading="lazy">
+        <div class="c-img-overlay"></div>
+      </div>
+      <div class="c-body">
+        <div class="c-name">Negroni Sbagliato</div>
+        <div class="c-price">€6</div>
+        <div class="c-ing" data-it="Prosecco · Campari · Vermouth Rosso" data-en="Prosecco · Campari · Red Vermouth">Prosecco · Campari · Vermouth Rosso</div>
+        <div class="c-pairing" data-it="In abbinamento alla Pizza Mareluna" data-en="Pairs with Pizza Mareluna">In abbinamento alla <em>Pizza Mareluna</em></div>
+      </div>
+    </div>
+
+    <div class="c-card reveal">
+      <div class="c-img">
+        <img src="../images/cocktail-spritz.jpg" alt="Spritz" loading="lazy">
+        <div class="c-img-overlay"></div>
+      </div>
+      <div class="c-body">
+        <div class="c-name">Spritz</div>
+        <div class="c-price">€6</div>
+        <div class="c-ing" data-it="Aperol o Campari · Prosecco · Soda" data-en="Aperol or Campari · Prosecco · Soda">Aperol o Campari · Prosecco · Soda</div>
+        <div class="c-pairing" data-it="In abbinamento alla Pizza Regina di Bufala" data-en="Pairs with Pizza Regina di Bufala">In abbinamento alla <em>Pizza Regina di Bufala</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- wave -->
+<div class="wave-divider" style="background:#081a30;">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+    <path d="M0,40 C480,0 960,60 1440,20 L1440,60 L0,60 Z" fill="#05111e"/>
+  </svg>
+</div>
 
 <!-- ══════════════════════════ GALLERIA ══════════════════════════ -->
 <section id="gallery" style="padding:0 0 70px;">
