@@ -70,7 +70,7 @@ nav.scrolled {
   border-bottom:1px solid var(--oro-dim);
 }
 .nav-logo { display:flex; align-items:center; gap:14px; text-decoration:none; cursor:pointer; }
-.nav-logo img { width:40px; height:40px; object-fit:contain; }
+.nav-logo img { width:auto; height:40px; max-width:none; display:block; }
 .nav-logo-name {
   font-family:'Cinzel',serif; font-size:1rem; font-weight:600;
   color:var(--white); letter-spacing:4px; text-transform:uppercase;
@@ -305,12 +305,13 @@ section { padding:72px 60px; }
 }
 @media(min-width:1280px) {
   .pd-scroll {
+    display:grid;
+    grid-template-columns:repeat(5, minmax(0, 1fr));
     overflow-x:visible; scroll-snap-type:none;
-    flex-wrap:nowrap; justify-content:center; max-width:1320px; margin:0 auto;
+    max-width:1280px; margin:0 auto;
   }
   .pd-scroll .c-card {
-    min-width:0; width:calc((100% - 64px) / 5);
-    flex-shrink:1; flex-grow:1; max-width:240px; scroll-snap-align:none;
+    min-width:0; width:100%; scroll-snap-align:none;
   }
 }
 
