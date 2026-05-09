@@ -316,6 +316,11 @@ section { padding:72px 60px; }
   height:360px; pointer-events:none; z-index:1;
   background:linear-gradient(180deg, #f5f1e8 0%, #f5f1e8 35%, rgba(245,241,232,0.55) 68%, transparent 100%);
 }
+#pizza-drink::after {
+  content:''; position:absolute; bottom:0; left:0; right:0;
+  height:180px; pointer-events:none; z-index:1;
+  background:linear-gradient(180deg, transparent 0%, #152a52 100%);
+}
 .pd-header { text-align:center; margin-bottom:44px; position:relative; z-index:2; }
 .pd-tagline {
   font-family:'Cormorant Garamond',serif; font-style:italic;
@@ -521,6 +526,11 @@ section { padding:72px 60px; }
 
 /* ══════════ GALLERY ══════════ */
 #gallery { background:linear-gradient(160deg,#152a52 0%,#0a1838 100%); padding:0 0 60px; position:relative; overflow:hidden; }
+#gallery::after {
+  content:''; position:absolute; bottom:0; left:0; right:0;
+  height:160px; pointer-events:none; z-index:1;
+  background:linear-gradient(180deg, transparent 0%, #f5f1e8 100%);
+}
 .gallery-headline {
   text-align:center; padding:72px 60px 44px;
 }
@@ -557,11 +567,22 @@ section { padding:72px 60px; }
 .gallery-ig a:hover { color:var(--oro); }
 
 /* ══════════ RECENSIONI ══════════ */
-#recensioni { background-image:url('../assets/bg-recensioni.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat; position:relative; overflow:hidden; }
+#recensioni {
+  background-image:
+    linear-gradient(to left, rgba(245,241,232,0.96) 0%, rgba(245,241,232,0) 42%),
+    url('../assets/bg-recensioni.jpg');
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+  position:relative; overflow:hidden;
+}
 #recensioni::before {
   content:''; position:absolute; top:0; left:0; right:0;
   height:340px; pointer-events:none; z-index:1;
   background:linear-gradient(180deg, #f5f1e8 0%, #f5f1e8 35%, rgba(245,241,232,0.55) 68%, transparent 100%);
+}
+#recensioni::after {
+  content:''; position:absolute; bottom:0; left:0; right:0;
+  height:180px; pointer-events:none; z-index:1;
+  background:linear-gradient(180deg, transparent 0%, #0a1838 100%);
 }
 .rec-inner { max-width:900px; margin:0 auto; text-align:center; position:relative; z-index:2; }
 .rec-stars { color:var(--oro); font-size:1rem; letter-spacing:5px; margin-bottom:12px; }
@@ -597,7 +618,12 @@ section { padding:72px 60px; }
 
 /* ══════════ CONTATTI ══════════ */
 #contatti { background-image:url('../assets/bg-contatti.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat; position:relative; overflow:hidden; }
-.contatti-inner { max-width:1200px; margin:0 auto; }
+#contatti::before {
+  content:''; position:absolute; top:0; left:0; right:0;
+  height:160px; pointer-events:none; z-index:1;
+  background:linear-gradient(180deg, #0a1838 0%, transparent 100%);
+}
+.contatti-inner { max-width:1200px; margin:0 auto; position:relative; z-index:2; }
 .contatti-header { margin-bottom:60px; }
 .contatti-grid {
   display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-bottom:0;
