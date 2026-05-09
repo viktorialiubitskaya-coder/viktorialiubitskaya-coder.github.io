@@ -410,6 +410,11 @@ section { padding:72px 60px; }
   height:400px; pointer-events:none; z-index:1;
   background:linear-gradient(180deg, #f5f1e8 0%, #f5f1e8 40%, rgba(245,241,232,0.6) 72%, transparent 100%);
 }
+#menu::after {
+  content:''; position:absolute; bottom:0; left:0; right:0;
+  height:120px; pointer-events:none; z-index:1;
+  background:linear-gradient(180deg, transparent 0%, rgba(10,24,56,0.07) 100%);
+}
 #menu .menu-wrap { max-width:1100px; margin:0 auto; position:relative; z-index:2; }
 #menu .menu-head { text-align:center; margin-bottom:40px; }
 #menu .menu-head .s-desc { margin:0 auto; }
