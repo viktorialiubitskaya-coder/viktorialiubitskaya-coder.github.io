@@ -531,11 +531,80 @@ section { padding:72px 60px; }
 
 /* ══════════ GALLERY ══════════ */
 #gallery { background:linear-gradient(160deg,#152a52 0%,#0a1838 100%); padding:0 0 60px; position:relative; overflow:hidden; }
-#gallery::after {
+
+/* ══════════ ORDINA ONLINE ══════════ */
+#ordina { background:linear-gradient(180deg,#0a1838 0%,#0d2548 60%,#0a1838 100%); position:relative; overflow:hidden; }
+#ordina::after {
   content:''; position:absolute; bottom:0; left:0; right:0;
   height:160px; pointer-events:none; z-index:1;
   background:linear-gradient(180deg, transparent 0%, #f5f1e8 100%);
 }
+.ordina-inner { max-width:820px; margin:0 auto; position:relative; z-index:2; }
+.ordina-head { text-align:center; margin-bottom:48px; }
+.ordina-form { display:flex; flex-direction:column; gap:28px; }
+.ordina-block-label {
+  font-size:0.6rem; letter-spacing:4px; text-transform:uppercase;
+  color:var(--oro); margin-bottom:16px;
+  display:flex; align-items:center; gap:14px;
+}
+.ordina-block-label::after { content:''; flex:1; height:1px; background:rgba(201,169,97,0.15); }
+.pp-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
+.pp-item {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:13px 18px; background:rgba(255,255,255,0.03);
+  border:1px solid rgba(201,169,97,0.08); transition:background 0.2s, border-color 0.2s; cursor:default;
+}
+.pp-item.active { background:rgba(201,169,97,0.07); border-color:rgba(201,169,97,0.28); }
+.pp-name { font-family:'Cormorant Garamond',serif; font-size:0.98rem; color:var(--cream-light); margin-bottom:2px; }
+.pp-price-tag { font-size:0.68rem; color:var(--oro); }
+.pp-qty { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.pp-btn {
+  width:26px; height:26px; border-radius:50%;
+  background:transparent; border:1px solid rgba(201,169,97,0.3);
+  color:var(--oro); font-size:1.1rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:all 0.18s; line-height:1; padding:0;
+}
+.pp-btn:hover:not(:disabled) { background:var(--oro); color:#0a1838; border-color:var(--oro); }
+.pp-btn:disabled { opacity:0.22; cursor:default; }
+.pp-count { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--cream-light); min-width:16px; text-align:center; }
+.ordina-fields { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.ordina-fields input,
+.ordina-fields select,
+.ordina-fields textarea {
+  background:rgba(255,255,255,0.04); border:1px solid rgba(201,169,97,0.14);
+  color:var(--cream-light); padding:13px 16px;
+  font-family:'Montserrat',sans-serif; font-size:0.77rem;
+  outline:none; transition:border-color 0.2s; width:100%; -webkit-appearance:none;
+}
+.ordina-fields input::placeholder,
+.ordina-fields select::placeholder,
+.ordina-fields textarea::placeholder { color:rgba(232,230,225,0.32); }
+.ordina-fields input:focus,
+.ordina-fields select:focus,
+.ordina-fields textarea:focus { border-color:rgba(201,169,97,0.5); }
+.ordina-fields select option { background:#0a1838; color:var(--cream-light); }
+.ordina-fields .full { grid-column:1/-1; }
+.ordina-fields textarea { height:72px; resize:none; }
+.ordina-summary {
+  background:rgba(201,169,97,0.05); border:1px solid rgba(201,169,97,0.14); padding:18px 22px;
+}
+.summary-label { font-size:0.58rem; letter-spacing:4px; text-transform:uppercase; color:var(--oro); margin-bottom:12px; }
+.summary-row { display:flex; justify-content:space-between; font-size:0.78rem; color:var(--cream-dim); padding:3px 0; }
+.summary-divider { height:1px; background:rgba(201,169,97,0.12); margin:12px 0; }
+.summary-total-row { display:flex; justify-content:space-between; font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--cream-light); }
+.summary-total-row span:last-child { color:var(--oro); }
+.summary-empty { font-size:0.75rem; color:rgba(232,230,225,0.28); font-style:italic; }
+.ordina-submit {
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  background:var(--oro); color:#0a1838; padding:17px 40px;
+  border:none; cursor:pointer; width:100%;
+  font-family:'Montserrat',sans-serif; font-size:0.66rem; font-weight:600;
+  letter-spacing:3px; text-transform:uppercase; transition:all 0.22s;
+}
+.ordina-submit:hover { background:var(--cream-light); }
+.ordina-submit:disabled { opacity:0.4; cursor:not-allowed; }
+.ordina-foot-note { font-size:0.62rem; color:rgba(232,230,225,0.22); text-align:center; margin-top:10px; letter-spacing:1px; }
 .gallery-headline {
   text-align:center; padding:72px 60px 44px;
 }
@@ -764,6 +833,9 @@ footer {
 @media(max-width:768px) {
   section { padding:44px 20px; }
   .hero-logo { width:240px; }
+  .pp-grid { grid-template-columns:1fr; }
+  .ordina-fields { grid-template-columns:1fr; }
+  .ordina-fields .full { grid-column:auto; }
   .about-cards { grid-template-columns:1fr; }
   .about-stats { flex-direction:column; }
   .about-stat { border-right:none; border-bottom:1px solid var(--oro-dim); }
@@ -803,6 +875,7 @@ footer {
     <li><a href="#menu"        data-it="Menu"              data-en="Menu">Menu</a></li>
     <li><a href="#pizza-drink" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">Pizza &amp; Drink</a></li>
     <li><a href="#gallery"     data-it="Galleria"          data-en="Gallery">Galleria</a></li>
+    <li><a href="#ordina"      data-it="Ordina"            data-en="Order" style="color:var(--oro);">Ordina</a></li>
     <li><a href="#recensioni"  data-it="Recensioni"        data-en="Reviews">Recensioni</a></li>
     <li><a href="#contatti"    data-it="Contatti"          data-en="Contacts">Contatti</a></li>
   </ul>
@@ -822,6 +895,7 @@ footer {
   <a href="#menu"        onclick="toggleMenu()" data-it="Menu"              data-en="Menu">Menu</a>
   <a href="#pizza-drink" onclick="toggleMenu()" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">Pizza &amp; Drink</a>
   <a href="#gallery"     onclick="toggleMenu()" data-it="Galleria"          data-en="Gallery">Galleria</a>
+  <a href="#ordina"      onclick="toggleMenu()" data-it="Ordina"            data-en="Order" style="color:var(--oro);">Ordina</a>
   <a href="#recensioni"  onclick="toggleMenu()" data-it="Recensioni"        data-en="Reviews">Recensioni</a>
   <a href="#contatti"    onclick="toggleMenu()" data-it="Contatti"          data-en="Contacts">Contatti</a>
 </div>
@@ -1129,6 +1203,99 @@ footer {
   </div>
 </section>
 
+<!-- ══════════════════════════ ORDINA ONLINE ══════════════════════════ -->
+<section id="ordina">
+  <div class="ordina-inner">
+
+    <div class="ordina-head reveal">
+      <div class="s-eyebrow" data-it="Consegna a domicilio · Belvedere Marittimo" data-en="Home delivery · Belvedere Marittimo">Consegna a domicilio · Belvedere Marittimo</div>
+      <h2 class="s-title" data-it="Ordina Online" data-en="Order Online">Ordina Online</h2>
+      <p class="s-desc" data-it="Scegli le tue pizze preferite e ricevile a casa" data-en="Choose your favourite pizzas and get them delivered">Scegli le tue pizze preferite e ricevile a casa</p>
+    </div>
+
+    <form class="ordina-form" id="ordinaForm" novalidate>
+
+      <div class="ordina-block reveal">
+        <div class="ordina-block-label" data-it="1 · Scegli le pizze" data-en="1 · Choose your pizzas">1 · Scegli le pizze</div>
+        <div class="pp-grid">
+          <div class="pp-item" data-pizza="Margherita" data-price="6">
+            <div><div class="pp-name">Margherita</div><div class="pp-price-tag">€6</div></div>
+            <div class="pp-qty"><button type="button" class="pp-btn pp-minus" disabled>−</button><span class="pp-count">0</span><button type="button" class="pp-btn pp-plus">+</button></div>
+          </div>
+          <div class="pp-item" data-pizza="Diavola" data-price="10">
+            <div><div class="pp-name">Diavola</div><div class="pp-price-tag">€10</div></div>
+            <div class="pp-qty"><button type="button" class="pp-btn pp-minus" disabled>−</button><span class="pp-count">0</span><button type="button" class="pp-btn pp-plus">+</button></div>
+          </div>
+          <div class="pp-item" data-pizza="Regina di Bufala" data-price="10">
+            <div><div class="pp-name">Regina di Bufala</div><div class="pp-price-tag">€10</div></div>
+            <div class="pp-qty"><button type="button" class="pp-btn pp-minus" disabled>−</button><span class="pp-count">0</span><button type="button" class="pp-btn pp-plus">+</button></div>
+          </div>
+          <div class="pp-item" data-pizza="Leonessa" data-price="14">
+            <div><div class="pp-name">Leonessa</div><div class="pp-price-tag">€14</div></div>
+            <div class="pp-qty"><button type="button" class="pp-btn pp-minus" disabled>−</button><span class="pp-count">0</span><button type="button" class="pp-btn pp-plus">+</button></div>
+          </div>
+          <div class="pp-item" data-pizza="Calzone Terra Mia" data-price="12">
+            <div><div class="pp-name">Calzone Terra Mia</div><div class="pp-price-tag">€12</div></div>
+            <div class="pp-qty"><button type="button" class="pp-btn pp-minus" disabled>−</button><span class="pp-count">0</span><button type="button" class="pp-btn pp-plus">+</button></div>
+          </div>
+          <div class="pp-item" data-pizza="Vasinicola" data-price="12">
+            <div><div class="pp-name">Vasinicola</div><div class="pp-price-tag">€12</div></div>
+            <div class="pp-qty"><button type="button" class="pp-btn pp-minus" disabled>−</button><span class="pp-count">0</span><button type="button" class="pp-btn pp-plus">+</button></div>
+          </div>
+          <div class="pp-item" data-pizza="Cornetto di Bufala" data-price="14">
+            <div><div class="pp-name">Cornetto di Bufala</div><div class="pp-price-tag">€14</div></div>
+            <div class="pp-qty"><button type="button" class="pp-btn pp-minus" disabled>−</button><span class="pp-count">0</span><button type="button" class="pp-btn pp-plus">+</button></div>
+          </div>
+          <div class="pp-item" data-pizza="MareLuna ✦" data-price="13">
+            <div><div class="pp-name">MareLuna ✦</div><div class="pp-price-tag">€13</div></div>
+            <div class="pp-qty"><button type="button" class="pp-btn pp-minus" disabled>−</button><span class="pp-count">0</span><button type="button" class="pp-btn pp-plus">+</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ordina-block reveal">
+        <div class="ordina-block-label" data-it="2 · Dati di consegna" data-en="2 · Delivery details">2 · Dati di consegna</div>
+        <div class="ordina-fields">
+          <input type="text"  id="ord-nome"      placeholder="Nome e Cognome *" required>
+          <input type="tel"   id="ord-telefono"  placeholder="Telefono *" required>
+          <input type="text"  id="ord-indirizzo" placeholder="Via e numero civico *" required class="full">
+          <select id="ord-orario">
+            <option value="">Orario desiderato</option>
+            <option>19:00</option><option>19:30</option><option>20:00</option>
+            <option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option>
+          </select>
+          <select id="ord-pagamento">
+            <option value="contanti">Contanti alla consegna</option>
+            <option value="carta">Carta / POS</option>
+          </select>
+          <textarea id="ord-note" placeholder="Note: allergie, citofono, piano..." class="full"></textarea>
+        </div>
+      </div>
+
+      <div class="ordina-summary reveal" id="ordinaSummary">
+        <div class="summary-label" data-it="Riepilogo ordine" data-en="Order summary">Riepilogo ordine</div>
+        <div id="summaryRows"><p class="summary-empty" data-it="Nessuna pizza selezionata" data-en="No pizza selected">Nessuna pizza selezionata</p></div>
+        <div id="summaryTotalWrap" style="display:none">
+          <div class="summary-divider"></div>
+          <div class="summary-total-row">
+            <span data-it="Totale" data-en="Total">Totale</span>
+            <span id="totalAmount">€0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <button type="submit" class="ordina-submit" id="ordinaSubmit">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-it="Invia Ordine via WhatsApp" data-en="Send Order via WhatsApp">Invia Ordine via WhatsApp</span>
+        </button>
+        <p class="ordina-foot-note" data-it="Conferma telefonica entro 5 minuti · Solo Belvedere Marittimo · Pagamento alla consegna" data-en="Phone confirmation within 5 min · Belvedere Marittimo only · Cash on delivery">Conferma telefonica entro 5 minuti · Solo Belvedere Marittimo · Pagamento alla consegna</p>
+      </div>
+
+    </form>
+  </div>
+</section>
+
 <!-- ══════════════════════════ RECENSIONI ══════════════════════════ -->
 <section id="recensioni">
   <div class="rec-inner">
@@ -1367,6 +1534,68 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{
   el.style.transitionDelay=(i%4*0.08)+'s';
   observer.observe(el);
 });
+
+// ── ORDINA FORM ──
+(function(){
+  const form = document.getElementById('ordinaForm');
+  if (!form) return;
+  const order = {};
+  document.querySelectorAll('.pp-item').forEach(item => {
+    const name = item.dataset.pizza;
+    const price = parseInt(item.dataset.price);
+    order[name] = {price, qty:0};
+    const minus = item.querySelector('.pp-minus');
+    const plus  = item.querySelector('.pp-plus');
+    const count = item.querySelector('.pp-count');
+    plus.addEventListener('click', () => {
+      order[name].qty++;
+      count.textContent = order[name].qty;
+      minus.disabled = false;
+      item.classList.add('active');
+      updateSummary();
+    });
+    minus.addEventListener('click', () => {
+      if (order[name].qty < 1) return;
+      order[name].qty--;
+      count.textContent = order[name].qty;
+      if (!order[name].qty) { minus.disabled = true; item.classList.remove('active'); }
+      updateSummary();
+    });
+  });
+  function updateSummary() {
+    let total = 0;
+    const rows = [];
+    Object.entries(order).forEach(([name,{price,qty}]) => {
+      if (qty > 0) { total += price * qty; rows.push(`<div class="summary-row"><span>${qty}× ${name}</span><span>€${price*qty}</span></div>`); }
+    });
+    document.getElementById('summaryRows').innerHTML = rows.length
+      ? rows.join('')
+      : '<p class="summary-empty">Nessuna pizza selezionata</p>';
+    const wrap = document.getElementById('summaryTotalWrap');
+    wrap.style.display = rows.length ? '' : 'none';
+    if (rows.length) document.getElementById('totalAmount').textContent = '€' + total;
+    return total;
+  }
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const pizzas = Object.entries(order).filter(([,v]) => v.qty > 0);
+    if (!pizzas.length) { alert('Seleziona almeno una pizza'); return; }
+    const nome      = document.getElementById('ord-nome').value.trim();
+    const telefono  = document.getElementById('ord-telefono').value.trim();
+    const indirizzo = document.getElementById('ord-indirizzo').value.trim();
+    if (!nome || !telefono || !indirizzo) { alert('Compila i campi obbligatori (*)'); return; }
+    const orario   = document.getElementById('ord-orario').value    || 'Prima disponibile';
+    const pagamento= document.getElementById('ord-pagamento').value || 'Contanti';
+    const note     = document.getElementById('ord-note').value.trim();
+    const total    = pizzas.reduce((s,[,{price,qty}]) => s + price*qty, 0);
+    let msg = '🍕 *ORDINE MARELUNA*\n\n';
+    pizzas.forEach(([n,{price,qty}]) => { msg += `• ${qty}× ${n}  €${price*qty}\n`; });
+    msg += `\n*Totale: €${total}*\n\n`;
+    msg += `👤 ${nome}\n📱 ${telefono}\n📍 ${indirizzo}\n🕐 ${orario}\n💳 ${pagamento}`;
+    if (note) msg += `\n📝 ${note}`;
+    window.open('https://wa.me/393205551687?text=' + encodeURIComponent(msg), '_blank');
+  });
+})();
 
 // ── ADAPTIVE NAV THEME ──
 (function(){
