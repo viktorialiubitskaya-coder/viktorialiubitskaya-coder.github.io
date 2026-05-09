@@ -58,7 +58,7 @@ body {
 /* ── NAV ── */
 nav {
   position:fixed; top:0; width:100%; z-index:1000;
-  padding:22px 60px;
+  padding:16px 40px;
   display:flex; justify-content:space-between; align-items:center;
   transition:all 0.4s;
 }
@@ -66,21 +66,21 @@ nav.scrolled {
   background:rgba(3,8,15,0.95);
   backdrop-filter:blur(24px);
   -webkit-backdrop-filter:blur(24px);
-  padding:14px 60px;
+  padding:12px 40px;
   border-bottom:1px solid var(--oro-dim);
 }
-.nav-logo { display:flex; align-items:center; gap:14px; text-decoration:none; cursor:pointer; }
-.nav-logo img { width:auto; height:40px; max-width:none; display:block; }
+.nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; cursor:pointer; flex-shrink:0; }
+.nav-logo img { width:auto; height:28px; max-width:none; display:block; }
 .nav-logo-name {
-  font-family:'Cinzel',serif; font-size:1rem; font-weight:600;
-  color:var(--white); letter-spacing:4px; text-transform:uppercase;
+  font-family:'Cinzel',serif; font-size:0.9rem; font-weight:600;
+  color:var(--white); letter-spacing:3px; text-transform:uppercase;
 }
 .nav-logo-name b { color:var(--oro); font-weight:600; }
-.nav-links { display:flex; gap:32px; list-style:none; }
+.nav-links { display:flex; gap:24px; list-style:none; }
 .nav-links a {
   color:rgba(255,255,255,0.65); text-decoration:none;
-  font-size:0.68rem; font-weight:300; letter-spacing:3px; text-transform:uppercase;
-  transition:color 0.25s;
+  font-size:0.62rem; font-weight:300; letter-spacing:2.5px; text-transform:uppercase;
+  white-space:nowrap; transition:color 0.25s;
 }
 .nav-links a:hover { color:var(--oro); }
 .nav-right { display:flex; gap:12px; align-items:center; }
@@ -229,7 +229,7 @@ section { padding:72px 60px; }
 }
 
 /* ══════════ CHI SIAMO ══════════ */
-#about { background-image:url('../assets/bg-chi-siamo.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat; position:relative; overflow:hidden; }
+#about { background:linear-gradient(180deg,#0a1838 0%,#152a52 100%); position:relative; overflow:hidden; }
 .about-grid {
   max-width:1200px; margin:0 auto;
   display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;
