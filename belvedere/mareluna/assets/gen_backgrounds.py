@@ -2,7 +2,7 @@
 """Generate section background images via Google Imagen 4."""
 import base64, json, os, subprocess, requests
 
-API_KEY = "AIzaSyC0GxjzTeLU3hfioBx7MDW4FtbynzXhwGU"
+API_KEY = "AIzaSyDe0KI-k4aip5ufMKi0WjnCYNfy6IrUkNI"
 BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=" + API_KEY
 OUT = os.path.dirname(os.path.abspath(__file__))
 
