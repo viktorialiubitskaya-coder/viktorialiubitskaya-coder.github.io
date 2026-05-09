@@ -1734,6 +1734,10 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{
 })();
 
 // ── FAQ ACCORDION ──
+setTimeout(()=>{
+  const first=document.querySelector('.faq-item');
+  if(first){ first.classList.add('open'); first.querySelector('.faq-q').setAttribute('aria-expanded','true'); }
+},700);
 document.querySelectorAll('.faq-q').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const item=btn.closest('.faq-item');
