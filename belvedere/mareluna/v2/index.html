@@ -389,80 +389,89 @@ section { padding:72px 60px; }
 }
 
 /* ══════════ MENU HIGHLIGHTS ══════════ */
-#menu { background-image:url('../assets/bg-menu-highlights.jpg'); background-size:cover; background-position:center; background-repeat:no-repeat; position:relative; overflow:hidden; }
-.menu-header { text-align:center; margin-bottom:36px; }
-.menu-header .s-desc { margin:0 auto; }
+#menu {
+  background-image:url('../assets/bg-menu-highlights.jpg');
+  background-size:cover; background-position:center; background-repeat:no-repeat;
+  position:relative; overflow:hidden;
+}
+#menu .menu-wrap { max-width:1100px; margin:0 auto; }
+#menu .menu-head { text-align:center; margin-bottom:40px; }
+#menu .menu-head .s-desc { margin:0 auto; }
 
-.menu-featured {
-  max-width:1100px; margin:0 auto 20px;
-  display:grid; grid-template-columns:1fr 1fr; gap:0;
-  border:1px solid rgba(201,169,97,0.2);
-  background:rgba(201,169,97,0.03);
+#menu .feat {
+  display:grid; grid-template-columns:1fr 1fr;
+  border:1px solid rgba(10,24,56,0.15);
+  background:rgba(10,24,56,0.04);
+  margin-bottom:0;
 }
-.mf-image { position:relative; overflow:hidden; min-height:280px; }
-.mf-image img { width:100%; height:100%; object-fit:cover; display:block; }
-.mf-overlay {
+#menu .feat-img { position:relative; overflow:hidden; min-height:280px; }
+#menu .feat-img img { width:100%; height:100%; object-fit:cover; display:block; }
+#menu .feat-img-overlay {
   position:absolute; inset:0;
-  background:linear-gradient(to right, rgba(5,17,30,0.5), transparent);
+  background:linear-gradient(to right, rgba(10,24,56,0.35), transparent);
 }
-.mf-badge {
+#menu .feat-badge {
   position:absolute; top:20px; left:20px;
   background:var(--oro); color:var(--bg);
-  font-size:0.6rem; font-weight:700; letter-spacing:3px;
+  font-size:0.58rem; font-weight:700; letter-spacing:3px;
   text-transform:uppercase; padding:5px 12px;
 }
-.mf-body {
-  padding:28px 36px; display:flex; flex-direction:column; justify-content:center;
+#menu .feat-body {
+  padding:32px 40px; display:flex; flex-direction:column; justify-content:center;
 }
-.mf-eyebrow { font-size:0.6rem; letter-spacing:5px; text-transform:uppercase; color:var(--oro); margin-bottom:10px; }
-.mf-name {
+#menu .feat-eye { font-size:0.58rem; letter-spacing:5px; text-transform:uppercase; color:var(--oro); margin-bottom:10px; }
+#menu .feat-name {
   font-family:'Cormorant Garamond',serif;
-  font-size:2.4rem; font-weight:300; color:var(--white); margin-bottom:10px;
+  font-size:2.4rem; font-weight:300; color:var(--navy-deep); margin-bottom:10px; line-height:1.1;
 }
-.mf-desc { font-size:0.8rem; color:var(--cream-dim); font-weight:300; line-height:1.8; margin-bottom:20px; }
-.mf-price { font-family:'Cormorant Garamond',serif; font-size:2rem; color:var(--oro); text-shadow:var(--oro-glow); }
+#menu .feat-desc { font-size:0.8rem; color:var(--text-muted-dark); font-weight:300; line-height:1.8; margin-bottom:22px; }
+#menu .feat-price { font-family:'Cormorant Garamond',serif; font-size:2rem; color:var(--oro); }
 
-.menu-grid {
-  max-width:1100px; margin:0 auto 16px;
-  display:grid; grid-template-columns:repeat(3,1fr); gap:0;
-  border:1px solid rgba(201,169,97,0.08);
-  border-top:none;
+#menu .pizza-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  border:1px solid rgba(10,24,56,0.1); border-top:none;
+  margin-bottom:0;
 }
-.m-item {
-  padding:16px 24px;
-  border-bottom:1px solid rgba(201,169,97,0.06);
-  border-right:1px solid rgba(201,169,97,0.06);
+#menu .pizza-item {
+  padding:16px 22px;
+  border-bottom:1px solid rgba(10,24,56,0.07);
+  border-right:1px solid rgba(10,24,56,0.07);
   display:flex; justify-content:space-between; align-items:flex-start;
-  transition:background 0.2s; cursor:default;
+  transition:background 0.2s;
 }
-.m-item:hover { background:rgba(201,169,97,0.03); }
-.m-item:nth-child(3n) { border-right:none; }
-.m-item:nth-child(n+5) { border-bottom:none; }
-.m-info { flex:1; padding-right:14px; }
-.m-name {
+#menu .pizza-item:nth-child(3n) { border-right:none; }
+#menu .pizza-item:last-child,
+#menu .pizza-item:nth-last-child(2),
+#menu .pizza-item:nth-last-child(3) { border-bottom:none; }
+#menu .pizza-item:hover { background:rgba(10,24,56,0.04); }
+#menu .pizza-info { flex:1; padding-right:14px; }
+#menu .pizza-name {
   font-family:'Cormorant Garamond',serif;
-  font-size:1.05rem; font-weight:600; color:var(--white); margin-bottom:4px;
+  font-size:1.05rem; font-weight:600; color:var(--navy-deep); margin-bottom:3px;
 }
-.m-desc { font-size:0.72rem; color:rgba(237,233,227,0.45); font-weight:300; line-height:1.6; }
-.m-price {
+#menu .pizza-desc { font-size:0.7rem; color:var(--text-muted-dark); font-weight:300; line-height:1.6; }
+#menu .pizza-price {
   font-family:'Cormorant Garamond',serif;
-  font-size:1.15rem; color:var(--oro); white-space:nowrap; flex-shrink:0;
+  font-size:1.12rem; color:var(--oro); white-space:nowrap; flex-shrink:0;
 }
-.menu-footer {
-  max-width:1100px; margin:0 auto;
+
+#menu .menu-foot {
   display:flex; justify-content:space-between; align-items:center;
-  padding:18px 26px;
-  border:1px solid rgba(201,169,97,0.08); border-top:none;
+  padding:16px 24px;
+  border:1px solid rgba(10,24,56,0.1); border-top:none;
 }
-.menu-lactose { font-size:0.68rem; color:rgba(237,233,227,0.25); font-style:italic; letter-spacing:1px; }
-.menu-cta {
-  display:inline-flex; align-items:center; gap:12px;
-  border:1px solid rgba(201,169,97,0.35); color:var(--oro);
-  padding:12px 32px; font-size:0.65rem; font-weight:500;
-  letter-spacing:4px; text-transform:uppercase;
-  text-decoration:none; transition:all 0.3s; cursor:pointer;
+#menu .menu-note { font-size:0.66rem; color:var(--text-muted-dark); font-style:italic; }
+#menu .menu-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  border:1px solid rgba(10,24,56,0.3); color:var(--navy-deep);
+  padding:11px 28px; font-size:0.63rem; font-weight:500;
+  letter-spacing:3px; text-transform:uppercase;
+  text-decoration:none; transition:all 0.25s;
 }
-.menu-cta:hover { background:var(--oro); color:var(--bg); }
+#menu .menu-btn:hover { background:var(--navy-deep); color:var(--cream-light); }
+#menu .s-eyebrow { color:var(--navy-mid); }
+#menu .s-title  { color:var(--navy-deep); }
+#menu .s-desc   { color:var(--text-muted-dark); }
 
 /* ══════════ LIGHT SECTIONS ══════════ */
 #pizza-drink .s-eyebrow,
@@ -472,21 +481,6 @@ section { padding:72px 60px; }
 #pizza-drink .s-desc,
 #menu .s-desc { color:var(--text-muted-dark); }
 #pizza-drink .pd-tagline { color:var(--navy-soft); text-shadow:none; }
-
-/* Menu on light bg */
-#menu .m-name { color:var(--navy-deep); }
-#menu .m-desc { color:var(--text-muted-dark); }
-#menu .m-price { color:var(--oro); }
-#menu .m-item { border-bottom-color:rgba(10,24,56,0.1); border-right-color:rgba(10,24,56,0.1); }
-#menu .m-item:hover { background:rgba(10,24,56,0.04); }
-#menu .menu-grid { border-color:rgba(10,24,56,0.12); }
-#menu .menu-featured { border-color:rgba(10,24,56,0.15); background:rgba(10,24,56,0.04); }
-#menu .mf-name { color:var(--navy-deep); }
-#menu .mf-desc { color:var(--text-muted-dark); }
-#menu .menu-footer { border-color:rgba(10,24,56,0.1); }
-#menu .menu-lactose { color:var(--text-muted-dark); }
-#menu .menu-cta { border-color:rgba(10,24,56,0.35); color:var(--navy-deep); }
-#menu .menu-cta:hover { background:var(--navy-deep); color:var(--cream-light); }
 
 /* Cocktail cards keep dark bg on light section */
 .c-card {
@@ -698,11 +692,11 @@ footer {
 
 /* ══════════ RESPONSIVE ══════════ */
 @media(max-width:1200px) {
-  .menu-grid { grid-template-columns:repeat(2,1fr); }
-  .m-item:nth-child(3n) { border-right:1px solid rgba(201,169,97,0.06); }
-  .m-item:nth-child(2n) { border-right:none; }
-  .m-item:nth-child(n+5) { border-bottom:1px solid rgba(201,169,97,0.06); }
-  .m-item:nth-child(n+7) { border-bottom:none; }
+  #menu .pizza-grid { grid-template-columns:repeat(2,1fr); }
+  #menu .pizza-item:nth-child(3n) { border-right:1px solid rgba(10,24,56,0.07); }
+  #menu .pizza-item:nth-child(2n) { border-right:none; }
+  #menu .pizza-item:nth-last-child(-n+2) { border-bottom:none; }
+  #menu .pizza-item:nth-last-child(3) { border-bottom:1px solid rgba(10,24,56,0.07); }
 }
 @media(max-width:1024px) {
   nav { padding:18px 30px; }
@@ -727,13 +721,13 @@ footer {
   .about-stats { flex-direction:column; }
   .about-stat { border-right:none; border-bottom:1px solid var(--oro-dim); }
   .about-stat:last-child { border-bottom:none; }
-  .menu-featured { grid-template-columns:1fr; }
-  .mf-image { min-height:220px; }
-  .menu-grid { grid-template-columns:1fr; }
-  .m-item { border-right:none; }
-  .m-item:nth-child(n) { border-bottom:1px solid rgba(201,169,97,0.06); }
-  .m-item:last-child { border-bottom:none; }
-  .menu-footer { flex-direction:column; gap:16px; text-align:center; }
+  #menu .feat { grid-template-columns:1fr; }
+  #menu .feat-img { min-height:220px; }
+  #menu .pizza-grid { grid-template-columns:1fr; }
+  #menu .pizza-item { border-right:none; }
+  #menu .pizza-item:nth-child(n) { border-bottom:1px solid rgba(10,24,56,0.07); }
+  #menu .pizza-item:last-child { border-bottom:none; }
+  #menu .menu-foot { flex-direction:column; gap:16px; text-align:center; }
   .gallery-magazine { grid-template-columns:1fr; }
   .gm-item.hero-img { grid-column:auto; height:280px; }
   .gallery-magazine .gm-item { height:220px; }
@@ -882,86 +876,90 @@ footer {
 
 <!-- ══════════════════════════ MENU HIGHLIGHTS ══════════════════════════ -->
 <section id="menu">
-  <div class="menu-header reveal">
-    <div class="s-eyebrow" data-it="Le nostre specialità" data-en="Our specialties">Le nostre specialità</div>
-    <h2 class="s-title" data-it="Menu Highlights" data-en="Menu Highlights">Menu Highlights</h2>
-    <p class="s-desc" data-it="Dalla tradizione calabrese alle creazioni del Maestro" data-en="From Calabrian tradition to the Master's creations">Dalla tradizione calabrese alle creazioni del Maestro</p>
-  </div>
+  <div class="menu-wrap">
 
-  <!-- Featured: MareLuna -->
-  <div class="menu-featured reveal">
-    <div class="mf-image">
-      <img src="../images/pizza-mareluna.jpg" alt="Pizza MareLuna" loading="lazy">
-      <div class="mf-overlay"></div>
-      <div class="mf-badge" data-it="Firma del Maestro" data-en="Master's Signature">Firma del Maestro</div>
+    <div class="menu-head reveal">
+      <div class="s-eyebrow" data-it="Le nostre specialità" data-en="Our specialties">Le nostre specialità</div>
+      <h2 class="s-title" data-it="Menu Highlights" data-en="Menu Highlights">Menu Highlights</h2>
+      <p class="s-desc" data-it="Dalla tradizione calabrese alle creazioni del Maestro" data-en="From Calabrian tradition to the Master's creations">Dalla tradizione calabrese alle creazioni del Maestro</p>
     </div>
-    <div class="mf-body">
-      <div class="mf-eyebrow" data-it="La pizza del Maestro" data-en="The Master's pizza">La pizza del Maestro</div>
-      <div class="mf-name">MareLuna ✦</div>
-      <div class="mf-desc" data-it="Salsa Pomodoro Giallo, Bresaola della Valtellina, Stracciatella, Pomodorini Confit. Un'emozione al primo morso." data-en="Yellow Tomato Sauce, Valtellina Bresaola, Stracciatella, Confit Cherry Tomatoes. An emotion at the first bite.">Salsa Pomodoro Giallo, Bresaola della Valtellina, Stracciatella, Pomodorini Confit. Un'emozione al primo morso.</div>
-      <div class="mf-price">€13</div>
-    </div>
-  </div>
 
-  <!-- Other 7 pizzas -->
-  <div class="menu-grid">
-    <div class="m-item reveal">
-      <div class="m-info">
-        <div class="m-name">Margherita</div>
-        <div class="m-desc">Pomodoro San Marzano Gustarosso, Fior di Latte, Olio Evo, Basilico</div>
+    <!-- Featured: MareLuna -->
+    <div class="feat reveal">
+      <div class="feat-img">
+        <img src="../images/pizza-mareluna.jpg" alt="Pizza MareLuna" loading="lazy">
+        <div class="feat-img-overlay"></div>
+        <div class="feat-badge" data-it="Firma del Maestro" data-en="Master's Signature">Firma del Maestro</div>
       </div>
-      <div class="m-price">€6</div>
-    </div>
-    <div class="m-item reveal">
-      <div class="m-info">
-        <div class="m-name">Diavola</div>
-        <div class="m-desc">Pomodoro SM, Nduja, Fior di Latte, Spianata Piccante, Scaglie di Caciocavallo</div>
+      <div class="feat-body">
+        <div class="feat-eye" data-it="La pizza del Maestro" data-en="The Master's pizza">La pizza del Maestro</div>
+        <div class="feat-name">MareLuna ✦</div>
+        <div class="feat-desc" data-it="Salsa Pomodoro Giallo, Bresaola della Valtellina, Stracciatella, Pomodorini Confit. Un'emozione al primo morso." data-en="Yellow Tomato Sauce, Valtellina Bresaola, Stracciatella, Confit Cherry Tomatoes. An emotion at the first bite.">Salsa Pomodoro Giallo, Bresaola della Valtellina, Stracciatella, Pomodorini Confit. Un'emozione al primo morso.</div>
+        <div class="feat-price">€13</div>
       </div>
-      <div class="m-price">€10</div>
     </div>
-    <div class="m-item reveal">
-      <div class="m-info">
-        <div class="m-name">Regina di Bufala</div>
-        <div class="m-desc">Pomodoro SM, Bufala DOP, Olio Evo, Basilico</div>
-      </div>
-      <div class="m-price">€10</div>
-    </div>
-    <div class="m-item reveal">
-      <div class="m-info">
-        <div class="m-name">Leonessa</div>
-        <div class="m-desc">Pomodoro SM, Pomodorini Semi-dry, Burrata Campana 125g, Scaglie di Grana 12 mesi</div>
-      </div>
-      <div class="m-price">€14</div>
-    </div>
-    <div class="m-item reveal">
-      <div class="m-info">
-        <div class="m-name">Calzone Terra Mia</div>
-        <div class="m-desc">Ricotta di Bufala, Provola Affumicata, Salame Napoli, Pepe Nero</div>
-      </div>
-      <div class="m-price">€12</div>
-    </div>
-    <div class="m-item reveal">
-      <div class="m-info">
-        <div class="m-name">Vasinicola</div>
-        <div class="m-desc">Fior di Latte, Datterini Rossi e Gialli, Crema di Basilico e Pistacchio</div>
-      </div>
-      <div class="m-price">€12</div>
-    </div>
-    <div class="m-item reveal" style="border-bottom:none;">
-      <div class="m-info">
-        <div class="m-name">Cornetto di Bufala</div>
-        <div class="m-desc">Pizza a forma di corno · Bufala, Rucola, Crudo, Scaglie di Grana</div>
-      </div>
-      <div class="m-price">€14</div>
-    </div>
-  </div>
 
-  <div class="menu-footer reveal">
-    <span class="menu-lactose" data-it="Variante Mozzarella senza lattosio disponibile su richiesta" data-en="Lactose-free mozzarella available on request">Variante Mozzarella senza lattosio disponibile su richiesta</span>
-    <a href="https://leggimenu.it/menu/marelunasrls" target="_blank" rel="noopener noreferrer" class="menu-cta" data-it="Menu Completo" data-en="Full Menu">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
-      <span>Menu Completo</span>
-    </a>
+    <!-- Other 7 pizzas -->
+    <div class="pizza-grid">
+      <div class="pizza-item reveal">
+        <div class="pizza-info">
+          <div class="pizza-name">Margherita</div>
+          <div class="pizza-desc">Pomodoro San Marzano Gustarosso, Fior di Latte, Olio Evo, Basilico</div>
+        </div>
+        <div class="pizza-price">€6</div>
+      </div>
+      <div class="pizza-item reveal">
+        <div class="pizza-info">
+          <div class="pizza-name">Diavola</div>
+          <div class="pizza-desc">Pomodoro SM, Nduja, Fior di Latte, Spianata Piccante, Scaglie di Caciocavallo</div>
+        </div>
+        <div class="pizza-price">€10</div>
+      </div>
+      <div class="pizza-item reveal">
+        <div class="pizza-info">
+          <div class="pizza-name">Regina di Bufala</div>
+          <div class="pizza-desc">Pomodoro SM, Bufala DOP, Olio Evo, Basilico</div>
+        </div>
+        <div class="pizza-price">€10</div>
+      </div>
+      <div class="pizza-item reveal">
+        <div class="pizza-info">
+          <div class="pizza-name">Leonessa</div>
+          <div class="pizza-desc">Pomodoro SM, Pomodorini Semi-dry, Burrata Campana 125g, Scaglie di Grana 12 mesi</div>
+        </div>
+        <div class="pizza-price">€14</div>
+      </div>
+      <div class="pizza-item reveal">
+        <div class="pizza-info">
+          <div class="pizza-name">Calzone Terra Mia</div>
+          <div class="pizza-desc">Ricotta di Bufala, Provola Affumicata, Salame Napoli, Pepe Nero</div>
+        </div>
+        <div class="pizza-price">€12</div>
+      </div>
+      <div class="pizza-item reveal">
+        <div class="pizza-info">
+          <div class="pizza-name">Vasinicola</div>
+          <div class="pizza-desc">Fior di Latte, Datterini Rossi e Gialli, Crema di Basilico e Pistacchio</div>
+        </div>
+        <div class="pizza-price">€12</div>
+      </div>
+      <div class="pizza-item reveal">
+        <div class="pizza-info">
+          <div class="pizza-name">Cornetto di Bufala</div>
+          <div class="pizza-desc">Pizza a forma di corno · Bufala, Rucola, Crudo, Scaglie di Grana</div>
+        </div>
+        <div class="pizza-price">€14</div>
+      </div>
+    </div>
+
+    <div class="menu-foot reveal">
+      <span class="menu-note" data-it="Variante Mozzarella senza lattosio disponibile su richiesta" data-en="Lactose-free mozzarella available on request">Variante Mozzarella senza lattosio disponibile su richiesta</span>
+      <a href="https://leggimenu.it/menu/marelunasrls" target="_blank" rel="noopener noreferrer" class="menu-btn" data-it="Menu Completo" data-en="Full Menu">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
+        <span>Menu Completo</span>
+      </a>
+    </div>
+
   </div>
 </section>
 
