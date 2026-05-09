@@ -252,9 +252,15 @@ section { padding:72px 60px; }
 
 /* ══════════ CHI SIAMO ══════════ */
 #about { background:linear-gradient(180deg,#0a1838 0%,#152a52 100%); position:relative; overflow:hidden; }
+#about::after {
+  content:''; position:absolute; bottom:0; left:0; right:0;
+  height:150px; pointer-events:none; z-index:1;
+  background:linear-gradient(180deg, transparent 0%, #f5f1e8 100%);
+}
 .about-grid {
   max-width:1200px; margin:0 auto;
   display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;
+  position:relative; z-index:2;
 }
 .about-text .s-desc { max-width:none; }
 .about-stats {
