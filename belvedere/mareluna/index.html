@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mareluna Pizzeria & Bar — Belvedere Marittimo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600&family=Mulish:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #0a1f3d;
+  --bg-deep:  #060e20;
+  --bg-sec:   #0d2548;
+  --oro:      #c9a961;
+  --oro-light:#e0c878;
+  --cream:    #e8e6e1;
+  --white:    #ffffff;
+  --overlay:  rgba(6,14,32,0.95);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'Mulish', sans-serif;
+  background:var(--bg);
+  color:var(--cream);
+  overflow-x:hidden;
+}
+
+/* ── PROGRESS BAR ── */
+.progress-bar {
+  position:fixed; top:0; left:0; height:2px;
+  background:linear-gradient(90deg, #2a6e80, var(--oro), var(--oro-light));
+  z-index:9999; width:0%; transition:width 0.1s;
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; width:100%; z-index:1000;
+  padding:20px 50px;
+  display:flex; justify-content:space-between; align-items:center;
+  transition:all 0.5s;
+}
+nav.scrolled {
+  background:rgba(6,14,32,0.97);
+  backdrop-filter:blur(20px);
+  padding:14px 50px;
+  border-bottom:1px solid rgba(201,169,97,0.15);
+}
+.nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.nav-logo-img { width:42px; height:42px; object-fit:contain; }
+.nav-logo-text {
+  font-family:'Cinzel', serif;
+  font-size:1.1rem; font-weight:600;
+  color:var(--white); letter-spacing:3px; text-transform:uppercase;
+}
+.nav-logo-text span { color:var(--oro); }
+.nav-links { display:flex; gap:30px; list-style:none; }
+.nav-links a {
+  color:rgba(255,255,255,0.7); text-decoration:none;
+  font-size:0.7rem; font-weight:300; letter-spacing:3px; text-transform:uppercase;
+  transition:color 0.3s;
+}
+.nav-links a:hover { color:var(--oro); }
+.nav-right { display:flex; gap:15px; align-items:center; }
+.lang-switch { display:flex; gap:6px; }
+.lang-btn {
+  background:none; border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.5); padding:4px 10px;
+  font-size:0.68rem; letter-spacing:1px; cursor:pointer;
+  transition:all 0.3s; font-family:'Mulish', sans-serif; font-weight:300;
+}
+.lang-btn.active { background:var(--oro); border-color:var(--oro); color:var(--bg); font-weight:600; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.hamburger span { width:26px; height:1px; background:var(--white); transition:all 0.3s; }
+
+/* ── MOBILE NAV ── */
+.nav-overlay {
+  display:none; position:fixed; inset:0; background:var(--overlay);
+  flex-direction:column; justify-content:center; align-items:center;
+  gap:40px; z-index:999;
+}
+.nav-overlay.open { display:flex; }
+.nav-overlay a {
+  color:var(--white); text-decoration:none;
+  font-size:1.4rem; font-family:'Cormorant Garamond', serif;
+  font-weight:300; letter-spacing:4px; text-transform:uppercase;
+  transition:color 0.3s;
+}
+.nav-overlay a:hover { color:var(--oro); }
+.close-btn {
+  position:absolute; top:25px; right:30px;
+  background:none; border:none; color:var(--white);
+  font-size:2rem; cursor:pointer;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  background:
+    linear-gradient(180deg, rgba(6,14,32,0.88) 0%, rgba(6,14,32,0.72) 40%, rgba(6,14,32,0.88) 100%),
+    url('images/hero-bg.jpg') center/cover no-repeat;
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+  text-align:center; position:relative; overflow:hidden;
+}
+.stars-field { position:absolute; inset:0; overflow:hidden; }
+.star { position:absolute; background:var(--white); border-radius:50%; animation:twinkle var(--d,3s) ease-in-out infinite; }
+@keyframes twinkle { 0%,100%{opacity:0.1;transform:scale(1)} 50%{opacity:0.8;transform:scale(1.3)} }
+.hero-logo-wrap { position:relative; z-index:2; margin-bottom:30px; }
+.hero-logo-img { width:320px; height:auto; filter:drop-shadow(0 0 40px rgba(201,169,97,0.4)); animation:logoGlow 4s ease-in-out infinite alternate; }
+@keyframes logoGlow { from{filter:drop-shadow(0 0 20px rgba(201,169,97,0.2))} to{filter:drop-shadow(0 0 60px rgba(201,169,97,0.6))} }
+.hero-content { position:relative; z-index:2; }
+.hero-badge {
+  font-size:0.65rem; letter-spacing:5px; text-transform:uppercase;
+  color:rgba(255,255,255,0.45); margin-bottom:15px; font-weight:300;
+}
+.hero-title { font-family:'Cinzel',serif; font-size:clamp(3rem,8vw,6.5rem); font-weight:600; letter-spacing:10px; color:var(--white); margin-bottom:8px; }
+.hero-sub { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:var(--oro); letter-spacing:6px; margin-bottom:45px; }
+.hero-quote {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(0.95rem,2vw,1.1rem);
+  font-style:italic; line-height:1.8;
+  color:rgba(255,255,255,0.65);
+  max-width:550px; margin:0 auto 50px;
+}
+.hero-quote .gold { color:var(--oro); }
+.hero-cta {
+  display:inline-flex; align-items:center; gap:12px;
+  background:none; border:1px solid rgba(201,169,97,0.5);
+  color:var(--oro); padding:16px 40px;
+  font-size:0.7rem; font-weight:400; letter-spacing:4px; text-transform:uppercase;
+  text-decoration:none; transition:all 0.4s; cursor:pointer;
+}
+.hero-cta:hover { background:var(--oro); color:var(--bg); border-color:var(--oro); }
+.scroll-indicator {
+  position:absolute; bottom:35px; left:50%;
+  transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  font-size:0.6rem; letter-spacing:3px; color:rgba(255,255,255,0.3);
+  animation:scrollBounce 2.5s ease-in-out infinite;
+}
+.scroll-dot { width:4px; height:4px; background:var(--oro); border-radius:50%; }
+@keyframes scrollBounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+/* ── SECTION BASE ── */
+section { padding:100px 50px; }
+.section-eyebrow {
+  font-size:0.65rem; letter-spacing:5px; text-transform:uppercase;
+  color:var(--oro); font-weight:300; margin-bottom:16px;
+}
+.section-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,5vw,3.5rem); font-weight:300;
+  line-height:1.1; color:var(--white); margin-bottom:30px;
+}
+.section-desc {
+  font-size:0.9rem; color:rgba(232,230,225,0.7);
+  font-weight:300; line-height:1.8; max-width:580px;
+}
+.moon-divider { color:var(--oro); font-size:1.4rem; margin:0 12px; vertical-align:middle; }
+
+/* ── CHI SIAMO ── */
+#about { background:var(--bg-sec); }
+.about-grid {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;
+}
+.about-text .section-desc { max-width:none; }
+.about-cards {
+  display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:40px;
+}
+.about-card {
+  padding:24px 20px;
+  border:1px solid rgba(201,169,97,0.12);
+  background:rgba(201,169,97,0.03);
+  transition:border-color 0.3s;
+}
+.about-card:hover { border-color:rgba(201,169,97,0.25); }
+.about-card h4 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem; font-weight:600; color:var(--oro);
+  letter-spacing:1px; margin-bottom:8px;
+}
+.about-card p { font-size:0.78rem; color:rgba(232,230,225,0.55); font-weight:300; line-height:1.6; }
+.about-image-wrap {
+  position:relative; overflow:hidden;
+  border:1px solid rgba(201,169,97,0.12);
+  aspect-ratio:3/4;
+}
+.about-image-wrap img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform 0.6s ease;
+}
+.about-image-wrap:hover img { transform:scale(1.03); }
+.about-image-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(6,14,32,0.5) 0%, transparent 50%);
+  pointer-events:none;
+}
+
+/* ── PIZZA & DRINK ── */
+#pizza-drink { background:var(--bg); }
+.pd-header { text-align:center; margin-bottom:60px; }
+.pd-header .section-title { margin-bottom:10px; }
+.pd-vuoi {
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic; color:var(--oro);
+  font-size:1.15rem; letter-spacing:2px;
+}
+.pd-grid {
+  max-width:1300px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(5,1fr); gap:24px;
+}
+.cocktail-card {
+  background:var(--bg-sec);
+  border:1px solid rgba(201,169,97,0.1);
+  overflow:hidden;
+  transition:transform 0.3s, border-color 0.3s;
+  cursor:default;
+}
+.cocktail-card:hover { transform:translateY(-4px); border-color:rgba(201,169,97,0.3); }
+.cocktail-img { aspect-ratio:4/5; overflow:hidden; position:relative; }
+.cocktail-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; loading:lazy; }
+.cocktail-card:hover .cocktail-img img { transform:scale(1.05); }
+.cocktail-body { padding:22px 18px; }
+.cocktail-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem; font-weight:600; color:var(--oro);
+  letter-spacing:1px; margin-bottom:4px;
+}
+.cocktail-price {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem; font-weight:300; color:var(--oro);
+  margin-bottom:10px;
+}
+.cocktail-ing {
+  font-size:0.75rem; font-weight:300;
+  color:rgba(232,230,225,0.55); line-height:1.6;
+  margin-bottom:14px;
+}
+.cocktail-pairing {
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic; font-size:0.82rem;
+  color:rgba(201,169,97,0.7);
+  border-top:1px solid rgba(201,169,97,0.12);
+  padding-top:12px; line-height:1.5;
+}
+
+/* ── MENU HIGHLIGHTS ── */
+#menu { background:var(--bg-sec); }
+.menu-header { text-align:center; margin-bottom:50px; }
+.menu-header .section-desc { max-width:520px; margin:0 auto; }
+.highlights-grid {
+  max-width:1100px; margin:0 auto 50px;
+  display:grid; grid-template-columns:repeat(2,1fr); gap:0;
+}
+.pizza-item {
+  display:flex; justify-content:space-between; align-items:flex-start;
+  padding:22px 28px;
+  border-bottom:1px solid rgba(201,169,97,0.08);
+  border-right:1px solid rgba(201,169,97,0.08);
+  transition:background 0.2s;
+}
+.pizza-item:hover { background:rgba(201,169,97,0.03); }
+.pizza-item:nth-child(2n) { border-right:none; }
+.pizza-item.featured {
+  border:1px solid rgba(201,169,97,0.2);
+  background:rgba(201,169,97,0.03);
+}
+.pizza-info { flex:1; padding-right:16px; }
+.pizza-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem; font-weight:600; color:var(--white);
+  margin-bottom:5px; letter-spacing:0.5px;
+}
+.pizza-item.featured .pizza-name { color:var(--oro); }
+.pizza-desc { font-size:0.76rem; font-weight:300; color:rgba(232,230,225,0.5); line-height:1.6; }
+.pizza-price {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem; font-weight:300; color:var(--oro);
+  white-space:nowrap; flex-shrink:0;
+}
+.menu-lactose {
+  text-align:center; margin-bottom:40px;
+  font-size:0.72rem; color:rgba(232,230,225,0.3);
+  font-weight:300; letter-spacing:1.5px; font-style:italic;
+}
+.menu-cta-wrap { text-align:center; }
+.menu-cta {
+  display:inline-flex; align-items:center; gap:14px;
+  border:1px solid rgba(201,169,97,0.4);
+  color:var(--oro); padding:16px 40px;
+  font-size:0.7rem; font-weight:400; letter-spacing:4px; text-transform:uppercase;
+  text-decoration:none; transition:all 0.3s;
+}
+.menu-cta:hover { background:var(--oro); color:var(--bg); }
+.menu-cta svg { opacity:0.6; }
+.menu-qr-hint {
+  margin-top:14px; font-size:0.68rem;
+  color:rgba(232,230,225,0.3); letter-spacing:2px;
+  font-style:italic;
+}
+
+/* ── GALLERY ── */
+#gallery { background:var(--bg-deep); padding:90px 0; overflow:hidden; }
+.gallery-inner { max-width:1400px; margin:0 auto; padding:0 50px; }
+.gallery-header { text-align:center; margin-bottom:50px; }
+.gallery-grid {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:6px;
+}
+.gallery-item { position:relative; overflow:hidden; }
+.gallery-item.tall { grid-row:1/3; }
+.gallery-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s; }
+.gallery-item:hover img { transform:scale(1.04); }
+.gallery-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(6,14,32,0.75) 0%, transparent 55%);
+  pointer-events:none;
+}
+.gallery-caption {
+  position:absolute; bottom:0; left:0; right:0;
+  padding:20px 18px 16px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.9rem; font-style:italic;
+  color:rgba(255,255,255,0.85); letter-spacing:1px;
+}
+.gallery-insta {
+  text-align:center; margin-top:40px;
+}
+.gallery-insta a {
+  color:rgba(255,255,255,0.4); font-size:0.68rem; letter-spacing:3px;
+  text-transform:uppercase; text-decoration:none; transition:color 0.3s;
+}
+.gallery-insta a:hover { color:var(--oro); }
+
+/* ── RECENSIONI ── */
+#recensioni { background:var(--bg-sec); }
+.recensioni-inner { max-width:1100px; margin:0 auto; text-align:center; }
+.rating-stars { color:var(--oro); font-size:1.1rem; letter-spacing:4px; margin-bottom:16px; }
+.rating-sub { font-size:0.72rem; color:rgba(255,255,255,0.3); letter-spacing:3px; text-transform:uppercase; margin-bottom:50px; }
+.reviews-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
+.review-card {
+  padding:40px 30px;
+  border-right:1px solid rgba(201,169,97,0.08);
+  transition:background 0.3s;
+}
+.review-card:last-child { border-right:none; }
+.review-card:hover { background:rgba(201,169,97,0.03); }
+.review-stars { color:var(--oro); font-size:0.75rem; letter-spacing:3px; margin-bottom:18px; }
+.review-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem; font-style:italic;
+  line-height:1.75; color:rgba(232,230,225,0.75);
+  margin-bottom:20px;
+}
+.review-author { font-size:0.68rem; letter-spacing:2px; color:rgba(255,255,255,0.3); font-weight:300; }
+.review-flag { margin-right:6px; }
+
+/* ── CONTATTI ── */
+#contatti { background:var(--bg); }
+.contatti-inner { max-width:1100px; margin:0 auto; }
+.contatti-title-wrap { text-align:center; margin-bottom:60px; }
+.contatti-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:80px; margin-bottom:60px;
+}
+.contatti-col-title {
+  font-size:0.65rem; letter-spacing:5px; text-transform:uppercase;
+  color:var(--oro); font-weight:300; margin-bottom:16px;
+}
+.contatti-col-h { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:300; color:var(--white); margin-bottom:30px; }
+.orari-list { list-style:none; }
+.orari-list li {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:13px 0;
+  border-bottom:1px solid rgba(201,169,97,0.06);
+  font-size:0.83rem; font-weight:300;
+}
+.orari-list .day { color:rgba(255,255,255,0.5); }
+.orari-list .time { color:var(--cream); }
+.orari-list li.today { background:rgba(201,169,97,0.04); margin:0 -12px; padding:13px 12px; }
+.orari-list li.today .day { color:var(--oro); }
+.orari-note {
+  margin-top:16px; font-size:0.75rem; font-style:italic;
+  color:rgba(232,230,225,0.35); font-weight:300;
+}
+.contact-items { display:flex; flex-direction:column; gap:20px; }
+.contact-item {
+  display:flex; align-items:flex-start; gap:16px;
+  text-decoration:none; color:inherit; transition:opacity 0.2s;
+}
+.contact-item:hover { opacity:0.8; }
+.contact-icon { font-size:1rem; margin-top:2px; flex-shrink:0; }
+.contact-label { font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--oro); margin-bottom:3px; }
+.contact-value { font-size:0.88rem; font-weight:300; color:var(--cream); }
+.map-wrap {
+  border:1px solid rgba(201,169,97,0.1);
+  overflow:hidden;
+}
+.map-wrap iframe { width:100%; height:320px; border:0; filter:invert(90%) hue-rotate(180deg); display:block; }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--bg-deep);
+  border-top:1px solid rgba(201,169,97,0.08);
+  padding:50px;
+}
+.footer-inner {
+  max-width:1100px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  gap:40px; align-items:center;
+}
+.footer-logo { display:flex; align-items:center; gap:12px; }
+.footer-logo img { width:36px; opacity:0.85; }
+.footer-logo-name {
+  font-family:'Cinzel',serif; font-size:0.95rem;
+  font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--white);
+}
+.footer-logo-name span { color:var(--oro); }
+.footer-center { text-align:center; }
+.footer-address {
+  font-size:0.72rem; font-weight:300;
+  color:rgba(255,255,255,0.3); line-height:1.8; letter-spacing:0.5px;
+}
+.footer-piva {
+  font-size:0.62rem; color:rgba(255,255,255,0.18);
+  margin-top:6px; letter-spacing:0.5px;
+}
+.footer-socials { display:flex; justify-content:flex-end; gap:16px; }
+.social-link {
+  width:36px; height:36px;
+  border:1px solid rgba(201,169,97,0.2);
+  display:flex; align-items:center; justify-content:center;
+  color:rgba(255,255,255,0.4); text-decoration:none;
+  transition:all 0.3s; cursor:pointer;
+}
+.social-link:hover { border-color:var(--oro); color:var(--oro); }
+.footer-copy {
+  max-width:1100px; margin:30px auto 0;
+  padding-top:30px; border-top:1px solid rgba(201,169,97,0.06);
+  text-align:center;
+  font-size:0.65rem; color:rgba(255,255,255,0.18);
+  letter-spacing:1px; font-weight:300;
+}
+
+/* ── WA FLOAT ── */
+.wa-float {
+  position:fixed; bottom:30px; right:30px; z-index:999;
+  width:56px; height:56px; border-radius:50%;
+  background:#25D366; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.4); transition:all 0.3s; cursor:pointer;
+  text-decoration:none;
+}
+.wa-float:hover { transform:scale(1.08); box-shadow:0 6px 30px rgba(37,211,102,0.5); }
+.wa-float svg { width:28px; height:28px; fill:white; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:1200px) {
+  .pd-grid { grid-template-columns:repeat(3,1fr); }
+}
+@media(max-width:1024px) {
+  nav { padding:18px 30px; }
+  nav.scrolled { padding:12px 30px; }
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  section { padding:70px 30px; }
+  .about-grid { grid-template-columns:1fr; gap:50px; }
+  .about-image-wrap { max-width:500px; aspect-ratio:4/3; }
+  .pd-grid { grid-template-columns:repeat(2,1fr); }
+  .highlights-grid { grid-template-columns:1fr; }
+  .pizza-item:nth-child(2n) { border-right:1px solid rgba(201,169,97,0.08); }
+  .pizza-item { border-right:none; }
+  .gallery-grid { grid-template-columns:1fr 1fr; }
+  .gallery-item.tall { grid-row:auto; }
+  .reviews-grid { grid-template-columns:1fr 1fr; }
+  .review-card:nth-child(2) { border-right:none; }
+  .review-card:nth-child(3) { border-right:1px solid rgba(201,169,97,0.08); border-top:1px solid rgba(201,169,97,0.08); }
+  .review-card:nth-child(4) { border-right:none; border-top:1px solid rgba(201,169,97,0.08); }
+  .contatti-grid { grid-template-columns:1fr; gap:50px; }
+  .footer-inner { grid-template-columns:1fr; text-align:center; }
+  .footer-logo { justify-content:center; }
+  .footer-socials { justify-content:center; }
+}
+@media(max-width:768px) {
+  section { padding:60px 20px; }
+  .hero-logo-img { width:240px; }
+  .hero-cta { padding:14px 30px; }
+  .pd-grid { grid-template-columns:1fr; max-width:380px; }
+  .about-cards { grid-template-columns:1fr; }
+  .gallery-grid { grid-template-columns:1fr; }
+  .gallery-inner { padding:0 20px; }
+  .reviews-grid { grid-template-columns:1fr; }
+  .review-card { border-right:none; border-top:1px solid rgba(201,169,97,0.08); }
+  .review-card:first-child { border-top:none; }
+  footer { padding:40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <img src="images/logo-mareluna.png" class="nav-logo-img" alt="Mareluna">
+    <span class="nav-logo-text">Mare<span>luna</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about" data-it="Chi Siamo" data-en="About">Chi Siamo</a></li>
+    <li><a href="#pizza-drink" data-it="Pizza & Drink" data-en="Pizza & Drink">Pizza &amp; Drink</a></li>
+    <li><a href="#menu" data-it="Menu" data-en="Menu">Menu</a></li>
+    <li><a href="#gallery" data-it="Galleria" data-en="Gallery">Galleria</a></li>
+    <li><a href="#recensioni" data-it="Recensioni" data-en="Reviews">Recensioni</a></li>
+    <li><a href="#contatti" data-it="Contatti" data-en="Contacts">Contatti</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('it')">IT</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="nav-overlay" id="navOverlay">
+  <button class="close-btn" onclick="toggleMenu()">×</button>
+  <a href="#about"       onclick="toggleMenu()" data-it="Chi Siamo"      data-en="About">Chi Siamo</a>
+  <a href="#pizza-drink" onclick="toggleMenu()" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">Pizza &amp; Drink</a>
+  <a href="#menu"        onclick="toggleMenu()" data-it="Menu"            data-en="Menu">Menu</a>
+  <a href="#gallery"     onclick="toggleMenu()" data-it="Galleria"        data-en="Gallery">Galleria</a>
+  <a href="#recensioni"  onclick="toggleMenu()" data-it="Recensioni"      data-en="Reviews">Recensioni</a>
+  <a href="#contatti"    onclick="toggleMenu()" data-it="Contatti"        data-en="Contacts">Contatti</a>
+</div>
+
+<!-- ══════════════════════════════════════════ HERO ══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="stars-field" id="starsField"></div>
+  <div class="hero-logo-wrap">
+    <img src="images/logo-mareluna.png" class="hero-logo-img" alt="Mareluna Logo">
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge" data-it="Belvedere Marittimo · Calabria" data-en="Belvedere Marittimo · Calabria">Belvedere Marittimo · Calabria</div>
+    <h1 class="hero-title">MARELUNA</h1>
+    <p class="hero-sub" data-it="Pizzeria & Bar" data-en="Pizzeria & Bar">Pizzeria &amp; Bar</p>
+    <div class="hero-quote">
+      <span class="gold">"Fatte 'na pizza c'a pummarola 'ncoppa,</span><br>
+      vedrai che il mondo poi ti sorriderà,<br>
+      <span class="gold">fatte 'na pizza e crescerai più forte</span><br>
+      e nessuno più ti fermerà."
+    </div>
+    <a href="https://wa.me/393205551687?text=Buonasera!%20Vorrei%20prenotare%20un%20tavolo%20da%20Mareluna%20🌙" class="hero-cta" data-it="Prenota un Tavolo" data-en="Book a Table">
+      <span>Prenota un Tavolo</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scopri</span>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ CHI SIAMO ══════════════════════════════════════════ -->
+<section id="about">
+  <div class="about-grid">
+    <!-- LEFT: testo + cards -->
+    <div class="about-text">
+      <div class="section-eyebrow" data-it="La nostra storia" data-en="Our story">La nostra storia</div>
+      <h2 class="section-title" data-it="Passione, impasto e fuoco" data-en="Passion, dough and fire">Passione,<br>impasto e fuoco</h2>
+
+      <p class="section-desc" data-it="A Belvedere Marittimo brilla una nuova stella del gusto: Mareluna, dove la pizza diventa emozione e la tradizione incontra il mare." data-en="In Belvedere Marittimo shines a new star of taste: Mareluna, where pizza becomes emotion and tradition meets the sea.">
+        A Belvedere Marittimo brilla una nuova stella del gusto: Mareluna, dove la pizza diventa emozione e la tradizione incontra il mare.
+      </p>
+      <p class="section-desc" style="margin-top:1rem;" data-it="Raffaele Palmieri Martorello, pizzaiolo da sempre, dopo 15 anni in giro per l'Italia — tra impasti, forni e successi — torna nella sua terra per realizzare il sogno di una vita. Oggi è un Maestro Pizzaiolo riconosciuto dall'Ass. GPN – Pizza &amp; Food (N.148), premiato da grandi critici tra cui Valerio M. Visintin, che ha definito la sua pizza «la migliore di Milano»." data-en="Raffaele Palmieri Martorello, a pizzaiolo since birth, returns to his homeland after 15 years across Italy — between doughs, ovens and achievements. Today he is a certified Master Pizzaiolo (GPN N.148), praised by renowned critics including Valerio M. Visintin, who called his pizza «the best in Milan».">
+        Raffaele Palmieri Martorello, pizzaiolo da sempre, dopo 15 anni in giro per l'Italia — tra impasti, forni e successi — torna nella sua terra per realizzare il sogno di una vita. Oggi è un Maestro Pizzaiolo riconosciuto dall'Ass. GPN – Pizza &amp; Food (N.148), premiato da grandi critici tra cui Valerio M. Visintin, che ha definito la sua pizza «la migliore di Milano».
+      </p>
+      <p class="section-desc" style="margin-top:1rem;" data-it="Insieme al fratello Francesco e a Monica, Raffaele dà vita a un progetto che parla di autenticità e di mare… perché Mareluna nasce da una promessa tra pizzaioli: quando il sogno si avvera, si celebra con una canzone di Pino Daniele." data-en="Together with his brother Francesco and Monica, Raffaele brings to life a project that speaks of authenticity and the sea… because Mareluna is born from a promise between pizzaioli: when the dream comes true, you celebrate it with a song by Pino Daniele.">
+        Insieme al fratello Francesco e a Monica, Raffaele dà vita a un progetto che parla di autenticità e di mare… perché Mareluna nasce da una promessa tra pizzaioli: quando il sogno si avvera, si celebra con una canzone di Pino Daniele.
+      </p>
+
+      <div class="about-cards">
+        <div class="about-card">
+          <h4 data-it="Maestro Pizzaiolo GPN N.148" data-en="Master Pizzaiolo GPN N.148">Maestro Pizzaiolo GPN N.148</h4>
+          <p data-it="Riconosciuto dall'Associazione Napoletana GPN" data-en="Certified by the Neapolitan Association GPN">Riconosciuto dall'Associazione Napoletana GPN</p>
+        </div>
+        <div class="about-card">
+          <h4 data-it="Farina Molino Madre dal 1939" data-en="Molino Madre flour since 1939">Farina Molino Madre dal 1939</h4>
+          <p data-it="Impasto leggero e digeribile, alta idratazione" data-en="Light, digestible dough with high hydration">Impasto leggero e digeribile, alta idratazione</p>
+        </div>
+        <div class="about-card">
+          <h4 data-it="San Marzano Gustarosso DOP" data-en="San Marzano Gustarosso DOP">San Marzano Gustarosso DOP</h4>
+          <p data-it="Il pomodoro scelto dai migliori pizzaioli" data-en="The tomato chosen by the best pizzaioli">Il pomodoro scelto dai migliori pizzaioli</p>
+        </div>
+        <div class="about-card">
+          <h4 data-it="Pet Friendly" data-en="Pet Friendly">Pet Friendly</h4>
+          <p data-it="Ambiente accogliente per tutta la famiglia" data-en="Welcoming environment for the whole family">Ambiente accogliente per tutta la famiglia</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: immagine Imagen -->
+    <div>
+      <div class="about-image-wrap">
+        <img src="images/chi-siamo-mani-pizzaiolo.svg" alt="Pizzaiolo Raffaele al lavoro" loading="lazy">
+        <div class="about-image-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ PIZZA & DRINK ══════════════════════════════════════════ -->
+<section id="pizza-drink">
+  <div class="pd-header">
+    <div class="section-eyebrow" data-it="Abbinamenti del Maestro" data-en="Master Pairings">Abbinamenti del Maestro</div>
+    <h2 class="section-title" data-it="Pizza &amp; Drink" data-en="Pizza &amp; Drink">Pizza <span class="moon-divider">🌙</span> Drink</h2>
+    <p class="pd-vuoi" data-it="Vuoi provare?" data-en="Want to try?">Vuoi provare?</p>
+  </div>
+
+  <div class="pd-grid">
+
+    <!-- Gin Monique -->
+    <div class="cocktail-card">
+      <div class="cocktail-img">
+        <img src="images/cocktail-gin-monique.svg" alt="Gin Monique" loading="lazy">
+      </div>
+      <div class="cocktail-body">
+        <div class="cocktail-name">Gin Monique</div>
+        <div class="cocktail-price">€9</div>
+        <div class="cocktail-ing" data-it="Gin Sartoriale, Tonica Premium Fever Tree, petali di Rosa commestibili" data-en="Artisan Gin, Premium Fever Tree Tonic, edible Rose petals">Gin Sartoriale, Tonica Premium Fever Tree, petali di Rosa commestibili</div>
+        <div class="cocktail-pairing" data-it="Consigliato in abbinamento alla Pizza Vasinicola" data-en="Pairs perfectly with Pizza Vasinicola">Consigliato in abbinamento alla <em>Pizza Vasinicola</em></div>
+      </div>
+    </div>
+
+    <!-- Gin Lemon -->
+    <div class="cocktail-card">
+      <div class="cocktail-img">
+        <img src="images/cocktail-gin-lemon.svg" alt="Gin Lemon" loading="lazy">
+      </div>
+      <div class="cocktail-body">
+        <div class="cocktail-name">Gin Lemon</div>
+        <div class="cocktail-price">€7</div>
+        <div class="cocktail-ing" data-it="Gin, Lemon Tonic" data-en="Gin, Lemon Tonic">Gin, Lemon Tonic</div>
+        <div class="cocktail-pairing" data-it="Consigliato in abbinamento alla Pizza Diavola" data-en="Pairs perfectly with Pizza Diavola">Consigliato in abbinamento alla <em>Pizza Diavola</em></div>
+      </div>
+    </div>
+
+    <!-- Negroni -->
+    <div class="cocktail-card">
+      <div class="cocktail-img">
+        <img src="images/cocktail-negroni.svg" alt="Negroni" loading="lazy">
+      </div>
+      <div class="cocktail-body">
+        <div class="cocktail-name">Negroni</div>
+        <div class="cocktail-price">€5</div>
+        <div class="cocktail-ing" data-it="Gin, Campari, Vermouth Rosso" data-en="Gin, Campari, Red Vermouth">Gin, Campari, Vermouth Rosso</div>
+        <div class="cocktail-pairing" data-it="Consigliato in abbinamento alla Pizza Leonessa &amp; Napoli" data-en="Pairs perfectly with Pizza Leonessa &amp; Napoli">Consigliato in abbinamento alla <em>Pizza Leonessa &amp; Napoli</em></div>
+      </div>
+    </div>
+
+    <!-- Negroni Sbagliato -->
+    <div class="cocktail-card">
+      <div class="cocktail-img">
+        <img src="images/cocktail-negroni-sbagliato.svg" alt="Negroni Sbagliato" loading="lazy">
+      </div>
+      <div class="cocktail-body">
+        <div class="cocktail-name">Negroni Sbagliato</div>
+        <div class="cocktail-price">€6</div>
+        <div class="cocktail-ing" data-it="Prosecco, Campari, Vermouth Rosso" data-en="Prosecco, Campari, Red Vermouth">Prosecco, Campari, Vermouth Rosso</div>
+        <div class="cocktail-pairing" data-it="Consigliato in abbinamento alla Pizza Mareluna" data-en="Pairs perfectly with Pizza Mareluna">Consigliato in abbinamento alla <em>Pizza Mareluna</em></div>
+      </div>
+    </div>
+
+    <!-- Spritz -->
+    <div class="cocktail-card">
+      <div class="cocktail-img">
+        <img src="images/cocktail-spritz.svg" alt="Spritz Aperol/Campari" loading="lazy">
+      </div>
+      <div class="cocktail-body">
+        <div class="cocktail-name">Spritz</div>
+        <div class="cocktail-price">€6</div>
+        <div class="cocktail-ing" data-it="Aperol o Campari, Prosecco, Soda" data-en="Aperol or Campari, Prosecco, Soda">Aperol o Campari, Prosecco, Soda</div>
+        <div class="cocktail-pairing" data-it="Consigliato in abbinamento alla Pizza Regina di Bufala" data-en="Pairs perfectly with Pizza Regina di Bufala">Consigliato in abbinamento alla <em>Pizza Regina di Bufala</em></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ MENU HIGHLIGHTS ══════════════════════════════════════════ -->
+<section id="menu">
+  <div class="menu-header">
+    <div class="section-eyebrow" data-it="Le nostre specialità" data-en="Our specialties">Le nostre specialità</div>
+    <h2 class="section-title" data-it="Menu Highlights" data-en="Menu Highlights">Menu Highlights</h2>
+    <p class="section-desc" data-it="Dalla tradizione calabrese alle creazioni del Maestro — ingredienti d'eccellenza, prezzi onesti" data-en="From Calabrian tradition to the Master's creations — excellence ingredients, honest prices">Dalla tradizione calabrese alle creazioni del Maestro — ingredienti d'eccellenza, prezzi onesti</p>
+  </div>
+
+  <div class="highlights-grid">
+
+    <div class="pizza-item">
+      <div class="pizza-info">
+        <div class="pizza-name">Margherita</div>
+        <div class="pizza-desc">Pomodoro San Marzano Gustarosso, Fior di Latte, Olio Evo, Basilico</div>
+      </div>
+      <div class="pizza-price">€6</div>
+    </div>
+
+    <div class="pizza-item">
+      <div class="pizza-info">
+        <div class="pizza-name">Diavola</div>
+        <div class="pizza-desc">Pomodoro SM, Nduja, Fior di Latte, Spianata Piccante, Scaglie di Caciocavallo</div>
+      </div>
+      <div class="pizza-price">€10</div>
+    </div>
+
+    <div class="pizza-item featured">
+      <div class="pizza-info">
+        <div class="pizza-name">MareLuna ✨</div>
+        <div class="pizza-desc">Salsa Pomodoro Giallo, Bresaola della Valtellina, Stracciatella, Pomodorini Confit</div>
+      </div>
+      <div class="pizza-price">€13</div>
+    </div>
+
+    <div class="pizza-item">
+      <div class="pizza-info">
+        <div class="pizza-name">Regina di Bufala</div>
+        <div class="pizza-desc">Pomodoro SM, Bufala DOP, Olio Evo, Basilico</div>
+      </div>
+      <div class="pizza-price">€10</div>
+    </div>
+
+    <div class="pizza-item">
+      <div class="pizza-info">
+        <div class="pizza-name">Leonessa</div>
+        <div class="pizza-desc">Pomodoro SM, Pomodorini Semi-dry, Burrata Campana 125g, Scaglie di Grana 12 mesi</div>
+      </div>
+      <div class="pizza-price">€14</div>
+    </div>
+
+    <div class="pizza-item">
+      <div class="pizza-info">
+        <div class="pizza-name">Calzone Terra Mia</div>
+        <div class="pizza-desc">Ricotta di Bufala, Provola Affumicata, Salame Napoli, Pepe Nero</div>
+      </div>
+      <div class="pizza-price">€12</div>
+    </div>
+
+    <div class="pizza-item">
+      <div class="pizza-info">
+        <div class="pizza-name">Vasinicola</div>
+        <div class="pizza-desc">Fior di Latte, Datterini Rossi e Gialli, Crema di Basilico e Pistacchio</div>
+      </div>
+      <div class="pizza-price">€12</div>
+    </div>
+
+    <div class="pizza-item">
+      <div class="pizza-info">
+        <div class="pizza-name">Cornetto di Bufala</div>
+        <div class="pizza-desc">Pizza a forma di corno · Bufala, Rucola Crudo, Scaglie di Grana</div>
+      </div>
+      <div class="pizza-price">€14</div>
+    </div>
+
+  </div>
+
+  <p class="menu-lactose" data-it="Variante Mozzarella senza lattosio disponibile su richiesta" data-en="Lactose-free mozzarella available on request">
+    Variante Mozzarella senza lattosio disponibile su richiesta
+  </p>
+
+  <div class="menu-cta-wrap">
+    <a href="https://leggimenu.it/menu/marelunasrls" target="_blank" class="menu-cta" data-it="Menu Completo" data-en="Full Menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
+      <span>Menu Completo</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <p class="menu-qr-hint" data-it="Scansiona o tocca per il menu completo" data-en="Scan or tap for the full menu">Scansiona o tocca per il menu completo</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ GALLERIA ══════════════════════════════════════════ -->
+<section id="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-header">
+      <div class="section-eyebrow" data-it="Dal nostro Instagram" data-en="From our Instagram">Dal nostro Instagram</div>
+      <h2 class="section-title" data-it="Pizza fatta con amore" data-en="Pizza made with love">Pizza fatta con amore</h2>
+    </div>
+    <div class="gallery-grid">
+      <!-- Racchetta — tall, spans 2 rows -->
+      <div class="gallery-item tall">
+        <img src="images/gallery-racchetta.jpg" alt="Pizza Racchetta — specialità della casa" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-caption">La Racchetta ⭐</div>
+      </div>
+      <!-- Tre cotture -->
+      <div class="gallery-item">
+        <img src="images/gallery-tre-cotture.jpg" alt="Tre Cotture" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-caption">Tre Cotture</div>
+      </div>
+      <!-- Mica Pizza e Fichi -->
+      <div class="gallery-item">
+        <img src="images/gallery-mica-pizza-fichi.jpg" alt="Mica Pizza e Fichi" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-caption">Mica Pizza e Fichi</div>
+      </div>
+      <!-- Bologna -->
+      <div class="gallery-item">
+        <img src="images/gallery-bologna.jpg" alt="Bologna" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-caption">Bologna</div>
+      </div>
+      <!-- Interno -->
+      <div class="gallery-item">
+        <img src="images/gallery-interno.jpg" alt="Mareluna — atmosfera" loading="lazy">
+        <div class="gallery-overlay"></div>
+        <div class="gallery-caption">Il nostro locale</div>
+      </div>
+    </div>
+    <div class="gallery-insta">
+      <a href="https://www.instagram.com/___mareluna___/" target="_blank" data-it="Seguici su Instagram → @___mareluna___" data-en="Follow us on Instagram → @___mareluna___">
+        Seguici su Instagram → @___mareluna___
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ RECENSIONI ══════════════════════════════════════════ -->
+<section id="recensioni">
+  <div class="recensioni-inner">
+    <div class="section-eyebrow" data-it="Cosa dicono di noi" data-en="What they say about us">Cosa dicono di noi</div>
+    <div class="rating-stars">★★★★★</div>
+    <p class="rating-sub" data-it="su Google · 35 recensioni" data-en="on Google · 35 reviews">su Google · 35 recensioni</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-it="100/10 pizza fantastica. Consigliatissima. Pet friendly. Fatta con amore da un vero artista della pizza!" data-en="100/10 fantastic pizza. Highly recommend. Pet friendly. Made with love from a real pizza artist!">100/10 pizza fantastica. Consigliatissima. Pet friendly. Fatta con amore da un vero artista della pizza!</p>
+        <div class="review-author">— Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-it="La miglior pizza di Belvedere Marittimo. Tempi eccellenti, personale gentile, impasto leggero e altamente idratato. Ingredienti top. Consigliamo la pizza Racchetta!" data-en="The best pizza in Belvedere Marittimo. Excellent timing, friendly staff, light and highly hydrated dough. Top ingredients. We recommend the Racchetta pizza!">La miglior pizza di Belvedere Marittimo. Tempi eccellenti, personale gentile, impasto leggero e altamente idratato. Ingredienti top. Consigliamo la pizza Racchetta!</p>
+        <div class="review-author">— Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-it="Atmosfera e personale fantastici, accoglienti e amichevoli. Le pizze erano fantastiche, impasto leggero e digeribile." data-en="The atmosphere and staff were fantastic, welcoming and friendly. The pizzas were fantastic, light and easily digestible.">Atmosfera e personale fantastici, accoglienti e amichevoli. Le pizze erano fantastiche, impasto leggero e digeribile.</p>
+        <div class="review-author"><span class="review-flag">🇬🇧</span>— Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-it="Pizza eccellente, fritti eccellenti e strisce di Nutella pazzesche! Consiglio vivamente questo posto!" data-en="Excellent pizza, excellent fried foods, and amazing Nutella strips! I highly recommend this place!">Pizza eccellente, fritti eccellenti e strisce di Nutella pazzesche! Consiglio vivamente questo posto!</p>
+        <div class="review-author">— Google Review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ CONTATTI ══════════════════════════════════════════ -->
+<section id="contatti">
+  <div class="contatti-inner">
+    <div class="contatti-title-wrap">
+      <div class="section-eyebrow" data-it="Vieni a trovarci" data-en="Come visit us">Vieni a trovarci</div>
+      <h2 class="section-title" data-it="Quando &amp; Dove" data-en="When &amp; Where">Quando <span class="moon-divider">🌙</span> Dove</h2>
+    </div>
+
+    <div class="contatti-grid">
+      <!-- Orari -->
+      <div>
+        <div class="contatti-col-title" data-it="Orari di apertura" data-en="Opening hours">Orari di apertura</div>
+        <div class="contatti-col-h" data-it="Quando trovarci" data-en="When to find us">Quando trovarci</div>
+        <ul class="orari-list" id="orariList">
+          <li data-day="1"><span class="day" data-it="Lunedì"    data-en="Monday">Lunedì</span>    <span class="time">19:00 – 23:30</span></li>
+          <li data-day="2"><span class="day" data-it="Martedì"   data-en="Tuesday">Martedì</span>   <span class="time">19:00 – 23:30</span></li>
+          <li data-day="3"><span class="day" data-it="Mercoledì" data-en="Wednesday">Mercoledì</span> <span class="time">19:00 – 23:30</span></li>
+          <li data-day="4"><span class="day" data-it="Giovedì"   data-en="Thursday">Giovedì</span>   <span class="time">19:00 – 23:30</span></li>
+          <li data-day="5"><span class="day" data-it="Venerdì"   data-en="Friday">Venerdì</span>   <span class="time">19:00 – 23:30</span></li>
+          <li data-day="6"><span class="day" data-it="Sabato"    data-en="Saturday">Sabato</span>    <span class="time">19:00 – 23:30</span></li>
+          <li data-day="0"><span class="day" data-it="Domenica"  data-en="Sunday">Domenica</span>  <span class="time">19:00 – 23:30</span></li>
+        </ul>
+        <p class="orari-note" data-it="solo cena · cucina aperta dalle 19:00" data-en="dinner only · kitchen open from 19:00">solo cena · cucina aperta dalle 19:00</p>
+      </div>
+
+      <!-- Dove -->
+      <div>
+        <div class="contatti-col-title" data-it="Dove siamo" data-en="Find us">Dove siamo</div>
+        <div class="contatti-col-h" data-it="Indirizzo &amp; Contatti" data-en="Address &amp; Contacts">Indirizzo &amp; Contatti</div>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label" data-it="Indirizzo" data-en="Address">Indirizzo</div>
+              <div class="contact-value">Via Giuseppe Fiorillo, 39<br>87021 Belvedere Marittimo (CS)</div>
+            </div>
+          </div>
+          <a href="tel:+393205551687" class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-label" data-it="Telefono" data-en="Phone">Telefono</div>
+              <div class="contact-value">+39 320 555 1687</div>
+            </div>
+          </a>
+          <a href="https://wa.me/393205551687" class="contact-item" target="_blank">
+            <div class="contact-icon">💬</div>
+            <div>
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-value" data-it="Scrivici su WhatsApp" data-en="Message us on WhatsApp">Scrivici su WhatsApp</div>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/___mareluna___/" class="contact-item" target="_blank">
+            <div class="contact-icon">📸</div>
+            <div>
+              <div class="contact-label">Instagram</div>
+              <div class="contact-value">@___mareluna___</div>
+            </div>
+          </a>
+          <a href="https://www.facebook.com/p/Mareluna-61577213431492/" class="contact-item" target="_blank">
+            <div class="contact-icon">📘</div>
+            <div>
+              <div class="contact-label">Facebook</div>
+              <div class="contact-value">Mareluna Pizzeria &amp; Bar</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mappa -->
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3050.5!2d15.8539883!3d39.6209761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133f03389bd8e31f%3A0x850420d879c0130d!2sMARELUNA%20PIZZERIA%20%26%20BAR!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mareluna Pizzeria & Bar — Mappa"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ FOOTER ══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="images/logo-mareluna.png" alt="Mareluna">
+      <div class="footer-logo-name">Mare<span>luna</span></div>
+    </div>
+    <div class="footer-center">
+      <div class="footer-address">
+        Via Giuseppe Fiorillo, 39 — 87021 Belvedere Marittimo (CS)<br>
+        +39 320 555 1687
+      </div>
+      <div class="footer-piva">MARELUNA S.R.L.S. — P.IVA 03940150786</div>
+    </div>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/___mareluna___/" class="social-link" target="_blank" title="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/p/Mareluna-61577213431492/" class="social-link" target="_blank" title="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://wa.me/393205551687" class="social-link" target="_blank" title="WhatsApp">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Mareluna Pizzeria &amp; Bar — Belvedere Marittimo &nbsp;·&nbsp; MARELUNA S.R.L.S.</div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/393205551687?text=Buonasera!%20Vorrei%20prenotare%20un%20tavolo%20🌙" class="wa-float" target="_blank" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// ── STARS ──
+(function(){
+  const sf = document.getElementById('starsField');
+  if(!sf) return;
+  for(let i=0;i<120;i++){
+    const s = document.createElement('div');
+    s.className = 'star';
+    const sz = Math.random()*2+0.5;
+    s.style.cssText = `width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*4}s;animation-delay:${Math.random()*4}s`;
+    sf.appendChild(s);
+  }
+})();
+
+// ── SCROLL ──
+window.addEventListener('scroll', () => {
+  const st = document.documentElement.scrollTop;
+  const sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progressBar').style.width = (st/sh*100)+'%';
+  document.getElementById('mainNav').classList.toggle('scrolled', st > 50);
+});
+
+// ── ORARI OGGI ──
+(function(){
+  const today = new Date().getDay();
+  const items = document.querySelectorAll('#orariList li[data-day]');
+  items.forEach(li => {
+    if(parseInt(li.getAttribute('data-day')) === today) li.classList.add('today');
+  });
+})();
+
+// ── LANG ──
+let currentLang = 'it';
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === lang.toUpperCase()));
+  document.querySelectorAll('[data-'+lang+']').forEach(el => {
+    const text = el.getAttribute('data-'+lang);
+    if(text) el.innerHTML = text;
+  });
+}
+
+// ── MOBILE MENU ──
+function toggleMenu() {
+  document.getElementById('navOverlay').classList.toggle('open');
+}
+
+// ── INTERSECTION OBSERVER (fade-in) ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.about-card, .cocktail-card, .pizza-item, .review-card').forEach(el => {
+  el.style.cssText += 'opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
