@@ -55,14 +55,6 @@ nav.scrolled{background:rgba(14,11,8,.95);backdrop-filter:blur(16px);padding:16p
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.stagger-parent.visible .stagger-child{opacity:1;transform:translateY(0)}
-.stagger-child{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.stagger-child:nth-child(1){transition-delay:0s}
-.stagger-child:nth-child(2){transition-delay:.1s}
-.stagger-child:nth-child(3){transition-delay:.2s}
-.stagger-child:nth-child(4){transition-delay:.3s}
-.stagger-child:nth-child(5){transition-delay:.4s}
-.stagger-child:nth-child(6){transition-delay:.5s}
 
 /* HERO */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:120px 24px 80px;text-align:center}
@@ -194,6 +186,7 @@ nav.scrolled{background:rgba(14,11,8,.95);backdrop-filter:blur(16px);padding:16p
 /* BOOKING */
 .book{background:var(--ink2);color:var(--cream);position:relative}
 .book-head{text-align:center;margin-bottom:68px;max-width:720px;margin-left:auto;margin-right:auto}
+.book-head .desc{margin:16px auto 0}
 .book-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(40px,6vw,90px);align-items:start}
 .book-info h3{font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-top:32px;margin-bottom:10px}
 .book-info h3:first-child{margin-top:0}
@@ -212,6 +205,8 @@ nav.scrolled{background:rgba(14,11,8,.95);backdrop-filter:blur(16px);padding:16p
 .fg label{display:block;font-family:'Jost',sans-serif;font-size:9px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-l);margin-bottom:8px}
 .fg input,.fg select,.fg textarea{width:100%;padding:14px 0;border:none;border-bottom:1px solid var(--line-l);font-family:'Jost',sans-serif;font-size:14px;color:var(--cream);background:transparent;outline:none;transition:border-color .3s;font-weight:300}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-bottom-color:var(--gold)}
+.fg select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23B8935C'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;padding-right:20px;cursor:pointer}
+.fg select option{background:var(--ink2);color:var(--cream)}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .fg-check{display:flex;align-items:flex-start;gap:12px;margin-top:24px;padding:20px;background:rgba(139,58,58,.08);border:1px solid rgba(168,72,72,.2);cursor:pointer}
 .fg-check input[type=checkbox]{width:16px;height:16px;accent-color:var(--rose-l);border-bottom:none;padding:0;margin-top:2px;flex-shrink:0}
@@ -262,6 +257,9 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
 }
 @media(max-width:768px){
     .nav-links{display:none}
+    .nav-links.open{display:flex!important;flex-direction:column;position:fixed;inset:0;background:rgba(14,11,8,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);justify-content:center;align-items:center;gap:44px;z-index:97}
+    .nav-links.open li{display:block}
+    .nav-links.open a{font-size:13px;letter-spacing:5px;color:var(--cream)}
     .nav-mobile{display:block}
     .fg-row{grid-template-columns:1fr;gap:0}
     .foot-inner{flex-direction:column;align-items:flex-start}
@@ -273,8 +271,6 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
     *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
 
-@keyframes kenburns-v{from{transform:scale(1.05) translate(-1%,-1%)}to{transform:scale(1.18) translate(1%,1%)}}
-.hero-bg img,.hero-media img,.hero-img img,.hero>img,.hero-photo img,.garage-door img{animation:kenburns-v 25s ease-in-out infinite alternate!important}
 </style>
 </head>
 <body>
@@ -293,7 +289,7 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
         <li><a href="#recensioni"><span class="t-it">Recensioni</span><span class="t-en">Reviews</span></a></li>
         <li><a href="#prenota"><span class="t-it">Prenota</span><span class="t-en">Reserve</span></a></li>
     </ul>
-    <button class="nav-mobile" aria-label="Menu">&#9776;</button>
+    <button class="nav-mobile" aria-label="Menu" aria-expanded="false">&#9776;</button>
 </nav>
 
 <!-- HERO -->
@@ -307,7 +303,7 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
         <p class="hero-lead t-en">A small seafood restaurant where Pasquale &amp; Vanessa care for every detail. A hidden gem on Corso Mediterraneo.</p>
         <div class="hero-ornament"><span>&sect;</span></div>
         <a href="#prenota" class="hero-cta"><span class="t-it">Prenota un Tavolo</span><span class="t-en">Reserve a Table</span></a>
-        <span class="hero-cta-sub"><span class="t-it">Anniversari, proposte, cene speciali</span><span class="t-en">Anniversaries, proposals, special evenings</span> &mdash; <a href="tel:+393806960220">+39 380 696 0220</a></span>
+        <span class="hero-cta-sub"><span class="t-it">Anniversari, proposte, cene speciali</span><span class="t-en">Anniversaries, proposals, special evenings</span> &middot; <a href="tel:+393806960220">+39 380 696 0220</a></span>
     </div>
 </section>
 
@@ -335,8 +331,8 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
                         <div class="story-letter-role t-en">Dining &amp; welcome</div>
                     </div>
                 </div>
-                <p class="desc t-it">Pasquale in cucina, Vanessa in sala. Due anime, una stessa idea: un ristorante piccolo, curato, dove ogni ospite &egrave; aspettato. Pesce del giorno, piatti eleganti, dettagli che fanno la differenza &mdash; dai fiori sul tavolo ai petali di rosa per gli anniversari.</p>
-                <p class="desc t-en">Pasquale in the kitchen, Vanessa in the dining room. Two souls, one idea: a small, curated restaurant where every guest is awaited. Catch of the day, elegant plates, and details that make the difference &mdash; from flowers on the table to rose petals for anniversaries.</p>
+                <p class="desc t-it">Pasquale in cucina, Vanessa in sala. Due anime, una stessa idea: un ristorante piccolo, curato, dove ogni ospite &egrave; aspettato. Pesce del giorno, piatti eleganti, dettagli che fanno la differenza, dai fiori sul tavolo ai petali di rosa per gli anniversari.</p>
+                <p class="desc t-en">Pasquale in the kitchen, Vanessa in the dining room. Two souls, one idea: a small, curated restaurant where every guest is awaited. Catch of the day, elegant plates, and details that make the difference, from flowers on the table to rose petals for anniversaries.</p>
             </div>
             <div class="story-visual reveal">
                 <img src="./photos/photo_05.jpg" alt="Chef Pasquale">
@@ -365,8 +361,8 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
                 <div class="menu-body">
                     <h3 class="t-it">Crudo di mare <em>del giorno</em></h3>
                     <h3 class="t-en">Raw catch <em>of the day</em></h3>
-                    <p class="t-it">Gambero rosso, scampo, ostrica, ricciola &mdash; con agrumi di Sicilia e olio EVO di Calabria.</p>
-                    <p class="t-en">Red prawn, langoustine, oyster, amberjack &mdash; with Sicilian citrus and Calabrian EVO oil.</p>
+                    <p class="t-it">Gambero rosso, scampo, ostrica, ricciola, con agrumi di Sicilia e olio EVO di Calabria.</p>
+                    <p class="t-en">Red prawn, langoustine, oyster, amberjack, with Sicilian citrus and Calabrian EVO oil.</p>
                 </div>
                 <img class="menu-img" src="./photos/photo_05.jpg" alt="Crudo" loading="lazy">
             </div>
@@ -395,8 +391,8 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
                 <div class="menu-body">
                     <h3 class="t-it">Spigola al sale, <em>verdure</em></h3>
                     <h3 class="t-en">Sea bass in salt crust, <em>vegetables</em></h3>
-                    <p class="t-it">La spigola pi&ugrave; delicata della costa tirrenica &mdash; il pesce che gli ospiti chiamano &ldquo;il migliore mai assaggiato&rdquo;.</p>
-                    <p class="t-en">The most delicate sea bass from the Tyrrhenian coast &mdash; the fish our guests call "the best we've ever tasted".</p>
+                    <p class="t-it">La spigola pi&ugrave; delicata della costa tirrenica: il pesce che gli ospiti chiamano &ldquo;il migliore mai assaggiato&rdquo;.</p>
+                    <p class="t-en">The most delicate sea bass from the Tyrrhenian coast: the fish our guests call "the best we've ever tasted".</p>
                 </div>
                 <img class="menu-img" src="./photos/photo_02.jpg" alt="Spigola" loading="lazy">
             </div>
@@ -411,8 +407,8 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
                 <img class="menu-img" src="./photos/photo_09.jpg" alt="Tiramisù" loading="lazy">
             </div>
         </div>
-        <p class="menu-note t-it">&mdash; Degustazione 5 portate &middot; Selezione di vini su richiesta &mdash;</p>
-        <p class="menu-note t-en">&mdash; 5-course tasting &middot; Wine selection on request &mdash;</p>
+        <p class="menu-note t-it">Degustazione 5 portate &middot; Selezione di vini su richiesta</p>
+        <p class="menu-note t-en">5-course tasting &middot; Wine selection on request</p>
     </div>
 </section>
 
@@ -427,16 +423,16 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
                 <p class="tag"><span class="t-it">Serate Speciali</span><span class="t-en">Special Evenings</span></p>
                 <h2 class="hdg t-it">Un tavolo, <em>dei petali</em>,<br>una sera che non si dimentica.</h2>
                 <h2 class="hdg t-en">A table, <em>some petals</em>,<br>an evening you'll never forget.</h2>
-                <p class="desc t-it">Per anniversari, proposte, cene importanti &mdash; avvisateci quando prenotate e penseremo noi al resto. Tavolo preparato con petali di rosa, candele, selezione di vini. &Egrave; un dettaglio semplice, ma &egrave; il dettaglio che i nostri ospiti ricordano per sempre.</p>
-                <p class="desc t-en">For anniversaries, proposals, important evenings &mdash; tell us when you book and we'll take care of the rest. Table set with rose petals, candles, curated wine selection. A simple detail, but the one our guests remember forever.</p>
+                <p class="desc t-it">Per anniversari, proposte, cene importanti: avvisateci quando prenotate e penseremo noi al resto. Tavolo preparato con petali di rosa, candele, selezione di vini. &Egrave; un dettaglio semplice, ma &egrave; il dettaglio che i nostri ospiti ricordano per sempre.</p>
+                <p class="desc t-en">For anniversaries, proposals, important evenings: tell us when you book and we'll take care of the rest. Table set with rose petals, candles, curated wine selection. A simple detail, but the one our guests remember forever.</p>
                 <ul class="sig-features">
                     <li class="sig-feature">
                         <div class="sig-feature-num">i.</div>
                         <div>
                             <h3 class="t-it">Petali di rosa sul tavolo</h3>
                             <h3 class="t-en">Rose petals on the table</h3>
-                            <p class="t-it">Senza costo aggiuntivo &mdash; fa parte dell'accoglienza.</p>
-                            <p class="t-en">At no extra cost &mdash; it's part of our welcome.</p>
+                            <p class="t-it">Senza costo aggiuntivo, fa parte dell'accoglienza.</p>
+                            <p class="t-en">At no extra cost, it's part of our welcome.</p>
                         </div>
                     </li>
                     <li class="sig-feature">
@@ -478,8 +474,8 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
                     <span class="t-it">&ldquo;Non servono tecniche per coprire. Quando il pesce arriva la mattina, il lavoro &egrave; <em>non rovinarlo</em>.&rdquo;</span>
                     <span class="t-en">&ldquo;No techniques needed to cover things up. When the fish arrives in the morning, the job is <em>not to ruin it</em>.&rdquo;</span>
                 </div>
-                <p class="desc t-it">Pasquale seleziona personalmente il pescato ogni mattina al porto. Il men&ugrave; di oggi &egrave; il pesce che &egrave; arrivato stamattina &mdash; nient'altro.</p>
-                <p class="desc t-en">Pasquale personally selects the catch every morning at the port. Today's menu is the fish that arrived this morning &mdash; nothing more.</p>
+                <p class="desc t-it">Pasquale seleziona personalmente il pescato ogni mattina al porto. Il men&ugrave; di oggi &egrave; il pesce che &egrave; arrivato stamattina. Nient'altro.</p>
+                <p class="desc t-en">Pasquale personally selects the catch every morning at the port. Today's menu is the fish that arrived this morning. Nothing more.</p>
                 <div class="chef-signature">
                     <div class="chef-signature-name">Pasquale</div>
                     <div class="chef-signature-role"><span class="t-it">Chef Patron</span><span class="t-en">Chef Patron</span></div>
@@ -536,7 +532,7 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
             <div class="rev-card">
                 <div class="rev-stars">&#9733;&nbsp;&#9733;&nbsp;&#9733;&nbsp;&#9733;&nbsp;&#9733;</div>
                 <p class="rev-text t-it">L'antipasto mi ha colpito per originalit&agrave; e gusto, cos&igrave; come il primo e il secondo, piatti curati, sublimamente preparati.</p>
-                <p class="rev-text t-en">The appetiser impressed me with its originality and flavour, as did the first and main courses &mdash; dishes carefully, sublimely prepared.</p>
+                <p class="rev-text t-en">The appetiser impressed me with its originality and flavour, as did the first and main courses: dishes carefully, sublimely prepared.</p>
                 <div class="rev-who">Lorenzo Franzese</div>
                 <div class="rev-src">Google</div>
             </div>
@@ -571,8 +567,8 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
             <p class="tag"><span class="t-it">Prenotazioni</span><span class="t-en">Reservations</span></p>
             <h2 class="hdg t-it">Scriveteci, <em>o telefonate</em>.</h2>
             <h2 class="hdg t-en">Write to us, <em>or call</em>.</h2>
-            <p class="desc t-it" style="margin:16px auto 0">Vanessa risponde personalmente. Preferiamo sapervi prima per curarvi meglio.</p>
-            <p class="desc t-en" style="margin:16px auto 0">Vanessa replies personally. We prefer knowing you in advance so we can take better care of you.</p>
+            <p class="desc t-it">Vanessa risponde personalmente. Preferiamo sapervi prima per curarvi meglio.</p>
+            <p class="desc t-en">Vanessa replies personally. We prefer knowing you in advance so we can take better care of you.</p>
         </div>
         <div class="book-grid">
             <div class="book-info reveal">
@@ -662,6 +658,7 @@ footer{background:var(--ink);color:var(--cream);padding:72px clamp(20px,5vw,48px
 <script>
 function setLang(l){
     document.body.classList.toggle('lang-en', l==='en');
+    document.documentElement.lang = l;
     document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
 }
 const nav=document.getElementById('mainNav');
@@ -689,6 +686,26 @@ document.addEventListener('DOMContentLoaded',()=>{
         });
     },{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
     document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+    const di=document.querySelector('input[type="date"]');
+    if(di) di.min=new Date().toISOString().split('T')[0];
+
+    const navMobile=document.querySelector('.nav-mobile');
+    const navLinksEl=document.querySelector('.nav-links');
+    if(navMobile && navLinksEl){
+        navMobile.addEventListener('click',()=>{
+            const open=navLinksEl.classList.toggle('open');
+            navMobile.setAttribute('aria-expanded',String(open));
+            navMobile.innerHTML=open?'&#10005;':'&#9776;';
+            document.body.style.overflow=open?'hidden':'';
+        });
+        navLinksEl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+            navLinksEl.classList.remove('open');
+            navMobile.setAttribute('aria-expanded','false');
+            navMobile.innerHTML='&#9776;';
+            document.body.style.overflow='';
+        }));
+    }
 });
 </script>
 </body>
