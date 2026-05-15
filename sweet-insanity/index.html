@@ -1,824 +1,700 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sweet Insanity — Gelato Roll Artigianale · Scalea</title>
-  <meta name="description" content="Sweet Insanity — gelato roll preparato a vista, crepes spaghetti, open kitchen. Via Leonardo da Vinci, Scalea (CS). ★4.9 Google." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Insanity – Scalea</title>
+<meta name="description" content="Sweet Insanity Scalea – Bomboloni, Gelato, Granita artigianali.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#090910;--bg2:#0D0D1A;
+  --pink:#FF1E96;--pd:rgba(255,30,150,.3);--pg:rgba(255,30,150,.12);
+  --purple:#9B30FF;--cyan:#00D4FF;
+  --white:#fff;--gray:#7777AA;
+  --card:rgba(255,255,255,.04);--border:rgba(255,255,255,.07);
+  --brand:'Pacifico',cursive;--body:'Poppins',sans-serif;
+  --nav:70px;--ease:cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--body);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--pink);border-radius:2px}
 
-  <script src="https://cdn.tailwindcss.com"></script>
+/* ── CURSOR ── */
+.c-ring{position:fixed;top:0;left:0;width:40px;height:40px;border:2px solid var(--pink);border-radius:50%;pointer-events:none;z-index:9999;opacity:0;transition:opacity .3s,width .2s var(--ease),height .2s var(--ease);will-change:transform}
+.c-dot{position:fixed;top:0;left:0;width:8px;height:8px;background:var(--pink);border-radius:50%;pointer-events:none;z-index:9999;opacity:0;box-shadow:0 0 8px var(--pink);will-change:transform}
+.has-cursor .c-ring,.has-cursor .c-dot{opacity:1}
+.has-cursor .c-ring.big{width:60px;height:60px;border-color:var(--pd)}
+.has-cursor .c-ring.click{width:22px;height:22px}
+@media(hover:none){.c-ring,.c-dot{display:none!important}}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+/* ── NAV ── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,5vw,3.5rem);transition:background .4s,backdrop-filter .4s,box-shadow .4s}
+#nav.on{background:rgba(9,9,16,.92);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--border)}
+.nav-brand{display:flex;align-items:center;cursor:pointer}
+.nav-brand img{height:44px;width:auto;filter:drop-shadow(0 0 8px rgba(255,30,150,.5))}
+.nav-links{display:flex;gap:2.5rem}
+.nav-links a{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);transition:color .2s;cursor:pointer}
+.nav-links a:hover{color:var(--pink)}
+.nav-r{display:flex;gap:.3rem}
+.lb{background:none;border:1px solid var(--border);color:var(--gray);font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.08em;padding:.28rem .6rem;border-radius:5px;cursor:pointer;transition:all .2s}
+.lb:hover,.lb.on{background:var(--pink);border-color:var(--pink);color:#fff;box-shadow:0 0 12px var(--pd)}
+@media(max-width:768px){.nav-links{display:none}}
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            latte:   '#FFF9FC',
-            fragola: '#FF6BA8',
-            menta:   '#7ED8E8',
-            limone:  '#FFD93D',
-            pistac:  '#8FE0B4',
-            mirtil:  '#C9A8FF',
-            pesca:   '#FFBCCA',
-            notte:   '#1A1A2E',
-            grafite: '#6B6B80',
-          },
-          fontFamily: {
-            display: ['Syne', 'sans-serif'],
-            body:    ['Nunito', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.fl{transform:translateX(-36px)}
+.rv.fr{transform:translateX(36px)}
+.rv.vis{opacity:1;transform:translate(0)}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Nunito', sans-serif; background: #FFF9FC; color: #1A1A2E; -webkit-font-smoothing: antialiased; }
+/* ── MOBILE ── */
+@media(max-width:640px){
+  /* nav */
+  .nav-brand img{height:34px}
+  .lb{font-size:.6rem;padding:.22rem .5rem}
 
-    /* ── Animated mesh gradient ─────────────────── */
-    @keyframes mesh {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .hero-mesh {
-      background: linear-gradient(-45deg, #FF6BA8, #FFD93D, #7ED8E8, #C9A8FF, #8FE0B4, #FF6BA8);
-      background-size: 400% 400%;
-      animation: mesh 9s ease infinite;
-    }
+  /* hero */
+  #hero{padding:0 1.2rem;justify-content:flex-start}
+  .h-tit{font-size:clamp(2.8rem,18vw,5rem);line-height:.95}
+  .h-tag{font-size:.88rem}
+  .h-cta{font-size:.75rem;padding:.75rem 1.6rem}
+  .h-eye{font-size:.6rem;letter-spacing:.18em;padding:.25rem .9rem}
 
-    /* ── Floating SVGs ──────────────────────────── */
-    @keyframes float-a { 0%,100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-18px) rotate(6deg); } }
-    @keyframes float-b { 0%,100% { transform: translateY(0) rotate(8deg);  } 50% { transform: translateY(-13px) rotate(-5deg); } }
-    @keyframes float-c { 0%,100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-22px) rotate(8deg); } }
-    @keyframes float-d { 0%,100% { transform: translateY(0) rotate(12deg); } 50% { transform: translateY(-10px) rotate(-8deg); } }
-    .fa { animation: float-a 3.8s ease-in-out infinite; }
-    .fb { animation: float-b 4.5s ease-in-out infinite; }
-    .fc { animation: float-c 3.2s ease-in-out infinite; }
-    .fd { animation: float-d 5.0s ease-in-out infinite; }
+  /* products */
+  .pc{min-width:240px}
+  .pc-name{font-size:1rem}
 
-    /* ── Clay card ──────────────────────────────── */
-    .clay {
-      border-radius: 22px;
-      box-shadow:
-        inset -2px -2px 5px rgba(255,255,255,0.8),
-        inset 1px 1px 4px rgba(0,0,0,0.04),
-        5px 5px 18px rgba(0,0,0,0.08);
-      transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
-    }
-    .clay:hover {
-      transform: translateY(-6px) scale(1.025);
-      box-shadow:
-        inset -2px -2px 5px rgba(255,255,255,0.9),
-        inset 1px 1px 4px rgba(0,0,0,0.03),
-        10px 14px 30px rgba(0,0,0,0.13);
-    }
+  /* kitchen */
+  #kitchen{height:70vh}
+  .kitch-hdr h2{font-size:clamp(2rem,12vw,3.5rem)}
+  .kitch-hdr{padding:0 1.2rem}
 
-    /* ── Jello CTA button ───────────────────────── */
-    @keyframes jello {
-      0%,100% { transform: scale3d(1,1,1); }
-      30%  { transform: scale3d(1.2,.85,1); }
-      45%  { transform: scale3d(.85,1.2,1); }
-      60%  { transform: scale3d(1.1,.9,1); }
-      75%  { transform: scale3d(.95,1.05,1); }
-    }
-    .jello:hover { animation: jello 0.55s ease; }
+  /* gallery */
+  #gallery{padding:3rem 1rem}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gi:nth-child(n){grid-column:auto!important;grid-row:auto!important}
+  .gal-hdr h2{font-size:1.6rem}
 
-    /* ── Scroll reveal ──────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .65s cubic-bezier(.4,0,.2,1), transform .65s cubic-bezier(.4,0,.2,1);
-    }
-    .reveal.up { opacity: 1; transform: none; }
-    .stagger > * {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .55s cubic-bezier(.4,0,.2,1), transform .55s cubic-bezier(.4,0,.2,1);
-    }
-    .stagger.up > *:nth-child(1) { opacity:1; transform:none; }
-    .stagger.up > *:nth-child(2) { opacity:1; transform:none; transition-delay:.12s; }
-    .stagger.up > *:nth-child(3) { opacity:1; transform:none; transition-delay:.24s; }
-    .stagger.up > *:nth-child(4) { opacity:1; transform:none; transition-delay:.36s; }
-    .stagger.up > *:nth-child(5) { opacity:1; transform:none; transition-delay:.48s; }
-    .stagger.up > *:nth-child(6) { opacity:1; transform:none; transition-delay:.60s; }
+  /* smoothie */
+  #smoothie{padding:3rem 1.2rem;gap:2rem}
+  .sm-vid-wrap{max-width:220px}
+  .sm-desc{font-size:.88rem}
 
-    /* ── Gallery hover ──────────────────────────── */
-    .gal-img { transition: transform .35s ease, filter .35s ease; }
-    .gal-item:hover .gal-img { transform: scale(1.06); filter: saturate(1.25) brightness(1.05); }
+  /* vibe */
+  #vibe{height:55vh}
+  .v-cnt h2{font-size:clamp(2rem,12vw,4rem)}
 
-    /* ── Lang switcher ──────────────────────────── */
-    .lang-active { background: #FF6BA8; color: white; }
+  /* faq */
+  #faq{padding:3rem 1.2rem}
+  .faq-q{font-size:.9rem}
 
-    /* ── Mobile menu ────────────────────────────── */
-    #mob-nav { display: none; }
-    #mob-nav.open { display: block; }
+  /* contact */
+  #contact{padding:3rem 1.2rem}
+  .sec-tit{font-size:clamp(1.6rem,8vw,2.5rem)}
 
-    /* ── WhatsApp pulse ─────────────────────────── */
-    @keyframes wa-ring {
-      0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,.5); }
-      60%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
-    }
-    .wa-pulse { animation: wa-ring 2.2s ease-in-out infinite; }
+  /* footer */
+  .f-brand img{height:48px}
+  .f-brand span{font-size:1.1rem}
+  .f-nav,.f-soc{flex-wrap:wrap;gap:.8rem}
 
-    /* ── Anchor scroll offset (accounts for sticky navbar) ── */
-    section { scroll-margin-top: 100px; }
+  /* whatsapp */
+  .wa{width:48px;height:48px;bottom:1.2rem;right:1.2rem}
+  .wa svg{width:26px;height:26px}
+}
 
-    /* ── Hero title — fluid, always fits its grid column ── */
-    /*
-      Column width at key viewports (max-w-6xl container, px-6, gap-10):
-        768px  → (768-48-40)/2  = 340px   font@7vw = 53.8px  → INSANITY ≈ 301px ✓
-        1024px → (1024-48-40)/2 = 468px   font@7vw = 71.7px  → INSANITY ≈ 401px ✓
-        1280px → (1152-40)/2    = 556px   font clamps to 80px → INSANITY ≈ 448px ✓
-        1440px → same 556px     → 80px                                            ✓
-        1920px → same 556px     → 80px                                            ✓
-        375px  (stacked, full)  → min 3rem = 48px → INSANITY ≈ 269px in 327px   ✓
-    */
-    .hero-title {
-      font-size: clamp(3rem, 7vw, 5rem);
-      line-height: 0.95;
-    }
+/* ── HERO ── */
+#hero{position:relative;height:100svh;min-height:600px;display:flex;align-items:center;justify-content:flex-start;overflow:hidden;padding:0 clamp(2rem,8vw,6rem)}
+.h-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.92) saturate(1.4);transform:scale(1.04)}
+.h-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,9,16,1) 0%,rgba(9,9,16,.15) 45%,rgba(9,9,16,.02) 100%),radial-gradient(ellipse at 50% 70%,rgba(255,30,150,.1) 0%,transparent 70%)}
+#hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(to bottom,transparent,#090910);pointer-events:none;z-index:3}
+/* particles */
+.pts{position:absolute;inset:0;pointer-events:none}
+.pt{position:absolute;border-radius:50%;opacity:0;animation:rise linear infinite}
+.pt:nth-child(1){left:8%;width:5px;height:5px;background:var(--pink);animation-duration:7s;animation-delay:0s}
+.pt:nth-child(2){left:22%;width:3px;height:3px;background:var(--purple);animation-duration:9s;animation-delay:2s}
+.pt:nth-child(3){left:38%;width:6px;height:6px;background:var(--pink);animation-duration:6s;animation-delay:1s}
+.pt:nth-child(4){left:53%;width:4px;height:4px;background:var(--cyan);animation-duration:8s;animation-delay:3s}
+.pt:nth-child(5){left:68%;width:5px;height:5px;background:var(--pink);animation-duration:7.5s;animation-delay:.5s}
+.pt:nth-child(6){left:81%;width:3px;height:3px;background:var(--purple);animation-duration:10s;animation-delay:1.5s}
+.pt:nth-child(7){left:14%;width:4px;height:4px;background:var(--cyan);animation-duration:8.5s;animation-delay:4s}
+.pt:nth-child(8){left:73%;width:6px;height:6px;background:var(--pink);animation-duration:6.5s;animation-delay:2.5s}
+@keyframes rise{0%{bottom:-20px;opacity:0;transform:scale(0)}10%{opacity:.7}90%{opacity:.3}100%{bottom:100vh;opacity:0;transform:scale(1.5)}}
 
-    @media (prefers-reduced-motion: reduce) {
-      .reveal, .stagger > * { transition: none; opacity: 1; transform: none; }
-      .hero-mesh { animation: none; background: #FF6BA8; }
-      .fa,.fb,.fc,.fd { animation: none; }
-      .wa-pulse { animation: none; }
-    }
-  </style>
+.h-cnt{position:relative;z-index:2;text-align:left;padding:0;max-width:720px;width:100%}
+.h-eye{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--pink);border:1px solid var(--pd);border-radius:20px;padding:.33rem 1.2rem;margin-bottom:1.8rem;animation:fadeUp .8s var(--ease) forwards;opacity:0}
+.h-tit{font-family:var(--brand);font-size:clamp(4rem,14vw,11rem);line-height:.92;margin-bottom:1.3rem;opacity:0;animation:fadeUp 1s var(--ease) .25s forwards}
+.hw{display:block;color:#fff;text-shadow:0 2px 40px rgba(255,255,255,.12)}
+.hn{display:block;color:var(--pink);text-shadow:0 0 8px #fff,0 0 20px #fff,0 0 40px var(--pink),0 0 80px var(--pink),0 0 120px rgba(255,30,150,.4);animation:nf 5s ease-in-out infinite 1.5s}
+@keyframes nf{0%,18%,20%,22%,60%,62%,100%{text-shadow:0 0 8px #fff,0 0 20px #fff,0 0 40px var(--pink),0 0 80px var(--pink),0 0 120px rgba(255,30,150,.4);opacity:1}19%,21%,61%{text-shadow:none;opacity:.5}}
+.h-tag{font-size:clamp(1rem,2.5vw,1.3rem);font-weight:300;color:rgba(255,255,255,.7);letter-spacing:.05em;margin-bottom:2.5rem;opacity:0;animation:fadeUp 1s var(--ease) .5s forwards}
+.h-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--pink);color:#fff;font-size:.83rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.95rem 2.3rem;border-radius:50px;cursor:pointer;box-shadow:0 0 30px var(--pd),0 6px 24px rgba(0,0,0,.4);transition:transform .25s var(--ease),box-shadow .25s;opacity:0;animation:fadeUp 1s var(--ease) .75s forwards}
+.h-cta:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 0 50px var(--pd),0 10px 35px rgba(0,0,0,.5)}
+.h-cta svg{width:16px;height:16px;fill:currentColor}
+.h-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:0;animation:fadeUp 1.2s var(--ease) 1.2s forwards}
+.h-stxt{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.h-sarr{animation:bounce 2s ease-in-out infinite}
+.h-sarr svg{width:24px;height:24px;stroke:rgba(255,255,255,.35);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── PRODUCTS (HORIZONTAL) ── */
+#products{padding:clamp(5rem,9vw,8rem) 0 clamp(3rem,6vw,5rem);position:relative;overflow:hidden}
+#products::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 0% 50%,rgba(155,48,255,.06) 0%,transparent 60%),radial-gradient(ellipse at 100% 50%,rgba(255,30,150,.06) 0%,transparent 60%);pointer-events:none}
+.prod-hdr{text-align:center;padding:0 clamp(1rem,5vw,3.5rem);margin-bottom:2.5rem}
+.sec-lbl{display:inline-flex;align-items:center;gap:.6rem;font-size:.68rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--pink);margin-bottom:.8rem}
+.sec-lbl::before,.sec-lbl::after{content:'';display:block;width:22px;height:1px;background:var(--pink);opacity:.55}
+.sec-tit{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:.7rem}
+.sec-sub{font-size:.95rem;color:var(--gray);font-weight:300}
+.accent{color:var(--pink)}
+
+.prod-wrap{position:relative}
+.prod-wrap::before,.prod-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.prod-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
+.prod-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
+
+.prod-track{display:flex;gap:1.2rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:1rem clamp(1rem,5vw,3.5rem) 2rem;scrollbar-width:none;cursor:grab;-webkit-overflow-scrolling:touch}
+.prod-track::-webkit-scrollbar{display:none}
+.prod-track.dragging{cursor:grabbing;user-select:none}
+
+.pc{flex-shrink:0;width:clamp(260px,32vw,340px);background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;scroll-snap-align:start;transition:border-color .35s,box-shadow .35s,transform .35s var(--ease);cursor:pointer}
+.pc:hover{border-color:rgba(255,30,150,.5);box-shadow:0 0 40px var(--pd),0 20px 50px rgba(0,0,0,.5);transform:translateY(-6px)}
+.pc-img{position:relative;aspect-ratio:1;overflow:hidden}
+.pc-img img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .6s var(--ease)}
+.pc:hover .pc-img img{transform:scale(1.08)}
+.pc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,9,16,.88) 0%,transparent 55%)}
+.pc-n{position:absolute;top:1rem;left:1.2rem;font-size:.62rem;font-weight:800;letter-spacing:.2em;color:rgba(255,255,255,.35)}
+.pc-bd{padding:1.2rem 1.4rem 1.6rem}
+.pc-bd h3{font-size:1.15rem;font-weight:700;margin-bottom:.45rem;letter-spacing:-.01em}
+.pc-bd p{font-size:.8rem;color:var(--gray);line-height:1.6;font-weight:300}
+.pc-tag{display:inline-block;margin-top:.85rem;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);border:1px solid var(--pd);border-radius:20px;padding:.18rem .72rem}
+
+.prod-ft{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:1.2rem;padding:0 clamp(1rem,5vw,3.5rem)}
+.drag-hint{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.22)}
+.sp{flex:1;max-width:180px;height:2px;background:var(--border);border-radius:1px;overflow:hidden}
+.spb{height:100%;background:var(--pink);border-radius:1px;transform-origin:left;transform:scaleX(0);transition:transform .1s;box-shadow:0 0 8px var(--pink)}
+
+/* ── GALLERY ── */
+#gallery{padding:clamp(5rem,9vw,8rem) clamp(1rem,4vw,3rem);background:linear-gradient(to bottom,#090910 0%,var(--bg2) 8%,var(--bg2) 92%,#090910 100%)}
+.gal-hdr{text-align:center;margin-bottom:3rem}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,220px);gap:.7rem;max-width:1400px;margin:0 auto}
+.gi{border-radius:14px;overflow:hidden;cursor:pointer;position:relative;opacity:0;transform:translateY(28px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.gi.vis{opacity:1;transform:translateY(0)}
+.gi:nth-child(1){grid-column:1/3;grid-row:1/3}
+.gi:nth-child(2){grid-column:3;grid-row:1}
+.gi:nth-child(3){grid-column:4;grid-row:1}
+.gi:nth-child(4){grid-column:3;grid-row:2}
+.gi:nth-child(5){grid-column:4;grid-row:2}
+.gi:nth-child(6){grid-column:1;grid-row:3}
+.gi:nth-child(7){grid-column:2;grid-row:3}
+.gi:nth-child(8){grid-column:3/5;grid-row:3}
+.gi:nth-child(9){transition-delay:.14s}
+.gi:nth-child(10){transition-delay:.21s}
+.gi:nth-child(11){transition-delay:.28s}
+.gi:nth-child(1){transition-delay:.00s}.gi:nth-child(2){transition-delay:.07s}.gi:nth-child(3){transition-delay:.10s}
+.gi:nth-child(4){transition-delay:.14s}.gi:nth-child(5){transition-delay:.18s}.gi:nth-child(6){transition-delay:.22s}
+.gi:nth-child(7){transition-delay:.26s}.gi:nth-child(8){transition-delay:.30s}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease),filter .3s}
+.gi::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(255,30,150,.55) 0%,transparent 55%);opacity:0;transition:opacity .3s;border-radius:14px}
+.gi:hover img{transform:scale(1.07);filter:brightness(.78)}
+.gi:hover::after{opacity:1}
+@media(max-width:900px){.gal-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}.gi:nth-child(n){grid-column:auto;grid-row:auto}}
+@media(max-width:500px){.gal-grid{grid-template-columns:1fr 1fr}}
+
+/* ── OPEN KITCHEN (video slider) ── */
+#kitchen{position:relative;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:flex-start;padding:0;background:transparent}
+#kitchen::before{content:'';position:absolute;top:0;left:0;right:0;height:180px;background:linear-gradient(to bottom,#090910,transparent);pointer-events:none;z-index:3}
+#kitchen::after{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,#090910,transparent);pointer-events:none;z-index:3}
+.kitch-hdr{position:relative;z-index:2;text-align:left;padding:0 clamp(2rem,8vw,6rem);max-width:600px}
+.kitch-hdr .sec-lbl{color:rgba(255,255,255,.9);text-shadow:0 1px 8px rgba(0,0,0,.9)}
+.kitch-hdr h2{text-shadow:2px 2px 0 rgba(0,0,0,.8),0 0 30px rgba(255,30,150,.5),0 4px 20px rgba(0,0,0,.9)}
+.kitch-hdr p{color:rgba(255,255,255,.9)!important;text-shadow:0 1px 8px rgba(0,0,0,.9)}
+.vs-wrap{position:absolute;inset:0;max-width:none;margin:0}
+.vs-wrap video{width:100%;height:100%;object-fit:cover}
+.vs-kitch-ov{display:none}
+.vs-track{position:relative;aspect-ratio:9/16;border-radius:0;overflow:hidden;background:#000}
+.vs-slide{position:absolute;inset:0;opacity:0;transition:opacity .55s ease;pointer-events:none}
+.vs-slide.on{opacity:1;pointer-events:auto}
+.vs-slide video{width:100%;height:100%;object-fit:cover;display:block}
+.vs-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(9,9,16,.55);backdrop-filter:blur(6px);color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s}
+.vs-btn:hover{border-color:var(--pink);background:var(--pg)}
+.vs-prev{left:-52px}.vs-next{right:-52px}
+.vs-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.2rem}
+.vs-dot{width:7px;height:7px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:all .3s}
+.vs-dot.on{width:20px;border-radius:3px;background:var(--pink);box-shadow:0 0 8px var(--pink)}
+@media(max-width:500px){.vs-prev{left:-36px}.vs-next{right:-36px}.vs-wrap{max-width:260px}}
+
+/* ── VIBE (PARALLAX) ── */
+#vibe{position:relative;height:clamp(60vh,75vh,900px);overflow:hidden;display:flex;align-items:center;justify-content:center}
+#vibe::before{content:'';position:absolute;top:0;left:0;right:0;height:200px;background:linear-gradient(to bottom,#090910,transparent);pointer-events:none;z-index:3}
+#vibe::after{content:'';position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,#090910,transparent);pointer-events:none;z-index:3}
+.vv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(1);will-change:transform}
+.v-ov{position:absolute;inset:0;background:none}
+.v-cnt{position:relative;z-index:2;text-align:center;padding:0 2rem}
+.v-cnt h2{font-family:var(--brand);font-size:clamp(2.8rem,9vw,7rem);color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+.v-accent{color:var(--pink);text-shadow:0 0 20px rgba(255,30,150,.6),0 0 50px rgba(255,30,150,.25);animation:vglow 4s ease-in-out infinite}
+@keyframes vglow{0%,100%{text-shadow:0 0 20px rgba(255,30,150,.6),0 0 50px rgba(255,30,150,.25)}50%{text-shadow:0 0 35px rgba(255,30,150,.9),0 0 80px rgba(255,30,150,.4)}}
+.v-cnt p{margin-top:.7rem;font-size:clamp(.78rem,1.8vw,.95rem);letter-spacing:.2em;text-transform:uppercase;color:var(--pink);text-shadow:0 0 12px rgba(255,30,150,.4)}
+
+/* ── FAQ ── */
+#faq{padding:clamp(5rem,9vw,8rem) clamp(1rem,5vw,4rem);max-width:860px;margin:0 auto}
+.faq-hdr{text-align:center;margin-bottom:3rem}
+.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+.faq-q{width:100%;background:none;border:none;color:var(--white);font-family:var(--body);font-size:1rem;font-weight:600;text-align:left;padding:1.3rem 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:color .2s}
+.faq-q:hover{color:var(--pink)}
+.faq-icon{flex-shrink:0;width:22px;height:22px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .35s var(--ease),border-color .2s,background .2s;font-size:.75rem}
+.faq-item.open .faq-icon{transform:rotate(45deg);border-color:var(--pink);background:var(--pg);color:var(--pink)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-a-inner{padding:.2rem 0 1.4rem;font-size:.92rem;color:rgba(255,255,255,.55);line-height:1.7}
+
+/* ── CONTACT ── */
+#contact{padding:clamp(5rem,9vw,8rem) clamp(1rem,5vw,4rem);max-width:1200px;margin:0 auto}
+.con-hdr{text-align:center;margin-bottom:3.5rem}
+.con-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+@media(max-width:1024px){.con-grid{grid-template-columns:1fr}}
+.ii{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.3rem;background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:.8rem;transition:border-color .3s,box-shadow .3s}
+.ii:hover{border-color:var(--pd);box-shadow:0 0 20px var(--pg)}
+.ii-ico{flex-shrink:0;width:38px;height:38px;background:var(--pg);border:1px solid var(--pd);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.ii-ico svg{width:18px;height:18px;fill:var(--pink)}
+.ii-lbl{font-size:.65rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pink);margin-bottom:.2rem}
+.ii-val{font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.4}
+.ii-val a:hover{color:var(--pink)}
+.map-box{border-radius:20px;overflow:hidden;border:1px solid var(--border);aspect-ratio:1;background:var(--card)}
+.map-box iframe{width:100%;height:100%;display:block;border:none;filter:invert(1) hue-rotate(180deg) brightness(.7) saturate(1.5)}
+@media(max-width:1024px){.map-box{aspect-ratio:16/9}}
+
+/* ── SMOOTHIE ── */
+#smoothie{padding:clamp(5rem,9vw,8rem) clamp(1rem,5vw,4rem);max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.sm-vid-wrap{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:9/16;max-width:360px;margin:0 auto;box-shadow:0 0 60px rgba(255,30,150,.15)}
+.sm-vid-wrap video{width:100%;height:100%;object-fit:cover;display:block}
+.sm-vid-wrap::after{content:'';position:absolute;inset:0;border-radius:24px;border:1px solid var(--border)}
+.sm-txt{display:flex;flex-direction:column;gap:1.5rem}
+.sm-txt .sec-lbl{text-align:left}
+.sm-txt .sec-tit{text-align:left}
+.sm-desc{font-size:1rem;color:rgba(255,255,255,.6);line-height:1.8}
+.sm-tags{display:flex;flex-wrap:wrap;gap:.6rem}
+.sm-tag{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;border:1px solid var(--pd);color:var(--pink);background:var(--pg)}
+@media(max-width:860px){#smoothie{grid-template-columns:1fr;gap:2.5rem}.sm-vid-wrap{max-width:280px}}
+
+/* ── FOOTER ── */
+/* ── WHATSAPP ── */
+.wa{position:fixed;bottom:2rem;right:2rem;z-index:800;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .25s var(--ease),box-shadow .25s;text-decoration:none}
+.wa:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 8px 30px rgba(37,211,102,.6)}
+.wa svg{width:30px;height:30px;fill:#fff}
+
+footer{padding:2.5rem clamp(1rem,5vw,4rem);border-top:1px solid var(--border);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem}
+.f-brand img{height:70px;width:auto;filter:drop-shadow(0 0 10px rgba(255,30,150,.4))}
+.f-nav{display:flex;gap:2rem}
+.f-nav a{font-size:.78rem;font-weight:500;color:var(--gray);transition:color .2s;cursor:pointer}
+.f-nav a:hover{color:var(--pink)}
+.f-soc{display:flex;gap:.55rem}
+.sl{display:flex;align-items:center;gap:.4rem;padding:.43rem .88rem;border:1px solid var(--border);border-radius:8px;font-size:.76rem;font-weight:600;color:var(--gray);transition:all .2s;cursor:pointer}
+.sl svg{width:14px;height:14px;fill:currentColor}
+.sl:hover{border-color:var(--pd);color:var(--white);background:var(--pg)}
+.f-copy{width:100%;text-align:center;font-size:.7rem;color:rgba(255,255,255,.18);padding-top:1.5rem;border-top:1px solid var(--border)}
+@media(max-width:768px){footer{flex-direction:column;text-align:center}.f-nav{justify-content:center}.f-soc{justify-content:center}}
+
+/* ── LIGHTBOX ── */
+#lb{display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.94);align-items:center;justify-content:center;backdrop-filter:blur(8px)}
+#lb.on{display:flex}
+#lb img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:12px;box-shadow:0 0 80px rgba(255,30,150,.22)}
+#lb-x{position:absolute;top:1.5rem;right:1.5rem;background:none;border:1px solid var(--border);color:rgba(255,255,255,.7);width:44px;height:44px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+#lb-x:hover{border-color:var(--pink);color:var(--pink)}
+</style>
 </head>
+<body>
 
-<body class="bg-latte text-notte">
+<div class="c-ring" id="cR"></div>
+<div class="c-dot"  id="cD"></div>
 
-<!-- ══════════════════════════════════════
-     NAVBAR
-══════════════════════════════════════ -->
-<nav class="fixed top-3 left-3 right-3 z-50 flex items-center justify-between px-5 py-3 rounded-2xl bg-white/90 backdrop-blur-sm border-2 border-pesca shadow-lg clay" style="border-radius:18px">
-
-  <a href="#" class="font-display text-fragola text-xl font-bold tracking-tight leading-none">
-    Sweet Insanity
-  </a>
-
-  <ul class="hidden md:flex items-center gap-6 font-body text-sm font-semibold text-grafite">
-    <li><a href="#funziona" class="hover:text-fragola transition-colors cursor-pointer" data-it="Come funziona" data-en="How it works">Come funziona</a></li>
-    <li><a href="#specialita" class="hover:text-fragola transition-colors cursor-pointer" data-it="Specialità" data-en="Menu">Specialità</a></li>
-    <li><a href="#gallery" class="hover:text-fragola transition-colors cursor-pointer" data-it="Gallery" data-en="Gallery">Gallery</a></li>
-    <li><a href="#dove" class="hover:text-fragola transition-colors cursor-pointer" data-it="Dove siamo" data-en="Find us">Dove siamo</a></li>
-  </ul>
-
-  <div class="flex items-center gap-2">
-    <!-- Lang -->
-    <div class="hidden sm:flex gap-1 bg-latte border border-pesca rounded-full p-1 text-xs font-body font-bold">
-      <button id="btn-it" onclick="setLang('it')" class="lang-active cursor-pointer px-3 py-1 rounded-full transition-all duration-200">IT</button>
-      <button id="btn-en" onclick="setLang('en')" class="cursor-pointer px-3 py-1 rounded-full transition-all duration-200 text-grafite hover:text-notte">EN</button>
-    </div>
-    <!-- Hamburger -->
-    <button onclick="toggleNav()" class="md:hidden cursor-pointer w-9 h-9 flex flex-col justify-center items-center gap-1.5" aria-label="Menu">
-      <span class="w-5 h-0.5 bg-notte rounded-full"></span>
-      <span class="w-5 h-0.5 bg-notte rounded-full"></span>
-      <span class="w-4 h-0.5 bg-notte rounded-full"></span>
-    </button>
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-brand" onclick="scrollTo(0,0)"><img src="img/logo.png" alt="Sweet Insanity Scalea"></div>
+  <div class="nav-links">
+    <a href="#products" data-i18n="nm">Menu</a>
+    <a href="#gallery"  data-i18n="ng">Galleria</a>
+    <a href="#contact"  data-i18n="nc">Contatti</a>
+  </div>
+  <div class="nav-r">
+    <button class="lb on" data-lang="it">IT</button>
+    <button class="lb"    data-lang="en">EN</button>
+    <button class="lb"    data-lang="ru">RU</button>
   </div>
 </nav>
 
-<!-- Mobile nav -->
-<div id="mob-nav" class="fixed top-20 left-3 right-3 z-40 bg-white border-2 border-pesca rounded-2xl shadow-xl p-6 clay">
-  <ul class="space-y-4 font-body font-semibold text-base">
-    <li><a href="#funziona" onclick="toggleNav()" class="block text-notte hover:text-fragola transition-colors cursor-pointer" data-it="Come funziona" data-en="How it works">Come funziona</a></li>
-    <li><a href="#specialita" onclick="toggleNav()" class="block text-notte hover:text-fragola transition-colors cursor-pointer" data-it="Specialità" data-en="Menu">Specialità</a></li>
-    <li><a href="#gallery" onclick="toggleNav()" class="block text-notte hover:text-fragola transition-colors cursor-pointer" data-it="Gallery" data-en="Gallery">Gallery</a></li>
-    <li><a href="#dove" onclick="toggleNav()" class="block text-notte hover:text-fragola transition-colors cursor-pointer" data-it="Dove siamo" data-en="Find us">Dove siamo</a></li>
-    <li class="pt-2 border-t border-pesca flex gap-2">
-      <button id="mob-btn-it" onclick="setLang('it');toggleNav()" class="lang-active cursor-pointer text-xs px-4 py-2 rounded-full font-bold">IT</button>
-      <button id="mob-btn-en" onclick="setLang('en');toggleNav()" class="cursor-pointer text-xs px-4 py-2 rounded-full font-bold border-2 border-pesca text-grafite">EN</button>
-    </li>
-  </ul>
-</div>
-
-
-<!-- ══════════════════════════════════════
-     HERO
-══════════════════════════════════════ -->
-<section class="relative min-h-screen flex items-center overflow-hidden pt-20">
-
-  <!-- Animated gradient bg -->
-  <div class="hero-mesh absolute inset-0 opacity-30"></div>
-  <div class="absolute inset-0 bg-gradient-to-b from-latte/0 via-latte/10 to-latte/80"></div>
-
-  <!-- Floating decorative SVGs -->
-  <div class="absolute top-24 left-6 md:left-16 fa opacity-70" aria-hidden="true">
-    <!-- Ice cream cone -->
-    <svg width="52" height="72" viewBox="0 0 52 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="26" cy="22" rx="22" ry="22" fill="#FF6BA8"/>
-      <ellipse cx="26" cy="22" rx="15" ry="15" fill="#FFBCCA"/>
-      <polygon points="26,70 6,42 46,42" fill="#FFD93D"/>
-      <polygon points="26,70 6,42 46,42" fill="none" stroke="#E8B830" stroke-width="1"/>
-    </svg>
+<!-- HERO -->
+<section id="hero">
+  <video class="h-vid" autoplay muted loop playsinline poster="img/3686150506601816401.jpg">
+    <source src="img/3711319571069433592.mp4" type="video/mp4">
+  </video>
+  <div class="h-ov"></div>
+  <div class="pts" aria-hidden="true">
+    <div class="pt"></div><div class="pt"></div><div class="pt"></div><div class="pt"></div>
+    <div class="pt"></div><div class="pt"></div><div class="pt"></div><div class="pt"></div>
   </div>
-  <div class="absolute top-32 right-8 md:right-20 fb opacity-70" aria-hidden="true">
-    <!-- Strawberry -->
-    <svg width="44" height="52" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="22" cy="30" rx="18" ry="20" fill="#FF6BA8"/>
-      <circle cx="14" cy="26" r="2" fill="white" opacity=".6"/>
-      <circle cx="22" cy="20" r="2" fill="white" opacity=".6"/>
-      <circle cx="30" cy="26" r="2" fill="white" opacity=".6"/>
-      <circle cx="18" cy="34" r="1.5" fill="white" opacity=".6"/>
-      <circle cx="26" cy="34" r="1.5" fill="white" opacity=".6"/>
-      <path d="M22 10 C18 6 12 8 14 14" stroke="#8FE0B4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <path d="M22 10 C26 4 32 6 30 12" stroke="#8FE0B4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    </svg>
+  <div class="h-cnt">
+    <div class="h-eye" data-i18n="hb">Scalea · Calabria, Italia</div>
+    <h1 class="h-tit">
+      <span class="hw">Sweet</span>
+      <span class="hn">Insanity</span>
+    </h1>
+    <p class="h-tag" data-i18n="ht">Il dolce che fa perdere la testa</p>
+    <a href="#products" class="h-cta">
+      <span data-i18n="hc">Scopri il menu</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+    </a>
   </div>
-  <div class="absolute bottom-32 left-10 md:left-24 fc opacity-60" aria-hidden="true">
-    <!-- Star -->
-    <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
-      <path d="M19 2l4.24 12.98H36.7l-10.96 7.96 4.24 12.98L19 27.96 7.98 35.92l4.24-12.98L1.3 14.98H14.76z" fill="#FFD93D"/>
-    </svg>
-  </div>
-  <div class="absolute bottom-40 right-12 md:right-32 fd opacity-55" aria-hidden="true">
-    <!-- Mint leaf -->
-    <svg width="36" height="44" viewBox="0 0 36 44" fill="none">
-      <ellipse cx="18" cy="24" rx="14" ry="18" fill="#7ED8E8" opacity=".9"/>
-      <line x1="18" y1="6" x2="18" y2="42" stroke="white" stroke-width="1.5" opacity=".6"/>
-      <line x1="10" y1="18" x2="26" y2="18" stroke="white" stroke-width="1" opacity=".4"/>
-      <line x1="8" y1="26" x2="28" y2="26" stroke="white" stroke-width="1" opacity=".4"/>
-    </svg>
-  </div>
-  <div class="absolute top-1/2 right-6 -translate-y-1/2 fa hidden xl:block opacity-50" aria-hidden="true">
-    <!-- Donut -->
-    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
-      <circle cx="30" cy="30" r="28" fill="#C9A8FF"/>
-      <circle cx="30" cy="30" r="14" fill="#FFF9FC"/>
-      <circle cx="20" cy="22" r="3" fill="#FF6BA8" opacity=".8"/>
-      <circle cx="36" cy="18" r="2" fill="#FFD93D" opacity=".8"/>
-      <circle cx="42" cy="30" r="2.5" fill="#7ED8E8" opacity=".8"/>
-    </svg>
-  </div>
-
-  <!-- Content -->
-  <div class="relative z-10 w-full max-w-6xl mx-auto px-6 py-16 md:py-0">
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-
-      <!-- Left: text -->
-      <div class="min-w-0">
-        <!-- Rating badge -->
-        <div class="inline-flex items-center gap-2 clay bg-white px-4 py-2 mb-6 reveal">
-          <div class="flex text-limone">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <span class="font-display font-bold text-notte text-sm">4.9</span>
-          <span class="font-body text-grafite text-xs" data-it="· 76 recensioni Google" data-en="· 76 Google reviews">· 76 recensioni Google</span>
-        </div>
-
-        <h1 class="font-display font-extrabold mb-5 reveal" style="transition-delay:.08s">
-          <span class="hero-title block text-notte">SWEET</span>
-          <span class="hero-title block text-fragola">INSANITY</span>
-        </h1>
-
-        <p class="font-body text-lg md:text-xl text-grafite leading-relaxed max-w-md mb-8 reveal" style="transition-delay:.18s"
-           data-it="Gelato roll preparato a vista. Open kitchen. Ogni creazione è un capolavoro da gustare — e fotografare."
-           data-en="Gelato roll made right in front of you. Open kitchen. Every creation is a masterpiece to taste — and photograph.">
-          Gelato roll preparato a vista. Open kitchen. Ogni creazione è un capolavoro da gustare — e fotografare.
-        </p>
-
-        <div class="flex flex-wrap gap-3 reveal" style="transition-delay:.28s">
-          <a href="#specialita" class="jello cursor-pointer bg-fragola text-white font-body font-bold px-7 py-3.5 rounded-full hover:bg-fragola/90 transition-colors duration-200 shadow-lg text-base"
-             data-it="Scopri i gusti" data-en="Explore flavors">Scopri i gusti</a>
-          <a href="#dove" class="jello cursor-pointer border-2 border-notte text-notte font-body font-bold px-7 py-3.5 rounded-full hover:bg-notte hover:text-white transition-all duration-200 text-base"
-             data-it="Trovaci" data-en="Find us">Trovaci</a>
-        </div>
-
-        <!-- Tags -->
-        <div class="flex flex-wrap gap-2 mt-6 reveal" style="transition-delay:.38s">
-          <span class="font-body text-sm bg-white border-2 border-pesca text-grafite px-4 py-1.5 rounded-full font-semibold" data-it="Gelato Roll" data-en="Ice Cream Roll">Gelato Roll</span>
-          <span class="font-body text-sm bg-white border-2 border-pesca text-grafite px-4 py-1.5 rounded-full font-semibold">Crepes Spaghetti</span>
-          <span class="font-body text-sm bg-white border-2 border-pesca text-grafite px-4 py-1.5 rounded-full font-semibold">Open Kitchen</span>
-          <span class="font-body text-sm bg-white border-2 border-pesca text-grafite px-4 py-1.5 rounded-full font-semibold">Scalea (CS)</span>
-        </div>
-      </div>
-
-      <!-- Right: hero image -->
-      <div class="flex justify-center items-center reveal" style="transition-delay:.15s">
-        <div class="relative">
-          <!-- Main circle image -->
-          <div class="w-64 h-64 sm:w-80 sm:h-80 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden clay border-4 border-white">
-            <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?q=80&w=800&auto=format&fit=crop"
-                 alt="Gelato roll artigianale colorato" class="w-full h-full object-cover" loading="eager" />
-          </div>
-          <!-- Accent circle -->
-          <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-full clay overflow-hidden border-4 border-white">
-            <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?q=80&w=300&auto=format&fit=crop"
-                 alt="Cono gelato" class="w-full h-full object-cover" />
-          </div>
-          <!-- Mini circle -->
-          <div class="absolute -top-3 -left-3 w-16 h-16 rounded-full clay overflow-hidden border-2 border-white bg-limone flex items-center justify-center">
-            <span class="font-display font-black text-notte text-xs text-center leading-tight">OPEN<br/>NOW</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scroll cue -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-50">
-    <svg class="w-7 h-7 text-grafite animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  <div class="h-scroll">
+    <span class="h-stxt">Scroll</span>
+    <span class="h-sarr">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </span>
   </div>
 </section>
 
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="prod-hdr">
+    <div class="sec-lbl" data-i18n="pl">Le nostre creazioni</div>
+    <h2 class="sec-tit rv"><span data-i18n="pt">Scegli il tuo</span> <span class="accent" data-i18n="pta">delirio</span></h2>
+    <p class="sec-sub rv" data-i18n="ps">Trascina per esplorare →</p>
+  </div>
+  <div class="prod-wrap">
+    <div class="prod-track" id="pT">
 
-<!-- ══════════════════════════════════════
-     COME FUNZIONA — 3 Steps
-══════════════════════════════════════ -->
-<section id="funziona" class="py-20 md:py-28 px-6">
-  <div class="max-w-5xl mx-auto">
+      <div class="pc">
+        <div class="pc-img"><img src="img/3449906210036358497.jpg" alt="Bomboloni Insani" loading="lazy"><div class="pc-ov"></div><span class="pc-n">01</span></div>
+        <div class="pc-bd"><h3 data-i18n="p1n">Bomboloni Insani</h3><p data-i18n="p1d">Fritti dorati con topping estremi. Kinder, Oreo, M&amp;M — caos dolce puro.</p><span class="pc-tag" data-i18n="p1t">Fritto d'autore</span></div>
+      </div>
 
-    <div class="text-center mb-14 reveal">
-      <span class="font-body text-xs font-bold uppercase tracking-[.35em] text-fragola block mb-3"
-            data-it="Il processo" data-en="The process">Il processo</span>
-      <h2 class="font-display font-extrabold text-4xl md:text-5xl text-notte"
-          data-it="Come funziona" data-en="How it works">Come funziona</h2>
-      <p class="font-body text-grafite text-base md:text-lg mt-3 max-w-md mx-auto"
-         data-it="Lo spettacolo è parte del sapore." data-en="The show is part of the flavor.">
-        Lo spettacolo è parte del sapore.
-      </p>
+      <div class="pc">
+        <div class="pc-img"><img src="img/3438896912305086505.jpg" alt="Gelato Supremo" loading="lazy"><div class="pc-ov"></div><span class="pc-n">02</span></div>
+        <div class="pc-bd"><h3 data-i18n="p2n">Gelato Supremo</h3><p data-i18n="p2d">Gelato artigianale con topping WOW. Pistacchio, Lotus, frutti di bosco.</p><span class="pc-tag" data-i18n="p2t">Artigianale</span></div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="img/3427204480036669022.jpg" alt="Granita e Slush" loading="lazy"><div class="pc-ov"></div><span class="pc-n">03</span></div>
+        <div class="pc-bd"><h3 data-i18n="p3n">Granita &amp; Slush</h3><p data-i18n="p3d">Freschezza esplosiva. Agrumi di Calabria in un bicchiere brandizzato.</p><span class="pc-tag" data-i18n="p3t">Super Fresco</span></div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="img/3681049636608514838.jpg" alt="Gelato Rolled" loading="lazy"><div class="pc-ov"></div><span class="pc-n">04</span></div>
+        <div class="pc-bd"><h3 data-i18n="p4n">Gelato Rolled</h3><p data-i18n="p4d">Rolls di gelato guarniti con waffle, Lotus e creme speciali.</p><span class="pc-tag" data-i18n="p4t">Fan Favorite</span></div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="img/3699142728221856011.jpg" alt="Dessert Box" loading="lazy"><div class="pc-ov"></div><span class="pc-n">05</span></div>
+        <div class="pc-bd"><h3 data-i18n="p5n">Dessert Box</h3><p data-i18n="p5d">Un box di creazioni miste. Per quando non sai scegliere e vuoi tutto.</p><span class="pc-tag" data-i18n="p5t">Il Must-try</span></div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="img/3427928036927075825.jpg" alt="Creazione Speciale" loading="lazy"><div class="pc-ov"></div><span class="pc-n">06</span></div>
+        <div class="pc-bd"><h3 data-i18n="p6n">Creazione Speciale</h3><p data-i18n="p6d">Bomboloni al cioccolato con granella e salsa caramello. Pura follia.</p><span class="pc-tag" data-i18n="p6t">Chef's Choice</span></div>
+      </div>
+
     </div>
+  </div>
+  <div class="prod-ft">
+    <span class="drag-hint" data-i18n="dh">← trascina →</span>
+    <div class="sp"><div class="spb" id="spb"></div></div>
+  </div>
+</section>
 
-    <div class="grid md:grid-cols-3 gap-6 stagger">
+<!-- OPEN KITCHEN -->
+<section id="kitchen">
+  <div class="vs-wrap">
+    <video autoplay muted loop playsinline>
+      <source src="img/3703534417283670133.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="vs-kitch-ov"></div>
+  <div class="kitch-hdr rv">
+    <div class="sec-lbl" data-i18n="kl">Open Kitchen</div>
+    <h2 class="sec-tit"><span data-i18n="kt">Lo spettacolo è</span> <span class="accent" data-i18n="kta">servito</span></h2>
+    <p style="margin-top:.8rem;font-size:.9rem;letter-spacing:.04em" data-i18n="ks">Preparato davanti ai tuoi occhi. Ogni giorno.</p>
+  </div>
+</section>
 
-      <!-- Step 1 -->
-      <div class="clay bg-mirtil/15 border-2 border-mirtil/40 p-8 text-center cursor-default">
-        <div class="w-16 h-16 rounded-2xl bg-mirtil flex items-center justify-center mx-auto mb-5 clay">
-          <span class="font-display font-black text-white text-2xl">1</span>
-        </div>
-        <h3 class="font-display font-bold text-xl text-notte mb-2"
-            data-it="Scegli" data-en="Choose">Scegli</h3>
-        <p class="font-body text-grafite text-sm leading-relaxed"
-           data-it="Seleziona la tua base: latte, cioccolato, fragola, mango — o combinazioni personalizzate."
-           data-en="Pick your base: milk, chocolate, strawberry, mango — or custom combinations.">
-          Seleziona la tua base: latte, cioccolato, fragola, mango — o combinazioni personalizzate.
-        </p>
-      </div>
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gal-hdr rv">
+    <div class="sec-lbl" data-i18n="gl">Galleria</div>
+    <h2 class="sec-tit"><span data-i18n="gt">Ogni piatto è un'opera d'arte</span></h2>
+    <p class="sec-sub" data-i18n="gs">Clicca per ingrandire</p>
+  </div>
+  <div class="gal-grid" id="gg">
+    <div class="gi"><img src="img/3427928036927075825.jpg" alt="Bomboloni al cioccolato" loading="lazy"></div>
+    <div class="gi"><img src="img/3423983585082882144.jpg" alt="Gelato al pistacchio" loading="lazy"></div>
+    <div class="gi"><img src="img/3699142728221856011.jpg" alt="Dessert colorati" loading="lazy"></div>
+    <div class="gi"><img src="img/3425789081901143394.jpg" alt="Gelato ai frutti di bosco" loading="lazy"></div>
+    <div class="gi"><img src="img/3448295706939414600.jpg" alt="Churros con topping" loading="lazy"></div>
+    <div class="gi"><img src="img/3681049636608514838.jpg" alt="Gelato rolled" loading="lazy"></div>
+    <div class="gi"><img src="img/3449861468682601575.jpg" alt="Bomboloni vista" loading="lazy"></div>
+    <div class="gi"><img src="img/3427108754233412289.jpg" alt="Creazione dolce" loading="lazy"></div>
+  </div>
+</section>
 
-      <!-- Step 2 -->
-      <div class="clay bg-fragola/10 border-2 border-fragola/30 p-8 text-center cursor-default md:-mt-4">
-        <div class="w-16 h-16 rounded-2xl bg-fragola flex items-center justify-center mx-auto mb-5 clay">
-          <span class="font-display font-black text-white text-2xl">2</span>
-        </div>
-        <h3 class="font-display font-bold text-xl text-notte mb-2"
-            data-it="Guarda" data-en="Watch">Guarda</h3>
-        <p class="font-body text-grafite text-sm leading-relaxed"
-           data-it="Il nostro team prepara il gelato roll a vista sul piatto freddo. È un vero e proprio show."
-           data-en="Our team prepares the ice cream roll live on the cold plate. It's a real show.">
-          Il nostro team prepara il gelato roll a vista sul piatto freddo. È un vero e proprio show.
-        </p>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="clay bg-pistac/20 border-2 border-pistac/50 p-8 text-center cursor-default">
-        <div class="w-16 h-16 rounded-2xl bg-pistac flex items-center justify-center mx-auto mb-5 clay">
-          <span class="font-display font-black text-white text-2xl">3</span>
-        </div>
-        <h3 class="font-display font-bold text-xl text-notte mb-2"
-            data-it="Assaggia" data-en="Taste">Assaggia</h3>
-        <p class="font-body text-grafite text-sm leading-relaxed"
-           data-it="I tuoi roll sono pronti, arrotolati a mano e serviti nel cono. Fotografa, poi mangia."
-           data-en="Your rolls are ready, hand-rolled and served in the cone. Photograph first, then eat.">
-          I tuoi roll sono pronti, arrotolati a mano e serviti nel cono. Fotografa, poi mangia.
-        </p>
-      </div>
+<!-- SMOOTHIE -->
+<section id="smoothie">
+  <div class="sm-vid-wrap rv">
+    <video autoplay muted loop playsinline>
+      <source src="img/3683304627926998169.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="sm-txt rv">
+    <div class="sec-lbl">Novità</div>
+    <h2 class="sec-tit">Smoothie di <span class="accent">frutta fresca</span></h2>
+    <p class="sm-desc">Estratti al momento da frutta fresca di stagione. Agrumi di Calabria, frutti tropicali e mix creativi — ogni sorso è un'esplosione di sapore naturale.</p>
+    <div class="sm-tags">
+      <span class="sm-tag">100% frutta fresca</span>
+      <span class="sm-tag">Senza zuccheri aggiunti</span>
+      <span class="sm-tag">Fatto al momento</span>
+      <span class="sm-tag">Agrumi di Calabria</span>
     </div>
   </div>
 </section>
 
+<!-- VIBE (PARALLAX VIDEO) -->
+<section id="vibe">
+  <video class="vv" id="vv" autoplay muted loop playsinline preload="none">
+    <source src="img/vibe.mov" type="video/mp4">
+  </video>
+  <div class="v-ov"></div>
+  <div class="v-cnt">
+    <h2 data-i18n="vt">Feel the <span class="v-accent">Insanity</span></h2>
+    <p data-i18n="vs">Scalea · Estate · Dolcezza pura</p>
+  </div>
+</section>
 
-<!-- ══════════════════════════════════════
-     SPECIALITÀ / MENU
-══════════════════════════════════════ -->
-<section id="specialita" class="py-20 md:py-28 px-6 bg-white/60">
-  <div class="max-w-5xl mx-auto">
-
-    <div class="text-center mb-14 reveal">
-      <span class="font-body text-xs font-bold uppercase tracking-[.35em] text-fragola block mb-3"
-            data-it="Cosa offriamo" data-en="What we offer">Cosa offriamo</span>
-      <h2 class="font-display font-extrabold text-4xl md:text-5xl text-notte"
-          data-it="Le nostre specialità" data-en="Our specialties">Le nostre specialità</h2>
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-hdr rv">
+    <div class="sec-lbl">FAQ</div>
+    <h2 class="sec-tit">Domande <span class="accent">frequenti</span></h2>
+  </div>
+  <div class="faq-list rv">
+    <div class="faq-item">
+      <button class="faq-q">Dove si trova Sweet Insanity?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Siamo in Via Leonardo da Vinci, 87029 Scalea (CS), Calabria. Facile da trovare nel centro della città.</div></div>
     </div>
-
-    <div class="grid md:grid-cols-3 gap-6 stagger">
-
-      <!-- Gelato Roll -->
-      <div class="clay bg-latte overflow-hidden cursor-default" style="border:3px solid #FFBCCA">
-        <div class="relative overflow-hidden h-52">
-          <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?q=80&w=800&auto=format&fit=crop"
-               alt="Gelato roll colorato" class="gal-img w-full h-full object-cover" loading="lazy"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-fragola/30 to-transparent"></div>
-          <span class="absolute top-3 left-3 clay bg-fragola text-white font-body text-xs font-bold px-3 py-1">
-            ★ Must try
-          </span>
-        </div>
-        <div class="p-6">
-          <h3 class="font-display font-bold text-2xl text-notte mb-2" data-it="Gelato Roll" data-en="Ice Cream Roll">Gelato Roll</h3>
-          <p class="font-body text-grafite text-sm leading-relaxed"
-             data-it="La nostra firma. Preparato live sul piatto freddo a -18°, arrotolato a mano. Gusti illimitati, combinazioni infinite."
-             data-en="Our signature. Prepared live on the -18° cold plate, hand-rolled. Unlimited flavors, infinite combinations.">
-            La nostra firma. Preparato live sul piatto freddo a -18°, arrotolato a mano. Gusti illimitati, combinazioni infinite.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-1.5">
-            <span class="font-body text-xs bg-fragola/10 text-fragola px-3 py-1 rounded-full font-semibold">Fragola</span>
-            <span class="font-body text-xs bg-limone/20 text-notte px-3 py-1 rounded-full font-semibold">Mango</span>
-            <span class="font-body text-xs bg-mirtil/15 text-notte px-3 py-1 rounded-full font-semibold" data-it="Cioccolato" data-en="Chocolate">Cioccolato</span>
-            <span class="font-body text-xs bg-menta/20 text-notte px-3 py-1 rounded-full font-semibold">+</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Crepes Spaghetti -->
-      <div class="clay bg-latte overflow-hidden cursor-default md:-mt-4" style="border:3px solid #FFD93D80">
-        <div class="relative overflow-hidden h-52">
-          <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?q=80&w=800&auto=format&fit=crop"
-               alt="Crepes spaghetti" class="gal-img w-full h-full object-cover" loading="lazy"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-limone/30 to-transparent"></div>
-        </div>
-        <div class="p-6">
-          <h3 class="font-display font-bold text-2xl text-notte mb-2">Crepes Spaghetti</h3>
-          <p class="font-body text-grafite text-sm leading-relaxed"
-             data-it="Crepes trasformate in spaghetti attraverso uno speciale press. Servite con salse dolci, panna e toppings a scelta."
-             data-en="Crêpes transformed into spaghetti through a special press. Served with sweet sauces, cream and toppings of your choice.">
-            Crepes trasformate in spaghetti attraverso uno speciale press. Servite con salse dolci, panna e toppings a scelta.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-1.5">
-            <span class="font-body text-xs bg-limone/30 text-notte px-3 py-1 rounded-full font-semibold">Nutella</span>
-            <span class="font-body text-xs bg-limone/30 text-notte px-3 py-1 rounded-full font-semibold" data-it="Frutta" data-en="Fresh fruit">Frutta</span>
-            <span class="font-body text-xs bg-limone/30 text-notte px-3 py-1 rounded-full font-semibold" data-it="Panna" data-en="Whipped cream">Panna</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Custom -->
-      <div class="clay bg-latte overflow-hidden cursor-default" style="border:3px solid #7ED8E880">
-        <div class="relative overflow-hidden h-52">
-          <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?q=80&w=800&auto=format&fit=crop"
-               alt="Combinazioni personalizzate gelato" class="gal-img w-full h-full object-cover" loading="lazy"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-menta/30 to-transparent"></div>
-        </div>
-        <div class="p-6">
-          <h3 class="font-display font-bold text-2xl text-notte mb-2"
-              data-it="Combinazioni Custom" data-en="Custom Combos">Combinazioni Custom</h3>
-          <p class="font-body text-grafite text-sm leading-relaxed"
-             data-it="Vuoi qualcosa di diverso? L'open kitchen permette di creare la tua combinazione unica. Non ci sono limiti."
-             data-en="Want something different? The open kitchen lets you create your unique combination. There are no limits.">
-            Vuoi qualcosa di diverso? L'open kitchen permette di creare la tua combinazione unica. Non ci sono limiti.
-          </p>
-          <div class="mt-4">
-            <span class="font-body text-xs bg-menta/30 text-notte px-3 py-1 rounded-full font-semibold"
-                  data-it="Tu decidi" data-en="You decide">Tu decidi</span>
-          </div>
-        </div>
-      </div>
+    <div class="faq-item">
+      <button class="faq-q">Quali sono gli orari di apertura?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Apriamo tutti i giorni dalle 15:00 all'01:00. Anche nei giorni festivi durante la stagione estiva.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Cosa sono i Bomboloni Insani?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Bomboloni fritti dorati con topping estremi — Kinder, Oreo, M&M, cioccolato fuso e molto altro. Preparati al momento davanti ai tuoi occhi.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Fate consegne o solo asporto?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Al momento serviamo solo al banco e da asporto. Vieni a trovarci direttamente nel locale!</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">È possibile ordinare per eventi o feste?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Sì! Contattaci via WhatsApp o telefono per organizzare creazioni speciali per il tuo evento.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Ci sono opzioni senza glutine o vegane?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Abbiamo opzioni di gelato artigianale adatte a diverse esigenze. Chiedi al nostro staff per i dettagli sugli allergeni.</div></div>
     </div>
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════
-     GALLERY — Instagram wall
-══════════════════════════════════════ -->
-<section id="gallery" class="py-20 md:py-28 px-6">
-  <div class="max-w-5xl mx-auto">
-
-    <div class="text-center mb-12 reveal">
-      <span class="font-body text-xs font-bold uppercase tracking-[.35em] text-fragola block mb-3">#SweetInsanity</span>
-      <h2 class="font-display font-extrabold text-4xl md:text-5xl text-notte"
-          data-it="Ogni roll, un'opera d'arte" data-en="Every roll, a work of art">Ogni roll, un'opera d'arte</h2>
-      <p class="font-body text-grafite mt-3"
-         data-it="Scatta, condividi, taggaci — siamo su Instagram" data-en="Snap, share, tag us — we're on Instagram">
-        Scatta, condividi, taggaci — siamo su Instagram
-      </p>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="con-hdr rv">
+    <div class="sec-lbl" data-i18n="cl">Dove siamo</div>
+    <h2 class="sec-tit"><span data-i18n="ct">Trovaci a</span> <span class="accent">Scalea</span></h2>
+  </div>
+  <div class="con-grid">
+    <div class="rv fl">
+      <div class="ii">
+        <div class="ii-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+        <div><div class="ii-lbl" data-i18n="al">Indirizzo</div><div class="ii-val" data-i18n="av">Via Leonardo da Vinci, 87029 Scalea (CS)</div></div>
+      </div>
+      <div class="ii">
+        <div class="ii-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01z"/></svg></div>
+        <div><div class="ii-lbl" data-i18n="pl">Telefono</div><div class="ii-val"><a href="tel:+393533628337">+39 353 362 8337</a></div></div>
+      </div>
+      <div class="ii">
+        <div class="ii-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm.01 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></div>
+        <div><div class="ii-lbl" data-i18n="hl">Orari</div><div class="ii-val" data-i18n="hv">Tutti i giorni · 15:00 – 01:00</div></div>
+      </div>
+      <div class="ii">
+        <div class="ii-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+        <div><div class="ii-lbl">Instagram</div><div class="ii-val"><a href="https://www.instagram.com/sweetinsanity_scalea/" target="_blank" rel="noopener">@sweetinsanity_scalea</a></div></div>
+      </div>
+      <div class="ii">
+        <div class="ii-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg></div>
+        <div><div class="ii-lbl">TikTok</div><div class="ii-val"><a href="https://www.tiktok.com/@sweetinsanity.scalea" target="_blank" rel="noopener">@sweetinsanity.scalea</a></div></div>
+      </div>
     </div>
-
-    <!-- Gallery grid — asymmetric clay tiles -->
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 reveal">
-
-      <div class="gal-item clay overflow-hidden row-span-2 cursor-pointer" style="border:3px solid #FFD1E8">
-        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?q=80&w=600&auto=format&fit=crop"
-             alt="Gelato roll colorato" class="gal-img w-full h-full object-cover min-h-[280px]" loading="lazy"/>
-      </div>
-
-      <div class="gal-item clay overflow-hidden cursor-pointer" style="border:3px solid #7ED8E880">
-        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=600&auto=format&fit=crop"
-             alt="Preparazione gelato roll" class="gal-img w-full h-48 object-cover" loading="lazy"/>
-      </div>
-
-      <div class="gal-item clay overflow-hidden cursor-pointer" style="border:3px solid #C9A8FF80">
-        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=600&auto=format&fit=crop"
-             alt="Dessert creativo gelato" class="gal-img w-full h-48 object-cover" loading="lazy"/>
-      </div>
-
-      <div class="gal-item clay overflow-hidden cursor-pointer" style="border:3px solid #FFD93D80">
-        <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?q=80&w=600&auto=format&fit=crop"
-             alt="Crepes" class="gal-img w-full h-48 object-cover" loading="lazy"/>
-      </div>
-
-      <div class="gal-item clay overflow-hidden cursor-pointer" style="border:3px solid #FFD1E8">
-        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=600&auto=format&fit=crop"
-             alt="Gelato artigianale colorato" class="gal-img w-full h-48 object-cover" loading="lazy"/>
-      </div>
-
-      <div class="gal-item clay overflow-hidden col-span-2 md:col-span-1 cursor-pointer" style="border:3px solid #8FE0B480">
-        <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?q=80&w=600&auto=format&fit=crop"
-             alt="Cono gelato" class="gal-img w-full h-48 object-cover" loading="lazy"/>
-      </div>
-
-    </div>
-
-    <!-- Instagram CTA -->
-    <div class="text-center mt-10 reveal">
-      <a href="https://instagram.com/sweetinsanity_scalea" target="_blank" rel="noopener noreferrer"
-         class="jello cursor-pointer inline-flex items-center gap-2 clay bg-white border-2 border-pesca font-body font-bold text-notte px-6 py-3 rounded-full hover:border-fragola hover:text-fragola transition-colors duration-200">
-        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        @sweetinsanity_scalea
-      </a>
+    <div class="map-box rv fr">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d15.789!3d39.817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVia+Leonardo+da+Vinci%2C+87029+Scalea+CS!5e0!3m2!1sit!2sit!4v1" title="Sweet Insanity Scalea" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════
-     REVIEWS
-══════════════════════════════════════ -->
-<section class="py-16 md:py-24 px-6 bg-white/60">
-  <div class="max-w-5xl mx-auto">
-
-    <div class="text-center mb-10 reveal">
-      <div class="inline-flex items-center gap-2 clay bg-limone/20 border-2 border-limone/40 px-6 py-3 mb-4">
-        <div class="flex text-limone">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <span class="font-display font-black text-notte text-xl">4.9</span>
-        <span class="font-body text-grafite text-sm" data-it="· 76 recensioni" data-en="· 76 reviews">· 76 recensioni</span>
-      </div>
-      <a href="https://maps.google.com/?q=Sweet+Insanity+Scalea+CS" target="_blank" rel="noopener noreferrer"
-         class="cursor-pointer inline-block font-body text-xs text-grafite hover:text-fragola underline underline-offset-2 transition-colors duration-200"
-         data-it="Leggi tutte le recensioni su Google →" data-en="Read all reviews on Google →">
-        Leggi tutte le recensioni su Google →
-      </a>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-5 stagger">
-
-      <div class="clay bg-latte border-2 border-pesca p-6 cursor-default">
-        <div class="flex text-limone mb-3">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="font-body text-sm text-grafite leading-relaxed mb-4">
-          "We watched the whole process — it was like magic! The strawberry & mango roll was insane. The best ice cream experience we had in all of our Italy trip."
-        </p>
-        <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-fragola flex items-center justify-center text-white font-body font-bold text-xs shrink-0">SB</div>
-          <div><p class="font-body text-xs font-bold text-notte">Sarah B.</p><p class="font-body text-xs text-grafite">London, UK · Google</p></div>
-        </div>
-      </div>
-
-      <div class="clay bg-latte border-2 border-limone/50 p-6 cursor-default">
-        <div class="flex text-limone mb-3">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="font-body text-sm text-grafite leading-relaxed mb-4">
-          "Absolut einzigartig! Der Gelato Roll wird vor deinen Augen zubereitet — ein echtes Erlebnis. Meine Kinder waren begeistert. Wir kommen jeden Tag wieder!"
-        </p>
-        <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-mirtil flex items-center justify-center text-white font-body font-bold text-xs shrink-0">TM</div>
-          <div><p class="font-body text-xs font-bold text-notte">Thomas M.</p><p class="font-body text-xs text-grafite">München, DE · Google</p></div>
-        </div>
-      </div>
-
-      <div class="clay bg-latte border-2 border-menta/50 p-6 cursor-default">
-        <div class="flex text-limone mb-3">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="font-body text-sm text-grafite leading-relaxed mb-4">
-          "Non avevo mai visto nulla del genere! Le crepes spaghetti sono spettacolari. Il personale è gentilissimo e paziente. Ci siamo tornati tre volte in una settimana."
-        </p>
-        <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-pistac flex items-center justify-center text-notte font-body font-bold text-xs shrink-0">LR</div>
-          <div><p class="font-body text-xs font-bold text-notte">Laura R.</p><p class="font-body text-xs text-grafite">Roma · Google</p></div>
-        </div>
-      </div>
-    </div>
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand" style="display:flex;align-items:center;gap:.8rem"><img src="img/logo.png" alt="Sweet Insanity Scalea" style="height:60px;width:auto;filter:drop-shadow(0 0 10px rgba(255,30,150,.4))"><span style="font-family:var(--brand);font-size:1.4rem;color:var(--pink);filter:drop-shadow(0 0 6px var(--pink))">Sweet Insanity</span></div>
+  <nav class="f-nav">
+    <a href="#products" data-i18n="nm">Menu</a>
+    <a href="#gallery"  data-i18n="ng">Galleria</a>
+    <a href="#contact"  data-i18n="nc">Contatti</a>
+  </nav>
+  <div class="f-soc">
+    <a class="sl" href="https://www.instagram.com/sweetinsanity_scalea/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      Instagram
+    </a>
+    <a class="sl" href="https://www.tiktok.com/@sweetinsanity.scalea" target="_blank" rel="noopener" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+      TikTok
+    </a>
   </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     DOVE SIAMO + ORARI
-══════════════════════════════════════ -->
-<section id="dove" class="py-20 md:py-28 px-6">
-  <div class="max-w-5xl mx-auto">
-
-    <div class="text-center mb-14 reveal">
-      <span class="font-body text-xs font-bold uppercase tracking-[.35em] text-fragola block mb-3"
-            data-it="Vieni a trovarci" data-en="Come visit us">Vieni a trovarci</span>
-      <h2 class="font-display font-extrabold text-4xl md:text-5xl text-notte"
-          data-it="Dove siamo" data-en="Find us">Dove siamo</h2>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8 items-start">
-
-      <!-- Map -->
-      <div class="reveal clay overflow-hidden" style="border:3px solid #FFBCCA; border-radius:22px">
-        <iframe
-          src="https://www.openstreetmap.org/export/embed.html?bbox=15.7870,39.8180,15.8020,39.8280&layer=mapnik&marker=39.8230,15.7950"
-          class="w-full h-64 md:h-80 border-0"
-          title="Sweet Insanity — Via Leonardo da Vinci, Scalea"
-          loading="lazy" allowfullscreen>
-        </iframe>
-        <div class="p-4 bg-white flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full bg-fragola flex items-center justify-center shrink-0 clay">
-            <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          </div>
-          <div>
-            <p class="font-body font-bold text-notte text-sm">Via Leonardo da Vinci</p>
-            <p class="font-body text-grafite text-xs">87029 Scalea (CS), Calabria</p>
-          </div>
-          <a href="https://maps.google.com/?q=Via+Leonardo+da+Vinci+Scalea+CS" target="_blank" rel="noopener noreferrer"
-             class="cursor-pointer ml-auto font-body text-xs text-fragola font-bold hover:underline" data-it="Indicazioni" data-en="Directions">Indicazioni</a>
-        </div>
-      </div>
-
-      <!-- Info cards -->
-      <div class="space-y-4 reveal" style="transition-delay:.15s">
-
-        <!-- Hours card -->
-        <div class="clay bg-latte border-2 border-pesca p-6">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-fragola/10 flex items-center justify-center">
-              <svg class="w-5 h-5 text-fragola" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <p class="font-display font-bold text-notte" data-it="Orari" data-en="Hours">Orari</p>
-          </div>
-          <div class="space-y-2 font-body text-sm">
-            <div class="flex justify-between gap-6">
-              <span class="text-grafite" data-it="Tutti i giorni" data-en="Every day">Tutti i giorni</span>
-              <span class="font-bold text-notte">11:00 – 24:00</span>
-            </div>
-            <p class="text-xs text-grafite/70 mt-1" data-it="Orari estivi (stagione)" data-en="Summer hours (seasonal)">Orari estivi (stagione)</p>
-          </div>
-        </div>
-
-        <!-- Contact card -->
-        <div class="clay bg-latte border-2 border-menta/50 p-6">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-menta/20 flex items-center justify-center">
-              <svg class="w-5 h-5 text-notte" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            </div>
-            <p class="font-display font-bold text-notte" data-it="Contatti" data-en="Contact">Contatti</p>
-          </div>
-          <a href="tel:+393533628337" class="cursor-pointer font-body text-lg font-bold text-notte hover:text-fragola transition-colors block">+39 353 362 8337</a>
-          <p class="font-body text-xs text-grafite mt-1" data-it="Chiama o scrivi su WhatsApp" data-en="Call or message on WhatsApp">Chiama o scrivi su WhatsApp</p>
-        </div>
-
-        <!-- WhatsApp CTA -->
-        <a href="https://wa.me/393533628337?text=Ciao%20Sweet%20Insanity!%20Vorrei%20sapere%20dove%20siete%20esattamente." target="_blank" rel="noopener noreferrer"
-           class="jello cursor-pointer clay flex items-center gap-3 bg-green-50 border-2 border-green-200 p-4 hover:border-green-400 transition-all duration-200" style="border-radius:18px">
-          <div class="w-10 h-10 rounded-xl bg-green-500 flex items-center justify-center shrink-0">
-            <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </div>
-          <div>
-            <p class="font-body font-bold text-green-800 text-sm" data-it="Scrivici su WhatsApp" data-en="Message us on WhatsApp">Scrivici su WhatsApp</p>
-            <p class="font-body text-green-600 text-xs">+39 353 362 8337</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════
-     FOOTER
-══════════════════════════════════════ -->
-<footer class="bg-notte text-latte py-12 px-6">
-  <div class="max-w-5xl mx-auto">
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
-      <div>
-        <p class="font-display font-black text-2xl text-fragola mb-1">Sweet Insanity</p>
-        <p class="font-body text-sm opacity-60 leading-relaxed">
-          Via Leonardo da Vinci<br/>87029 Scalea (CS), Calabria
-        </p>
-      </div>
-      <div>
-        <p class="font-body text-xs font-bold uppercase tracking-widest text-fragola mb-3" data-it="Specialità" data-en="Specialties">Specialità</p>
-        <ul class="space-y-1 font-body text-sm opacity-70">
-          <li data-it="Gelato Roll" data-en="Ice Cream Roll">Gelato Roll</li>
-          <li>Crepes Spaghetti</li>
-          <li data-it="Combinazioni Custom" data-en="Custom Combos">Combinazioni Custom</li>
-          <li>Open Kitchen</li>
-        </ul>
-      </div>
-      <div>
-        <p class="font-body text-xs font-bold uppercase tracking-widest text-fragola mb-3" data-it="Contatti" data-en="Contact">Contatti</p>
-        <div class="space-y-2 font-body text-sm opacity-70">
-          <a href="tel:+393533628337" class="cursor-pointer block hover:text-fragola transition-colors">+39 353 362 8337</a>
-          <a href="https://wa.me/393533628337" target="_blank" rel="noopener noreferrer" class="cursor-pointer block hover:text-fragola transition-colors">WhatsApp</a>
-          <div class="flex text-fragola mt-1">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <span class="text-xs ml-1 opacity-70">4.9 · 76 Google</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-      <p class="font-body text-xs opacity-40">© 2025 Sweet Insanity · Scalea (CS)</p>
-      <p class="font-body text-xs opacity-40" data-it="Gelato artigianale · Open kitchen" data-en="Artisan ice cream · Open kitchen">Gelato artigianale · Open kitchen</p>
-    </div>
-  </div>
+  <p class="f-copy">© 2025 Sweet Insanity – Scalea. All rights reserved.</p>
 </footer>
 
-
-<!-- ══════════════════════════════════════
-     WhatsApp FAB
-══════════════════════════════════════ -->
-<a href="https://wa.me/393533628337?text=Ciao!%20Dove%20si%20trova%20Sweet%20Insanity%20esattamente?" target="_blank" rel="noopener noreferrer"
-   aria-label="Contattaci su WhatsApp"
-   class="wa-pulse cursor-pointer fixed bottom-6 right-6 z-[60] w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-200 active:scale-95">
-  <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<!-- WHATSAPP BUTTON -->
+<a class="wa" href="https://wa.me/393533628337" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<!-- LIGHTBOX -->
+<div id="lb" role="dialog" aria-modal="true" aria-label="Foto ingrandita">
+  <button id="lb-x" aria-label="Chiudi">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <img src="" alt="Foto ingrandita">
+</div>
 
-<!-- ══════════════════════════════════════
-     JAVASCRIPT
-══════════════════════════════════════ -->
 <script>
-  // ── Language switcher ────────────────────────────
-  let lang = 'it';
-  function setLang(l) {
-    lang = l;
-    document.documentElement.lang = l;
-    document.querySelectorAll('[data-it]').forEach(el => { el.textContent = el.dataset[l]; });
-    document.querySelectorAll('[data-it-placeholder]').forEach(el => {
-      el.placeholder = el.dataset[l === 'it' ? 'itPlaceholder' : 'enPlaceholder'] || '';
-    });
-    // Update buttons (desktop + mobile)
-    ['btn-it','btn-en','mob-btn-it','mob-btn-en'].forEach(id => {
-      const b = document.getElementById(id);
-      if (!b) return;
-      b.classList.remove('lang-active','bg-fragola','text-white','border-2','border-pesca','text-grafite');
-      if (id === 'btn-' + l || id === 'mob-btn-' + l) {
-        b.classList.add('lang-active','bg-fragola','text-white');
-      } else {
-        b.classList.add('border-2','border-pesca','text-grafite');
-      }
-    });
-  }
+/* ── TRANSLATIONS ── */
+const T={
+  it:{nm:'Menu',ng:'Galleria',nc:'Contatti',hb:'Scalea · Calabria, Italia',ht:'Il dolce che fa perdere la testa',hc:'Scopri il menu',pl:'Le nostre creazioni',pt:'Scegli il tuo',pta:'delirio',ps:'Trascina per esplorare →',dh:'← trascina →',p1n:'Bomboloni Insani',p1d:'Fritti dorati con topping estremi. Kinder, Oreo, M&M — caos dolce puro.',p1t:"Fritto d'autore",p2n:'Gelato Supremo',p2d:'Gelato artigianale con topping WOW. Pistacchio, Lotus, frutti di bosco.',p2t:'Artigianale',p3n:'Granita & Slush',p3d:'Freschezza esplosiva. Agrumi di Calabria in un bicchiere brandizzato.',p3t:'Super Fresco',p4n:'Gelato Rolled',p4d:'Rolls di gelato guarniti con waffle, Lotus e creme speciali.',p4t:'Fan Favorite',p5n:'Dessert Box',p5d:'Un box di creazioni miste. Per quando non sai scegliere e vuoi tutto.',p5t:'Il Must-try',p6n:'Creazione Speciale',p6d:'Bomboloni al cioccolato con granella e salsa caramello. Pura follia.',p6t:"Chef's Choice",gl:'Galleria',gt:"Ogni piatto è un'opera d'arte",gs:'Clicca per ingrandire',kl:'Open Kitchen',kt:'Lo spettacolo è',kta:'servito',ks:'Preparato davanti ai tuoi occhi. Ogni giorno.',vt:'Feel the Insanity',vs:'Scalea · Estate · Dolcezza pura',cl:'Dove siamo',ct:'Trovaci a',al:'Indirizzo',av:'Via Leonardo da Vinci, 87029 Scalea (CS)',pl:'Telefono',hl:'Orari',hv:'Tutti i giorni · 15:00 – 01:00'},
+  en:{nm:'Menu',ng:'Gallery',nc:'Contact',hb:'Scalea · Calabria, Italy',ht:'The sweet that drives you crazy',hc:'Discover the menu',pl:'Our creations',pt:'Choose your',pta:'madness',ps:'Drag to explore →',dh:'← drag →',p1n:'Insane Bomboloni',p1d:'Golden fried with extreme toppings. Kinder, Oreo, M&M — pure sweet chaos.',p1t:'Fried Art',p2n:'Supreme Gelato',p2d:'Artisan gelato with WOW toppings. Pistachio, Lotus, berries.',p2t:'Artisan',p3n:'Granita & Slush',p3d:'Explosive freshness. Calabrian citrus in a branded cup.',p3t:'Super Fresh',p4n:'Rolled Gelato',p4d:'Gelato rolls topped with waffle, Lotus and special creams.',p4t:'Fan Favorite',p5n:'Dessert Box',p5d:"A mixed box of creations. For when you can't choose and want it all.",p5t:'Must-try',p6n:'Special Creation',p6d:'Chocolate bomboloni with crumble and caramel sauce. Pure madness.',p6t:"Chef's Choice",gl:'Gallery',gt:'Every dish is a work of art',gs:'Click to enlarge',kl:'Open Kitchen',kt:'The show is',kta:'on',ks:'Made right in front of you. Every day.',vt:'Feel the Insanity',vs:'Scalea · Summer · Pure sweetness',cl:'Find us',ct:'We are in',al:'Address',av:'Via Leonardo da Vinci, 87029 Scalea (CS)',pl:'Phone',hl:'Hours',hv:'Every day · 3 PM – 1 AM'},
+  ru:{nm:'Меню',ng:'Галерея',nc:'Контакты',hb:'Скалея · Калабрия, Италия',ht:'Сладость, от которой сходят с ума',hc:'Смотреть меню',pl:'Наши творения',pt:'Выбери свой',pta:'каприз',ps:'Листай, чтобы увидеть →',dh:'← листать →',p1n:'Безумные Бомболони',p1d:'Жареные пончики с экстремальными топпингами. Kinder, Oreo, M&M — сладкий хаос.',p1t:'Жареное искусство',p2n:'Суперемо Джелато',p2d:'Ремесленное мороженое с WOW-топпингами. Фисташки, Лотус, ягоды.',p2t:'Ремесленное',p3n:'Гранита и Слаши',p3d:'Взрывная свежесть. Калабрийские цитрусы в фирменном стакане.',p3t:'Супер свежо',p4n:'Ролл Джелато',p4d:'Роллы мороженого с вафлями, Лотусом и специальными кремами.',p4t:'Любимчик',p5n:'Десертный Бокс',p5d:'Микс из лучших творений. Когда не можешь выбрать и хочешь всё.',p5t:'Маст-трай',p6n:'Спецьяле',p6d:'Бомболони с шоколадом, крошкой и карамельным соусом. Чистое безумие.',p6t:'От шефа',gl:'Галерея',gt:'Каждое блюдо — шедевр',gs:'Нажми для увеличения',kl:'Open Kitchen',kt:'Шоу начинается',kta:'прямо сейчас',ks:'Готовим у тебя на глазах. Каждый день.',vt:'Почувствуй безумие',vs:'Скалея · Лето · Чистая сладость',cl:'Найди нас',ct:'Мы в',al:'Адрес',av:'Via Leonardo da Vinci, 87029 Scalea (CS)',pl:'Телефон',hl:'Часы работы',hv:'Ежедневно · 15:00 – 01:00'}
+};
 
-  // ── Mobile nav ───────────────────────────────────
-  function toggleNav() {
-    document.getElementById('mob-nav').classList.toggle('open');
-  }
+function applyLang(l){
+  const d=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(d[k]!==undefined)el.textContent=d[k];});
+  document.querySelectorAll('.lb[data-lang]').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+  document.documentElement.lang=l;
+}
+document.querySelectorAll('.lb[data-lang]').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
 
-  // ── Scroll reveal ────────────────────────────────
-  const allReveal = document.querySelectorAll('.reveal, .stagger');
-  const ro = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('up'); ro.unobserve(e.target); }
+/* ── NAV SCROLL ── */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>60),{passive:true});
+
+/* ── REVEAL ── */
+const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+/* ── GALLERY STAGGER ── */
+const go=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');go.unobserve(e.target);}}),{threshold:.05,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.gi').forEach(el=>go.observe(el));
+
+/* ── HORIZONTAL SCROLL PROGRESS + DRAG ── */
+const pT=document.getElementById('pT'),spb=document.getElementById('spb');
+pT.addEventListener('scroll',()=>{
+  const p=pT.scrollLeft/(pT.scrollWidth-pT.clientWidth)||0;
+  spb.style.transform=`scaleX(${p})`;
+},{passive:true});
+let down=false,sx,sl;
+pT.addEventListener('mousedown',e=>{down=true;pT.classList.add('dragging');sx=e.pageX-pT.offsetLeft;sl=pT.scrollLeft;});
+['mouseleave','mouseup'].forEach(ev=>pT.addEventListener(ev,()=>{down=false;pT.classList.remove('dragging');}));
+pT.addEventListener('mousemove',e=>{if(!down)return;e.preventDefault();pT.scrollLeft=sl-(e.pageX-pT.offsetLeft-sx)*1.5;});
+
+/* ── PARALLAX VIDEO ── */
+const vibe=document.getElementById('vibe'),vv=document.getElementById('vv');
+const noMo=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(!noMo){
+  window.addEventListener('scroll',()=>{
+    const r=vibe.getBoundingClientRect();
+    if(r.bottom<0||r.top>innerHeight)return;
+    vv.style.transform=`translateY(${(r.top/innerHeight)*-20}px) scale(1.0)`;
+  },{passive:true});
+}
+
+/* ── FAQ ── */
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el=>{
+      el.classList.remove('open');
+      el.querySelector('.faq-a').style.maxHeight=null;
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
-  allReveal.forEach(el => ro.observe(el));
-
-  // Trigger hero reveals immediately
-  document.querySelectorAll('section:first-of-type .reveal').forEach((el, i) => {
-    setTimeout(() => el.classList.add('up'), 200 + i * 120);
+    if(!isOpen){
+      item.classList.add('open');
+      item.querySelector('.faq-a').style.maxHeight=item.querySelector('.faq-a').scrollHeight+'px';
+    }
   });
-</script>
+});
 
+/* ── LIGHTBOX ── */
+const lb=document.getElementById('lb'),lbImg=lb.querySelector('img');
+document.querySelectorAll('.gi').forEach(gi=>{
+  gi.addEventListener('click',()=>{lbImg.src=gi.querySelector('img').src;lb.classList.add('on');document.body.style.overflow='hidden';});
+});
+function closeLb(){lb.classList.remove('on');document.body.style.overflow='';lbImg.src='';}
+document.getElementById('lb-x').addEventListener('click',closeLb);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+
+/* ── SMOOTH NAV ── */
+document.querySelectorAll('[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const t=document.querySelector(a.getAttribute('href'));
+  if(!t)return;e.preventDefault();t.scrollIntoView({behavior:'smooth'});
+}));
+
+/* ── CURSOR ── */
+const cR=document.getElementById('cR'),cD=document.getElementById('cD');
+const isTouch=navigator.maxTouchPoints>0;
+if(!isTouch&&!noMo){
+  document.body.classList.add('has-cursor');
+  let cx=0,cy=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;cD.style.transform=`translate(${cx-4}px,${cy-4}px)`;});
+  (function loop(){rx+=(cx-rx)*.14;ry+=(cy-ry)*.14;cR.style.transform=`translate(${rx-20}px,${ry-20}px)`;requestAnimationFrame(loop);})();
+  document.querySelectorAll('a,button,.pc,.gi,.h-cta,.nav-brand').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cR.classList.add('big'));
+    el.addEventListener('mouseleave',()=>cR.classList.remove('big'));
+  });
+  document.addEventListener('mousedown',()=>cR.classList.add('click'));
+  document.addEventListener('mouseup',()=>cR.classList.remove('click'));
+}
+
+applyLang('it');
+
+// Video slider
+(function(){
+  const slides = [...document.querySelectorAll('.vs-slide')];
+  const dots   = [...document.querySelectorAll('.vs-dot')];
+  let cur = 0;
+  function goTo(n){
+    const vid = slides[cur].querySelector('video');
+    vid.pause();
+    slides[cur].classList.remove('on');
+    dots[cur].classList.remove('on');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('on');
+    dots[cur].classList.add('on');
+    const nv = slides[cur].querySelector('video');
+    nv.play().catch(()=>{});
+  }
+  document.getElementById('vsPrev').addEventListener('click',()=>goTo(cur-1));
+  document.getElementById('vsNext').addEventListener('click',()=>goTo(cur+1));
+  dots.forEach((d,i)=>d.addEventListener('click',()=>goTo(i)));
+})();
+</script>
 </body>
 </html>
