@@ -1,1264 +1,1045 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Piedigrotta — Ristorante & Pizzeria · Praia a Mare</title>
-<meta name="description" content="La Piedigrotta, ristorante e pizzeria nel cuore di Praia a Mare. Cucina italiana autentica, pesce fresco del Tirreno, pizze artigianali e atmosfera familiare dal 1985.">
-<meta name="keywords" content="ristorante Praia a Mare, pizzeria Calabria, cucina calabrese, pesce fresco Tirreno, La Piedigrotta">
-<meta property="og:title" content="La Piedigrotta — Praia a Mare">
-<meta property="og:description" content="Pesce fresco, pizze artigianali e tradizione calabrese in Piazza Lomonaco a Praia a Mare.">
-<meta property="og:image" content="./photos/photo_00.jpg">
-<meta property="og:url" content="https://lapiedigrotta.it">
-<meta property="og:type" content="restaurant">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="La Piedigrotta — Praia a Mare">
-<meta name="twitter:description" content="Cucina italiana, pesce fresco e pizze artigianali nel cuore di Praia a Mare.">
-<meta name="twitter:image" content="./photos/photo_00.jpg">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍝</text></svg>">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#F4EDE0" />
+<title>La Piedigrotta · Pizza Napoletana & Pesce del Tirreno · Praia a Mare</title>
+<meta name="description" content="Ristorante-Pizzeria nel cuore di Praia a Mare. Pizza napoletana, pesce fresco del Tirreno, una cucina di famiglia dal cuore antico. Aperti tutti i giorni, anche a pranzo." />
+
+<!-- OpenGraph -->
+<meta property="og:title" content="La Piedigrotta · Praia a Mare" />
+<meta property="og:description" content="Pizza napoletana, pesce del Tirreno. Cucina di famiglia, Piazza F. G. Lomonaco." />
+<meta property="og:image" content="img/posts/hero_pizza.jpg" />
+<meta property="og:type" content="restaurant.restaurant" />
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Restaurant",
-  "name": "La Piedigrotta",
-  "image": "./photos/photo_00.jpg",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Piazza F. G. Lomonaco",
-    "addressLocality": "Praia a Mare",
-    "addressRegion": "CS",
-    "postalCode": "87028",
-    "addressCountry": "IT"
-  },
-  "telephone": "+390985806500",
-  "priceRange": "€€",
-  "url": "https://www.facebook.com/la.piedigrotta.98",
-  "servesCuisine": ["Italian", "Calabrese", "Seafood", "Pizza"],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.3",
-    "reviewCount": "885"
-  },
-  "openingHours": [
-    "Mo-Fr 12:30-14:30",
-    "Mo-Fr 19:30-23:30",
-    "Sa 12:30-14:30",
-    "Sa 19:30-00:30",
-    "Su 12:30-15:00",
-    "Su 19:30-00:00"
-  ]
-}
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream:        '#F4EDE0',
+          'cream-50':   '#FAF7F0',
+          ink:          '#1A2A3A',
+          'ink-60':     '#5C6675',
+          terracotta:   '#C8552D',
+          'terracotta-dark': '#A23F1B',
+          tirreno:      '#2D6E8F',
+          lemon:        '#E8B83C',
+          line:         'rgba(26,42,58,0.13)'
+        },
+        fontFamily: {
+          display: ['"DM Serif Display"', 'Georgia', 'serif'],
+          editorial: ['Fraunces', 'Georgia', 'serif'],
+          sans: ['Manrope', 'system-ui', 'sans-serif']
+        }
+      }
+    }
+  };
 </script>
+
 <style>
-  :root{
-    --primary:#938b82;
-    --secondary:#221711;
-    --accent:#46362b;
-    --light:#dde1e0;
-    --dark:#221711;
-    --gold:#d4c882;
-    --stone:#7f6851;
-    --cream:#f4f0ea;
-    --ink:#1a120d;
+  :root {
+    --cream: #F4EDE0;
+    --ink: #1A2A3A;
+    --terracotta: #C8552D;
+    --tirreno: #2D6E8F;
+    --lemon: #E8B83C;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'ss02';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  /* Subtle paper noise overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+    opacity: 0.4;
   }
 
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:'Manrope',system-ui,sans-serif;
-    font-weight:400;
-    color:var(--ink);
-    background:var(--cream);
-    line-height:1.6;
-    overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
+  /* Display headline */
+  .display {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
   }
-  img{max-width:100%;display:block;height:auto}
-  a{color:inherit;text-decoration:none}
-  button{font:inherit;cursor:pointer;border:none;background:none}
-
-  /* Language switching — hide non-active by default */
-  .t-en{display:none !important;}
-  body.lang-en .t-it{display:none !important;}
-  body.lang-en .t-en{display:revert !important;}
-
-  h1,h2,h3,h4{
-    font-family:'Cardo',serif;
-    font-weight:400;
-    letter-spacing:-0.01em;
-    line-height:1.15;
-    color:var(--secondary);
+  .editorial-italic {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 100, "WONK" 1;
+  }
+  .eyebrow {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
   }
 
-  .container{max-width:1240px;margin:0 auto;padding:0 32px}
+  /* Hairline */
+  .hairline { border-color: rgba(26,42,58,0.13); }
 
-  /* ============ NAV ============ */
-  .nav{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    padding:22px 0;
-    transition:background .4s ease,padding .4s ease,box-shadow .4s ease;
-    background:transparent;
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 800ms cubic-bezier(0.25,0.1,0.25,1), transform 800ms cubic-bezier(0.25,0.1,0.25,1);
   }
-  .nav .container{display:flex;align-items:center;justify-content:space-between;gap:24px}
-  .logo{
-    font-family:'Cardo',serif;
-    font-size:1.5rem;
-    letter-spacing:.04em;
-    color:#fff;
-    transition:color .4s;
-  }
-  .logo .mark{
-    color:var(--gold);
-    font-style:italic;
-  }
-  .nav-links{display:flex;gap:38px;list-style:none}
-  .nav-links a{
-    font-size:.82rem;
-    font-weight:500;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:#fff;
-    transition:color .3s,opacity .3s;
-    opacity:.85;
-  }
-  .nav-links a:hover{opacity:1;color:var(--gold)}
-  .lang-switcher{display:flex;gap:6px;align-items:center}
-  .lang-btn{
-    font-size:.72rem;
-    font-weight:600;
-    letter-spacing:.14em;
-    padding:7px 12px;
-    border-radius:2px;
-    border:1px solid rgba(255,255,255,.35);
-    background:transparent;
-    color:#fff;
-    transition:all .3s;
-  }
-  .lang-btn.active{
-    color:var(--secondary);
-    background:#fff;
-    border-color:#fff;
-  }
-  .lang-btn:hover{border-color:#fff}
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 80ms; }
+  .reveal-delay-2 { transition-delay: 160ms; }
+  .reveal-delay-3 { transition-delay: 240ms; }
+  .reveal-delay-4 { transition-delay: 320ms; }
 
-  .nav.scrolled{
-    background:rgba(244,240,234,.96);
-    backdrop-filter:blur(10px);
-    padding:14px 0;
-    box-shadow:0 1px 0 rgba(34,23,17,.06);
+  /* Buttons */
+  .btn-primary {
+    background: var(--terracotta);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: background 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
   }
-  .nav.scrolled .logo{color:var(--secondary)}
-  .nav.scrolled .nav-links a{color:var(--secondary)}
-  .nav.scrolled .lang-btn{
-    color:var(--secondary);
-    border-color:rgba(34,23,17,.2);
+  .btn-primary:hover { background: #A23F1B; transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(200,85,45,0.4); }
+  .btn-primary:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 3px; }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    padding: 13px 26px;
+    border-radius: 999px;
+    border: 1px solid rgba(26,42,58,0.25);
+    font-weight: 500;
+    transition: all 220ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
   }
-  .nav.scrolled .lang-btn.active{
-    color:#fff;
-    background:var(--accent);
-    border-color:var(--accent);
+  .btn-secondary:hover { border-color: var(--ink); background: rgba(26,42,58,0.04); }
+  .btn-secondary:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  /* Marquee */
+  .marquee {
+    overflow: hidden;
+    width: 100%;
+    --gap: 2.5rem;
+  }
+  .marquee-track {
+    display: flex;
+    gap: var(--gap);
+    width: max-content;
+    animation: scroll-x 45s linear infinite;
+  }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes scroll-x {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - var(--gap)/2)); }
   }
 
-  .menu-toggle{display:none}
-
-  /* ============ HERO ============ */
-  .hero{
-    position:relative;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    overflow:hidden;
-    color:#fff;
-  }
-  .hero-bg{
-    position:absolute;inset:0;z-index:0;
-  }
-  .hero-bg img{
-    width:100%;height:100%;object-fit:cover;
-    filter:brightness(.68) saturate(1.05);
-  }
-  .hero-bg::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(34,23,17,.35) 0%,rgba(34,23,17,.45) 60%,rgba(34,23,17,.7) 100%);
-  }
-  .hero-inner{
-    position:relative;z-index:2;
-    padding:140px 0 80px;
-    width:100%;
-  }
-  .hero-eyebrow{
-    display:inline-flex;align-items:center;gap:12px;
-    font-size:.75rem;font-weight:500;
-    letter-spacing:.3em;text-transform:uppercase;
-    color:var(--gold);
-    margin-bottom:28px;
-  }
-  .hero-eyebrow::before,.hero-eyebrow::after{
-    content:"";width:36px;height:1px;background:var(--gold);opacity:.7;
-  }
-  .hero h1{
-    font-size:clamp(3rem,8vw,6.5rem);
-    color:#fff;
-    font-weight:400;
-    line-height:1;
-    margin-bottom:32px;
-    letter-spacing:-.02em;
-  }
-  .hero h1 em{
-    font-style:italic;
-    color:var(--gold);
-    font-family:'Cardo',serif;
-  }
-  .hero-sub{
-    font-size:1.15rem;
-    max-width:540px;
-    color:rgba(255,255,255,.85);
-    margin-bottom:48px;
-    line-height:1.7;
-  }
-  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-  .btn{
-    display:inline-block;
-    font-size:.82rem;font-weight:600;
-    letter-spacing:.16em;text-transform:uppercase;
-    padding:16px 32px;
-    border-radius:2px;
-    transition:all .35s cubic-bezier(.2,.8,.2,1);
-    border:1px solid transparent;
-  }
-  .btn-primary{
-    background:var(--gold);
-    color:var(--secondary);
-  }
-  .btn-primary:hover{
-    background:#fff;
-    transform:translateY(-2px);
-    box-shadow:0 12px 30px rgba(0,0,0,.25);
-  }
-  .btn-ghost{
-    border-color:rgba(255,255,255,.4);
-    color:#fff;
-  }
-  .btn-ghost:hover{
-    background:#fff;
-    color:var(--secondary);
-    border-color:#fff;
-  }
-  .hero-meta{
-    display:flex;gap:40px;margin-top:90px;
-    padding-top:40px;
-    border-top:1px solid rgba(255,255,255,.18);
-    flex-wrap:wrap;
-  }
-  .hero-meta-item{
-    color:rgba(255,255,255,.9);
-  }
-  .hero-meta-item .n{
-    font-family:'Cardo',serif;
-    font-size:2rem;
-    color:var(--gold);
-    display:block;
-    line-height:1;
-    margin-bottom:6px;
-  }
-  .hero-meta-item .l{
-    font-size:.72rem;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    opacity:.7;
-  }
-  .stars{color:var(--gold);letter-spacing:2px}
-
-  /* ============ STORIA ============ */
-  .storia{
-    padding:140px 0;
-    background:var(--cream);
-    position:relative;
-  }
-  .storia-grid{
-    display:grid;
-    grid-template-columns:1fr 1.1fr;
-    gap:100px;
-    align-items:center;
-  }
-  .storia-img{
-    position:relative;
-    aspect-ratio:4/5;
-  }
-  .storia-img img{
-    width:100%;height:100%;object-fit:cover;
-    border-radius:2px;
-  }
-  .storia-img::before{
-    content:"";
-    position:absolute;
-    left:-24px;top:-24px;right:24px;bottom:24px;
-    border:1px solid var(--accent);
-    z-index:-1;
-  }
-  .section-eyebrow{
-    font-size:.72rem;
-    font-weight:600;
-    letter-spacing:.3em;
-    text-transform:uppercase;
-    color:var(--accent);
-    margin-bottom:20px;
-    display:inline-block;
-  }
-  .section-eyebrow::before{
-    content:"—  ";
-  }
-  .storia h2{
-    font-size:clamp(2.2rem,4vw,3.6rem);
-    margin-bottom:32px;
-  }
-  .storia h2 em{
-    font-style:italic;
-    color:var(--accent);
-  }
-  .storia p{
-    font-size:1.02rem;
-    line-height:1.85;
-    color:var(--stone);
-    margin-bottom:20px;
-  }
-  .storia p strong{
-    color:var(--secondary);
-    font-weight:600;
-  }
-  .sig{
-    margin-top:36px;
-    font-family:'Cardo',serif;
-    font-style:italic;
-    font-size:1.15rem;
-    color:var(--accent);
+  /* Hero image */
+  .hero-img {
+    will-change: transform;
+    transition: transform 100ms linear;
   }
 
-  /* ============ MENU ============ */
-  .menu{
-    padding:140px 0;
-    background:var(--secondary);
-    color:var(--cream);
-    position:relative;
+  /* Bento grid hover */
+  .dish-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    cursor: pointer;
   }
-  .menu .section-eyebrow{color:var(--gold)}
-  .menu-head{
-    text-align:center;
-    max-width:640px;
-    margin:0 auto 80px;
+  .dish-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 700ms cubic-bezier(0.25,0.1,0.25,1);
+    will-change: transform;
   }
-  .menu h2{
-    color:var(--cream);
-    font-size:clamp(2.2rem,4vw,3.6rem);
-    margin-bottom:24px;
+  .dish-card:hover img { transform: scale(1.06); }
+  .dish-card .dish-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26,42,58,0) 40%, rgba(26,42,58,0.85) 100%);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: opacity 500ms ease;
   }
-  .menu h2 em{
-    font-style:italic;
-    color:var(--gold);
+  .dish-card:hover .dish-overlay,
+  .dish-card:focus-within .dish-overlay { opacity: 1; }
+  .dish-card .dish-overlay h3 {
+    color: #FAF7F0;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.2;
+    transform: translateY(8px);
+    transition: transform 500ms cubic-bezier(0.25,0.1,0.25,1);
   }
-  .menu-intro{
-    color:rgba(244,240,234,.7);
-    font-size:1rem;
-  }
-  .menu-grid{
-    display:grid;
-    grid-template-columns:repeat(12,1fr);
-    gap:28px;
-  }
-  .dish{
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(212,200,130,.15);
-    overflow:hidden;
-    transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .4s;
-  }
-  .dish:hover{
-    transform:translateY(-4px) scale(1.01);
-    border-color:rgba(212,200,130,.4);
-    box-shadow:0 20px 50px rgba(0,0,0,.3);
-  }
-  .dish-img{
-    aspect-ratio:4/3;
-    overflow:hidden;
-  }
-  .dish-img img{
-    width:100%;height:100%;object-fit:cover;
-    transition:transform .8s ease;
-  }
-  .dish:hover .dish-img img{transform:scale(1.06)}
-  .dish-body{padding:32px 28px}
-  .dish-top{
-    display:flex;justify-content:space-between;
-    align-items:baseline;gap:16px;
-    margin-bottom:14px;
-  }
-  .dish h3{
-    color:var(--cream);
-    font-size:1.45rem;
-    line-height:1.2;
-  }
-  .dish-price{
-    font-family:'Cardo',serif;
-    color:var(--gold);
-    font-size:1.2rem;
-    white-space:nowrap;
-  }
-  .dish-desc{
-    color:rgba(244,240,234,.65);
-    font-size:.92rem;
-    line-height:1.7;
-  }
-  .dish-tag{
-    display:inline-block;
-    margin-top:16px;
-    font-size:.68rem;
-    letter-spacing:.25em;
-    text-transform:uppercase;
-    color:var(--gold);
-    padding:4px 10px;
-    border:1px solid rgba(212,200,130,.3);
-    border-radius:2px;
-  }
-  .dish.w-6{grid-column:span 6}
-  .dish.w-4{grid-column:span 4}
+  .dish-card:hover .dish-overlay h3 { transform: translateY(0); }
 
-  /* ============ REVIEWS ============ */
-  .reviews{
-    padding:140px 0;
-    background:var(--light);
+  /* Link underline animation */
+  .link-anim {
+    position: relative;
+    display: inline-block;
   }
-  .reviews-head{text-align:center;max-width:640px;margin:0 auto 70px}
-  .reviews h2{font-size:clamp(2rem,3.5vw,3.2rem)}
-  .reviews h2 em{font-style:italic;color:var(--accent)}
-  .reviews-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px;
+  .link-anim::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 100%; height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 380ms cubic-bezier(0.25,0.1,0.25,1);
   }
-  .review{
-    background:var(--cream);
-    padding:40px 32px;
-    border:1px solid rgba(34,23,17,.08);
-    position:relative;
-    transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;
-  }
-  .review:hover{
-    transform:translateY(-4px);
-    box-shadow:0 20px 40px rgba(34,23,17,.08);
-  }
-  .review::before{
-    content:"“";
-    font-family:'Cardo',serif;
-    font-size:5rem;
-    line-height:1;
-    color:var(--gold);
-    position:absolute;
-    top:14px;left:24px;
-    opacity:.6;
-  }
-  .review-text{
-    margin-top:36px;
-    font-family:'Cardo',serif;
-    font-size:1.08rem;
-    line-height:1.7;
-    color:var(--secondary);
-    font-style:italic;
-    margin-bottom:28px;
-  }
-  .review-foot{
-    display:flex;align-items:center;gap:14px;
-    padding-top:20px;
-    border-top:1px solid rgba(34,23,17,.1);
-  }
-  .avatar{
-    width:44px;height:44px;border-radius:50%;
-    background:var(--accent);
-    color:#fff;
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Cardo',serif;font-size:1.1rem;
-  }
-  .reviewer{flex:1}
-  .reviewer-name{font-weight:600;font-size:.92rem;color:var(--secondary)}
-  .reviewer-source{font-size:.74rem;color:var(--stone);margin-top:2px}
-  .review-stars{color:var(--gold);font-size:.85rem;letter-spacing:2px}
+  .link-anim:hover::after { transform: scaleX(1); transform-origin: left; }
 
-  /* ============ CONTATTI ============ */
-  .contatti{
-    padding:140px 0;
-    background:var(--cream);
-  }
-  .contatti-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:80px;
-    align-items:start;
-  }
-  .contatti h2{font-size:clamp(2.2rem,4vw,3.6rem);margin-bottom:28px}
-  .contatti h2 em{font-style:italic;color:var(--accent)}
-  .contatti-lead{
-    color:var(--stone);
-    font-size:1.02rem;
-    line-height:1.8;
-    margin-bottom:40px;
-  }
-  .info-list{list-style:none;display:flex;flex-direction:column;gap:24px}
-  .info-item{
-    display:flex;gap:18px;
-    padding-bottom:22px;
-    border-bottom:1px solid rgba(34,23,17,.1);
-  }
-  .info-icon{
-    width:40px;height:40px;flex-shrink:0;
-    border:1px solid var(--accent);
-    color:var(--accent);
-    display:flex;align-items:center;justify-content:center;
-    font-size:1rem;
-  }
-  .info-label{
-    font-size:.72rem;
-    letter-spacing:.25em;
-    text-transform:uppercase;
-    color:var(--accent);
-    margin-bottom:6px;
-  }
-  .info-val{
-    font-family:'Cardo',serif;
-    font-size:1.08rem;
-    color:var(--secondary);
-    line-height:1.5;
-  }
-  .info-val a:hover{color:var(--accent)}
-  .hours-table{
-    font-size:.92rem;
-    color:var(--stone);
-    line-height:1.9;
-  }
-  .hours-table div{display:flex;justify-content:space-between;gap:20px}
-  .hours-table div span:first-child{color:var(--secondary);font-weight:500}
+  /* Star icon helper */
+  .star { color: var(--lemon); }
 
-  .booking-card{
-    background:#fff;
-    padding:48px 44px;
-    border:1px solid rgba(34,23,17,.08);
-    box-shadow:0 20px 50px rgba(34,23,17,.06);
-  }
-  .booking-card h3{
-    font-size:1.7rem;
-    margin-bottom:8px;
-  }
-  .booking-card h3 em{font-style:italic;color:var(--accent)}
-  .booking-sub{
-    color:var(--stone);
-    font-size:.92rem;
-    margin-bottom:32px;
-  }
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .form-field{margin-bottom:18px}
-  .form-field label{
-    display:block;
-    font-size:.72rem;
-    letter-spacing:.2em;
-    text-transform:uppercase;
-    color:var(--accent);
-    margin-bottom:8px;
-    font-weight:600;
-  }
-  .form-field input,.form-field select,.form-field textarea{
-    width:100%;
-    padding:13px 14px;
-    border:1px solid rgba(34,23,17,.15);
-    background:var(--cream);
-    font-family:inherit;
-    font-size:.95rem;
-    color:var(--secondary);
-    border-radius:2px;
-    transition:border-color .3s,background .3s;
-  }
-  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
-    outline:none;
-    border-color:var(--accent);
-    background:#fff;
-  }
-  .form-field textarea{resize:vertical;min-height:90px}
-  .btn-book{
-    width:100%;
-    background:var(--accent);
-    color:var(--cream);
-    padding:18px;
-    margin-top:12px;
-  }
-  .btn-book:hover{
-    background:var(--secondary);
-    transform:translateY(-2px);
-    box-shadow:0 12px 30px rgba(34,23,17,.25);
+  /* Decoration: small wavy underline for accents */
+  .wavy {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 8' fill='none' preserveAspectRatio='none' stroke='%23C8552D' stroke-width='1.6'%3E%3Cpath d='M 0 4 Q 5 0 10 4 T 20 4 T 30 4 T 40 4' /%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: bottom left;
+    background-size: 40px 6px;
+    padding-bottom: 8px;
   }
 
-  /* ============ MAP ============ */
-  .map-wrap{
-    height:420px;
-    width:100%;
-    overflow:hidden;
-    filter:grayscale(.3) contrast(.95);
+  /* Sticky nav state */
+  .nav-over-hero .nav-brand,
+  .nav-over-hero .nav-link {
+    color: #FAF7F0;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.45);
   }
-  .map-wrap iframe{width:100%;height:100%;border:0;display:block}
-
-  /* ============ FOOTER ============ */
-  footer{
-    background:var(--dark);
-    color:rgba(244,240,234,.7);
-    padding:90px 0 32px;
+  .nav-over-hero .nav-logo { border-color: rgba(255,255,255,0.5); }
+  .nav-scrolled {
+    background: rgba(244, 237, 224, 0.92);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid rgba(26,42,58,0.08);
   }
-  .foot-grid{
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr 1fr;
-    gap:60px;
-    margin-bottom:60px;
-  }
-  .foot-logo{
-    font-family:'Cardo',serif;
-    font-size:1.5rem;
-    color:var(--cream);
-    margin-bottom:20px;
-    letter-spacing:.04em;
-  }
-  .foot-logo em{color:var(--gold);font-style:italic}
-  .foot-desc{
-    font-size:.92rem;
-    line-height:1.7;
-    max-width:340px;
-  }
-  .foot-title{
-    color:var(--cream);
-    font-size:.74rem;
-    letter-spacing:.28em;
-    text-transform:uppercase;
-    margin-bottom:20px;
-    font-weight:600;
-  }
-  .foot-list{list-style:none;display:flex;flex-direction:column;gap:12px;font-size:.92rem}
-  .foot-list a:hover{color:var(--gold)}
-  .foot-bottom{
-    padding-top:32px;
-    border-top:1px solid rgba(244,240,234,.08);
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
-    font-size:.8rem;
-    color:rgba(244,240,234,.5);
-  }
-  .foot-bottom a{color:var(--gold)}
-  .foot-bottom a:hover{color:var(--cream)}
+  .nav-scrolled .nav-brand { color: var(--ink); text-shadow: none; }
+  .nav-scrolled .nav-link { color: var(--ink); text-shadow: none; }
+  .nav-scrolled .nav-logo { border-color: rgba(26,42,58,0.15); }
 
-  /* ============ WHATSAPP FLOAT ============ */
-  .wa-float{
-    position:fixed;
-    bottom:24px;right:24px;
-    z-index:999;
-    width:58px;height:58px;
-    border-radius:50%;
-    background:#25d366;
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 8px 24px rgba(37,211,102,.45);
-    transition:transform .3s,box-shadow .3s;
-  }
-  .wa-float:hover{
-    transform:translateY(-3px) scale(1.05);
-    box-shadow:0 14px 32px rgba(37,211,102,.55);
-  }
-  .wa-float svg{width:30px;height:30px;fill:#fff}
-
-  /* Section divider ornament */
-  .ornament{
-    display:flex;align-items:center;justify-content:center;
-    gap:14px;
-    margin:0 auto 28px;
-    color:var(--gold);
-  }
-  .ornament span{
-    width:40px;height:1px;background:currentColor;opacity:.5;
-  }
-  .ornament i{font-style:normal;font-size:.8rem;letter-spacing:.3em}
-
-  /* ============ MOBILE ============ */
-  @media (max-width:768px){
-    .container{padding:0 22px}
-    .nav{padding:14px 0}
-    .nav-links{display:none}
-    .lang-switcher{gap:4px}
-    .lang-btn{padding:6px 9px;font-size:.68rem}
-    .logo{font-size:1.2rem}
-
-    .hero{min-height:88vh}
-    .hero-inner{padding:120px 0 60px}
-    .hero h1{font-size:3rem}
-    .hero-sub{font-size:1rem;margin-bottom:36px}
-    .hero-ctas{flex-direction:column;align-items:stretch}
-    .btn{text-align:center;padding:14px 22px}
-    .hero-meta{margin-top:60px;gap:28px}
-    .hero-meta-item .n{font-size:1.6rem}
-
-    .storia{padding:90px 0}
-    .storia-grid{grid-template-columns:1fr;gap:50px}
-    .storia-img::before{display:none}
-
-    .menu{padding:90px 0}
-    .menu-head{margin-bottom:50px}
-    .menu-grid{gap:20px}
-    .dish.w-6,.dish.w-4{grid-column:span 12}
-
-    .reviews{padding:90px 0}
-    .reviews-grid{grid-template-columns:1fr;gap:20px}
-
-    .contatti{padding:90px 0}
-    .contatti-grid{grid-template-columns:1fr;gap:50px}
-    .booking-card{padding:32px 24px}
-    .form-row{grid-template-columns:1fr}
-
-    .map-wrap{height:320px}
-
-    footer{padding:60px 0 28px}
-    .foot-grid{grid-template-columns:1fr;gap:36px;margin-bottom:40px}
-    .foot-bottom{flex-direction:column;gap:10px}
-
-    .wa-float{width:52px;height:52px;bottom:18px;right:18px}
-    .wa-float svg{width:26px;height:26px}
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+    .reveal { opacity: 1; transform: none; }
   }
 
-  @media (max-width:480px){
-    .hero h1{font-size:2.4rem}
-    .storia h2,.menu h2,.reviews h2,.contatti h2{font-size:2rem}
+  /* Selection */
+  ::selection { background: var(--terracotta); color: #fff; }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    background: var(--ink);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    z-index: 100;
+    transition: top 240ms;
+  }
+  .skip-link:focus { top: 16px; }
+
+  /* Layout helpers */
+  main { position: relative; z-index: 2; }
+  section { position: relative; z-index: 2; }
+
+  /* Hero image cover */
+  .hero-frame {
+    position: relative;
+    overflow: hidden;
+    height: 92vh;
+    min-height: 640px;
+    max-height: 1024px;
+  }
+  .hero-frame img {
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+    object-position: 25% 45%;
+  }
+  .hero-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(26,42,58,0.10) 0%, rgba(26,42,58,0.0) 30%, rgba(26,42,58,0.55) 100%),
+      linear-gradient(270deg, rgba(26,42,58,0.72) 0%, rgba(26,42,58,0.45) 30%, rgba(26,42,58,0.0) 60%);
+  }
+  @media (max-width: 767px) {
+    .hero-frame img { object-position: 40% 45%; }
+    .hero-frame::after {
+      background:
+        linear-gradient(180deg, rgba(26,42,58,0.20) 0%, rgba(26,42,58,0.0) 25%, rgba(26,42,58,0.70) 100%),
+        linear-gradient(180deg, rgba(26,42,58,0.55) 0%, rgba(26,42,58,0.0) 55%);
+    }
+  }
+
+  /* Hero text emphasis */
+  .hero-copy { text-shadow: 0 2px 14px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4); }
+  .hero-copy h1 { text-shadow: 0 3px 24px rgba(0,0,0,0.6), 0 1px 6px rgba(0,0,0,0.45); }
+
+  /* Hero brand mark */
+  .hero-brand {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  /* Big number for ratings */
+  .rating-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(64px, 10vw, 112px);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: var(--terracotta);
+  }
+
+  /* Specialty card */
+  .spec-card {
+    background: var(--cream-50, #FAF7F0);
+    border: 1px solid rgba(26,42,58,0.1);
+    border-radius: 12px;
+    padding: 36px 32px;
+    transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+  }
+  .spec-card:hover {
+    border-color: var(--terracotta);
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -20px rgba(26,42,58,0.18);
   }
 </style>
 </head>
-<body class="lang-it">
+<body>
 
-<!-- ============ NAV ============ -->
-<nav class="nav" id="nav">
-  <div class="container">
-    <a href="#" class="logo">La <span class="mark">Piedigrotta</span></a>
-    <ul class="nav-links">
-      <li><a href="#storia" class="t-it">Storia</a><a href="#storia" class="t-en">Story</a></li>
-      <li><a href="#menu" class="t-it">Menu</a><a href="#menu" class="t-en">Menu</a></li>
-      <li><a href="#reviews" class="t-it">Recensioni</a><a href="#reviews" class="t-en">Reviews</a></li>
-      <li><a href="#contatti" class="t-it">Contatti</a><a href="#contatti" class="t-en">Contact</a></li>
-    </ul>
-    <div class="lang-switcher">
-      <button class="lang-btn active" data-lang="it">IT</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-    </div>
-  </div>
-</nav>
+<a href="#main" class="skip-link">Vai al contenuto</a>
 
-<!-- ============ HERO ============ -->
-<header class="hero">
-  <div class="hero-bg">
-    <img src="./photos/photo_00.jpg" alt="La Piedigrotta — Praia a Mare">
-  </div>
-  <div class="hero-inner">
-    <div class="container">
-      <div class="hero-eyebrow t-it">Praia a Mare · Calabria</div>
-      <div class="hero-eyebrow t-en">Praia a Mare · Calabria</div>
-
-      <h1>
-        <span class="t-it">La <em>Piedigrotta</em></span>
-        <span class="t-en">La <em>Piedigrotta</em></span>
-      </h1>
-
-      <p class="hero-sub t-it">Ristorante e pizzeria nel cuore di Piazza Lomonaco. Pesce fresco del Tirreno, pasta fatta in casa e pizze cotte al forno, serviti con l'ospitalità sincera della Calabria.</p>
-      <p class="hero-sub t-en">A restaurant and pizzeria in the heart of Piazza Lomonaco. Fresh fish from the Tyrrhenian Sea, handmade pasta and wood-fired pizzas — served with the sincere hospitality of Calabria.</p>
-
-      <div class="hero-ctas">
-        <a href="#contatti" class="btn btn-primary t-it">Prenota un tavolo</a>
-        <a href="#contatti" class="btn btn-primary t-en">Book a table</a>
-        <a href="#menu" class="btn btn-ghost t-it">Scopri il menu</a>
-        <a href="#menu" class="btn btn-ghost t-en">Explore the menu</a>
-      </div>
-
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <span class="n">4.3 <span class="stars">★★★★★</span></span>
-          <span class="l t-it">Valutazione Google</span>
-          <span class="l t-en">Google rating</span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="n">885+</span>
-          <span class="l t-it">Recensioni verificate</span>
-          <span class="l t-en">Verified reviews</span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="n">€€</span>
-          <span class="l t-it">Cucina calabrese · Pesce · Pizza</span>
-          <span class="l t-en">Calabrian · Seafood · Pizza</span>
-        </div>
-      </div>
-    </div>
+<!-- ====== NAV ====== -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 nav-over-hero">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
+    <a href="#hero" class="flex items-center gap-3" aria-label="La Piedigrotta home">
+      <img src="img/logo/logo_320x320.jpg" alt="" width="36" height="36" class="rounded-full border border-white/30 object-cover nav-logo" />
+      <span class="display text-[18px] sm:text-[20px] leading-none nav-brand">La Piedigrotta</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8" aria-label="Navigazione principale">
+      <a href="#story" class="link-anim text-sm font-medium nav-link">Storia</a>
+      <a href="#menu" class="link-anim text-sm font-medium nav-link">Menu</a>
+      <a href="#specialita" class="link-anim text-sm font-medium nav-link">Specialità</a>
+      <a href="#prenota" class="link-anim text-sm font-medium nav-link">Prenota</a>
+      <a href="#contatti" class="link-anim text-sm font-medium nav-link">Contatti</a>
+    </nav>
+    <a href="#prenota" class="btn-primary text-sm !py-2.5 !px-5">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Prenota
+    </a>
   </div>
 </header>
 
-<!-- ============ STORIA ============ -->
-<section class="storia" id="storia">
-  <div class="container">
-    <div class="storia-grid">
-      <div class="storia-img">
-        <img src="./photos/photo_03.jpg" alt="La sala del ristorante La Piedigrotta">
+<main id="main">
+
+<!-- ====== HERO ====== -->
+<section id="hero" class="hero-frame">
+  <img src="img/posts/hero_pizza.jpg" alt="Pizza Margherita napoletana appena uscita dal forno a legna" class="hero-img" />
+  <div class="absolute inset-0 z-10 flex flex-col">
+    <div class="flex-1 flex items-end pb-[80px] lg:pb-[80px]">
+      <div class="max-w-[1280px] w-full mx-auto px-6 lg:px-12 pb-2 lg:pb-3 flex justify-start lg:justify-end">
+        <div class="hero-copy max-w-full lg:max-w-[640px] lg:text-right">
+          <h1 class="display text-white text-[clamp(48px,8vw,120px)] tracking-tight leading-[0.95] lg:ml-auto">
+            Pizza Napoletana.<br/>
+            <span class="editorial-italic font-light">Pesce del Tirreno.</span>
+          </h1>
+          <p class="mt-7 max-w-[44ch] text-white/95 text-lg leading-relaxed lg:ml-auto">
+            Una piazza, due cuori, una sola passione. La cucina di famiglia di Padre &amp; Figlio nel centro di Praia a Mare.
+          </p>
+          <div class="mt-9 flex lg:justify-end">
+            <a href="#prenota" class="btn-primary justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              Prenota un tavolo
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="storia-text">
-        <span class="section-eyebrow t-it">La nostra storia</span>
-        <span class="section-eyebrow t-en">Our story</span>
+    </div>
 
-        <h2>
-          <span class="t-it">Una cucina che parla di <em>Calabria</em>, di mare e di famiglia.</span>
-          <span class="t-en">A kitchen that speaks of <em>Calabria</em>, of the sea and of family.</span>
-        </h2>
+    <!-- Hero address pin — bottom left -->
+    <div class="absolute left-6 lg:left-12 bottom-[80px] lg:bottom-[84px] max-w-[260px] lg:max-w-[320px] hidden sm:block">
+      <p class="eyebrow text-white/85 mb-2" style="text-shadow:0 1px 12px rgba(0,0,0,0.45)">Dove siamo</p>
+      <p class="text-white text-[15px] leading-snug" style="text-shadow:0 1px 12px rgba(0,0,0,0.6)">
+        Piazza F. G. Lomonaco, 6<br/>
+        87028 Praia a Mare (CS)<br/>
+        <span class="editorial-italic text-white/85">Calabria — dal cuore antico</span>
+      </p>
+    </div>
 
-        <div class="t-it">
-          <p>Nel cuore di Praia a Mare, affacciati sulla storica <strong>Piazza F. G. Lomonaco</strong>, serviamo da anni una cucina fatta di materie prime del territorio e di gesti imparati in famiglia. Il pesce arriva ogni mattina dai pescatori del Tirreno, la pasta la impastiamo a mano e le pizze nascono nel nostro forno con lunga lievitazione.</p>
-          <p>Chi entra da noi la prima volta spesso viene per la pizza — e se ne ricorda per i sapori decisi, le combinazioni classiche e quelle più creative. Chi torna, torna per i nostri <strong>piatti di pesce</strong>: crudità, zuppe, spaghetti e fritti leggeri, preparati con semplicità perché il sapore del mare parli da solo.</p>
-          <p>Siamo conosciuti per un'<strong>accoglienza calorosa</strong>: ospiti che non parlano italiano, tavolate di amici, famiglie in vacanza e chi cerca una serata tranquilla trovano tutti un posto a casa nostra. Anche quando la sala è piena — e spesso lo è, per questo consigliamo sempre di prenotare — lo staff riesce a far sentire ognuno benvenuto.</p>
-        </div>
-
-        <div class="t-en">
-          <p>In the heart of Praia a Mare, overlooking the historic <strong>Piazza F. G. Lomonaco</strong>, we have served for years a cuisine built on local ingredients and on gestures learned in the family. Our fish arrives every morning from the fishermen of the Tyrrhenian coast, our pasta is kneaded by hand, and our pizzas are born in our oven with long rising times.</p>
-          <p>Many first-time guests come for the pizza — and remember us for its bold flavours, the classic toppings and the more creative ones. Those who return, return for our <strong>seafood dishes</strong>: crudo, soups, spaghetti and light frying, prepared simply so the sea can speak for itself.</p>
-          <p>We are known for a <strong>warm welcome</strong>: guests who don't speak Italian, tables of friends, families on holiday and anyone looking for a quiet evening all find a seat at our home. Even when the room is full — and it often is, which is why we always recommend booking — our staff makes sure everyone feels welcome.</p>
-        </div>
-
-        <p class="sig t-it">— La famiglia di La Piedigrotta</p>
-        <p class="sig t-en">— The La Piedigrotta family</p>
+    <!-- Marquee tagline — pinned to bottom -->
+    <div class="hero-marquee marquee absolute bottom-0 inset-x-0 py-5 border-y border-white/15 bg-black/30 backdrop-blur-sm">
+      <div class="marquee-track display text-white/95 text-[22px] md:text-[28px] tracking-tight whitespace-nowrap">
+        <span>Linguine all'aragosta</span><span class="text-terracotta">·</span>
+        <span class="editorial-italic font-light">Tonno scottato in crosta di pistacchio</span><span class="text-terracotta">·</span>
+        <span>Pizza Napoletana</span><span class="text-terracotta">·</span>
+        <span class="editorial-italic font-light">Catalana di polpo</span><span class="text-terracotta">·</span>
+        <span>Tomahawk Angus 1200g</span><span class="text-terracotta">·</span>
+        <span class="editorial-italic font-light">Tagliatelle al tartufo</span><span class="text-terracotta">·</span>
+        <span>Cheesecake al pistacchio</span><span class="text-terracotta">·</span>
+        <!-- Duplicate for seamless loop -->
+        <span>Linguine all'aragosta</span><span class="text-terracotta">·</span>
+        <span class="editorial-italic font-light">Tonno scottato in crosta di pistacchio</span><span class="text-terracotta">·</span>
+        <span>Pizza Napoletana</span><span class="text-terracotta">·</span>
+        <span class="editorial-italic font-light">Catalana di polpo</span><span class="text-terracotta">·</span>
+        <span>Tomahawk Angus 1200g</span><span class="text-terracotta">·</span>
+        <span class="editorial-italic font-light">Tagliatelle al tartufo</span><span class="text-terracotta">·</span>
+        <span>Cheesecake al pistacchio</span><span class="text-terracotta">·</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ MENU ============ -->
-<section class="menu" id="menu">
-  <div class="container">
-    <div class="menu-head">
-      <div class="ornament"><span></span><i>♦</i><span></span></div>
-      <span class="section-eyebrow t-it">Le nostre proposte</span>
-      <span class="section-eyebrow t-en">Our selection</span>
-      <h2>
-        <span class="t-it">Dal <em>mare</em> alla tavola</span>
-        <span class="t-en">From the <em>sea</em> to the table</span>
+<!-- ====== STORY · PADRE E FIGLIO ====== -->
+<section id="story" class="py-24 lg:py-36">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+    <div class="lg:col-span-5 reveal">
+      <p class="eyebrow text-terracotta mb-6">La nostra storia</p>
+      <h2 class="display text-[clamp(40px,5vw,64px)]">
+        Padre e figlio,<br/>
+        <span class="editorial-italic">due cuori, una passione.</span>
       </h2>
-      <p class="menu-intro t-it">Una piccola selezione delle nostre portate più amate — dal pesce fresco appena sbarcato alla pizza cotta nel forno a legna.</p>
-      <p class="menu-intro t-en">A small selection of our most loved dishes — from freshly landed fish to pizza cooked in our wood-fired oven.</p>
+      <p class="mt-8 text-ink-60 text-lg leading-relaxed">
+        Il nome è un omaggio a Napoli, la terra è la Calabria. <em class="editorial-italic">La Piedigrotta</em> nasce dall'incontro di due tradizioni: la pizza napoletana cotta come una volta, e il pesce fresco del Tirreno scelto ogni mattina.
+      </p>
+      <p class="mt-5 text-ink-60 text-lg leading-relaxed">
+        In cucina lavorano padre e figlio, fianco a fianco. Due generazioni, una stessa idea di ospitalità — generosa, schietta, mai banale.
+      </p>
+      <blockquote class="mt-10 pl-6 border-l-2 border-terracotta">
+        <p class="editorial-italic text-2xl leading-snug">"Due cuori che battono per la stessa passione."</p>
+        <cite class="block mt-3 text-sm text-ink-60 not-italic">— dal nostro Instagram, ottobre 2025</cite>
+      </blockquote>
+    </div>
+    <div class="lg:col-span-7 reveal reveal-delay-1">
+      <div class="relative">
+        <img src="img/posts/06_padre_figlio.jpg" alt="Padre e figlio in cucina" class="w-full h-auto rounded-md shadow-2xl" />
+        <div class="absolute -bottom-6 -left-6 lg:-bottom-10 lg:-left-10 bg-cream-50 px-6 py-4 rounded-md shadow-xl border border-line">
+          <p class="eyebrow text-terracotta">Aperti</p>
+          <p class="display text-2xl mt-1">Tutti i giorni</p>
+          <p class="text-sm text-ink-60 mt-1">Pranzo &amp; Cena</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DUAL IDENTITY ====== -->
+<section class="py-24 lg:py-36 bg-cream-50 border-y border-line">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <div class="text-center max-w-[760px] mx-auto reveal">
+      <p class="eyebrow text-terracotta mb-5">La doppia anima</p>
+      <h2 class="display text-[clamp(40px,5vw,64px)] leading-[1.05]">
+        Le radici a Napoli,<br/>
+        <span class="editorial-italic">il pesce in Calabria.</span>
+      </h2>
+      <p class="mt-6 text-ink-60 text-lg leading-relaxed">
+        Una cucina che non sceglie. Onora Napoli con la pizza, esalta il Tirreno con il pesce del giorno. Due mondi sullo stesso tavolo.
+      </p>
     </div>
 
-    <div class="menu-grid">
-      <article class="dish w-6">
-        <div class="dish-img"><img src="./photos/photo_05.jpg" alt=""></div>
-        <div class="dish-body">
-          <div class="dish-top">
-            <h3>
-              <span class="t-it">Spaghetti ai Frutti di Mare</span>
-              <span class="t-en">Spaghetti with Seafood</span>
-            </h3>
-            <span class="dish-price">€ 18</span>
-          </div>
-          <p class="dish-desc t-it">Spaghetti trafilati al bronzo con cozze, vongole, gamberi e pomodorini del nostro orto. Il piatto che racconta meglio il Tirreno.</p>
-          <p class="dish-desc t-en">Bronze-drawn spaghetti with mussels, clams, prawns and cherry tomatoes from our garden. The dish that best tells the story of the Tyrrhenian Sea.</p>
-          <span class="dish-tag t-it">Specialità della casa</span>
-          <span class="dish-tag t-en">House specialty</span>
+    <div class="mt-16 lg:mt-24 grid lg:grid-cols-2 gap-10 lg:gap-16">
+      <article class="reveal">
+        <div class="aspect-[4/5] overflow-hidden rounded-md mb-6">
+          <img src="img/posts/10_pizza_napoletana.jpg" alt="Pizza Margherita napoletana" class="w-full h-full object-cover" />
         </div>
+        <p class="eyebrow text-tirreno">Tradizione · Napoli</p>
+        <h3 class="display text-3xl lg:text-4xl mt-3">Pizza Napoletana</h3>
+        <p class="mt-4 text-ink-60 leading-relaxed">
+          Impasto a lunga lievitazione, San Marzano, fior di latte. Margherita, Buffalina, <em class="editorial-italic">Mare Nostrum</em> con alici fresche, Rusticchella. E per chi vuole tutto: la versione <em>Gluten Free</em> e <em>Senza Lattosio</em>, preparate con la stessa cura.
+        </p>
       </article>
-
-      <article class="dish w-6">
-        <div class="dish-img"><img src="./photos/photo_07.jpg" alt=""></div>
-        <div class="dish-body">
-          <div class="dish-top">
-            <h3>
-              <span class="t-it">Pizza della Piedigrotta</span>
-              <span class="t-en">Piedigrotta Pizza</span>
-            </h3>
-            <span class="dish-price">€ 12</span>
-          </div>
-          <p class="dish-desc t-it">La nostra firma: impasto a lunga lievitazione, fior di latte, pomodoro San Marzano, 'nduja di Spilinga e basilico fresco. Per chi vuole un morso di Calabria.</p>
-          <p class="dish-desc t-en">Our signature: long-risen dough, fior di latte, San Marzano tomato, Spilinga 'nduja and fresh basil. A bite of Calabria.</p>
-          <span class="dish-tag t-it">Cotta al forno</span>
-          <span class="dish-tag t-en">Wood-fired</span>
+      <article class="reveal reveal-delay-1">
+        <div class="aspect-[4/5] overflow-hidden rounded-md mb-6">
+          <img src="img/posts/09_catalano_polpo.jpg" alt="Catalana di polpo" class="w-full h-full object-cover" />
         </div>
-      </article>
-
-      <article class="dish w-4">
-        <div class="dish-img"><img src="./photos/photo_06.jpg" alt=""></div>
-        <div class="dish-body">
-          <div class="dish-top">
-            <h3>
-              <span class="t-it">Grigliata di Pesce</span>
-              <span class="t-en">Grilled Fish</span>
-            </h3>
-            <span class="dish-price">€ 28</span>
-          </div>
-          <p class="dish-desc t-it">Selezione di pesce fresco del giorno alla griglia, condito con olio EVO e limone. Semplice, come il mare insegna.</p>
-          <p class="dish-desc t-en">Selection of the day's fresh grilled fish, dressed with EVO oil and lemon. Simple — as the sea teaches.</p>
-        </div>
-      </article>
-
-      <article class="dish w-4">
-        <div class="dish-img"><img src="./photos/photo_08.jpg" alt=""></div>
-        <div class="dish-body">
-          <div class="dish-top">
-            <h3>
-              <span class="t-it">Antipasto di Mare</span>
-              <span class="t-en">Seafood Antipasto</span>
-            </h3>
-            <span class="dish-price">€ 16</span>
-          </div>
-          <p class="dish-desc t-it">Degustazione di crudi, marinati e fritti leggeri: alici, polpo, gamberi rossi e cozze ripiene della tradizione.</p>
-          <p class="dish-desc t-en">A tasting of raw, marinated and lightly fried seafood: anchovies, octopus, red prawns and our traditional stuffed mussels.</p>
-        </div>
-      </article>
-
-      <article class="dish w-4">
-        <div class="dish-img"><img src="./photos/photo_04.jpg" alt=""></div>
-        <div class="dish-body">
-          <div class="dish-top">
-            <h3>
-              <span class="t-it">Fritto Misto</span>
-              <span class="t-en">Mixed Fried Fish</span>
-            </h3>
-            <span class="dish-price">€ 20</span>
-          </div>
-          <p class="dish-desc t-it">Calamari, gamberi e paranza del giorno, fritti a regola d'arte. Croccante fuori, morbido dentro, mai unto.</p>
-          <p class="dish-desc t-en">Squid, prawns and the catch of the day, fried to perfection. Crunchy outside, tender inside, never greasy.</p>
-        </div>
+        <p class="eyebrow text-terracotta">Mare · Tirreno</p>
+        <h3 class="display text-3xl lg:text-4xl mt-3">Pesce del giorno</h3>
+        <p class="mt-4 text-ink-60 leading-relaxed">
+          Scelto al mattino, cucinato la sera. <em class="editorial-italic">Catalana di polpo</em> con pomodorini e olive taggiasche, <em class="editorial-italic">linguine all'aragosta</em>, <em class="editorial-italic">tonno scottato in crosta di pistacchio</em>. La Calabria nel piatto, senza filtri.
+        </p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ REVIEWS ============ -->
-<section class="reviews" id="reviews">
-  <div class="container">
-    <div class="reviews-head">
-      <div class="ornament"><span></span><i>♦</i><span></span></div>
-      <span class="section-eyebrow t-it">Chi è passato di qui</span>
-      <span class="section-eyebrow t-en">Who has been here</span>
-      <h2>
-        <span class="t-it">Le <em>parole</em> dei nostri ospiti</span>
-        <span class="t-en">In our guests' <em>words</em></span>
+<!-- ====== MENU BENTO ====== -->
+<section id="menu" class="py-24 lg:py-36">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+      <div class="reveal">
+        <p class="eyebrow text-terracotta mb-4">Il menu</p>
+        <h2 class="display text-[clamp(40px,5vw,72px)] leading-[1.02] max-w-[16ch]">
+          I piatti che<br/>
+          <span class="editorial-italic">raccontano di noi.</span>
+        </h2>
+      </div>
+      <p class="text-ink-60 max-w-[42ch] lg:text-right reveal reveal-delay-1">
+        Una selezione dei nostri piatti più richiesti. Pizza napoletana, pesce del Tirreno, paste fresche e specialità inclusive.
+      </p>
+    </div>
+
+    <!-- Uniform grid: 2 cols mobile, 3 cols desktop -->
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4 reveal">
+      <figure class="dish-card aspect-[4/5]">
+        <img src="img/posts/10_pizza_napoletana.jpg" alt="Pizza napoletana" loading="lazy" />
+        <figcaption class="dish-overlay">
+          <p class="eyebrow text-white/70 mb-2">Pizza</p>
+          <h3>San Marzano, fior di latte, olive, capperi e acciughe.</h3>
+        </figcaption>
+      </figure>
+      <figure class="dish-card aspect-[4/5]">
+        <img src="img/posts/01_tonno_pistacchio.jpg" alt="Tonno scottato in crosta di pistacchio" loading="lazy" />
+        <figcaption class="dish-overlay">
+          <p class="eyebrow text-white/70 mb-2">Mare</p>
+          <h3>Tonno scottato, crosta di pistacchio, Tropea caramellata.</h3>
+        </figcaption>
+      </figure>
+      <figure class="dish-card aspect-[4/5]">
+        <img src="img/posts/09_catalano_polpo.jpg" alt="Catalana di polpo" loading="lazy" />
+        <figcaption class="dish-overlay">
+          <p class="eyebrow text-white/70 mb-2">Antipasti</p>
+          <h3>Catalana di polpo — pomodorini e olive taggiasche.</h3>
+        </figcaption>
+      </figure>
+      <figure class="dish-card aspect-[4/5]">
+        <img src="img/posts/11_linguine_aragosta.jpg" alt="Linguine all'aragosta" loading="lazy" />
+        <figcaption class="dish-overlay">
+          <p class="eyebrow text-white/70 mb-2">Primi · Mare</p>
+          <h3>Linguine all'aragosta.</h3>
+        </figcaption>
+      </figure>
+      <figure class="dish-card aspect-[4/5]">
+        <img src="img/posts/07_tagliatelle_tartufo.jpg" alt="Tagliatelle al tartufo" loading="lazy" />
+        <figcaption class="dish-overlay">
+          <p class="eyebrow text-white/70 mb-2">Primi · Terra</p>
+          <h3>Tagliatelle al tartufo.</h3>
+        </figcaption>
+      </figure>
+      <figure class="dish-card aspect-[4/5]">
+        <img src="img/posts/12_conchiglie_branzino.jpg" alt="Conchiglia di branzino" loading="lazy" />
+        <figcaption class="dish-overlay">
+          <p class="eyebrow text-white/70 mb-2">Secondi</p>
+          <h3>Conchiglia di branzino al forno, patate e pomodorini.</h3>
+        </figcaption>
+      </figure>
+      <figure class="dish-card aspect-[4/5]">
+        <img src="img/posts/08_zuccosa.jpg" alt="La Zuccosa" loading="lazy" />
+        <figcaption class="dish-overlay">
+          <p class="eyebrow text-white/70 mb-2">Pizza</p>
+          <h3>La Zuccosa — crema di zucca e provola.</h3>
+        </figcaption>
+      </figure>
+      <figure class="dish-card aspect-[4/5]">
+        <img src="img/posts/04_sfiziosa_lattosio.jpg" alt="Pizza senza lattosio" loading="lazy" />
+        <figcaption class="dish-overlay">
+          <p class="eyebrow text-white/70 mb-2">Inclusiva</p>
+          <h3>La Sfiziosa — senza lattosio.</h3>
+        </figcaption>
+      </figure>
+      <figure class="dish-card aspect-[4/5]">
+        <img src="img/posts/05_gluten_free.jpg" alt="Pizza gluten free" loading="lazy" />
+        <figcaption class="dish-overlay">
+          <p class="eyebrow text-white/70 mb-2">Inclusiva</p>
+          <h3>Pizza Gluten Free — su prenotazione.</h3>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <a href="https://www.instagram.com/lapiedigrotta_2.0/" target="_blank" rel="noopener" class="btn-secondary">
+        Altri piatti su Instagram
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SPECIALITÀ ====== -->
+<section id="specialita" class="py-24 lg:py-36 bg-cream-50 border-y border-line">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <div class="text-center max-w-[680px] mx-auto reveal">
+      <p class="eyebrow text-terracotta mb-5">Le specialità</p>
+      <h2 class="display text-[clamp(40px,5vw,64px)] leading-[1.05]">
+        <span class="editorial-italic">Per chi cerca</span><br/>qualcosa in più.
       </h2>
     </div>
 
-    <div class="reviews-grid">
-      <article class="review">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text t-it">«Cibo italiano delizioso, personale cordiale e accogliente, atmosfera meravigliosa — soprattutto per una grande tavolata!»</p>
-        <p class="review-text t-en">"Delicious Italian food, wonderful friendly staff, great atmosphere — especially for a large party!"</p>
-        <div class="review-foot">
-          <div class="avatar">S</div>
-          <div class="reviewer">
-            <div class="reviewer-name">Sheila Yarman</div>
-            <div class="reviewer-source t-it">Recensione Google</div>
-            <div class="reviewer-source t-en">Google review</div>
+    <div class="mt-16 grid lg:grid-cols-2 gap-8">
+      <!-- Tomahawk -->
+      <article class="spec-card reveal">
+        <div class="flex items-start justify-between gap-6 mb-6">
+          <div>
+            <p class="eyebrow text-terracotta">Solo su prenotazione</p>
+            <h3 class="display text-4xl lg:text-5xl mt-3 leading-[1.05]">Tomahawk<br/><span class="editorial-italic">Angus Irlanda</span></h3>
+          </div>
+          <div class="text-right shrink-0">
+            <p class="display text-5xl text-terracotta">€50</p>
+            <p class="eyebrow text-ink-60 mt-1">1200 g</p>
           </div>
         </div>
+        <p class="text-ink-60 leading-relaxed">
+          Una bistecca dal taglio scenografico, frollata e cotta al punto giusto. Per chi vuole celebrare una serata speciale. Prenota almeno 24 ore prima.
+        </p>
+        <a href="tel:+393489537297" class="mt-8 inline-flex items-center gap-2 link-anim font-semibold text-terracotta">
+          Prenota la tua Tomahawk
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
       </article>
 
-      <article class="review">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text t-it">«Questo ristorante centra ogni dettaglio. L'ospitalità del personale è stata eccezionale: il nostro italiano è scarso ma ci hanno guidato nell'ordinazione con grande gentilezza.»</p>
-        <p class="review-text t-en">"This restaurant hits all the right spots for me. The hospitality from the staff was above average — our Italian is below conversation level but they made the ordering process seamless."</p>
-        <div class="review-foot">
-          <div class="avatar">A</div>
-          <div class="reviewer">
-            <div class="reviewer-name">Aishikin Is</div>
-            <div class="reviewer-source t-it">Recensione Google</div>
-            <div class="reviewer-source t-en">Google review</div>
+      <!-- Sfide -->
+      <article class="spec-card reveal reveal-delay-1">
+        <div class="flex items-start justify-between gap-6 mb-6">
+          <div>
+            <p class="eyebrow text-terracotta">Sfide Impossibili</p>
+            <h3 class="display text-4xl lg:text-5xl mt-3 leading-[1.05]">Maxi pizza<br/><span class="editorial-italic">in 20 minuti.</span></h3>
+          </div>
+          <div class="text-right shrink-0">
+            <p class="display text-5xl text-terracotta">€100</p>
+            <p class="eyebrow text-ink-60 mt-1">Premio</p>
           </div>
         </div>
-      </article>
-
-      <article class="review">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text t-it">«Ottimo posto dove mangiare. Bell'atmosfera. Le pizze erano deliziose con combinazioni di gusto interessanti accanto ai condimenti più tradizionali. Assolutamente consigliato.»</p>
-        <p class="review-text t-en">"Great place to eat. Nice atmosphere. The pizzas were delicious with some interesting flavour combinations alongside the more traditional toppings. Definitely recommend."</p>
-        <div class="review-foot">
-          <div class="avatar">P</div>
-          <div class="reviewer">
-            <div class="reviewer-name">Phaser</div>
-            <div class="reviewer-source t-it">Recensione Google</div>
-            <div class="reviewer-source t-en">Google review</div>
-          </div>
-        </div>
-      </article>
-
-      <article class="review">
-        <div class="review-stars">★★★★☆</div>
-        <p class="review-text t-it">«Bel locale con ottimo pesce — i sapori sono freschi e godibili. È un posto molto frequentato, quindi è obbligatorio prenotare, specialmente nei weekend.»</p>
-        <p class="review-text t-en">"Nice place with really good seafood — the flavors are fresh and enjoyable. It's definitely a popular spot, so booking ahead is mandatory, especially on weekends."</p>
-        <div class="review-foot">
-          <div class="avatar">N</div>
-          <div class="reviewer">
-            <div class="reviewer-name">Nik</div>
-            <div class="reviewer-source t-it">Recensione Google</div>
-            <div class="reviewer-source t-en">Google review</div>
-          </div>
-        </div>
-      </article>
-
-      <article class="review">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text t-it">«Adoro questo posto! Il personale è gentile e sempre sorridente, tutto è squisito. Consiglio le degustazioni di pesce — sono incredibili, cucinate in modo semplice per far parlare il sapore.»</p>
-        <p class="review-text t-en">"I love this place! The staff is kind and smiley, everything is very tasty. I recommend the fish sets — they are amazing, cooked quite simply so the flavour speaks for itself."</p>
-        <div class="review-foot">
-          <div class="avatar">A</div>
-          <div class="reviewer">
-            <div class="reviewer-name">Alyona Podoba</div>
-            <div class="reviewer-source t-it">Recensione Google</div>
-            <div class="reviewer-source t-en">Google review</div>
-          </div>
-        </div>
-      </article>
-
-      <article class="review">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text t-it">«Pizze fuori dall'ordinario e una sala calorosa nel cuore di Praia. Una serata piacevole dall'inizio alla fine, con un conto onesto. Torneremo senza dubbio.»</p>
-        <p class="review-text t-en">"Remarkable pizzas and a warm dining room in the heart of Praia. A pleasant evening from start to finish, with a fair bill. We'll come back without a doubt."</p>
-        <div class="review-foot">
-          <div class="avatar">M</div>
-          <div class="reviewer">
-            <div class="reviewer-name">Marco L.</div>
-            <div class="reviewer-source t-it">Recensione Tripadvisor</div>
-            <div class="reviewer-source t-en">Tripadvisor review</div>
-          </div>
-        </div>
+        <p class="text-ink-60 leading-relaxed">
+          Una pizza enorme, vent'minuti di tempo, e un campione in carica da battere. Iscrizione €20, premio €100. Solo per chi ha stomaco e coraggio.
+        </p>
+        <a href="https://www.instagram.com/lapiedigrotta_2.0/" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-2 link-anim font-semibold text-terracotta">
+          Iscriviti in DM Instagram
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ CONTATTI ============ -->
-<section class="contatti" id="contatti">
-  <div class="container">
-    <div class="contatti-grid">
-      <div>
-        <span class="section-eyebrow t-it">Prenota & contatti</span>
-        <span class="section-eyebrow t-en">Book & contact</span>
-        <h2>
-          <span class="t-it">Ti aspettiamo in <em>piazza</em>.</span>
-          <span class="t-en">We're waiting for you on the <em>square</em>.</span>
-        </h2>
-        <p class="contatti-lead t-it">Prenotare è semplice: compila il modulo qui accanto e ti risponderemo direttamente su WhatsApp. Per gruppi, allergie o richieste speciali, chiamaci — parliamo italiano, inglese e un po' di francese.</p>
-        <p class="contatti-lead t-en">Booking is simple: fill in the form beside and we'll reply directly on WhatsApp. For groups, allergies or special requests, please call — we speak Italian, English and a little French.</p>
+<!-- ====== INCLUSIVITY ====== -->
+<section class="py-24 lg:py-36">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-12 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-5 reveal">
+      <p class="eyebrow text-tirreno mb-5">Una cucina per tutti</p>
+      <h2 class="display text-[clamp(36px,4.5vw,56px)] leading-[1.05]">
+        Senza glutine,<br/>
+        <span class="editorial-italic">senza lattosio,</span><br/>
+        senza compromessi.
+      </h2>
+      <p class="mt-7 text-ink-60 text-lg leading-relaxed">
+        Una pizza per chi è intollerante non deve essere mai una pizza di seconda scelta. Mozzarella senza lattosio per <em>La Sfiziosa</em>, farine certificate per la <em>Gluten Free</em> — preparata con cura, su prenotazione di vent'minuti.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-tirreno text-tirreno text-sm font-medium">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+          Gluten Free
+        </span>
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-tirreno text-tirreno text-sm font-medium">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+          Senza Lattosio
+        </span>
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-tirreno text-tirreno text-sm font-medium">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+          Vegetariano
+        </span>
+      </div>
+    </div>
+    <div class="lg:col-span-7 grid grid-cols-2 gap-4 reveal reveal-delay-1">
+      <img src="img/posts/05_gluten_free.jpg" alt="Pizza gluten free" class="w-full aspect-[3/4] object-cover rounded-md" loading="lazy" />
+      <img src="img/posts/04_sfiziosa_lattosio.jpg" alt="Pizza senza lattosio" class="w-full aspect-[3/4] object-cover rounded-md mt-12" loading="lazy" />
+    </div>
+  </div>
+</section>
 
-        <ul class="info-list">
-          <li class="info-item">
-            <div class="info-icon">◉</div>
-            <div>
-              <div class="info-label t-it">Indirizzo</div>
-              <div class="info-label t-en">Address</div>
-              <div class="info-val">Piazza F. G. Lomonaco<br>87028 Praia a Mare (CS)</div>
-            </div>
-          </li>
-          <li class="info-item">
-            <div class="info-icon">✆</div>
-            <div>
-              <div class="info-label t-it">Telefono</div>
-              <div class="info-label t-en">Phone</div>
-              <div class="info-val"><a href="tel:+390985806500">0985 806500</a></div>
-            </div>
-          </li>
-          <li class="info-item">
-            <div class="info-icon">◷</div>
-            <div>
-              <div class="info-label t-it">Orari</div>
-              <div class="info-label t-en">Opening hours</div>
-              <div class="info-val" style="font-size:.95rem">
-                <div class="hours-table t-it">
-                  <div><span>Lun – Ven</span><span>12:30–14:30 · 19:30–23:30</span></div>
-                  <div><span>Sabato</span><span>12:30–14:30 · 19:30–00:30</span></div>
-                  <div><span>Domenica</span><span>12:30–15:00 · 19:30–00:00</span></div>
-                </div>
-                <div class="hours-table t-en">
-                  <div><span>Mon – Fri</span><span>12:30–14:30 · 19:30–23:30</span></div>
-                  <div><span>Saturday</span><span>12:30–14:30 · 19:30–00:30</span></div>
-                  <div><span>Sunday</span><span>12:30–15:00 · 19:30–00:00</span></div>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
+<!-- ====== PRENOTA — form + WhatsApp ====== -->
+<section id="prenota" class="py-24 lg:py-36">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div class="lg:col-span-5 reveal">
+        <p class="eyebrow text-terracotta mb-5">Prenota un tavolo</p>
+        <h2 class="display text-[clamp(40px,5vw,64px)] leading-[1.02]">
+          Un posto pronto<br/>
+          <span class="editorial-italic">per voi.</span>
+        </h2>
+        <p class="mt-7 text-ink-60 text-lg leading-relaxed">
+          Compila il modulo o scrivici direttamente su WhatsApp. Ti rispondiamo entro un'ora — niente intermediari, niente attese.
+        </p>
+
+        <div class="mt-10 space-y-5">
+          <a href="https://wa.me/393489537297?text=Ciao%20La%20Piedigrotta%2C%20vorrei%20prenotare%20un%20tavolo." target="_blank" rel="noopener" class="btn-primary w-full sm:w-auto justify-center" style="background:#25D366;border-color:#25D366">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+            Scrivi su WhatsApp
+          </a>
+          <div class="text-sm text-ink-60 space-y-1">
+            <p><strong class="text-ink">Telefono:</strong> <a href="tel:+390985806500" class="link-anim">0985 806500</a> · <a href="tel:+393489537297" class="link-anim">348 953 7297</a></p>
+            <p><strong class="text-ink">Orari:</strong> Aperti tutti i giorni, pranzo e cena.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="booking-card">
-        <h3>
-          <span class="t-it">Prenota un <em>tavolo</em></span>
-          <span class="t-en">Book a <em>table</em></span>
-        </h3>
-        <p class="booking-sub t-it">Risposta in pochi minuti via WhatsApp.</p>
-        <p class="booking-sub t-en">We reply within minutes on WhatsApp.</p>
-
-        <form id="bookingForm">
-          <div class="form-field">
-            <label for="nome" class="t-it">Nome</label>
-            <label for="nome" class="t-en">Name</label>
-            <input type="text" id="nome" name="nome" required>
+      <div class="lg:col-span-7 reveal reveal-delay-1">
+        <form id="reservation-form" class="bg-cream-50 border border-line rounded-md p-8 lg:p-10 space-y-6" novalidate>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <label class="block">
+              <span class="eyebrow text-ink-60 block mb-2">Nome e Cognome *</span>
+              <input type="text" name="name" required autocomplete="name" class="w-full bg-white border border-line rounded px-4 py-3 text-ink focus:outline-none focus:border-terracotta transition-colors" placeholder="Mario Rossi" />
+            </label>
+            <label class="block">
+              <span class="eyebrow text-ink-60 block mb-2">Telefono *</span>
+              <input type="tel" name="phone" required autocomplete="tel" inputmode="tel" pattern="[\d\s\+\-\(\)]{6,}" class="w-full bg-white border border-line rounded px-4 py-3 text-ink focus:outline-none focus:border-terracotta transition-colors" placeholder="+39 333 1234567" />
+            </label>
           </div>
 
-          <div class="form-row">
-            <div class="form-field">
-              <label for="data" class="t-it">Data</label>
-              <label for="data" class="t-en">Date</label>
-              <input type="date" id="data" name="data" required>
-            </div>
-            <div class="form-field">
-              <label for="ora" class="t-it">Ora</label>
-              <label for="ora" class="t-en">Time</label>
-              <input type="time" id="ora" name="ora" required>
-            </div>
+          <div class="grid sm:grid-cols-3 gap-5">
+            <label class="block">
+              <span class="eyebrow text-ink-60 block mb-2">Data *</span>
+              <input type="date" name="date" required class="w-full bg-white border border-line rounded px-4 py-3 text-ink focus:outline-none focus:border-terracotta transition-colors" />
+            </label>
+            <label class="block">
+              <span class="eyebrow text-ink-60 block mb-2">Ora *</span>
+              <input type="time" name="time" required class="w-full bg-white border border-line rounded px-4 py-3 text-ink focus:outline-none focus:border-terracotta transition-colors" />
+            </label>
+            <label class="block">
+              <span class="eyebrow text-ink-60 block mb-2">Persone *</span>
+              <select name="guests" required class="w-full bg-white border border-line rounded px-4 py-3 text-ink focus:outline-none focus:border-terracotta transition-colors appearance-none">
+                <option value="">—</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option>
+                <option>5</option><option>6</option><option>7</option><option>8</option>
+                <option>9</option><option>10</option><option>11+</option>
+              </select>
+            </label>
           </div>
 
-          <div class="form-field">
-            <label for="persone" class="t-it">Persone</label>
-            <label for="persone" class="t-en">Guests</label>
-            <select id="persone" name="persone" required>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="8">8+</option>
-            </select>
-          </div>
+          <label class="block">
+            <span class="eyebrow text-ink-60 block mb-2">Note (opzionale)</span>
+            <textarea name="notes" rows="3" class="w-full bg-white border border-line rounded px-4 py-3 text-ink focus:outline-none focus:border-terracotta transition-colors resize-none" placeholder="Allergie, sedia bimbo, compleanno, tavolo all'esterno…"></textarea>
+          </label>
 
-          <div class="form-field">
-            <label for="note" class="t-it">Note (allergie, occasione, richieste)</label>
-            <label for="note" class="t-en">Notes (allergies, occasion, requests)</label>
-            <textarea id="note" name="note"></textarea>
+          <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+            <p class="text-xs text-ink-60">Inviando, si apre WhatsApp con il riepilogo della prenotazione.</p>
+            <button type="submit" class="btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+              Invia prenotazione
+            </button>
           </div>
-
-          <button type="submit" class="btn btn-book t-it">Prenota su WhatsApp</button>
-          <button type="submit" class="btn btn-book t-en">Book on WhatsApp</button>
         </form>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="map-wrap" style="margin-top:100px">
-    <iframe
-      src="https://www.google.com/maps?q=La+Piedigrotta+Piazza+Lomonaco+Praia+a+Mare&output=embed"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="La Piedigrotta — Praia a Mare"
-      allowfullscreen></iframe>
+<!-- ====== SOCIAL PROOF ====== -->
+<section class="py-24 lg:py-36 bg-ink text-cream">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <div class="text-center max-w-[600px] mx-auto reveal">
+      <p class="eyebrow text-lemon mb-5">Dicono di noi</p>
+      <h2 class="display text-[clamp(36px,4.5vw,56px)] leading-[1.05] text-cream">
+        Trecento voci,<br/>
+        <span class="editorial-italic" style="color:#E8B83C">una stessa risposta.</span>
+      </h2>
+    </div>
+
+    <!-- Ratings -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+      <div class="text-center reveal">
+        <p class="rating-num" style="color:#E8B83C">8.9</p>
+        <p class="eyebrow text-cream/70 mt-3">TheFork</p>
+        <p class="mt-2 text-sm text-cream/80">158 recensioni</p>
+      </div>
+      <div class="text-center reveal reveal-delay-1">
+        <p class="rating-num" style="color:#E8B83C">4.5</p>
+        <p class="eyebrow text-cream/70 mt-3">TripAdvisor</p>
+        <p class="mt-2 text-sm text-cream/80">146 recensioni</p>
+      </div>
+      <div class="text-center reveal reveal-delay-2">
+        <p class="rating-num" style="color:#E8B83C">1.9k</p>
+        <p class="eyebrow text-cream/70 mt-3">Instagram</p>
+        <p class="mt-2 text-sm text-cream/80">follower</p>
+      </div>
+    </div>
+
+    <!-- Quotes -->
+    <div class="mt-20 grid md:grid-cols-3 gap-8 lg:gap-12">
+      <figure class="reveal">
+        <p class="editorial-italic text-xl lg:text-2xl leading-snug text-cream">"Locale pulito che fa venire voglia di mangiare. Prodotti buoni, pizza ottima per essere in Calabria e non a Napoli."</p>
+        <figcaption class="eyebrow text-cream/60 mt-5">— TripAdvisor</figcaption>
+      </figure>
+      <figure class="reveal reveal-delay-1">
+        <p class="editorial-italic text-xl lg:text-2xl leading-snug text-cream">"Pesce fresco, atmosfera familiare. Le ragazze del personale sono simpatiche e attente. Prezzi modici."</p>
+        <figcaption class="eyebrow text-cream/60 mt-5">— TheFork</figcaption>
+      </figure>
+      <figure class="reveal reveal-delay-2">
+        <p class="editorial-italic text-xl lg:text-2xl leading-snug text-cream">"Si distingue per il servizio e la cortesia, propone specialità preparate con il pesce locale fresco e prodotti tipici."</p>
+        <figcaption class="eyebrow text-cream/60 mt-5">— TripAdvisor</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
-<footer>
-  <div class="container">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-logo">La <em>Piedigrotta</em></div>
-        <p class="foot-desc t-it">Ristorante e pizzeria nel cuore di Praia a Mare. Cucina calabrese, pesce fresco e pizze artigianali serviti con l'ospitalità di una famiglia.</p>
-        <p class="foot-desc t-en">Restaurant and pizzeria in the heart of Praia a Mare. Calabrian cuisine, fresh fish and artisanal pizzas served with family hospitality.</p>
+<!-- ====== CONTACT ====== -->
+<section id="contatti" class="py-24 lg:py-36">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div class="lg:col-span-5 reveal">
+        <p class="eyebrow text-terracotta mb-5">Vieni a trovarci</p>
+        <h2 class="display text-[clamp(40px,5vw,64px)] leading-[1.02]">
+          Piazza F. G.<br/>
+          <span class="editorial-italic">Lomonaco.</span>
+        </h2>
+        <div class="mt-10 space-y-7">
+          <div>
+            <p class="eyebrow text-ink-60 mb-2">Indirizzo</p>
+            <p class="text-lg">Piazza F. G. Lomonaco, 6<br/>87028 Praia a Mare (CS)</p>
+          </div>
+          <div>
+            <p class="eyebrow text-ink-60 mb-2">Orari</p>
+            <p class="text-lg">Aperti tutti i giorni<br/>Pranzo &amp; Cena</p>
+          </div>
+          <div>
+            <p class="eyebrow text-ink-60 mb-2">Telefono</p>
+            <p class="text-lg">
+              <a href="tel:+390985806500" class="link-anim">0985 806500</a><br/>
+              <a href="tel:+393489537297" class="link-anim">348 953 7297</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="#prenota" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            Prenota un tavolo
+          </a>
+          <a href="https://wa.me/393489537297" target="_blank" rel="noopener" class="btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+390985806500" class="btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+            Chiama
+          </a>
+        </div>
+
+        <div class="mt-10 flex gap-5">
+          <a href="https://www.instagram.com/lapiedigrotta_2.0/" target="_blank" rel="noopener" aria-label="Instagram" class="text-ink-60 hover:text-terracotta transition-colors">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/100063745743509/" target="_blank" rel="noopener" aria-label="Facebook" class="text-ink-60 hover:text-terracotta transition-colors">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
       </div>
-      <div>
-        <div class="foot-title t-it">Contatti</div>
-        <div class="foot-title t-en">Contact</div>
-        <ul class="foot-list">
-          <li>Piazza F. G. Lomonaco</li>
-          <li>87028 Praia a Mare (CS)</li>
-          <li><a href="tel:+390985806500">0985 806500</a></li>
-          <li><a href="https://www.facebook.com/la.piedigrotta.98" target="_blank" rel="noopener">Facebook</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="foot-title t-it">Sezioni</div>
-        <div class="foot-title t-en">Sections</div>
-        <ul class="foot-list">
-          <li><a href="#storia" class="t-it">Storia</a><a href="#storia" class="t-en">Story</a></li>
-          <li><a href="#menu" class="t-it">Menu</a><a href="#menu" class="t-en">Menu</a></li>
-          <li><a href="#reviews" class="t-it">Recensioni</a><a href="#reviews" class="t-en">Reviews</a></li>
-          <li><a href="#contatti" class="t-it">Contatti</a><a href="#contatti" class="t-en">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="foot-title t-it">Orari</div>
-        <div class="foot-title t-en">Hours</div>
-        <ul class="foot-list">
-          <li class="t-it">Lun–Ven · 12:30–14:30 / 19:30–23:30</li>
-          <li class="t-en">Mon–Fri · 12:30–14:30 / 19:30–23:30</li>
-          <li class="t-it">Sab · 12:30–14:30 / 19:30–00:30</li>
-          <li class="t-en">Sat · 12:30–14:30 / 19:30–00:30</li>
-          <li class="t-it">Dom · 12:30–15:00 / 19:30–00:00</li>
-          <li class="t-en">Sun · 12:30–15:00 / 19:30–00:00</li>
-        </ul>
+
+      <div class="lg:col-span-7 reveal reveal-delay-1">
+        <div class="rounded-md overflow-hidden border border-line shadow-xl aspect-[4/3] relative">
+          <iframe
+            title="Mappa La Piedigrotta · Piazza F. G. Lomonaco, Praia a Mare"
+            src="https://maps.google.com/maps?q=Piazza+Francesco+Giorgio+Lomonaco,+87028+Praia+a+Mare+CS&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            width="100%" height="100%" style="border:0; display:block; filter: saturate(0.95);"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <div class="absolute top-4 left-4 bg-cream-50 px-4 py-3 rounded shadow-lg border border-line max-w-[240px] pointer-events-none">
+            <p class="eyebrow text-terracotta">La Piedigrotta</p>
+            <p class="text-sm font-medium mt-1">Piazza F. G. Lomonaco, 6</p>
+            <p class="text-xs text-ink-60 mt-0.5">87028 Praia a Mare (CS)</p>
+          </div>
+        </div>
+        <p class="mt-4 text-sm text-ink-60 flex flex-wrap gap-x-5 gap-y-2">
+          <a href="https://www.google.com/maps/place/Piazza+Francesco+Giorgio+Lomonaco,+87028+Praia+a+Mare+CS/" target="_blank" rel="noopener" class="link-anim inline-flex items-center gap-1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Google Maps
+          </a>
+          <a href="https://maps.apple.com/?q=La+Piedigrotta+Praia+a+Mare" target="_blank" rel="noopener" class="link-anim inline-flex items-center gap-1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 0 1 3 16.382V5.618a1 1 0 0 1 1.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0 0 21 18.382V7.618a1 1 0 0 0-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            Apple Maps
+          </a>
+        </p>
       </div>
     </div>
-    <div class="foot-bottom">
+  </div>
+</section>
+
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer class="bg-ink text-cream/80 py-16">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <div class="flex flex-col lg:flex-row justify-between items-start gap-10 mb-10">
       <div>
-        <span class="t-it">© <span id="year"></span> La Piedigrotta. Tutti i diritti riservati.</span>
-        <span class="t-en">© <span id="year2"></span> La Piedigrotta. All rights reserved.</span>
+        <div class="flex items-center gap-3 mb-4">
+          <img src="img/logo/logo_320x320.jpg" alt="" width="44" height="44" class="rounded-full border border-cream/20 object-cover" />
+          <span class="display text-cream text-2xl">La Piedigrotta</span>
+        </div>
+        <p class="text-sm leading-relaxed max-w-[40ch]">
+          Pizza napoletana, pesce del Tirreno.<br/>Piazza F. G. Lomonaco, 6 — Praia a Mare (CS)
+        </p>
       </div>
-      <div>
-        <span class="t-it">Sito realizzato da </span>
-        <span class="t-en">Website by </span>
-        <a href="https://viktoria.agency" target="_blank" rel="noopener">Viktoria Agency</a>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-10 text-sm">
+        <div>
+          <p class="eyebrow text-cream/50 mb-3">Naviga</p>
+          <ul class="space-y-2">
+            <li><a href="#story" class="link-anim">Storia</a></li>
+            <li><a href="#menu" class="link-anim">Menu</a></li>
+            <li><a href="#specialita" class="link-anim">Specialità</a></li>
+            <li><a href="#prenota" class="link-anim">Prenota</a></li>
+            <li><a href="#contatti" class="link-anim">Contatti</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow text-cream/50 mb-3">Contatti</p>
+          <ul class="space-y-2">
+            <li><a href="tel:+390985806500" class="link-anim">0985 806500</a></li>
+            <li><a href="tel:+393489537297" class="link-anim">348 953 7297</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow text-cream/50 mb-3">Social</p>
+          <ul class="space-y-2">
+            <li><a href="https://www.instagram.com/lapiedigrotta_2.0/" target="_blank" rel="noopener" class="link-anim">Instagram</a></li>
+            <li><a href="https://www.facebook.com/100063745743509/" target="_blank" rel="noopener" class="link-anim">Facebook</a></li>
+            <li><a href="https://wa.me/393489537297" target="_blank" rel="noopener" class="link-anim">WhatsApp</a></li>
+          </ul>
+        </div>
       </div>
+    </div>
+    <div class="border-t border-cream/15 pt-8 text-xs text-cream/50">
+      <p>© <span id="year">2026</span> La Piedigrotta · Praia a Mare (CS) · P. IVA · Pizzeria-Ristorante</p>
     </div>
   </div>
 </footer>
 
-<!-- ============ WHATSAPP FLOAT ============ -->
-<a class="wa-float" id="waFloat" href="https://wa.me/390985806500?text=Buongiorno%2C%20vorrei%20informazioni%20su%20La%20Piedigrotta" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M19.11 17.21c-.26-.13-1.55-.77-1.79-.85-.24-.09-.42-.13-.59.13-.17.26-.68.85-.83 1.02-.15.17-.3.19-.57.07-.26-.13-1.11-.41-2.12-1.31-.78-.7-1.31-1.56-1.46-1.83-.15-.26-.02-.41.11-.54.12-.11.26-.3.39-.44.13-.15.17-.26.26-.42.09-.17.04-.32-.02-.45-.06-.13-.59-1.42-.81-1.95-.21-.51-.43-.44-.59-.45l-.5-.01c-.17 0-.45.06-.69.32-.24.26-.91.89-.91 2.17s.93 2.52 1.06 2.69c.13.17 1.83 2.79 4.43 3.92.62.27 1.1.43 1.48.55.62.2 1.19.17 1.63.1.5-.07 1.55-.63 1.77-1.24.22-.61.22-1.13.15-1.24-.06-.12-.24-.19-.5-.32zM16.02 5c-6.07 0-11 4.93-11 11 0 1.93.5 3.81 1.45 5.47L5 27l5.68-1.49A11 11 0 0 0 27.02 16c0-6.07-4.93-11-11-11zm0 20.14c-1.73 0-3.43-.46-4.92-1.34l-.35-.21-3.55.93.95-3.46-.23-.36a9.14 9.14 0 1 1 16.94-4.7 9.15 9.15 0 0 1-8.84 9.14z"/></svg>
-</a>
-
+<!-- Scripts -->
 <script>
-  // Nav scroll
+(function(){
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Sticky nav state
   const nav = document.getElementById('nav');
   const onScroll = () => {
-    if (window.scrollY > 60) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Language switcher
-  const langBtns = document.querySelectorAll('.lang-btn');
-  langBtns.forEach(b => b.addEventListener('click', () => {
-    const l = b.dataset.lang;
-    document.body.classList.remove('lang-it', 'lang-en');
-    document.body.classList.add('lang-' + l);
-    langBtns.forEach(x => x.classList.remove('active'));
-    b.classList.add('active');
-    document.documentElement.setAttribute('data-lang', l);
-    updateWaLink();
-  }));
-
-  // Year
-  const y = new Date().getFullYear();
-  document.getElementById('year').textContent = y;
-  document.getElementById('year2').textContent = y;
-
-  // Booking form → WhatsApp
-  const form = document.getElementById('bookingForm');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const fd = new FormData(form);
-    const lang = document.body.classList.contains('lang-en') ? 'en' : 'it';
-    let msg;
-    if (lang === 'en') {
-      msg = `Hello, I would like to book a table at La Piedigrotta:\nName: ${fd.get('nome')}\nDate: ${fd.get('data')}\nTime: ${fd.get('ora')}\nGuests: ${fd.get('persone')}\nNotes: ${fd.get('note') || '—'}`;
+    if (window.scrollY > 40) {
+      nav.classList.add('nav-scrolled');
+      nav.classList.remove('nav-over-hero');
     } else {
-      msg = `Buongiorno, vorrei prenotare un tavolo a La Piedigrotta:\nNome: ${fd.get('nome')}\nData: ${fd.get('data')}\nOra: ${fd.get('ora')}\nPersone: ${fd.get('persone')}\nNote: ${fd.get('note') || '—'}`;
+      nav.classList.remove('nav-scrolled');
+      nav.classList.add('nav-over-hero');
     }
-    window.open(`https://wa.me/390985806500?text=${encodeURIComponent(msg)}`, '_blank');
-  });
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
 
-  // Update WhatsApp float link based on language
-  function updateWaLink() {
-    const wa = document.getElementById('waFloat');
-    const lang = document.body.classList.contains('lang-en') ? 'en' : 'it';
-    const txt = lang === 'en'
-      ? 'Hello, I would like information about La Piedigrotta'
-      : 'Buongiorno, vorrei informazioni su La Piedigrotta';
-    wa.href = `https://wa.me/390985806500?text=${encodeURIComponent(txt)}`;
+  // Hero parallax (light)
+  const heroImg = document.querySelector('.hero-img');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroImg && !reduced) {
+    let raf;
+    const update = () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroImg.style.transform = `translateY(${y * 0.18}px) scale(${1 + Math.min(y, 600) * 0.0002})`;
+      }
+      raf = null;
+    };
+    window.addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
   }
-  updateWaLink();
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+
+  // Reservation form → WhatsApp
+  const form = document.getElementById('reservation-form');
+  if (form) {
+    const WA_NUMBER = '393489537297';
+    const todayIso = new Date().toISOString().split('T')[0];
+    const dateInput = form.querySelector('input[name="date"]');
+    if (dateInput) dateInput.min = todayIso;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      const name = (data.get('name') || '').toString().trim();
+      const phone = (data.get('phone') || '').toString().trim();
+      const date = (data.get('date') || '').toString();
+      const time = (data.get('time') || '').toString();
+      const guests = (data.get('guests') || '').toString();
+      const notes = (data.get('notes') || '').toString().trim();
+
+      const dateFmt = date ? new Date(date + 'T00:00:00').toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) : '';
+
+      const lines = [
+        'Buongiorno La Piedigrotta,',
+        'vorrei prenotare un tavolo:',
+        '',
+        `• Nome: ${name}`,
+        `• Telefono: ${phone}`,
+        `• Data: ${dateFmt}`,
+        `• Ora: ${time}`,
+        `• Persone: ${guests}`,
+      ];
+      if (notes) {
+        lines.push(`• Note: ${notes}`);
+      }
+      lines.push('', 'Grazie!');
+
+      const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(url, '_blank', 'noopener');
+    });
+  }
+})();
 </script>
 </body>
 </html>
