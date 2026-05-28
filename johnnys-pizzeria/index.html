@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Johnny's Pizzeria — San Nicola Arcella</title>
+<meta name="description" content="Pizza artigianale nella roccia. Forno a legna, prodotti calabresi, nel centro storico di San Nicola Arcella." />
+
+<link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0E0E0E',
+          bone: '#F5F1E8',
+          stone: '#C9B89A',
+          amber: '#E8A33D',
+          ember: '#7A3A24',
+          'tri-g': '#1F7A3A',
+          'tri-r': '#B8281F',
+          muted: '#8A8276',
+        },
+        fontFamily: {
+          display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+          sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        },
+        letterSpacing: {
+          tightest: '-0.02em',
+          eyebrow: '0.22em',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  :root {
+    --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #F5F1E8;
+    color: #0E0E0E;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  /* Reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 800ms var(--ease-out-soft), transform 800ms var(--ease-out-soft);
+    will-change: opacity, transform;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hero Ken Burns */
+  @keyframes kenburns {
+    0%   { transform: scale(1.0); }
+    100% { transform: scale(1.08); }
+  }
+  .kenburns { animation: kenburns 18s ease-out forwards; }
+
+  /* Page loader */
+  #loader {
+    position: fixed; inset: 0; z-index: 100;
+    background: #0E0E0E;
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 600ms ease-out, visibility 600ms ease-out;
+  }
+  #loader.gone { opacity: 0; visibility: hidden; pointer-events: none; }
+  #loader img { width: 88px; height: 88px; opacity: 0; animation: loaderFade 700ms ease-out forwards; }
+  @keyframes loaderFade {
+    0% { opacity: 0; transform: scale(0.96); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  /* Tricolore divider */
+  .tri-divider {
+    display: inline-flex;
+    gap: 0;
+    align-items: center;
+  }
+  .tri-divider span {
+    display: block;
+    width: 14px;
+    height: 2px;
+  }
+
+  /* Card hover lift */
+  .pizza-card { transition: transform 600ms var(--ease-out-soft); }
+  .pizza-card:hover { transform: translateY(-4px); }
+  .pizza-card .img-wrap { overflow: hidden; }
+  .pizza-card .img-wrap img {
+    transition: transform 1200ms var(--ease-out-soft);
+  }
+  .pizza-card:hover .img-wrap img { transform: scale(1.06); }
+
+  /* Number sequence label */
+  .section-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* Subtle texture overlay for dark cantina sections */
+  .stone-texture {
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(232,163,61,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(122,58,36,0.08) 0%, transparent 50%);
+  }
+
+  /* Lang toggle */
+  .lang-btn {
+    transition: opacity 200ms ease;
+  }
+  .lang-btn.inactive { opacity: 0.4; }
+
+  /* Image base */
+  img { display: block; max-width: 100%; }
+
+  /* Underline draw on h2 */
+  .h2-underline::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    margin-top: 18px;
+    transition: width 1200ms var(--ease-out-soft);
+  }
+  .h2-underline.in::after { width: 88px; }
+
+  /* Lang transition */
+  [data-i18n] { transition: opacity 180ms ease; }
+  body.lang-switching [data-i18n] { opacity: 0; }
+
+  /* Scroll-aware nav */
+  #nav .nav-text { color: #F5F1E8; }
+  #nav.scrolled {
+    background-color: rgba(245, 241, 232, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom-color: rgba(201, 184, 154, 0.3);
+  }
+  #nav.scrolled .nav-text { color: #0E0E0E; }
+
+  /* Hero stagger fade */
+  .hero-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeIn 1000ms var(--ease-out-soft) forwards;
+  }
+  @keyframes heroFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Smooth focus */
+  a, button { outline: none; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid #E8A33D;
+    outline-offset: 4px;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <img src="assets/logo.jpg" alt="Johnny's" />
+</div>
+
+<!-- NAV -->
+<header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-transparent border-b border-transparent">
+  <div class="max-w-7xl mx-auto px-5 lg:px-10 h-16 lg:h-20 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3">
+      <img src="assets/logo.jpg" alt="Johnny's Pizzeria" class="w-10 h-10 lg:w-12 lg:h-12 rounded-full object-cover ring-1 ring-bone/20" />
+      <span class="hidden sm:block font-display italic text-xl lg:text-2xl nav-text leading-none">Johnny's</span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-9 text-[13px] font-medium nav-text">
+      <a href="#cantina" class="opacity-80 hover:opacity-100 transition" data-i18n="nav.cantina">La Cantina</a>
+      <a href="#pizza" class="opacity-80 hover:opacity-100 transition" data-i18n="nav.pizza">La Pizza</a>
+      <a href="#taglieri" class="opacity-80 hover:opacity-100 transition" data-i18n="nav.taglieri">Taglieri &amp; Dolci</a>
+      <a href="#territorio" class="opacity-80 hover:opacity-100 transition" data-i18n="nav.territorio">Territorio</a>
+      <a href="#visitaci" class="opacity-80 hover:opacity-100 transition" data-i18n="nav.visitaci">Visitaci</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a href="tel:+393465269861" class="hidden md:inline-flex items-center gap-2 text-[13px] font-medium nav-text opacity-80 hover:opacity-100 transition">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+39 346 526 9861</span>
+      </a>
+      <div class="flex items-center gap-1 text-[12px] font-semibold nav-text">
+        <button class="lang-btn" data-lang="it">IT</button>
+        <span class="opacity-30">/</span>
+        <button class="lang-btn inactive" data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 01. HERO — AI GENERATED CINEMATIC -->
+<section id="top" class="relative w-full overflow-hidden bg-ink">
+  <!-- Background image full-bleed -->
+  <div class="absolute inset-0">
+    <img src="assets/hero-ai.jpg" alt="" class="w-full h-full object-cover kenburns" />
+  </div>
+
+  <!-- Gradient overlays: dark left for text, fade bottom, top for nav -->
+  <div class="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/40 to-transparent"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-ink/55"></div>
+
+  <!-- Content layer -->
+  <div class="relative z-10 min-h-screen lg:min-h-[820px] pt-24 lg:pt-32 pb-12 lg:pb-16 flex flex-col">
+
+    <!-- TOP STRIP: eyebrow + tricolore -->
+    <div class="max-w-7xl mx-auto px-5 lg:px-10 w-full">
+      <div class="flex items-center gap-4 text-bone hero-fade" style="animation-delay: 200ms">
+        <span class="tri-divider"><span class="bg-tri-g"></span><span class="bg-bone"></span><span class="bg-tri-r"></span></span>
+        <span class="eyebrow text-stone" data-i18n="hero.eyebrow">San Nicola Arcella · Calabria</span>
+      </div>
+    </div>
+
+    <!-- CENTER: Massive headline -->
+    <div class="flex-1 flex items-center mt-8 lg:mt-16">
+      <div class="max-w-7xl mx-auto px-5 lg:px-10 w-full">
+        <div class="max-w-3xl">
+          <h1 class="font-display italic text-[clamp(3.5rem,10vw,9rem)] leading-[0.88] tracking-tightest text-bone hero-fade" style="animation-delay: 400ms" data-i18n="hero.title">
+            Pizza<br />nella roccia.
+          </h1>
+          <p class="mt-8 lg:mt-10 max-w-xl text-bone/85 text-lg lg:text-xl leading-relaxed font-light hero-fade" style="animation-delay: 700ms" data-i18n="hero.subtitle">
+            Forno a legna, cornicione alto e arioso. Pizza artigianale e prodotti calabresi, in una cantina di pietra nel centro storico.
+          </p>
+          <div class="mt-10 flex flex-wrap items-center gap-3 hero-fade" style="animation-delay: 900ms">
+            <a href="https://wa.me/393465269861" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-amber text-ink px-7 py-4 text-sm font-semibold tracking-wide hover:bg-bone transition-colors duration-300">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.05 0C5.5 0 .18 5.32.17 11.87a11.81 11.81 0 0 0 1.59 5.93L0 24l6.36-1.66a11.86 11.86 0 0 0 5.68 1.45h.01c6.55 0 11.87-5.33 11.87-11.88a11.8 11.8 0 0 0-3.4-8.43zM12.05 21.79h-.01a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.77.99 1.01-3.67-.23-.38a9.83 9.83 0 0 1-1.5-5.27c0-5.43 4.42-9.86 9.87-9.86a9.81 9.81 0 0 1 6.97 2.89 9.79 9.79 0 0 1 2.89 6.98c-.01 5.43-4.44 9.87-9.84 9.87z"/></svg>
+              <span data-i18n="hero.cta2">Prenota su WhatsApp</span>
+            </a>
+            <a href="#visitaci" class="inline-flex items-center gap-2 border border-bone/40 text-bone px-7 py-4 text-sm font-semibold tracking-wide hover:bg-bone hover:text-ink transition-colors duration-300" data-i18n="hero.cta1">
+              Visitaci
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM STRIP: badges + scroll cue -->
+    <div class="max-w-7xl mx-auto px-5 lg:px-10 w-full hero-fade" style="animation-delay: 1100ms">
+      <div class="flex flex-wrap items-end justify-between gap-6 pt-6 border-t border-bone/15">
+
+        <div class="flex items-center gap-6 lg:gap-10">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full border border-bone/40 flex items-center justify-center text-bone">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.39 7.36H22l-6.18 4.49L18.21 22 12 17.27 5.79 22l2.39-8.15L2 9.36h7.61z"/></svg>
+            </div>
+            <div class="text-bone">
+              <div class="eyebrow text-bone/55">Tripadvisor</div>
+              <div class="text-xs font-medium">Travellers' Choice 2025</div>
+            </div>
+          </div>
+
+          <div class="hidden md:flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full border border-bone/40 flex items-center justify-center text-bone">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="text-bone">
+              <div class="eyebrow text-bone/55">50 Top Pizza</div>
+              <div class="text-xs font-medium" data-i18n="hero.guide">Segnalata nella guida</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-bone/55 text-[11px] tracking-eyebrow uppercase flex items-center gap-3">
+          <span data-i18n="hero.scroll">Scorri</span>
+          <span class="block w-12 h-px bg-bone/30"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 02. INTRO -->
+<section class="py-24 lg:py-32 bg-bone">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+      <div class="lg:col-span-7 reveal">
+        <div class="eyebrow text-ember mb-5"><span data-i18n="intro.eyebrow">— Benvenuti</span></div>
+        <h2 class="font-display text-4xl lg:text-6xl leading-[1.05] tracking-tightest text-ink h2-underline" data-i18n="intro.title">
+          Una cantina di pietra,<br />un forno a legna,<br /><em class="italic">e poco altro che serva.</em>
+        </h2>
+      </div>
+      <div class="lg:col-span-5 reveal">
+        <p class="text-ink/75 text-lg leading-relaxed font-light" data-i18n="intro.body">
+          Johnny's Pizzeria nasce in una cantina recuperata del centro storico di San Nicola Arcella. Volte di pietra, un'antica macina al centro della sala, e una pizza fatta come si deve: impasto lungo, cornicione alto, forno a legna. Niente di più.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-px bg-stone/40">
+      <div class="bg-bone p-8 lg:p-10 reveal">
+        <div class="font-display text-5xl lg:text-6xl italic text-ember leading-none">I</div>
+        <div class="eyebrow text-muted mt-5 mb-2" data-i18n="intro.m1.label">Forno</div>
+        <div class="text-ink text-lg font-medium" data-i18n="intro.m1.value">A legna, sempre</div>
+      </div>
+      <div class="bg-bone p-8 lg:p-10 reveal">
+        <div class="font-display text-5xl lg:text-6xl italic text-ember leading-none">II</div>
+        <div class="eyebrow text-muted mt-5 mb-2" data-i18n="intro.m2.label">Prodotti</div>
+        <div class="text-ink text-lg font-medium" data-i18n="intro.m2.value">Del territorio calabrese</div>
+      </div>
+      <div class="bg-bone p-8 lg:p-10 reveal">
+        <div class="font-display text-5xl lg:text-6xl italic text-ember leading-none">III</div>
+        <div class="eyebrow text-muted mt-5 mb-2" data-i18n="intro.m3.label">Sala</div>
+        <div class="text-ink text-lg font-medium" data-i18n="intro.m3.value">Cantina nel centro storico</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03. LA CANTINA -->
+<section id="cantina" class="py-24 lg:py-36 bg-ink text-bone relative stone-texture">
+  <div class="max-w-7xl mx-auto px-5 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+
+      <div class="lg:col-span-5 lg:sticky lg:top-32 reveal">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="section-num text-stone text-2xl">I.</span>
+          <span class="eyebrow text-stone" data-i18n="cantina.eyebrow">L'ambiente</span>
+        </div>
+        <h2 class="font-display text-4xl lg:text-6xl italic leading-[1.05] tracking-tightest h2-underline" data-i18n="cantina.title">
+          Una macina<br />al centro della sala.
+        </h2>
+        <p class="mt-8 text-bone/80 leading-relaxed font-light text-base lg:text-lg" data-i18n="cantina.p1">
+          Il locale occupa una vecchia cantina del centro storico. Le volte di pietra a vista, gli archi in mattone antico e un'antica macina recuperata definiscono l'ambiente. Luce calda, tavoli neri, sedie bianche anticate. Pochi coperti, atmosfera intima.
+        </p>
+        <p class="mt-5 text-bone/70 leading-relaxed font-light text-base" data-i18n="cantina.p2">
+          Lavoriamo a vista: il forno a legna, la lievitazione, la pala. Tutto in un raggio di pochi metri.
+        </p>
+
+        <div class="mt-10 pt-8 border-t border-bone/15">
+          <div class="eyebrow text-stone mb-4" data-i18n="cantina.team.label">— Chi siamo</div>
+          <div class="flex items-center gap-5">
+            <img src="assets/titolari.png" alt="" class="w-20 h-20 rounded-full object-cover object-top border border-bone/20" />
+            <p class="text-bone/85 leading-relaxed text-sm" data-i18n="cantina.team.body">
+              Una famiglia, un forno, una passione. Vi accogliamo ogni sera nel cuore di San Nicola Arcella.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="grid grid-cols-2 gap-3 lg:gap-4">
+          <div class="reveal col-span-2 aspect-[16/10] overflow-hidden">
+            <img src="assets/cantina-arco-macina.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="reveal aspect-[4/5] overflow-hidden">
+            <img src="assets/cantina-sala.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="reveal aspect-[4/5] overflow-hidden">
+            <img src="assets/cantina-bottiglie.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="reveal col-span-2 aspect-[16/9] overflow-hidden">
+            <img src="assets/cantina-tavolo-nicchia.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 04. LA PIZZA -->
+<section id="pizza" class="py-24 lg:py-36 bg-bone">
+  <div class="max-w-7xl mx-auto px-5 lg:px-10">
+    <div class="max-w-3xl reveal mb-16 lg:mb-24">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="section-num text-ember text-2xl">II.</span>
+        <span class="eyebrow text-ember" data-i18n="pizza.eyebrow">Il prodotto</span>
+      </div>
+      <h2 class="font-display text-4xl lg:text-6xl leading-[1.05] tracking-tightest text-ink h2-underline" data-i18n="pizza.title">
+        Cornicione alto e arioso.<br /><em class="italic">Forno a legna.</em>
+      </h2>
+      <p class="mt-8 text-ink/75 text-lg leading-relaxed font-light" data-i18n="pizza.body">
+        Impasto a lunga lievitazione, cottura in forno a legna ad alta temperatura. Cornicione alto, arioso, leggero. Ingredienti scelti tra i piccoli produttori della Calabria.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-x-8 lg:gap-y-16">
+
+      <article class="pizza-card reveal">
+        <div class="img-wrap aspect-[4/5] mb-6 bg-stone/20">
+          <img src="assets/pizza-margherita.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="flex items-baseline justify-between gap-4 mb-2">
+          <h3 class="font-display text-2xl lg:text-3xl italic text-ink" data-i18n="p1.title">Margherita</h3>
+          <span class="text-muted text-sm">—</span>
+        </div>
+        <p class="text-ink/70 text-sm leading-relaxed font-light" data-i18n="p1.desc">
+          Pomodoro, fior di latte, basilico, olio extravergine.
+        </p>
+      </article>
+
+      <article class="pizza-card reveal">
+        <div class="img-wrap aspect-[4/5] mb-6 bg-stone/20">
+          <img src="assets/pizza-crudo.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="flex items-baseline justify-between gap-4 mb-2">
+          <h3 class="font-display text-2xl lg:text-3xl italic text-ink" data-i18n="p2.title">Crudo &amp; Datterini</h3>
+          <span class="text-muted text-sm">—</span>
+        </div>
+        <p class="text-ink/70 text-sm leading-relaxed font-light" data-i18n="p2.desc">
+          Fior di latte, prosciutto crudo, datterini gialli, scaglie di grana.
+        </p>
+      </article>
+
+      <article class="pizza-card reveal">
+        <div class="img-wrap aspect-[4/5] mb-6 bg-stone/20">
+          <img src="assets/pizza-mortadella.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="flex items-baseline justify-between gap-4 mb-2">
+          <h3 class="font-display text-2xl lg:text-3xl italic text-ink" data-i18n="p3.title">Mortadella &amp; Pistacchio</h3>
+          <span class="text-muted text-sm">—</span>
+        </div>
+        <p class="text-ink/70 text-sm leading-relaxed font-light" data-i18n="p3.desc">
+          Bianca, fior di latte, mortadella, granella di pistacchio, basilico.
+        </p>
+      </article>
+
+      <article class="pizza-card reveal">
+        <div class="img-wrap aspect-[4/5] mb-6 bg-stone/20">
+          <img src="assets/pizza-bianca-pesto.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="flex items-baseline justify-between gap-4 mb-2">
+          <h3 class="font-display text-2xl lg:text-3xl italic text-ink" data-i18n="p4.title">Bianca con Pesto</h3>
+          <span class="text-muted text-sm">—</span>
+        </div>
+        <p class="text-ink/70 text-sm leading-relaxed font-light" data-i18n="p4.desc">
+          Crema di pesto, fior di latte, datterino confit, basilico fresco.
+        </p>
+      </article>
+
+      <article class="pizza-card reveal">
+        <div class="img-wrap aspect-[4/5] mb-6 bg-stone/20">
+          <img src="assets/pizza-bacon-stracciatella.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="flex items-baseline justify-between gap-4 mb-2">
+          <h3 class="font-display text-2xl lg:text-3xl italic text-ink" data-i18n="p5.title">Bacon &amp; Stracciatella</h3>
+          <span class="text-muted text-sm">—</span>
+        </div>
+        <p class="text-ink/70 text-sm leading-relaxed font-light" data-i18n="p5.desc">
+          Crema, bacon croccante, ciuffi di stracciatella, olio EVO.
+        </p>
+      </article>
+
+      <article class="pizza-card reveal">
+        <div class="img-wrap aspect-[4/5] mb-6 bg-stone/20">
+          <img src="assets/pizza-pesto-melanzane.png" alt="" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="flex items-baseline justify-between gap-4 mb-2">
+          <h3 class="font-display text-2xl lg:text-3xl italic text-ink" data-i18n="p6.title">Pesto &amp; Melanzane</h3>
+          <span class="text-muted text-sm">—</span>
+        </div>
+        <p class="text-ink/70 text-sm leading-relaxed font-light" data-i18n="p6.desc">
+          Crema di pesto, fior di latte, melanzane infornate, basilico.
+        </p>
+      </article>
+
+    </div>
+
+    <p class="mt-16 text-center text-muted text-sm italic max-w-xl mx-auto" data-i18n="pizza.note">
+      La carta completa è disponibile al tavolo. Prezzi su menu.
+    </p>
+  </div>
+</section>
+
+<!-- 05. TAGLIERI & DOLCI -->
+<section id="taglieri" class="py-24 lg:py-36 bg-ink text-bone">
+  <div class="max-w-7xl mx-auto px-5 lg:px-10">
+    <div class="max-w-3xl reveal mb-16 lg:mb-20">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="section-num text-stone text-2xl">III.</span>
+        <span class="eyebrow text-stone" data-i18n="taglieri.eyebrow">Per condividere</span>
+      </div>
+      <h2 class="font-display text-4xl lg:text-6xl italic leading-[1.05] tracking-tightest h2-underline" data-i18n="taglieri.title">
+        Taglieri, fritti<br />e dolci della casa.
+      </h2>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-6 lg:gap-8">
+
+      <article class="reveal lg:col-span-7 group">
+        <div class="aspect-[16/10] overflow-hidden mb-5">
+          <img src="assets/tagliere-2.jpg" alt="" class="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" loading="lazy" />
+        </div>
+        <h3 class="font-display italic text-2xl lg:text-3xl mb-2" data-i18n="t1.title">Tagliere della Cantina</h3>
+        <p class="text-bone/70 text-sm leading-relaxed font-light max-w-md" data-i18n="t1.desc">
+          Selezione di salumi e formaggi del territorio, pizza al forno tagliata, miele e composte.
+        </p>
+      </article>
+
+      <article class="reveal lg:col-span-5 group">
+        <div class="aspect-[4/5] overflow-hidden mb-5">
+          <img src="assets/tagliere.jpg" alt="" class="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" loading="lazy" />
+        </div>
+        <h3 class="font-display italic text-2xl lg:text-3xl mb-2" data-i18n="t2.title">Antipasto del Forno</h3>
+        <p class="text-bone/70 text-sm leading-relaxed font-light" data-i18n="t2.desc">
+          Mozzarella di bufala, salumi, pizza calda dal forno a legna.
+        </p>
+      </article>
+
+      <article class="reveal lg:col-span-5 group">
+        <div class="aspect-[4/5] overflow-hidden mb-5">
+          <img src="assets/bigne-salati.jpg" alt="" class="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" loading="lazy" />
+        </div>
+        <h3 class="font-display italic text-2xl lg:text-3xl mb-2" data-i18n="t3.title">Bignè Salati</h3>
+        <p class="text-bone/70 text-sm leading-relaxed font-light" data-i18n="t3.desc">
+          Bignè caldi farciti, accompagnati da salumi e crema al basilico.
+        </p>
+      </article>
+
+      <article class="reveal lg:col-span-7 group">
+        <div class="aspect-[16/10] overflow-hidden mb-5">
+          <img src="assets/bigne-dolci.jpg" alt="" class="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" loading="lazy" />
+        </div>
+        <h3 class="font-display italic text-2xl lg:text-3xl mb-2" data-i18n="t4.title">Bignè della Casa</h3>
+        <p class="text-bone/70 text-sm leading-relaxed font-light max-w-md" data-i18n="t4.desc">
+          Dolci preparati in casa: bignè zuccherati con crema, granella di pistacchio e nocciola.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 06. TERRITORIO -->
+<section id="territorio" class="py-24 lg:py-32 bg-bone">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div class="lg:col-span-7 reveal">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="section-num text-ember text-2xl">IV.</span>
+          <span class="eyebrow text-ember" data-i18n="territorio.eyebrow">Dalla Calabria</span>
+        </div>
+        <h2 class="font-display text-4xl lg:text-5xl leading-[1.1] tracking-tightest text-ink h2-underline" data-i18n="territorio.title">
+          <em class="italic">Prodotti</em> del territorio,<br />in ogni morso.
+        </h2>
+        <p class="mt-8 text-ink/75 leading-relaxed text-lg font-light" data-i18n="territorio.body">
+          Lavoriamo con piccoli produttori calabresi. Salumi, formaggi, ortaggi, peperoncino. Selezioniamo ciò che il territorio offre, mese per mese.
+        </p>
+        <div class="mt-8 inline-flex items-center gap-3 px-5 py-3 bg-ink text-bone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 11l-7 7-3-3 7-7"/><path d="M19.5 5.5a3.54 3.54 0 0 1 0 5l-5 5-3-3 5-5a3.54 3.54 0 0 1 3 -2"/></svg>
+          <span class="text-sm font-medium" data-i18n="territorio.gift">Peperoncino calabrese in omaggio</span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 reveal">
+        <div class="grid grid-cols-2 gap-px bg-ink/10">
+          <div class="bg-bone p-5">
+            <div class="eyebrow text-muted mb-2" data-i18n="terr.s1.l">Salumi</div>
+            <div class="font-display italic text-xl text-ink" data-i18n="terr.s1.v">Stagionati locali</div>
+          </div>
+          <div class="bg-bone p-5">
+            <div class="eyebrow text-muted mb-2" data-i18n="terr.s2.l">Formaggi</div>
+            <div class="font-display italic text-xl text-ink" data-i18n="terr.s2.v">Caseifici della zona</div>
+          </div>
+          <div class="bg-bone p-5">
+            <div class="eyebrow text-muted mb-2" data-i18n="terr.s3.l">Olio EVO</div>
+            <div class="font-display italic text-xl text-ink" data-i18n="terr.s3.v">Frantoi calabresi</div>
+          </div>
+          <div class="bg-bone p-5">
+            <div class="eyebrow text-muted mb-2" data-i18n="terr.s4.l">Peperoncino</div>
+            <div class="font-display italic text-xl text-ink" data-i18n="terr.s4.v">Coltivato in Calabria</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06b. RECONOSCIMENTI + RECENSIONI -->
+<section class="py-20 lg:py-28 bg-ember/95 text-bone">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
+      <div class="reveal">
+        <div class="eyebrow text-bone/60 mb-5" data-i18n="awards.eyebrow">— Riconoscimenti</div>
+        <h2 class="font-display italic text-3xl lg:text-5xl leading-[1.05] tracking-tightest" data-i18n="awards.title">
+          Riconosciuta tra<br />le insegne del Sud.
+        </h2>
+      </div>
+      <div class="reveal space-y-6">
+        <div class="flex items-start gap-5 pb-6 border-b border-bone/20">
+          <div class="w-14 h-14 rounded-full bg-bone/10 flex items-center justify-center shrink-0">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.39 7.36H22l-6.18 4.49L18.21 22 12 17.27 5.79 22l2.39-8.15L2 9.36h7.61z" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-bone/60 uppercase tracking-eyebrow">50 Top Pizza</div>
+            <div class="font-display italic text-2xl mt-1" data-i18n="awards.a1">Segnalata nella guida</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-5">
+          <div class="w-14 h-14 rounded-full bg-bone/10 flex items-center justify-center shrink-0">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-bone/60 uppercase tracking-eyebrow">Tripadvisor</div>
+            <div class="font-display italic text-2xl mt-1">Travellers' Choice 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      <figure class="reveal">
+        <div class="font-display italic text-3xl leading-tight text-bone mb-4">"The best pizza we've ever had"</div>
+        <figcaption class="eyebrow text-bone/60" data-i18n="r.guest">— Ospite</figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="font-display italic text-3xl leading-tight text-bone mb-4">"Absolutely delicious pizza in the most stunning setting"</div>
+        <figcaption class="eyebrow text-bone/60" data-i18n="r.guest">— Ospite</figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="font-display italic text-3xl leading-tight text-bone mb-4">"A perfect street for foodies"</div>
+        <figcaption class="eyebrow text-bone/60" data-i18n="r.guest">— Ospite</figcaption>
+      </figure>
+      <figure class="reveal">
+        <div class="font-display italic text-3xl leading-tight text-bone mb-4">"Nice spicy flavor from the Calabria chili's"</div>
+        <figcaption class="eyebrow text-bone/60" data-i18n="r.guest">— Ospite</figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<!-- 07. VISITACI -->
+<section id="visitaci" class="py-24 lg:py-36 bg-bone">
+  <div class="max-w-6xl mx-auto px-5 lg:px-10">
+
+    <div class="max-w-3xl mb-16 reveal">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="section-num text-ember text-2xl">V.</span>
+        <span class="eyebrow text-ember" data-i18n="visit.eyebrow">Veniteci a trovare</span>
+      </div>
+      <h2 class="font-display text-4xl lg:text-6xl leading-[1.05] tracking-tightest text-ink h2-underline" data-i18n="visit.title">
+        Centro storico,<br /><em class="italic">isola pedonale.</em>
+      </h2>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
+
+      <!-- Address & hours card -->
+      <div class="lg:col-span-5 reveal">
+        <div class="bg-ink text-bone p-8 lg:p-10 h-full">
+          <div class="eyebrow text-stone mb-4" data-i18n="visit.where.label">Dove siamo</div>
+          <div class="font-display italic text-3xl lg:text-4xl leading-tight mb-2">Johnny's Pizzeria</div>
+          <p class="text-bone/80 text-base leading-relaxed font-light">
+            Corso Biagio Lomonaco, 9<br />
+            Isola Pedonale<br />
+            87020 San Nicola Arcella (CS)
+          </p>
+
+          <div class="mt-10 pt-8 border-t border-bone/15">
+            <div class="eyebrow text-stone mb-4" data-i18n="visit.hours.label">Orari</div>
+            <div class="flex items-baseline justify-between mb-2">
+              <span class="text-bone/80" data-i18n="visit.hours.days">Tutti i giorni</span>
+              <span class="font-display italic text-xl">18:00 – 24:00</span>
+            </div>
+            <p class="text-bone/50 text-sm font-light mt-2" data-i18n="visit.hours.note">Aperto solo a cena · 7 giorni su 7</p>
+          </div>
+
+          <div class="mt-10 pt-8 border-t border-bone/15 space-y-3">
+            <a href="tel:+393465269861" class="flex items-center gap-4 group">
+              <div class="w-10 h-10 rounded-full bg-bone/10 group-hover:bg-amber group-hover:text-ink transition flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="eyebrow text-stone" data-i18n="visit.tel">Telefono</div>
+                <div class="text-bone">+39 346 526 9861</div>
+              </div>
+            </a>
+            <a href="https://wa.me/393465269861" target="_blank" rel="noopener" class="flex items-center gap-4 group">
+              <div class="w-10 h-10 rounded-full bg-bone/10 group-hover:bg-amber group-hover:text-ink transition flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.78 11.78 0 0 0 12.05 0C5.5 0 .18 5.32.17 11.87a11.81 11.81 0 0 0 1.59 5.93L0 24l6.36-1.66a11.86 11.86 0 0 0 5.68 1.45h.01c6.55 0 11.87-5.33 11.87-11.88a11.8 11.8 0 0 0-3.4-8.43zM12.05 21.79h-.01a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.77.99 1.01-3.67-.23-.38a9.83 9.83 0 0 1-1.5-5.27c0-5.43 4.42-9.86 9.87-9.86a9.81 9.81 0 0 1 6.97 2.89 9.79 9.79 0 0 1 2.89 6.98c-.01 5.43-4.44 9.87-9.84 9.87z"/></svg>
+              </div>
+              <div>
+                <div class="eyebrow text-stone">WhatsApp</div>
+                <div class="text-bone" data-i18n="visit.wa.cta">Scrivici per prenotare</div>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/johnnyspizzeriasannicola/" target="_blank" rel="noopener" class="flex items-center gap-4 group">
+              <div class="w-10 h-10 rounded-full bg-bone/10 group-hover:bg-amber group-hover:text-ink transition flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="0.8" fill="currentColor"/></svg>
+              </div>
+              <div>
+                <div class="eyebrow text-stone">Instagram</div>
+                <div class="text-bone">@johnnyspizzeriasannicola</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stylized map -->
+      <div class="lg:col-span-7 reveal">
+        <div class="relative h-full min-h-[420px] bg-stone/30 overflow-hidden border border-stone/40">
+          <!-- Stylized map illustration -->
+          <svg viewBox="0 0 700 500" preserveAspectRatio="xMidYMid slice" class="absolute inset-0 w-full h-full" aria-hidden="true">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#C9B89A" stroke-width="0.5" opacity="0.4"/>
+              </pattern>
+              <linearGradient id="seaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#7A9CB8" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#3A5A78" stop-opacity="0.5"/>
+              </linearGradient>
+            </defs>
+            <rect width="700" height="500" fill="#E8DFC8"/>
+            <rect width="700" height="500" fill="url(#grid)"/>
+            <!-- Sea (bottom-left, Tirreno) -->
+            <path d="M 0 280 Q 100 270 180 290 Q 250 310 320 340 Q 380 370 420 410 L 420 500 L 0 500 Z" fill="url(#seaGrad)"/>
+            <!-- Streets/roads -->
+            <path d="M 60 80 L 580 120 M 100 180 L 620 200 M 80 260 L 600 290 M 150 60 L 200 480 M 280 40 L 320 460 M 420 70 L 380 440" stroke="#C9B89A" stroke-width="2" fill="none" opacity="0.7"/>
+            <!-- Central street highlighted (Corso Lomonaco) -->
+            <path d="M 200 230 L 510 270" stroke="#7A3A24" stroke-width="3" fill="none" opacity="0.6"/>
+            <!-- Building blocks -->
+            <g fill="#C9B89A" opacity="0.5">
+              <rect x="180" y="140" width="60" height="40"/>
+              <rect x="260" y="150" width="80" height="50"/>
+              <rect x="370" y="130" width="70" height="55"/>
+              <rect x="460" y="160" width="55" height="45"/>
+              <rect x="180" y="290" width="70" height="50"/>
+              <rect x="280" y="300" width="60" height="40"/>
+              <rect x="380" y="310" width="65" height="50"/>
+            </g>
+            <!-- Pin location -->
+            <g transform="translate(350, 250)">
+              <circle r="32" fill="#0E0E0E" opacity="0.08"/>
+              <circle r="20" fill="#0E0E0E" opacity="0.15"/>
+              <circle r="11" fill="#0E0E0E"/>
+              <circle r="4" fill="#E8A33D"/>
+            </g>
+          </svg>
+
+          <!-- Pin label overlay -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full mt-[-26px] bg-ink text-bone px-4 py-2.5 text-xs whitespace-nowrap shadow-lg">
+            <div class="font-display italic text-base leading-none">Johnny's Pizzeria</div>
+            <div class="text-bone/60 text-[10px] uppercase tracking-eyebrow mt-1">Corso Biagio Lomonaco, 9</div>
+            <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-ink rotate-45"></div>
+          </div>
+
+          <!-- Map buttons -->
+          <div class="absolute bottom-5 left-5 right-5 flex flex-wrap gap-3">
+            <a href="https://maps.google.com/?q=Johnny%27s+Pizzeria+San+Nicola+Arcella+Corso+Biagio+Lomonaco+9" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-ink text-bone px-5 py-3 text-xs font-semibold tracking-wide hover:bg-amber hover:text-ink transition">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span data-i18n="visit.map.google">Apri in Google Maps</span>
+            </a>
+            <a href="https://maps.apple.com/?q=Johnny%27s+Pizzeria+San+Nicola+Arcella&address=Corso+Biagio+Lomonaco+9,+San+Nicola+Arcella" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-bone text-ink px-5 py-3 text-xs font-semibold tracking-wide hover:bg-amber transition border border-stone/40">
+              <span data-i18n="visit.map.apple">Apri in Apple Maps</span>
+            </a>
+          </div>
+
+          <!-- Compass north -->
+          <div class="absolute top-5 right-5 w-12 h-12 rounded-full border border-stone bg-bone/80 flex items-center justify-center backdrop-blur-sm">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E0E0E" stroke-width="1.5"><path d="M12 2v6" stroke-linecap="round"/><path d="M12 22v-6" stroke-linecap="round" opacity="0.3"/><text x="12" y="6" font-size="6" fill="#0E0E0E" text-anchor="middle" font-family="Inter">N</text></svg>
+          </div>
+        </div>
+
+        <p class="mt-4 text-muted text-sm font-light" data-i18n="visit.ztl">
+          Centro storico in zona pedonale. Parcheggio nelle aree limitrofe al borgo.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-ink text-bone pt-20 pb-10">
+  <div class="max-w-7xl mx-auto px-5 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12 pb-16 border-b border-bone/15">
+
+      <div class="lg:col-span-5">
+        <div class="flex items-center gap-4 mb-6">
+          <img src="assets/logo.jpg" alt="Johnny's Pizzeria" class="w-14 h-14 rounded-full" />
+          <div>
+            <div class="font-display italic text-2xl">Johnny's Pizzeria</div>
+            <div class="eyebrow text-stone mt-1">San Nicola Arcella · Italy</div>
+          </div>
+        </div>
+        <p class="text-bone/65 leading-relaxed font-light max-w-md text-sm" data-i18n="footer.tagline">
+          Pizza artigianale nella roccia. Forno a legna, prodotti del territorio calabrese, nel cuore del centro storico.
+        </p>
+        <div class="mt-6">
+          <span class="tri-divider"><span class="bg-tri-g"></span><span class="bg-bone"></span><span class="bg-tri-r"></span></span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3">
+        <div class="eyebrow text-stone mb-5" data-i18n="footer.contact">Contatti</div>
+        <ul class="space-y-3 text-sm text-bone/75">
+          <li><a href="tel:+393465269861" class="hover:text-amber transition">+39 346 526 9861</a></li>
+          <li><a href="https://wa.me/393465269861" target="_blank" rel="noopener" class="hover:text-amber transition">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/johnnyspizzeriasannicola/" target="_blank" rel="noopener" class="hover:text-amber transition">@johnnyspizzeriasannicola</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <div class="eyebrow text-stone mb-5" data-i18n="footer.address">Indirizzo</div>
+        <p class="text-sm text-bone/75 leading-relaxed">
+          Corso Biagio Lomonaco, 9<br />
+          87020 San Nicola Arcella (CS)
+        </p>
+      </div>
+
+      <div class="lg:col-span-2">
+        <div class="eyebrow text-stone mb-5" data-i18n="footer.hours">Orari</div>
+        <p class="text-sm text-bone/75 leading-relaxed">
+          <span data-i18n="footer.days">Tutti i giorni</span><br />
+          18:00 – 24:00
+        </p>
+      </div>
+    </div>
+
+    <div class="pt-8 flex flex-wrap items-center justify-between gap-4 text-xs text-bone/40">
+      <div>© <span id="year"></span> Johnny's Pizzeria</div>
+      <div data-i18n="footer.credits">Demo · Site by Viktoria Agency</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ===== i18n =====
+  const I18N = {
+    it: {
+      'nav.cantina': 'La Cantina',
+      'nav.pizza': 'La Pizza',
+      'nav.taglieri': 'Taglieri & Dolci',
+      'nav.territorio': 'Territorio',
+      'nav.visitaci': 'Visitaci',
+      'hero.eyebrow': 'San Nicola Arcella · Calabria',
+      'hero.title': 'Pizza<br />nella roccia.',
+      'hero.subtitle': "Forno a legna, cornicione alto e arioso. Pizza artigianale e prodotti calabresi, in una cantina di pietra nel centro storico.",
+      'hero.cta1': 'Visitaci',
+      'hero.cta2': 'Prenota su WhatsApp',
+      'hero.scroll': 'Scorri',
+      'hero.guide': 'Segnalata nella guida',
+      'intro.eyebrow': '— Benvenuti',
+      'intro.title': 'Una cantina di pietra,<br />un forno a legna,<br /><em class="italic">e poco altro che serva.</em>',
+      'intro.body': "Johnny's Pizzeria nasce in una cantina recuperata del centro storico di San Nicola Arcella. Volte di pietra, un'antica macina al centro della sala, e una pizza fatta come si deve: impasto lungo, cornicione alto, forno a legna. Niente di più.",
+      'intro.m1.label': 'Forno',
+      'intro.m1.value': 'A legna, sempre',
+      'intro.m2.label': 'Prodotti',
+      'intro.m2.value': 'Del territorio calabrese',
+      'intro.m3.label': 'Sala',
+      'intro.m3.value': 'Cantina nel centro storico',
+      'cantina.eyebrow': "L'ambiente",
+      'cantina.title': 'Una macina<br />al centro della sala.',
+      'cantina.p1': 'Il locale occupa una vecchia cantina del centro storico. Le volte di pietra a vista, gli archi in mattone antico e un\'antica macina recuperata definiscono l\'ambiente. Luce calda, tavoli neri, sedie bianche anticate. Pochi coperti, atmosfera intima.',
+      'cantina.p2': 'Lavoriamo a vista: il forno a legna, la lievitazione, la pala. Tutto in un raggio di pochi metri.',
+      'cantina.team.label': '— Chi siamo',
+      'cantina.team.body': 'Una famiglia, un forno, una passione. Vi accogliamo ogni sera nel cuore di San Nicola Arcella.',
+      'pizza.eyebrow': 'Il prodotto',
+      'pizza.title': 'Cornicione alto e arioso.<br /><em class="italic">Forno a legna.</em>',
+      'pizza.body': 'Impasto a lunga lievitazione, cottura in forno a legna ad alta temperatura. Cornicione alto, arioso, leggero. Ingredienti scelti tra i piccoli produttori della Calabria.',
+      'pizza.note': 'La carta completa è disponibile al tavolo. Prezzi su menu.',
+      'p1.title': 'Margherita',
+      'p1.desc': 'Pomodoro, fior di latte, basilico, olio extravergine.',
+      'p2.title': 'Crudo & Datterini',
+      'p2.desc': 'Fior di latte, prosciutto crudo, datterini gialli, scaglie di grana.',
+      'p3.title': 'Mortadella & Pistacchio',
+      'p3.desc': 'Bianca, fior di latte, mortadella, granella di pistacchio, basilico.',
+      'p4.title': 'Bianca con Pesto',
+      'p4.desc': 'Crema di pesto, fior di latte, datterino confit, basilico fresco.',
+      'p5.title': 'Bacon & Stracciatella',
+      'p5.desc': 'Crema, bacon croccante, ciuffi di stracciatella, olio EVO.',
+      'p6.title': 'Pesto & Melanzane',
+      'p6.desc': 'Crema di pesto, fior di latte, melanzane infornate, basilico.',
+      'taglieri.eyebrow': 'Per condividere',
+      'taglieri.title': 'Taglieri, fritti<br />e dolci della casa.',
+      't1.title': 'Tagliere della Cantina',
+      't1.desc': 'Selezione di salumi e formaggi del territorio, pizza al forno tagliata, miele e composte.',
+      't2.title': 'Antipasto del Forno',
+      't2.desc': 'Mozzarella di bufala, salumi, pizza calda dal forno a legna.',
+      't3.title': 'Bignè Salati',
+      't3.desc': 'Bignè caldi farciti, accompagnati da salumi e crema al basilico.',
+      't4.title': 'Bignè della Casa',
+      't4.desc': 'Dolci preparati in casa: bignè zuccherati con crema, granella di pistacchio e nocciola.',
+      'territorio.eyebrow': 'Dalla Calabria',
+      'territorio.title': '<em class="italic">Prodotti</em> del territorio,<br />in ogni morso.',
+      'territorio.body': 'Lavoriamo con piccoli produttori calabresi. Salumi, formaggi, ortaggi, peperoncino. Selezioniamo ciò che il territorio offre, mese per mese.',
+      'territorio.gift': 'Peperoncino calabrese in omaggio',
+      'terr.s1.l': 'Salumi', 'terr.s1.v': 'Stagionati locali',
+      'terr.s2.l': 'Formaggi', 'terr.s2.v': 'Caseifici della zona',
+      'terr.s3.l': 'Olio EVO', 'terr.s3.v': 'Frantoi calabresi',
+      'terr.s4.l': 'Peperoncino', 'terr.s4.v': 'Coltivato in Calabria',
+      'awards.eyebrow': '— Riconoscimenti',
+      'awards.title': 'Riconosciuta tra<br />le insegne del Sud.',
+      'awards.a1': 'Segnalata nella guida',
+      'r.guest': '— Ospite',
+      'visit.eyebrow': 'Veniteci a trovare',
+      'visit.title': 'Centro storico,<br /><em class="italic">isola pedonale.</em>',
+      'visit.where.label': 'Dove siamo',
+      'visit.hours.label': 'Orari',
+      'visit.hours.days': 'Tutti i giorni',
+      'visit.hours.note': 'Aperto solo a cena · 7 giorni su 7',
+      'visit.tel': 'Telefono',
+      'visit.wa.cta': 'Scrivici per prenotare',
+      'visit.map.google': 'Apri in Google Maps',
+      'visit.map.apple': 'Apri in Apple Maps',
+      'visit.ztl': 'Centro storico in zona pedonale. Parcheggio nelle aree limitrofe al borgo.',
+      'footer.tagline': 'Pizza artigianale nella roccia. Forno a legna, prodotti del territorio calabrese, nel cuore del centro storico.',
+      'footer.contact': 'Contatti',
+      'footer.address': 'Indirizzo',
+      'footer.hours': 'Orari',
+      'footer.days': 'Tutti i giorni',
+      'footer.credits': 'Demo · Site by Viktoria Agency',
+    },
+    en: {
+      'nav.cantina': 'The Cellar',
+      'nav.pizza': 'The Pizza',
+      'nav.taglieri': 'Platters & Desserts',
+      'nav.territorio': 'Local Produce',
+      'nav.visitaci': 'Visit Us',
+      'hero.eyebrow': 'San Nicola Arcella · Calabria',
+      'hero.title': 'Pizza<br />in the stone.',
+      'hero.subtitle': "Wood-fired oven, tall airy crust. Artisan pizza and Calabrian produce, inside a stone cellar in the old town.",
+      'hero.cta1': 'Visit Us',
+      'hero.cta2': 'Book on WhatsApp',
+      'hero.scroll': 'Scroll',
+      'hero.guide': 'Listed in the guide',
+      'intro.eyebrow': '— Welcome',
+      'intro.title': 'A stone cellar,<br />a wood-fired oven,<br /><em class="italic">and little else needed.</em>',
+      'intro.body': "Johnny's Pizzeria lives inside a restored cellar in the old town of San Nicola Arcella. Vaulted stone ceilings, an old millstone at the center of the room, and pizza made the right way: long fermentation, tall crust, wood-fired. Nothing more.",
+      'intro.m1.label': 'Oven',
+      'intro.m1.value': 'Wood-fired, always',
+      'intro.m2.label': 'Produce',
+      'intro.m2.value': 'From Calabria',
+      'intro.m3.label': 'Room',
+      'intro.m3.value': 'Cellar in the old town',
+      'cantina.eyebrow': 'The setting',
+      'cantina.title': 'A millstone<br />at the heart of the room.',
+      'cantina.p1': 'The restaurant lives in an old cellar in the historic center. Exposed stone vaults, antique brick arches, and a restored millstone shape the room. Warm light, black tabletops, antique white chairs. Few seats, intimate atmosphere.',
+      'cantina.p2': 'We work in plain sight: the wood-fired oven, the dough, the peel. Everything within a few meters.',
+      'cantina.team.label': '— Who we are',
+      'cantina.team.body': 'A family, an oven, a passion. We welcome you every evening in the heart of San Nicola Arcella.',
+      'pizza.eyebrow': 'The craft',
+      'pizza.title': 'Tall, airy crust.<br /><em class="italic">Wood-fired.</em>',
+      'pizza.body': 'Long-fermented dough, baked in a wood-fired oven at high temperature. Tall, airy, light crust. Ingredients chosen from small producers in Calabria.',
+      'pizza.note': 'Full menu available at the table. Prices on the menu.',
+      'p1.title': 'Margherita',
+      'p1.desc': 'Tomato, fior di latte, basil, extra virgin olive oil.',
+      'p2.title': 'Crudo & Yellow Datterini',
+      'p2.desc': 'Fior di latte, prosciutto crudo, yellow datterini tomatoes, grana shavings.',
+      'p3.title': 'Mortadella & Pistachio',
+      'p3.desc': 'White base, fior di latte, mortadella, crushed pistachio, basil.',
+      'p4.title': 'White with Pesto',
+      'p4.desc': 'Pesto cream, fior di latte, confit datterino, fresh basil.',
+      'p5.title': 'Bacon & Stracciatella',
+      'p5.desc': 'White base, crispy bacon, dollops of stracciatella, EVO oil.',
+      'p6.title': 'Pesto & Aubergine',
+      'p6.desc': 'Pesto cream, fior di latte, oven-baked aubergine, basil.',
+      'taglieri.eyebrow': 'To share',
+      'taglieri.title': 'Platters, fritti<br />and house desserts.',
+      't1.title': 'Cellar Platter',
+      't1.desc': 'Selection of local cured meats and cheeses, sliced oven-baked pizza, honey and preserves.',
+      't2.title': 'Oven Antipasto',
+      't2.desc': 'Buffalo mozzarella, cured meats, warm pizza straight from the wood-fired oven.',
+      't3.title': 'Savoury Bignè',
+      't3.desc': 'Warm filled bignè, served with cured meats and basil cream.',
+      't4.title': 'House Bignè',
+      't4.desc': 'House-made desserts: sugared bignè with cream, pistachio and hazelnut.',
+      'territorio.eyebrow': 'From Calabria',
+      'territorio.title': '<em class="italic">Local produce</em><br />in every bite.',
+      'territorio.body': 'We work with small Calabrian producers. Cured meats, cheeses, vegetables, chili. We pick what the land offers, month by month.',
+      'territorio.gift': 'Calabrian chili offered to guests',
+      'terr.s1.l': 'Cured Meats', 'terr.s1.v': 'Local & aged',
+      'terr.s2.l': 'Cheeses', 'terr.s2.v': 'From nearby dairies',
+      'terr.s3.l': 'EVO Oil', 'terr.s3.v': 'Calabrian mills',
+      'terr.s4.l': 'Chili', 'terr.s4.v': 'Grown in Calabria',
+      'awards.eyebrow': '— Recognition',
+      'awards.title': 'Recognized among<br />the South\'s addresses.',
+      'awards.a1': 'Listed in the guide',
+      'r.guest': '— Guest',
+      'visit.eyebrow': 'Come and find us',
+      'visit.title': 'Old town,<br /><em class="italic">pedestrian zone.</em>',
+      'visit.where.label': 'Where we are',
+      'visit.hours.label': 'Hours',
+      'visit.hours.days': 'Every day',
+      'visit.hours.note': 'Dinner only · 7 days a week',
+      'visit.tel': 'Phone',
+      'visit.wa.cta': 'Message us to book',
+      'visit.map.google': 'Open in Google Maps',
+      'visit.map.apple': 'Open in Apple Maps',
+      'visit.ztl': 'Old town pedestrian zone. Parking in the areas adjacent to the village.',
+      'footer.tagline': 'Artisan pizza in the stone. Wood-fired, Calabrian produce, in the heart of the old town.',
+      'footer.contact': 'Contact',
+      'footer.address': 'Address',
+      'footer.hours': 'Hours',
+      'footer.days': 'Every day',
+      'footer.credits': 'Demo · Site by Viktoria Agency',
+    }
+  };
+
+  function setLang(lang) {
+    if (!I18N[lang]) lang = 'it';
+    document.documentElement.lang = lang;
+    document.body.classList.add('lang-switching');
+    setTimeout(() => {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (I18N[lang][key] !== undefined) {
+          el.innerHTML = I18N[lang][key];
+        }
+      });
+      document.body.classList.remove('lang-switching');
+    }, 180);
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('inactive', btn.getAttribute('data-lang') !== lang);
+    });
+    try { localStorage.setItem('johnnys.lang', lang); } catch(e) {}
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')));
+  });
+
+  let savedLang = 'it';
+  try { savedLang = localStorage.getItem('johnnys.lang') || 'it'; } catch(e) {}
+  setLang(savedLang);
+
+  // ===== Loader =====
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('gone');
+    }, 600);
+  });
+
+  // ===== Reveal on scroll =====
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal, .h2-underline').forEach(el => io.observe(el));
+
+  // ===== Year =====
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ===== Scroll-aware nav =====
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>
