@@ -16,6 +16,7 @@
 <meta name="twitter:image" content="preview.jpg" />
 
 <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+<link rel="preload" as="image" href="assets/hero-ai.jpg" fetchpriority="high" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -233,7 +234,7 @@
 <section id="top" class="relative w-full overflow-hidden bg-ink">
   <!-- Background image full-bleed -->
   <div class="absolute inset-0">
-    <img src="assets/hero-ai.jpg" alt="" class="w-full h-full object-cover kenburns" />
+    <img src="assets/hero-ai.jpg" alt="" class="w-full h-full object-cover kenburns" fetchpriority="high" />
   </div>
 
   <!-- Gradient overlays: dark left for text, fade bottom, top for nav -->
@@ -370,7 +371,7 @@
         <div class="mt-10 pt-8 border-t border-bone/15">
           <div class="eyebrow text-stone mb-4" data-i18n="cantina.team.label">— Chi siamo</div>
           <div class="flex items-center gap-5">
-            <img src="assets/titolari.png" alt="" class="w-20 h-20 rounded-full object-cover object-top border border-bone/20" />
+            <img src="assets/titolari.jpg" alt="" class="w-20 h-20 rounded-full object-cover object-top border border-bone/20" />
             <p class="text-bone/85 leading-relaxed text-sm" data-i18n="cantina.team.body">
               Una famiglia, un forno, una passione. Vi accogliamo ogni sera nel cuore di San Nicola Arcella.
             </p>
@@ -484,7 +485,7 @@
 
       <article class="pizza-card reveal">
         <div class="img-wrap aspect-[4/5] mb-6 bg-stone/20">
-          <img src="assets/pizza-pesto-melanzane.png" alt="" class="w-full h-full object-cover" loading="lazy" />
+          <img src="assets/pizza-pesto-melanzane.jpg" alt="" class="w-full h-full object-cover" loading="lazy" />
         </div>
         <div class="flex items-baseline justify-between gap-4 mb-2">
           <h3 class="font-display text-2xl lg:text-3xl italic text-ink" data-i18n="p6.title">Pesto &amp; Melanzane</h3>
