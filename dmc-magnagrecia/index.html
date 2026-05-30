@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Destination Magna Grecia — Luxury Tour Operator & DMC, Calabria</title>
+  <meta name="description" content="A luxury tour operator and DMC rooted in the heritage of Southern Italy — crafting unhurried, intelligent journeys to Italy and across the world." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Destination Magna Grecia" />
+  <meta property="og:description" content="The world, through Italian eyes. Luxury inbound & outbound journeys from the cradle of Magna Grecia." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/png" href="assets/logo/favicon-crest.png?v=2" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css?v=13" />
+
+  <!-- Photo credits: Unsplash photographers credited in production footer -->
+</head>
+<body>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============ SECTION 0 · NAV ============ -->
+  <nav class="nav" id="nav">
+    <a class="brand" href="#hero" aria-label="Destination Magna Grecia — home">
+      <img class="brand__crest" src="assets/logo/logo-crest.png?v=2" alt="" />
+      <span class="brand__text">
+        <span class="brand__name">Destination Magna Grecia</span>
+        <span class="brand__descriptor">International Tour Operator &amp; DMC</span>
+      </span>
+    </a>
+    <div class="nav__links">
+      <a href="#inbound">Journeys</a>
+      <a href="#story">About</a>
+      <a href="#origin">Our Origin</a>
+      <a href="#journal">Journal</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav__lang" role="group" aria-label="Language">
+      <button class="active" data-lang="IT">IT</button>
+      <button data-lang="EN">EN</button>
+      <button data-lang="ES">ES</button>
+      <button data-lang="DE">DE</button>
+    </div>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#inbound">Journeys</a>
+    <a href="#story">About</a>
+    <a href="#origin">Our Origin</a>
+    <a href="#journal">Journal</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- ============ SECTION 1 · HERO ============ -->
+  <header class="hero" id="hero">
+    <!-- Hero video (client-supplied). Poster paints instantly + is the reduced-motion fallback. -->
+    <div class="hero__poster" style="background-image:url('assets/video/hero-poster.jpg?v=3');"></div>
+    <video class="hero__video" autoplay muted loop playsinline preload="auto"
+           poster="assets/video/hero-poster.jpg?v=3">
+      <source src="assets/video/hero.webm?v=3" type="video/webm" />
+      <source src="assets/video/hero.mp4?v=3" type="video/mp4" />
+    </video>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <span class="eyebrow hero__eyebrow" data-anim="hero-eyebrow">Est. 2024 · Calabria, Italy</span>
+      <h1 class="hero__headline" data-anim="hero-title">The world,<br />through Italian eyes.</h1>
+      <p class="hero__subhead" data-anim="hero-sub">
+        A luxury tour operator and DMC rooted in the heritage of Southern Italy —
+        crafting unhurried, intelligent journeys for travelers who seek depth, not checklists.
+      </p>
+      <a href="#contact" class="btn btn-primary hero__cta">Begin a conversation</a>
+    </div>
+    <a href="#story" class="hero__scroll" aria-label="Scroll to discover">
+      Discover
+      <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M8 1v20M2 15l6 6 6-6" />
+      </svg>
+    </a>
+  </header>
+
+  <!-- ============ SECTION 2 · BRAND STORY ============ -->
+  <section class="section story" id="story">
+    <div class="container story__grid">
+      <div class="col-head reveal">
+        <span class="eyebrow">Who We Are</span>
+        <div class="meander" style="width:120px;margin-bottom:1.5rem;"></div>
+        <h2 style="font-size:var(--text-h1);">A house built on two ancient ideas: hospitality, and curiosity.</h2>
+      </div>
+      <div class="col-text">
+        <p class="reveal">
+          We are Destination Magna Grecia — a luxury tour operator born in the lands once
+          known as Magna Graecia, the Greek colonies of Southern Italy that gave the
+          ancient world its philosophers, its temples, and its coins.
+        </p>
+        <p class="reveal">
+          We design two kinds of journeys. We bring discerning travelers to Italy — guiding
+          them through Calabria's mountain villages, Sicily's archaeological sites,
+          the secret coast of Puglia. And we accompany Italians outward — to Japan, to
+          Patagonia, to the deserts of Morocco — with the same eye for craft and slowness
+          we apply at home.
+        </p>
+        <p class="reveal">
+          We work in small numbers, by hand. Every itinerary is composed for a single
+          traveler or family. There are no group buses, no fixed departures, no menus.
+          Just conversations, listening, and the careful arrangement of a journey that
+          feels inevitable from the first morning.
+        </p>
+        <blockquote class="story__quote reveal">
+          "The best journey is the one that feels, somehow, already yours."
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 4 · INBOUND JOURNEYS ============ -->
+  <section class="section journeys inbound" id="inbound">
+    <div class="container">
+      <div class="journeys__head">
+        <span class="eyebrow">Inbound Journeys · Italy</span>
+        <h2 class="reveal">Where the Mediterranean still speaks Greek.</h2>
+        <p class="intro reveal">
+          For travelers from abroad — six curated journeys through Southern Italy and
+          beyond, designed for those who measure travel in stories, not stops.
+        </p>
+      </div>
+      <div class="grid-cards">
+
+        <article class="card reveal">
+          <div class="card__media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=900&q=80" alt="Ancient Greek amphitheatre ruins at golden hour" />
+            <span class="card__badge">9 days · Calabria · Basilicata · Puglia</span>
+          </div>
+          <div class="card__body">
+            <span class="card__region">Magna Grecia</span>
+            <h3 class="card__title">Magna Grecia Heritage Trail</h3>
+            <p class="card__tagline">Walking the colonies of Pythagoras.</p>
+            <p class="card__desc">Private archaeologist-guided journey through the ancient Greek city-states of Crotone, Metaponto, Locri, and Taras.</p>
+            <span class="card__cta">Discover this journey →</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1571406252241-db0280bd36cd?auto=format&fit=crop&w=900&q=80" alt="Whitewashed Sicilian hill town above the sea" />
+            <span class="card__badge">12 days · Sicilia</span>
+          </div>
+          <div class="card__body">
+            <span class="card__region">Sicilia</span>
+            <h3 class="card__title">Sicilia Profonda</h3>
+            <p class="card__tagline">Where every stone has a story.</p>
+            <p class="card__desc">From the Valley of the Temples to Palermo's markets, with overnight stays in monastery hotels and seaside villas.</p>
+            <span class="card__cta">Discover this journey →</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1499678329028-101435549a4e?auto=format&fit=crop&w=900&q=80" alt="Amalfi Coast cliffs above the sea" />
+            <span class="card__badge">7 days · Campania</span>
+          </div>
+          <div class="card__body">
+            <span class="card__region">Campania</span>
+            <h3 class="card__title">Costiera &amp; Pompeii</h3>
+            <p class="card__tagline">Amalfi, slowly.</p>
+            <p class="card__desc">Pompeii at dawn, lemon groves of Sorrento, dinners on private terraces above Positano.</p>
+            <span class="card__cta">Discover this journey →</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=900&q=80" alt="Polignano a Mare cliffs, Puglia" />
+            <span class="card__badge">8 days · Puglia · Salento</span>
+          </div>
+          <div class="card__body">
+            <span class="card__region">Puglia · Salento</span>
+            <h3 class="card__title">The Puglia Coast</h3>
+            <p class="card__tagline">White cities, blue sea, olive oil.</p>
+            <p class="card__desc">Trulli of Alberobello, baroque Lecce, masseria stays, and the cliffs of Polignano.</p>
+            <span class="card__cta">Discover this journey →</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80" alt="Wild green mountains of Calabria — Sila and Aspromonte" />
+            <span class="card__badge">10 days · Calabria</span>
+          </div>
+          <div class="card__body">
+            <span class="card__region">Calabria</span>
+            <h3 class="card__title">Calabria — The Last Wild</h3>
+            <p class="card__tagline">Italy's quietest secret.</p>
+            <p class="card__desc">Sila and Aspromonte national parks, Tropea's beaches, Byzantine villages, and the chili pepper trail.</p>
+            <span class="card__cta">Discover this journey →</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=900&q=80" alt="Venice rooftops at dawn" />
+            <span class="card__badge">14 days · Rome · Florence · Venice</span>
+          </div>
+          <div class="card__body">
+            <span class="card__region">Rome · Florence · Venice</span>
+            <h3 class="card__title">The Eternal Triangle</h3>
+            <p class="card__tagline">The classics, reimagined.</p>
+            <p class="card__desc">For those who want Rome, Florence, and Venice — but staying in apartments, dining in convents, walking with art historians.</p>
+            <span class="card__cta">Discover this journey →</span>
+          </div>
+        </article>
+
+      </div>
+      <div class="journeys__cta">
+        <a href="#contact" class="btn btn-secondary on-dark">View all journeys →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 5 · TRANSITION STRIP ============ -->
+  <section class="strip" aria-hidden="true">
+    <div class="strip__img" data-parallax style="background-image:url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=2400&q=80');"></div>
+  </section>
+
+  <!-- ============ SECTION 6 · OUTBOUND JOURNEYS ============ -->
+  <section class="section journeys outbound" id="outbound">
+    <div class="container">
+      <div class="journeys__head">
+        <span class="eyebrow">Outbound Journeys · Worldwide</span>
+        <h2 class="reveal">The world, curated by Italian hands.</h2>
+        <p class="intro reveal">
+          For Italian travelers seeking journeys composed with the same attention we give
+          to a Calabrian olive grove. Six destinations where we maintain trusted partners
+          on the ground.
+        </p>
+      </div>
+      <div class="grid-cards">
+
+        <article class="card reveal">
+          <div class="card__media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=900&q=80" alt="Mount Fuji with pagoda, Japan" />
+            <span class="card__badge">14 days · Honshu · Kyushu</span>
+          </div>
+          <div class="card__body">
+            <span class="card__region">Japan</span>
+            <h3 class="card__title">Kyoto in Shadow</h3>
+            <p class="card__tagline">Temples, ryokan, the slow north.</p>
+            <p class="card__desc">Private machiya stays in Kyoto, the Kumano Kodo pilgrimage trail, an onsen ryokan kept in one family for nine generations.</p>
+            <span class="card__cta">Discover this journey →</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&w=900&q=80" alt="Waterfall and stone canyon, Iceland" />
+            <span class="card__badge">10 days · Westfjords · South Coast</span>
+          </div>
+          <div class="card__body">
+            <span class="card__region">Iceland</span>
+            <h3 class="card__title">Light and Stone</h3>
+            <p class="card__tagline">Glaciers, lava, and the kindness of strangers.</p>
+            <p class="card__desc">A photographer's circuit with helicopter access to remote highlands and aurora-watching from private cabins.</p>
+            <span class="card__cta">Discover this journey →</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=900&q=80" alt="Snow-capped peaks, Patagonia" />
+            <span class="card__badge">16 days · Argentina · Chile</span>
+          </div>
+          <div class="card__body">
+            <span class="card__region">Patagonia</span>
+            <h3 class="card__title">Two Worlds</h3>
+            <p class="card__tagline">Estancia, glacier, fjord.</p>
+            <p class="card__desc">From Buenos Aires tango to Torres del Paine and the Beagle Channel, riding with gauchos and sailing with naturalists.</p>
+            <span class="card__cta">Discover this journey →</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1489493585363-d69421e0edd3?auto=format&fit=crop&w=900&q=80" alt="Sahara dunes at dusk, Morocco" />
+            <span class="card__badge">11 days · Marrakech · Atlas · Erg Chigaga</span>
+          </div>
+          <div class="card__body">
+            <span class="card__region">Morocco</span>
+            <h3 class="card__title">The Atlas to the Sahara</h3>
+            <p class="card__tagline">Riads, dunes, mint tea at altitude.</p>
+            <p class="card__desc">Family-owned riads in the medinas, private trekking with Berber guides, a night in a tented camp beneath the Saharan stars.</p>
+            <span class="card__cta">Discover this journey →</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=900&q=80" alt="Maldivian sandbank aerial" />
+            <span class="card__badge">8 days · South Malé · Baa Atoll</span>
+          </div>
+          <div class="card__body">
+            <span class="card__region">Maldives</span>
+            <h3 class="card__title">The Atoll Beyond</h3>
+            <p class="card__tagline">Private islands, private chefs.</p>
+            <p class="card__desc">Curated stays at single-island resorts known to no guidebook, with marine biologists for the snorkelers and silence for the rest.</p>
+            <span class="card__cta">Discover this journey →</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card__media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=900&q=80" alt="Safari savannah at sunset, South Africa" />
+            <span class="card__badge">15 days · Cape · Karoo · Kruger</span>
+          </div>
+          <div class="card__body">
+            <span class="card__region">South Africa</span>
+            <h3 class="card__title">The Long Continent</h3>
+            <p class="card__tagline">Wine, wilderness, and stories.</p>
+            <p class="card__desc">From Cape Town's wineries through the Karoo desert to private game reserves with conservation-led safari camps.</p>
+            <span class="card__cta">Discover this journey →</span>
+          </div>
+        </article>
+
+      </div>
+      <div class="journeys__cta">
+        <a href="#contact" class="btn btn-secondary">View all journeys →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 7 · WHY US ============ -->
+  <section class="section why" id="why">
+    <div class="container">
+      <div class="why__head">
+        <span class="eyebrow">The Way We Work</span>
+        <h2 class="reveal">Six principles, no compromises.</h2>
+      </div>
+      <div class="why__grid">
+        <div class="principle reveal">
+          <div class="principle__num">I</div>
+          <hr class="gold-rule" />
+          <h3>Bespoke, never templated</h3>
+          <p>Every journey begins with a conversation, not a brochure. We have no fixed departures, no group transfers, no copy-paste itineraries.</p>
+        </div>
+        <div class="principle reveal">
+          <div class="principle__num">II</div>
+          <hr class="gold-rule" />
+          <h3>Local hands, global reach</h3>
+          <p>Our team in Southern Italy is small and senior. Abroad, we work only with partners we have visited personally, often over years.</p>
+        </div>
+        <div class="principle reveal">
+          <div class="principle__num">III</div>
+          <hr class="gold-rule" />
+          <h3>Slow is the point</h3>
+          <p>We design for fewer destinations and longer stays. The shortest journey we recommend is seven days.</p>
+        </div>
+        <div class="principle reveal">
+          <div class="principle__num">IV</div>
+          <hr class="gold-rule" />
+          <h3>Honesty about cost</h3>
+          <p>Pricing is transparent and conversation-based. We do not list prices online — every journey is composed individually.</p>
+        </div>
+        <div class="principle reveal">
+          <div class="principle__num">V</div>
+          <hr class="gold-rule" />
+          <h3>Cultural depth</h3>
+          <p>Our guides are archaeologists, art historians, vintners, beekeepers — never scripted tour leaders.</p>
+        </div>
+        <div class="principle reveal">
+          <div class="principle__num">VI</div>
+          <hr class="gold-rule" />
+          <h3>Discretion</h3>
+          <p>Our travelers' identities, itineraries, and preferences remain confidential. We do not photograph for marketing without explicit permission.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 8 · TESTIMONIALS ============ -->
+  <section class="section testi" id="journal">
+    <div class="container">
+      <div class="testi__head">
+        <span class="eyebrow">What Travelers Say</span>
+      </div>
+
+      <blockquote class="testi__block reveal">
+        <p class="testi__quote">We have travelled with twelve operators over thirty years. None have understood what we wanted before we knew it ourselves. Wilma and her team are quietly extraordinary.</p>
+        <div class="testi__rule"></div>
+        <p class="testi__meta"><strong>Charlotte W.</strong> <span class="muted">· London ·</span> <span class="journey">Magna Grecia Heritage Trail</span></p>
+      </blockquote>
+
+      <blockquote class="testi__block right reveal">
+        <p class="testi__quote">Pensavamo di conoscere il Giappone. Avevamo torto. Destination Magna Grecia ci ha portato in luoghi che non sapevamo esistessero — e ci ha lasciato in pace quando volevamo solo guardare.</p>
+        <div class="testi__rule"></div>
+        <p class="testi__meta"><strong>Famiglia Bertoli</strong> <span class="muted">· Milano ·</span> <span class="journey">Japan — Kyoto in Shadow</span></p>
+      </blockquote>
+
+      <blockquote class="testi__block reveal">
+        <p class="testi__quote">Quiet, attentive, and impossibly well-organised. They feel less like a tour company and more like a friend who happens to know everyone.</p>
+        <div class="testi__rule"></div>
+        <p class="testi__meta"><strong>Margaret S.</strong> <span class="muted">· Edinburgh ·</span> <span class="journey">The Eternal Triangle</span></p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 9 · ORIGIN STORY ============ -->
+  <section class="section origin" id="origin">
+    <div class="container origin__grid">
+      <div class="origin__img reveal">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" alt="Calabrian coastal village in morning light" />
+      </div>
+      <div class="origin__text reveal">
+        <span class="eyebrow">Our Origin</span>
+        <h2 style="font-size:var(--text-h1);margin-bottom:1.5rem;">Founded in Calabria, 2024.</h2>
+        <p>
+          Destination Magna Grecia was founded by Wilma and her partner, after two
+          decades in luxury hospitality across Italy and abroad. The company is based
+          in the village of Santa Domenica Talao, on the Tyrrhenian coast of Calabria —
+          within sight of the ancient ports of the Greek colonies that gave our region its name.
+        </p>
+        <p>We are members of Virtuoso and ASTOI Confindustria Viaggi.</p>
+        <hr class="gold-rule" />
+        <p class="origin__sign">— Wilma, Founder</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 10 · CONTACT ============ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="why__head" style="text-align:left;max-width:720px;margin-bottom:3.5rem;">
+        <span class="eyebrow">Begin a Conversation</span>
+        <h2 style="font-size:var(--text-h1);margin-bottom:1rem;">Tell us where you'd like to go.</h2>
+        <p style="color:var(--color-text-muted);max-width:600px;">
+          Every journey begins with an unhurried conversation. There is no obligation, no
+          brochure, no quote. Just a thoughtful exchange about what you are hoping to find.
+        </p>
+      </div>
+
+      <div class="contact__grid">
+        <!-- FORM -->
+        <div>
+          <form id="contactForm" novalidate>
+            <div class="field-row">
+              <div class="field">
+                <label for="fname">First name *</label>
+                <input id="fname" name="fname" type="text" required autocomplete="given-name" />
+              </div>
+              <div class="field">
+                <label for="lname">Last name *</label>
+                <input id="lname" name="lname" type="text" required autocomplete="family-name" />
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="email" required autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone (optional)</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label>I am interested in</label>
+              <div class="checks">
+                <label><input type="radio" name="interest" value="inbound" /> Visiting Italy</label>
+                <label><input type="radio" name="interest" value="outbound" /> Travelling from Italy</label>
+                <label><input type="radio" name="interest" value="unsure" /> Not sure yet</label>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="dates">Approximate travel dates (optional)</label>
+                <input id="dates" name="dates" type="text" placeholder="e.g. Spring 2027" />
+              </div>
+              <div class="field">
+                <label for="travelers">Number of travelers</label>
+                <input id="travelers" name="travelers" type="number" min="1" inputmode="numeric" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">Tell us about the journey you have in mind</label>
+              <textarea id="message" name="message"></textarea>
+            </div>
+
+            <div class="field">
+              <label for="source">How did you hear about us?</label>
+              <select id="source" name="source">
+                <option value="">Select…</option>
+                <option>Recommendation</option>
+                <option>Press</option>
+                <option>Online</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Begin a conversation</button>
+            <p class="form-note">By submitting you agree to our <a class="link-tertiary" href="#">Privacy Policy</a>.</p>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <h3>Thank you.</h3>
+            <p>We have received your message and one of us will be in touch within 48 hours.
+            In the meantime, a small gift: <a class="link-tertiary" href="#">a short essay on slow travel in Calabria</a>.</p>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="contact__side">
+          <span class="eyebrow">Italy Headquarters</span>
+          <address>
+            Santa Domenica Talao, Calabria<br />
+            +39 0985 000000<br />
+            WhatsApp: +39 340 0000000<br />
+            <a class="link-tertiary" href="mailto:hello@destinationmagnagrecia.com">hello@destinationmagnagrecia.com</a>
+          </address>
+          <hr class="gold-rule" />
+          <span class="eyebrow">Office Hours</span>
+          <address>
+            Monday–Friday · 09:00–18:00 CET<br />
+            By appointment on weekends
+          </address>
+          <div class="social">
+            <a href="#" aria-label="WhatsApp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21l1.6-4.5A8.5 8.5 0 1 1 12 20.5 8.4 8.4 0 0 1 7.5 19.4z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 17v-7"/></svg></a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 11 · FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <img src="assets/logo/logo-crest.png?v=2" alt="Destination Magna Grecia" />
+          <p class="footer__brandtxt">
+            Destination Magna Grecia<br />
+            International Tour Operator &amp; DMC<br />
+            Italy<br /><br />
+            Members of Virtuoso · ASTOI
+          </p>
+        </div>
+        <div>
+          <h4>Inbound</h4>
+          <ul>
+            <li><a href="#inbound">Magna Grecia Heritage Trail</a></li>
+            <li><a href="#inbound">Sicilia Profonda</a></li>
+            <li><a href="#inbound">Costiera &amp; Pompeii</a></li>
+            <li><a href="#inbound">Puglia Coast</a></li>
+            <li><a href="#inbound">Calabria — The Last Wild</a></li>
+            <li><a href="#inbound">The Eternal Triangle</a></li>
+          </ul>
+          <p class="footer__sub">Outbound</p>
+          <ul>
+            <li><a href="#outbound">Japan</a></li>
+            <li><a href="#outbound">Iceland</a></li>
+            <li><a href="#outbound">Patagonia</a></li>
+            <li><a href="#outbound">Morocco</a></li>
+            <li><a href="#outbound">Maldives</a></li>
+            <li><a href="#outbound">South Africa</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>About</h4>
+          <ul>
+            <li><a href="#origin">Our Story</a></li>
+            <li><a href="#">The Team</a></li>
+            <li><a href="#">Press &amp; Awards</a></li>
+            <li><a href="#journal">Journal</a></li>
+          </ul>
+          <p class="footer__sub">Legal</p>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">GDPR</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p class="footer__brandtxt">
+            Santa Domenica Talao,<br />Calabria, Italy<br /><br />
+            +39 0985 000000<br />
+            <a href="mailto:hello@destinationmagnagrecia.com">hello@destinationmagnagrecia.com</a>
+          </p>
+          <div class="social" style="display:flex;gap:1rem;margin-top:1.25rem;">
+            <a href="#" aria-label="WhatsApp" style="color:var(--color-gold)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21l1.6-4.5A8.5 8.5 0 1 1 12 20.5 8.4 8.4 0 0 1 7.5 19.4z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg></a>
+            <a href="#" aria-label="Instagram" style="color:var(--color-gold)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="LinkedIn" style="color:var(--color-gold)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 17v-7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 Destination Magna Grecia · P.IVA 00000000000 · All rights reserved</span>
+        <div class="footer__lang" role="group" aria-label="Language">
+          <button class="active" data-lang="IT">IT</button>
+          <button data-lang="EN">EN</button>
+          <button data-lang="ES">ES</button>
+          <button data-lang="DE">DE</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lang-toast" id="langToast">Translations coming soon — demo is English only.</div>
+
+  <!-- Scroll-storytelling: GSAP + ScrollTrigger + Lenis (progressive enhancement) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js?v=6"></script>
+</body>
+</html>

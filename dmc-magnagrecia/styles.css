@@ -1,0 +1,544 @@
+/* ============================================================
+   Destination Magna Grecia — Custom CSS
+   Tokens derived from approved logo. Tailwind CDN handles utility;
+   this file carries :root tokens, type, decorative + motion bits.
+   ============================================================ */
+
+:root {
+  /* Primary */
+  --color-navy:        #0a1929;
+  --color-terracotta:  #C4622D;
+  --color-marble:      #f5f1e8;
+  --color-gold:        #c9a961;
+  --color-teal:        #1A5C7A;
+
+  /* Neutrals */
+  --color-cream-light: #faf7f0;
+  --color-cream-dark:  #ebe5d6;
+  --color-navy-soft:   #1a2a3d;
+  --color-text-muted:  #5a6772;
+  --color-divider:     #d4cfc0;
+
+  /* Semantic */
+  --color-success:     #4a7c59;
+  --color-error:       #a04545;
+
+  /* Type scale */
+  --text-display: clamp(3rem, 8vw, 7rem);
+  --text-h1:      clamp(2.5rem, 5vw, 4.5rem);
+  --text-h2:      clamp(2rem, 3.5vw, 3rem);
+  --text-h3:      1.75rem;
+  --text-h4:      1.25rem;
+  --text-body:    1.0625rem;
+  --text-small:   0.9375rem;
+  --text-tiny:    0.8125rem;
+
+  /* Motion */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out:    cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --max-content: 1280px;
+  --max-editorial: 720px;
+
+  /* Marble texture (extracted from the logo) for light sections */
+  --marble-img: url('assets/textures/marble-wide.jpg');
+}
+
+/* Light sections wear the brand marble; cream base shows if image fails */
+.marble-bg {
+  background-color: var(--color-marble);
+  background-image: var(--marble-img);
+  background-size: cover;
+  background-position: center;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Mulish', system-ui, sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.65;
+  color: var(--color-navy-soft);
+  background: var(--color-marble);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .serif {
+  font-family: 'Cormorant Infant', Georgia, serif;
+  color: var(--color-navy);
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0;
+}
+
+p { margin: 0 0 1.25em; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ---------- Reusable atoms ---------- */
+
+.container { max-width: var(--max-content); margin-inline: auto; padding-inline: 2rem; }
+@media (max-width: 640px) { .container { padding-inline: 1.25rem; } }
+
+.section { padding-block: 8rem; }
+@media (max-width: 768px) { .section { padding-block: 4rem; } }
+
+.eyebrow {
+  font-family: 'Mulish', sans-serif;
+  font-size: var(--text-tiny);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-terracotta);
+  margin: 0 0 1.25rem;
+  display: block;
+}
+
+.gold-rule {
+  width: 64px; height: 1px;
+  background: var(--color-gold);
+  border: 0; margin: 1.75rem 0;
+}
+.gold-rule.center { margin-inline: auto; }
+
+/* Greek meander strip — real interlocking key (assets/meander.svg), teal from logo */
+.meander {
+  height: 22px;
+  background: url('assets/meander.svg') repeat-x left center;
+  background-size: auto 22px;
+}
+.meander.center { background-position: center; }
+
+/* ---------- CTAs ---------- */
+.btn {
+  display: inline-block;
+  font-family: 'Mulish', sans-serif;
+  font-size: var(--text-small);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 300ms var(--ease-out-quart);
+  border: 1px solid transparent;
+}
+.btn-primary {
+  background: var(--color-terracotta);
+  color: #fff;
+  padding: 16px 32px;
+}
+.btn-primary:hover { background: var(--color-navy); }
+.btn-secondary {
+  background: transparent;
+  color: var(--color-navy);
+  border-color: var(--color-gold);
+  padding: 14px 28px;
+}
+.btn-secondary:hover { background: var(--color-gold); color: #fff; }
+.btn-secondary.on-dark { color: #fff; }
+.btn-secondary.on-dark:hover { color: var(--color-navy); }
+
+.link-tertiary {
+  color: var(--color-terracotta);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition: color 200ms ease;
+}
+.link-tertiary:hover { color: var(--color-navy); }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 2rem;
+  transition: background 400ms var(--ease-out-quart), box-shadow 400ms ease;
+}
+.nav.solid {
+  background: var(--color-marble);
+  box-shadow: 0 1px 0 var(--color-divider);
+}
+/* Brand: crest + wordmark (Aman/Belmond style) — no logo box over the hero */
+.brand { display: flex; flex-direction: row; align-items: center; gap: 0.7rem; text-decoration: none; line-height: 1; }
+.brand__crest { height: 46px; width: auto; display: block; flex: none; }
+.brand__text { display: flex; flex-direction: column; line-height: 1; }
+.brand__name {
+  font-family: 'Cormorant Infant', serif; font-weight: 600;
+  font-size: 1.25rem; letter-spacing: 0.02em; color: #fff;
+  transition: color 300ms ease;
+}
+.brand__descriptor {
+  font-family: 'Mulish', sans-serif; font-weight: 500;
+  font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.15em;
+  color: #fff; opacity: 0.85; margin-top: 4px;
+  transition: color 300ms ease;
+}
+/* Solid (marble) nav → wordmark turns navy */
+.nav.solid .brand__name, .nav.solid .brand__descriptor { color: var(--color-navy); }
+.nav__links { display: flex; gap: 2.25rem; align-items: center; }
+.nav__links a {
+  font-size: var(--text-small);
+  color: var(--color-navy);
+  position: relative;
+  transition: color 200ms ease;
+}
+.nav:not(.solid) .nav__links a { color: #fff; }
+.nav__links a::after {
+  content: ''; position: absolute; left: 0; bottom: -4px;
+  width: 0; height: 1px; background: var(--color-gold);
+  transition: width 300ms var(--ease-out-quart);
+}
+.nav__links a:hover::after { width: 100%; }
+.nav__lang { display: flex; gap: 0.6rem; font-size: var(--text-tiny); letter-spacing: 0.08em; }
+.nav__lang button {
+  background: none; border: 0; cursor: pointer; padding: 4px;
+  color: inherit; font-family: inherit; font-size: inherit; opacity: 0.6;
+  transition: opacity 200ms ease;
+}
+.nav:not(.solid) .nav__lang { color: #fff; }
+.nav__lang button.active { opacity: 1; font-weight: 700; color: var(--color-terracotta); }
+.nav__lang button:hover { opacity: 1; }
+.nav__burger { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+.nav__burger span { display: block; width: 24px; height: 2px; background: currentColor; margin: 5px 0; transition: 300ms; }
+.nav:not(.solid) .nav__burger { color: #fff; }
+.nav.solid .nav__burger { color: var(--color-navy); }
+
+/* Mobile menu overlay */
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 99;
+  background: var(--color-navy);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1.5rem;
+  opacity: 0; pointer-events: none;
+  transition: opacity 400ms var(--ease-out-quart);
+}
+.mobile-menu.open { opacity: 1; pointer-events: auto; }
+.mobile-menu a {
+  font-family: 'Cormorant Infant', serif;
+  font-size: 2rem; color: var(--color-marble);
+}
+.mobile-menu a:hover { color: var(--color-gold); }
+
+@media (max-width: 900px) {
+  .nav__links, .nav__lang { display: none; }
+  .nav__burger { display: block; }
+  .brand__crest { height: 38px; }
+  .brand__descriptor { display: none; }
+  .brand__name { font-size: 1.05rem; }
+}
+
+/* ---------- Scroll progress ---------- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; z-index: 101;
+  height: 3px; width: 100%;
+  background: var(--color-terracotta);
+  transform: scaleX(0); transform-origin: left center;
+  will-change: transform;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative; height: 100vh; min-height: 640px;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  text-align: left;
+  padding-inline: clamp(1.5rem, 6vw, 7rem);
+  overflow: hidden;
+}
+/* Hero video on its own compositor layer; static poster behind for reduced-motion / load */
+.hero__video {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%; object-fit: cover;
+  transform: translateZ(0); backface-visibility: hidden;
+}
+.hero__poster {
+  position: absolute; inset: 0; z-index: -3;
+  background-size: cover; background-position: center center;
+}
+/* feather hero bottom → story: video dissolves into marble (marble-to-marble join) */
+.hero::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+  height: clamp(90px, 13vh, 170px); z-index: -1; pointer-events: none;
+  background: linear-gradient(to bottom, transparent, var(--color-marble));
+}
+.hero__overlay {
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse 70% 70% at 28% 50%, rgba(10,25,41,0.62) 0%, rgba(10,25,41,0.08) 68%),
+    linear-gradient(180deg, rgba(10,25,41,0.45) 0%, rgba(10,25,41,0.20) 45%, rgba(10,25,41,0.70) 100%);
+}
+.hero__content { color: #fff; max-width: 940px; text-align: left; margin-top: 12vh; }
+.hero__eyebrow { color: var(--color-gold); text-shadow: 0 1px 14px rgba(0,0,0,0.6); }
+.hero__headline {
+  font-family: 'Cormorant Infant', serif;
+  font-weight: 500;
+  font-size: clamp(3rem, 6.6vw, 6rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: #fff;
+  max-width: none;
+  text-align: left;
+  margin: 0;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.6), 0 1px 4px rgba(0,0,0,0.45);
+}
+.hero__subhead {
+  max-width: 46ch;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.92);
+  margin: 1.5rem 0 0;
+  text-align: left;
+  text-shadow: 0 1px 14px rgba(0,0,0,0.6);
+}
+.hero__cta { margin-top: 2.25rem; }
+.hero__scroll {
+  position: absolute; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+  color: var(--color-navy); font-size: var(--text-tiny); letter-spacing: 0.18em; text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  opacity: 0.55; z-index: 1;
+}
+.hero__scroll svg { animation: bob 2s ease-in-out infinite; }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+@media (max-width: 768px) { .hero__headline { max-width: 100%; } }
+
+/* ---------- Brand story ---------- */
+.story { background-color: var(--color-marble); background-image: var(--marble-img); background-size: cover; background-position: center top; }
+.story__grid { display: grid; grid-template-columns: 4fr 7fr; gap: 4rem; align-items: start; }
+.story__grid .col-text { grid-column: 2; }
+.story__quote {
+  font-family: 'Cormorant Infant', serif; font-style: italic; font-weight: 400;
+  font-size: clamp(1.6rem, 2.5vw, 2.25rem); color: var(--color-navy);
+  line-height: 1.3; margin-top: 2.5rem; max-width: 540px;
+}
+@media (max-width: 900px) {
+  .story__grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .story__grid .col-text { grid-column: 1; }
+}
+
+/* ---------- Decorative break ---------- */
+.break {
+  min-height: 30vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1.5rem;
+  background-color: var(--color-cream-dark);
+  background-image: var(--marble-img); background-size: cover; background-position: center;
+  text-align: center; padding-block: 5rem;
+}
+.break .meander { width: min(420px, 70%); }
+.break__word {
+  font-family: 'Cormorant Infant', serif; font-style: italic; font-weight: 400;
+  font-size: clamp(3rem, 7vw, 5.5rem); color: var(--color-navy); opacity: 0.9;
+}
+
+/* ---------- Journey grids ---------- */
+.journeys { }
+.journeys.inbound { background: var(--color-navy); }
+.journeys.outbound { background-color: var(--color-marble); background-image: var(--marble-img); background-size: cover; background-position: center; }
+.journeys__head { text-align: center; max-width: 720px; margin: 0 auto 4rem; }
+.journeys.inbound .journeys__head h2 { color: #fff; }
+.journeys.inbound .journeys__head .intro { color: rgba(255,255,255,0.75); }
+.journeys__head h2 { font-size: var(--text-h1); margin-bottom: 1.25rem; }
+.journeys__head .intro { color: var(--color-text-muted); max-width: 600px; margin-inline: auto; }
+
+.grid-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+}
+@media (max-width: 1024px) { .grid-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .grid-cards { grid-template-columns: 1fr; } }
+
+.card { position: relative; cursor: default; transition: transform 400ms var(--ease-out-quart); }
+.card__media {
+  position: relative; aspect-ratio: 4/5; overflow: hidden;
+  border: 1px solid transparent; transition: border-color 400ms ease;
+}
+.card__media img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 700ms var(--ease-out-quart);
+}
+.card:hover { transform: translateY(-8px); }
+.card:hover .card__media img { transform: scale(1.05); }
+.card:hover .card__media { border-color: var(--color-gold); }
+.card__badge {
+  position: absolute; left: 0; bottom: 0;
+  background: rgba(10,25,41,0.78); color: #fff;
+  font-size: var(--text-tiny); letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 8px 14px;
+}
+.card__body { padding-top: 1.25rem; }
+.card__region { font-size: var(--text-tiny); text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-terracotta); }
+.card__title { font-size: var(--text-h3); margin: 0.4rem 0; }
+.card__tagline { font-family: 'Cormorant Infant', serif; font-style: italic; font-size: 1.15rem; opacity: 0.85; margin-bottom: 0.6rem; }
+.card__desc { font-size: var(--text-small); line-height: 1.6; }
+.card__cta {
+  margin-top: 0.9rem; font-size: var(--text-small); color: var(--color-gold);
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 300ms ease, transform 300ms ease;
+  letter-spacing: 0.04em;
+}
+.card:hover .card__cta { opacity: 1; transform: translateY(0); }
+
+/* dark variant text */
+.journeys.inbound .card__title { color: #fff; }
+.journeys.inbound .card__tagline { color: rgba(255,255,255,0.8); }
+.journeys.inbound .card__desc { color: rgba(255,255,255,0.65); }
+/* light variant card */
+.journeys.outbound .card__body { background: #fff; padding: 1.5rem; margin-top: -1px; box-shadow: 0 8px 30px rgba(10,25,41,0.06); }
+.journeys.outbound .card__media { box-shadow: 0 8px 30px rgba(10,25,41,0.06); }
+
+.journeys__cta { text-align: center; margin-top: 3.5rem; }
+
+/* ---------- Transition strip ---------- */
+.strip { height: 60vh; min-height: 380px; overflow: hidden; position: relative; }
+.strip__img {
+  position: absolute; inset: -15% 0; width: 100%; height: 130%;
+  background-size: cover; background-position: center;
+}
+
+/* ---------- Why us ---------- */
+.why { background-color: var(--color-cream-light); background-image: var(--marble-img); background-size: cover; background-position: center bottom; }
+.why__head { text-align: center; max-width: 720px; margin: 0 auto 4.5rem; }
+.why__head h2 { font-size: var(--text-h1); }
+.why__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5rem 3rem; }
+@media (max-width: 900px) { .why__grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+.principle__num {
+  font-family: 'Cormorant Infant', serif; font-style: italic; font-weight: 500;
+  font-size: 2.5rem; color: var(--color-gold); line-height: 1;
+}
+.principle .gold-rule { margin: 1rem 0; }
+.principle h3 { font-size: var(--text-h4); font-weight: 600; margin-bottom: 0.6rem; }
+.principle p { font-size: var(--text-small); color: var(--color-navy-soft); margin: 0; }
+
+/* ---------- Testimonials ---------- */
+.testi { background-color: var(--color-marble);
+  background-image: linear-gradient(0deg, rgba(196,98,45,0.07), rgba(196,98,45,0.07)), var(--marble-img);
+  background-size: cover, cover; background-position: center, center; }
+.testi__head { text-align: center; margin-bottom: 4rem; }
+.testi__block { max-width: 760px; margin-block: 6rem; }
+.testi__block:first-of-type { margin-top: 0; }
+.testi__block.right { margin-left: auto; text-align: right; }
+.testi__quote {
+  font-family: 'Cormorant Infant', serif; font-style: italic; font-weight: 400;
+  font-size: clamp(1.6rem, 2.6vw, 2.25rem); line-height: 1.35; color: var(--color-navy);
+  position: relative;
+}
+.testi__quote::before {
+  content: '\201C'; font-size: 4rem; color: var(--color-gold);
+  position: absolute; left: -0.5em; top: -0.3em; opacity: 0.4; line-height: 1;
+}
+.testi__block.right .testi__quote::before { left: auto; right: -0.4em; }
+.testi__rule { width: 32px; height: 1px; background: var(--color-navy); margin: 1.5rem 0; }
+.testi__block.right .testi__rule { margin-left: auto; }
+.testi__meta { font-size: var(--text-small); }
+.testi__meta strong { font-weight: 600; }
+.testi__meta .muted { color: var(--color-text-muted); }
+.testi__meta .journey { font-family: 'Cormorant Infant', serif; font-style: italic; color: var(--color-terracotta); }
+
+/* ---------- Origin ---------- */
+.origin { background-color: var(--color-marble); background-image: var(--marble-img); background-size: cover; background-position: center top; }
+.origin__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; }
+.origin__img { aspect-ratio: 3/4; overflow: hidden; }
+.origin__img img { width: 100%; height: 100%; object-fit: cover; }
+.origin__sign { font-family: 'Cormorant Infant', serif; font-style: italic; font-size: 1.25rem; color: var(--color-navy); }
+@media (max-width: 900px) { .origin__grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+/* ---------- Contact ---------- */
+.contact { background-color: var(--color-marble); background-image: var(--marble-img); background-size: cover; background-position: center bottom; }
+.contact__grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 5rem; }
+@media (max-width: 900px) { .contact__grid { grid-template-columns: 1fr; gap: 3rem; } }
+.field { margin-bottom: 2rem; }
+.field label {
+  display: block; font-size: var(--text-tiny); text-transform: uppercase;
+  letter-spacing: 0.14em; font-weight: 500; color: var(--color-navy-soft); margin-bottom: 0.6rem;
+}
+.field input, .field textarea, .field select {
+  width: 100%; border: 0; border-bottom: 1px solid var(--color-divider);
+  background: transparent; padding: 0.6rem 0; font-family: inherit; font-size: var(--text-body);
+  color: var(--color-navy); transition: border-color 250ms ease;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  outline: none; border-bottom-color: var(--color-gold);
+}
+.field textarea { resize: vertical; min-height: 110px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+@media (max-width: 560px) { .field-row { grid-template-columns: 1fr; gap: 0; } }
+.checks { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.checks label { display: flex; align-items: center; gap: 0.5rem; text-transform: none; letter-spacing: 0; font-size: var(--text-small); cursor: pointer; }
+.checks input { width: auto; }
+.form-note { font-size: var(--text-small); color: var(--color-text-muted); margin-top: 1rem; }
+.contact__side .eyebrow { margin-top: 0; }
+.contact__side address { font-style: normal; line-height: 2; font-size: var(--text-small); }
+.contact__side .social { display: flex; gap: 1rem; margin-top: 1.5rem; }
+.contact__side .social a { color: var(--color-gold); transition: color 200ms ease; }
+.contact__side .social a:hover { color: var(--color-navy); }
+.form-success {
+  display: none; padding: 3rem 0;
+}
+.form-success.show { display: block; }
+.form-success h3 { font-size: var(--text-h2); margin-bottom: 1rem; }
+
+/* ---------- Footer ---------- */
+.footer { background: var(--color-navy); color: rgba(255,255,255,0.7); padding-block: 5rem 2rem; }
+.footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 3rem; }
+@media (max-width: 768px) { .footer__grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+.footer img { height: 128px; width: auto; margin-bottom: 1.25rem; }
+.footer h4 { color: var(--color-gold); font-family: 'Mulish', sans-serif; font-size: var(--text-tiny); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; margin-bottom: 1rem; }
+.footer__sub { font-size: var(--text-tiny); text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-gold); margin: 1.25rem 0 0.5rem; }
+.footer ul { list-style: none; padding: 0; margin: 0; }
+.footer li { margin-bottom: 0.5rem; font-size: var(--text-small); }
+.footer a:hover { color: var(--color-gold); }
+.footer__brandtxt { font-size: var(--text-small); line-height: 1.7; }
+.footer__bottom {
+  border-top: 1px solid rgba(201,169,97,0.3); margin-top: 3.5rem; padding-top: 1.5rem;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;
+  font-size: var(--text-tiny); color: rgba(255,255,255,0.5);
+}
+.footer__lang { display: flex; gap: 0.75rem; }
+.footer__lang button { background: none; border: 0; color: inherit; cursor: pointer; font-family: inherit; font-size: inherit; letter-spacing: 0.08em; opacity: 0.7; }
+.footer__lang button:hover, .footer__lang button.active { opacity: 1; color: var(--color-gold); }
+
+/* ---------- Lang dropdown toast ---------- */
+.lang-toast {
+  position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--color-navy); color: #fff; padding: 0.9rem 1.5rem;
+  font-size: var(--text-small); z-index: 200; opacity: 0; pointer-events: none;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+.lang-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---------- Reveal (GSAP fallback + reduced motion) ---------- */
+.reveal { opacity: 0; transform: translateY(40px); }
+.reveal.in { opacity: 1; transform: none; transition: opacity 900ms var(--ease-cinematic), transform 900ms var(--ease-cinematic); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+  .hero__video { display: none; }   /* reduced motion → static poster */
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- Section transition feathering ----------
+   Soften the hard colour edges where light marble meets dark navy / the image strip.
+   Gradient bands sit in the section's top/bottom padding (no text there). */
+.journeys.inbound, .strip, .footer { position: relative; }
+.journeys.inbound > .container, .footer > .container { position: relative; z-index: 2; }
+
+.journeys.inbound::before,
+.strip::before, .strip::after,
+.footer::before {
+  content: ''; position: absolute; left: 0; right: 0;
+  height: clamp(80px, 12vh, 160px);
+  z-index: 1; pointer-events: none;
+}
+/* break (light) → inbound (navy) */
+.journeys.inbound::before { top: 0; background: linear-gradient(to bottom, var(--color-cream-dark), transparent); }
+/* inbound (navy) → strip (image) */
+.strip::before { top: 0; background: linear-gradient(to bottom, var(--color-navy), transparent); }
+/* strip (image) → outbound (marble) */
+.strip::after  { bottom: 0; background: linear-gradient(to top, var(--color-marble), transparent); }
+/* contact (marble) → footer (navy) */
+.footer::before { top: 0; background: linear-gradient(to bottom, var(--color-marble), transparent); }
